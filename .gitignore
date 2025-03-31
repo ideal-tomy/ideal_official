@@ -1,0 +1,10 @@
+node_modules
+# .gitignoreに追加
+node_modules/
+dist/
+build/
+.env
+.env.local
+*.log
+.DS_Store
+*.pem

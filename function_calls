@@ -1,0 +1,191 @@
+import React, { useEffect } from 'react';
+import { Box, Text } from '@chakra-ui/react';
+import { FaCoins, FaShieldAlt, FaLink, FaUsers, FaRocket, FaCubes, FaCode, FaLaptopCode, FaChartLine, FaBullhorn, FaLightbulb } from 'react-icons/fa';
+import ServicePageTemplate from '@/components/services/ServicePageTemplate';
+import ServiceTabSection from '@/components/services/ServiceTabSection';
+
+// NFTサービスページのコンポーネント
+const NFTServicePage: React.FC = () => {
+  // アニメーション設定
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5
+      }
+    }
+  };
+
+  // NFT開発カード
+  const nftDevelopmentCards = [
+    {
+      title: "スマートコントラクト開発",
+      description: "ERC-721、ERC-1155などの標準規格に準拠したNFTの設計・開発",
+      detailedDescription: "ERC-721、ERC-1155などの標準規格に準拠したNFTの設計・開発を行います。独自の拡張機能やメタデータ構造の実装により、ユースケースに最適化したNFTを提供します。",
+      icon: FaCode,
+      technologies: ["ERC-721", "ERC-1155", "Solidity", "Web3.js"]
+    },
+    {
+      title: "フロントエンド開発",
+      description: "NFTマーケットプレースやウォレット連携機能の実装",
+      detailedDescription: "NFTマーケットプレースやウォレット連携機能の実装を行います。ユーザーフレンドリーなインターフェースと、安全な取引機能を提供します。",
+      icon: FaLaptopCode,
+      technologies: ["React", "Next.js", "Web3.js", "Ethers.js"]
+    },
+    {
+      title: "セキュリティ監査",
+      description: "スマートコントラクトの脆弱性診断とセキュリティ対策",
+      detailedDescription: "スマートコントラクトの脆弱性診断とセキュリティ対策を行います。不正アクセスやフロントランニング攻撃からNFTを保護します。",
+      icon: FaShieldAlt,
+      technologies: ["セキュリティ監査", "脆弱性診断", "アクセス制御"]
+    }
+  ];
+
+  // NFTコンサルティングカード
+  const nftConsultingCards = [
+    {
+      title: "プロジェクト戦略",
+      description: "NFTプロジェクトの戦略立案とロードマップ策定",
+      detailedDescription: "NFTプロジェクトの戦略立案とロードマップ策定を行います。市場分析に基づく最適な戦略を提案します。",
+      icon: FaChartLine,
+      technologies: ["戦略立案", "市場分析", "ロードマップ"]
+    },
+    {
+      title: "マーケティング",
+      description: "NFTプロジェクトのマーケティング戦略と実行",
+      detailedDescription: "NFTプロジェクトのマーケティング戦略と実行を行います。効果的なプロモーションとコミュニティ形成をサポートします。",
+      icon: FaBullhorn,
+      technologies: ["マーケティング", "SNS", "コミュニティ"]
+    },
+    {
+      title: "技術コンサルティング",
+      description: "ブロックチェーン技術に関する専門的なアドバイス",
+      detailedDescription: "ブロックチェーン技術に関する専門的なアドバイスを提供します。最新の技術動向と実装方法についてサポートします。",
+      icon: FaLightbulb,
+      technologies: ["技術アドバイス", "実装サポート", "トレンド分析"]
+    }
+  ];
+
+  // テンプレートデータ
+  const templateData = {
+    title: "NFTサービス",
+    subtitle: "次世代のデジタル資産構築と運用をサポート",
+    overview: {
+      title: "NFTソリューション",
+      description: [
+        "NFT（非代替性トークン）は、デジタル資産に固有の価値を付与する革新的な技術です。",
+        "IDEALでは、NFT技術を活用したビジネスモデルの構築から、トークンの開発、マーケティングまでをワンストップでサポートします。",
+        "ブロックチェーン技術に精通した専門家チームが、お客様のビジネスにNFTを効果的に導入するための最適な解決策を提案します。"
+      ]
+    },
+    tabSectionTitle: "NFTサービス内容",
+    tabContents: [
+      {
+        title: "NFT技術",
+        content: <></>,
+        cards: nftDevelopmentCards
+      },
+      {
+        title: "NFTコンサルティング",
+        content: <></>,
+        cards: nftConsultingCards
+      }
+    ],
+    comparisonData: {
+      traditionalTitle: "従来のデジタル資産",
+      traditionalPoints: [
+        "複製が容易",
+        "所有権の証明が困難",
+        "取引の透明性が低い",
+        "二次流通での収益化が難しい",
+        "資産価値の証明が困難"
+      ],
+      newTitle: "NFTを活用したデジタル資産",
+      newPoints: [
+        "固有性と希少性の証明",
+        "ブロックチェーンによる所有権の明確化",
+        "透明性の高い取引履歴",
+        "二次流通でのロイヤリティ獲得",
+        "検証可能な資産価値"
+      ]
+    },
+    requirementGroups: [
+      {
+        title: "技術要件",
+        points: [
+          "適切なブロックチェーン選定",
+          "スマートコントラクト設計",
+          "メタデータ構造設計",
+          "ウォレット連携機能",
+          "セキュリティ対策"
+        ]
+      },
+      {
+        title: "ビジネス要件",
+        points: [
+          "明確な価値提案",
+          "ターゲット市場分析",
+          "マネタイズモデル",
+          "コミュニティ戦略",
+          "法規制対応"
+        ]
+      }
+    ],
+    whyNowContent: {
+      title: "なぜ今、NFTが必要なのか",
+      description: "デジタル経済の急速な発展に伴い、NFTはブランド価値向上とユーザーエンゲージメント強化の新たな手段として注目されています。",
+      points: [
+        {
+          title: "デジタル資産の価値向上",
+          description: "NFTにより、これまで価値付けが困難だったデジタルコンテンツに希少性と固有性を付与することが可能になりました。"
+        },
+        {
+          title: "新たな収益モデルの創出",
+          description: "クリエイターやブランドが、二次流通を含む継続的な収益化モデルを構築できるようになりました。"
+        },
+        {
+          title: "ファンコミュニティの強化",
+          description: "NFTを活用したエクスクルーシブな体験やメンバーシップにより、ブランドとファンの結びつきを強化できます。"
+        }
+      ]
+    },
+    faqs: [
+      {
+        question: "NFTの開発にはどのくらいの期間が必要ですか？",
+        answer: "プロジェクトの規模や複雑さによって異なりますが、基本的なNFTコレクションであれば2〜3ヶ月程度で開発可能です。より複雑な機能や大規模なプロジェクトの場合は、3〜6ヶ月程度を見込んでいます。"
+      },
+      {
+        question: "どのようなブロックチェーンでNFTを発行できますか？",
+        answer: "Ethereum、Polygon、Solana、Binance Smart Chainなど、様々なブロックチェーンでNFTの発行が可能です。プロジェクトの目的、予算、ターゲットユーザーなどを考慮して、最適なブロックチェーンを選定します。"
+      },
+      {
+        question: "NFTプロジェクトの成功には何が重要ですか？",
+        answer: "技術的な完成度も重要ですが、明確な価値提案とターゲット設定、エンゲージメントを高めるコミュニティ戦略、長期的な持続可能性を考慮したロードマップが成功の鍵となります。また、法規制への対応も重要な要素です。"
+      }
+    ],
+    itemVariants
+  };
+
+  useEffect(() => {
+    // Cleanup logic here
+    return () => {
+      // Cleanup code here
+    };
+  }, []);
+
+  return (
+    <ServicePageTemplate {...templateData}>
+      <Box mb={10}>
+        <ServiceTabSection
+          title={templateData.tabSectionTitle}
+          tabs={templateData.tabContents}
+          itemVariants={itemVariants}
+        />
+      </Box>
+    </ServicePageTemplate>
+  );
+};
+
+export default NFTServicePage; 
