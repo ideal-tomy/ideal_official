@@ -1,0 +1,28 @@
+          {/* 第5章：ロードマップ（The Path） */}
+          <section id="path" className="py-8 md:py-16 border-b border-gray-800">
+            <p className={`text-base md:text-lg font-semibold ${colors.accent.primary} mb-2`}>5. The Path</p>
+            <h2 className={`text-xl md:text-2xl md:text-4xl font-bold mb-8`}>
+              ロードマップ
+            </h2>
+        
+            <div className="space-y-8 text-base md:text-lg leading-relaxed">
+              <h3 className="text-xl md:text-2xl font-semibold mb-6 border-l-4 border-blue-400 pl-4">思想の具現化：100年続くインフラへの道筋</h3>
+              <p>
+                idealの行う活動は、<strong>技術の進化の先に起こることが予想される変化に対する、社会基盤構築するための長期的な研究開発計画</strong>です。
+              </p>
+              <p>
+                <strong>未来の誰もが使える&ldquo;部品（プリミティブ）&rdquo;を一つひとつ丹念に作り上げ、その有効性を徹底的に検証していく</strong>こと。
+                それが、ideal合同会社の&ldquo;経営戦略&rdquo;です。
+              </p>
+            </div>
+        
+            <div className="mt-12">
+              <div className="border border-blue-400 rounded-lg p-4">
+                <Accordion 
+                  items={roadmapItems}
+                  className="space-y-4"
+                />
+              </div>
+            </div>
+          </section>
+

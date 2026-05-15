@@ -1,0 +1,70 @@
+          {/* 第4章：価値観で進化する組織構造（The Structure） */}
+          <section id="structure" className="py-8 md:py-16 border-b border-gray-800">
+            <p className={`text-base md:text-lg font-semibold ${colors.accent.primary} mb-2`}>4. The Structure</p>
+            <h2 className={`text-xl md:text-2xl md:text-4xl font-bold mb-8`}>
+              価値観で進化する組織構造
+            </h2>
+        
+            <div className="space-y-8 text-base md:text-lg leading-relaxed">
+              <h3 className="text-xl md:text-2xl font-semibold mb-4 border-l-4 border-blue-400 pl-4">
+                「価値観による分岐の自由」へ
+              </h3>
+              <p>
+                DAOの本質は、善悪という単一の価値基準を押し付けることではありません。
+              </p>
+              <p>
+                重要なのは、<strong>組織内の意見の相違を、内部抗争や権力闘争といった破壊的な&ldquo;対立&rdquo;ではなく、創造的な&ldquo;分岐（フォーク）&rdquo;へと昇華させる</strong>ことにあります。
+                これは、各々が信じる理想やアプローチを追求するための、システムに組み込まれた基本的な仕組みです。
+                これは、内部抗争や権力闘争、現状維持にエネルギーを浪費するのではなく、各々が目指したい理想を追求するための、システムに組み込まれた基本的な仕組みです。
+              </p>
+
+              <h3 className="text-xl md:text-2xl font-semibold mt-12 mb-4 border-l-4 border-blue-400 pl-4">フォーク：二つの進化のかたち</h3>
+              <p>
+                フォークは、主に二つの形で組織の健全な進化を促します。
+              </p>
+              <div className="grid md:grid-cols-2 gap-6 text-sm">
+                <div className="bg-gray-800/50 p-4 rounded-lg border border-gray-600">
+                  <p className="font-bold text-blue-400 mb-1">1. 価値観による分岐</p>
+                  <p>組織の根本的な価値観やミッションとの間にズレが生じた場合、メンバーは自らの貢献履歴を保持したまま、新しい価値観を掲げる組織を立ち上げることができます。</p>
+                </div>
+                <div className="bg-gray-800/50 p-4 rounded-lg border border-gray-600">
+                  <p className="font-bold text-blue-400 mb-1">2. アプローチによる分岐</p>
+                  <p>共通の価値観や目標は維持しつつも、その達成手段（戦略、戦術）について異なるアイデアを持つグループが、
+                      それぞれの方法を試すために分岐することができます。</p>
+                </div>
+              </div>
+
+              <h3 className="text-xl md:text-2xl font-semibold mb-4 border-l-4 border-blue-400 pl-4">
+                フォークが促す健全な進化のメカニズム
+              </h3>
+              <p>
+                この「フォークの権利」は、組織や所属する個人に自律的進化のメカニズムをもたらします。
+              </p>
+              
+              <ul className="list-disc list-inside space-y-4 ml-4">
+                <li>
+                  <strong>価値観の一致が協力な引力を生む：</strong> 組織の方向性と自身の価値観がズレ始めたメンバーは、無理に内部で戦う必要はありません。
+                  自身の活動履歴（価値持続スコア）を保持したまま、同じ価値観を持つ仲間と共に新しい組織をフォークできます。
+                  これにより、最も貢献度の高いメンバーほど、最も自身の価値観と一致する組織へと自然に引き寄せられます。
+                </li>
+                <li>
+                  <strong>健全な淘汰と多様性の創出：</strong> フォークは、元の組織からの単なる「離脱」ではありません。
+                  それは、新しい価値観や創造性、技術やアイデアを持つ組織の誕生を意味します。
+                  これにより、社会には多様な選択肢が生まれ、健全なエコシステムの形成が期待できます。
+                </li>
+                <li>
+                  <strong>価値観の表明が組織の価値を強める：</strong> 運営者は常に『価値観を表明し続ける』事が重要となる。「腐敗しないように」や「体裁を整える」
+                  と考えるのではなく、「コミュニティの価値観を共有し続けること」を常に考えます。
+                  また、組織が採用するアプローチについても、メンバーとの継続的な対話と合意形成を意識します。
+                  メンバーとの価値観の一致、成長や発展のためのプロセス、方向性など、魅力的な人材との一致こそが、組織そのものの価値や魅力に直結することが期待できます。
+                </li>
+              </ul>
+              
+              <p className="mt-8 pt-6 border-t border-gray-700">
+                フォーク&ldquo;創造的な分岐の自由&rdquo;こそが、DAOがもたらす最大の価値だと考えています。
+                組織内に設定された上下関係による顔色の伺いあいから、立場や役割が違う&ldquo;対等な関係&rdquo;を目指せる組織構造に技術を活用し、
+                個々人の価値観や得手不得手、やりたい事への正直な実行そのものが、組織の原動力へと変換される事を目指せます。
+              </p>
+            </div>
+          </section>
+

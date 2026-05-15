@@ -1,0 +1,44 @@
+          {/* 第3章：基本設計（The Mechanism） */}
+          <section id="mechanism" className="py-8 md:py-16 border-b border-gray-800">
+            <p className={`text-base md:text-lg font-semibold ${colors.accent.primary} mb-2`}>3. The Mechanism</p>
+            <h2 className={`text-xl md:text-2xl md:text-4xl font-bold mb-8`}>
+              基本設計
+            </h2>
+        
+            <div className="space-y-6 text-base md:text-lg leading-relaxed mb-12">
+              <p>
+                設計思想の中心は<strong>&ldquo;貢献度測定（Proof of Contribution）&rdquo;</strong>に集約されます。
+                これまで測定が難しかった本質的価値の測定や、&ldquo;本質的価値と評価基準の明確化&rdquo;こそが、
+                所属している全ての人の行動原理となり、結果、組織全体の原動力となるからです。
+              </p>
+              <p>
+                人間による評価は、リソースの限界と避けられないバイアスにより、実現したくても実現できないことによる不公平と搾取の温床となってしまっていました。
+                私たちは、この&ldquo;人間とこれまでの技術よる評価の限界&rdquo;を、<strong>AIとブロックチェーンが永続的に連携する&ldquo;貢献度測定ツール&rdquo;</strong>によって実現することを目指します。
+              </p>
+            </div>
+        
+            <div className="p-2 md:p-8 rounded-xl bg-gray-900 shadow-2xl border border-gray-700">
+              <h3 className="text-xl md:text-2xl font-semibold mb-6 border-l-4 border-blue-400 pl-4">
+                公正さを支える6つの絶対条件
+              </h3>
+              <p className="mb-8">
+                この基盤は、以下の揺るぎない絶対条件（設計原則）の上に構築されます。一つでも欠ければ、このシステムは旧来の評価ツールと同じ運命を辿るでしょう。
+              </p>
+              
+              <ThreeCardSection
+                cards={absoluteConditionsCards}
+                enableMobileScroll={true}
+                padding="sm"
+                cardSize="sm"
+                className="bg-transparent"
+              />
+            </div>
+
+            <h3 className="text-xl md:text-2xl font-semibold mb-6 border-l-4 border-blue-400 pl-4 mt-8 md:mt-12">各工程</h3>
+        
+            <Accordion 
+              items={processSteps}
+              className="mt-8"
+            />
+          </section>
+
