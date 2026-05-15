@@ -9,7 +9,7 @@
  * 理由: フォーム状態管理、バリデーション、送信処理に useState/useEffect が必要
  */
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -17,6 +17,10 @@ import { z } from 'zod'
 import { Button } from '../ui/Button'
 import { colors, borders, typography } from '../../lib/design-tokens'
 import { getServiceLabel } from '../../data/services/service-links'
+import {
+  takeContactPrefillFromSession,
+  clearStagedConciergePrefill,
+} from '@/lib/concierge/contact-prefill'
 
 // バリデーションスキーマ
 const contactSchema = z.object({
@@ -41,7 +45,9 @@ function buildDefaultMessage(intent: string | null, serviceId: string | null): s
   const lines: string[] = []
   if (intent === 'ai-chat') {
     lines.push('【AIコンシェルジュ経由のご相談】')
-    lines.push('（AIチャット機能公開後は、対話内容が自動で引き継がれます）')
+  }
+  if (intent === 'concierge') {
+    lines.push('【コンシェルジュ（選択内容を整理）経由のご相談】')
   }
   if (serviceId) {
     lines.push(`【相談種別】${getServiceLabel(serviceId)}`)
@@ -58,6 +64,7 @@ export function ContactForm() {
   const searchParams = useSearchParams()
   const intent = searchParams.get('intent')
   const serviceId = searchParams.get('service')
+  const prefillParam = searchParams.get('prefill')
 
   const defaultMessage = useMemo(
     () => buildDefaultMessage(intent, serviceId),
@@ -70,14 +77,43 @@ export function ContactForm() {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
     reset,
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
-      message: defaultMessage,
+      name: '',
+      email: '',
+      company: '',
+      message: '',
     },
   })
+
+  useEffect(() => {
+    if (prefillParam !== 'session') {
+      clearStagedConciergePrefill()
+    }
+
+    let message = ''
+    if (prefillParam === 'session') {
+      message = takeContactPrefillFromSession()?.messageDraft ?? ''
+    } else if (prefillParam && prefillParam !== 'session') {
+      try {
+        message = decodeURIComponent(prefillParam)
+      } catch {
+        message = prefillParam
+      }
+    }
+
+    if (!message) {
+      message = defaultMessage
+    }
+
+    if (message) {
+      setValue('message', message, { shouldValidate: true })
+    }
+  }, [prefillParam, intent, serviceId, defaultMessage, setValue])
 
   // フォーム送信処理
   const onSubmit = async (data: ContactFormData) => {
@@ -92,7 +128,13 @@ export function ContactForm() {
       console.log('フォーム送信データ:', data)
 
       setSubmitStatus('success')
-      reset()
+      clearStagedConciergePrefill()
+      reset({
+        name: '',
+        email: '',
+        company: '',
+        message: '',
+      })
 
       // 3秒後にメッセージをクリア
       setTimeout(() => {
@@ -108,9 +150,19 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-      {(intent === 'ai-chat' || serviceId) && (
+      {(intent === 'ai-chat' ||
+        intent === 'concierge' ||
+        serviceId) && (
         <div className="p-4 bg-blue-900/30 border border-blue-400/50 rounded-lg text-sm text-gray-300">
-          {intent === 'ai-chat' && <p>AIコンシェルジュからのお問い合わせです。</p>}
+          {intent === 'ai-chat' && (
+            <p>AIコンシェルジュからのお問い合わせです。</p>
+          )}
+          {intent === 'concierge' && (
+            <p>
+              コンシェルジュで選んだ内容を、下記メッセージに反映しています（対話型
+              AI チャットは未接続の MVP です）。
+            </p>
+          )}
           {serviceId && <p>相談種別: {getServiceLabel(serviceId)}</p>}
         </div>
       )}

@@ -172,7 +172,7 @@ export interface ServiceSectionData {
   subtitle?: string
   description?: string
   content?: React.ReactNode
-  data?: any // セクション固有のデータ
+  data?: unknown // セクション固有のデータ
   className?: string
   variant?: 'default' | 'dark' | 'accent'
   padding?: 'sm' | 'md' | 'lg' | 'xl'

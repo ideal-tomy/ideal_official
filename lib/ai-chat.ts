@@ -1,8 +1,10 @@
 /**
- * AIコンシェルジュ導線（将来 rinopro-site 移植用スタブ）
- *
- * 本格移植時は FAB 起動に差し替える。
+ * AIコンシェルジュ導線
+ * — クライアントではコンシェルジュパネル（FAB）を開く
+ * — ハンドラ未登録時は /contact へのフォールバック
  */
+
+import { requestOpenConcierge } from '@/lib/concierge/open-bridge'
 
 export function getAiChatContactUrl(serviceId?: string): string {
   const params = new URLSearchParams({ intent: 'ai-chat' })
@@ -12,9 +14,19 @@ export function getAiChatContactUrl(serviceId?: string): string {
   return `/contact?${params.toString()}`
 }
 
-/** @deprecated rinopro 移植後にチャット UI を直接開く */
+/** コンシェルジュ完了想定の contact URL（ストレージは別途セット） */
+export function getConciergeContactFallbackUrl(serviceId?: string): string {
+  const params = new URLSearchParams({ intent: 'concierge' })
+  if (serviceId) params.set('service', serviceId)
+  return `/contact?${params.toString()}`
+}
+
 export function openConciergeChat(serviceId?: string): void {
-  if (typeof window !== 'undefined') {
-    window.location.href = getAiChatContactUrl(serviceId)
+  if (typeof window === 'undefined') return
+  const opened = requestOpenConcierge(
+    serviceId ? { serviceHint: serviceId } : undefined,
+  )
+  if (!opened) {
+    window.location.href = getConciergeContactFallbackUrl(serviceId)
   }
 }

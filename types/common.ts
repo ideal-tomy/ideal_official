@@ -52,7 +52,7 @@ export interface MetaData {
 }
 
 // API レスポンスの型定義
-export interface ApiResponse<T = any> {
+export interface ApiResponse<T = unknown> {
   success: boolean
   data?: T
   error?: string
@@ -109,7 +109,7 @@ export interface State<T> {
 }
 
 // アクションの型定義
-export interface Action<T = any> {
+export interface Action<T = unknown> {
   type: string
   payload?: T
 }
@@ -180,7 +180,7 @@ export interface ErrorBoundaryProps {
 export interface I18nData {
   locale: string
   messages: Record<string, string>
-  formats: Record<string, any>
+  formats: Record<string, unknown>
 }
 
 // テーマの型定義

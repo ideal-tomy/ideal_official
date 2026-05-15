@@ -1,7 +1,8 @@
+'use client'
+
 import Link from 'next/link'
-import { Button } from '../ui/Button'
+import { OpenConciergeButton } from '@/components/concierge/OpenConciergeButton'
 import { colors, typography } from '../../lib/design-tokens'
-import { getAiChatContactUrl } from '../../lib/ai-chat'
 import { getServiceLabel } from '../../data/services/service-links'
 
 interface ServiceAiCtaProps {
@@ -19,21 +20,23 @@ export function ServiceAiCta({ serviceId, className = '' }: ServiceAiCtaProps) {
           AIコンシェルジュに相談する
         </h2>
         <p className={`${typography.body} ${colors.text.muted} mb-8 max-w-2xl mx-auto`}>
-          要件がまとまっていなくても大丈夫です。AIが整理した内容はお問い合わせに引き継げます。
-          <span className="block mt-2 text-sm text-gray-500">
-            （AIチャット機能は近日公開予定。現在はお問い合わせフォームへご案内します）
-          </span>
+          要件がまとまっていなくても大丈夫です。選択内容を整理したうえで、お問い合わせに引き継げます。
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Link href={getAiChatContactUrl(serviceId)}>
-            <Button variant="primary" size="lg">
-              AIコンシェルジュに相談する
-            </Button>
-          </Link>
-          <Link href={`/contact?service=${serviceId}`}>
-            <Button variant="secondary" size="lg">
-              {serviceLabel}のお問い合わせ
-            </Button>
+          <OpenConciergeButton serviceId={serviceId} variant="primary" size="lg">
+            AIコンシェルジュに相談する
+          </OpenConciergeButton>
+          <Link
+            href={`/contact?service=${serviceId}`}
+            className="
+              inline-flex items-center justify-center rounded-lg
+              bg-cyan-500 px-8 py-4 text-lg font-bold text-white
+              transition-all duration-300 ease-in-out
+              hover:scale-105 hover:bg-cyan-600 active:scale-95
+              focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-black
+            "
+          >
+            {serviceLabel}のお問い合わせ
           </Link>
         </div>
       </div>
