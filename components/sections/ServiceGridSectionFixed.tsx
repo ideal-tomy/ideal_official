@@ -1,11 +1,10 @@
-import { colors, typography, spacing } from '../../lib/design-tokens'
+'use client'
+
+import { colors } from '../../lib/design-tokens'
 import Link from 'next/link'
 import Image from 'next/image'
-
-/**
- * ServiceGridSectionFixed コンポーネント
- * RelatedServicesSectionと同じ画像表示ロジックを使用
- */
+import { ScrollReveal } from '../motion/ScrollReveal'
+import { ScrollStagger } from '../motion/ScrollStagger'
 
 export interface ServiceData {
   id: string
@@ -24,20 +23,18 @@ export interface ServiceGridSectionFixedProps {
   className?: string
 }
 
-// デフォルトエクスポートに変更（dynamic import対応）
 export default function ServiceGridSectionFixed({
   title,
   subtitle,
   description,
   services,
-  className = ''
+  className = '',
 }: ServiceGridSectionFixedProps) {
   return (
     <section className={`bg-black py-16 md:py-24 ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* ヘッダー部分 */}
         {(title || subtitle || description) && (
-          <div className="mb-12 text-center">
+          <ScrollReveal className="mb-12 text-center">
             {subtitle && (
               <p className={`text-sm font-medium ${colors.accent.text} mb-2`}>
                 {subtitle}
@@ -53,26 +50,24 @@ export default function ServiceGridSectionFixed({
                 {description}
               </p>
             )}
-          </div>
+          </ScrollReveal>
         )}
 
-        {/* サービスグリッド */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <ScrollStagger className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {services.map((service) => (
             <Link
               key={service.id}
               href={service.link}
               className={`
-                ${colors.bg.secondary} ${colors.border.default} border rounded-lg
+                group ${colors.bg.secondary} ${colors.border.default} border rounded-lg
                 p-6
                 ${colors.state.hover} ${colors.state.focus}
                 focus:outline-none cursor-pointer
                 transition-all duration-300
-                hover:scale-105 hover:shadow-lg
+                hover:scale-[1.02] hover:shadow-xl hover:shadow-cyan-500/5
                 block
               `}
             >
-              {/* 画像部分（上半分） */}
               {service.image && (
                 <div className="mb-4 text-center">
                   <div className="relative h-48 w-full rounded-lg overflow-hidden">
@@ -81,17 +76,15 @@ export default function ServiceGridSectionFixed({
                       alt={service.title}
                       width={600}
                       height={400}
-                      className="object-cover w-full h-full"
+                      className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                      quality={75}
-                      priority={false}
+                      quality={80}
                       loading="lazy"
                     />
                   </div>
                 </div>
               )}
 
-              {/* コンテンツ部分（下半分） */}
               <div>
                 <h3 className={`text-lg font-semibold ${colors.text.primary} mb-3`}>
                   {service.title}
@@ -100,16 +93,11 @@ export default function ServiceGridSectionFixed({
                   {service.description}
                 </p>
 
-                {/* CTAリンク */}
                 <div className="text-center">
-                  <span className={`
-                    inline-flex items-center text-sm font-medium
-                    text-blue-400 hover:text-white
-                    transition-colors duration-200
-                  `}>
+                  <span className="inline-flex items-center text-sm font-medium text-blue-400 group-hover:text-cyan-300 transition-colors duration-200">
                     {service.linkText}
                     <svg
-                      className="ml-2 w-4 h-4"
+                      className="ml-2 w-4 h-4 transition-transform duration-200 group-hover:translate-x-1"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -126,14 +114,13 @@ export default function ServiceGridSectionFixed({
               </div>
             </Link>
           ))}
-        </div>
+        </ScrollStagger>
 
-        {/* 全サービス一覧へのリンク */}
-        <div className="text-center mt-12">
+        <ScrollReveal className="text-center mt-12" delay={0.2}>
           <Link
             href="/services"
             className={`
-              inline-flex items-center px-6 py-3 ${colors.accent.bg} text-white font-medium rounded-lg ${colors.accent.bgHover} transition-colors duration-200
+              inline-flex items-center px-6 py-3 ${colors.accent.bg} text-white font-medium rounded-lg ${colors.accent.bgHover} transition-all duration-300 hover:scale-105
             `}
           >
             全サービス一覧を見る
@@ -151,7 +138,7 @@ export default function ServiceGridSectionFixed({
               />
             </svg>
           </Link>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   )

@@ -67,6 +67,7 @@ export function ServicesDropdown({ serviceLinks }: ServicesDropdownProps) {
               <Link
                 key={link.href}
                 href={link.href}
+                scroll
                 prefetch={false}
                 className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"
                 onClick={() => setIsServicesDropdownOpen(false)}
@@ -77,6 +78,7 @@ export function ServicesDropdown({ serviceLinks }: ServicesDropdownProps) {
             <div className="border-t border-gray-700 my-2"></div>
             <Link
               href="/services"
+              scroll
               prefetch={false}
               className="block px-4 py-2 text-sm text-blue-400 hover:bg-gray-800 transition-colors"
               onClick={() => setIsServicesDropdownOpen(false)}

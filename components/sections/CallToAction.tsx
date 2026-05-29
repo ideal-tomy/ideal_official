@@ -6,13 +6,14 @@
 
 import Link from 'next/link'
 import { OpenConciergeButton } from '@/components/concierge/OpenConciergeButton'
+import { ScrollReveal } from '@/components/motion/ScrollReveal'
 import { Section } from '../ui/Section'
 import { typography, colors } from '../../lib/design-tokens'
 
 export default function CallToAction() {
   return (
     <Section backgroundColor="black">
-      <div className="text-center max-w-4xl mx-auto">
+      <ScrollReveal className="text-center max-w-4xl mx-auto">
         <h2 className={`${typography.h2} ${colors.text.primary} mb-6`}>
           プロジェクトを始めませんか？
         </h2>
@@ -48,7 +49,7 @@ export default function CallToAction() {
           <span>AI / LLM</span>
           <span>ブロックチェーン</span>
         </div>
-      </div>
+      </ScrollReveal>
     </Section>
   )
 }

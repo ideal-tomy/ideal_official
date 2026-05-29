@@ -29,9 +29,34 @@
   animation: bounce 2s infinite;
 }
 
-/* スムーズスクロール */
-html {
-  scroll-behavior: smooth;
+/* ヒーロー背景 — 微細な星粒 */
+.hero-stars {
+  background-image:
+    radial-gradient(1px 1px at 20px 30px, rgba(255, 255, 255, 0.35), transparent),
+    radial-gradient(1px 1px at 40px 70px, rgba(255, 255, 255, 0.25), transparent),
+    radial-gradient(1px 1px at 50px 160px, rgba(255, 255, 255, 0.3), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(255, 255, 255, 0.2), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.35), transparent),
+    radial-gradient(1.5px 1.5px at 160px 120px, rgba(147, 197, 253, 0.4), transparent),
+    radial-gradient(1px 1px at 200px 50px, rgba(255, 255, 255, 0.25), transparent),
+    radial-gradient(1px 1px at 250px 140px, rgba(255, 255, 255, 0.3), transparent);
+  background-size: 280px 180px;
+  animation: hero-stars-drift 120s linear infinite;
+}
+
+@keyframes hero-stars-drift {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-180px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-stars {
+    animation: none;
+  }
 }
 
 /* カスタムスクロールバー（Webkit系ブラウザ） */
@@ -62,14 +87,13 @@ html {
   display: none;  /* Safari and Chrome */
 }
 
-/* パララックス背景のモバイル最適化 */
+/* パララックス背景 — モバイルは scroll、デスクトップは fixed */
 @media (max-width: 767px) {
   .parallax-bg {
     background-attachment: scroll !important;
   }
 }
 
-/* デスクトップでは固定背景を維持 */
 @media (min-width: 768px) {
   .parallax-bg {
     background-attachment: fixed;

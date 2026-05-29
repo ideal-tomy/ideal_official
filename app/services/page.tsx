@@ -57,7 +57,7 @@ const services = [
     title: 'AI',
     description:
       'AI導入コンサル、業務自動化、データ分析から実装まで。スタートアップやコンサル会社のAI活用を技術面からサポートします。',
-    image: '/images/test01.png',
+    image: '/images/top_ai.png',
     features: [
       'AI導入コンサルティング',
       '業務効率化・自動化',

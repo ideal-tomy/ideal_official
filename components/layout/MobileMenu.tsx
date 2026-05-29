@@ -74,6 +74,7 @@ export function MobileMenu({ navLinks, serviceLinks }: MobileMenuProps) {
               <li key={link.href}>
                 <Link
                   href={link.href}
+                  scroll
                   className={`
                     block
                     ${colors.text.secondary}
@@ -99,6 +100,7 @@ export function MobileMenu({ navLinks, serviceLinks }: MobileMenuProps) {
                   <li key={link.href}>
                     <Link
                       href={link.href}
+                      scroll
                       className={`
                         block
                         ${colors.text.secondary}
@@ -118,6 +120,7 @@ export function MobileMenu({ navLinks, serviceLinks }: MobileMenuProps) {
                 <li>
                   <Link
                     href="/services"
+                    scroll
                     className={`
                       block
                       text-blue-400

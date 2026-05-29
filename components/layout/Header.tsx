@@ -32,6 +32,7 @@ export function Header() {
         {/* ロゴ */}
         <Link
           href="/"
+          scroll
           prefetch={true}
           className={`
             text-2xl font-bold ${colors.text.primary}
@@ -48,6 +49,7 @@ export function Header() {
             <li key={link.href}>
               <Link
                 href={link.href}
+                scroll
                 prefetch={link.href === '/' ? true : false}
                 className={`
                   ${colors.text.secondary}

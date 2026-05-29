@@ -54,6 +54,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
+                    scroll
                     prefetch={false}
                     className={`
                       ${colors.text.muted}
@@ -80,6 +81,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
+                    scroll
                     prefetch={false}
                     className={`
                       ${colors.text.muted}

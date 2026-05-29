@@ -19,7 +19,7 @@ export default function Home() {
       title: 'ITサービス提供',
       description:
         'Webサイト制作、アプリ開発（ゲーム含む）、AI導入など、スタートアップの技術支援とコンサル会社の実装パートナーとして伴走します。',
-      image: '/images/test03.png',
+      image: '/images/sv_web.png',
       link: '/services',
       linkText: 'ITサービス一覧へ>>',
       priority: true,
@@ -29,7 +29,7 @@ export default function Home() {
       title: 'DAO研究・取り組み',
       description:
         '分散型自律組織（DAO）の研究を通じて、透明性と自律性を重視した組織のあり方を探求しています。思想・研究はこちらから。',
-      image: '/images/test02.png',
+      image: '/images/sv_DAO.png',
       link: '/philosophy',
       linkText: 'DAO研究・取り組みへ>>',
       priority: true,
