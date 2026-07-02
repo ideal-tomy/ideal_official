@@ -1,12 +1,18 @@
 'use client'
 
 import { AnimatePresence, motion, type Transition } from 'framer-motion'
-import type { ReactNode } from 'react'
+import {
+  useLayoutEffect,
+  useRef,
+  type ReactNode,
+} from 'react'
 import {
   reducedMotion,
   routeMotion,
+  routeTransition,
   type RouteMotionVariant,
 } from '@/lib/motion-tokens'
+import { useRouteMotion } from '@/lib/route-motion-context'
 import { usePrefersReducedMotion } from '@/lib/use-prefers-reduced-motion'
 
 interface PageTransitionProps {
@@ -43,27 +49,32 @@ function opacityOnlyVariants(
 
 function pageVariants(variant: RouteMotionVariant, prefersReduced: boolean) {
   const config = routeMotion[variant]
+  const curve = ease(config.curve)
+
+  if (variant === 'crossfade') {
+    const enterDuration = prefersReduced ? 0 : routeTransition.enterDuration
+    const exitDuration = prefersReduced ? 0 : routeTransition.exitDuration
+    const crossfadeCurve = ease(routeTransition.curve)
+
+    return {
+      initial: { opacity: 0 },
+      animate: {
+        opacity: 1,
+        transition: { duration: enterDuration, ease: crossfadeCurve },
+      },
+      exit: {
+        opacity: 0,
+        transition: { duration: exitDuration, ease: crossfadeCurve },
+      },
+    }
+  }
+
   const enterDuration = prefersReduced
     ? reducedMotion.routeDuration
     : config.duration
   const exitDuration = prefersReduced
     ? reducedMotion.routeDuration
     : config.reverse
-  const curve = ease(config.curve)
-
-  if (variant === 'crossfade') {
-    return {
-      initial: { opacity: 0 },
-      animate: {
-        opacity: 1,
-        transition: { duration: enterDuration, ease: curve },
-      },
-      exit: {
-        opacity: 0,
-        transition: { duration: exitDuration, ease: curve },
-      },
-    }
-  }
 
   if (variant === 'result' && config.scaleFrom != null) {
     const opacityEnter = enterDuration * config.fadeEnd
@@ -89,7 +100,6 @@ function pageVariants(variant: RouteMotionVariant, prefersReduced: boolean) {
     }
   }
 
-  // standard / modal: ページ全体はクロスフェードのみ（スライドなし）
   return opacityOnlyVariants(
     enterDuration,
     exitDuration,
@@ -104,16 +114,58 @@ export function PageTransition({
   routeKey,
 }: PageTransitionProps) {
   const prefersReduced = usePrefersReducedMotion()
+  const { setPhase, setIsInitialLoad } = useRouteMotion()
   const variants = pageVariants(variant, prefersReduced)
+  const wrapperRef = useRef<HTMLDivElement>(null)
+  const prevRouteKey = useRef(routeKey)
+  const isFirstMount = useRef(true)
+
+  useLayoutEffect(() => {
+    if (isFirstMount.current) {
+      isFirstMount.current = false
+      setPhase('ready')
+      return
+    }
+
+    if (prevRouteKey.current !== routeKey) {
+      prevRouteKey.current = routeKey
+      setIsInitialLoad(false)
+      setPhase('exiting')
+
+      if (wrapperRef.current) {
+        wrapperRef.current.style.opacity = '0'
+      }
+    }
+  }, [routeKey, setPhase, setIsInitialLoad])
+
+  const handleExitComplete = () => {
+    setPhase('entering')
+  }
+
+  const handleAnimationComplete = (definition: string) => {
+    if (definition !== 'animate') return
+
+    if (wrapperRef.current) {
+      wrapperRef.current.style.opacity = ''
+    }
+
+    setPhase('ready')
+  }
 
   return (
-    <AnimatePresence initial={false} mode="wait">
+    <AnimatePresence
+      initial={false}
+      mode="wait"
+      onExitComplete={handleExitComplete}
+    >
       <motion.div
+        ref={wrapperRef}
         key={routeKey}
         initial="initial"
         animate="animate"
         exit="exit"
         variants={variants}
+        onAnimationComplete={handleAnimationComplete}
         className="w-full"
       >
         {children}

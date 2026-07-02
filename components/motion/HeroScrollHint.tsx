@@ -1,10 +1,46 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useEffect, useLayoutEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
+import {
+  getHeroRevealCompleteDelay,
+  heroMotion,
+  heroRevealItemCounts,
+} from '@/lib/motion-tokens'
+import { useRouteMotion } from '@/lib/route-motion-context'
 import { usePrefersReducedMotion } from '@/lib/use-prefers-reduced-motion'
 
-export function HeroScrollHint() {
+interface HeroScrollHintProps {
+  itemCount?: number
+}
+
+const revealEase = [0.45, 0, 0.55, 1] as const
+
+export function HeroScrollHint({
+  itemCount = heroRevealItemCounts.top,
+}: HeroScrollHintProps) {
+  const pathname = usePathname()
+  const { phase, isInitialLoad } = useRouteMotion()
   const prefersReduced = usePrefersReducedMotion()
+  const [visible, setVisible] = useState(false)
+
+  useLayoutEffect(() => {
+    setVisible(false)
+  }, [pathname])
+
+  useEffect(() => {
+    if (prefersReduced) return
+    if (phase !== 'ready') return
+
+    const contentDelay = isInitialLoad
+      ? heroMotion.initialContentDelay
+      : heroMotion.contentDelay
+    const delay = getHeroRevealCompleteDelay(itemCount, contentDelay) * 1000
+
+    const timer = window.setTimeout(() => setVisible(true), delay)
+    return () => window.clearTimeout(timer)
+  }, [phase, pathname, itemCount, prefersReduced, isInitialLoad])
 
   if (prefersReduced) {
     return null
@@ -14,8 +50,8 @@ export function HeroScrollHint() {
     <motion.div
       className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 1.4, duration: 0.8 }}
+      animate={{ opacity: visible ? 1 : 0 }}
+      transition={{ duration: 0.8, ease: revealEase }}
       aria-hidden
     >
       <motion.div

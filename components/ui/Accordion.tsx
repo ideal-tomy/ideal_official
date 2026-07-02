@@ -32,6 +32,8 @@ export interface AccordionProps {
   showIcon?: boolean
   /** カスタムアイコン */
   customIcon?: React.ReactNode
+  /** 見た目のバリアント */
+  variant?: 'default' | 'card'
 }
 
 /**
@@ -44,27 +46,31 @@ export function Accordion({
   defaultOpenId,
   allowMultiple = false,
   showIcon = true,
-  customIcon
+  customIcon,
+  variant = 'default',
 }: AccordionProps) {
+  const isCard = variant === 'card'
+
   return (
-    <div className={`w-full space-y-2 ${className}`}>
+    <div className={`w-full ${isCard ? 'space-y-3' : 'space-y-2'} ${className}`}>
       {items.map((item, index) => (
         <Disclosure 
           key={item.id || index} 
           as="div"
           defaultOpen={defaultOpenId === item.id}
+          className={isCard ? 'rounded-xl border border-gray-700/50 bg-gray-900/40 overflow-hidden' : undefined}
         >
           {({ open }) => (
             <>
               {/* アコーディオンのボタン部分 */}
               <Disclosure.Button 
                 className={`
-                  flex justify-between items-center w-full px-0 py-4 text-left
-                  ${typography.h4} text-white
-                  hover:text-gray-300
-                  focus:outline-none
+                  flex justify-between items-center w-full text-left
+                  ${isCard ? 'px-5 sm:px-6 py-4 sm:py-5 text-base sm:text-lg font-semibold' : `px-0 py-4 ${typography.h4}`}
+                  text-white
+                  hover:text-gray-200
+                  focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/50 focus-visible:ring-inset
                   ${transitions.all}
-                  transition-all duration-200
                 `}
               >
                 <span className="flex-1 pr-4">{item.title}</span>
@@ -111,9 +117,8 @@ export function Accordion({
               >
                 <Disclosure.Panel 
                   className={`
-                    px-0 pt-4 pb-6
-                    ${typography.body} ${colors.text.secondary}
-                    mt-2
+                    ${isCard ? 'px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-gray-700/40' : 'px-0 pt-4 pb-6 mt-2'}
+                    text-base sm:text-lg leading-relaxed text-gray-300
                   `}
                 >
                   {item.content}

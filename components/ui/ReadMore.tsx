@@ -44,11 +44,13 @@ export function ReadMore({
       <button
         onClick={toggleExpanded}
         className={`
-          inline-flex items-center text-sm font-medium
-          ${colors.accent.text} hover:${colors.text.primary}
-          transition-colors duration-200
+          inline-flex items-center gap-1.5 text-sm sm:text-base font-medium
+          text-blue-400 hover:text-blue-300
+          px-4 py-2 rounded-lg
+          border border-blue-400/25 hover:border-blue-400/40
+          bg-blue-500/5 hover:bg-blue-500/10
           cursor-pointer
-          focus:outline-none
+          focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/50
           ${transitions.all}
         `}
         aria-expanded={isExpanded}

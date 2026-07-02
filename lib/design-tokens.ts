@@ -28,7 +28,7 @@ export const colors = {
   text: {
     primary: 'text-white',
     secondary: 'text-gray-200',
-    muted: 'text-gray-400',
+    muted: 'text-gray-300',
     disabled: 'text-gray-500',
   },
   // アクセント（最先端）
@@ -70,7 +70,7 @@ export const typography = {
   bodyLarge: 'text-lg lg:text-xl leading-relaxed',
   // その他
   small: 'text-sm lg:text-base',
-  caption: 'text-xs lg:text-sm text-gray-400',
+  caption: 'text-xs lg:text-sm text-gray-400', // ラベル・キャプション専用
 } as const
 
 // トランジション（アニメーション）

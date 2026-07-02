@@ -1,14 +1,18 @@
 /**
  * セクション3: 基本設計（The Mechanism）
- * メカニズムセクション
  */
 
 import React from 'react'
 import { ThreeCardSection, CardData } from '../sections/ThreeCardSection'
 import { Accordion, AccordionItem } from '../ui/Accordion'
-import { colors } from '../../lib/design-tokens'
+import {
+  PhilosophySectionShell,
+  PhilosophySubheading,
+  PhilosophyProse,
+  PhilosophyWideContent,
+} from './PhilosophyLayout'
+import { PhilosophySolutionLink } from './PhilosophySolutionLink'
 
-// 公正さを支える6つの絶対条件のカードデータ
 const absoluteConditionsCards: CardData[] = [
   {
     title: '1. 透明性と自動化',
@@ -25,7 +29,7 @@ const absoluteConditionsCards: CardData[] = [
         </p>
       </div>
     ),
-    modalSize: 'md'
+    modalSize: 'md',
   },
   {
     title: '2. 広範囲の検知',
@@ -41,7 +45,7 @@ const absoluteConditionsCards: CardData[] = [
         </p>
       </div>
     ),
-    modalSize: 'md'
+    modalSize: 'md',
   },
   {
     title: '3. 補正・調整システム',
@@ -57,7 +61,7 @@ const absoluteConditionsCards: CardData[] = [
         </p>
       </div>
     ),
-    modalSize: 'md'
+    modalSize: 'md',
   },
   {
     title: '4. 中長期的影響の反映',
@@ -73,7 +77,7 @@ const absoluteConditionsCards: CardData[] = [
         </p>
       </div>
     ),
-    modalSize: 'md'
+    modalSize: 'md',
   },
   {
     title: '5. 進化する価値基準',
@@ -89,7 +93,7 @@ const absoluteConditionsCards: CardData[] = [
         </p>
       </div>
     ),
-    modalSize: 'md'
+    modalSize: 'md',
   },
   {
     title: '6. 透明性の秘匿性',
@@ -105,20 +109,17 @@ const absoluteConditionsCards: CardData[] = [
         </p>
       </div>
     ),
-    modalSize: 'md'
-  }
+    modalSize: 'md',
+  },
 ]
 
-// 各工程のアコーディオンデータ
 const processSteps: AccordionItem[] = [
   {
     id: 'step-1',
     title: '1：AIによる貢献の『観測』',
     content: (
-      <div>
-        <p>AIによる多角的なデータ観測。人間では不可能だった活動範囲と貢献要素に対し、リアルタイムに感知し情報を集積するように設計します。</p>
-      </div>
-    )
+      <p>AIによる多角的なデータ観測。人間では不可能だった活動範囲と貢献要素に対し、リアルタイムに感知し情報を集積するように設計します。</p>
+    ),
   },
   {
     id: 'step-2',
@@ -129,14 +130,14 @@ const processSteps: AccordionItem[] = [
           AIによって感知された情報は、ブロックチェーン上に「PoC要素」として刻まれます。
           この情報を中長期的に貢献度測定の影響要素とすることで、貢献は一過性の評価ではなく、個人に永続的に紐づく&ldquo;デジタル資産（負債）&rdquo;となります。
         </p>
-        <div className="space-y-4 bg-gray-800 p-4 rounded-lg border border-gray-600">
+        <div className="rounded-lg bg-gray-800/50 p-4 border border-gray-700/40">
           <p>
             このスコアは、組織に対して紐づくものではなく活動者個人に紐づくものとします。また組織の解散や組織の移動によってリセットされることはありません。
             長期的な活動履歴の積み重ねが、個々人の価値観や評価基準の揺るがない情報となります。
           </p>
         </div>
       </div>
-    )
+    ),
   },
   {
     id: 'step-3',
@@ -147,18 +148,16 @@ const processSteps: AccordionItem[] = [
           ブロックチェーンに記録されたPoC要素を基に既定の貢献度測定を行い、決められた計算に基づきスマートコントラクトがインセンティブを自動執行します。
           ここには一切の人間的裁量や遅延は介在出来ないものとします。
         </p>
-        <div className="space-y-4">
-          <ul className="list-disc list-inside ml-4 space-y-2">
-            <li><strong>トークンエコノミクス:</strong> PoC要素に基づく結果に応じて執行されるインセンティブ報酬の移動は、トークンによって行われることで実現可能となります。</li>
-            <li><strong>ガバナンス設計:</strong> 各組織や集団ごとの意思決定プロセスに基づき、自由に投票方式やリワード（活動報酬）トークン活用が可能な環境を実現とします。</li>
-          </ul>
-          <p className="font-bold mt-4">
-            この自動執行されたインセンティブの基となる要素が、中長期的にその個人のインセンティブに永続的に影響を与える仕組みとなることで、
-            一つ一つの判断や行動に中長期的な責任とリスクを発生させます。
-          </p>
-        </div>
+        <ul className="list-disc list-outside ml-5 space-y-2">
+          <li><strong className="text-gray-100">トークンエコノミクス:</strong> PoC要素に基づく結果に応じて執行されるインセンティブ報酬の移動は、トークンによって行われることで実現可能となります。</li>
+          <li><strong className="text-gray-100">ガバナンス設計:</strong> 各組織や集団ごとの意思決定プロセスに基づき、自由に投票方式やリワード（活動報酬）トークン活用が可能な環境を実現とします。</li>
+        </ul>
+        <p className="font-semibold text-gray-100">
+          この自動執行されたインセンティブの基となる要素が、中長期的にその個人のインセンティブに永続的に影響を与える仕組みとなることで、
+          一つ一つの判断や行動に中長期的な責任とリスクを発生させます。
+        </p>
       </div>
-    )
+    ),
   },
   {
     id: 'step-4',
@@ -174,7 +173,7 @@ const processSteps: AccordionItem[] = [
           すべての活動者に対する『責任、リスク、報酬の分散化』実現に近づきます。
         </p>
       </div>
-    )
+    ),
   },
   {
     id: 'step-5',
@@ -190,7 +189,7 @@ const processSteps: AccordionItem[] = [
           その分析結果はコミュニティに提示され、透明なガバナンスプロセスを通じて、DAO自身が価値基準をアップデートしていくことに寄与します。
         </p>
       </div>
-    )
+    ),
   },
   {
     id: 'step-6',
@@ -201,58 +200,53 @@ const processSteps: AccordionItem[] = [
           ゼロ知識証明（Zero-Knowledge Proofs）などの暗号技術を活用し、個々の行動の詳細（具体的な発言内容やコードの断片、活動履歴など）を秘匿したまま、
           「その個人が持つデジタル資産」の内容をを証明し、ブロックチェーンに記録しておくことが可能になります。
         </p>
-        <ul className="list-disc list-inside ml-4 space-y-2 text-sm">
-          <li><strong>プロセスは透明に：</strong>どのようなルール（スマートコントラクト）で貢献が評価され、インセンティブが執行されるかは、誰でも検証可能な状態とする。</li>
-          <li><strong>データは非公開に：</strong>その評価の根拠となった個々の具体的な行動データは、本人の同意なしに公開されることがないものとする。</li>
+        <ul className="list-disc list-outside ml-5 space-y-2">
+          <li><strong className="text-gray-100">プロセスは透明に：</strong>どのようなルール（スマートコントラクト）で貢献が評価され、インセンティブが執行されるかは、誰でも検証可能な状態とする。</li>
+          <li><strong className="text-gray-100">データは非公開に：</strong>その評価の根拠となった個々の具体的な行動データは、本人の同意なしに公開されることがないものとする。</li>
         </ul>
-        <p className="mt-4 font-bold">
+        <p className="font-semibold text-gray-100">
           この技術的な両立が、公正さへの信頼と個人の心理的安全性を同時に担保し、自分らしく貢献できる環境を実現するための鍵となります。
         </p>
       </div>
-    )
-  }
+    ),
+  },
 ]
 
 const MechanismSection = React.memo(() => {
   return (
-    <section id="mechanism" className="py-8 md:py-16 border-b border-gray-800">
-      <p className={`text-base md:text-lg font-semibold ${colors.accent.primary} mb-2`}>3. The Mechanism</p>
-      <h2 className={`text-xl md:text-2xl md:text-4xl font-bold mb-8`}>
-        基本設計
-      </h2>
-      
-      <div className="space-y-8 text-base md:text-lg leading-relaxed">
+    <PhilosophySectionShell id="mechanism" label="3. The Mechanism" title="基本設計">
+      <PhilosophyProse>
         <p>
-        設計思想の中心は「貢献度測定（Proof of Contribution）」に集約されます。
-         これまで測定が難しかった本質的価値の測定や、「本質的価値と評価基準の明確化」こそが、 所属している全ての人の行動原理となり、結果、組織全体の原動力となるからです。
+          設計思想の中心は「貢献度測定（Proof of Contribution）」に集約されます。
+          これまで測定が難しかった本質的価値の測定や、「本質的価値と評価基準の明確化」こそが、 所属している全ての人の行動原理となり、結果、組織全体の原動力となるからです。
         </p>
-        <p>人間による評価は、リソースの限界と避けられないバイアスにより、実現したくても実現できないことによる不公平と搾取の温床となってしまっていました。
-           私たちは、この「人間とこれまでの技術よる評価の限界」を、AIとブロックチェーンが永続的に連携する「貢献度測定ツール」によって実現することを目指します。
-　　　　 </p>
+        <p>
+          人間による評価は、リソースの限界と避けられないバイアスにより、実現したくても実現できないことによる不公平と搾取の温床となってしまっていました。
+          私たちは、この「人間とこれまでの技術よる評価の限界」を、AIとブロックチェーンが永続的に連携する「貢献度測定ツール」によって実現することを目指します。
+        </p>
+      </PhilosophyProse>
+
+      <PhilosophyWideContent>
         <ThreeCardSection
           title="公正さを支える6つの絶対条件"
           cards={absoluteConditionsCards}
           enableMobileScroll={true}
           padding="md"
           cardSize="md"
-          className="bg-black"
+          className="bg-transparent"
         />
+      </PhilosophyWideContent>
 
-        <div className="mt-16">
-          <h3 className="text-xl md:text-2xl font-semibold mb-6 border-l-4 border-blue-400 pl-4">
-            各工程
-          </h3>
-          <p className="mb-8">
-            これらの条件を満たすために、以下の6つの工程を経てシステムを構築します。
-          </p>
-          
-          <Accordion 
-            items={processSteps}
-            className="mt-8"
-          />
-        </div>
-      </div>
-    </section>
+      <PhilosophySubheading>各工程</PhilosophySubheading>
+      <PhilosophyProse className="mb-6">
+        <p>
+          これらの条件を満たすために、以下の6つの工程を経てシステムを構築します。
+        </p>
+      </PhilosophyProse>
+
+      <Accordion items={processSteps} variant="card" className="max-w-3xl" />
+      <PhilosophySolutionLink sectionId="mechanism" />
+    </PhilosophySectionShell>
   )
 })
 

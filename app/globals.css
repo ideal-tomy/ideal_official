@@ -99,3 +99,41 @@
     background-attachment: fixed;
   }
 }
+
+/* Philosophy 長文 — 可読性最適化 */
+.philosophy-prose strong {
+  color: rgb(243 244 246);
+  font-weight: 600;
+}
+
+.philosophy-prose ul,
+.philosophy-prose ol {
+  padding-left: 1.25rem;
+}
+
+.philosophy-prose li {
+  margin-top: 0.5rem;
+}
+
+.philosophy-prose li::marker {
+  color: rgb(96 165 250 / 0.7);
+}
+
+/* Research 詳細ページ — philosophy-prose と同等の可読性ルール */
+.research-prose strong {
+  color: rgb(243 244 246);
+  font-weight: 600;
+}
+
+.research-prose ul,
+.research-prose ol {
+  padding-left: 1.25rem;
+}
+
+.research-prose li {
+  margin-top: 0.5rem;
+}
+
+.research-prose li::marker {
+  color: rgb(96 165 250 / 0.7);
+}

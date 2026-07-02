@@ -37,11 +37,18 @@ export const routeMotion: Record<RouteMotionVariant, RouteMotionConfig> = {
     curve: [0.33, 1, 0.68, 1],
   },
   crossfade: {
-    duration: 1.0,
-    reverse: 0.85,
+    duration: 0.12,
+    reverse: 0.45,
     fadeEnd: 1,
     curve: [0.45, 0, 0.55, 1],
   },
+} as const
+
+/** ページ遷移の enter / exit を非対称に制御（crossfade 用） */
+export const routeTransition = {
+  exitDuration: 0.45,
+  enterDuration: 0.12,
+  curve: [0.45, 0, 0.55, 1] as const,
 } as const
 
 export const popupMotion = {
@@ -56,11 +63,34 @@ export const popupMotion = {
 
 /** ヒーロー内要素の段階フェード */
 export const heroMotion = {
-  /** ページフェード開始後、ヒーロー表示までの待機 */
-  contentDelay: 0.25,
-  staggerDelay: 0.2,
-  itemDuration: 0.7,
+  /** 新ページ着地後、ヒーロー表示開始までの待機 */
+  contentDelay: 0.15,
+  /** 初回ロード時は exit 待ちがないため短め */
+  initialContentDelay: 0.1,
+  staggerDelay: 0.12,
+  itemDuration: 0.65,
 } as const
+
+/** トップ Hero の HeroReveal 子要素数（h1, p, CTA） */
+export const heroRevealItemCounts = {
+  top: 3,
+} as const
+
+/** ヒーロー reveal 完了までの秒数（ScrollHint 連動用） */
+export function getHeroRevealCompleteDelay(
+  itemCount: number,
+  contentDelay: number = heroMotion.contentDelay,
+): number {
+  if (itemCount <= 0) {
+    return contentDelay + heroMotion.itemDuration
+  }
+  const lastIndex = itemCount - 1
+  return (
+    contentDelay +
+    lastIndex * heroMotion.staggerDelay +
+    heroMotion.itemDuration
+  )
+}
 
 /** スクロール連動のセクション表示（opacity のみ） */
 export const scrollMotion = {

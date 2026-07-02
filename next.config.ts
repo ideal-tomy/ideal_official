@@ -1,6 +1,17 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async rewrites() {
+    return {
+      beforeFiles: [
+        {
+          source: '/research/poc-instrument',
+          destination: '/research/poc-instrument/index.html',
+        },
+      ],
+    }
+  },
+
   async redirects() {
     return [
       {
