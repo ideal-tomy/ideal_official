@@ -34,9 +34,9 @@ const services = [
   },
   {
     id: 'app-development',
-    title: 'アプリ開発',
+    title: 'Webアプリ・業務ツール',
     description:
-      'iOS、Android、Web。すべてのプラットフォームで、最高のユーザー体験を提供します。',
+      'Excelや手作業の業務を、動くWebアプリや業務ツールに変えます。',
     icon: (
       <svg
         className="w-12 h-12"
@@ -97,9 +97,9 @@ const services = [
   },
   {
     id: 'blockchain-development',
-    title: 'ブロックチェーン開発',
+    title: 'Blockchain / DAO Lab',
     description:
-      '分散型アプリケーション（DApps）やスマートコントラクトの設計・開発を支援します。',
+      '分散型技術の思想・研究・実験。Philosophy、Research、PoCデモへの入口です。',
     icon: (
       <svg
         className="w-12 h-12"

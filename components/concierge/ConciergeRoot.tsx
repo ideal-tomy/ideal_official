@@ -6,8 +6,14 @@ import { IdealConciergeFlow } from './IdealConciergeFlow'
 import { useConcierge } from './concierge-context'
 
 export function ConciergeRoot() {
-  const { open, setOpen, serviceHint, flowSessionNonce, openConcierge } =
-    useConcierge()
+  const {
+    open,
+    setOpen,
+    serviceHint,
+    pageContext,
+    flowSessionNonce,
+    openConcierge,
+  } = useConcierge()
 
   return (
     <>
@@ -18,10 +24,12 @@ export function ConciergeRoot() {
         open={open}
         onClose={() => setOpen(false)}
         title="AIコンシェルジュ"
+        contextLabel={pageContext?.label}
       >
         <IdealConciergeFlow
           key={flowSessionNonce}
           serviceHint={serviceHint}
+          pageContext={pageContext}
           onRequestClose={() => setOpen(false)}
         />
       </ConciergePanel>

@@ -16,7 +16,17 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/services/dao-design',
-        destination: '/services/blockchain-development#dao-governance',
+        destination: '/lab/blockchain#dao-governance',
+        permanent: true,
+      },
+      {
+        source: '/services/blockchain-development',
+        destination: '/lab/blockchain',
+        permanent: true,
+      },
+      {
+        source: '/services/metaverse',
+        destination: '/lab/metaverse',
         permanent: true,
       },
     ]

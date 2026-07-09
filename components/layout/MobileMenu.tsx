@@ -70,7 +70,7 @@ export function MobileMenu({ navLinks, serviceLinks }: MobileMenuProps) {
           `}
         >
           <ul className="px-4 py-6 space-y-4">
-            {navLinks.map((link) => (
+            {navLinks.slice(0, 3).map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
@@ -91,10 +91,9 @@ export function MobileMenu({ navLinks, serviceLinks }: MobileMenuProps) {
                 </Link>
               </li>
             ))}
-            
-            {/* モバイル用Servicesメニュー */}
+
             <li>
-              <div className="text-gray-300 font-medium mb-2">Services</div>
+              <div className="text-gray-300 font-medium mb-2">サービス</div>
               <ul className="ml-4 space-y-2">
                 {serviceLinks.map((link) => (
                   <li key={link.href}>
@@ -138,6 +137,28 @@ export function MobileMenu({ navLinks, serviceLinks }: MobileMenuProps) {
                 </li>
               </ul>
             </li>
+
+            {navLinks.slice(3).map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  scroll
+                  className={`
+                    block
+                    ${colors.text.secondary}
+                    ${transitions.colors}
+                    hover:${colors.text.primary}
+                    ${colors.state.focus}
+                    focus:outline-none
+                    text-lg
+                    py-2
+                  `}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       )}

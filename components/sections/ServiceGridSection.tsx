@@ -36,19 +36,19 @@ const serviceData: ServiceData[] = [
   },
   {
     id: 'blockchain-development',
-    title: 'ブロックチェーン開発',
-    description: 'ブロックチェーン技術を活用した分散型アプリケーション（DApp）の開発とコンサルティングを行います。',
+    title: 'Blockchain / DAO Lab',
+    description: '分散型技術の思想・研究・実験を LAB で公開しています。',
     image: '/images/test01.jpg',
-    link: '/services/blockchain-development',
-    linkText: 'ブロックチェーン開発詳細へ&gt;&gt;'
+    link: '/lab/blockchain',
+    linkText: 'LAB を見る →'
   },
   {
     id: 'app-development',
-    title: 'アプリ開発',
-    description: 'iOS・Android向けのネイティブアプリからクロスプラットフォームアプリまで、幅広いアプリ開発に対応します。',
+    title: 'Webアプリ・業務ツール',
+    description: 'Excelや手作業の業務を、動くWebアプリや業務ツールに変えます。',
     image: '/images/test01.jpg',
     link: '/services/app-development',
-    linkText: 'アプリ開発詳細へ&gt;&gt;'
+    linkText: '操作デモを見る →'
   }
 ]
 

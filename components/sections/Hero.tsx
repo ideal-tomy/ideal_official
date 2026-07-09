@@ -16,26 +16,23 @@ export function Hero() {
     <section className="relative flex min-h-[calc(100svh-4rem)] lg:min-h-[calc(100svh-5rem)] items-center justify-center overflow-hidden">
       <HeroBackground />
 
-      <HeroReveal
-        className={`relative z-10 ${layout.container} text-center`}
-      >
+      <HeroReveal className={`relative z-10 ${layout.container} text-center`}>
         <h1 className={`${typography.h1} ${colors.text.primary} mb-6`}>
-          Web・アプリ開発で
+          多機能よりも
           <br />
-          ビジネスの次の一歩を
+          シンプルな使用環境を
         </h1>
 
         <p
           className={`${typography.bodyLarge} ${colors.text.muted} mb-10 max-w-2xl mx-auto`}
         >
-          スタートアップの技術支援からコンサル会社の実装パートナーまで。
-          企画・開発・AI導入を伴走します。
+          Web・AI・アプリの制作技術を体験し、自社の課題に置き換えてから相談できます。
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Link href="/services">
+          <Link href="/ai-capability-gallery">
             <Button variant="primary" size="lg">
-              サービスを見る
+              デモを体験する
             </Button>
           </Link>
           <Link href="/contact">

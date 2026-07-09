@@ -3,8 +3,12 @@
  * Provider マウント時にハンドラを登録する。
  */
 
+import type { ConciergePageContext } from './page-context'
+
 export type OpenConciergeBridgeOpts = {
   serviceHint?: string
+  /** 明示指定。省略時は Provider 側で pathname から解決 */
+  pageContext?: ConciergePageContext
 }
 
 export type OpenConciergeBridgeHandler = (

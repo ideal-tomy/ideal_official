@@ -312,17 +312,17 @@ export const aiRelatedServices: RelatedServiceData[] = [
   },
   {
     id: 'app-development',
-    title: 'アプリ開発',
-    description: 'AI機能を活用したモバイルアプリケーションの開発',
+    title: 'Webアプリ・業務ツール',
+    description: 'AIを組み込んだ業務Web・管理画面の開発',
     href: '/services/app-development',
-    tags: ['React Native', 'AI', 'モバイル']
+    tags: ['業務Web', 'AI', '自動化']
   },
   {
-    id: 'blockchain-development',
-    title: 'ブロックチェーン開発',
-    description: 'AIとブロックチェーンを組み合わせた次世代ソリューション',
-    href: '/services/blockchain-development',
-    tags: ['Blockchain', 'AI', 'DeFi']
+    id: 'blockchain-lab',
+    title: 'Blockchain / DAO Lab',
+    description: '分散型技術の思想・研究・実験',
+    href: '/lab/blockchain',
+    tags: ['DAO', 'Research', 'LAB']
   }
 ]
 

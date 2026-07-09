@@ -563,9 +563,9 @@ export const webDevelopmentData: ServicePageData = {
     },
     {
       id: 'app-development',
-      title: 'アプリ開発',
-      description: 'iOS・Androidアプリの開発',
-      tags: ['React Native', 'Flutter', 'Swift'],
+      title: 'Webアプリ・業務ツール',
+      description: '業務Web・管理画面・現場入力ツールの開発',
+      tags: ['業務Web', '管理画面', 'PWA'],
       href: '/services/app-development'
     },
     {
@@ -577,10 +577,10 @@ export const webDevelopmentData: ServicePageData = {
     },
     {
       id: 'blockchain-development',
-      title: 'ブロックチェーン開発',
-      description: 'ブロックチェーン技術を活用したソリューション開発',
-      tags: ['スマートコントラクト', 'DeFi', 'NFT'],
-      href: '/services/blockchain-development'
+      title: 'Blockchain / DAO Lab',
+      description: '分散型技術の思想・研究・実験',
+      tags: ['DAO', 'スマートコントラクト', 'Research'],
+      href: '/lab/blockchain'
     }
   ]
 }

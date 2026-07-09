@@ -1,0 +1,76 @@
+import Link from 'next/link'
+import { typography, colors, layout } from '@/lib/design-tokens'
+import { HeroReveal } from '@/components/motion/HeroReveal'
+import { HeroBackground } from '@/components/motion/HeroBackground'
+import type { CaseStudy } from '@/data/cases'
+
+interface CaseHeroProps {
+  caseStudy: CaseStudy
+}
+
+export function CaseHero({ caseStudy }: CaseHeroProps) {
+  return (
+    <section className="relative flex min-h-[60vh] items-center justify-center overflow-hidden border-b border-blue-400/40">
+      <HeroBackground />
+      <HeroReveal className={`relative z-10 ${layout.container} text-center`}>
+        <p className="text-xs font-medium tracking-[0.2em] uppercase text-blue-400/90 mb-4">
+          Cases · {caseStudy.industryLabel}
+        </p>
+        <h1 className={`${typography.h1} ${colors.text.primary} mb-4`}>
+          {caseStudy.title}
+        </h1>
+        <p className="text-sm text-cyan-400/90 mb-6">{caseStudy.subtitle}</p>
+        <p
+          className={`${typography.bodyLarge} ${colors.text.muted} max-w-2xl mx-auto mb-8`}
+        >
+          {caseStudy.lead}
+        </p>
+        <div className="flex flex-wrap justify-center gap-2">
+          {caseStudy.tags.map((tag) => (
+            <span
+              key={tag}
+              className="text-xs px-2.5 py-1 rounded-full border border-gray-700 text-gray-400"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </HeroReveal>
+    </section>
+  )
+}
+
+interface CasesIndexHeroProps {
+  title: string
+  subtitle: string
+}
+
+export function CasesIndexHero({ title, subtitle }: CasesIndexHeroProps) {
+  return (
+    <section className="relative flex min-h-[50vh] items-center justify-center overflow-hidden border-b border-blue-400/40">
+      <HeroBackground />
+      <HeroReveal className={`relative z-10 ${layout.container} text-center`}>
+        <p className="text-xs font-medium tracking-[0.2em] uppercase text-blue-400/90 mb-4">
+          Cases / Ideas
+        </p>
+        <h1 className={`${typography.h1} ${colors.text.primary} mb-6`}>{title}</h1>
+        <p className={`${typography.bodyLarge} ${colors.text.muted} max-w-2xl mx-auto`}>
+          {subtitle}
+        </p>
+      </HeroReveal>
+    </section>
+  )
+}
+
+export function CaseBackLink() {
+  return (
+    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+      <Link
+        href="/cases"
+        className="text-sm text-gray-400 hover:text-cyan-400 transition-colors"
+      >
+        ← 事例一覧
+      </Link>
+    </div>
+  )
+}

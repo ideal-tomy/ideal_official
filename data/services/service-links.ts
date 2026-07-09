@@ -2,22 +2,28 @@ import type { FlowAnswer, IdealTrack } from '@/lib/concierge/ideal-flow'
 import { resolveEffectiveTrack } from '@/lib/concierge/ideal-flow'
 import { ServiceLinkData } from '../../types/service'
 
-/** サービスページ横断ナビ（ServiceNavigation 用） */
+/** サービスページ横断ナビ（ServiceNavigation 用）— 主力3本のみ */
 export const serviceNavLinks: ServiceLinkData[] = [
   { id: 'web-development', name: 'Webサイト制作', href: '/services/web-development' },
-  { id: 'app-development', name: 'アプリ開発', href: '/services/app-development' },
+  { id: 'app-development', name: 'Webアプリ・業務ツール', href: '/services/app-development' },
   { id: 'ai-consulting', name: 'AI', href: '/services/ai-consulting' },
-  { id: 'blockchain-development', name: 'ブロックチェーン・DAO', href: '/services/blockchain-development' },
-  { id: 'metaverse', name: 'メタバース・空間構築', href: '/services/metaverse' },
 ]
 
-/** Header / Footer ドロップダウン用 */
+/** Header / Footer ドロップダウン用（依頼の中心: Web / AI / アプリ） */
 export const headerFooterServiceLinks: { href: string; label: string }[] = [
   { href: '/services/web-development', label: 'Webサイト制作' },
-  { href: '/services/app-development', label: 'アプリ開発' },
   { href: '/services/ai-consulting', label: 'AI' },
-  { href: '/services/blockchain-development', label: 'ブロックチェーン・DAO' },
-  { href: '/services/metaverse', label: 'メタバース・空間構築' },
+  { href: '/services/app-development', label: 'Webアプリ・業務ツール' },
+]
+
+/** Footer LAB 欄など、研究・深掘り系リンク */
+export const labNavLinks: { href: string; label: string }[] = [
+  { href: '/lab', label: 'LAB トップ' },
+  { href: '/lab/insights', label: 'Insights' },
+  { href: '/philosophy', label: 'Philosophy / DAO' },
+  { href: '/research', label: 'Research' },
+  { href: '/lab/blockchain', label: 'Blockchain / DAO' },
+  { href: '/lab/metaverse', label: 'Spatial / VR・AR' },
 ]
 
 /** RelatedServicesSection 等で使う共通リンク（旧 serviceLinks 互換） */
@@ -57,6 +63,9 @@ export function getServiceHrefForConciergeTrack(
   answers: FlowAnswer[],
 ): string {
   const id = getServiceIdForConciergeTrack(track, answers)
+  if (id === SERVICE_IDS.blockchain) {
+    return '/lab/blockchain'
+  }
   const row = serviceNavLinks.find((s) => s.id === id)
   return row?.href ?? '/services/web-development'
 }
@@ -85,6 +94,12 @@ export function serviceIdToIdealTrack(serviceId: string): IdealTrack | null {
 }
 
 export const getServiceLabel = (id: string): string => {
+  if (id === SERVICE_IDS.blockchain) {
+    return 'Blockchain / DAO'
+  }
+  if (id === SERVICE_IDS.metaverse) {
+    return 'Spatial / VR・AR'
+  }
   const found = serviceNavLinks.find((s) => s.id === id)
   return found?.name ?? id
 }

@@ -1,6 +1,6 @@
 /**
  * Header コンポーネント（サーバーコンポーネント版）
- * 
+ *
  * 全ページ共通のナビゲーションヘッダー
  * 静的な部分はサーバーコンポーネント、動的な部分のみクライアントコンポーネント
  */
@@ -13,10 +13,11 @@ import { ServicesDropdown } from './ServicesDropdown'
 import { MobileMenu } from './MobileMenu'
 
 export function Header() {
-  // ナビゲーションリンク
   const navLinks = [
     { href: '/', label: 'トップ' },
-    { href: '/philosophy', label: 'DAO研究・取り組み' },
+    { href: '/ai-capability-gallery', label: 'デモ' },
+    { href: '/cases', label: '事例' },
+    { href: '/lab', label: 'LAB' },
     { href: '/contact', label: '問い合わせ' },
   ]
 
@@ -29,7 +30,6 @@ export function Header() {
         role="navigation"
         aria-label="メインナビゲーション"
       >
-        {/* ロゴ */}
         <Link
           href="/"
           scroll
@@ -43,9 +43,8 @@ export function Header() {
           ideal
         </Link>
 
-        {/* デスクトップメニュー */}
-        <ul className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
+        <ul className="hidden md:flex items-center gap-6 lg:gap-8">
+          {navLinks.slice(0, 3).map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
@@ -64,12 +63,30 @@ export function Header() {
               </Link>
             </li>
           ))}
-          
-          {/* Services ドロップダウン（クライアントコンポーネント） */}
+
           <ServicesDropdown serviceLinks={serviceLinks} />
+
+          {navLinks.slice(3).map((link) => (
+            <li key={link.href}>
+              <Link
+                href={link.href}
+                scroll
+                prefetch={false}
+                className={`
+                  ${colors.text.secondary}
+                  ${transitions.colors}
+                  hover:${colors.text.primary}
+                  ${colors.state.focus}
+                  focus:outline-none
+                  text-base lg:text-lg
+                `}
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
         </ul>
 
-        {/* モバイルメニュー（クライアントコンポーネント） */}
         <MobileMenu navLinks={navLinks} serviceLinks={serviceLinks} />
       </nav>
     </ScrollHeader>

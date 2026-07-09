@@ -1,5 +1,6 @@
 import type { FlowAnswer, IdealTrack } from './ideal-flow'
 import { buildIdealSummaryMarkdown } from './build-summary'
+import type { ConciergePageContext } from './page-context'
 
 export const CONTACT_PREFILL_STORAGE_KEY = 'IDEAL_contact_prefill_v1'
 
@@ -17,6 +18,7 @@ export function buildContactMessageDraft(
   track: IdealTrack,
   answers: FlowAnswer[],
   summaryBody: string,
+  pageContext?: ConciergePageContext,
 ): string {
   const rootLine =
     track === 'unsure'
@@ -27,11 +29,22 @@ export function buildContactMessageDraft(
     (a) => `- ${a.stepId}: ${a.label}`,
   )
 
+  const contextLines: string[] = []
+  if (pageContext) {
+    contextLines.push('--- 閲覧ページ ---')
+    contextLines.push(`pathname: ${pageContext.pathname}`)
+    if (pageContext.label) contextLines.push(`label: ${pageContext.label}`)
+    if (pageContext.demoId) contextLines.push(`demo: ${pageContext.demoId}`)
+    if (pageContext.caseSlug) contextLines.push(`case: ${pageContext.caseSlug}`)
+    contextLines.push('')
+  }
+
   return [
     '【コンシェルジュ（選択内容を整理）経由のご相談】',
     '',
     rootLine,
     '',
+    ...contextLines,
     '--- 選択内容 ---',
     ...pathLines,
     '',
@@ -69,14 +82,29 @@ export function buildConciergeContactUrl(
   return `/contact?${params.toString()}`
 }
 
+export type NavigateConciergeContactOptions = {
+  /** 概算をサマリ / メッセージに含める（完了画面で算出した場合） */
+  includeEstimate?: boolean
+}
+
 /** ストアが使えない SSR 時は URL のみ（本文は session に載らないのでフォームは空になりうる） */
 export function navigateToConciergeContact(
   serviceId: string,
   track: IdealTrack,
   answers: FlowAnswer[],
+  pageContext?: ConciergePageContext,
+  options?: NavigateConciergeContactOptions,
 ): string {
-  const summaryBody = buildIdealSummaryMarkdown(track, answers)
-  const messageDraft = buildContactMessageDraft(track, answers, summaryBody)
+  const includeEstimate = options?.includeEstimate ?? false
+  const summaryBody = buildIdealSummaryMarkdown(track, answers, pageContext, {
+    includeEstimate,
+  })
+  const messageDraft = buildContactMessageDraft(
+    track,
+    answers,
+    summaryBody,
+    pageContext,
+  )
   return buildConciergeContactUrl(serviceId, messageDraft, summaryBody)
 }
 

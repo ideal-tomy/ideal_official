@@ -6,14 +6,28 @@ export function PhilosophyCallout() {
     <div className="border-b border-blue-400 bg-gray-900/50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center">
         <p className={`${typography.body} ${colors.text.muted}`}>
-          DAOの思想・研究については{' '}
+          DAOの思想・研究は{' '}
+          <Link
+            href="/lab"
+            className="text-cyan-400 hover:text-cyan-300 underline underline-offset-2"
+          >
+            LAB
+          </Link>
+          {' '}（
           <Link
             href="/philosophy"
             className="text-cyan-400 hover:text-cyan-300 underline underline-offset-2"
           >
-            DAO研究・取り組み
+            Philosophy
           </Link>
-          {' '}をご覧ください。本ページはトークン設計・スマートコントラクト実装・組織ルールの実務領域です。
+          ・
+          <Link
+            href="/research"
+            className="text-cyan-400 hover:text-cyan-300 underline underline-offset-2"
+          >
+            Research
+          </Link>
+          ）へ。本ページはトークン設計・スマートコントラクト実装・組織ルールの実務領域です。
         </p>
       </div>
     </div>

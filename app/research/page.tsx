@@ -5,7 +5,7 @@ import { detailPages, getPhilosophySectionLabel } from '@/data/research/detail-p
 import type { PhilosophySectionId } from '@/data/philosophy/solution-links'
 
 export const metadata: Metadata = {
-  title: 'Research Demos | ideal',
+  title: 'Research | LAB | ideal',
   description:
     'Proof of Contribution の技術提案デモ一覧。概念別の詳細ページとインタラクティブ LP へ。',
 }
@@ -13,10 +13,20 @@ export const metadata: Metadata = {
 export default function ResearchHubPage() {
   return (
     <div className="bg-black min-h-screen">
+      <div className="border-b border-blue-400/40 bg-gray-900/40">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-3 text-sm text-gray-400">
+          <Link href="/lab" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+            ← LAB
+          </Link>
+          <span className="mx-2 text-gray-600">/</span>
+          <span className="text-gray-300">Research</span>
+        </div>
+      </div>
+
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
         <header className="mb-12 lg:mb-16">
           <p className="text-xs font-medium tracking-[0.2em] uppercase text-blue-400/90 mb-3">
-            Research
+            Research · LAB
           </p>
           <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4">技術提案デモ</h1>
           <p className="text-lg text-gray-200 leading-relaxed max-w-2xl">

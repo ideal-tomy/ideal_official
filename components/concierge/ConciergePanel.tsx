@@ -9,6 +9,8 @@ interface ConciergePanelProps {
   open: boolean
   onClose: () => void
   title: string
+  /** 閲覧中ページの短いラベル（文脈オープン時） */
+  contextLabel?: string
   children: ReactNode
 }
 
@@ -16,6 +18,7 @@ export function ConciergePanel({
   open,
   onClose,
   title,
+  contextLabel,
   children,
 }: ConciergePanelProps) {
   return (
@@ -38,8 +41,9 @@ export function ConciergePanel({
       }
       subtitle={
         <p className={`${typography.caption} ${colors.text.muted}`}>
-          選択内容を整理し、お問い合わせに引き継ぎます（チャット AI は未接続の
-          MVP です）。
+          {contextLabel
+            ? `「${contextLabel}」を起点に整理し、お問い合わせへ引き継ぎます。`
+            : '選択内容を整理し、お問い合わせに引き継ぎます。'}
         </p>
       }
     >

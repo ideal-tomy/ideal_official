@@ -49,17 +49,17 @@ export function ServicesDropdown({ serviceLinks }: ServicesDropdownProps) {
           flex items-center gap-1
         `}
       >
-        Services
-        <svg 
+        サービス
+        <svg
           className={`w-4 h-4 ${transitions.all} ${isServicesDropdownOpen ? 'rotate-180' : ''}`}
-          fill="none" 
-          stroke="currentColor" 
+          fill="none"
+          stroke="currentColor"
           viewBox="0 0 24 24"
         >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
         </svg>
       </button>
-      
+
       {isServicesDropdownOpen && (
         <div className="absolute top-full left-0 mt-2 w-64 bg-gray-900 border border-gray-700 rounded-lg shadow-xl z-50">
           <div className="py-2">
@@ -84,6 +84,15 @@ export function ServicesDropdown({ serviceLinks }: ServicesDropdownProps) {
               onClick={() => setIsServicesDropdownOpen(false)}
             >
               すべてのサービスを見る
+            </Link>
+            <Link
+              href="/lab"
+              scroll
+              prefetch={false}
+              className="block px-4 py-2 text-xs text-gray-500 hover:bg-gray-800 hover:text-gray-300 transition-colors"
+              onClick={() => setIsServicesDropdownOpen(false)}
+            >
+              BC / Metaverse・研究は LAB へ
             </Link>
           </div>
         </div>

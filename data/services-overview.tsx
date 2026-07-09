@@ -27,12 +27,12 @@ export const servicesOverviewData: ServiceOverviewData[] = [
   },
   {
     id: 'app-development',
-    title: 'アプリ開発',
-    description: 'iOS・Android、クロスプラットフォーム、スマホゲームまで幅広く対応します。',
+    title: 'Webアプリ・業務ツール',
+    description: 'Excelや手作業の業務を、動くWebアプリや業務ツールに変えます。',
     image: '/images/top_app.png',
     link: '/services/app-development',
-    linkText: 'アプリ開発詳細へ>>',
-    category: 'アプリ開発',
+    linkText: '操作デモを見る →',
+    category: '業務ツール',
     featured: true,
   },
   {
@@ -47,13 +47,13 @@ export const servicesOverviewData: ServiceOverviewData[] = [
   },
   {
     id: 'blockchain-development',
-    title: 'ブロックチェーン・DAO',
-    description: 'トークン、スマートコントラクト、DAOガバナンス・組織ルールメイクまで支援します。',
+    title: 'Blockchain / DAO',
+    description: '分散型技術の思想・研究・実験。Philosophy、Research、PoCデモへの入口。',
     image: '/images/sv_bc.png',
-    link: '/services/blockchain-development',
-    linkText: 'ブロックチェーン・DAO詳細へ>>',
-    category: 'ブロックチェーン',
-    featured: true,
+    link: '/lab/blockchain',
+    linkText: 'LAB を見る →',
+    category: 'LAB',
+    featured: false,
   },
 ]
 

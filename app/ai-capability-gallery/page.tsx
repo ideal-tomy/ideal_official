@@ -86,6 +86,26 @@ export default function AiCapabilityGalleryPage() {
         <></>
       </SingleColumnSection>
 
+      <section className="bg-black py-12 border-t border-gray-800">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-xs tracking-[0.2em] uppercase text-blue-400/90 mb-3">
+            Cases
+          </p>
+          <h2 className="text-2xl font-bold text-white mb-3">
+            業界の流れに、置き換えてみる
+          </h2>
+          <p className="text-sm text-gray-400 mb-6 leading-relaxed">
+            建設の現場写真整理など、Before / After の業務フローから自社への当てはめを考えられます。
+          </p>
+          <a
+            href="/cases"
+            className="inline-flex items-center text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-colors"
+          >
+            事例を読む →
+          </a>
+        </div>
+      </section>
+
       <GalleryCta />
     </div>
   )
