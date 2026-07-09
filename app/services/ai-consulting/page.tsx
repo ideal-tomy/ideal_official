@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import { HeroSection } from '../../../components/sections/HeroSection'
 import { ServiceNavigation } from '../../../components/sections/ServiceNavigation'
@@ -58,7 +59,29 @@ export default function AIConsultingPage() {
 
       <ServiceIntroBanner {...serviceIntroContent['ai-consulting']} />
 
-
+      <div className="border-b border-blue-400">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+          <div className="rounded-xl border border-blue-400/25 bg-blue-500/5 p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div>
+              <p className="text-xs font-medium tracking-[0.2em] uppercase text-blue-400/90 mb-2">
+                Demo Gallery
+              </p>
+              <h2 className="text-xl font-semibold text-white mb-2">
+                AI Capability Demo Gallery
+              </h2>
+              <p className="text-sm text-gray-300 leading-relaxed max-w-xl">
+                7つの業務変化パターンを、実際に触って体験できます。まずは写真の自動分類デモからお試しください。
+              </p>
+            </div>
+            <Link
+              href="/ai-capability-gallery"
+              className="inline-flex shrink-0 items-center justify-center rounded-lg bg-blue-500 px-6 py-3 text-sm font-bold text-white hover:bg-blue-600 transition-colors"
+            >
+              デモギャラリーを見る →
+            </Link>
+          </div>
+        </div>
+      </div>
 
       {/* 1. AI技術の可能性 - 単一カラムセクション */}
       <div className="border-b border-blue-400">
