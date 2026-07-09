@@ -116,7 +116,6 @@ export function PageTransition({
   const prefersReduced = usePrefersReducedMotion()
   const { setPhase, setIsInitialLoad } = useRouteMotion()
   const variants = pageVariants(variant, prefersReduced)
-  const wrapperRef = useRef<HTMLDivElement>(null)
   const prevRouteKey = useRef(routeKey)
   const isFirstMount = useRef(true)
 
@@ -130,36 +129,20 @@ export function PageTransition({
     if (prevRouteKey.current !== routeKey) {
       prevRouteKey.current = routeKey
       setIsInitialLoad(false)
-      setPhase('exiting')
-
-      if (wrapperRef.current) {
-        wrapperRef.current.style.opacity = '0'
-      }
+      // popLayout では新ページが即 mount されるため、
+      // HeroReveal が並列開始できるよう entering を先に立てる
+      setPhase('entering')
     }
   }, [routeKey, setPhase, setIsInitialLoad])
 
-  const handleExitComplete = () => {
-    setPhase('entering')
-  }
-
   const handleAnimationComplete = (definition: string) => {
     if (definition !== 'animate') return
-
-    if (wrapperRef.current) {
-      wrapperRef.current.style.opacity = ''
-    }
-
     setPhase('ready')
   }
 
   return (
-    <AnimatePresence
-      initial={false}
-      mode="wait"
-      onExitComplete={handleExitComplete}
-    >
+    <AnimatePresence initial={false} mode="popLayout">
       <motion.div
-        ref={wrapperRef}
         key={routeKey}
         initial="initial"
         animate="animate"

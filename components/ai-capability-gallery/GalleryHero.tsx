@@ -1,22 +1,28 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { typography, colors, layout } from '@/lib/design-tokens'
 import { Button } from '@/components/ui/Button'
 import { HeroReveal } from '@/components/motion/HeroReveal'
-import { HeroBackground } from '@/components/motion/HeroBackground'
 import { HeroScrollHint } from '@/components/motion/HeroScrollHint'
+import { galleryImages } from '@/data/ai-capability-gallery/capabilities'
 
 export function GalleryHero() {
   return (
     <section className="relative flex min-h-[calc(100svh-4rem)] lg:min-h-[calc(100svh-5rem)] items-center justify-center overflow-hidden">
-      <HeroBackground />
-
-      <div
-        className="pointer-events-none absolute inset-0 z-[1] opacity-40"
+      <Image
+        src={galleryImages.hero}
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-center"
         aria-hidden="true"
-      >
-        <div className="absolute top-1/4 left-1/4 h-64 w-64 rounded-full bg-blue-500/10 blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 h-72 w-72 rounded-full bg-cyan-500/10 blur-3xl" />
-      </div>
+      />
+      {/* 可読性のためのオーバーレイ（画像はフルブリードのまま） */}
+      <div
+        className="absolute inset-0 z-[1] bg-gradient-to-b from-black/75 via-black/55 to-black/85"
+        aria-hidden="true"
+      />
 
       <HeroReveal className={`relative z-10 ${layout.container} text-center`}>
         <p className="text-xs font-medium tracking-[0.2em] uppercase text-blue-400/90 mb-4">

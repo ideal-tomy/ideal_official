@@ -31,7 +31,8 @@ export function HeroScrollHint({
 
   useEffect(() => {
     if (prefersReduced) return
-    if (phase !== 'ready') return
+    // HeroReveal と揃えて enter 開始から計測（ready 待ちしない）
+    if (phase !== 'entering' && phase !== 'ready') return
 
     const contentDelay = isInitialLoad
       ? heroMotion.initialContentDelay

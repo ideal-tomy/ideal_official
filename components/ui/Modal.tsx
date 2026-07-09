@@ -53,29 +53,31 @@ export function Modal({
         {buttonText}
       </button>
 
-      <PremiumDialog
-        open={isOpen}
-        onClose={closeModal}
-        panelClassName={`
-          ${colors.bg.secondary} ${borders.border}
-          p-6 ${getMaxWidth()}
-        `}
-        title={
-          title ? (
-            <Dialog.Title
-              as="h3"
-              className={`${typography.h3} ${colors.text.primary}`}
-            >
-              {title}
-            </Dialog.Title>
-          ) : undefined
-        }
-        footer={<ModalCloseFooter onClose={closeModal} />}
-      >
-        <div className={`${typography.body} ${colors.text.secondary}`}>
-          {children}
-        </div>
-      </PremiumDialog>
+      {isOpen ? (
+        <PremiumDialog
+          open={isOpen}
+          onClose={closeModal}
+          panelClassName={`
+            ${colors.bg.secondary} ${borders.border}
+            p-6 ${getMaxWidth()}
+          `}
+          title={
+            title ? (
+              <Dialog.Title
+                as="h3"
+                className={`${typography.h3} ${colors.text.primary}`}
+              >
+                {title}
+              </Dialog.Title>
+            ) : undefined
+          }
+          footer={<ModalCloseFooter onClose={closeModal} />}
+        >
+          <div className={`${typography.body} ${colors.text.secondary}`}>
+            {children}
+          </div>
+        </PremiumDialog>
+      ) : null}
     </>
   )
 }

@@ -37,17 +37,17 @@ export const routeMotion: Record<RouteMotionVariant, RouteMotionConfig> = {
     curve: [0.33, 1, 0.68, 1],
   },
   crossfade: {
-    duration: 0.12,
-    reverse: 0.45,
+    duration: 0.18,
+    reverse: 0.2,
     fadeEnd: 1,
     curve: [0.45, 0, 0.55, 1],
   },
 } as const
 
-/** ページ遷移の enter / exit を非対称に制御（crossfade 用） */
+/** ページ遷移の enter / exit（sync クロスフェード用。exit 待ちを短く重ねる） */
 export const routeTransition = {
-  exitDuration: 0.45,
-  enterDuration: 0.12,
+  exitDuration: 0.2,
+  enterDuration: 0.18,
   curve: [0.45, 0, 0.55, 1] as const,
 } as const
 
@@ -61,14 +61,14 @@ export const popupMotion = {
   backdropBlurPx: 8,
 } as const
 
-/** ヒーロー内要素の段階フェード */
+/** ヒーロー内要素の段階フェード（ページ enter と並列開始） */
 export const heroMotion = {
-  /** 新ページ着地後、ヒーロー表示開始までの待機 */
-  contentDelay: 0.15,
-  /** 初回ロード時は exit 待ちがないため短め */
-  initialContentDelay: 0.1,
-  staggerDelay: 0.12,
-  itemDuration: 0.65,
+  /** ページ enter 開始後、ヒーロー表示までの待機 */
+  contentDelay: 0.05,
+  /** 初回ロード時 */
+  initialContentDelay: 0.04,
+  staggerDelay: 0.08,
+  itemDuration: 0.4,
 } as const
 
 /** トップ Hero の HeroReveal 子要素数（h1, p, CTA） */

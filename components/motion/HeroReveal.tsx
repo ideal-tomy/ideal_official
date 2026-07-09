@@ -37,7 +37,8 @@ export function HeroReveal({ children, className = '' }: HeroRevealProps) {
       return
     }
 
-    if (phase !== 'ready') return
+    // ページ enter と並列開始（ready 待ちしない）
+    if (phase !== 'entering' && phase !== 'ready') return
 
     const contentDelay = isInitialLoad
       ? heroMotion.initialContentDelay

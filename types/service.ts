@@ -54,7 +54,9 @@ export interface ModalProps {
 // モーダルトリガーのProps型定義
 export interface ModalTriggerProps {
   children: React.ReactNode
-  modalContent: React.ReactNode
+  modalContent?: React.ReactNode
+  modalId?: string
+  loadModalContent?: (id: string) => Promise<React.ReactNode>
   buttonText?: string
   title?: string
   size?: 'sm' | 'md' | 'lg' | 'xl'
