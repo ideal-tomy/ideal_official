@@ -1,7 +1,8 @@
 # ideal サイト体験再設計 — 実装プラン
 
 最終更新: 2026-07-10  
-設計本体: [`SITE_EXPERIENCE_REDESIGN.md`](./SITE_EXPERIENCE_REDESIGN.md)
+設計本体: [`SITE_EXPERIENCE_REDESIGN.md`](./SITE_EXPERIENCE_REDESIGN.md)  
+導線監査: [`UX_AUDIT.md`](./UX_AUDIT.md) / E2E: [`e2e/`](../e2e/)
 
 ## 方針
 
