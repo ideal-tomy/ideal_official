@@ -48,8 +48,8 @@ export default function PhotoToClassificationPage() {
             </div>
           }
           rightContent={
-            <div className="p-6 rounded-xl border border-cyan-500/20 bg-cyan-500/5">
-              <p className="text-xs uppercase tracking-wider text-cyan-400/80 mb-2">
+            <div className="p-6 rounded-xl border border-brand/20 bg-brand/5">
+              <p className="text-xs uppercase tracking-wider text-brand/80 mb-2">
                 {photoDetailPage.afterTitle}
               </p>
               <p className="text-gray-200 leading-relaxed">{photoDetailPage.afterText}</p>
@@ -61,7 +61,7 @@ export default function PhotoToClassificationPage() {
 
         <div className="rounded-xl border border-gray-800 bg-gray-900/40 p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
-            <p className="text-xs tracking-[0.16em] text-cyan-400/90 mb-1">Cases</p>
+            <p className="text-xs tracking-[0.16em] text-brand/90 mb-1">Cases</p>
             <p className="text-white font-semibold mb-1">
               建設現場では、どう置き換わるか
             </p>
@@ -71,7 +71,7 @@ export default function PhotoToClassificationPage() {
           </div>
           <Link
             href="/cases/industries/construction-photo-sorting"
-            className="inline-flex shrink-0 items-center justify-center rounded-lg border border-blue-400/40 px-5 py-2.5 text-sm font-medium text-blue-300 hover:bg-blue-500/10 transition-colors"
+            className="inline-flex shrink-0 items-center justify-center rounded-lg border border-brand/40 px-5 py-2.5 text-sm font-medium text-brand-hover hover:bg-brand/10 transition-colors"
           >
             事例を読む →
           </Link>

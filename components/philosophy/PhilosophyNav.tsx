@@ -57,7 +57,7 @@ export function PhilosophyNav() {
                 href={`#${item.id}`}
                 className={`inline-block px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-colors duration-200 ${
                   activeId === item.id
-                    ? 'bg-blue-500/20 text-blue-300 border border-blue-400/40'
+                    ? 'bg-brand/20 text-brand-hover border border-brand/40'
                     : 'text-gray-400 hover:text-gray-200 border border-transparent'
                 }`}
               >
@@ -83,7 +83,7 @@ export function PhilosophyNav() {
                 href={`#${item.id}`}
                 className={`block pl-4 py-2 text-sm leading-snug border-l-2 -ml-px transition-colors duration-200 ${
                   activeId === item.id
-                    ? 'border-blue-400 text-blue-300 font-medium'
+                    ? 'border-brand text-brand-hover font-medium'
                     : 'border-transparent text-gray-500 hover:text-gray-300 hover:border-gray-600'
                 }`}
               >
@@ -95,7 +95,7 @@ export function PhilosophyNav() {
         <div className="mt-8 pt-6 border-t border-gray-800">
           <Link
             href="/research"
-            className="block pl-4 text-sm text-gray-400 hover:text-blue-400 transition-colors duration-200"
+            className="block pl-4 text-sm text-gray-400 hover:text-brand transition-colors duration-200"
           >
             Research Demos →
           </Link>

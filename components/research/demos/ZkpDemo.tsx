@@ -58,8 +58,8 @@ export function ZkpDemo() {
             証明する主張：<strong className="text-white">{zkpClaims[idx].claim}</strong>
           </p>
           <p className="font-mono text-xs text-gray-400 mb-4 break-all">{proof}</p>
-          <p className="flex items-center gap-2 text-sm text-cyan-400 mb-6">
-            <span className="w-2 h-2 rounded-full bg-cyan-400" />
+          <p className="flex items-center gap-2 text-sm text-brand mb-6">
+            <span className="w-2 h-2 rounded-full bg-brand-hover" />
             検証成功 — VALID（生データ参照ゼロ）
           </p>
           <button

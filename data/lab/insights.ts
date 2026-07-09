@@ -70,7 +70,7 @@ export const labInsights: LabInsight[] = [
     category: 'ai',
     publishedAt: '2026-07-10',
     relatedHref: '/ai-capability-gallery',
-    relatedLabel: 'デモを体験する',
+    relatedLabel: 'デモを体験',
     sections: [
       {
         heading: '技術要素',

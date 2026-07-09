@@ -62,7 +62,7 @@ export default async function LabInsightPage({ params }: PageProps) {
                 <li key={item.slug}>
                   <Link
                     href={`/lab/insights/${item.slug}`}
-                    className="text-sm text-blue-400 hover:text-blue-300 transition-colors"
+                    className="text-sm text-brand hover:text-brand-hover transition-colors"
                   >
                     {item.title} →
                   </Link>

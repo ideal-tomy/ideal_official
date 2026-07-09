@@ -56,15 +56,15 @@ export const webDevelopmentData: ServicePageData = {
                 </p>
                 <div className="space-y-4">
                   <div>
-                    <h4 className="font-semibold text-blue-400 mb-2">1. Next.jsによる超高速パフォーマンス</h4>
+                    <h4 className="font-semibold text-brand mb-2">1. Next.jsによる超高速パフォーマンス</h4>
                     <p className="text-gray-300">私たちは、React/Next.jsなどのモダンな技術スタックを採用し、従来のWebサイトとは比較にならないほどの表示速度を実現します。訪問者にストレスを与えない瞬時のレスポンスは、SEO評価（検索順位）の向上と離脱率の大幅な改善に直結します。</p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-blue-400 mb-2">2. モバイルファーストの完全レスポンシブ設計</h4>
+                    <h4 className="font-semibold text-brand mb-2">2. モバイルファーストの完全レスポンシブ設計</h4>
                     <p className="text-gray-300">PC、タブレット、スマートフォン。あらゆるデバイスでデザインが最適化されるのは当然のこと。私たちはさらに一歩進み、どのデバイスからアクセスしても「使いやすく」「美しく」感じられる、真のモバイルファーストUI/UXを設計します。</p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-blue-400 mb-2">3. CMS連携による「育てられる」サイト</h4>
+                    <h4 className="font-semibold text-brand mb-2">3. CMS連携による「育てられる」サイト</h4>
                     <p className="text-gray-300">お知らせやブログ、実績紹介など、お客様自身で簡単に情報を更新できるヘッドレスCMS（microCMSなど）との連携を標準でご提案。「作って終わり」ではなく、ビジネスの成長と共に「育てていける」資産としてのWebサイトを構築します。</p>
                   </div>
                 </div>
@@ -85,15 +85,15 @@ export const webDevelopmentData: ServicePageData = {
                 </p>
                 <div className="space-y-4">
                   <div>
-                    <h4 className="font-semibold text-blue-400 mb-2">1. Shopify / Shopify Plus カスタマイズ</h4>
+                    <h4 className="font-semibold text-brand mb-2">1. Shopify / Shopify Plus カスタマイズ</h4>
                     <p className="text-gray-300">世界No.1シェアのShopifyをベースに、貴社のブランドイメージに合わせた独自のデザイン（カスタムテーマ）や、特殊な販売ロジック（定期購入、B2B卸売など）を実現するアプリ開発を行います。グローバル展開、大規模トラフィックにも耐えうるスケーラビリティが魅力です。</p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-blue-400 mb-2">2. Headless Commerce（ヘッドレスコマース）</h4>
+                    <h4 className="font-semibold text-brand mb-2">2. Headless Commerce（ヘッドレスコマース）</h4>
                     <p className="text-gray-300">フロントエンド（Next.js）とバックエンド（Shopify APIなど）を分離する最先端の「ヘッドレス」構成にも対応。これにより、アプリのような滑らかな操作感（UI/UX）と、ECプラットフォームの枠に縛られない自由なデザイン・機能実装を両立させることが可能です。</p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-blue-400 mb-2">3. 万全のセキュリティと決済システム</h4>
+                    <h4 className="font-semibold text-brand mb-2">3. 万全のセキュリティと決済システム</h4>
                     <p className="text-gray-300">クレジットカード情報の安全な取り扱い（PCI DSS準拠）はもちろん、各種決済（Amazon Pay, Apple Payなど）への対応、在庫管理システムやCRMとのAPI連携まで、Eコマース運営に必要な全てをワンストップで構築します。</p>
                   </div>
                 </div>
@@ -114,15 +114,15 @@ export const webDevelopmentData: ServicePageData = {
                 </p>
                 <div className="space-y-4">
                   <div>
-                    <h4 className="font-semibold text-blue-400 mb-2">1. 業務効率化システム</h4>
+                    <h4 className="font-semibold text-brand mb-2">1. 業務効率化システム</h4>
                     <p className="text-gray-300">Excelやスプレッドシートでの属人的な管理から脱却しませんか？ 案件管理（CRM）、予約システム、在庫管理、社内ポータルなど、貴社のワークフローをデジタル化し、生産性を劇的に向上させるシステムを構築します。</p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-blue-400 mb-2">2. 顧客向け（B2C）Webサービス</h4>
+                    <h4 className="font-semibold text-brand mb-2">2. 顧客向け（B2C）Webサービス</h4>
                     <p className="text-gray-300">会員制サイト、マッチングプラットフォーム、サブスクリプション管理、オンライン学習（e-ラーニング）システムなど、ユーザーに新しい価値を提供する独自のWebサービス開発を、要件定義からインフラ構築、運用保守まで一貫してサポートします。</p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-blue-400 mb-2">3. 堅牢なバックエンドとデータベース設計</h4>
+                    <h4 className="font-semibold text-brand mb-2">3. 堅牢なバックエンドとデータベース設計</h4>
                     <p className="text-gray-300">Node.js, Python, Goなどのモダンなバックエンド技術と、MySQL, PostgreSQL, MongoDBなどのデータベースを最適に組み合わせ、大量のデータを高速かつ安全に処理するシステムの「心臓部」を設計・構築します。</p>
                   </div>
                 </div>
@@ -227,19 +227,19 @@ export const webDevelopmentData: ServicePageData = {
                 </p>
                 <div className="space-y-4">
                   <div>
-                    <h4 className="font-semibold text-blue-400 mb-2">1. フロントエンド（UI/UX）</h4>
+                    <h4 className="font-semibold text-brand mb-2">1. フロントエンド（UI/UX）</h4>
                     <p className="text-gray-300">訪問者の「第一印象」を決めるフロントエンドには、React (Next.js)を採用。サーバーサイドレンダリング（SSR）と静的サイト生成（SSG）を駆使し、圧倒的な表示速度と最高のSEOパフォーマンス、アプリのような滑らかなユーザー体験を実現します。</p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-blue-400 mb-2">2. バックエンド（API・サーバーサイド）</h4>
+                    <h4 className="font-semibold text-brand mb-2">2. バックエンド（API・サーバーサイド）</h4>
                     <p className="text-gray-300">ECサイトの決済処理、Webアプリケーションの複雑なロジック、CMSとの連携など、システムの「頭脳」となるバックエンドを構築。Node.js, Python, Goなどを用い、高速でスケーラブルなAPI（ヘッドレスアーキテクチャ）を設計します。</p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-blue-400 mb-2">3. データベース（DB）</h4>
+                    <h4 className="font-semibold text-brand mb-2">3. データベース（DB）</h4>
                     <p className="text-gray-300">顧客情報、商品データ、コンテンツを安全かつ効率的に管理するデータベースは、Webサイトの「金庫」です。リレーショナルDB（MySQL, PostgreSQL）からNoSQL（MongoDB）まで、データの特性に応じて最適なDBを選定・設計します。</p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-blue-400 mb-2">4. インフラ（クラウド）</h4>
+                    <h4 className="font-semibold text-brand mb-2">4. インフラ（クラウド）</h4>
                     <p className="text-gray-300">Next.jsとの親和性が最も高いVercelへのデプロイを標準とし、自動化されたCI/CDパイプラインを構築。より複雑な要件にはAWSやGCPを活用し、高い可用性とセキュリティを備えたインフラ環境を提供します。</p>
                   </div>
                 </div>
@@ -260,15 +260,15 @@ export const webDevelopmentData: ServicePageData = {
                 </p>
                 <div className="space-y-4">
                   <div>
-                    <h4 className="font-semibold text-blue-400 mb-2">1. 戦略的な要件定義</h4>
+                    <h4 className="font-semibold text-brand mb-2">1. 戦略的な要件定義</h4>
                     <p className="text-gray-300">私たちは「何が欲しいか」ではなく、「なぜそれが必要か」からヒアリングします。貴社のビジネス目標（KGI）を達成するために、Webサイトが果たすべき役割（KPI）を明確に定義。単なる機能一覧ではない、「成果につながる」要件定義を行います。</p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-blue-400 mb-2">2. コンテンツ戦略</h4>
+                    <h4 className="font-semibold text-brand mb-2">2. コンテンツ戦略</h4>
                     <p className="text-gray-300">「誰に、何を、どのように伝えるか」というコンテンツ戦略は、デザインや技術と同じくらい重要です。ターゲットユーザーのペルソナを設計し、SEOを意識した情報アーキテクチャ（サイト構造）と、ブランドの「声」を反映したコンテンツ計画を策定します。</p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-blue-400 mb-2">3. マーケティング・運用体制</h4>
+                    <h4 className="font-semibold text-brand mb-2">3. マーケティング・運用体制</h4>
                     <p className="text-gray-300">Webサイトは「公開」がスタートです。Google Analytics (GA4) の高度な設定によるアクセス解析、SEO対策、公開後の保守・運用体制の構築までを見据え、「育てていける」Webサイトの運用フローを設計・提案します。</p>
                   </div>
                 </div>
@@ -289,15 +289,15 @@ export const webDevelopmentData: ServicePageData = {
                 </p>
                 <div className="space-y-4">
                   <div>
-                    <h4 className="font-semibold text-blue-400 mb-2">1. UI/UXデザイナー</h4>
+                    <h4 className="font-semibold text-brand mb-2">1. UI/UXデザイナー</h4>
                     <p className="text-gray-300">訪問者が「心地よい」と感じ、「迷わず」ゴールに到達できるか。design.md に基づく美的な「高級感」と、ユーザー心理に基づいた機能的な「使いやすさ」を両立する、最先端のUI/UXを設計します。</p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-blue-400 mb-2">2. フロントエンド / バックエンド開発者</h4>
+                    <h4 className="font-semibold text-brand mb-2">2. フロントエンド / バックエンド開発者</h4>
                     <p className="text-gray-300">デザイナーの意図を1ピクセルの狂いなくコードに落とし込むフロントエンドと、セキュリティとパフォーマンスを担保するバックエンド。それぞれの領域に特化したエンジニアが、高品質な実装を担います。</p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-blue-400 mb-2">3. プロジェクトマネージャー（PM）</h4>
+                    <h4 className="font-semibold text-brand mb-2">3. プロジェクトマネージャー（PM）</h4>
                     <p className="text-gray-300">開発チームと貴社との「橋渡し役」です。concept.md に基づくアジャイルな進行管理、厳格な品質テスト、そして何より「ビジネス目標が達成されているか」という視点を持ち続け、プロジェクト全体を成功に導きます。</p>
                   </div>
                 </div>
@@ -318,15 +318,15 @@ export const webDevelopmentData: ServicePageData = {
             <h3 className="text-xl font-semibold text-white mb-4">市場動向と消費者変化</h3>
             <ul className="space-y-3 text-gray-300">
               <li className="flex items-start">
-                <span className="w-2 h-2 bg-blue-400 rounded-full mr-3 mt-2 flex-shrink-0"></span>
+                <span className="w-2 h-2 bg-brand rounded-full mr-3 mt-2 flex-shrink-0"></span>
                 <span>モバイルファーストの時代で、レスポンシブ対応が必須に</span>
               </li>
               <li className="flex items-start">
-                <span className="w-2 h-2 bg-blue-400 rounded-full mr-3 mt-2 flex-shrink-0"></span>
+                <span className="w-2 h-2 bg-brand rounded-full mr-3 mt-2 flex-shrink-0"></span>
                 <span>グローバル市場での競争力強化のため、多言語対応が重要に</span>
               </li>
               <li className="flex items-start">
-                <span className="w-2 h-2 bg-blue-400 rounded-full mr-3 mt-2 flex-shrink-0"></span>
+                <span className="w-2 h-2 bg-brand rounded-full mr-3 mt-2 flex-shrink-0"></span>
                 <span>ユーザー体験の質が、ビジネスの成功を左右する</span>
               </li>
             </ul>
@@ -378,15 +378,15 @@ export const webDevelopmentData: ServicePageData = {
                       </p>
                       <div className="space-y-4">
                         <div>
-                          <h4 className="font-semibold text-blue-400 mb-2">Next.jsによるパフォーマンス最適化</h4>
+                          <h4 className="font-semibold text-brand mb-2">Next.jsによるパフォーマンス最適化</h4>
                           <p className="text-gray-300">サーバーサイドレンダリング（SSR）と静的サイト生成（SSG）をハイブリッドに活用し、従来のReact（SPA）では難しかった「初期表示の高速化」と「SEOの最大化」を両立。訪問者にストレスを感じさせない、シームレスな&ldquo;宇宙&rdquo;のような操作体験を提供します。</p>
                         </div>
                         <div>
-                          <h4 className="font-semibold text-blue-400 mb-2">TypeScriptによる堅牢な設計</h4>
+                          <h4 className="font-semibold text-brand mb-2">TypeScriptによる堅牢な設計</h4>
                           <p className="text-gray-300">大規模なアプリケーションになるほど、コードの品質維持は困難になります。私たちはTypeScriptによる厳格な型定義を導入し、開発段階でのバグを徹底的に排除。concept.md に基づく保守性・拡張性の高いコードベースを構築します。</p>
                         </div>
                         <div>
-                          <h4 className="font-semibold text-blue-400 mb-2">コンポーネントベースのUI構築</h4>
+                          <h4 className="font-semibold text-brand mb-2">コンポーネントベースのUI構築</h4>
                           <p className="text-gray-300">Reactの最大の強みである「コンポーネントベース開発」を徹底。design-tokens.ts と連携した再利用可能なUI部品を構築し、ブランド全体で一貫した「高級感」のあるデザインシステムを実装します。</p>
                         </div>
                       </div>
@@ -407,11 +407,11 @@ export const webDevelopmentData: ServicePageData = {
                       </p>
                       <div className="space-y-4">
                         <div>
-                          <h4 className="font-semibold text-blue-400 mb-2">Tailwind CSSによるユーティリティファースト</h4>
+                          <h4 className="font-semibold text-brand mb-2">Tailwind CSSによるユーティリティファースト</h4>
                           <p className="text-gray-300">このプロジェクトでも採用しているTailwind CSSは、design-tokens.ts のようなデザインルールと最も相性の良いフレームワークです。HTML内に直接スタイルを記述することで、CSSファイルの肥大化を防ぎ、パフォーマンスを維持したまま「高級感」のあるデザインを迅速に実装できます。</p>
                         </div>
                         <div>
-                          <h4 className="font-semibold text-blue-400 mb-2">プロジェクトに応じた柔軟な選定</h4>
+                          <h4 className="font-semibold text-brand mb-2">プロジェクトに応じた柔軟な選定</h4>
                           <p className="text-gray-300">既存のBootstrapベースのサイト改修や、CSS-in-JS（Emotion, Styled Components）による動的なスタイリングが求められるReactアプリケーション開発など、要件に応じてあらゆるモダンな手法に対応。常に「パフォーマンス」と「保守性」を天秤にかけ、最適なアーキテクチャを提案します。</p>
                         </div>
                       </div>
@@ -432,11 +432,11 @@ export const webDevelopmentData: ServicePageData = {
                       </p>
                       <div className="space-y-4">
                         <div>
-                          <h4 className="font-semibold text-blue-400 mb-2">テーマカスタマイズとパフォーマンスチューニング</h4>
+                          <h4 className="font-semibold text-brand mb-2">テーマカスタマイズとパフォーマンスチューニング</h4>
                           <p className="text-gray-300">選定された高機能テーマをベースにしつつ、design.md のコンセプトに合わせてデザインを徹底的にカスタマイズします。また、WordPressサイトが陥りがちな「表示速度の低下」を防ぐため、不要なプラグインの精査、画像最適化、キャッシュ設定を施し、高速なサイト運用を実現します。</p>
                         </div>
                         <div>
-                          <h4 className="font-semibold text-blue-400 mb-2">Headless CMSとしての活用（最先端）</h4>
+                          <h4 className="font-semibold text-brand mb-2">Headless CMSとしての活用（最先端）</h4>
                           <p className="text-gray-300">「ブログの更新はWordPressの簡単な管理画面を使いたい。でも、サイトの表示はNext.jsで超高速にしたい」。この両立こそが、私たちの得意とする「ヘッドレスCMS」構成です。 WordPressを「データ（記事）を入れる箱」としてのみ利用し、フロントエンドはNext.jsで構築。これにより、WordPressのセキュリティリスクを大幅に低減しつつ、最先端のWebパフォーマンスを手に入れることが可能です。</p>
                         </div>
                       </div>
@@ -466,11 +466,11 @@ export const webDevelopmentData: ServicePageData = {
                       </p>
                       <div className="space-y-4">
                         <div>
-                          <h4 className="font-semibold text-blue-400 mb-2">競合分析とポジショニング</h4>
+                          <h4 className="font-semibold text-brand mb-2">競合分析とポジショニング</h4>
                           <p className="text-gray-300">競合他社がどのようなWeb戦略を取り、どの層にアプローチしているかを徹底的に分析。貴社が取るべき独自のポジション（立ち位置）と、ターゲットに響くメッセージ（concept.md）を明確にします。</p>
                         </div>
                         <div>
-                          <h4 className="font-semibold text-blue-400 mb-2">KGI/KPIの策定</h4>
+                          <h4 className="font-semibold text-brand mb-2">KGI/KPIの策定</h4>
                           <p className="text-gray-300">「お問い合わせ数」「EC売上」「資料請求数」など、Webサイトが達成すべき最終目標（KGI）と、それを達成するための中間指標（KPI）を具体的に設定。感覚的なデザインではなく、成果を測定できるWebサイトを設計します。</p>
                         </div>
                       </div>
@@ -491,11 +491,11 @@ export const webDevelopmentData: ServicePageData = {
                       </p>
                       <div className="space-y-4">
                         <div>
-                          <h4 className="font-semibold text-blue-400 mb-2">SEO（検索エンジン最適化）対策</h4>
+                          <h4 className="font-semibold text-brand mb-2">SEO（検索エンジン最適化）対策</h4>
                           <p className="text-gray-300">Googleのアルゴリズム変動を常に監視し、テクニカルSEO（内部構造の最適化）とコンテンツSEO（良質な記事の追加）の両面から、オーガニック検索からの流入を最大化します。</p>
                         </div>
                         <div>
-                          <h4 className="font-semibold text-blue-400 mb-2">アクセス解析と改善提案（PDCA）</h4>
+                          <h4 className="font-semibold text-brand mb-2">アクセス解析と改善提案（PDCA）</h4>
                           <p className="text-gray-300">Google Analytics 4 (GA4) などのツールを用い、ユーザーが「どこから来て」「どのページを見て」「どこで離脱したか」を詳細に分析。データに基づいた具体的な改善案（例: ボタンの配置変更、フォームの簡略化）を毎月提案し、コンバージョン率の改善（DEVELOPMENT_GUIDE.md）を続けます。</p>
                         </div>
                       </div>
@@ -516,11 +516,11 @@ export const webDevelopmentData: ServicePageData = {
                       </p>
                       <div className="space-y-4">
                         <div>
-                          <h4 className="font-semibold text-blue-400 mb-2">RDB・NoSQLの選定</h4>
+                          <h4 className="font-semibold text-brand mb-2">RDB・NoSQLの選定</h4>
                           <p className="text-gray-300">扱うデータの特性（構造化データか、非構造化データか）や将来的な拡張性を考慮し、MySQL, PostgreSQL（RDB）やMongoDB（NoSQL）など、最適なデータベース技術を選定します。</p>
                         </div>
                         <div>
-                          <h4 className="font-semibold text-blue-400 mb-2">API連携とデータ活用</h4>
+                          <h4 className="font-semibold text-brand mb-2">API連携とデータ活用</h4>
                           <p className="text-gray-300">バックエンド（Node.js, Pythonなど）とデータベースを安全に接続するAPIを設計。CRM（顧客管理システム）やSFA（営業支援システム）と連携させ、収集したデータを「顧客分析」や「マーケティングオートメーション」に活用する道筋までを構築します。</p>
                         </div>
                       </div>
@@ -556,31 +556,24 @@ export const webDevelopmentData: ServicePageData = {
   relatedServices: [
     {
       id: 'ai-consulting',
-      title: 'AI',
+      title: 'AIプロトタイプ・自動化',
       description: 'AI導入・活用コンサルティングサービス',
       tags: ['機械学習', '深層学習', '自然言語処理'],
-      href: '/services/ai-consulting'
+      href: '/services/ai-consulting',
     },
     {
       id: 'app-development',
-      title: 'Webアプリ・業務ツール',
+      title: 'Webアプリ・業務ツール開発',
       description: '業務Web・管理画面・現場入力ツールの開発',
       tags: ['業務Web', '管理画面', 'PWA'],
-      href: '/services/app-development'
-    },
-    {
-      id: 'game-development',
-      title: 'ゲーム制作',
-      description: 'モバイル・PCゲームの開発',
-      tags: ['Unity', 'Unreal Engine', 'ゲームデザイン'],
-      href: '/services/game-development'
+      href: '/services/app-development',
     },
     {
       id: 'blockchain-development',
       title: 'Blockchain / DAO Lab',
       description: '分散型技術の思想・研究・実験',
       tags: ['DAO', 'スマートコントラクト', 'Research'],
-      href: '/lab/blockchain'
-    }
-  ]
+      href: '/lab/blockchain',
+    },
+  ],
 }

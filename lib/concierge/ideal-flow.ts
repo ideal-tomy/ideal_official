@@ -20,28 +20,28 @@ export type RootChoice = FlowChoice & { track: IdealTrack }
 export const ROOT_CHOICES: RootChoice[] = [
   {
     id: 'root-web',
-    label: 'Webサイト・業務システムを作りたい / 作り直したい',
+    label: 'Webサイト・LPを作りたい / 作り直したい',
     track: 'web',
   },
   {
     id: 'root-app',
-    label: 'アプリ・ゲームを作りたい',
+    label: '業務ツール・Webアプリを作りたい',
     track: 'app',
   },
   {
     id: 'root-ai',
-    label: 'AI を業務やプロダクトに入れたい',
+    label: 'AIを業務やサービスに取り入れたい',
     track: 'ai',
   },
   {
-    id: 'root-bc',
-    label: 'ブロックチェーン・トークン・DAO まわりを整理したい',
-    track: 'bc',
+    id: 'root-unsure',
+    label: 'まだ決まっていないが、何ができるか相談したい',
+    track: 'unsure',
   },
   {
-    id: 'root-unsure',
-    label: 'まだわからないが、IT・AI・DX で何かした方がいい気がする',
-    track: 'unsure',
+    id: 'root-bc',
+    label: 'LAB領域について相談したい（Blockchain / DAO / Spatial 等）',
+    track: 'bc',
   },
 ]
 
@@ -73,8 +73,8 @@ export const STEPS_BY_TRACK: Record<IdealTrack, FlowStepDef[]> = {
       id: 'situation',
       question: 'いまの状況に近いものを選んでください',
       choices: [
-        { id: 'app-new', label: '新規でアプリやゲームをつくりたい' },
-        { id: 'app-grow', label: '既存プロダクトの改善・拡張をしたい' },
+        { id: 'app-new', label: '新規で業務ツールやWebアプリをつくりたい' },
+        { id: 'app-grow', label: '既存ツールの改善・拡張をしたい' },
         { id: 'app-poc', label: '技術検証・プロトタイプから始めたい' },
         { id: 'app-undecided', label: 'その他・まだ決まっていない' },
       ],
@@ -160,10 +160,10 @@ export const STEPS_BY_TRACK: Record<IdealTrack, FlowStepDef[]> = {
       question:
         'いちばん近い領域はどれですか？（あとから変えても大丈夫です）',
       choices: [
-        { id: 'near-web', label: 'Webサイト・業務システム' },
-        { id: 'near-app', label: 'アプリ・ゲーム' },
-        { id: 'near-ai', label: 'AI の活用' },
-        { id: 'near-bc', label: 'ブロックチェーン・DAO' },
+        { id: 'near-web', label: 'Webサイト・LP制作' },
+        { id: 'near-app', label: 'Webアプリ・業務ツール' },
+        { id: 'near-ai', label: 'AIプロトタイプ・自動化' },
+        { id: 'near-bc', label: 'LAB（Blockchain / Spatial 等）' },
       ],
     },
   ],

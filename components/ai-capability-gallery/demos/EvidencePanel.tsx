@@ -46,7 +46,7 @@ export function EvidencePanel({
                 w-full text-left text-xs px-2 py-1.5 rounded transition-colors
                 ${
                   active.id === source.id
-                    ? 'bg-blue-50 text-blue-700 border border-blue-200'
+                    ? 'bg-brand/10 text-brand-deep border border-brand/30'
                     : 'text-gray-600 hover:bg-gray-50'
                 }
               `}

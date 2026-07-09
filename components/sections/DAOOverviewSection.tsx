@@ -97,9 +97,9 @@ const DAOOverviewSection = React.memo(function DAOOverviewSection() {
           {featureCards.map((card) => (
             <div
               key={card.title}
-              className="bg-gray-800/80 border border-gray-700/50 rounded-lg p-6 text-center transition-colors duration-300 hover:border-blue-400/30"
+              className="bg-gray-800/80 border border-gray-700/50 rounded-lg p-6 text-center transition-colors duration-300 hover:border-brand/30"
             >
-              <div className="w-12 h-12 bg-blue-500/90 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-12 h-12 bg-brand/90 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg
                   className="w-6 h-6 text-white"
                   fill="none"

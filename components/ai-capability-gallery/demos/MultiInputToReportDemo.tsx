@@ -84,7 +84,7 @@ export function MultiInputToReportDemo() {
                     {section.sources.map((src) => (
                       <span
                         key={src}
-                        className="text-[10px] px-1.5 py-0.5 rounded bg-blue-50 text-blue-600 border border-blue-100"
+                        className="text-[10px] px-1.5 py-0.5 rounded bg-brand/10 text-brand border border-brand/20"
                       >
                         {src}
                       </span>

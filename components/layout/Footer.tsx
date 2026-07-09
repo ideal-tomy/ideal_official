@@ -61,7 +61,7 @@ export function Footer() {
                       hover:${colors.text.primary}
                       text-sm
                       transition-colors duration-300
-                      focus:outline-none focus:ring-2 focus:ring-blue-400
+                      focus:outline-none focus:ring-2 focus:ring-brand
                     `}
                   >
                     {link.label}
@@ -87,7 +87,7 @@ export function Footer() {
                       hover:${colors.text.primary}
                       text-sm
                       transition-colors duration-300
-                      focus:outline-none focus:ring-2 focus:ring-blue-400
+                      focus:outline-none focus:ring-2 focus:ring-brand
                     `}
                   >
                     {link.label}
@@ -104,7 +104,7 @@ export function Footer() {
                     hover:${colors.text.primary}
                     text-sm
                     transition-colors duration-300
-                    focus:outline-none focus:ring-2 focus:ring-blue-400
+                    focus:outline-none focus:ring-2 focus:ring-brand
                   `}
                 >
                   一覧
@@ -129,7 +129,7 @@ export function Footer() {
                       hover:${colors.text.primary}
                       text-sm
                       transition-colors duration-300
-                      focus:outline-none focus:ring-2 focus:ring-blue-400
+                      focus:outline-none focus:ring-2 focus:ring-brand
                     `}
                   >
                     {link.label}

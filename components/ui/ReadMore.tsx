@@ -45,12 +45,12 @@ export function ReadMore({
         onClick={toggleExpanded}
         className={`
           inline-flex items-center gap-1.5 text-sm sm:text-base font-medium
-          text-blue-400 hover:text-blue-300
+          text-brand hover:text-brand-hover
           px-4 py-2 rounded-lg
-          border border-blue-400/25 hover:border-blue-400/40
-          bg-blue-500/5 hover:bg-blue-500/10
+          border border-brand/25 hover:border-brand/40
+          bg-brand/5 hover:bg-brand/10
           cursor-pointer
-          focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/50
+          focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/50
           ${transitions.all}
         `}
         aria-expanded={isExpanded}

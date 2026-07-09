@@ -8,9 +8,9 @@ import { galleryImages } from '@/data/ai-capability-gallery/capabilities'
 
 export function DemoEntryBanner() {
   return (
-    <section className="bg-black py-16 md:py-20 border-y border-blue-400/30">
+    <section className="bg-black py-16 md:py-20 border-y border-brand/25">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-2xl border border-blue-400/25 min-h-[280px] md:min-h-[320px] flex items-center">
+        <div className="relative overflow-hidden rounded-2xl border border-brand/20 min-h-[280px] md:min-h-[320px] flex items-center">
           <Image
             src={galleryImages.hero}
             alt=""
@@ -25,7 +25,7 @@ export function DemoEntryBanner() {
           />
 
           <div className="relative z-10 p-8 md:p-12 max-w-xl">
-            <p className="text-xs font-medium tracking-[0.2em] uppercase text-blue-400/90 mb-3">
+            <p className="text-xs font-medium tracking-[0.2em] uppercase text-brand/90 mb-3">
               Demo Gallery
             </p>
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-snug">
@@ -38,13 +38,13 @@ export function DemoEntryBanner() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Link href="/ai-capability-gallery">
-                <Button variant="primary" size="lg">
-                  デモを体験する
+                <Button variant="secondary" size="lg">
+                  デモを体験
                 </Button>
               </Link>
               <OpenConciergeButton
                 serviceId="ai-consulting"
-                variant="secondary"
+                variant="outline"
                 size="lg"
               >
                 自社でも使えるか相談する

@@ -4,12 +4,12 @@ import {
 } from '@/data/research/environment-shifts'
 
 const accentBorder: Record<string, string> = {
-  signal: 'border-cyan-500/50',
+  signal: 'border-brand/50',
   value: 'border-amber-500/50',
 }
 
 const accentText: Record<string, string> = {
-  signal: 'text-cyan-400',
+  signal: 'text-brand',
   value: 'text-amber-400',
 }
 
@@ -29,7 +29,7 @@ export function EnvironmentShiftDemo() {
               <p className="font-semibold text-white text-sm md:text-base">{shift.theme}</p>
               <p className="text-gray-300 text-sm leading-relaxed">{shift.from}</p>
               <span className="hidden md:block text-gray-500 text-center pt-1">→</span>
-              <p className="text-gray-200 text-sm leading-relaxed border-l-2 border-cyan-500/50 pl-4 md:border-l-0 md:pl-0 md:border-t-2 md:pt-3">
+              <p className="text-gray-200 text-sm leading-relaxed border-l-2 border-brand/50 pl-4 md:border-l-0 md:pl-0 md:border-t-2 md:pt-3">
                 {shift.to}
               </p>
             </div>

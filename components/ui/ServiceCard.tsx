@@ -29,12 +29,12 @@ export function ServiceCard({
     switch (variant) {
       case 'feature':
         return `
-          bg-gradient-to-br from-blue-900/20 to-purple-900/20
-          border-blue-500/30 hover:border-blue-400
+          bg-gradient-to-br from-brand-deep/30 to-brand/20
+          border-brand/30 hover:border-brand
         `
       case 'technology':
         return `
-          bg-gradient-to-br from-green-900/20 to-cyan-900/20
+          bg-gradient-to-br from-brand-deep/20 to-brand/15
           border-green-500/30 hover:border-green-400
         `
       default:
@@ -70,7 +70,7 @@ export function ServiceCard({
             className={`
               px-3 py-1 text-sm rounded-full
               ${variant === 'feature' 
-                ? 'bg-blue-900/50 text-blue-300' 
+                ? 'bg-brand-deep/50 text-brand-hover' 
                 : variant === 'technology'
                 ? 'bg-green-900/50 text-green-300'
                 : 'bg-gray-800 text-gray-300'
@@ -91,7 +91,7 @@ export function ServiceCard({
         ${getVariantStyles()}
         ${transitions.all}
         ${onClick ? 'cursor-pointer' : ''}
-        hover:shadow-lg hover:shadow-blue-500/10
+        hover:shadow-lg hover:shadow-[0_8px_24px_var(--color-brand-glow)]
         ${colors.state.focus}
         focus:outline-none
         ${className}

@@ -8,7 +8,7 @@ import {
 
 export function AppWhatWeBuild() {
   return (
-    <section className="bg-black py-16 lg:py-20 border-b border-blue-400/40">
+    <section className="bg-black py-16 lg:py-20 border-b border-brand/40">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <header className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
@@ -37,7 +37,7 @@ export function AppWhatWeBuild() {
 
 export function AppProblemSolution() {
   return (
-    <section className="bg-black py-16 lg:py-20 border-b border-blue-400/40">
+    <section className="bg-black py-16 lg:py-20 border-b border-brand/40">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <header className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
@@ -56,7 +56,7 @@ export function AppProblemSolution() {
             >
               <p className="text-sm text-gray-500 mb-1">課題</p>
               <p className="text-lg font-semibold text-white mb-3">{item.problem}</p>
-              <p className="text-sm text-cyan-400/90 leading-relaxed">→ {item.solution}</p>
+              <p className="text-sm text-brand/90 leading-relaxed">→ {item.solution}</p>
             </div>
           ))}
         </div>
@@ -67,7 +67,7 @@ export function AppProblemSolution() {
 
 export function AppRelatedDemos() {
   return (
-    <section className="bg-black py-16 lg:py-20 border-b border-blue-400/40">
+    <section className="bg-black py-16 lg:py-20 border-b border-brand/40">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <header className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
@@ -83,7 +83,7 @@ export function AppRelatedDemos() {
             <Link
               key={demo.id}
               href={demo.href}
-              className="rounded-lg border border-gray-800 bg-gray-900/40 px-4 py-4 hover:border-cyan-400/40 hover:bg-gray-900/70 transition-colors"
+              className="rounded-lg border border-gray-800 bg-gray-900/40 px-4 py-4 hover:border-brand/40 hover:bg-gray-900/70 transition-colors"
             >
               <p className="text-white font-semibold mb-1">{demo.label}</p>
               <p className="text-sm text-gray-400">{demo.hint}</p>
@@ -94,13 +94,13 @@ export function AppRelatedDemos() {
         <div className="mt-8 text-center flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             href="/ai-capability-gallery"
-            className="text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-colors"
+            className="text-sm font-medium text-brand hover:text-brand-hover transition-colors"
           >
             AIデモギャラリー →
           </Link>
           <Link
             href="/cases"
-            className="text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-colors"
+            className="text-sm font-medium text-brand hover:text-brand-hover transition-colors"
           >
             事例一覧 →
           </Link>
@@ -112,7 +112,7 @@ export function AppRelatedDemos() {
 
 export function AppProcess() {
   return (
-    <section className="bg-black py-16 lg:py-20 border-b border-blue-400/40">
+    <section className="bg-black py-16 lg:py-20 border-b border-brand/40">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <header className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
@@ -129,7 +129,7 @@ export function AppProcess() {
               key={item.step}
               className="rounded-xl border border-gray-800 bg-gray-900/40 p-6"
             >
-              <span className="text-2xl font-bold text-cyan-400/70 mb-3 block">
+              <span className="text-2xl font-bold text-brand/70 mb-3 block">
                 {item.step}
               </span>
               <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>

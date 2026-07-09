@@ -75,8 +75,8 @@ export function KnowledgeToSearchDemo() {
                     w-full text-left text-xs p-2 rounded border transition-colors
                     ${
                       selectedQuestion?.id === q.id
-                        ? 'border-blue-300 bg-blue-50 text-blue-800'
-                        : 'border-[#D9DDE3] text-gray-700 hover:border-blue-200'
+                        ? 'border-brand-hover bg-brand/10 text-brand-deep'
+                        : 'border-[#D9DDE3] text-gray-700 hover:border-brand/30'
                     }
                     disabled:opacity-50
                   `}

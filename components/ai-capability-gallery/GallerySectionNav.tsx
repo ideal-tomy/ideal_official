@@ -86,7 +86,7 @@ export function GallerySectionNav() {
                 aria-label={item.title}
                 className={`h-2.5 w-2.5 rounded-full transition-all ${
                   isActive
-                    ? 'bg-blue-400 scale-110'
+                    ? 'bg-brand scale-110'
                     : 'bg-gray-600 hover:bg-gray-400'
                 }`}
               />

@@ -25,7 +25,7 @@ export function AiHubHero() {
       />
 
       <HeroReveal className={`relative z-10 ${layout.container} text-center`}>
-        <p className="text-xs font-medium tracking-[0.2em] uppercase text-blue-400/90 mb-4">
+        <p className="text-xs font-medium tracking-[0.2em] uppercase text-brand/90 mb-4">
           {aiHubHero.eyebrow}
         </p>
 

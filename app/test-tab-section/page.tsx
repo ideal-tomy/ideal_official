@@ -22,9 +22,9 @@ export default function TestTabSectionPage() {
                 AI、ブロックチェーン、Web開発など、幅広い分野で専門的なサービスを提供しています。
               </p>
               <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">AI</span>
-                <span className="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">Web開発</span>
-                <span className="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">ブロックチェーン</span>
+                <span className="px-3 py-1 bg-brand-deep/50 text-brand-hover rounded-full text-sm">AI</span>
+                <span className="px-3 py-1 bg-brand-deep/50 text-brand-hover rounded-full text-sm">Web開発</span>
+                <span className="px-3 py-1 bg-brand-deep/50 text-brand-hover rounded-full text-sm">ブロックチェーン</span>
               </div>
             </div>
             <div className="relative h-64 w-full rounded-lg overflow-hidden">
@@ -308,40 +308,40 @@ export default function TestTabSectionPage() {
             content: (
               <div className="space-y-6">
                 <div className="grid md:grid-cols-3 gap-6">
-                  <div className="bg-gray-800 p-6 rounded-lg border border-blue-500/30">
+                  <div className="bg-gray-800 p-6 rounded-lg border border-brand/30">
                     <div className="text-2xl mb-4">🚀</div>
                     <h3 className="text-lg font-semibold text-white mb-2">機械学習モデル開発</h3>
                     <p className="text-gray-300 text-sm mb-4">
                       ビジネスニーズに合わせた機械学習モデルの設計と開発
                     </p>
                     <div className="flex flex-wrap gap-1">
-                      <span className="px-2 py-1 bg-blue-900/50 text-blue-300 rounded text-xs">TensorFlow</span>
-                      <span className="px-2 py-1 bg-blue-900/50 text-blue-300 rounded text-xs">PyTorch</span>
-                      <span className="px-2 py-1 bg-blue-900/50 text-blue-300 rounded text-xs">Scikit-learn</span>
+                      <span className="px-2 py-1 bg-brand-deep/50 text-brand-hover rounded text-xs">TensorFlow</span>
+                      <span className="px-2 py-1 bg-brand-deep/50 text-brand-hover rounded text-xs">PyTorch</span>
+                      <span className="px-2 py-1 bg-brand-deep/50 text-brand-hover rounded text-xs">Scikit-learn</span>
                     </div>
                   </div>
-                  <div className="bg-gray-800 p-6 rounded-lg border border-blue-500/30">
+                  <div className="bg-gray-800 p-6 rounded-lg border border-brand/30">
                     <div className="text-2xl mb-4">👥</div>
                     <h3 className="text-lg font-semibold text-white mb-2">自然言語処理</h3>
                     <p className="text-gray-300 text-sm mb-4">
                       テキストデータの分析、生成、翻訳などのNLPソリューション
                     </p>
                     <div className="flex flex-wrap gap-1">
-                      <span className="px-2 py-1 bg-blue-900/50 text-blue-300 rounded text-xs">BERT</span>
-                      <span className="px-2 py-1 bg-blue-900/50 text-blue-300 rounded text-xs">GPT</span>
-                      <span className="px-2 py-1 bg-blue-900/50 text-blue-300 rounded text-xs">Transformers</span>
+                      <span className="px-2 py-1 bg-brand-deep/50 text-brand-hover rounded text-xs">BERT</span>
+                      <span className="px-2 py-1 bg-brand-deep/50 text-brand-hover rounded text-xs">GPT</span>
+                      <span className="px-2 py-1 bg-brand-deep/50 text-brand-hover rounded text-xs">Transformers</span>
                     </div>
                   </div>
-                  <div className="bg-gray-800 p-6 rounded-lg border border-blue-500/30">
+                  <div className="bg-gray-800 p-6 rounded-lg border border-brand/30">
                     <div className="text-2xl mb-4">📊</div>
                     <h3 className="text-lg font-semibold text-white mb-2">画像認識システム</h3>
                     <p className="text-gray-300 text-sm mb-4">
                       深層学習を用いた画像認識・分類システムの開発
                     </p>
                     <div className="flex flex-wrap gap-1">
-                      <span className="px-2 py-1 bg-blue-900/50 text-blue-300 rounded text-xs">OpenCV</span>
-                      <span className="px-2 py-1 bg-blue-900/50 text-blue-300 rounded text-xs">CNNs</span>
-                      <span className="px-2 py-1 bg-blue-900/50 text-blue-300 rounded text-xs">YOLO</span>
+                      <span className="px-2 py-1 bg-brand-deep/50 text-brand-hover rounded text-xs">OpenCV</span>
+                      <span className="px-2 py-1 bg-brand-deep/50 text-brand-hover rounded text-xs">CNNs</span>
+                      <span className="px-2 py-1 bg-brand-deep/50 text-brand-hover rounded text-xs">YOLO</span>
                     </div>
                   </div>
                 </div>

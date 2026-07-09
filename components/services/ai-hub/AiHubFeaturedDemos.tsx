@@ -10,7 +10,7 @@ export function AiHubFeaturedDemos() {
   const featured = getFeaturedCapabilities()
 
   return (
-    <section className="bg-black py-16 lg:py-20 border-b border-blue-400/40">
+    <section className="bg-black py-16 lg:py-20 border-b border-brand/40">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <header className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
@@ -43,7 +43,7 @@ export function AiHubFeaturedDemos() {
                   className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"
                   aria-hidden="true"
                 />
-                <p className="absolute bottom-3 left-3 right-3 text-[11px] tracking-[0.16em] text-cyan-300">
+                <p className="absolute bottom-3 left-3 right-3 text-[11px] tracking-[0.16em] text-brand-hover">
                   {capability.englishLabel}
                 </p>
               </Link>
@@ -58,15 +58,15 @@ export function AiHubFeaturedDemos() {
                 <div className="flex flex-col gap-2">
                   <Link
                     href={galleryCapabilityHref(capability.slug)}
-                    className="text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors"
+                    className="text-sm font-medium text-brand hover:text-brand-hover transition-colors"
                   >
                     ギャラリーで見る →
                   </Link>
                   <Link
                     href={galleryDemoHref(capability.slug)}
-                    className="inline-flex items-center justify-center rounded-lg bg-blue-500 px-4 py-2.5 text-sm font-bold text-white hover:bg-blue-600 transition-colors"
+                    className="inline-flex items-center justify-center rounded-lg bg-brand px-4 py-2.5 text-sm font-bold text-white hover:bg-brand-hover transition-colors"
                   >
-                    デモを体験する
+                    デモを体験
                   </Link>
                 </div>
               </div>

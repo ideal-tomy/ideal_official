@@ -42,7 +42,7 @@ export const metadata: Metadata = {
 export default function WebDevelopmentPage() {
   return (
     <div className="min-h-screen bg-black">
-      <div className="border-b border-blue-400">
+      <div className="border-b border-brand">
         <WebHubHero />
       </div>
 
@@ -56,7 +56,7 @@ export default function WebDevelopmentPage() {
       <WebUnderTheHood />
       <WebProcess />
 
-      <div className="border-b border-blue-400">
+      <div className="border-b border-brand">
         <FAQSection
           title="よくある質問"
           faqs={webDevelopmentData.faqs || []}
@@ -64,7 +64,7 @@ export default function WebDevelopmentPage() {
         />
       </div>
 
-      <div className="border-b border-blue-400">
+      <div className="border-b border-brand">
         <RelatedServicesSection
           title="関連サービス"
           services={webDevelopmentData.relatedServices || []}

@@ -15,7 +15,7 @@ export function ConciergeEstimateBlock({
 }: ConciergeEstimateBlockProps) {
   return (
     <div
-      className={`rounded-md bg-gray-950/70 ${borders.border} border-blue-400/40 p-3 space-y-3`}
+      className={`rounded-md bg-gray-950/70 ${borders.border} border-brand/40 p-3 space-y-3`}
     >
       <div>
         <p className={`${typography.caption} ${colors.text.muted} mb-1`}>

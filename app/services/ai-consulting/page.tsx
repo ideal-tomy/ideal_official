@@ -44,7 +44,7 @@ export const metadata: Metadata = {
 export default function AIConsultingPage() {
   return (
     <div className="min-h-screen bg-black">
-      <div className="border-b border-blue-400">
+      <div className="border-b border-brand">
         <AiHubHero />
       </div>
 
@@ -60,7 +60,7 @@ export default function AIConsultingPage() {
       <AiHubProcess />
       <AiHubTechDetails />
 
-      <div className="border-b border-blue-400">
+      <div className="border-b border-brand">
         <FAQSection
           title="よくある質問"
           faqs={aiServiceData.faqs!}
@@ -68,7 +68,7 @@ export default function AIConsultingPage() {
         />
       </div>
 
-      <div className="border-b border-blue-400">
+      <div className="border-b border-brand">
         <RelatedServicesSection
           title="関連サービス"
           services={aiServiceData.relatedServices!}

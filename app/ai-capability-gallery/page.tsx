@@ -52,7 +52,7 @@ export default function AiCapabilityGalleryPage() {
         <div className="absolute inset-0 bg-black/70" aria-hidden="true" />
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <header className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               このサイトの見方
             </h2>
             <p className="text-base md:text-lg text-gray-200 max-w-2xl mx-auto">
@@ -66,7 +66,7 @@ export default function AiCapabilityGalleryPage() {
                 key={step.title}
                 className="p-6 rounded-xl border border-gray-800 bg-gray-900/60 backdrop-blur-sm"
               >
-                <span className="text-2xl font-bold text-blue-400/60 mb-3 block">
+                <span className="text-2xl font-bold text-brand/50 mb-3 block">
                   {index + 1}
                 </span>
                 <h3 className="text-lg font-semibold text-white mb-2">{step.title}</h3>
@@ -88,7 +88,7 @@ export default function AiCapabilityGalleryPage() {
 
       <section className="bg-black py-12 border-t border-gray-800">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-xs tracking-[0.2em] uppercase text-blue-400/90 mb-3">
+          <p className="text-xs tracking-[0.2em] uppercase text-brand/90 mb-3">
             Cases
           </p>
           <h2 className="text-2xl font-bold text-white mb-3">
@@ -99,7 +99,7 @@ export default function AiCapabilityGalleryPage() {
           </p>
           <a
             href="/cases"
-            className="inline-flex items-center text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-colors"
+            className="inline-flex items-center text-sm font-medium text-gray-300 hover:text-brand transition-colors"
           >
             事例を読む →
           </a>

@@ -80,7 +80,7 @@ export function ServicesDropdown({ serviceLinks }: ServicesDropdownProps) {
               href="/services"
               scroll
               prefetch={false}
-              className="block px-4 py-2 text-sm text-blue-400 hover:bg-gray-800 transition-colors"
+              className="block px-4 py-2 text-sm text-brand hover:bg-gray-800 transition-colors"
               onClick={() => setIsServicesDropdownOpen(false)}
             >
               すべてのサービスを見る

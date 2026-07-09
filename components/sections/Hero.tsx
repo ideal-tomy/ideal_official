@@ -4,17 +4,31 @@
  * トップページのファーストビュー
  */
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { typography, colors, layout } from '../../lib/design-tokens'
 import { Button } from '../ui/Button'
 import { HeroReveal } from '../motion/HeroReveal'
-import { HeroBackground } from '../motion/HeroBackground'
 import { HeroScrollHint } from '../motion/HeroScrollHint'
+
+const HERO_IMAGE = '/images/top.png'
 
 export function Hero() {
   return (
     <section className="relative flex min-h-[calc(100svh-4rem)] lg:min-h-[calc(100svh-5rem)] items-center justify-center overflow-hidden">
-      <HeroBackground />
+      <Image
+        src={HERO_IMAGE}
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-center"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute inset-0 z-[1] bg-gradient-to-b from-black/75 via-black/55 to-black/85"
+        aria-hidden="true"
+      />
 
       <HeroReveal className={`relative z-10 ${layout.container} text-center`}>
         <h1 className={`${typography.h1} ${colors.text.primary} mb-6`}>
@@ -31,12 +45,12 @@ export function Hero() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link href="/ai-capability-gallery">
-            <Button variant="primary" size="lg">
-              デモを体験する
+            <Button variant="secondary" size="lg">
+              デモを体験
             </Button>
           </Link>
           <Link href="/contact">
-            <Button variant="secondary" size="lg">
+            <Button variant="outline" size="lg">
               お問い合わせ
             </Button>
           </Link>

@@ -42,6 +42,8 @@ $env:PLAYWRIGHT_BASE_URL='http://127.0.0.1:3000'; npm run test:e2e
 | `journeys/demo-to-concierge.spec.ts` | デモ → コンシェルジュ |
 | `journeys/services.spec.ts` | 主力3サービス到達 |
 | `journeys/lab.spec.ts` | LAB 孤立防止 |
+| `smoke/concierge-root.spec.ts` | ROOT 新5択 |
+| `smoke/dead-links.spec.ts` | 禁止 href 監視 |
 | `smoke/nav-and-redirects.spec.ts` | ナビ + 旧 URL redirect |
 | `visual/home.spec.ts` | スクショ比較（オプトイン） |
 

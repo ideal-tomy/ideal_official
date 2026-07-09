@@ -23,7 +23,7 @@ export function DemoActions({
           size="md"
           onClick={onProcess}
           disabled={isProcessing}
-          className="!bg-blue-600 hover:!bg-blue-700"
+          className="!bg-brand hover:!bg-brand-deep"
         >
           {isProcessing ? processingLabel : processLabel}
         </Button>

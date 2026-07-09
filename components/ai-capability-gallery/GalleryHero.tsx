@@ -26,7 +26,7 @@ export function GalleryHero() {
       />
 
       <HeroReveal className={`relative z-10 ${layout.container} text-center`}>
-        <p className="text-xs font-medium tracking-[0.2em] uppercase text-blue-400/90 mb-4">
+        <p className="text-xs font-medium tracking-[0.2em] uppercase text-brand/90 mb-4">
           AI Capability Demo Gallery
         </p>
 
@@ -46,11 +46,11 @@ export function GalleryHero() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link href="#capabilities">
-            <Button variant="primary" size="lg">
+            <Button variant="secondary" size="lg">
               デモを見る
             </Button>
           </Link>
-          <OpenConciergeButton serviceId="ai-consulting" variant="secondary" size="lg">
+          <OpenConciergeButton serviceId="ai-consulting" variant="outline" size="lg">
             自社でも使えるか相談する
           </OpenConciergeButton>
         </div>

@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import type { Capability } from '@/data/ai-capability-gallery/capabilities'
+import { ChangeLabel } from '@/components/ui/ChangeLabel'
 
 interface CapabilityCardProps {
   capability: Capability
@@ -35,8 +36,8 @@ export function CapabilityCard({ capability }: CapabilityCardProps) {
       </div>
 
       <div className="p-4 flex flex-col flex-1">
-        <p className="text-[11px] tracking-[0.18em] text-cyan-400/90 mb-2">
-          {capability.englishLabel}
+        <p className="text-[11px] mb-2">
+          <ChangeLabel label={capability.englishLabel} />
         </p>
         <h3 className="text-base md:text-lg font-semibold text-white mb-2 leading-snug">
           {capability.title}
@@ -55,8 +56,8 @@ export function CapabilityCard({ capability }: CapabilityCardProps) {
 
         <div className="mt-auto">
           {isReady ? (
-            <span className="inline-flex items-center text-sm font-medium text-blue-400 group-hover:text-blue-300 transition-colors">
-              View →
+            <span className="inline-flex items-center text-sm font-medium text-gray-300 group-hover:text-brand transition-colors">
+              デモを見る →
             </span>
           ) : (
             <span className="inline-flex items-center text-sm text-gray-500">
@@ -72,7 +73,7 @@ export function CapabilityCard({ capability }: CapabilityCardProps) {
     return (
       <a
         href={href}
-        className="group flex flex-col h-full rounded-xl border border-gray-800 bg-gray-900/40 overflow-hidden hover:border-blue-400/30 hover:bg-gray-900/60 transition-colors"
+        className="group flex flex-col h-full rounded-xl border border-gray-800 bg-gray-900/40 overflow-hidden hover:border-brand/35 hover:bg-gray-900/60 transition-colors"
       >
         {content}
       </a>

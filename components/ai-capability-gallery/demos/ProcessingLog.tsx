@@ -18,7 +18,7 @@ export function ProcessingLog({ logs, isProcessing }: ProcessingLogProps) {
             key={`${log}-${index}`}
             className={
               index === logs.length - 1 && isProcessing
-                ? 'text-blue-600'
+                ? 'text-brand'
                 : index === logs.length - 1 && !isProcessing && logs.length > 0
                   ? 'text-green-600'
                   : 'text-gray-600'
@@ -29,7 +29,7 @@ export function ProcessingLog({ logs, isProcessing }: ProcessingLogProps) {
           </li>
         ))}
         {isProcessing && (
-          <li className="text-blue-600 animate-pulse">
+          <li className="text-brand animate-pulse">
             <span className="text-gray-400 mr-2">›</span>
             処理中…
           </li>

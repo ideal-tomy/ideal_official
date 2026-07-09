@@ -30,11 +30,11 @@ const VisionSection = React.memo(() => {
         <p>
           このシステムの上では、各コミュニティ（DAO）が、自らの価値観に基づき&ldquo;貢献の定義&rdquo;や&ldquo;公正さの形&rdquo;を自由に設計できます。
         </p>
-        <hr className="border-blue-400/20" />
+        <hr className="border-brand/20" />
         <p>
           そして、個人は自らの行動履歴を、プライバシーを守ったまま組織を超えて持ち運び、最も価値観の合うコミュニティを主体的に選択できるようにします。
         </p>
-        <hr className="border-blue-400/20" />
+        <hr className="border-brand/20" />
         <p>
           個人のメリット追求行動が組織全体の価値創造に直結させ、人間が行う内部調整や監視コストをゼロに近づけ、人間の活動の大部分が組織発展のために使えるようになります。
         </p>

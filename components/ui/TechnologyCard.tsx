@@ -38,7 +38,7 @@ export function TechnologyCard({
     <div
       className={`
         relative overflow-hidden rounded-lg border border-green-500/30 p-6
-        bg-gradient-to-br from-green-900/20 to-cyan-900/20
+        bg-gradient-to-br from-brand-deep/20 to-brand/15
         hover:border-green-400 hover:shadow-lg hover:shadow-green-500/20
         ${transitions.all}
         ${onClick ? 'cursor-pointer' : ''}
@@ -57,7 +57,7 @@ export function TechnologyCard({
       } : undefined}
     >
       {/* 背景エフェクト */}
-      <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 via-transparent to-cyan-500/5 opacity-0 hover:opacity-100 transition-opacity duration-300" />
+      <div className="absolute inset-0 bg-gradient-to-br from-brand/10 via-transparent to-brand-deep/10 opacity-0 hover:opacity-100 transition-opacity duration-300" />
       
       {/* コンテンツ */}
       <div className="relative z-10">

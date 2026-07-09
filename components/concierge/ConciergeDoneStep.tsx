@@ -75,7 +75,7 @@ export function ConciergeDoneStep({
       </div>
 
       <div
-        className={`rounded-lg bg-gray-900/60 ${borders.border} border-blue-400/30 p-4 space-y-4 max-h-[min(42dvh,24rem)] sm:max-h-[min(52vh,28rem)] overflow-y-auto overscroll-contain`}
+        className={`rounded-lg bg-gray-900/60 ${borders.border} border-brand/30 p-4 space-y-4 max-h-[min(42dvh,24rem)] sm:max-h-[min(52vh,28rem)] overflow-y-auto overscroll-contain`}
       >
         {result.situationLabel ? (
           <ResultBlock
@@ -116,7 +116,7 @@ export function ConciergeDoneStep({
               {result.featureTags.map((tag) => (
                 <span
                   key={tag}
-                  className={`rounded-md px-2.5 py-1 text-xs ${borders.border} border-blue-400/40 ${colors.text.secondary} bg-gray-950/80`}
+                  className={`rounded-md px-2.5 py-1 text-xs ${borders.border} border-brand/40 ${colors.text.secondary} bg-gray-950/80`}
                 >
                   {tag}
                 </span>
@@ -140,7 +140,7 @@ export function ConciergeDoneStep({
                   <Link
                     href={demo.href}
                     onClick={onRequestClose}
-                    className={`block rounded-md px-3 py-2 ${borders.border} border-blue-400/30 hover:border-blue-400/70 transition-colors`}
+                    className={`block rounded-md px-3 py-2 ${borders.border} border-brand/30 hover:border-brand/70 transition-colors`}
                   >
                     <span
                       className={`${typography.small} ${colors.text.primary} font-medium`}
@@ -171,7 +171,7 @@ export function ConciergeDoneStep({
                   <Link
                     href={c.href}
                     onClick={onRequestClose}
-                    className={`block rounded-md px-3 py-2 ${borders.border} border-blue-400/30 hover:border-blue-400/70 transition-colors`}
+                    className={`block rounded-md px-3 py-2 ${borders.border} border-brand/30 hover:border-brand/70 transition-colors`}
                   >
                     <span
                       className={`${typography.small} ${colors.text.primary} font-medium`}

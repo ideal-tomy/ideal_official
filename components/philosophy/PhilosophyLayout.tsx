@@ -21,7 +21,7 @@ export function PhilosophySectionShell({
       id={id}
       className={`scroll-mt-24 lg:scroll-mt-28 py-14 md:py-20 lg:py-24 border-b border-gray-800/50 ${className}`}
     >
-      <p className="text-xs sm:text-sm font-medium tracking-[0.2em] uppercase text-blue-400/90 mb-3">
+      <p className="text-xs sm:text-sm font-medium tracking-[0.2em] uppercase text-brand/90 mb-3">
         {label}
       </p>
       <h2 className="text-2xl sm:text-3xl lg:text-[2.5rem] font-bold text-white mb-8 lg:mb-12 tracking-tight leading-tight">
@@ -41,7 +41,7 @@ interface PhilosophySubheadingProps {
 export function PhilosophySubheading({ children, className = '' }: PhilosophySubheadingProps) {
   return (
     <h3
-      className={`text-lg sm:text-xl lg:text-2xl font-semibold text-white mb-5 mt-10 lg:mt-14 pl-4 sm:pl-5 border-l-2 border-blue-400/70 leading-snug ${className}`}
+      className={`text-lg sm:text-xl lg:text-2xl font-semibold text-white mb-5 mt-10 lg:mt-14 pl-4 sm:pl-5 border-l-2 border-brand/70 leading-snug ${className}`}
     >
       {children}
     </h3>
@@ -91,7 +91,7 @@ interface PhilosophyCalloutProps {
 export function PhilosophyCallout({ children, className = '' }: PhilosophyCalloutProps) {
   return (
     <div
-      className={`max-w-3xl rounded-xl border border-blue-400/20 bg-gradient-to-br from-gray-900/90 to-gray-900/50 p-6 sm:p-8 space-y-5 ${className}`}
+      className={`max-w-3xl rounded-xl border border-brand/20 bg-gradient-to-br from-gray-900/90 to-gray-900/50 p-6 sm:p-8 space-y-5 ${className}`}
     >
       {children}
     </div>
@@ -105,8 +105,8 @@ interface PhilosophyQuoteProps {
 /** 引用・キーフレーズ */
 export function PhilosophyQuote({ children }: PhilosophyQuoteProps) {
   return (
-    <blockquote className="max-w-3xl relative pl-5 sm:pl-7 py-3 my-8 lg:my-10 border-l-2 border-blue-400/60">
-      <p className="text-lg sm:text-xl font-semibold text-blue-300/95 leading-relaxed">
+    <blockquote className="max-w-3xl relative pl-5 sm:pl-7 py-3 my-8 lg:my-10 border-l-2 border-brand/60">
+      <p className="text-lg sm:text-xl font-semibold text-brand-hover/95 leading-relaxed">
         {children}
       </p>
     </blockquote>

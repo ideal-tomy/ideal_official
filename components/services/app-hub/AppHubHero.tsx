@@ -46,7 +46,7 @@ export function AppHubHero() {
       />
 
       <HeroReveal className={`relative z-10 ${layout.container} text-center`}>
-        <p className="text-xs font-medium tracking-[0.2em] uppercase text-cyan-400/90 mb-4">
+        <p className="text-xs font-medium tracking-[0.2em] uppercase text-brand/90 mb-4">
           {appHubHero.eyebrow}
         </p>
 
@@ -56,7 +56,7 @@ export function AppHubHero() {
           {appHubHero.titleLine2}
         </h1>
 
-        <p className="text-lg md:text-xl text-blue-400/90 font-medium mb-6">
+        <p className="text-lg md:text-xl text-brand/90 font-medium mb-6">
           業務を、動く仕組みに。
         </p>
 

@@ -166,7 +166,7 @@ function demoHubOpening(): ContextOpening {
       },
       {
         id: 'start_web',
-        label: 'Webサイト・業務システムの相談',
+        label: 'Webサイト・LP制作の相談',
         track: 'web',
       },
       {
@@ -194,7 +194,7 @@ function serviceOpening(ctx: ConciergePageContext): ContextOpening {
   }
   if (id === 'app-development') {
     return {
-      headline: 'Webアプリ・業務ツールについて、現状から必要な開発内容を整理できます。',
+      headline: 'Webアプリ・業務ツール開発について、現状から必要な開発内容を整理できます。',
       body: '新規・改善・プロトタイプなど、近い状況を選んで進めてください。機能の洗い出しと概算の参考までつなげられます。',
       actions: [
         { id: 'start_app', label: '状況の整理を始める', track: 'app' },
@@ -327,7 +327,7 @@ function labOpening(ctx: ConciergePageContext): ContextOpening {
         },
         {
           id: 'see_related',
-          label: '関連デモを体験する',
+          label: '関連デモを体験',
           track: null,
           linkKind: 'gallery',
         },
@@ -348,7 +348,7 @@ function labOpening(ctx: ConciergePageContext): ContextOpening {
       { id: 'start_web', label: 'Web制作を相談する', track: 'web' },
       {
         id: 'see_related',
-        label: 'デモを体験する',
+        label: 'デモを体験',
         track: null,
         linkKind: 'gallery',
       },

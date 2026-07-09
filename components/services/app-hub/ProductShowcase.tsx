@@ -32,7 +32,7 @@ function InputProcessPanel() {
 
   return (
     <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6 h-full flex flex-col">
-      <p className="text-xs tracking-[0.16em] text-cyan-400/90 mb-2">01 · Input → Process</p>
+      <p className="text-xs tracking-[0.16em] text-brand/90 mb-2">01 · Input → Process</p>
       <h3 className="text-xl font-semibold text-white mb-3">入力して、結果を得る</h3>
       <p className="text-sm text-gray-400 mb-4 leading-relaxed">
         フォームに入力 → 処理中 → 結果カード。業務ツールの基本フローです。
@@ -45,7 +45,7 @@ function InputProcessPanel() {
           onChange={(e) => setInput(e.target.value)}
           placeholder="例: 見積依頼を送る"
           disabled={state === 'processing'}
-          className="w-full rounded-lg border border-gray-700 bg-black/60 px-4 py-2.5 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-cyan-400/50 disabled:opacity-50"
+          className="w-full rounded-lg border border-gray-700 bg-black/60 px-4 py-2.5 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-brand/50 disabled:opacity-50"
         />
 
         <div className="flex gap-2">
@@ -53,7 +53,7 @@ function InputProcessPanel() {
             type="button"
             onClick={handleSubmit}
             disabled={!input.trim() || state === 'processing'}
-            className="flex-1 rounded-lg bg-cyan-500 px-4 py-2.5 text-sm font-bold text-black hover:bg-cyan-400 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+            className="flex-1 rounded-lg bg-brand px-4 py-2.5 text-sm font-bold text-black hover:bg-brand-hover transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
           >
             {state === 'processing' ? '処理中...' : '処理する'}
           </button>
@@ -89,8 +89,8 @@ function InputProcessPanel() {
                 exit={prefersReduced ? undefined : { opacity: 0 }}
                 className="flex items-center gap-3"
               >
-                <div className="h-5 w-5 rounded-full border-2 border-cyan-400 border-t-transparent animate-spin" />
-                <p className="text-sm text-cyan-400">処理中...</p>
+                <div className="h-5 w-5 rounded-full border-2 border-brand border-t-transparent animate-spin" />
+                <p className="text-sm text-brand">処理中...</p>
               </motion.div>
             )}
             {state === 'done' && result && (
@@ -100,7 +100,7 @@ function InputProcessPanel() {
                 animate={{ opacity: 1, y: 0 }}
                 className="w-full"
               >
-                <p className="text-xs text-cyan-400/80 mb-2">結果</p>
+                <p className="text-xs text-brand/80 mb-2">結果</p>
                 <p className="text-sm text-white leading-relaxed">{result}</p>
               </motion.div>
             )}
@@ -125,7 +125,7 @@ function StatusPanel() {
 
   return (
     <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6 h-full flex flex-col">
-      <p className="text-xs tracking-[0.16em] text-cyan-400/90 mb-2">02 · Status</p>
+      <p className="text-xs tracking-[0.16em] text-brand/90 mb-2">02 · Status</p>
       <h3 className="text-xl font-semibold text-white mb-3">ステータスを進める</h3>
       <p className="text-sm text-gray-400 mb-4 leading-relaxed">
         未対応 → 対応中 → 確認待ち → 完了。案件管理の基本です。
@@ -140,7 +140,7 @@ function StatusPanel() {
                 onClick={() => setCurrentIndex(i)}
                 className={`flex-1 rounded-lg px-2 py-2 text-xs font-medium transition-colors ${
                   i <= currentIndex
-                    ? 'bg-cyan-500/20 border border-cyan-400/40 text-cyan-300'
+                    ? 'bg-brand/20 border border-brand/40 text-brand-hover'
                     : 'bg-gray-800/50 border border-gray-700 text-gray-500'
                 }`}
               >
@@ -168,7 +168,7 @@ function StatusPanel() {
             type="button"
             onClick={advance}
             disabled={currentIndex >= STATUS_STEPS.length - 1}
-            className="flex-1 rounded-lg bg-blue-500 px-4 py-2.5 text-sm font-bold text-white hover:bg-blue-600 transition-colors disabled:opacity-40"
+            className="flex-1 rounded-lg bg-brand px-4 py-2.5 text-sm font-bold text-white hover:bg-brand-hover transition-colors disabled:opacity-40"
           >
             次のステータスへ
           </button>
@@ -207,7 +207,7 @@ function DashboardPanel() {
 
   return (
     <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6 h-full flex flex-col">
-      <p className="text-xs tracking-[0.16em] text-cyan-400/90 mb-2">03 · Dashboard</p>
+      <p className="text-xs tracking-[0.16em] text-brand/90 mb-2">03 · Dashboard</p>
       <h3 className="text-xl font-semibold text-white mb-3">フィルターで変わる一覧</h3>
       <p className="text-sm text-gray-400 mb-4 leading-relaxed">
         フィルターを変えるとデータとグラフが変わります。モバイル操作も体験できます。
@@ -227,7 +227,7 @@ function DashboardPanel() {
             onClick={() => setFilter(f.key)}
             className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
               filter === f.key
-                ? 'bg-cyan-500/20 border border-cyan-400/40 text-cyan-300'
+                ? 'bg-brand/20 border border-brand/40 text-brand-hover'
                 : 'border border-gray-700 text-gray-400 hover:text-gray-200'
             }`}
           >
@@ -246,7 +246,7 @@ function DashboardPanel() {
                 className="flex items-center justify-between rounded-lg border border-gray-700 bg-black/40 px-3 py-2"
               >
                 <span className="text-sm text-white">{item.label}</span>
-                <span className="text-xs text-cyan-400">{item.value}</span>
+                <span className="text-xs text-brand">{item.value}</span>
               </div>
             ))}
           </div>
@@ -254,7 +254,7 @@ function DashboardPanel() {
             {filtered.map((item) => (
               <div
                 key={item.id}
-                className="flex-1 bg-cyan-500/40 rounded-t"
+                className="flex-1 bg-brand/40 rounded-t"
                 style={{ height: `${(item.value / 160) * 100}%` }}
                 title={item.label}
               />
@@ -276,7 +276,7 @@ function DashboardPanel() {
                       key={item.id}
                       type="button"
                       onClick={() => setMobileView('detail')}
-                      className="w-full text-left rounded border border-gray-700 px-2 py-1.5 text-xs text-white hover:border-cyan-400/40"
+                      className="w-full text-left rounded border border-gray-700 px-2 py-1.5 text-xs text-white hover:border-brand/40"
                     >
                       {item.label}
                     </button>
@@ -287,7 +287,7 @@ function DashboardPanel() {
                   <button
                     type="button"
                     onClick={() => setMobileView('list')}
-                    className="text-xs text-cyan-400 mb-2"
+                    className="text-xs text-brand mb-2"
                   >
                     ← 戻る
                   </button>
@@ -307,7 +307,7 @@ export function ProductShowcase() {
   return (
     <section
       id="product-showcase"
-      className="scroll-mt-24 bg-black py-16 lg:py-20 border-b border-blue-400/40"
+      className="scroll-mt-24 bg-black py-16 lg:py-20 border-b border-brand/40"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <header className="text-center mb-12">

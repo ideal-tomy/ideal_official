@@ -15,7 +15,7 @@ export function LabTeaser() {
         </p>
         <Link
           href="/lab"
-          className="inline-flex items-center text-sm font-medium text-gray-300 hover:text-cyan-400 transition-colors"
+          className="inline-flex items-center text-sm font-medium text-gray-300 hover:text-brand transition-colors"
         >
           LAB を見る →
         </Link>

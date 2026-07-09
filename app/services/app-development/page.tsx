@@ -47,7 +47,7 @@ export const metadata: Metadata = {
 export default function AppDevelopmentPage() {
   return (
     <div className="min-h-screen bg-black">
-      <div className="border-b border-blue-400">
+      <div className="border-b border-brand">
         <AppHubHero />
       </div>
 
@@ -63,7 +63,7 @@ export default function AppDevelopmentPage() {
       <AppUnderTheHood />
       <AppProcess />
 
-      <div className="border-b border-blue-400">
+      <div className="border-b border-brand">
         <FAQSection
           title="よくある質問"
           faqs={appHubFaqs.map((f) => ({ ...f }))}
@@ -71,7 +71,7 @@ export default function AppDevelopmentPage() {
         />
       </div>
 
-      <div className="border-b border-blue-400">
+      <div className="border-b border-brand">
         <RelatedServicesSection
           title="関連サービス"
           services={appHubRelatedServices.map((s) => ({

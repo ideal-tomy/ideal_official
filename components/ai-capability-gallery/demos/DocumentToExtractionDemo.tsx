@@ -86,7 +86,7 @@ export function DocumentToExtractionDemo() {
                       onClick={() => setSelectedFieldId(field.id)}
                       className={`
                         border-b border-[#D9DDE3] cursor-pointer transition-colors
-                        ${selectedFieldId === field.id ? 'bg-blue-50' : 'hover:bg-gray-50'}
+                        ${selectedFieldId === field.id ? 'bg-brand/10' : 'hover:bg-gray-50'}
                       `}
                     >
                       <td className="py-2 pr-2 text-gray-600">

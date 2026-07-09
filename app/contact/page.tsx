@@ -13,10 +13,12 @@ import { typography, colors } from '../../lib/design-tokens'
 
 export const metadata: Metadata = {
   title: 'お問い合わせ | ideal',
-  description: 'Webサイト制作、アプリ開発、ゲーム制作、AIコンサル、ブロックチェーン開発に関するお問い合わせはこちらから。お気軽にご連絡ください。',
+  description:
+    'Webサイト・LP制作、Webアプリ・業務ツール開発、AIプロトタイプ・自動化に関するお問い合わせはこちらから。お気軽にご連絡ください。',
   openGraph: {
     title: 'お問い合わせ | ideal',
-    description: 'Webサイト制作、アプリ開発、ゲーム制作、AIコンサル、ブロックチェーン開発に関するお問い合わせはこちらから。お気軽にご連絡ください。',
+    description:
+      'Webサイト・LP制作、Webアプリ・業務ツール開発、AIプロトタイプ・自動化に関するお問い合わせはこちらから。お気軽にご連絡ください。',
   },
 }
 

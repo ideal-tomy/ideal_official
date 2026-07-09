@@ -10,7 +10,7 @@ const ThreeCardSection = dynamic(
 export function BlockchainDaoSections() {
   return (
     <>
-      <div id="dao-governance" className="border-b border-blue-400 scroll-mt-24">
+      <div id="dao-governance" className="border-b border-brand scroll-mt-24">
         <SingleColumnSection
           title="DAO・ガバナンス設計"
           description="分散型自律組織（DAO）のガバナンス設計、投票システム、トークンによる意思決定プロセスを支援します。組織の透明性と自律性を高める実務的な設計を行います。"
@@ -24,7 +24,7 @@ export function BlockchainDaoSections() {
         </SingleColumnSection>
       </div>
 
-      <div className="border-b border-blue-400">
+      <div className="border-b border-brand">
         <ThreeCardSection
           title="DAOの活用形態"
           description="目的に応じたDAO設計のパターンをご紹介します"
@@ -52,7 +52,7 @@ export function BlockchainDaoSections() {
         />
       </div>
 
-      <div className="border-b border-blue-400">
+      <div className="border-b border-brand">
         <TwoColumnSection
           title="従来組織との比較"
           leftContent={
@@ -98,7 +98,7 @@ export function BlockchainDaoSections() {
         />
       </div>
 
-      <div id="dao-legal" className="border-b border-blue-400 scroll-mt-24">
+      <div id="dao-legal" className="border-b border-brand scroll-mt-24">
         <SingleColumnSection
           title="DAO法に基づく組織・ルールメイク"
           description="日本のDAO法（株式会社法の特例等）を踏まえた合同会社型DAOの設計、定款・ガバナンスルールの策定、トークン発行と法務の整合をサポートします。"

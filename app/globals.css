@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/* ideal brand — 黒 × 白 × 深紅 (#9B2937) */
+@theme {
+  --color-brand: #9b2937;
+  --color-brand-hover: #d14a55;
+  --color-brand-deep: #681b26;
+  --color-brand-muted: #b83a46;
+  --color-brand-glow: color-mix(in srgb, #9b2937 22%, transparent);
+}
+
 /* カスタムアニメーション */
 @keyframes fade-in {
   from {
@@ -37,7 +46,7 @@
     radial-gradient(1px 1px at 50px 160px, rgba(255, 255, 255, 0.3), transparent),
     radial-gradient(1px 1px at 90px 40px, rgba(255, 255, 255, 0.2), transparent),
     radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.35), transparent),
-    radial-gradient(1.5px 1.5px at 160px 120px, rgba(147, 197, 253, 0.4), transparent),
+    radial-gradient(1.5px 1.5px at 160px 120px, rgba(155, 41, 55, 0.45), transparent),
     radial-gradient(1px 1px at 200px 50px, rgba(255, 255, 255, 0.25), transparent),
     radial-gradient(1px 1px at 250px 140px, rgba(255, 255, 255, 0.3), transparent);
   background-size: 280px 180px;

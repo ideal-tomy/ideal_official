@@ -223,9 +223,9 @@ export default function TestTwoColumnPage() {
                 </ul>
               </div>
               <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">AI</span>
-                <span className="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">データ分析</span>
-                <span className="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">グローバル</span>
+                <span className="px-3 py-1 bg-brand-deep/50 text-brand-hover rounded-full text-sm">AI</span>
+                <span className="px-3 py-1 bg-brand-deep/50 text-brand-hover rounded-full text-sm">データ分析</span>
+                <span className="px-3 py-1 bg-brand-deep/50 text-brand-hover rounded-full text-sm">グローバル</span>
               </div>
             </div>
           </div>
@@ -289,7 +289,7 @@ export default function TestTwoColumnPage() {
         leftContent={
           <div className="space-y-4">
             <h3 className="text-xl font-semibold text-white mb-4">グラデーション背景</h3>
-            <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-6 rounded-lg">
+            <div className="bg-gradient-to-br from-brand-deep to-brand p-6 rounded-lg">
               <p className="text-white">
                 カスタムクラスを使用してグラデーション背景を適用しました。
               </p>

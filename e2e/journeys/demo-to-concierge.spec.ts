@@ -6,7 +6,7 @@ import { openConciergeFromFab } from '../helpers'
  * @see docs/UX_AUDIT.md §4 シナリオ B / §7
  *
  * Gallery のカードはページ内アンカー。個別デモへは showcase の
- * 「このデモを体験する」から遷移する。
+ * 「このデモを体験」から遷移する。
  */
 test.describe('デモ体験から相談まで', () => {
   test('トップからデモを見てコンシェルジュを開ける', async ({ page }) => {
@@ -16,14 +16,14 @@ test.describe('デモ体験から相談まで', () => {
       page.getByRole('heading', { name: /多機能よりも|シンプルな使用環境/ }),
     ).toBeVisible()
 
-    await page.getByRole('link', { name: /デモを体験する/ }).first().click()
+    await page.getByRole('link', { name: /デモを体験/ }).first().click()
     await expect(page).toHaveURL(/ai-capability-gallery/)
 
     const voiceSection = page.locator('#capability-voice-to-structured')
     await voiceSection.scrollIntoViewIfNeeded()
     await Promise.all([
       page.waitForURL(/voice-to-structured/),
-      voiceSection.getByRole('link', { name: /このデモを体験する/ }).click(),
+      voiceSection.getByRole('link', { name: /このデモを体験/ }).click(),
     ])
 
     await expect(

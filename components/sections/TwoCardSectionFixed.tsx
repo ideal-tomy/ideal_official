@@ -42,7 +42,7 @@ export function TwoCardSectionFixed({
               </p>
             )}
             {title && (
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-brand to-brand-hover bg-clip-text text-transparent">
                 {title}
               </h2>
             )}
@@ -65,7 +65,7 @@ export function TwoCardSectionFixed({
                 ${colors.state.hover} ${colors.state.focus}
                 focus:outline-none cursor-pointer
                 transition-all duration-300
-                hover:scale-[1.02] hover:shadow-xl hover:shadow-blue-500/5
+                hover:scale-[1.02] hover:shadow-xl hover:shadow-[0_8px_24px_var(--color-brand-glow)]
                 block h-96
               `}
             >
@@ -99,7 +99,7 @@ export function TwoCardSectionFixed({
                 </div>
 
                 <div className="mt-4">
-                  <span className="inline-flex items-center text-sm font-medium text-blue-400 group-hover:text-cyan-300 transition-colors duration-200">
+                  <span className="inline-flex items-center text-sm font-medium text-brand group-hover:text-brand-hover transition-colors duration-200">
                     {card.linkText}
                     <svg
                       className="ml-2 w-4 h-4 transition-transform duration-200 group-hover:translate-x-1"

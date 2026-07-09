@@ -35,7 +35,7 @@ export function ResearchDetailShell({ page, children }: ResearchDetailShellProps
         >
           <Link
             href="/philosophy"
-            className="text-gray-300 hover:text-blue-400 transition-colors"
+            className="text-gray-300 hover:text-brand transition-colors"
           >
             ← DAO研究・取り組み
           </Link>
@@ -44,7 +44,7 @@ export function ResearchDetailShell({ page, children }: ResearchDetailShellProps
           </span>
           <Link
             href={POC_INSTRUMENT_LP}
-            className="text-gray-300 hover:text-blue-400 transition-colors"
+            className="text-gray-300 hover:text-brand transition-colors"
           >
             PoC Instrument 全体像
           </Link>
@@ -53,7 +53,7 @@ export function ResearchDetailShell({ page, children }: ResearchDetailShellProps
           </span>
           <Link
             href="/research"
-            className="text-gray-300 hover:text-blue-400 transition-colors"
+            className="text-gray-300 hover:text-brand transition-colors"
           >
             Research 一覧
           </Link>
@@ -61,25 +61,25 @@ export function ResearchDetailShell({ page, children }: ResearchDetailShellProps
 
         {fromPhilosophy && sectionLabel && (
           <div
-            className="mb-8 p-4 rounded-lg border border-cyan-500/25 bg-cyan-500/10"
+            className="mb-8 p-4 rounded-lg border border-brand/25 bg-brand/10"
             role="status"
           >
             <p className="text-sm text-gray-200">
-              <span className="text-cyan-400 font-medium">Philosophy から：</span>{' '}
+              <span className="text-brand font-medium">Philosophy から：</span>{' '}
               「{sectionLabel}」で述べた内容の技術的アプローチです。
             </p>
           </div>
         )}
 
         <header className="mb-10 lg:mb-14">
-          <p className="text-xs font-medium tracking-[0.2em] uppercase text-blue-400/90 mb-3">
+          <p className="text-xs font-medium tracking-[0.2em] uppercase text-brand/90 mb-3">
             {page.eyebrow}
           </p>
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-6 leading-tight tracking-tight">
             {page.title}
           </h1>
           <p className="text-lg text-gray-200 leading-relaxed mb-4">{page.lead}</p>
-          <p className="text-base text-gray-300 leading-relaxed border-l-2 border-blue-400/50 pl-4">
+          <p className="text-base text-gray-300 leading-relaxed border-l-2 border-brand/50 pl-4">
             {page.philosophyConnection}
           </p>
         </header>
@@ -95,7 +95,7 @@ export function ResearchDetailShell({ page, children }: ResearchDetailShellProps
               <li key={related.slug}>
                 <Link
                   href={`/research/poc-instrument/${related.slug}`}
-                  className="block p-4 rounded-lg border border-gray-800 bg-gray-900/40 hover:border-blue-400/30 hover:bg-gray-900/60 transition-colors"
+                  className="block p-4 rounded-lg border border-gray-800 bg-gray-900/40 hover:border-brand/30 hover:bg-gray-900/60 transition-colors"
                 >
                   <span className="text-sm font-medium text-white">{related.title}</span>
                   <span className="block text-xs text-gray-400 mt-1 line-clamp-2">
@@ -108,7 +108,7 @@ export function ResearchDetailShell({ page, children }: ResearchDetailShellProps
           <div className="mt-6">
             <Link
               href={POC_INSTRUMENT_LP}
-              className="inline-flex items-center gap-2 text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-medium text-brand hover:text-brand-hover transition-colors"
             >
               全体像を見る（インタラクティブ LP）→
             </Link>

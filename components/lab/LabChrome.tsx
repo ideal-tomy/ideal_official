@@ -5,10 +5,10 @@ import { HeroBackground } from '@/components/motion/HeroBackground'
 
 export function LabHubHero() {
   return (
-    <section className="relative flex min-h-[50vh] items-center justify-center overflow-hidden border-b border-blue-400/40">
+    <section className="relative flex min-h-[50vh] items-center justify-center overflow-hidden border-b border-brand/40">
       <HeroBackground />
       <HeroReveal className={`relative z-10 ${layout.container} text-center`}>
-        <p className="text-xs font-medium tracking-[0.2em] uppercase text-blue-400/90 mb-4">
+        <p className="text-xs font-medium tracking-[0.2em] uppercase text-brand/90 mb-4">
           LAB
         </p>
         <h1 className={`${typography.h1} ${colors.text.primary} mb-6`}>
@@ -34,7 +34,7 @@ export function LabBreadcrumb({
     >
       <ol className="flex flex-wrap items-center gap-2 text-sm text-gray-500">
         <li>
-          <Link href="/lab" className="hover:text-cyan-400 transition-colors">
+          <Link href="/lab" className="hover:text-brand transition-colors">
             LAB
           </Link>
         </li>
@@ -42,7 +42,7 @@ export function LabBreadcrumb({
           <li key={item.label} className="flex items-center gap-2">
             <span aria-hidden="true">/</span>
             {item.href ? (
-              <Link href={item.href} className="hover:text-cyan-400 transition-colors">
+              <Link href={item.href} className="hover:text-brand transition-colors">
                 {item.label}
               </Link>
             ) : (

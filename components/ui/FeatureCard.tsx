@@ -37,9 +37,9 @@ export function FeatureCard({
   return (
     <div
       className={`
-        relative overflow-hidden rounded-lg border border-blue-500/30 p-6
-        bg-gradient-to-br from-blue-900/20 to-purple-900/20
-        hover:border-blue-400 hover:shadow-lg hover:shadow-blue-500/20
+        relative overflow-hidden rounded-lg border border-brand/30 p-6
+        bg-gradient-to-br from-brand-deep/30 to-brand/20
+        hover:border-brand hover:shadow-lg hover:shadow-[0_8px_24px_var(--color-brand-glow)]
         ${transitions.all}
         ${onClick ? 'cursor-pointer' : ''}
         ${colors.state.focus}
@@ -57,14 +57,14 @@ export function FeatureCard({
       } : undefined}
     >
       {/* 背景エフェクト */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 hover:opacity-100 transition-opacity duration-300" />
+      <div className="absolute inset-0 bg-gradient-to-br from-brand/10 via-transparent to-brand-deep/10 opacity-0 hover:opacity-100 transition-opacity duration-300" />
       
       {/* コンテンツ */}
       <div className="relative z-10">
         {/* アイコン */}
         {cardData.icon && (
           <div className="mb-4 flex justify-center">
-            <div className="p-3 rounded-lg bg-blue-900/30 border border-blue-500/20">
+            <div className="p-3 rounded-lg bg-brand-deep/30 border border-brand/20">
               {cardData.icon}
             </div>
           </div>
@@ -84,7 +84,7 @@ export function FeatureCard({
             {cardData.tags.map((tag, index) => (
               <span
                 key={index}
-                className="px-3 py-1 text-sm rounded-full bg-blue-900/50 text-blue-300 border border-blue-500/20"
+                className="px-3 py-1 text-sm rounded-full bg-brand-deep/50 text-brand-hover border border-brand/20"
               >
                 {tag}
               </span>

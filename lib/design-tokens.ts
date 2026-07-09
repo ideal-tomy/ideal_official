@@ -31,13 +31,17 @@ export const colors = {
     muted: 'text-gray-300',
     disabled: 'text-gray-500',
   },
-  // アクセント（最先端）
+  // アクセント（変革・熱量 — Primary #9B2937 / Bright #D14A55 / Deep #681B26）
   accent: {
-    primary: 'text-blue-400',
-    secondary: 'text-cyan-400',
-    bg: 'bg-blue-500',
-    bgHover: 'hover:bg-blue-600',
-    text: 'text-blue-400',
+    primary: 'text-brand',
+    secondary: 'text-brand-hover',
+    bg: 'bg-brand',
+    bgHover: 'hover:bg-brand-hover',
+    text: 'text-brand',
+    border: 'border-brand',
+    ring: 'focus:ring-brand',
+    deep: 'text-brand-deep',
+    glow: 'shadow-[0_0_24px_var(--color-brand-glow)]',
   },
   // アクセント（高級感）
   luxury: {
@@ -47,13 +51,13 @@ export const colors = {
   // ボーダー
   border: {
     default: 'border-gray-700',
-    accent: 'border-blue-400',
+    accent: 'border-brand/40',
     muted: 'border-gray-600',
   },
   // 状態カラー
   state: {
     hover: 'hover:bg-gray-800',
-    focus: 'focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-gray-900',
+    focus: 'focus:ring-2 focus:ring-brand focus:ring-offset-2 focus:ring-offset-gray-900',
     disabled: 'disabled:opacity-50 disabled:cursor-not-allowed',
   },
 } as const

@@ -20,7 +20,7 @@ function Waveform({ active }: { active: boolean }) {
       {bars.map((h, i) => (
         <div
           key={i}
-          className={`w-1 rounded-full bg-blue-400 ${active ? 'animate-pulse' : 'opacity-40'}`}
+          className={`w-1 rounded-full bg-brand ${active ? 'animate-pulse' : 'opacity-40'}`}
           style={{ height: `${h * 4}px` }}
         />
       ))}

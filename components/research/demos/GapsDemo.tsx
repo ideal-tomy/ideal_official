@@ -22,8 +22,8 @@ export function GapsDemo() {
                 </span>
                 {gap.wall}
               </p>
-              <p className="text-gray-200 border-l-2 border-cyan-500/40 pl-4">
-                <span className="block text-[10px] uppercase tracking-wider text-cyan-400/80 mb-1">
+              <p className="text-gray-200 border-l-2 border-brand/40 pl-4">
+                <span className="block text-[10px] uppercase tracking-wider text-brand/80 mb-1">
                   進化が拓く道
                 </span>
                 {gap.path}

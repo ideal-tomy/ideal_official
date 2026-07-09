@@ -133,7 +133,7 @@ export default function TestModalPage() {
                   </div>
                 }
               >
-                <div className="bg-gray-800 border border-gray-600 rounded-lg p-6 hover:border-blue-400 transition-colors cursor-pointer">
+                <div className="bg-gray-800 border border-gray-600 rounded-lg p-6 hover:border-brand transition-colors cursor-pointer">
                   <h3 className={`${typography.h3} ${colors.text.primary} mb-3`}>
                     AI戦略コンサルティング
                   </h3>
@@ -141,13 +141,13 @@ export default function TestModalPage() {
                     ビジネス目標に合わせたAI導入戦略の策定
                   </p>
                   <div className="mt-4 flex flex-wrap gap-2">
-                    <span className="px-3 py-1 bg-blue-900 text-blue-300 text-sm rounded-full">
+                    <span className="px-3 py-1 bg-brand-deep text-brand-hover text-sm rounded-full">
                       戦略立案
                     </span>
-                    <span className="px-3 py-1 bg-blue-900 text-blue-300 text-sm rounded-full">
+                    <span className="px-3 py-1 bg-brand-deep text-brand-hover text-sm rounded-full">
                       ロードマップ作成
                     </span>
-                    <span className="px-3 py-1 bg-blue-900 text-blue-300 text-sm rounded-full">
+                    <span className="px-3 py-1 bg-brand-deep text-brand-hover text-sm rounded-full">
                       KPI設定
                     </span>
                   </div>
@@ -186,7 +186,7 @@ export default function TestModalPage() {
                   </div>
                 }
               >
-                <div className="bg-gray-800 border border-gray-600 rounded-lg p-6 hover:border-blue-400 transition-colors cursor-pointer">
+                <div className="bg-gray-800 border border-gray-600 rounded-lg p-6 hover:border-brand transition-colors cursor-pointer">
                   <h3 className={`${typography.h3} ${colors.text.primary} mb-3`}>
                     機械学習モデル開発
                   </h3>

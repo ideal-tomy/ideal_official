@@ -28,10 +28,10 @@ export const philosophyItems: AccordionItem[] = [
           個々の得意不得意や向き不向きも含め、個別環境化での&ldquo;無能&rdquo;は罪ではない。しかし、その事実が曖昧な評価基準で&ldquo;調整&rdquo;され、二つの悲劇を生みます。
         </p>
         <div className="space-y-4 border-t border-gray-600 pt-4 mt-4">
-          <p className="underline decoration-blue-400 underline-offset-4 decoration-2 mb-2"> 
+          <p className="underline decoration-brand underline-offset-4 decoration-2 mb-2"> 
             １，組織全体の評価基準を破壊し、誠実な貢献者の意欲を削いでしまうこと。
           </p>
-          <p className="underline decoration-blue-400 underline-offset-4 decoration-2"> 
+          <p className="underline decoration-brand underline-offset-4 decoration-2"> 
             ２，本来であれば適切な支援や別の道によって救われるべき個人から、その機会を奪ってしまうこと。
           </p>
         </div>

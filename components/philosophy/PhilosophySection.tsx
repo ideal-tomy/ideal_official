@@ -42,10 +42,10 @@ const philosophyItems: AccordionItem[] = [
           個々の得意不得意や向き不向きも含め、個別環境化での&ldquo;無能&rdquo;は罪ではない。しかし、その事実が曖昧な評価基準で&ldquo;調整&rdquo;され、二つの悲劇を生みます。
         </p>
         <div className="space-y-3 border-t border-gray-700/50 pt-4 mt-4">
-          <p className="text-blue-300/90">
+          <p className="text-brand-hover/90">
             １，組織全体の評価基準を破壊し、誠実な貢献者の意欲を削いでしまうこと。
           </p>
-          <p className="text-blue-300/90">
+          <p className="text-brand-hover/90">
             ２，本来であれば適切な支援や別の道によって救われるべき個人から、その機会を奪ってしまうこと。
           </p>
         </div>
@@ -98,7 +98,7 @@ const PhilosophySection = React.memo(() => {
             </p>
 
             <div className="pt-4">
-              <h4 className="text-lg font-semibold text-white mb-4 pl-4 border-l-2 border-blue-400/70">
+              <h4 className="text-lg font-semibold text-white mb-4 pl-4 border-l-2 border-brand/70">
                 ラディカルな正直さの物理法則
               </h4>
               <div className="space-y-5 text-base sm:text-lg text-gray-300 leading-relaxed">
@@ -137,7 +137,7 @@ const PhilosophySection = React.memo(() => {
       />
 
       <div className="mt-12 pt-8 border-t border-gray-800/60 max-w-3xl space-y-5">
-        <p className="text-xl font-bold text-blue-400">
+        <p className="text-xl font-bold text-brand">
           個人の合理的な選択を、根本から変える。
         </p>
         <PhilosophyProse className="max-w-none space-y-5">

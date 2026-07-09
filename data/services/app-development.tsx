@@ -105,25 +105,18 @@ export const appDevelopmentData: ServicePageData = {
   relatedServices: [
     {
       id: 'web-development',
-      title: 'Web開発',
+      title: 'Webサイト・LP制作',
       description: 'Web技術を活用したPWA・SPAの開発',
       href: '/services/web-development',
-      tags: ['PWA', 'SPA', 'Web']
+      tags: ['PWA', 'SPA', 'Web'],
     },
     {
       id: 'ai-consulting',
-      title: 'AI',
+      title: 'AIプロトタイプ・自動化',
       description: 'AI機能を統合したスマートアプリの開発',
       href: '/services/ai-consulting',
-      tags: ['AI', 'スマートアプリ', '機械学習']
+      tags: ['AI', 'スマートアプリ', '機械学習'],
     },
-    {
-      id: 'game-development',
-      title: 'ゲーム制作',
-      description: 'モバイルゲームの企画・開発',
-      href: '/services/game-development',
-      tags: ['ゲーム', 'モバイル', 'エンターテインメント']
-    }
   ],
   faqs: [
     {
@@ -243,25 +236,18 @@ export const appDevelopmentCardData: CardData[] = [
 export const appDevelopmentRelatedServices: RelatedServiceData[] = [
   {
     id: 'web-development',
-    title: 'Web開発',
+    title: 'Webサイト・LP制作',
     description: 'Web技術を活用したPWA・SPAの開発',
     href: '/services/web-development',
-    tags: ['PWA', 'SPA', 'Web']
+    tags: ['PWA', 'SPA', 'Web'],
   },
   {
     id: 'ai-consulting',
-    title: 'AI',
+    title: 'AIプロトタイプ・自動化',
     description: 'AI機能を統合したスマートアプリの開発',
     href: '/services/ai-consulting',
-    tags: ['AI', 'スマートアプリ', '機械学習']
+    tags: ['AI', 'スマートアプリ', '機械学習'],
   },
-  {
-    id: 'game-development',
-    title: 'ゲーム制作',
-    description: 'モバイルゲームの企画・開発',
-    href: '/services/game-development',
-    tags: ['ゲーム', 'モバイル', 'エンターテインメント']
-  }
 ]
 
 // FAQデータの詳細定義

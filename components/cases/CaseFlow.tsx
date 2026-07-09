@@ -9,11 +9,11 @@ interface CaseFlowProps {
 
 export function CaseFlow({ title, summary, steps, variant }: CaseFlowProps) {
   const isAfter = variant === 'after'
-  const accent = isAfter ? 'border-cyan-500/30 bg-cyan-500/5' : 'border-gray-800 bg-gray-900/40'
+  const accent = isAfter ? 'border-brand/30 bg-brand/5' : 'border-gray-800 bg-gray-900/40'
   const stepAccent = isAfter
-    ? 'border-cyan-500/40 text-cyan-300'
+    ? 'border-brand/40 text-brand-hover'
     : 'border-gray-600 text-gray-300'
-  const labelColor = isAfter ? 'text-cyan-400/80' : 'text-gray-500'
+  const labelColor = isAfter ? 'text-brand/80' : 'text-gray-500'
 
   return (
     <div className={`rounded-xl border p-6 sm:p-8 ${accent}`}>
@@ -59,7 +59,7 @@ interface CaseFlowCompareProps {
 
 export function CaseFlowCompare({ before, after }: CaseFlowCompareProps) {
   return (
-    <section className="bg-black py-16 lg:py-20 border-b border-blue-400/40">
+    <section className="bg-black py-16 lg:py-20 border-b border-brand/40">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <header className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">

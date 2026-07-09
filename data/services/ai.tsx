@@ -29,7 +29,7 @@ export const aiServiceData: ServicePageData = {
       title: 'AI技術の可能性',
       description: 'AI（人工知能）は、ビジネスプロセスの自動化、データ分析、意思決定支援など、様々な領域で革新的なソリューションを提供します。IDEALでは、最新のAI技術と実践的な経験を組み合わせ、お客様に最適なAIソリューションを提供します。',
       variant: 'dark',
-      className: 'border border-blue-400/30'
+      className: 'border border-brand/30'
     },
     {
       id: 'benefits',
@@ -169,26 +169,26 @@ export const aiServiceData: ServicePageData = {
   ],
   relatedServices: [
     {
-      id: 'blockchain-development',
-      title: 'ブロックチェーン開発',
-      description: '分散型台帳技術を活用した透明性と信頼性の高いシステム構築',
-      href: '/services/blockchain-development',
-      tags: ['Blockchain', 'DeFi', 'NFT']
+      id: 'web-development',
+      title: 'Webサイト・LP制作',
+      description: 'AI機能を統合したモダンなWebアプリケーションの開発',
+      href: '/services/web-development',
+      tags: ['React', 'Next.js', 'AI統合'],
     },
     {
-      id: 'metaverse-development',
-      title: 'メタバース開発',
-      description: '仮想空間での新しいユーザー体験とビジネスモデルの創出',
-      href: '/services/metaverse-development',
-      tags: ['Metaverse', 'VR', 'AR']
+      id: 'app-development',
+      title: 'Webアプリ・業務ツール開発',
+      description: 'AIを組み込んだ業務Web・管理画面の開発',
+      href: '/services/app-development',
+      tags: ['業務Web', 'AI', '自動化'],
     },
     {
-      id: 'nft-development',
-      title: 'NFT開発',
-      description: 'デジタル資産の新たな価値を創造する、次世代のソリューション',
-      href: '/services/nft-development',
-      tags: ['NFT', 'Digital Asset', 'Blockchain']
-    }
+      id: 'blockchain-lab',
+      title: 'Blockchain / DAO Lab',
+      description: '分散型技術の思想・研究・実験',
+      href: '/lab/blockchain',
+      tags: ['DAO', 'Research', 'LAB'],
+    },
   ],
   faqs: [
     {
@@ -228,9 +228,9 @@ export const aiTabData: TabData[] = [
               ビジネスの課題解決に活用します。
             </p>
             <div className="flex flex-wrap gap-2">
-              <span className="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">機械学習</span>
-              <span className="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">深層学習</span>
-              <span className="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">NLP</span>
+              <span className="px-3 py-1 bg-brand-deep/50 text-brand-hover rounded-full text-sm">機械学習</span>
+              <span className="px-3 py-1 bg-brand-deep/50 text-brand-hover rounded-full text-sm">深層学習</span>
+              <span className="px-3 py-1 bg-brand-deep/50 text-brand-hover rounded-full text-sm">NLP</span>
             </div>
           </div>
           <div className="relative h-64 w-full rounded-lg overflow-hidden">
@@ -305,25 +305,25 @@ export const aiCardData: CardData[] = [
 export const aiRelatedServices: RelatedServiceData[] = [
   {
     id: 'web-development',
-    title: 'Web開発',
+    title: 'Webサイト・LP制作',
     description: 'AI機能を統合したモダンなWebアプリケーションの開発',
     href: '/services/web-development',
-    tags: ['React', 'Next.js', 'AI統合']
+    tags: ['React', 'Next.js', 'AI統合'],
   },
   {
     id: 'app-development',
-    title: 'Webアプリ・業務ツール',
+    title: 'Webアプリ・業務ツール開発',
     description: 'AIを組み込んだ業務Web・管理画面の開発',
     href: '/services/app-development',
-    tags: ['業務Web', 'AI', '自動化']
+    tags: ['業務Web', 'AI', '自動化'],
   },
   {
     id: 'blockchain-lab',
     title: 'Blockchain / DAO Lab',
     description: '分散型技術の思想・研究・実験',
     href: '/lab/blockchain',
-    tags: ['DAO', 'Research', 'LAB']
-  }
+    tags: ['DAO', 'Research', 'LAB'],
+  },
 ]
 
 // FAQデータの詳細定義

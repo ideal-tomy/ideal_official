@@ -171,10 +171,10 @@ export function ConciergeAiStep({
           placeholder="分かる範囲で入力してください"
           className={`
             w-full rounded-lg bg-gray-900/80 px-3 py-2
-            ${borders.border} border-blue-400/40
+            ${borders.border} border-brand/40
             ${typography.small} ${colors.text.primary}
             placeholder:text-gray-500
-            focus:outline-none focus:ring-2 focus:ring-blue-400
+            focus:outline-none focus:ring-2 focus:ring-brand
           `}
         />
         {error ? (
@@ -224,10 +224,10 @@ export function ConciergeAiStep({
         placeholder="自由に入力（任意）"
         className={`
           w-full rounded-lg bg-gray-900/80 px-3 py-2
-          ${borders.border} border-blue-400/40
+          ${borders.border} border-brand/40
           ${typography.small} ${colors.text.primary}
           placeholder:text-gray-500
-          focus:outline-none focus:ring-2 focus:ring-blue-400
+          focus:outline-none focus:ring-2 focus:ring-brand
         `}
       />
       <p className={`${typography.caption} ${colors.text.muted}`}>
@@ -270,7 +270,7 @@ function SuggestedDemos({ slugs }: { slugs: string[] }) {
 
   return (
     <div
-      className={`rounded-md ${borders.border} border-blue-400/30 bg-gray-900/50 p-3 space-y-2`}
+      className={`rounded-md ${borders.border} border-brand/30 bg-gray-900/50 p-3 space-y-2`}
     >
       <p className={`${typography.caption} ${colors.text.muted}`}>関連しそうなデモ</p>
       <ul className="space-y-1.5">
@@ -278,7 +278,7 @@ function SuggestedDemos({ slugs }: { slugs: string[] }) {
           <li key={cap.slug}>
             <Link
               href={cap.href}
-              className={`${typography.small} text-blue-300 hover:text-blue-200 underline-offset-2 hover:underline`}
+              className={`${typography.small} text-brand-hover hover:text-brand-hover underline-offset-2 hover:underline`}
             >
               {cap.subtitle}
             </Link>

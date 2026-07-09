@@ -153,7 +153,7 @@ export function ContactForm() {
       {(intent === 'ai-chat' ||
         intent === 'concierge' ||
         serviceId) && (
-        <div className="p-4 bg-blue-900/30 border border-blue-400/50 rounded-lg text-sm text-gray-300">
+        <div className="p-4 bg-brand-deep/30 border border-brand/50 rounded-lg text-sm text-gray-300">
           {intent === 'ai-chat' && (
             <p>AIコンシェルジュからのお問い合わせです。</p>
           )}
@@ -184,7 +184,7 @@ export function ContactForm() {
             bg-gray-800 ${colors.text.primary}
             ${borders.border} ${borders.rounded}
             px-4 py-3
-            focus:outline-none focus:ring-2 focus:ring-blue-400
+            focus:outline-none focus:ring-2 focus:ring-brand
             placeholder:text-gray-500
             ${errors.name ? 'border-red-400' : ''}
           `}
@@ -220,7 +220,7 @@ export function ContactForm() {
             bg-gray-800 ${colors.text.primary}
             ${borders.border} ${borders.rounded}
             px-4 py-3
-            focus:outline-none focus:ring-2 focus:ring-blue-400
+            focus:outline-none focus:ring-2 focus:ring-brand
             placeholder:text-gray-500
             ${errors.email ? 'border-red-400' : ''}
           `}
@@ -256,7 +256,7 @@ export function ContactForm() {
             bg-gray-800 ${colors.text.primary}
             ${borders.border} ${borders.rounded}
             px-4 py-3
-            focus:outline-none focus:ring-2 focus:ring-blue-400
+            focus:outline-none focus:ring-2 focus:ring-brand
             placeholder:text-gray-500
           `}
           placeholder="株式会社ideal"
@@ -280,7 +280,7 @@ export function ContactForm() {
             bg-gray-800 ${colors.text.primary}
             ${borders.border} ${borders.rounded}
             px-4 py-3
-            focus:outline-none focus:ring-2 focus:ring-blue-400
+            focus:outline-none focus:ring-2 focus:ring-brand
             placeholder:text-gray-500
             resize-vertical
             ${errors.message ? 'border-red-400' : ''}

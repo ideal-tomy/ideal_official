@@ -142,9 +142,9 @@ export default function TestSingleColumnPage() {
                 画像の縦長の特性を活かし、視覚的なインパクトを与えます。
               </p>
               <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">AI</span>
-                <span className="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">データ分析</span>
-                <span className="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">グローバル</span>
+                <span className="px-3 py-1 bg-brand-deep/50 text-brand-hover rounded-full text-sm">AI</span>
+                <span className="px-3 py-1 bg-brand-deep/50 text-brand-hover rounded-full text-sm">データ分析</span>
+                <span className="px-3 py-1 bg-brand-deep/50 text-brand-hover rounded-full text-sm">グローバル</span>
               </div>
             </div>
           </div>
@@ -192,9 +192,9 @@ export default function TestSingleColumnPage() {
         className="border-t border-gray-700"
       >
         <div className="space-y-6">
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-6 rounded-lg">
+          <div className="bg-gradient-to-r from-brand-deep to-brand p-6 rounded-lg">
             <h3 className="text-xl font-bold text-white mb-2">グラデーション背景</h3>
-            <p className="text-blue-100">
+            <p className="text-brand-hover">
               カスタムクラスを使用してグラデーション背景を適用しました。
             </p>
           </div>

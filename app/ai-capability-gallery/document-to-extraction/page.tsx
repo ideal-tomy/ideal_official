@@ -44,8 +44,8 @@ export default function DocumentToExtractionPage() {
             </div>
           }
           rightContent={
-            <div className="p-6 rounded-xl border border-cyan-500/20 bg-cyan-500/5">
-              <p className="text-xs uppercase tracking-wider text-cyan-400/80 mb-2">
+            <div className="p-6 rounded-xl border border-brand/20 bg-brand/5">
+              <p className="text-xs uppercase tracking-wider text-brand/80 mb-2">
                 {documentDetailPage.afterTitle}
               </p>
               <p className="text-gray-200 leading-relaxed">{documentDetailPage.afterText}</p>

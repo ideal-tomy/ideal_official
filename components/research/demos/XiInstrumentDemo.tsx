@@ -149,7 +149,7 @@ export function XiInstrumentDemo() {
             <ScatterPlot pts={pts} />
             <div className="flex flex-wrap gap-4 mt-3 text-xs text-gray-300">
               <span className="flex items-center gap-2">
-                <i className="w-2 h-2 rounded-full bg-cyan-400" />
+                <i className="w-2 h-2 rounded-full bg-brand-hover" />
                 誠実な貢献 — Y は X に従属
               </span>
               <span className="flex items-center gap-2">
@@ -192,7 +192,7 @@ export function XiInstrumentDemo() {
                 setGamingPct(v)
                 regen(v, noisePct)
               }}
-              className="w-full accent-cyan-400"
+              className="w-full accent-brand"
               aria-label="ゲーミング混入率"
             />
           </div>
@@ -227,7 +227,7 @@ export function XiInstrumentDemo() {
         </div>
       </section>
 
-      <section className="p-6 rounded-xl border border-cyan-500/20 bg-cyan-500/5">
+      <section className="p-6 rounded-xl border border-brand/20 bg-brand/5">
         <p className="text-gray-200 leading-relaxed">
           <strong className="text-white">この計器が示すこと。</strong> ξ は個々のメンバーを名指ししません。
           高X・低Y の点が混じるほど集計 ξ が落ち、DAO は「測定系が信用できない」という

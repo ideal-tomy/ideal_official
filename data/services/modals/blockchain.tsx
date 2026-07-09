@@ -6,15 +6,15 @@ export const modalContents: Record<string, ReactNode> = {
         <h3 className="text-xl font-bold text-white mb-4">取引の透明化</h3>
     <div className="space-y-4">
       <div>
-            <h4 className="font-semibold text-blue-400 mb-2">スマートコントラクトによる自動化</h4>
+            <h4 className="font-semibold text-brand mb-2">スマートコントラクトによる自動化</h4>
             <p className="text-gray-300">条件が満たされた時に自動実行される契約により、人的ミスを排除し、取引の信頼性を向上</p>
       </div>
       <div>
-            <h4 className="font-semibold text-blue-400 mb-2">改ざん防止</h4>
+            <h4 className="font-semibold text-brand mb-2">改ざん防止</h4>
             <p className="text-gray-300">ブロックチェーンの暗号技術により、取引履歴の改ざんを防止し、データの整合性を保証</p>
       </div>
       <div>
-            <h4 className="font-semibold text-blue-400 mb-2">監査可能性</h4>
+            <h4 className="font-semibold text-brand mb-2">監査可能性</h4>
             <p className="text-gray-300">すべての取引がブロックチェーン上に記録され、第三者による監査が容易に実行可能</p>
           </div>
         </div>
@@ -25,15 +25,15 @@ export const modalContents: Record<string, ReactNode> = {
       <h3 className="text-xl font-bold text-white mb-4">資産のトークン化</h3>
       <div className="space-y-4">
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">不動産のトークン化</h4>
+          <h4 className="font-semibold text-brand mb-2">不動産のトークン化</h4>
           <p className="text-gray-300">高額な不動産を分割所有可能にし、小口投資による不動産投資の機会を創出</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">知的財産権のトークン化</h4>
+          <h4 className="font-semibold text-brand mb-2">知的財産権のトークン化</h4>
           <p className="text-gray-300">特許や商標などの知的財産権をトークン化し、新しい収益モデルを構築</p>
     </div>
     <div>
-          <h4 className="font-semibold text-blue-400 mb-2">流動性の向上</h4>
+          <h4 className="font-semibold text-brand mb-2">流動性の向上</h4>
           <p className="text-gray-300">従来流動性の低かった資産をトークン化することで、24時間365日の取引が可能に</p>
         </div>
       </div>
@@ -44,15 +44,15 @@ export const modalContents: Record<string, ReactNode> = {
             <h3 className="text-xl font-bold text-white mb-4">サプライチェーン管理</h3>
             <div className="space-y-4">
               <div>
-                <h4 className="font-semibold text-blue-400 mb-2">製品の追跡</h4>
+                <h4 className="font-semibold text-brand mb-2">製品の追跡</h4>
                 <p className="text-gray-300">原材料から最終製品まで、すべての工程をブロックチェーン上で追跡可能</p>
               </div>
               <div>
-                <h4 className="font-semibold text-blue-400 mb-2">品質保証</h4>
+                <h4 className="font-semibold text-brand mb-2">品質保証</h4>
                 <p className="text-gray-300">各段階での品質データを記録し、製品の品質を保証</p>
               </div>
               <div>
-                <h4 className="font-semibold text-blue-400 mb-2">透明性の確保</h4>
+                <h4 className="font-semibold text-brand mb-2">透明性の確保</h4>
                 <p className="text-gray-300">サプライチェーン全体の透明性を確保し、消費者への信頼性向上</p>
         </div>
       </div>
@@ -63,23 +63,23 @@ export const modalContents: Record<string, ReactNode> = {
               <h3 className="text-xl font-bold text-white mb-4">技術要素</h3>
               <div className="space-y-3">
                 <div>
-                  <h4 className="font-semibold text-blue-400 mb-2">分散型台帳技術</h4>
+                  <h4 className="font-semibold text-brand mb-2">分散型台帳技術</h4>
                   <p className="text-gray-300">複数のノードでデータを共有・同期する分散型の台帳システム</p>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-blue-400 mb-2">スマートコントラクト</h4>
+                  <h4 className="font-semibold text-brand mb-2">スマートコントラクト</h4>
                   <p className="text-gray-300">条件が満たされた時に自動実行されるプログラム</p>
         </div>
                 <div>
-                  <h4 className="font-semibold text-blue-400 mb-2">暗号技術</h4>
+                  <h4 className="font-semibold text-brand mb-2">暗号技術</h4>
                   <p className="text-gray-300">データの暗号化、デジタル署名、ハッシュ関数によるセキュリティ確保</p>
         </div>
                 <div>
-                  <h4 className="font-semibold text-blue-400 mb-2">コンセンサスアルゴリズム</h4>
+                  <h4 className="font-semibold text-brand mb-2">コンセンサスアルゴリズム</h4>
                   <p className="text-gray-300">ネットワーク内での合意形成メカニズム（PoW、PoS、DPoSなど）</p>
         </div>
                 <div>
-                  <h4 className="font-semibold text-blue-400 mb-2">P2Pネットワーク</h4>
+                  <h4 className="font-semibold text-brand mb-2">P2Pネットワーク</h4>
                   <p className="text-gray-300">中央サーバーを介さない直接的なノード間通信</p>
         </div>
       </div>
@@ -90,23 +90,23 @@ export const modalContents: Record<string, ReactNode> = {
       <h3 className="text-xl font-bold text-white mb-4">ビジネス要素</h3>
       <div className="space-y-3">
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">明確なユースケース特定</h4>
+          <h4 className="font-semibold text-brand mb-2">明確なユースケース特定</h4>
           <p className="text-gray-300">ブロックチェーン技術が解決する具体的な課題の特定と効果の測定</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">ガバナンス設計</h4>
+          <h4 className="font-semibold text-brand mb-2">ガバナンス設計</h4>
           <p className="text-gray-300">分散型システムにおける意思決定プロセスとルールの設計</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">規制対応</h4>
+          <h4 className="font-semibold text-brand mb-2">規制対応</h4>
           <p className="text-gray-300">各国の規制要件への対応とコンプライアンス体制の構築</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">ROI分析</h4>
+          <h4 className="font-semibold text-brand mb-2">ROI分析</h4>
           <p className="text-gray-300">投資対効果の算出と継続的な効果測定</p>
         </div>
     <div>
-          <h4 className="font-semibold text-blue-400 mb-2">運用・保守体制</h4>
+          <h4 className="font-semibold text-brand mb-2">運用・保守体制</h4>
           <p className="text-gray-300">システムの継続的な運用とメンテナンス体制の構築</p>
         </div>
       </div>
@@ -117,23 +117,23 @@ export const modalContents: Record<string, ReactNode> = {
       <h3 className="text-xl font-bold text-white mb-4">人材要素</h3>
       <div className="space-y-3">
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">ブロックチェーン開発者</h4>
+          <h4 className="font-semibold text-brand mb-2">ブロックチェーン開発者</h4>
           <p className="text-gray-300">スマートコントラクトやDAppの開発を行う技術者</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">セキュリティ専門家</h4>
+          <h4 className="font-semibold text-brand mb-2">セキュリティ専門家</h4>
           <p className="text-gray-300">ブロックチェーンシステムのセキュリティ監査と対策の専門家</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">システムアーキテクト</h4>
+          <h4 className="font-semibold text-brand mb-2">システムアーキテクト</h4>
           <p className="text-gray-300">ブロックチェーンシステム全体の設計とアーキテクチャ構築</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">バックエンドエンジニア</h4>
+          <h4 className="font-semibold text-brand mb-2">バックエンドエンジニア</h4>
           <p className="text-gray-300">ブロックチェーンと連携するバックエンドシステムの開発</p>
     </div>
     <div>
-          <h4 className="font-semibold text-blue-400 mb-2">ビジネスアナリスト</h4>
+          <h4 className="font-semibold text-brand mb-2">ビジネスアナリスト</h4>
           <p className="text-gray-300">ビジネス要件の分析とブロックチェーン活用の提案</p>
         </div>
       </div>

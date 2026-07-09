@@ -69,7 +69,7 @@ export function Accordion({
                   ${isCard ? 'px-5 sm:px-6 py-4 sm:py-5 text-base sm:text-lg font-semibold' : `px-0 py-4 ${typography.h4}`}
                   text-white
                   hover:text-gray-200
-                  focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/50 focus-visible:ring-inset
+                  focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/50 focus-visible:ring-inset
                   ${transitions.all}
                 `}
               >
@@ -85,7 +85,7 @@ export function Accordion({
                     ) : (
                       <svg 
                         className={`
-                          w-5 h-5 text-blue-400 
+                          w-5 h-5 text-brand 
                           ${open ? 'transform rotate-180' : ''} 
                           ${transitions.transform}
                         `} 

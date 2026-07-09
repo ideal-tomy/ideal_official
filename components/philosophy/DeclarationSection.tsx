@@ -68,7 +68,7 @@ const DeclarationSection = React.memo(() => {
 
       <PhilosophyCallout className="mt-6">
         <div>
-          <p className="font-bold text-blue-400 mb-3">人間だけでは不可能だった&ldquo;観測&rdquo;と&ldquo;記録&rdquo;</p>
+          <p className="font-bold text-brand mb-3">人間だけでは不可能だった&ldquo;観測&rdquo;と&ldquo;記録&rdquo;</p>
           <ul className="list-disc list-outside ml-5 space-y-2 text-gray-300">
             <li>
               <strong className="text-gray-100">AIによる継続的な観測：</strong>{' '}
@@ -82,7 +82,7 @@ const DeclarationSection = React.memo(() => {
           </ul>
         </div>
         <div>
-          <p className="font-bold text-blue-400 mb-3">時間と範囲を超えた&ldquo;影響測定&rdquo;と&ldquo;フィードバック&rdquo;</p>
+          <p className="font-bold text-brand mb-3">時間と範囲を超えた&ldquo;影響測定&rdquo;と&ldquo;フィードバック&rdquo;</p>
           <ul className="list-disc list-outside ml-5 space-y-2 text-gray-300">
             <li>
               <strong className="text-gray-100">長期的な影響分析：</strong>{' '}
@@ -111,11 +111,11 @@ const DeclarationSection = React.memo(() => {
       <ol className="mt-8 max-w-3xl space-y-5">
         {DESIGN_ITEMS.map((item, index) => (
           <li key={item.title} className="flex gap-4">
-            <span className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/15 border border-blue-400/30 text-blue-400 text-sm font-bold flex items-center justify-center">
+            <span className="flex-shrink-0 w-8 h-8 rounded-full bg-brand/15 border border-brand/30 text-brand text-sm font-bold flex items-center justify-center">
               {index + 1}
             </span>
             <div className="min-w-0 pt-0.5">
-              <p className="font-semibold text-blue-400 mb-1">{item.title}</p>
+              <p className="font-semibold text-brand mb-1">{item.title}</p>
               <p className="text-base text-gray-300 leading-relaxed">{item.body}</p>
             </div>
           </li>

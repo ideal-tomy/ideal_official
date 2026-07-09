@@ -43,7 +43,7 @@ export function Card({
           />
         </div>
       ) : icon ? (
-        <div className="mb-6 text-blue-400">{icon}</div>
+        <div className="mb-6 text-brand">{icon}</div>
       ) : null}
 
       {/* タイトル */}

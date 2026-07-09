@@ -122,9 +122,9 @@ export function MobileMenu({ navLinks, serviceLinks }: MobileMenuProps) {
                     scroll
                     className={`
                       block
-                      text-blue-400
+                      text-brand
                       ${transitions.colors}
-                      hover:text-blue-300
+                      hover:text-brand-hover
                       ${colors.state.focus}
                       focus:outline-none
                       text-base

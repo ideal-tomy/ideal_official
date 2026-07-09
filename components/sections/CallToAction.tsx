@@ -15,7 +15,7 @@ export default function CallToAction() {
     <Section backgroundColor="black">
       <ScrollReveal className="text-center max-w-4xl mx-auto">
         <h2 className={`${typography.h2} ${colors.text.primary} mb-6`}>
-          自社でも使えるか、一緒に整理しませんか。
+          自社でも使えるか一緒に整理しませんか
         </h2>
 
         <p className={`${typography.bodyLarge} ${colors.text.muted} mb-12`}>
@@ -32,10 +32,11 @@ export default function CallToAction() {
             href="/contact"
             className="
               inline-flex items-center justify-center rounded-lg
-              bg-cyan-500 px-8 py-4 text-lg font-bold text-white
+              bg-transparent px-8 py-4 text-lg font-bold text-white
+              border border-white/25
               transition-all duration-300 ease-in-out
-              hover:scale-105 hover:bg-cyan-600 active:scale-95
-              focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-black
+              hover:scale-105 hover:border-brand/60 hover:text-brand-hover active:scale-95
+              focus:outline-none focus:ring-2 focus:ring-brand/50 focus:ring-offset-2 focus:ring-offset-black
             "
           >
             お問い合わせ

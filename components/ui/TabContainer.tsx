@@ -29,7 +29,7 @@ export function TabContainer({ tabs, defaultTab, className = '' }: TabContainerP
                       focus-visible:ring-0
                       relative
                       ${selected
-                        ? `${colors.text.primary} border-b-2 border-blue-400 pb-4 -mb-px`
+                        ? `${colors.text.primary} border-b-2 border-brand pb-4 -mb-px`
                         : `${colors.text.secondary} hover:${colors.text.primary}`
                       }
                     `}

@@ -6,15 +6,15 @@ export const modalContents: Record<string, ReactNode> = {
       <h3 className="text-xl font-bold text-white mb-4">バーチャルショールーム</h3>
       <div className="space-y-4">
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">3D商品展示</h4>
+          <h4 className="font-semibold text-brand mb-2">3D商品展示</h4>
           <p className="text-gray-300">リアルな3Dモデルで商品を360度から確認でき、詳細な情報を提供</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">仮想店舗体験</h4>
+          <h4 className="font-semibold text-brand mb-2">仮想店舗体験</h4>
           <p className="text-gray-300">実店舗のような体験をオンラインで提供し、顧客エンゲージメントを向上</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">24時間アクセス</h4>
+          <h4 className="font-semibold text-brand mb-2">24時間アクセス</h4>
           <p className="text-gray-300">時間や場所を問わず、世界中の顧客に商品をアピール可能</p>
         </div>
       </div>
@@ -25,15 +25,15 @@ export const modalContents: Record<string, ReactNode> = {
       <h3 className="text-xl font-bold text-white mb-4">バーチャルイベント</h3>
       <div className="space-y-4">
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">展示会・セミナー</h4>
+          <h4 className="font-semibold text-brand mb-2">展示会・セミナー</h4>
           <p className="text-gray-300">メタバース空間で大規模なイベントを開催し、世界中から参加者を集客</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">インタラクティブな体験</h4>
+          <h4 className="font-semibold text-brand mb-2">インタラクティブな体験</h4>
           <p className="text-gray-300">参加者同士の交流やリアルタイムのQ&Aなど、双方向のコミュニケーション</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">コスト削減</h4>
+          <h4 className="font-semibold text-brand mb-2">コスト削減</h4>
           <p className="text-gray-300">会場費や移動費を削減し、効率的なイベント運営を実現</p>
         </div>
       </div>
@@ -44,15 +44,15 @@ export const modalContents: Record<string, ReactNode> = {
       <h3 className="text-xl font-bold text-white mb-4">仮想トレーニング</h3>
       <div className="space-y-4">
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">実践的な訓練</h4>
+          <h4 className="font-semibold text-brand mb-2">実践的な訓練</h4>
           <p className="text-gray-300">VR技術により、危険な作業や高額な機材を使う訓練を安全に実施</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">繰り返し学習</h4>
+          <h4 className="font-semibold text-brand mb-2">繰り返し学習</h4>
           <p className="text-gray-300">何度でも繰り返し練習でき、効率的なスキル習得が可能</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">データ分析</h4>
+          <h4 className="font-semibold text-brand mb-2">データ分析</h4>
           <p className="text-gray-300">訓練データを分析し、個々の習熟度に合わせた教育プログラムを提供</p>
         </div>
       </div>
@@ -63,23 +63,23 @@ export const modalContents: Record<string, ReactNode> = {
       <h3 className="text-xl font-bold text-white mb-4">技術要素</h3>
       <div className="space-y-3">
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">3Dモデリングとレンダリング</h4>
+          <h4 className="font-semibold text-brand mb-2">3Dモデリングとレンダリング</h4>
           <p className="text-gray-300">高品質な3Dモデルの作成とリアルタイムレンダリング技術</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">VR/ARデバイス対応</h4>
+          <h4 className="font-semibold text-brand mb-2">VR/ARデバイス対応</h4>
           <p className="text-gray-300">各種VRヘッドセットやARデバイスへの最適化</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">クラウドインフラストラクチャ</h4>
+          <h4 className="font-semibold text-brand mb-2">クラウドインフラストラクチャ</h4>
           <p className="text-gray-300">スケーラブルなクラウド環境の構築と運用</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">リアルタイム通信プロトコル</h4>
+          <h4 className="font-semibold text-brand mb-2">リアルタイム通信プロトコル</h4>
           <p className="text-gray-300">低遅延でのマルチユーザー通信の実現</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">ブロックチェーン統合</h4>
+          <h4 className="font-semibold text-brand mb-2">ブロックチェーン統合</h4>
           <p className="text-gray-300">NFTやデジタル資産管理のための基盤構築</p>
         </div>
       </div>
@@ -90,23 +90,23 @@ export const modalContents: Record<string, ReactNode> = {
       <h3 className="text-xl font-bold text-white mb-4">ビジネス要素</h3>
       <div className="space-y-3">
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">明確な目標とKPI設定</h4>
+          <h4 className="font-semibold text-brand mb-2">明確な目標とKPI設定</h4>
           <p className="text-gray-300">メタバース導入の目的と成功指標の明確化</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">ユーザー獲得戦略</h4>
+          <h4 className="font-semibold text-brand mb-2">ユーザー獲得戦略</h4>
           <p className="text-gray-300">ターゲットユーザーの特定とマーケティング戦略の策定</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">コンテンツ制作計画</h4>
+          <h4 className="font-semibold text-brand mb-2">コンテンツ制作計画</h4>
           <p className="text-gray-300">魅力的なコンテンツの継続的な制作と更新</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">収益化モデル</h4>
+          <h4 className="font-semibold text-brand mb-2">収益化モデル</h4>
           <p className="text-gray-300">持続可能なビジネスモデルの構築</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">運用・保守体制</h4>
+          <h4 className="font-semibold text-brand mb-2">運用・保守体制</h4>
           <p className="text-gray-300">システムの安定運用と継続的な改善体制の確立</p>
         </div>
       </div>
@@ -117,23 +117,23 @@ export const modalContents: Record<string, ReactNode> = {
       <h3 className="text-xl font-bold text-white mb-4">人材要素</h3>
       <div className="space-y-3">
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">3Dデザイナー</h4>
+          <h4 className="font-semibold text-brand mb-2">3Dデザイナー</h4>
           <p className="text-gray-300">高品質な3Dモデルやアセットの制作</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">VR/AR開発者</h4>
+          <h4 className="font-semibold text-brand mb-2">VR/AR開発者</h4>
           <p className="text-gray-300">VR/ARアプリケーションの開発と最適化</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">UI/UXデザイナー</h4>
+          <h4 className="font-semibold text-brand mb-2">UI/UXデザイナー</h4>
           <p className="text-gray-300">直感的で使いやすいインターフェースの設計</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">バックエンドエンジニア</h4>
+          <h4 className="font-semibold text-brand mb-2">バックエンドエンジニア</h4>
           <p className="text-gray-300">サーバーサイドシステムとインフラの構築</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">コンテンツクリエイター</h4>
+          <h4 className="font-semibold text-brand mb-2">コンテンツクリエイター</h4>
           <p className="text-gray-300">魅力的なコンテンツの企画と制作</p>
         </div>
       </div>

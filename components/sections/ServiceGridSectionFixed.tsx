@@ -41,7 +41,7 @@ export default function ServiceGridSectionFixed({
               </p>
             )}
             {title && (
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                 {title}
               </h2>
             )}
@@ -53,7 +53,7 @@ export default function ServiceGridSectionFixed({
           </ScrollReveal>
         )}
 
-        <ScrollStagger className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <ScrollStagger className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service) => (
             <Link
               key={service.id}
@@ -64,7 +64,7 @@ export default function ServiceGridSectionFixed({
                 ${colors.state.hover} ${colors.state.focus}
                 focus:outline-none cursor-pointer
                 transition-all duration-300
-                hover:scale-[1.02] hover:shadow-xl hover:shadow-cyan-500/5
+                hover:scale-[1.02] hover:shadow-xl hover:shadow-[0_8px_24px_var(--color-brand-glow)]
                 block
               `}
             >
@@ -94,7 +94,7 @@ export default function ServiceGridSectionFixed({
                 </p>
 
                 <div className="text-center">
-                  <span className="inline-flex items-center text-sm font-medium text-blue-400 group-hover:text-cyan-300 transition-colors duration-200">
+                  <span className="inline-flex items-center text-sm font-medium text-gray-300 group-hover:text-brand transition-colors duration-200">
                     {service.linkText}
                     <svg
                       className="ml-2 w-4 h-4 transition-transform duration-200 group-hover:translate-x-1"

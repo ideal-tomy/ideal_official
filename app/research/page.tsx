@@ -13,9 +13,9 @@ export const metadata: Metadata = {
 export default function ResearchHubPage() {
   return (
     <div className="bg-black min-h-screen">
-      <div className="border-b border-blue-400/40 bg-gray-900/40">
+      <div className="border-b border-brand/40 bg-gray-900/40">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-3 text-sm text-gray-400">
-          <Link href="/lab" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+          <Link href="/lab" className="text-brand hover:text-brand-hover transition-colors">
             ← LAB
           </Link>
           <span className="mx-2 text-gray-600">/</span>
@@ -25,7 +25,7 @@ export default function ResearchHubPage() {
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
         <header className="mb-12 lg:mb-16">
-          <p className="text-xs font-medium tracking-[0.2em] uppercase text-blue-400/90 mb-3">
+          <p className="text-xs font-medium tracking-[0.2em] uppercase text-brand/90 mb-3">
             Research · LAB
           </p>
           <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4">技術提案デモ</h1>
@@ -45,10 +45,10 @@ export default function ResearchHubPage() {
               <Link
                 key={demo.id}
                 href={demo.href}
-                className="group block p-6 rounded-xl border border-gray-800 bg-gray-900/40 hover:border-blue-400/30 hover:bg-gray-900/60 transition-colors"
+                className="group block p-6 rounded-xl border border-gray-800 bg-gray-900/40 hover:border-brand/30 hover:bg-gray-900/60 transition-colors"
               >
                 <div className="flex items-start justify-between gap-2 mb-2">
-                  <h2 className="text-lg font-semibold text-white group-hover:text-blue-300 transition-colors">
+                  <h2 className="text-lg font-semibold text-white group-hover:text-brand-hover transition-colors">
                     {demo.title}
                   </h2>
                   <span className="text-[10px] uppercase tracking-wider text-gray-400 border border-gray-700 px-1.5 py-0.5 rounded shrink-0">
@@ -74,7 +74,7 @@ export default function ResearchHubPage() {
         <div className="mt-12 pt-8 border-t border-gray-800">
           <Link
             href="/philosophy"
-            className="text-sm text-gray-300 hover:text-blue-400 transition-colors"
+            className="text-sm text-gray-300 hover:text-brand transition-colors"
           >
             ← DAO研究・取り組み（Philosophy）に戻る
           </Link>

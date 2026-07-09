@@ -20,10 +20,12 @@ const notoSansJP = Noto_Sans_JP({
 
 export const metadata: Metadata = {
   title: "ideal | 高級感・最先端のデジタル体験",
-  description: "Webサイト制作、アプリ開発、ゲーム制作、AIコンサル、ブロックチェーン開発まで。最高のデジタル体験を提供します。",
+  description:
+    "Webサイト・LP制作、Webアプリ・業務ツール開発、AIプロトタイプ・自動化。デモを体験し、自社の課題に置き換えてから相談できます。",
   openGraph: {
     title: "ideal | 高級感・最先端のデジタル体験",
-    description: "Webサイト制作、アプリ開発、ゲーム制作、AIコンサル、ブロックチェーン開発まで。最高のデジタル体験を提供します。",
+    description:
+      "Webサイト・LP制作、Webアプリ・業務ツール開発、AIプロトタイプ・自動化。デモを体験し、自社の課題に置き換えてから相談できます。",
     type: "website",
     locale: "ja_JP",
   },

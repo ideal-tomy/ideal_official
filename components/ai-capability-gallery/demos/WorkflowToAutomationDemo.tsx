@@ -47,7 +47,7 @@ export function WorkflowToAutomationDemo() {
               <p className="text-sm font-medium text-gray-800">{selectedSet.email.subject}</p>
               <p className="text-xs text-gray-600 leading-relaxed">{selectedSet.email.body}</p>
               {selectedSet.email.attachment && (
-                <p className="text-xs text-blue-600">📎 {selectedSet.email.attachment}</p>
+                <p className="text-xs text-brand">📎 {selectedSet.email.attachment}</p>
               )}
             </div>
           </div>
@@ -97,8 +97,8 @@ export function WorkflowToAutomationDemo() {
                   </div>
                 </dl>
               </div>
-              <div className="p-3 rounded-lg bg-blue-50 border border-blue-200">
-                <p className="text-xs text-blue-700">
+              <div className="p-3 rounded-lg bg-brand/10 border border-brand/30">
+                <p className="text-xs text-brand-deep">
                   🔔 {selectedSet.result.notification}
                 </p>
               </div>

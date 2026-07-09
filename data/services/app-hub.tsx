@@ -110,8 +110,8 @@ function HoodBody({
   return (
     <div className="space-y-6">
       <p className="text-gray-300 leading-relaxed">{lead}</p>
-      <div className="rounded-lg border border-cyan-500/25 bg-cyan-500/5 p-4">
-        <p className="text-xs uppercase tracking-wider text-cyan-400/90 mb-1">
+      <div className="rounded-lg border border-brand/25 bg-brand/5 p-4">
+        <p className="text-xs uppercase tracking-wider text-brand/90 mb-1">
           このサイトでの使用
         </p>
         <p className="text-sm text-gray-200 leading-relaxed">{siteUsage}</p>
@@ -119,7 +119,7 @@ function HoodBody({
       <div className="space-y-4">
         {points.map((p) => (
           <div key={p.title}>
-            <h4 className="font-semibold text-blue-400 mb-2">{p.title}</h4>
+            <h4 className="font-semibold text-brand mb-2">{p.title}</h4>
             <p className="text-gray-300 text-sm leading-relaxed">{p.text}</p>
           </div>
         ))}

@@ -3,27 +3,27 @@ import { colors, typography } from '../../lib/design-tokens'
 
 export function PhilosophyCallout() {
   return (
-    <div className="border-b border-blue-400 bg-gray-900/50">
+    <div className="border-b border-brand bg-gray-900/50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center">
         <p className={`${typography.body} ${colors.text.muted}`}>
           DAOの思想・研究は{' '}
           <Link
             href="/lab"
-            className="text-cyan-400 hover:text-cyan-300 underline underline-offset-2"
+            className="text-brand hover:text-brand-hover underline underline-offset-2"
           >
             LAB
           </Link>
           {' '}（
           <Link
             href="/philosophy"
-            className="text-cyan-400 hover:text-cyan-300 underline underline-offset-2"
+            className="text-brand hover:text-brand-hover underline underline-offset-2"
           >
             Philosophy
           </Link>
           ・
           <Link
             href="/research"
-            className="text-cyan-400 hover:text-cyan-300 underline underline-offset-2"
+            className="text-brand hover:text-brand-hover underline underline-offset-2"
           >
             Research
           </Link>

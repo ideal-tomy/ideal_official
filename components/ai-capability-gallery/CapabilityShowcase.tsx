@@ -5,6 +5,7 @@ import {
   capabilities,
   type Capability,
 } from '@/data/ai-capability-gallery/capabilities'
+import { ChangeLabel } from '@/components/ui/ChangeLabel'
 import { DemoFrame } from '@/components/ai-capability-gallery/demos/DemoFrame'
 import { useDemoProcess } from '@/components/ai-capability-gallery/hooks/useDemoProcess'
 import { useInViewAutoPlay } from '@/components/ai-capability-gallery/hooks/useInViewAutoPlay'
@@ -39,7 +40,7 @@ function VoiceShowcase() {
               {sample.transcript}
             </p>
           </div>
-          <div className="hidden lg:flex items-center justify-center text-2xl text-blue-500">
+          <div className="hidden lg:flex items-center justify-center text-2xl text-brand">
             ↓ AI
           </div>
           <div className="rounded-xl border border-[#D9DDE3] bg-white p-4">
@@ -96,7 +97,7 @@ function PhotoShowcase() {
           </div>
           <div className="hidden lg:flex flex-col gap-2 pt-6">
             {logs.map((log) => (
-              <span key={log} className="text-xs text-blue-600">
+              <span key={log} className="text-xs text-brand">
                 {log}
               </span>
             ))}
@@ -171,7 +172,7 @@ function DocumentShowcase() {
                   key={field.id}
                   className={`rounded border p-3 text-sm transition-all duration-500 ${
                     isComplete || index < activeFieldCount
-                      ? 'border-blue-200 bg-blue-50 opacity-100'
+                      ? 'border-brand/30 bg-brand/10 opacity-100'
                       : 'border-[#D9DDE3] bg-gray-50 opacity-30'
                   }`}
                 >
@@ -290,7 +291,7 @@ function WorkflowShowcase() {
                   <div
                     className={`mt-1 h-3 w-3 rounded-full ${
                       isComplete || index < logs.length
-                        ? 'bg-blue-500'
+                        ? 'bg-brand'
                         : 'bg-gray-300'
                     }`}
                   />
@@ -313,7 +314,7 @@ function WorkflowShowcase() {
                   {isComplete ? sample.result.registeredId : '---'}
                 </p>
               </div>
-              <div className={`rounded-lg p-3 border ${isComplete ? 'border-blue-200 bg-blue-50' : 'border-[#D9DDE3] bg-gray-50'}`}>
+              <div className={`rounded-lg p-3 border ${isComplete ? 'border-brand/30 bg-brand/10' : 'border-[#D9DDE3] bg-gray-50'}`}>
                 <p className="text-xs text-gray-500">通知</p>
                 <p className="text-sm text-gray-800">
                   {isComplete ? sample.result.notification : '処理中…'}
@@ -361,7 +362,7 @@ function KnowledgeShowcase() {
             <p className="text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">
               根拠
             </p>
-            <p className="text-xs text-blue-700 mb-2">{source?.title}</p>
+            <p className="text-xs text-brand-deep mb-2">{source?.title}</p>
             <p className={`text-xs text-gray-600 leading-relaxed transition-opacity duration-500 ${isComplete ? 'opacity-100' : 'opacity-25'}`}>
               {source?.excerpt}
             </p>
@@ -420,7 +421,7 @@ function ReportShowcase() {
                     {section.sources.map((source) => (
                       <span
                         key={source}
-                        className="text-[10px] px-1.5 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-100"
+                        className="text-[10px] px-1.5 py-0.5 rounded bg-brand/10 text-brand-deep border border-brand/20"
                       >
                         {source}
                       </span>
@@ -464,11 +465,11 @@ function ShowcaseText({
 }) {
   return (
     <div className="max-w-xl">
-      <p className="text-sm font-mono tracking-[0.2em] text-blue-400/80 mb-4">
+      <p className="text-sm font-mono tracking-[0.2em] text-gray-500 mb-4">
         {String(capability.number).padStart(2, '0')}
       </p>
-      <p className="text-xs md:text-sm tracking-[0.22em] text-cyan-400/90 mb-4">
-        {capability.englishLabel}
+      <p className="text-xs md:text-sm mb-4">
+        <ChangeLabel label={capability.englishLabel} className="tracking-[0.22em]" />
       </p>
       <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight mb-6">
         {capability.title}
@@ -492,15 +493,15 @@ function ShowcaseText({
           <span className="text-gray-400">{capability.before}</span>
         </div>
         <div className="flex gap-3">
-          <span className="text-cyan-400/80 shrink-0 w-14">After</span>
+          <span className="text-brand shrink-0 w-14">After</span>
           <span className="text-gray-200">{capability.after}</span>
         </div>
       </div>
       <Link
         href={capability.href}
-        className="inline-flex items-center rounded-lg bg-blue-500 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-blue-600"
+        className="inline-flex items-center rounded-lg bg-brand px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-hover"
       >
-        このデモを体験する
+        このデモを体験
       </Link>
     </div>
   )

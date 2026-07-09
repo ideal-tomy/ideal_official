@@ -19,7 +19,7 @@ export async function expectMainNav(page: Page) {
 }
 
 /**
- * トップ「依頼できること」にサービスカードがあることを確認し、ページを開く。
+ * トップ「社内にIT部門がなくても、 事業に必要な仕組みはつくれる。」にサービスカードがあることを確認し、ページを開く。
  * Next.js のクライアント遷移は環境によって不安定なため、href 検証 + goto を使う。
  */
 export async function assertHomeServiceCardAndOpen(
@@ -28,7 +28,7 @@ export async function assertHomeServiceCardAndOpen(
 ) {
   await page.goto('/')
   const section = page.locator('section').filter({
-    has: page.getByRole('heading', { name: '依頼できること' }),
+    has: page.getByRole('heading', { name: '社内にIT部門がなくても、 事業に必要な仕組みはつくれる。' }),
   })
   await section.scrollIntoViewIfNeeded()
   await expect(section.locator(`a[href="${href}"]`)).toBeVisible()

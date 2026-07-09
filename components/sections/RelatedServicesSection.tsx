@@ -113,7 +113,7 @@ export function RelatedServicesSection({
               </p>
             )}
             {title && (
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-brand to-brand-hover bg-clip-text text-transparent">
                 {title}
               </h2>
             )}
@@ -197,7 +197,7 @@ export function RelatedServicesSection({
               <div className="text-center">
                 <span className={`
                   inline-flex items-center text-sm font-medium
-                  text-blue-400 hover:text-white
+                  text-brand hover:text-white
                   transition-colors duration-200
                 `}>
                   詳細を見る

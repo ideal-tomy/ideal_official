@@ -19,10 +19,10 @@ export function LabAreaHero({
   return (
     <>
       <LabBreadcrumb items={[{ label: breadcrumbLabel }]} />
-      <section className="relative flex min-h-[45vh] items-center justify-center overflow-hidden border-b border-blue-400/40">
+      <section className="relative flex min-h-[45vh] items-center justify-center overflow-hidden border-b border-brand/40">
         <HeroBackground />
         <HeroReveal className={`relative z-10 ${layout.container} text-center`}>
-          <p className="text-xs font-medium tracking-[0.2em] uppercase text-cyan-400/90 mb-4">
+          <p className="text-xs font-medium tracking-[0.2em] uppercase text-brand/90 mb-4">
             {eyebrow}
           </p>
           <h1 className={`${typography.h1} ${colors.text.primary} mb-6 whitespace-pre-line`}>
@@ -47,7 +47,7 @@ export function LabCardGrid({
   items: { id: string; title: string; description: string; href?: string; status?: string; category?: string }[]
 }) {
   return (
-    <section className="py-16 lg:py-20 border-b border-blue-400/40">
+    <section className="py-16 lg:py-20 border-b border-brand/40">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <header className="text-center mb-10">
           <h2 className="text-3xl font-bold text-white mb-3">{title}</h2>
@@ -61,12 +61,12 @@ export function LabCardGrid({
             const inner = (
               <>
                 {item.category && (
-                  <p className="text-xs text-cyan-400/80 mb-1">{item.category}</p>
+                  <p className="text-xs text-brand/80 mb-1">{item.category}</p>
                 )}
                 <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
                 <p className="text-sm text-gray-400 leading-relaxed">{item.description}</p>
                 {item.status === 'ready' && item.href && (
-                  <p className="text-xs text-cyan-400 mt-3">体験する →</p>
+                  <p className="text-xs text-brand mt-3">体験する →</p>
                 )}
               </>
             )
@@ -76,7 +76,7 @@ export function LabCardGrid({
                 <Link
                   key={item.id}
                   href={item.href}
-                  className="rounded-xl border border-gray-800 bg-gray-900/40 p-6 hover:border-cyan-400/30 hover:bg-gray-900/60 transition-colors"
+                  className="rounded-xl border border-gray-800 bg-gray-900/40 p-6 hover:border-brand/30 hover:bg-gray-900/60 transition-colors"
                 >
                   {inner}
                 </Link>
@@ -112,7 +112,7 @@ export function LabPhilosophyGrid({
   deepLinkLabel?: string
 }) {
   return (
-    <section className="py-16 lg:py-20 border-b border-blue-400/40">
+    <section className="py-16 lg:py-20 border-b border-brand/40">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <header className="text-center mb-10">
           <h2 className="text-3xl font-bold text-white mb-3">{title}</h2>
@@ -135,7 +135,7 @@ export function LabPhilosophyGrid({
           <div className="text-center">
             <Link
               href={deepLink}
-              className="text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-colors"
+              className="text-sm font-medium text-brand hover:text-brand-hover transition-colors"
             >
               {deepLinkLabel} →
             </Link>
@@ -154,7 +154,7 @@ export function LabTechList({
   technologies: readonly { name: string; description: string }[]
 }) {
   return (
-    <section className="py-16 lg:py-20 border-b border-blue-400/40">
+    <section className="py-16 lg:py-20 border-b border-brand/40">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <header className="text-center mb-10">
           <h2 className="text-3xl font-bold text-white mb-3">{title}</h2>

@@ -189,7 +189,7 @@ Before / After 一言
 タグ：医療 / 介護 / 建設 / 営業
 Before：会話や報告が記録されない
 After：必要項目が自動整理される
-CTA：デモを体験する
+CTA：デモを体験
 Section 4. How to Use
 役割
 

@@ -16,7 +16,7 @@ const roadmapItems: AccordionItem[] = [
     id: 'phase-1',
     title: (
       <span>
-        <span className="text-blue-400">フェーズ1</span>：基礎研究とプロトタイプの構築
+        <span className="text-brand">フェーズ1</span>：基礎研究とプロトタイプの構築
       </span>
     ),
     content: (
@@ -42,7 +42,7 @@ const roadmapItems: AccordionItem[] = [
     id: 'phase-2',
     title: (
       <span>
-        <span className="text-blue-400">フェーズ2</span>：AI仮想社会を活用したシミュレーション
+        <span className="text-brand">フェーズ2</span>：AI仮想社会を活用したシミュレーション
       </span>
     ),
     content: (
@@ -68,7 +68,7 @@ const roadmapItems: AccordionItem[] = [
     id: 'phase-3',
     title: (
       <span>
-        <span className="text-blue-400">フェーズ3</span>：社会実験と実装へ
+        <span className="text-brand">フェーズ3</span>：社会実験と実装へ
       </span>
     ),
     content: (

@@ -14,7 +14,7 @@ export function ServiceAiCta({ serviceId, className = '' }: ServiceAiCtaProps) {
   const serviceLabel = getServiceLabel(serviceId)
 
   return (
-    <div className={`border-b border-blue-400 bg-black ${className}`}>
+    <div className={`border-b border-brand bg-black ${className}`}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
         <h2 className={`${typography.h3} ${colors.text.primary} mb-3`}>
           このページを起点に、相談内容を整理できます
@@ -30,10 +30,10 @@ export function ServiceAiCta({ serviceId, className = '' }: ServiceAiCtaProps) {
             href={`/contact?service=${serviceId}`}
             className="
               inline-flex items-center justify-center rounded-lg
-              bg-cyan-500 px-8 py-4 text-lg font-bold text-white
+              bg-brand px-8 py-4 text-lg font-bold text-white
               transition-all duration-300 ease-in-out
-              hover:scale-105 hover:bg-cyan-600 active:scale-95
-              focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-black
+              hover:scale-105 hover:bg-brand-hover active:scale-95
+              focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 focus:ring-offset-black
             "
           >
             {serviceLabel}のお問い合わせ

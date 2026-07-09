@@ -4,16 +4,16 @@ import { ServiceLinkData } from '../../types/service'
 
 /** サービスページ横断ナビ（ServiceNavigation 用）— 主力3本のみ */
 export const serviceNavLinks: ServiceLinkData[] = [
-  { id: 'web-development', name: 'Webサイト制作', href: '/services/web-development' },
-  { id: 'app-development', name: 'Webアプリ・業務ツール', href: '/services/app-development' },
-  { id: 'ai-consulting', name: 'AI', href: '/services/ai-consulting' },
+  { id: 'web-development', name: 'Webサイト・LP制作', href: '/services/web-development' },
+  { id: 'app-development', name: 'Webアプリ・業務ツール開発', href: '/services/app-development' },
+  { id: 'ai-consulting', name: 'AIプロトタイプ・自動化', href: '/services/ai-consulting' },
 ]
 
 /** Header / Footer ドロップダウン用（依頼の中心: Web / AI / アプリ） */
 export const headerFooterServiceLinks: { href: string; label: string }[] = [
-  { href: '/services/web-development', label: 'Webサイト制作' },
-  { href: '/services/ai-consulting', label: 'AI' },
-  { href: '/services/app-development', label: 'Webアプリ・業務ツール' },
+  { href: '/services/web-development', label: 'Webサイト・LP制作' },
+  { href: '/services/ai-consulting', label: 'AIプロトタイプ・自動化' },
+  { href: '/services/app-development', label: 'Webアプリ・業務ツール開発' },
 ]
 
 /** Footer LAB 欄など、研究・深掘り系リンク */
@@ -87,6 +87,8 @@ export function serviceIdToIdealTrack(serviceId: string): IdealTrack | null {
     case SERVICE_IDS.ai:
       return 'ai'
     case SERVICE_IDS.blockchain:
+      return 'bc'
+    case SERVICE_IDS.metaverse:
       return 'bc'
     default:
       return null

@@ -18,27 +18,27 @@ export default function Home() {
   const serviceData = [
     {
       id: 'web-development',
-      title: 'Webサイト制作',
+      title: 'Webサイト・LP制作',
       description:
-        'このサイト自体が制作デモ。モーダルやモーションを触って質感を確認できます。',
+        '会社サイト、サービスLP、新規事業サイト。構成・UI・モーション・実装まで、このサイト自体が制作デモです。',
       image: '/images/top_web.png',
       link: '/services/web-development',
       linkText: 'Webを体験する →',
     },
     {
       id: 'ai-consulting',
-      title: 'AI',
+      title: 'AIプロトタイプ・自動化',
       description:
-        '説明より先にデモへ。7つの業務変化パターンから自社に近いものを選べます。',
+        '「AIでできないか」を、まず動くデモから検証。7つの業務変化パターンから自社に近いものを選べます。',
       image: '/images/top_ai.png',
       link: '/services/ai-consulting',
       linkText: 'AI Hub へ →',
     },
     {
       id: 'app-development',
-      title: 'Webアプリ・業務ツール',
+      title: 'Webアプリ・業務ツール開発',
       description:
-        '入力→処理→結果。Excelや手作業の業務を、動く仕組みに変えます。',
+        'Excel、紙、LINE、手作業の業務を、使いやすいWebツールに。入力→処理→結果を体験できます。',
       image: '/images/top_app.png',
       link: '/services/app-development',
       linkText: '操作デモを見る →',
@@ -56,8 +56,10 @@ export default function Home() {
       <Hero />
       <DemoEntryBanner />
       <ServiceGridSectionFixed
-        title="依頼できること"
-        description="Web・AI・業務ツールを中心に、スタートアップの技術支援とコンサル会社の実装パートナーとして伴走します。"
+        title="社内にIT部門がなくても、
+事業に必要な仕組みはつくれる。"
+        description="課題整理から、Web・AI・業務ツールの開発、外部業者との調整まで。
+外部IT部門として、事業と技術の間をつなぎます。"
         services={serviceData}
       />
 
@@ -65,7 +67,7 @@ export default function Home() {
         <section className="bg-black py-16 md:py-20 border-t border-gray-800">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <header className="text-center mb-10">
-              <p className="text-xs font-medium tracking-[0.2em] uppercase text-blue-400/90 mb-3">
+              <p className="text-xs font-medium tracking-[0.2em] uppercase text-brand/90 mb-3">
                 Cases
               </p>
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
@@ -78,7 +80,7 @@ export default function Home() {
 
             <Link
               href={getCaseHref(featuredCase.slug)}
-              className="group flex flex-col sm:flex-row overflow-hidden rounded-xl border border-gray-800 bg-gray-900/40 hover:border-blue-400/30 transition-colors"
+              className="group flex flex-col sm:flex-row overflow-hidden rounded-xl border border-gray-800 bg-gray-900/40 hover:border-brand/30 transition-colors"
             >
               {caseDemo && (
                 <div className="relative sm:w-56 md:w-64 shrink-0 aspect-[16/10] sm:aspect-auto sm:min-h-[160px]">
@@ -93,7 +95,7 @@ export default function Home() {
                 </div>
               )}
               <div className="p-5 sm:p-6 flex flex-col flex-1">
-                <p className="text-xs tracking-[0.16em] text-cyan-400/90 mb-2">
+                <p className="text-xs tracking-[0.16em] text-brand/90 mb-2">
                   {featuredCase.industryLabel}
                 </p>
                 <h3 className="text-xl font-semibold text-white mb-2">
@@ -102,7 +104,7 @@ export default function Home() {
                 <p className="text-sm text-gray-400 leading-relaxed mb-4 flex-1">
                   {featuredCase.lead}
                 </p>
-                <span className="text-sm font-medium text-blue-400 group-hover:text-blue-300 transition-colors">
+                <span className="text-sm font-medium text-brand group-hover:text-brand-hover transition-colors">
                   事例を読む →
                 </span>
               </div>
@@ -111,7 +113,7 @@ export default function Home() {
             <div className="mt-6 text-center">
               <Link
                 href="/cases"
-                className="text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-colors"
+                className="text-sm font-medium text-brand hover:text-brand-hover transition-colors"
               >
                 事例一覧 →
               </Link>

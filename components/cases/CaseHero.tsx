@@ -10,16 +10,16 @@ interface CaseHeroProps {
 
 export function CaseHero({ caseStudy }: CaseHeroProps) {
   return (
-    <section className="relative flex min-h-[60vh] items-center justify-center overflow-hidden border-b border-blue-400/40">
+    <section className="relative flex min-h-[60vh] items-center justify-center overflow-hidden border-b border-brand/40">
       <HeroBackground />
       <HeroReveal className={`relative z-10 ${layout.container} text-center`}>
-        <p className="text-xs font-medium tracking-[0.2em] uppercase text-blue-400/90 mb-4">
+        <p className="text-xs font-medium tracking-[0.2em] uppercase text-brand/90 mb-4">
           Cases · {caseStudy.industryLabel}
         </p>
         <h1 className={`${typography.h1} ${colors.text.primary} mb-4`}>
           {caseStudy.title}
         </h1>
-        <p className="text-sm text-cyan-400/90 mb-6">{caseStudy.subtitle}</p>
+        <p className="text-sm text-brand/90 mb-6">{caseStudy.subtitle}</p>
         <p
           className={`${typography.bodyLarge} ${colors.text.muted} max-w-2xl mx-auto mb-8`}
         >
@@ -47,10 +47,10 @@ interface CasesIndexHeroProps {
 
 export function CasesIndexHero({ title, subtitle }: CasesIndexHeroProps) {
   return (
-    <section className="relative flex min-h-[50vh] items-center justify-center overflow-hidden border-b border-blue-400/40">
+    <section className="relative flex min-h-[50vh] items-center justify-center overflow-hidden border-b border-brand/40">
       <HeroBackground />
       <HeroReveal className={`relative z-10 ${layout.container} text-center`}>
-        <p className="text-xs font-medium tracking-[0.2em] uppercase text-blue-400/90 mb-4">
+        <p className="text-xs font-medium tracking-[0.2em] uppercase text-brand/90 mb-4">
           Cases / Ideas
         </p>
         <h1 className={`${typography.h1} ${colors.text.primary} mb-6`}>{title}</h1>
@@ -67,7 +67,7 @@ export function CaseBackLink() {
     <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
       <Link
         href="/cases"
-        className="text-sm text-gray-400 hover:text-cyan-400 transition-colors"
+        className="text-sm text-gray-400 hover:text-brand transition-colors"
       >
         ← 事例一覧
       </Link>

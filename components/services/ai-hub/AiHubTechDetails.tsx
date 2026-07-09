@@ -6,11 +6,11 @@ import { techDetailItems, whatWeBuild } from '@/data/services/ai-hub'
 
 export function AiHubTechDetails() {
   return (
-    <section className="bg-black py-16 lg:py-20 border-b border-blue-400/40">
+    <section className="bg-black py-16 lg:py-20 border-b border-brand/40">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <header className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-            依頼できること / 技術詳細
+            社内にIT部門がなくても、 事業に必要な仕組みはつくれる。 / 技術詳細
           </h2>
           <p className="text-base text-gray-300">
             まずはデモで変化を共有し、必要なら技術の詳細を確認してください。
@@ -23,7 +23,7 @@ export function AiHubTechDetails() {
               key={item}
               className="flex items-start text-sm text-gray-300"
             >
-              <span className="mt-1.5 mr-3 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-400" />
+              <span className="mt-1.5 mr-3 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
               {item}
             </li>
           ))}
@@ -45,7 +45,7 @@ export function AiHubTechDetails() {
           比較・導入理由・働き方などの解説は{' '}
           <Link
             href="/lab/insights"
-            className="text-cyan-400 hover:text-cyan-300 transition-colors"
+            className="text-brand hover:text-brand-hover transition-colors"
           >
             LAB Insights
           </Link>

@@ -26,9 +26,9 @@ export function PhilosophySolutionLink({
       {links.map((link) => (
         <div
           key={`${link.philosophySectionId}-${link.detailSlug}`}
-          className="rounded-xl border border-blue-400/20 bg-gradient-to-br from-gray-900/80 to-gray-900/40 p-5 sm:p-6"
+          className="rounded-xl border border-brand/20 bg-gradient-to-br from-gray-900/80 to-gray-900/40 p-5 sm:p-6"
         >
-          <p className="text-xs font-medium tracking-[0.15em] uppercase text-blue-400/80 mb-2">
+          <p className="text-xs font-medium tracking-[0.15em] uppercase text-brand/80 mb-2">
             解決案 · Proposal Demo
           </p>
           <h4 className="text-lg font-semibold text-white mb-2">{link.title}</h4>
@@ -37,7 +37,7 @@ export function PhilosophySolutionLink({
           </p>
           <Link
             href={buildDetailHref(link.detailSlug, link.philosophySectionId)}
-            className="inline-flex items-center gap-2 text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors duration-200"
+            className="inline-flex items-center gap-2 text-sm font-medium text-brand hover:text-brand-hover transition-colors duration-200"
           >
             {link.ctaLabel ??
               (link.status === 'planned' ? '概要を見る（準備中）' : '解決案を見る')}

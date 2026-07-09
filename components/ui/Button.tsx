@@ -1,8 +1,10 @@
 /**
  * Button コンポーネント
- * 
- * 再利用可能なボタンコンポーネント
- * variant（スタイル）、size（サイズ）、disabled（無効化）をサポート
+ *
+ * variant:
+ * - primary … ブランド深紅 #9B2937（サイト共通の主CTA）
+ * - secondary … ダーク面上の白ボタン（Hero など）
+ * - outline … 枠線のみ（副CTA）
  */
 
 import { ButtonHTMLAttributes, ReactNode } from 'react'
@@ -27,29 +29,27 @@ export function Button({
   disabled = false,
   ...props
 }: ButtonProps) {
-  // バリアント（スタイル）別のクラス
   const variantClasses = {
     primary: `
-      bg-blue-500 text-white
-      hover:bg-blue-600 hover:scale-105
+      bg-brand text-white
+      hover:bg-brand-hover hover:scale-105
       active:scale-95
-      focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-black
+      focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 focus:ring-offset-black
     `,
     secondary: `
-      bg-cyan-500 text-white
-      hover:bg-cyan-600 hover:scale-105
+      bg-white text-gray-950
+      hover:bg-gray-100 hover:scale-105
       active:scale-95
-      focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-black
+      focus:outline-none focus:ring-2 focus:ring-white/60 focus:ring-offset-2 focus:ring-offset-black
     `,
     outline: `
-      bg-transparent text-blue-400 border-2 border-blue-400
-      hover:bg-blue-400 hover:text-white hover:scale-105
+      bg-transparent text-white border border-white/25
+      hover:border-brand/60 hover:text-brand-hover hover:scale-105
       active:scale-95
-      focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-black
+      focus:outline-none focus:ring-2 focus:ring-brand/50 focus:ring-offset-2 focus:ring-offset-black
     `,
   }
 
-  // サイズ別のクラス
   const sizeClasses = {
     sm: 'px-4 py-2 text-sm',
     md: 'px-6 py-3 text-base',
@@ -75,4 +75,3 @@ export function Button({
     </button>
   )
 }
-

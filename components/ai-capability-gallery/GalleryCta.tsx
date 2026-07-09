@@ -26,10 +26,10 @@ export function GalleryCta() {
             href="/contact?service=ai-consulting&intent=gallery"
             className="
               inline-flex items-center justify-center rounded-lg
-              bg-cyan-500 px-8 py-4 text-lg font-bold text-white
+              bg-brand px-8 py-4 text-lg font-bold text-white
               transition-all duration-300 ease-in-out
-              hover:scale-105 hover:bg-cyan-600 active:scale-95
-              focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-black
+              hover:scale-105 hover:bg-brand-hover active:scale-95
+              focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 focus:ring-offset-black
             "
           >
             お問い合わせフォームへ

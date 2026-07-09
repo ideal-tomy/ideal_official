@@ -21,7 +21,7 @@ export default function LabHubPage() {
     <div className="min-h-screen bg-black">
       <LabHubHero />
 
-      <section className="py-16 lg:py-20 border-b border-blue-400/40">
+      <section className="py-16 lg:py-20 border-b border-brand/40">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <header className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white mb-3">領域を選ぶ</h2>
@@ -35,9 +35,9 @@ export default function LabHubPage() {
               <Link
                 key={area.id}
                 href={area.href}
-                className="rounded-xl border border-gray-800 bg-gray-900/40 p-6 hover:border-blue-400/30 hover:bg-gray-900/60 transition-colors"
+                className="rounded-xl border border-gray-800 bg-gray-900/40 p-6 hover:border-brand/30 hover:bg-gray-900/60 transition-colors"
               >
-                <p className="text-xs tracking-[0.16em] uppercase text-cyan-400/90 mb-2">
+                <p className="text-xs tracking-[0.16em] uppercase text-brand/90 mb-2">
                   {area.eyebrow}
                 </p>
                 <h3 className="text-lg font-semibold text-white mb-2">{area.title}</h3>
@@ -59,7 +59,7 @@ export default function LabHubPage() {
             </div>
             <Link
               href="/lab/insights"
-              className="text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-colors"
+              className="text-sm font-medium text-brand hover:text-brand-hover transition-colors"
             >
               すべて見る →
             </Link>

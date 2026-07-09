@@ -33,7 +33,7 @@ export function AiCapabilityDetailShell({
         >
           <Link
             href={GALLERY_BASE}
-            className="text-gray-300 hover:text-blue-400 transition-colors"
+            className="text-gray-300 hover:text-brand transition-colors"
           >
             ← AI Capability Demo Gallery
           </Link>
@@ -44,7 +44,7 @@ export function AiCapabilityDetailShell({
         </nav>
 
         <header className="mb-10 lg:mb-14">
-          <p className="text-xs font-medium tracking-[0.2em] uppercase text-blue-400/90 mb-3">
+          <p className="text-xs font-medium tracking-[0.2em] uppercase text-brand/90 mb-3">
             {page.eyebrow}
           </p>
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-6 leading-tight tracking-tight">
@@ -66,7 +66,7 @@ export function AiCapabilityDetailShell({
         <div className="space-y-10">{children}</div>
 
         <footer className="mt-16 pt-10 border-t border-gray-800">
-          <div className="mb-10 p-6 rounded-xl border border-blue-400/20 bg-blue-500/5">
+          <div className="mb-10 p-6 rounded-xl border border-brand/20 bg-brand/5">
             <h2 className="text-lg font-semibold text-white mb-2">
               このデモ、自社でも使えるか整理しませんか
             </h2>
@@ -83,7 +83,7 @@ export function AiCapabilityDetailShell({
               </OpenConciergeButton>
               <Link
                 href={GALLERY_BASE}
-                className="inline-flex items-center justify-center rounded-lg border border-gray-700 px-6 py-3 text-sm font-medium text-gray-300 hover:border-blue-400/30 hover:text-white transition-colors"
+                className="inline-flex items-center justify-center rounded-lg border border-gray-700 px-6 py-3 text-sm font-medium text-gray-300 hover:border-brand/30 hover:text-white transition-colors"
               >
                 他のデモを見る
               </Link>
@@ -101,7 +101,7 @@ export function AiCapabilityDetailShell({
                     {related.status === 'ready' ? (
                       <Link
                         href={related.href}
-                        className="block p-4 rounded-lg border border-gray-800 bg-gray-900/40 hover:border-blue-400/30 hover:bg-gray-900/60 transition-colors"
+                        className="block p-4 rounded-lg border border-gray-800 bg-gray-900/40 hover:border-brand/30 hover:bg-gray-900/60 transition-colors"
                       >
                         <span className="text-sm font-medium text-white">{related.subtitle}</span>
                         <span className="block text-xs text-gray-400 mt-1 line-clamp-2">

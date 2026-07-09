@@ -74,8 +74,8 @@ export function PhotoToClassificationDemo() {
               px-3 py-1.5 rounded-lg text-xs font-medium transition-colors
               ${
                 selectedSet.id === set.id
-                  ? 'bg-blue-500 text-white'
-                  : 'bg-white border border-[#D9DDE3] text-gray-600 hover:border-blue-300'
+                  ? 'bg-brand text-white'
+                  : 'bg-white border border-[#D9DDE3] text-gray-600 hover:border-brand-hover'
               }
               disabled:opacity-50 disabled:cursor-not-allowed
             `}
@@ -107,7 +107,7 @@ export function PhotoToClassificationDemo() {
           size="md"
           onClick={handleProcess}
           disabled={isProcessing}
-          className="!bg-blue-600 hover:!bg-blue-700"
+          className="!bg-brand hover:!bg-brand-deep"
         >
           {isProcessing ? '整理中…' : '整理する'}
         </Button>

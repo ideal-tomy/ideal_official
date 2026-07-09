@@ -6,19 +6,19 @@ export const modalContents: Record<string, ReactNode> = {
       <h3 className="text-xl font-bold text-white mb-4">業務効率化・自動化</h3>
       <div className="space-y-4">
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">文書処理の自動化</h4>
+          <h4 className="font-semibold text-brand mb-2">文書処理の自動化</h4>
           <p className="text-gray-300">契約書、請求書、レポートなどの文書を自動で分類・処理。OCR技術と自然言語処理を組み合わせ、従来の手作業を大幅に削減します。</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">チャットボット・カスタマーサポート</h4>
+          <h4 className="font-semibold text-brand mb-2">チャットボット・カスタマーサポート</h4>
           <p className="text-gray-300">24時間365日の自動対応システム。よくある質問への回答、問い合わせの分類、エスカレーション判断を自動化し、顧客満足度を向上させます。</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">データ入力・集計の自動化</h4>
+          <h4 className="font-semibold text-brand mb-2">データ入力・集計の自動化</h4>
           <p className="text-gray-300">Excel、データベースへの自動入力、集計レポートの自動生成。RPA（ロボティック・プロセス・オートメーション）とAIを組み合わせた高度な自動化を実現します。</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">スケジュール・リソース管理</h4>
+          <h4 className="font-semibold text-brand mb-2">スケジュール・リソース管理</h4>
           <p className="text-gray-300">会議室予約、人員配置、プロジェクト管理を自動化。過去のデータを学習し、最適なスケジュールを提案します。</p>
         </div>
       </div>
@@ -29,19 +29,19 @@ export const modalContents: Record<string, ReactNode> = {
       <h3 className="text-xl font-bold text-white mb-4">マーケティング・顧客分析</h3>
       <div className="space-y-4">
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">顧客セグメンテーション</h4>
+          <h4 className="font-semibold text-brand mb-2">顧客セグメンテーション</h4>
           <p className="text-gray-300">購買履歴、行動データ、デモグラフィック情報を分析し、顧客を自動的にグループ化。ターゲティング精度を向上させ、マーケティング効果を最大化します。</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">SNS・Web分析</h4>
+          <h4 className="font-semibold text-brand mb-2">SNS・Web分析</h4>
           <p className="text-gray-300">Twitter、Instagram、FacebookなどのSNSデータをリアルタイムで分析。トレンドの早期発見、ブランド監視、競合分析を自動化します。</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">パーソナライズドマーケティング</h4>
+          <h4 className="font-semibold text-brand mb-2">パーソナライズドマーケティング</h4>
           <p className="text-gray-300">個々の顧客の嗜好や行動パターンを学習し、最適な商品推薦、メール配信、広告表示を自動化。コンバージョン率を大幅に向上させます。</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">価格最適化</h4>
+          <h4 className="font-semibold text-brand mb-2">価格最適化</h4>
           <p className="text-gray-300">需要予測、競合価格、季節性を考慮した動的価格設定。収益最大化と顧客満足度の両立を実現します。</p>
         </div>
       </div>
@@ -52,19 +52,19 @@ export const modalContents: Record<string, ReactNode> = {
       <h3 className="text-xl font-bold text-white mb-4">品質管理・需要予測</h3>
       <div className="space-y-4">
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">画像認識による品質検査</h4>
+          <h4 className="font-semibold text-brand mb-2">画像認識による品質検査</h4>
           <p className="text-gray-300">製造ラインでの自動品質検査。欠陥品の検出、規格適合性の判定、統計的品質管理をリアルタイムで実行し、品質向上とコスト削減を実現します。</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">需要予測・在庫最適化</h4>
+          <h4 className="font-semibold text-brand mb-2">需要予測・在庫最適化</h4>
           <p className="text-gray-300">過去の販売データ、季節性、外部要因を分析し、将来の需要を高精度で予測。過剰在庫と欠品のリスクを最小化し、キャッシュフローを改善します。</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">予知保全</h4>
+          <h4 className="font-semibold text-brand mb-2">予知保全</h4>
           <p className="text-gray-300">設備のセンサーデータを分析し、故障の兆候を早期発見。計画的なメンテナンスにより、突発的な設備停止を防ぎ、稼働率を向上させます。</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">サプライチェーン最適化</h4>
+          <h4 className="font-semibold text-brand mb-2">サプライチェーン最適化</h4>
           <p className="text-gray-300">調達、生産、配送の各段階を統合的に分析。リードタイム短縮、コスト削減、リスク管理を自動化し、サプライチェーンの効率性を最大化します。</p>
         </div>
       </div>
@@ -75,15 +75,15 @@ export const modalContents: Record<string, ReactNode> = {
       <h3 className="text-xl font-bold text-white mb-4">技術要素</h3>
       <div className="space-y-3">
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">データ基盤</h4>
+          <h4 className="font-semibold text-brand mb-2">データ基盤</h4>
           <p className="text-gray-300">高品質なデータの収集、蓄積、管理システムの構築</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">アルゴリズム</h4>
+          <h4 className="font-semibold text-brand mb-2">アルゴリズム</h4>
           <p className="text-gray-300">機械学習・深層学習モデルの開発と最適化</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">インフラ</h4>
+          <h4 className="font-semibold text-brand mb-2">インフラ</h4>
           <p className="text-gray-300">クラウド・オンプレミス環境の構築と運用</p>
         </div>
       </div>
@@ -94,15 +94,15 @@ export const modalContents: Record<string, ReactNode> = {
       <h3 className="text-xl font-bold text-white mb-4">ビジネス要素</h3>
       <div className="space-y-3">
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">戦略策定</h4>
+          <h4 className="font-semibold text-brand mb-2">戦略策定</h4>
           <p className="text-gray-300">AI導入の目的と目標の明確化、ロードマップの策定</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">ROI分析</h4>
+          <h4 className="font-semibold text-brand mb-2">ROI分析</h4>
           <p className="text-gray-300">投資対効果の算出と継続的な効果測定</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">変革管理</h4>
+          <h4 className="font-semibold text-brand mb-2">変革管理</h4>
           <p className="text-gray-300">組織の変革と従業員のスキルアップ支援</p>
         </div>
       </div>
@@ -113,15 +113,15 @@ export const modalContents: Record<string, ReactNode> = {
       <h3 className="text-xl font-bold text-white mb-4">人材要素</h3>
       <div className="space-y-3">
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">データサイエンティスト</h4>
+          <h4 className="font-semibold text-brand mb-2">データサイエンティスト</h4>
           <p className="text-gray-300">データ分析とモデル開発の専門家</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">AIエンジニア</h4>
+          <h4 className="font-semibold text-brand mb-2">AIエンジニア</h4>
           <p className="text-gray-300">AIシステムの実装と運用の技術者</p>
         </div>
         <div>
-          <h4 className="font-semibold text-blue-400 mb-2">AIコンサルタント</h4>
+          <h4 className="font-semibold text-brand mb-2">AIコンサルタント</h4>
           <p className="text-gray-300">AI戦略の策定と導入支援の専門家</p>
         </div>
       </div>

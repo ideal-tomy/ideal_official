@@ -35,13 +35,13 @@ const StructureSection = React.memo(() => {
 
       <div className="grid md:grid-cols-2 gap-4 max-w-3xl">
         <div className="rounded-xl bg-gray-800/35 border border-gray-700/40 p-5 sm:p-6">
-          <p className="font-bold text-blue-400 mb-2">1. 価値観による分岐</p>
+          <p className="font-bold text-brand mb-2">1. 価値観による分岐</p>
           <p className="text-base text-gray-300 leading-relaxed">
             組織の根本的な価値観やミッションとの間にズレが生じた場合、メンバーは自らの貢献履歴を保持したまま、新しい価値観を掲げる組織を立ち上げることができます。
           </p>
         </div>
         <div className="rounded-xl bg-gray-800/35 border border-gray-700/40 p-5 sm:p-6">
-          <p className="font-bold text-blue-400 mb-2">2. アプローチによる分岐</p>
+          <p className="font-bold text-brand mb-2">2. アプローチによる分岐</p>
           <p className="text-base text-gray-300 leading-relaxed">
             共通の価値観や目標は維持しつつも、その達成手段（戦略、戦術）について異なるアイデアを持つグループが、
             それぞれの方法を試すために分岐することができます。
