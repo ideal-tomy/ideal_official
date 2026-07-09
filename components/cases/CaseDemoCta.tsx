@@ -1,13 +1,16 @@
+'use client'
+
 import Link from 'next/link'
 import type { CaseStudy } from '@/data/cases'
 import { Button } from '@/components/ui/Button'
+import { OpenConciergeButton } from '@/components/concierge/OpenConciergeButton'
 
 interface CaseDemoCtaProps {
   caseStudy: CaseStudy
 }
 
 export function CaseDemoCta({ caseStudy }: CaseDemoCtaProps) {
-  const { relatedDemo, contactHref } = caseStudy
+  const { relatedDemo } = caseStudy
 
   return (
     <section className="bg-black py-16 lg:py-20 border-b border-blue-400/40">
@@ -26,11 +29,13 @@ export function CaseDemoCta({ caseStudy }: CaseDemoCtaProps) {
               デモを体験する
             </Button>
           </Link>
-          <Link href={contactHref}>
-            <Button variant="secondary" size="lg">
-              自社向けに相談する
-            </Button>
-          </Link>
+          <OpenConciergeButton
+            serviceId="ai-consulting"
+            variant="secondary"
+            size="lg"
+          >
+            自社でも使えるか相談する
+          </OpenConciergeButton>
         </div>
       </div>
     </section>

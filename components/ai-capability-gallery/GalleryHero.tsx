@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { typography, colors, layout } from '@/lib/design-tokens'
 import { Button } from '@/components/ui/Button'
+import { OpenConciergeButton } from '@/components/concierge/OpenConciergeButton'
 import { HeroReveal } from '@/components/motion/HeroReveal'
 import { HeroScrollHint } from '@/components/motion/HeroScrollHint'
 import { galleryImages } from '@/data/ai-capability-gallery/capabilities'
@@ -49,11 +50,9 @@ export function GalleryHero() {
               デモを見る
             </Button>
           </Link>
-          <Link href="/contact?service=ai-consulting&intent=gallery">
-            <Button variant="secondary" size="lg">
-              自社向け開発を相談する
-            </Button>
-          </Link>
+          <OpenConciergeButton serviceId="ai-consulting" variant="secondary" size="lg">
+            自社でも使えるか相談する
+          </OpenConciergeButton>
         </div>
       </HeroReveal>
 

@@ -50,6 +50,8 @@ CONTACT (/contact)
   → 要件整理・概算 → 問い合わせ
 ```
 
+営業デモ手順: [`AI_CONCIERGE_SALES_SCENARIO.md`](./AI_CONCIERGE_SALES_SCENARIO.md)
+
 ---
 
 ## 2. 影響箇所インベントリ（2026-07-10 時点）

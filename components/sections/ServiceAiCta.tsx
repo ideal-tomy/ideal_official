@@ -17,14 +17,14 @@ export function ServiceAiCta({ serviceId, className = '' }: ServiceAiCtaProps) {
     <div className={`border-b border-blue-400 bg-black ${className}`}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
         <h2 className={`${typography.h3} ${colors.text.primary} mb-3`}>
-          AIコンシェルジュに相談する
+          このページを起点に、相談内容を整理できます
         </h2>
         <p className={`${typography.body} ${colors.text.muted} mb-8 max-w-2xl mx-auto`}>
-          要件がまとまっていなくても大丈夫です。選択内容を整理したうえで、お問い合わせに引き継げます。
+          AIコンシェルジュが現状のヒアリングから、必要な機能・概算の参考・お問い合わせ引き継ぎまで案内します。
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <OpenConciergeButton serviceId={serviceId} variant="primary" size="lg">
-            AIコンシェルジュに相談する
+            自社でも使えるか相談する
           </OpenConciergeButton>
           <Link
             href={`/contact?service=${serviceId}`}

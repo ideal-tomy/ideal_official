@@ -10,17 +10,17 @@ export function GalleryCta() {
     <Section backgroundColor="black">
       <div className="text-center max-w-4xl mx-auto">
         <h2 className={`${typography.h2} ${colors.text.primary} mb-6`}>
-          自社に合うパターンを、一緒に考えませんか。
+          これ、自社でも使えるか一緒に整理しませんか。
         </h2>
 
         <p className={`${typography.bodyLarge} ${colors.text.muted} mb-12`}>
-          デモをベースに業界特化版を作りたい方、自社課題から提案を受けたい方へ。
-          まずはお気軽にご相談ください。
+          デモを起点に、課題の整理・必要な機能・概算の参考まで、AIコンシェルジュが案内します。
+          要件が固まっていなくても大丈夫です。
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <OpenConciergeButton serviceId="ai-consulting" variant="primary" size="lg">
-            AIコンシェルジュに相談する
+            自社でも使えるか相談する
           </OpenConciergeButton>
           <Link
             href="/contact?service=ai-consulting&intent=gallery"
@@ -32,7 +32,7 @@ export function GalleryCta() {
               focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-black
             "
           >
-            自社向け開発を相談する
+            お問い合わせフォームへ
           </Link>
         </div>
       </div>

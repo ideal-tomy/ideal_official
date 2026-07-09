@@ -42,8 +42,8 @@ export function ConciergePanel({
       subtitle={
         <p className={`${typography.caption} ${colors.text.muted}`}>
           {contextLabel
-            ? `「${contextLabel}」を起点に整理し、お問い合わせへ引き継ぎます。`
-            : '選択内容を整理し、お問い合わせに引き継ぎます。'}
+            ? `「${contextLabel}」を起点に整理し、お問い合わせへ引き継ぎます。金額は概算機能のみが算出します。`
+            : '選択と任意の自由入力で整理し、お問い合わせへ引き継ぎます。金額は概算機能のみが算出します。'}
         </p>
       }
     >

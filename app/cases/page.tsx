@@ -6,11 +6,11 @@ import { getPublishedCases } from '@/data/cases'
 export const metadata: Metadata = {
   title: 'Cases / Ideas | ideal',
   description:
-    '業界・課題ごとの業務フロー変化を読み、関連デモを体験し、自社向けの相談へ進めます。',
+    '業界・課題ごとの業務フロー変化を読み、関連デモを体験し、AIコンシェルジュで自社への応用を整理できます。',
   openGraph: {
     title: 'Cases / Ideas | ideal',
     description:
-      '業界・課題ごとの業務フロー変化を読み、関連デモを体験し、自社向けの相談へ進めます。',
+      '業界・課題ごとの業務フロー変化を読み、関連デモを体験し、AIコンシェルジュで自社への応用を整理できます。',
   },
 }
 
@@ -21,7 +21,7 @@ export default function CasesIndexPage() {
     <div className="min-h-screen bg-black">
       <CasesIndexHero
         title="自社の仕事に、置き換えてみる。"
-        subtitle="6つの業務フロー事例。Before / After を読み、関連デモを体験し、相談へ進めます。"
+        subtitle="6つの業務フロー事例。Before / After を読み、関連デモを体験し、AIコンシェルジュで相談へ進めます。"
       />
 
       <section className="py-16 lg:py-20">

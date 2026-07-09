@@ -72,7 +72,7 @@ export function PremiumDialog({
     : 'items-center'
 
   const panelShape = mobileBottomSheet
-    ? 'rounded-t-2xl sm:rounded-xl w-full sm:max-w-lg max-h-[92vh] sm:max-h-[85vh]'
+    ? 'rounded-t-2xl sm:rounded-xl w-full sm:max-w-lg max-h-[min(92dvh,92vh)] sm:max-h-[85vh] pb-[env(safe-area-inset-bottom,0px)] overscroll-contain'
     : 'rounded-lg w-full max-h-[90vh]'
 
   return (

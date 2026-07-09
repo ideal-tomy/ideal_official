@@ -1,6 +1,9 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
+import { OpenConciergeButton } from '@/components/concierge/OpenConciergeButton'
 import { galleryImages } from '@/data/ai-capability-gallery/capabilities'
 
 export function DemoEntryBanner() {
@@ -31,7 +34,7 @@ export function DemoEntryBanner() {
               変えられるか。
             </h2>
             <p className="text-sm md:text-base text-gray-300 mb-8 leading-relaxed">
-              7つの業務変化デモを、実際に触って体験できます。説明する前に、感じてください。
+              7つの業務変化デモを触ったあと、AIコンシェルジュで「自社でも使えるか」まで整理できます。
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Link href="/ai-capability-gallery">
@@ -39,11 +42,13 @@ export function DemoEntryBanner() {
                   デモを体験する
                 </Button>
               </Link>
-              <Link href="/cases">
-                <Button variant="secondary" size="lg">
-                  事例を読む
-                </Button>
-              </Link>
+              <OpenConciergeButton
+                serviceId="ai-consulting"
+                variant="secondary"
+                size="lg"
+              >
+                自社でも使えるか相談する
+              </OpenConciergeButton>
             </div>
           </div>
         </div>

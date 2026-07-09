@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import type { Capability } from '@/data/ai-capability-gallery/capabilities'
 import { GALLERY_BASE } from '@/data/ai-capability-gallery/capabilities'
+import { OpenConciergeButton } from '@/components/concierge/OpenConciergeButton'
 
 export interface CapabilityDetailMeta {
   slug: string
@@ -23,10 +24,6 @@ export function AiCapabilityDetailShell({
   children,
   relatedCapabilities = [],
 }: AiCapabilityDetailShellProps) {
-  const contactPrefill = encodeURIComponent(
-    `「${page.title}」のデモをベースに、自社向けのプロトタイプを相談したいです。`
-  )
-
   return (
     <div className="bg-black min-h-screen">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
@@ -71,18 +68,19 @@ export function AiCapabilityDetailShell({
         <footer className="mt-16 pt-10 border-t border-gray-800">
           <div className="mb-10 p-6 rounded-xl border border-blue-400/20 bg-blue-500/5">
             <h2 className="text-lg font-semibold text-white mb-2">
-              このデモを自社向けに作りたい方へ
+              このデモ、自社でも使えるか整理しませんか
             </h2>
             <p className="text-sm text-gray-300 mb-4">
-              業界特化版や実運用に向けたプロトタイプのご相談を承ります。
+              AIコンシェルジュが「{page.eyebrow}」を起点に、課題・必要な機能・概算の参考まで案内します。
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
-              <Link
-                href={`/contact?service=ai-consulting&intent=gallery&prefill=${contactPrefill}`}
-                className="inline-flex items-center justify-center rounded-lg bg-blue-500 px-6 py-3 text-sm font-bold text-white hover:bg-blue-600 transition-colors"
+              <OpenConciergeButton
+                serviceId="ai-consulting"
+                variant="primary"
+                size="md"
               >
-                自社向け開発を相談する
-              </Link>
+                自社でも使えるか相談する
+              </OpenConciergeButton>
               <Link
                 href={GALLERY_BASE}
                 className="inline-flex items-center justify-center rounded-lg border border-gray-700 px-6 py-3 text-sm font-medium text-gray-300 hover:border-blue-400/30 hover:text-white transition-colors"

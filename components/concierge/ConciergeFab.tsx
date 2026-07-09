@@ -12,7 +12,10 @@ export function ConciergeFab({ onClick, label = 'コンシェルジュ' }: Conci
       onClick={onClick}
       aria-label={label}
       className="
-        fixed bottom-5 right-5 z-50 sm:bottom-8 sm:right-8
+        fixed z-50
+        bottom-[max(1.25rem,env(safe-area-inset-bottom))]
+        right-[max(1.25rem,env(safe-area-inset-right))]
+        sm:bottom-8 sm:right-8
         flex items-center gap-2 rounded-full
         bg-blue-500 text-white font-bold text-sm sm:text-base
         px-5 py-3 sm:px-6 sm:py-4

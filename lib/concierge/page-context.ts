@@ -4,6 +4,7 @@
 
 import { getCapabilityBySlug } from '@/data/ai-capability-gallery/capabilities'
 import { getCaseBySlug } from '@/data/cases'
+import { getInsightBySlug } from '@/data/lab/insights'
 import { getCurrentServiceId } from '@/data/services/service-links'
 
 export type ConciergePageType =
@@ -121,12 +122,15 @@ export function resolvePageContext(pathname: string): ConciergePageContext {
 
   const insightMatch = path.match(/^\/lab\/insights\/([^/]+)$/)
   if (insightMatch) {
+    const insightSlug = insightMatch[1]
+    const insight = getInsightBySlug(insightSlug)
     return {
       pathname: path,
       pageType: 'insight',
-      insightSlug: insightMatch[1],
-      label: 'LAB Insights',
-      serviceId: 'ai-consulting',
+      insightSlug,
+      label: insight?.title ?? 'LAB Insights',
+      serviceId:
+        insight?.category === 'web' ? 'web-development' : 'ai-consulting',
     }
   }
 

@@ -15,18 +15,18 @@ export default function CallToAction() {
     <Section backgroundColor="black">
       <ScrollReveal className="text-center max-w-4xl mx-auto">
         <h2 className={`${typography.h2} ${colors.text.primary} mb-6`}>
-          プロジェクトを始めませんか？
+          自社でも使えるか、一緒に整理しませんか。
         </h2>
 
         <p className={`${typography.bodyLarge} ${colors.text.muted} mb-12`}>
-          要件がまとまっていなくても、コンシェルジュまたはお問い合わせからご相談いただけます。
+          デモや事例を起点に、AIコンシェルジュが課題・必要な機能・概算の参考まで案内します。
           <br className="hidden sm:block" />
-          選択内容を整理したうえで、担当が内容を確認のうえフォローいたします。
+          要件が固まっていなくても大丈夫です。整理内容はそのままお問い合わせに引き継げます。
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <OpenConciergeButton variant="primary" size="lg">
-            AIコンシェルジュに相談する
+            自社でも使えるか相談する
           </OpenConciergeButton>
           <Link
             href="/contact"

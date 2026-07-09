@@ -19,11 +19,13 @@ import {
   shouldShowContextOpening,
   type ConciergePageContext,
 } from '@/lib/concierge/page-context'
+import type { ConciergeAiDraft } from '@/lib/concierge/ai/types'
 import { serviceIdToIdealTrack } from '@/data/services/service-links'
 import { ConciergeChoiceButton } from './ConciergeChoiceButton'
+import { ConciergeAiStep } from './ConciergeAiStep'
 import { ConciergeDoneStep } from './ConciergeDoneStep'
 
-type Phase = 'opening' | 'root' | 'questions' | 'done'
+type Phase = 'opening' | 'root' | 'questions' | 'ai' | 'done'
 
 function initialState(
   pageContext: ConciergePageContext | undefined,
@@ -60,6 +62,7 @@ export function IdealConciergeFlow({
   const [track, setTrack] = useState<IdealTrack | null>(() => initial.track)
   const [stepIndex, setStepIndex] = useState(0)
   const [answers, setAnswers] = useState<FlowAnswer[]>([])
+  const [aiDraft, setAiDraft] = useState<ConciergeAiDraft | null>(null)
 
   const opening =
     pageContext && shouldShowContextOpening(pageContext)
@@ -75,12 +78,14 @@ export function IdealConciergeFlow({
     setTrack(null)
     setStepIndex(0)
     setAnswers([])
+    setAiDraft(null)
   }
 
   const pickRoot = (t: IdealTrack) => {
     setTrack(t)
     setStepIndex(0)
     setAnswers([])
+    setAiDraft(null)
     setPhase('questions')
   }
 
@@ -88,6 +93,7 @@ export function IdealConciergeFlow({
     setTrack(t)
     setStepIndex(0)
     setAnswers([])
+    setAiDraft(null)
     setPhase('questions')
   }
 
@@ -108,6 +114,7 @@ export function IdealConciergeFlow({
       setTrack(null)
       setStepIndex(0)
       setAnswers([])
+      setAiDraft(null)
       return
     }
 
@@ -139,7 +146,7 @@ export function IdealConciergeFlow({
     if (stepIndex + 1 < currentSteps.length) {
       setStepIndex((i) => i + 1)
     } else {
-      setPhase('done')
+      setPhase('ai')
     }
   }
 
@@ -197,12 +204,36 @@ export function IdealConciergeFlow({
     )
   }
 
+  if (phase === 'ai' && track) {
+    return (
+      <ConciergeAiStep
+        track={track}
+        answers={answers}
+        pageContext={pageContext}
+        onComplete={(draft) => {
+          setAiDraft(draft)
+          setPhase('done')
+        }}
+        onSkipToTemplate={() => {
+          setAiDraft(null)
+          setPhase('done')
+        }}
+        onBack={() => {
+          setAiDraft(null)
+          setStepIndex(Math.max(0, currentSteps.length - 1))
+          setPhase('questions')
+        }}
+      />
+    )
+  }
+
   if (phase === 'done' && track) {
     return (
       <ConciergeDoneStep
         track={track}
         answers={answers}
         pageContext={pageContext}
+        aiDraft={aiDraft}
         onRestart={restart}
         onRequestClose={onRequestClose}
       />
@@ -228,6 +259,7 @@ export function IdealConciergeFlow({
             setTrack(null)
             setStepIndex(0)
             setAnswers([])
+            setAiDraft(null)
           }}
         >
           ← 戻る

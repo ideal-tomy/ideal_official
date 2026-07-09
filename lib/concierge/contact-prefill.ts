@@ -1,5 +1,7 @@
+import type { ConciergeAiDraft } from './ai/types'
 import type { FlowAnswer, IdealTrack } from './ideal-flow'
 import { buildIdealSummaryMarkdown } from './build-summary'
+import { aiDraftToContactExtra } from './merge-ai-draft'
 import type { ConciergePageContext } from './page-context'
 
 export const CONTACT_PREFILL_STORAGE_KEY = 'IDEAL_contact_prefill_v1'
@@ -19,6 +21,7 @@ export function buildContactMessageDraft(
   answers: FlowAnswer[],
   summaryBody: string,
   pageContext?: ConciergePageContext,
+  aiDraft?: ConciergeAiDraft | null,
 ): string {
   const rootLine =
     track === 'unsure'
@@ -39,6 +42,8 @@ export function buildContactMessageDraft(
     contextLines.push('')
   }
 
+  const aiExtra = aiDraft ? ['', aiDraftToContactExtra(aiDraft), ''] : ['']
+
   return [
     '【コンシェルジュ（選択内容を整理）経由のご相談】',
     '',
@@ -47,7 +52,7 @@ export function buildContactMessageDraft(
     ...contextLines,
     '--- 選択内容 ---',
     ...pathLines,
-    '',
+    ...aiExtra,
     '--- サマリ ---',
     summaryBody,
     '',
@@ -85,6 +90,7 @@ export function buildConciergeContactUrl(
 export type NavigateConciergeContactOptions = {
   /** 概算をサマリ / メッセージに含める（完了画面で算出した場合） */
   includeEstimate?: boolean
+  aiDraft?: ConciergeAiDraft | null
 }
 
 /** ストアが使えない SSR 時は URL のみ（本文は session に載らないのでフォームは空になりうる） */
@@ -96,14 +102,17 @@ export function navigateToConciergeContact(
   options?: NavigateConciergeContactOptions,
 ): string {
   const includeEstimate = options?.includeEstimate ?? false
+  const aiDraft = options?.aiDraft ?? null
   const summaryBody = buildIdealSummaryMarkdown(track, answers, pageContext, {
     includeEstimate,
+    aiDraft,
   })
   const messageDraft = buildContactMessageDraft(
     track,
     answers,
     summaryBody,
     pageContext,
+    aiDraft,
   )
   return buildConciergeContactUrl(serviceId, messageDraft, summaryBody)
 }

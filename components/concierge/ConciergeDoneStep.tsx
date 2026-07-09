@@ -1,15 +1,17 @@
 'use client'
 
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/Button'
 import { typography, colors, borders } from '@/lib/design-tokens'
+import type { ConciergeAiDraft } from '@/lib/concierge/ai/types'
 import type { FlowAnswer, IdealTrack } from '@/lib/concierge/ideal-flow'
 import { buildConciergeResult } from '@/lib/concierge/build-result'
 import {
   navigateToConciergeContact,
 } from '@/lib/concierge/contact-prefill'
+import { mergeAiDraftIntoResult } from '@/lib/concierge/merge-ai-draft'
 import type { ConciergePageContext } from '@/lib/concierge/page-context'
 import { getServiceIdForConciergeTrack, getServiceHrefForConciergeTrack } from '@/data/services/service-links'
 import { ConciergeEstimateBlock } from './ConciergeEstimateBlock'
@@ -18,6 +20,7 @@ interface ConciergeDoneStepProps {
   track: IdealTrack
   answers: FlowAnswer[]
   pageContext?: ConciergePageContext
+  aiDraft?: ConciergeAiDraft | null
   onRestart: () => void
   onRequestClose: () => void
 }
@@ -26,12 +29,16 @@ export function ConciergeDoneStep({
   track,
   answers,
   pageContext,
+  aiDraft = null,
   onRestart,
   onRequestClose,
 }: ConciergeDoneStepProps) {
   const router = useRouter()
   const [showEstimate, setShowEstimate] = useState(false)
-  const result = buildConciergeResult(track, answers, pageContext)
+  const result = useMemo(() => {
+    const base = buildConciergeResult(track, answers, pageContext)
+    return aiDraft ? mergeAiDraftIntoResult(base, aiDraft) : base
+  }, [track, answers, pageContext, aiDraft])
   const serviceId = getServiceIdForConciergeTrack(track, answers)
   const serviceHref = getServiceHrefForConciergeTrack(track, answers)
 
@@ -41,7 +48,7 @@ export function ConciergeDoneStep({
       track,
       answers,
       pageContext,
-      { includeEstimate },
+      { includeEstimate, aiDraft },
     )
     onRequestClose()
     router.push(url)
@@ -58,21 +65,29 @@ export function ConciergeDoneStep({
         <p className={`${typography.body} ${colors.text.primary} font-medium`}>
           ご相談内容を整理しました
         </p>
-        {result.contextLabel ? (
-          <p className={`${typography.caption} ${colors.text.muted} mt-1`}>
-            起点: {result.contextLabel}
-          </p>
-        ) : null}
+        <p className={`${typography.caption} ${colors.text.muted} mt-1`}>
+          {aiDraft
+            ? 'AI整理ドラフトを反映しています（金額は概算ボタンから）'
+            : result.contextLabel
+              ? `起点: ${result.contextLabel}`
+              : '選択内容をもとに整理しています'}
+        </p>
       </div>
 
       <div
-        className={`rounded-lg bg-gray-900/60 ${borders.border} border-blue-400/30 p-4 space-y-4 max-h-[min(52vh,28rem)] overflow-y-auto`}
+        className={`rounded-lg bg-gray-900/60 ${borders.border} border-blue-400/30 p-4 space-y-4 max-h-[min(42dvh,24rem)] sm:max-h-[min(52vh,28rem)] overflow-y-auto overscroll-contain`}
       >
         {result.situationLabel ? (
-          <ResultBlock title="現在の状況" body={result.situationLabel} />
+          <ResultBlock
+            title={aiDraft ? '現在の課題' : '現在の状況'}
+            body={result.situationLabel}
+          />
         ) : null}
-        {result.timelineLabel ? (
+        {result.timelineLabel && !aiDraft ? (
           <ResultBlock title="希望時期" body={result.timelineLabel} />
+        ) : null}
+        {result.timelineLabel && aiDraft ? (
+          <ResultBlock title="希望時期（選択）" body={result.timelineLabel} />
         ) : null}
         {result.closestAreaLabel ? (
           <ResultBlock title="近い領域" body={result.closestAreaLabel} />
@@ -85,7 +100,9 @@ export function ConciergeDoneStep({
           <p className={`${typography.small} ${colors.text.primary} font-medium`}>
             {result.directionTitle}
           </p>
-          <p className={`${typography.small} ${colors.text.secondary} mt-1`}>
+          <p
+            className={`${typography.small} ${colors.text.secondary} mt-1 whitespace-pre-wrap`}
+          >
             {result.directionBody}
           </p>
         </div>
@@ -220,7 +237,9 @@ function ResultBlock({ title, body }: { title: string; body: string }) {
   return (
     <div>
       <p className={`${typography.caption} ${colors.text.muted} mb-1`}>{title}</p>
-      <p className={`${typography.small} ${colors.text.secondary}`}>{body}</p>
+      <p className={`${typography.small} ${colors.text.secondary} whitespace-pre-wrap`}>
+        {body}
+      </p>
     </div>
   )
 }
