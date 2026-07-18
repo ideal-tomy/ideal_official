@@ -4,6 +4,7 @@ import Link from 'next/link'
 import type { Capability } from '@/data/ai-capability-gallery/capabilities'
 import { GALLERY_BASE } from '@/data/ai-capability-gallery/capabilities'
 import { OpenConciergeButton } from '@/components/concierge/OpenConciergeButton'
+import { RelatedPatternsMarquee } from '@/components/ai-capability-gallery/RelatedPatternsMarquee'
 
 export interface CapabilityDetailMeta {
   slug: string
@@ -25,37 +26,45 @@ export function AiCapabilityDetailShell({
   relatedCapabilities = [],
 }: AiCapabilityDetailShellProps) {
   return (
-    <div className="bg-black min-h-screen">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+    <div className="min-h-screen bg-[var(--site-bg)]">
+      <div className="mx-auto max-w-5xl px-4 py-6 sm:px-6 md:py-12 lg:px-8 lg:py-20">
         <nav
-          className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm mb-8 pb-6 border-b border-gray-800"
+          className="mb-4 flex flex-wrap items-center gap-x-3 gap-y-1 border-b border-[var(--site-border)] pb-3 text-sm md:mb-8 md:pb-6"
           aria-label="ギャラリーナビゲーション"
         >
           <Link
             href={GALLERY_BASE}
-            className="text-gray-300 hover:text-brand transition-colors"
+            className="text-[var(--site-fg-muted)] transition-colors hover:text-brand"
           >
-            ← AI Capability Demo Gallery
+            <span className="md:hidden">← ギャラリー</span>
+            <span className="hidden md:inline">← AI Capability Demo Gallery</span>
           </Link>
-          <span className="text-gray-600" aria-hidden="true">
+          <span className="hidden text-gray-600 md:inline" aria-hidden="true">
             /
           </span>
-          <span className="text-gray-400">{page.eyebrow}</span>
+          <span className="hidden text-[var(--site-fg-muted)] md:inline">
+            {page.eyebrow}
+          </span>
         </nav>
 
-        <header className="mb-10 lg:mb-14">
-          <p className="text-xs font-medium tracking-[0.2em] uppercase text-brand/90 mb-3">
+        <header className="mb-4 md:mb-10 lg:mb-14">
+          <p className="mb-1.5 text-[10px] font-medium uppercase tracking-[0.2em] text-brand/90 md:mb-3 md:text-xs">
             {page.eyebrow}
           </p>
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-6 leading-tight tracking-tight">
+          <h1 className="mb-2 text-xl font-bold leading-snug tracking-tight text-[var(--site-fg)] sm:text-2xl md:mb-4 md:text-3xl lg:text-4xl lg:leading-tight">
             {page.title}
           </h1>
-          <p className="text-lg text-gray-200 leading-relaxed mb-4">{page.lead}</p>
-          <div className="flex flex-wrap gap-2">
+
+          {/* スマホではリード非表示。PC のみ表示 */}
+          <p className="mb-4 hidden text-lg leading-relaxed text-[var(--site-fg)]/90 md:block">
+            {page.lead}
+          </p>
+
+          <div className="flex flex-wrap gap-1.5 md:gap-2">
             {page.tags.map((tag) => (
               <span
                 key={tag}
-                className="text-xs px-2.5 py-1 rounded-full border border-gray-700 text-gray-400"
+                className="rounded-full border border-[var(--site-border)] px-2 py-0.5 text-[10px] text-[var(--site-fg-muted)] md:px-2.5 md:py-1 md:text-xs"
               >
                 {tag}
               </span>
@@ -63,17 +72,17 @@ export function AiCapabilityDetailShell({
           </div>
         </header>
 
-        <div className="space-y-10">{children}</div>
+        <div className="space-y-8 md:space-y-10">{children}</div>
 
-        <footer className="mt-16 pt-10 border-t border-gray-800">
-          <div className="mb-10 p-6 rounded-xl border border-brand/20 bg-brand/5">
-            <h2 className="text-lg font-semibold text-white mb-2">
+        <footer className="mt-12 border-t border-[var(--site-border)] pt-8 md:mt-16 md:pt-10">
+          <div className="mb-10 rounded-xl border border-brand/20 bg-brand/5 p-6">
+            <h2 className="mb-2 text-lg font-semibold text-[var(--site-fg)]">
               このデモ、自社でも使えるか整理しませんか
             </h2>
-            <p className="text-sm text-gray-300 mb-4">
+            <p className="mb-4 text-sm text-[var(--site-fg-muted)]">
               AIコンシェルジュが「{page.eyebrow}」を起点に、課題・必要な機能・概算の参考まで案内します。
             </p>
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-col gap-3 sm:flex-row">
               <OpenConciergeButton
                 serviceId="ai-consulting"
                 variant="primary"
@@ -83,7 +92,7 @@ export function AiCapabilityDetailShell({
               </OpenConciergeButton>
               <Link
                 href={GALLERY_BASE}
-                className="inline-flex items-center justify-center rounded-lg border border-gray-700 px-6 py-3 text-sm font-medium text-gray-300 hover:border-brand/30 hover:text-white transition-colors"
+                className="inline-flex items-center justify-center rounded-lg border border-[var(--site-border)] px-6 py-3 text-sm font-medium text-[var(--site-fg-muted)] transition-colors hover:border-brand/30 hover:text-[var(--site-fg)]"
               >
                 他のデモを見る
               </Link>
@@ -91,33 +100,7 @@ export function AiCapabilityDetailShell({
           </div>
 
           {relatedCapabilities.length > 0 && (
-            <>
-              <p className="text-sm font-medium text-gray-400 mb-4 uppercase tracking-wider">
-                他のパターン
-              </p>
-              <ul className="grid sm:grid-cols-2 gap-3">
-                {relatedCapabilities.map((related) => (
-                  <li key={related.id}>
-                    {related.status === 'ready' ? (
-                      <Link
-                        href={related.href}
-                        className="block p-4 rounded-lg border border-gray-800 bg-gray-900/40 hover:border-brand/30 hover:bg-gray-900/60 transition-colors"
-                      >
-                        <span className="text-sm font-medium text-white">{related.subtitle}</span>
-                        <span className="block text-xs text-gray-400 mt-1 line-clamp-2">
-                          {related.title}
-                        </span>
-                      </Link>
-                    ) : (
-                      <div className="block p-4 rounded-lg border border-gray-800 bg-gray-900/20 opacity-60">
-                        <span className="text-sm font-medium text-gray-400">{related.subtitle}</span>
-                        <span className="block text-xs text-gray-500 mt-1">準備中</span>
-                      </div>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </>
+            <RelatedPatternsMarquee items={relatedCapabilities} />
           )}
         </footer>
       </div>

@@ -9,6 +9,135 @@
   --color-brand-glow: color-mix(in srgb, #9b2937 22%, transparent);
 }
 
+/*
+ * サイト共通セマンティック変数
+ * ライト = モック青系 / ダーク = 現行黒×深紅
+ * ThemeProvider が html.light / html.dark を付与
+ */
+:root,
+html.light {
+  --df-primary: #2b6fe0;
+  --df-primary-deep: #1b3a8c;
+  --df-primary-light: #7fb2e8;
+  --df-primary-hover: #1f5ac4;
+  --df-hero-1: #2e8fcb;
+  --df-hero-2: #1f7abf;
+  --df-hero-3: #3399cc;
+  --df-bg: #ffffff;
+  --df-bg-blue: #eaf3fb;
+  --df-bg-blue-2: #dcebfa;
+  --df-bg-card: #f4f8fc;
+  --df-text: #1a1a2e;
+  --df-text-muted: #8a94a6;
+  --df-on-primary: #ffffff;
+  --df-radius-card: 12px;
+  --df-radius-btn: 8px;
+  --df-sec-pad: clamp(72px, 12vw, 120px);
+  --site-bg: #ffffff;
+  --site-bg-elevated: #f4f8fc;
+  --site-fg: #1a1a2e;
+  --site-fg-muted: #6b7280;
+  --site-border: #e5e7eb;
+}
+
+html.dark {
+  --df-primary: #9b2937;
+  --df-primary-deep: #681b26;
+  --df-primary-light: #d14a55;
+  --df-primary-hover: #d14a55;
+  --df-hero-1: #1a1a1a;
+  --df-hero-2: #0a0a0a;
+  --df-hero-3: #1f1214;
+  --df-bg: #000000;
+  --df-bg-blue: #111111;
+  --df-bg-blue-2: #1a1a1a;
+  --df-bg-card: #171717;
+  --df-text: #f3f4f6;
+  --df-text-muted: #9ca3af;
+  --df-on-primary: #ffffff;
+  --site-bg: #000000;
+  --site-bg-elevated: #111111;
+  --site-fg: #e5e7eb;
+  --site-fg-muted: #9ca3af;
+  --site-border: #374151;
+}
+
+.demo-first {
+  color: var(--df-text);
+  background: var(--df-bg);
+}
+
+@keyframes df-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes df-rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.demo-first .df-rise-1,
+.demo-first .df-rise-2,
+.demo-first .df-rise-3,
+.demo-first .df-rise-4 {
+  opacity: 0;
+  animation: df-rise-in 0.9s ease forwards;
+}
+
+.demo-first .df-rise-1 {
+  animation-delay: 0.3s;
+}
+.demo-first .df-rise-2 {
+  animation-delay: 1s;
+}
+.demo-first .df-rise-3 {
+  animation-delay: 1.7s;
+}
+.demo-first .df-rise-4 {
+  animation-delay: 2.1s;
+}
+
+.demo-first .df-marquee-track {
+  animation: df-marquee 38s linear infinite;
+}
+
+.demo-first .df-marquee:hover .df-marquee-track {
+  animation-play-state: paused;
+}
+
+.related-marquee-track {
+  /* カードが縦長なので、少しゆっくり流す */
+  animation: df-marquee 52s linear infinite;
+}
+
+.related-marquee:hover .related-marquee-track,
+.related-marquee:focus-within .related-marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .demo-first .df-rise-1,
+  .demo-first .df-rise-2,
+  .demo-first .df-rise-3,
+  .demo-first .df-rise-4 {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+  .demo-first .df-marquee-track,
+  .related-marquee-track {
+    animation: none !important;
+  }
+}
+
 /* カスタムアニメーション */
 @keyframes fade-in {
   from {

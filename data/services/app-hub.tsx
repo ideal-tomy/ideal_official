@@ -1,11 +1,11 @@
 import type { ReactNode } from 'react'
 
 export const appHubHero = {
-  eyebrow: 'Product Demo',
+  eyebrow: 'Demo-First App',
   titleLine1: '入力する。処理する。',
   titleLine2: '結果が返る。',
   subtitle:
-    'Excel、紙、メール、LINE、手作業で行っている業務を、使いやすいWebアプリや業務ツールにします。業務を、動く仕組みに。',
+    'Excel、紙、メール、LINE、手作業の業務を、触れるデモにしてから本開発へ。業務を、動く仕組みに変えます。',
   primaryCta: {
     label: '実際のデモを見る',
     href: '#product-showcase',

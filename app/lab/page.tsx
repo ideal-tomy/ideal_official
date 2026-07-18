@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function LabHubPage() {
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-[var(--site-bg)]">
       <LabHubHero />
 
       <section className="py-16 lg:py-20 border-b border-brand/40">

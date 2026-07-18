@@ -24,23 +24,33 @@ export const metadata: Metadata = {
 
 export default function AiCapabilityGalleryPage() {
   return (
-    <div className="bg-black min-h-screen">
+    <div className="min-h-screen bg-[var(--site-bg)]">
       <GalleryHero />
-      <GallerySectionNav />
 
-      <SingleColumnSection
-        title="AI機能ではなく、業務の変化を見せる。"
-        description="このギャラリーでは、「AIチャットボット」「OCR」「自動化ツール」といった技術名ではなく、実際の仕事がどう変わるかを7つのパターンに整理して紹介します。"
-        variant="dark"
-        padding="lg"
-      >
-        <></>
-      </SingleColumnSection>
+      {/* PC: Showcase 用ドットナビ（スマホはカード主導線のため非表示） */}
+      <div className="hidden md:contents">
+        <GallerySectionNav />
+      </div>
+
+      {/* PC 向け導入。スマホは Hero → カードへ直行 */}
+      <div className="hidden md:block">
+        <SingleColumnSection
+          title="AI機能ではなく、業務の変化を見せる。"
+          description="このギャラリーでは、「AIチャットボット」「OCR」「自動化ツール」といった技術名ではなく、実際の仕事がどう変わるかを7つのパターンに整理して紹介します。"
+          variant="dark"
+          padding="lg"
+        >
+          <></>
+        </SingleColumnSection>
+      </div>
 
       <CapabilityCardGrid />
-      <CapabilityShowcase />
 
-      <section className="relative bg-black py-16 lg:py-20 border-t border-gray-800 overflow-hidden">
+      <div className="hidden md:block">
+        <CapabilityShowcase />
+      </div>
+
+      <section className="relative hidden overflow-hidden border-t border-[var(--site-border)] bg-[var(--site-bg)] py-16 md:block lg:py-20">
         <Image
           src={galleryImages.background}
           alt=""
@@ -49,57 +59,63 @@ export default function AiCapabilityGalleryPage() {
           className="object-cover opacity-25"
           aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-black/70" aria-hidden="true" />
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <header className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+        <div className="absolute inset-0 bg-[var(--site-bg)]/70" aria-hidden="true" />
+        <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <header className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold text-[var(--site-fg)] md:text-4xl">
               このサイトの見方
             </h2>
-            <p className="text-base md:text-lg text-gray-200 max-w-2xl mx-auto">
+            <p className="mx-auto max-w-2xl text-base text-[var(--site-fg-muted)] md:text-lg">
               まず変化の全体像を選び、そのあと大きなビジュアルで変わる瞬間を確認し、最後に実際のデモを体験します。
             </p>
           </header>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid gap-6 md:grid-cols-3">
             {howToUseSteps.map((step, index) => (
               <div
                 key={step.title}
-                className="p-6 rounded-xl border border-gray-800 bg-gray-900/60 backdrop-blur-sm"
+                className="rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)]/80 p-6 backdrop-blur-sm"
               >
-                <span className="text-2xl font-bold text-brand/50 mb-3 block">
+                <span className="mb-3 block text-2xl font-bold text-brand/50">
                   {index + 1}
                 </span>
-                <h3 className="text-lg font-semibold text-white mb-2">{step.title}</h3>
-                <p className="text-sm text-gray-300 leading-relaxed">{step.description}</p>
+                <h3 className="mb-2 text-lg font-semibold text-[var(--site-fg)]">
+                  {step.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-[var(--site-fg-muted)]">
+                  {step.description}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <SingleColumnSection
-        title="機能を作る前に、何を変えるべきかを見極める。"
-        description="我々は、企業ごとに異なる課題に対して、どこに技術を介入させるべきかを見つけ、必要ならプロトタイプを作り、業務の未来を先に見せます。このギャラリーは、そのための基本パターン集です。"
-        variant="dark"
-        padding="lg"
-      >
-        <></>
-      </SingleColumnSection>
+      <div className="hidden md:block">
+        <SingleColumnSection
+          title="機能を作る前に、何を変えるべきかを見極める。"
+          description="我々は、企業ごとに異なる課題に対して、どこに技術を介入させるべきかを見つけ、必要ならプロトタイプを作り、業務の未来を先に見せます。このギャラリーは、そのための基本パターン集です。"
+          variant="dark"
+          padding="lg"
+        >
+          <></>
+        </SingleColumnSection>
+      </div>
 
-      <section className="bg-black py-12 border-t border-gray-800">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-xs tracking-[0.2em] uppercase text-brand/90 mb-3">
+      <section className="border-t border-[var(--site-border)] bg-[var(--site-bg)] py-10 md:py-12">
+        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+          <p className="mb-3 text-xs uppercase tracking-[0.2em] text-brand/90">
             Cases
           </p>
-          <h2 className="text-2xl font-bold text-white mb-3">
+          <h2 className="mb-3 text-xl font-bold text-[var(--site-fg)] md:text-2xl">
             業界の流れに、置き換えてみる
           </h2>
-          <p className="text-sm text-gray-400 mb-6 leading-relaxed">
+          <p className="mb-6 text-sm leading-relaxed text-[var(--site-fg-muted)]">
             建設の現場写真整理など、Before / After の業務フローから自社への当てはめを考えられます。
           </p>
           <a
             href="/cases"
-            className="inline-flex items-center text-sm font-medium text-gray-300 hover:text-brand transition-colors"
+            className="inline-flex items-center text-sm font-medium text-[var(--site-fg-muted)] transition-colors hover:text-brand"
           >
             事例を読む →
           </a>

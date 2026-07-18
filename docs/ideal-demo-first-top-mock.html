@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ideal｜まず、触ってください。— デモファーストのDX開発</title>
+<meta name="description" content="説明資料より先に、動くデモを。業務の課題を「触れるデモ」で確かめてから開発する、デモファーストのWeb・DX開発。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DESIGN TOKENS  (分析書 §1.2 準拠)
+   ============================================================ */
+:root{
+  --c-primary:      #2B6FE0;
+  --c-primary-deep: #1B3A8C;
+  --c-primary-light:#7FB2E8;
+  --bg-hero-1:#2E8FCB; --bg-hero-2:#1F7ABF; --bg-hero-3:#3399CC;
+  --bg-blue:   #EAF3FB;
+  --bg-blue-2: #DCEBFA;
+  --bg-card:   #F4F8FC;
+  --t-main:  #1A1A2E;
+  --t-muted: #8A94A6;
+  --white:#fff;
+  --r-card:12px; --r-btn:8px;
+  --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s5:48px; --s6:64px; --s7:96px;
+  --sec-pad: clamp(72px, 12vw, 120px);
+  --font: "Noto Sans JP", -apple-system, sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--t-main);line-height:1.9;letter-spacing:.03em;font-size:16px;background:var(--white)}
+img,svg,video{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+.wrap{width:min(100% - 48px, 1080px);margin-inline:auto}
+
+/* ============================================================
+   共通パーツ
+   ============================================================ */
+.eyebrow{color:var(--c-primary);font-weight:700;font-size:14px;letter-spacing:.12em;text-transform:uppercase}
+.sec-title{font-size:clamp(26px,5.6vw,40px);font-weight:900;line-height:1.5;color:var(--t-main);margin:var(--s1) 0 var(--s3)}
+.sec-title .accent{color:var(--c-primary-deep)}
+.lead{max-width:640px}
+
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--c-primary);color:#fff;font-weight:700;
+  padding:14px 28px;border-radius:var(--r-btn);transition:transform .25s ease, background .25s ease}
+.btn:hover{background:#1F5AC4;transform:translateY(-2px)}
+.btn-arrow{display:inline-flex;align-items:center;justify-content:center;width:56px;height:40px;
+  background:var(--c-primary);color:#fff;border-radius:var(--r-btn);font-weight:700;transition:transform .25s ease}
+.btn-arrow:hover{transform:translateX(4px)}
+
+/* チップの意味論: 業界=濃紺 / 技術=グレー / NEW=青塗り */
+.chip{display:inline-block;font-size:12px;font-weight:700;padding:3px 12px;border-radius:999px;line-height:1.7}
+.chip--ind{border:1px solid var(--c-primary-deep);color:var(--c-primary-deep)}
+.chip--tech{border:1px solid var(--t-muted);color:var(--t-muted)}
+.chip--new{background:var(--c-primary);color:#fff}
+.chip--onblue{border:1px solid rgba(255,255,255,.8);color:#fff}
+
+/* ラベル意味論: 課題=グレー枠 / 解決=青塗り */
+.label{display:inline-block;font-size:13px;font-weight:700;padding:2px 14px;border-radius:4px;margin-bottom:var(--s2)}
+.label--issue{border:1px solid var(--t-muted);color:var(--t-muted)}
+.label--solve{background:var(--c-primary);color:#fff}
+
+/* スクロールリビール */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.rv.is-visible{opacity:1;transform:none}
+.rv-d1{transition-delay:.12s}.rv-d2{transition-delay:.24s}.rv-d3{transition-delay:.36s}
+
+/* ============================================================
+   C-01 固定ハンバーガー FAB
+   ============================================================ */
+.fab{position:fixed;top:16px;right:16px;z-index:1000;width:56px;height:56px;border:none;cursor:pointer;
+  background:var(--c-primary);border-radius:10px;display:grid;place-items:center;gap:0;
+  box-shadow:0 4px 16px rgba(27,58,140,.28)}
+.fab span{display:block;width:24px;height:2px;background:#fff;margin:2.5px 0;transition:transform .3s ease,opacity .3s ease}
+.fab.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.fab.open span:nth-child(2){opacity:0}
+.fab.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.drawer{position:fixed;inset:0;z-index:900;background:linear-gradient(160deg,var(--bg-hero-2),var(--c-primary-deep));
+  display:flex;flex-direction:column;justify-content:center;padding:48px 32px;
+  opacity:0;visibility:hidden;transition:opacity .35s ease,visibility .35s}
+.drawer.open{opacity:1;visibility:visible}
+.drawer nav a{display:block;color:#fff;font-size:22px;font-weight:700;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.15)}
+.drawer nav a small{display:block;font-size:11px;color:var(--c-primary-light);letter-spacing:.15em;text-transform:uppercase}
+.drawer .btn{margin-top:var(--s4);background:#fff;color:var(--c-primary-deep);justify-content:center}
+
+/* ============================================================
+   ヘッダー（ロゴのみ・非固定）
+   ============================================================ */
+.site-head{position:absolute;top:0;left:0;right:0;z-index:10;padding:20px 24px}
+.logo{color:#fff;font-weight:900;font-size:22px;letter-spacing:.06em}
+.logo small{font-weight:400;font-size:11px;display:block;letter-spacing:.2em;opacity:.85}
+
+/* ============================================================
+   C-02 ヒーロー（時間差フェードイン）
+   ============================================================ */
+.hero{position:relative;min-height:92svh;display:flex;flex-direction:column;justify-content:center;
+  background:linear-gradient(160deg,var(--bg-hero-1) 0%,var(--bg-hero-2) 52%,var(--bg-hero-3) 100%);
+  color:#fff;overflow:hidden;padding:96px 0 72px}
+/* 現場写真の代わりの抽象背景（本実装ではSP専用webpに差し替え） */
+.hero::before{content:"";position:absolute;inset:0;opacity:.5;
+  background:
+   radial-gradient(ellipse 60% 40% at 85% 15%, rgba(255,255,255,.22), transparent 60%),
+   radial-gradient(ellipse 50% 35% at 10% 90%, rgba(11,42,100,.4), transparent 65%)}
+.hero-grid{content:"";position:absolute;inset:0;opacity:.12;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.6) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.6) 1px,transparent 1px);
+  background-size:56px 56px;
+  mask-image:radial-gradient(ellipse 80% 70% at 70% 30%, #000, transparent 75%)}
+.hero .wrap{position:relative;z-index:2}
+.hero-copy{font-size:clamp(34px,9vw,64px);font-weight:900;line-height:1.4;letter-spacing:.04em;
+  text-shadow:0 2px 24px rgba(15,45,90,.35)}
+.hero-sub{margin-top:var(--s3);font-size:clamp(15px,3.6vw,18px);max-width:560px;font-weight:400;opacity:.95}
+.hero-cta{margin-top:var(--s4);display:flex;gap:14px;flex-wrap:wrap}
+.hero-cta .btn--ghost{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.7)}
+.hero-cta .btn--ghost:hover{background:rgba(255,255,255,.26)}
+/* 時間差: 背景→コピー1→コピー2→サブ→CTA */
+@keyframes riseIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.t1,.t2,.t3,.t4{opacity:0;animation:riseIn .9s ease forwards}
+.t1{animation-delay:.3s}.t2{animation-delay:1.0s}.t3{animation-delay:1.7s}.t4{animation-delay:2.1s}
+
+/* ============================================================
+   デモティッカー（お知らせ枠の転用）
+   ============================================================ */
+.ticker{background:var(--white);padding:var(--s3) 0;border-bottom:1px solid var(--bg-blue-2)}
+.ticker li{display:flex;gap:12px;align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--bg-blue-2);font-size:14px}
+.ticker li:last-child{border-bottom:none}
+.ticker time{color:var(--t-muted);font-size:12px;flex-shrink:0}
+
+/* ============================================================
+   C-03 無限マーキー（業界×デモ チップ流し / CSS only）
+   ============================================================ */
+.marquee{background:var(--white);padding:var(--s3) 0 var(--s5);overflow:hidden}
+.marquee-track{display:flex;gap:14px;width:max-content;animation:mq 38s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.mq-chip{flex-shrink:0;background:var(--bg-card);border:1px solid var(--bg-blue-2);border-radius:999px;
+  padding:8px 20px;font-size:13px;font-weight:700;color:var(--c-primary-deep);white-space:nowrap}
+.mq-chip b{color:var(--c-primary)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ============================================================
+   C-11 デモショーケース（主役セクション）
+   ============================================================ */
+.showcase{background:var(--bg-blue);padding:var(--sec-pad) 0}
+.demo-hero-card{background:var(--white);border-radius:var(--r-card);overflow:hidden;margin-bottom:var(--s4)}
+.demo-hero-card .screen{background:linear-gradient(160deg,#12315e,#1B3A8C);padding:26px 22px;position:relative;min-height:230px}
+.demo-hero-card .body{padding:var(--s3) var(--s3) var(--s4)}
+.demo-hero-card h3{font-size:20px;font-weight:900;color:var(--c-primary-deep);margin:10px 0 6px;line-height:1.5}
+.demo-hero-card p{font-size:14px;color:var(--t-main)}
+.demo-hero-card .foot{display:flex;justify-content:space-between;align-items:center;margin-top:var(--s3)}
+.demo-hero-card .foot .try{font-weight:700;color:var(--c-primary);font-size:14px}
+
+/* --- 動くミニUI（動画の代わりのCSSアニメーション） --- */
+.mini-ui{background:#fff;border-radius:8px;padding:14px;font-size:10px;box-shadow:0 12px 32px rgba(9,30,66,.35)}
+.mini-ui .bar{height:8px;border-radius:4px;background:var(--bg-blue-2);margin:6px 0;overflow:hidden;position:relative}
+.mini-ui .bar i{position:absolute;inset:0;border-radius:4px;background:var(--c-primary);transform-origin:left;animation:grow 3.2s ease-in-out infinite alternate}
+.mini-ui .bar:nth-child(2) i{animation-delay:.4s;background:var(--c-primary-light)}
+.mini-ui .bar:nth-child(3) i{animation-delay:.8s}
+@keyframes grow{from{transform:scaleX(.25)}to{transform:scaleX(.92)}}
+.mini-ui .row{display:flex;gap:6px;margin-top:10px}
+.mini-ui .cell{flex:1;height:26px;border-radius:4px;background:var(--bg-card);border:1px solid var(--bg-blue-2);animation:blink 2.6s infinite}
+.mini-ui .cell:nth-child(2){animation-delay:.5s}.mini-ui .cell:nth-child(3){animation-delay:1s}
+@keyframes blink{0%,100%{background:var(--bg-card)}50%{background:var(--bg-blue-2)}}
+.mini-ui .badge{position:absolute;top:14px;right:14px;background:var(--c-primary);color:#fff;font-size:10px;
+  font-weight:700;padding:3px 10px;border-radius:999px;animation:pulse 2.4s ease infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.mini-ui .kb{display:flex;gap:6px;margin-top:8px}
+.mini-ui .kb .msg{background:var(--bg-blue);border-radius:6px 6px 6px 0;padding:6px 8px;max-width:75%;color:var(--c-primary-deep);font-weight:700}
+.mini-ui .kb.right{justify-content:flex-end}
+.mini-ui .kb.right .msg{background:var(--c-primary);color:#fff;border-radius:6px 6px 0 6px}
+.typing{overflow:hidden;white-space:nowrap;animation:type 3.6s steps(20) infinite}
+@keyframes type{0%{width:0}55%{width:100%}100%{width:100%}}
+
+/* ============================================================
+   C-04 業界カード（課題→解決）
+   ============================================================ */
+.service{background:var(--white);padding:var(--sec-pad) 0}
+.ind-card{background:var(--bg-card);border-radius:var(--r-card);padding:var(--s4) var(--s3);margin-bottom:var(--s3)}
+.ind-card header{display:flex;justify-content:space-between;align-items:flex-start;
+  border-bottom:1px solid var(--bg-blue-2);padding-bottom:var(--s2);margin-bottom:var(--s3)}
+.ind-card h3{font-size:24px;font-weight:900;color:var(--c-primary-deep);line-height:1.3}
+.ind-card h3 small{display:block;font-size:12px;font-weight:700;color:var(--c-primary);letter-spacing:.1em}
+.ind-icon{width:56px;height:56px;flex-shrink:0;color:var(--c-primary-deep)}
+.pt-list{margin-bottom:var(--s3)}
+.pt-list li{position:relative;padding-left:18px;font-size:14.5px;margin:8px 0}
+.pt-list li::before{content:"";position:absolute;left:0;top:.75em;width:7px;height:7px;border-radius:50%;background:var(--t-muted)}
+.pt-list--solve li::before{background:var(--c-primary)}
+.ind-card .foot{display:flex;justify-content:flex-end}
+
+/* ============================================================
+   Reason（線画SVG図版 + 3つの理由）
+   ============================================================ */
+.reason{background:var(--bg-blue);padding:var(--sec-pad) 0}
+.reason-item{margin-bottom:var(--s6)}
+.reason-item:last-child{margin-bottom:0}
+.reason-num{color:var(--t-muted);font-weight:700;letter-spacing:.2em;text-align:center;font-size:14px}
+.reason-item h3{text-align:center;font-size:21px;font-weight:900;color:var(--c-primary-deep);line-height:1.6;margin:6px 0 var(--s3)}
+.fig{background:var(--bg-card);border-radius:var(--r-card);padding:var(--s4);margin:0 auto var(--s3);max-width:480px}
+.reason-item p{font-size:15px;max-width:600px;margin-inline:auto}
+
+/* ============================================================
+   デモギャラリー（青グラデ・事例セクションの位置）
+   ============================================================ */
+.gallery{background:linear-gradient(170deg,var(--bg-hero-1),var(--bg-hero-2) 60%,var(--bg-hero-3));
+  color:#fff;padding:var(--sec-pad) 0}
+.gallery .eyebrow{color:#BFE0FF}
+.gallery .sec-title{color:#fff}
+.g-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.35);border-radius:var(--r-card);
+  padding:var(--s3);margin-bottom:var(--s3);backdrop-filter:blur(2px)}
+.g-card .chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.g-card h3{font-size:17px;font-weight:900;line-height:1.6;margin-bottom:8px}
+.g-card p{font-size:13.5px;opacity:.92}
+.g-card .foot{display:flex;justify-content:space-between;align-items:center;margin-top:var(--s2);
+  border-top:1px solid rgba(255,255,255,.25);padding-top:var(--s2);font-size:13px}
+.g-card .foot .btn-arrow{background:#fff;color:var(--c-primary)}
+.gallery .more{display:flex;justify-content:center;margin-top:var(--s4)}
+.gallery .more .btn{background:#fff;color:var(--c-primary-deep)}
+
+/* ============================================================
+   News / Contact / Footer
+   ============================================================ */
+.news{background:var(--white);padding:var(--sec-pad) 0}
+.news li{display:flex;gap:14px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--bg-blue-2);font-size:14.5px}
+.news time{color:var(--t-muted);font-size:12.5px;flex-shrink:0}
+
+.contact{background:var(--bg-blue-2);padding:var(--sec-pad) 0;text-align:center}
+.contact p{max-width:560px;margin:0 auto var(--s4)}
+
+footer{background:var(--c-primary-deep);color:#fff;padding:var(--s6) 0 var(--s4)}
+footer .logo{font-size:20px}
+footer address{font-style:normal;font-size:13px;opacity:.85;margin:var(--s2) 0 var(--s4)}
+footer nav{display:flex;gap:20px;flex-wrap:wrap;font-size:13.5px;border-top:1px solid rgba(255,255,255,.2);padding-top:var(--s3)}
+footer .copy{font-size:11px;opacity:.6;margin-top:var(--s4);letter-spacing:.08em}
+.pagetop{position:fixed;right:16px;bottom:16px;z-index:500;width:44px;height:44px;border-radius:8px;
+  background:#fff;color:var(--c-primary-deep);border:1px solid var(--bg-blue-2);font-weight:700;cursor:pointer;
+  box-shadow:0 4px 12px rgba(9,30,66,.15);opacity:0;visibility:hidden;transition:.3s;display:grid;place-items:center}
+.pagetop.show{opacity:1;visibility:visible}
+
+/* ============================================================
+   PC (768px+): 2カラム化
+   ============================================================ */
+@media (min-width:768px){
+  .cols-2{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3)}
+  .cols-3{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3)}
+  .ind-card,.g-card,.demo-hero-card{margin-bottom:0}
+  .demo-hero-card{display:flex;flex-direction:column}
+  .demo-hero-card .body{flex:1;display:flex;flex-direction:column}
+  .demo-hero-card .foot{margin-top:auto}
+  .showcase-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3)}
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .rv,.t1,.t2,.t3,.t4{opacity:1 !important;transform:none !important;animation:none !important;transition:none !important}
+  .marquee-track,.mini-ui *{animation:none !important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- C-01 固定ハンバーガー -->
+<button class="fab" id="fab" aria-label="メニュー" aria-expanded="false" aria-controls="drawer">
+  <span></span><span></span><span></span>
+</button>
+<div class="drawer" id="drawer">
+  <nav>
+    <a href="#top"><small>Top</small>トップ</a>
+    <a href="#demos"><small>Demos</small>開発デモ</a>
+    <a href="#service"><small>Service</small>サービス</a>
+    <a href="#reason"><small>Reason</small>選ばれる理由</a>
+    <a href="#news"><small>News</small>お知らせ</a>
+  </nav>
+  <a class="btn" href="#contact">お問い合わせ</a>
+</div>
+
+<header class="site-head" id="top">
+  <a href="#top" class="logo">ideal<small>DEMO-FIRST DEVELOPMENT</small></a>
+</header>
+
+<!-- C-02 ヒーロー -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="wrap">
+    <h1 class="hero-copy">
+      <span class="t1" style="display:block">まず、触ってください。</span>
+      <span class="t2" style="display:block">説明より、動くデモを。</span>
+    </h1>
+    <p class="hero-sub t3">私たちは提案書の前にデモを作ります。業務の課題を「触れるかたち」にしてから、一緒に答え合わせをする——それが、認識のズレをゼロにする最短ルートだと考えているからです。</p>
+    <div class="hero-cta t4">
+      <a class="btn" href="#demos">デモを触ってみる</a>
+      <a class="btn btn--ghost" href="#service">サービスを見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- デモティッカー -->
+<div class="ticker">
+  <div class="wrap">
+    <ul>
+      <li><time>2026.07</time><span class="chip chip--new">NEW</span><a href="#">製造業ナレッジベースデモを公開 — 「判断の根拠」まで返す業務エンジン</a></li>
+      <li><time>2026.06</time><a href="#">シフト管理支援デモを更新 — 負荷スコアの可視化とドラフト自動生成に対応</a></li>
+      <li><time>2026.05</time><a href="#">現場ダンドリ（電気工事 段取り計画）デモを公開</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- C-03 マーキー（業界×デモ チップ） -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <!-- 1周目 -->
+    <span class="mq-chip">製造 × <b>ナレッジベース</b></span>
+    <span class="mq-chip">小売・サービス × <b>シフト管理</b></span>
+    <span class="mq-chip">建設・設備 × <b>段取り計画</b></span>
+    <span class="mq-chip">医療・福祉 × <b>施設管理</b></span>
+    <span class="mq-chip">経営企画 × <b>ROIシミュレータ</b></span>
+    <span class="mq-chip">美容 × <b>顧客管理×LINE</b></span>
+    <span class="mq-chip">M&A × <b>マッチング設計</b></span>
+    <span class="mq-chip">自治体 × <b>AIナレッジ提案</b></span>
+    <!-- 2周目（複製） -->
+    <span class="mq-chip">製造 × <b>ナレッジベース</b></span>
+    <span class="mq-chip">小売・サービス × <b>シフト管理</b></span>
+    <span class="mq-chip">建設・設備 × <b>段取り計画</b></span>
+    <span class="mq-chip">医療・福祉 × <b>施設管理</b></span>
+    <span class="mq-chip">経営企画 × <b>ROIシミュレータ</b></span>
+    <span class="mq-chip">美容 × <b>顧客管理×LINE</b></span>
+    <span class="mq-chip">M&A × <b>マッチング設計</b></span>
+    <span class="mq-chip">自治体 × <b>AIナレッジ提案</b></span>
+  </div>
+</div>
+
+<!-- C-11 デモショーケース（主役） -->
+<section class="showcase" id="demos">
+  <div class="wrap">
+    <p class="eyebrow rv">Demos</p>
+    <h2 class="sec-title rv">資料ではなく、<br><span class="accent">動くデモで確かめる。</span></h2>
+    <p class="lead rv" style="margin-bottom:var(--s5)">ここにあるのは、実際の業務課題から生まれた開発デモです。ボタンひとつで、いま触れます。</p>
+
+    <div class="showcase-grid">
+      <!-- デモ1: シフト管理 -->
+      <article class="demo-hero-card rv">
+        <div class="screen">
+          <span style="position:absolute;top:14px;left:14px" class="chip chip--onblue">小売・サービス</span>
+          <div class="mini-ui" style="margin-top:34px">
+            <div class="badge">負荷スコア 72</div>
+            <strong style="color:var(--c-primary-deep)">シフト自動ドラフト</strong>
+            <div class="bar"><i></i></div>
+            <div class="bar"><i></i></div>
+            <div class="bar"><i></i></div>
+            <div class="row"><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div></div>
+          </div>
+        </div>
+        <div class="body">
+          <span class="chip chip--new">NEW</span>
+          <h3>シフト管理支援デモ</h3>
+          <p>スタッフごとの負荷をスコアで可視化し、たたき台のシフトを自動生成。「作ってから直す」運用に変えます。</p>
+          <div class="foot">
+            <span class="try">触ってみる</span>
+            <a class="btn-arrow" href="#" aria-label="シフト管理支援デモを開く">→</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- デモ2: 製造業ナレッジベース -->
+      <article class="demo-hero-card rv rv-d1">
+        <div class="screen">
+          <span style="position:absolute;top:14px;left:14px" class="chip chip--onblue">製造</span>
+          <div class="mini-ui" style="margin-top:34px">
+            <strong style="color:var(--c-primary-deep)">判断支援ナレッジベース</strong>
+            <div class="kb"><span class="msg typing">段取り替えの基準は？</span></div>
+            <div class="kb right"><span class="msg">ロット500以下は基準Bを適用 →根拠: 規程3-2</span></div>
+            <div class="kb"><span class="msg typing">例外条件はある？</span></div>
+          </div>
+        </div>
+        <div class="body">
+          <span class="chip chip--tech">意思決定エンジン</span>
+          <h3>製造業ナレッジベースデモ</h3>
+          <p>「答え」だけでなく「判断の根拠」まで返す業務エンジン。ベテランの暗黙知を、現場の意思決定フローに変換します。</p>
+          <div class="foot">
+            <span class="try">触ってみる</span>
+            <a class="btn-arrow" href="#" aria-label="製造業ナレッジベースデモを開く">→</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- デモ3: 現場ダンドリ -->
+      <article class="demo-hero-card rv rv-d2">
+        <div class="screen">
+          <span style="position:absolute;top:14px;left:14px" class="chip chip--onblue">建設・設備</span>
+          <div class="mini-ui" style="margin-top:34px">
+            <div class="badge">工程 12/14</div>
+            <strong style="color:var(--c-primary-deep)">段取り計画ボード</strong>
+            <div class="row"><div class="cell"></div><div class="cell"></div><div class="cell"></div></div>
+            <div class="bar"><i></i></div>
+            <div class="row"><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div></div>
+            <div class="bar"><i></i></div>
+          </div>
+        </div>
+        <div class="body">
+          <span class="chip chip--tech">計画最適化</span>
+          <h3>現場ダンドリ（工事段取り計画）</h3>
+          <p>管轄・申請・資材・人員が絡み合う工事の段取りを一枚のボードに。抜け漏れが構造的に起きない計画づくりを支援します。</p>
+          <div class="foot">
+            <span class="try">触ってみる</span>
+            <a class="btn-arrow" href="#" aria-label="現場ダンドリデモを開く">→</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- C-04 サービス: 業界カード -->
+<section class="service" id="service">
+  <div class="wrap">
+    <p class="eyebrow rv">Service</p>
+    <h2 class="sec-title rv">業務のかたちに合わせて、<br>デモから始めるDX開発。</h2>
+    <p class="lead rv" style="margin-bottom:var(--s5)">汎用ツールの導入で終わらせず、業界ごとの商習慣・現場ルールを踏まえた仕組みを設計します。まず小さく動くものを作り、現場の反応を見ながら育てていきます。</p>
+
+    <div class="cols-2">
+      <article class="ind-card rv">
+        <header>
+          <h3>製造<small>Manufacturing</small></h3>
+          <svg class="ind-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 40V22l10 6V22l10 6V16l16-6v30H6z"/><path d="M14 32h4M24 32h4M34 32h4"/></svg>
+        </header>
+        <span class="label label--issue">課題</span>
+        <ul class="pt-list">
+          <li>判断基準がベテランの頭の中にあり、計画・調整が属人化している</li>
+          <li>受注や納期の変動のたびに、計画の見直しに時間を取られる</li>
+        </ul>
+        <span class="label label--solve">解決</span>
+        <ul class="pt-list pt-list--solve">
+          <li>暗黙知をナレッジベース化し、誰でも根拠付きで判断できる環境へ</li>
+          <li>変動を前提とした計画支援ツールで、見直し負荷を大幅に削減</li>
+        </ul>
+        <div class="foot"><a class="btn-arrow" href="#" aria-label="製造向けサービス詳細">→</a></div>
+      </article>
+
+      <article class="ind-card rv rv-d1">
+        <header>
+          <h3>小売・サービス<small>Retail & Service</small></h3>
+          <svg class="ind-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 18h32l-3 22H11L8 18z"/><path d="M17 18v-4a7 7 0 0 1 14 0v4"/></svg>
+        </header>
+        <span class="label label--issue">課題</span>
+        <ul class="pt-list">
+          <li>シフト作成に毎月何日もかかり、店長の負荷が大きい</li>
+          <li>顧客情報が紙やExcelに分散し、リピート施策が打てない</li>
+        </ul>
+        <span class="label label--solve">解決</span>
+        <ul class="pt-list pt-list--solve">
+          <li>負荷を可視化したシフトのたたき台を自動生成し、調整だけに集中</li>
+          <li>顧客管理×LINE連携で、来店後のつながりを仕組み化</li>
+        </ul>
+        <div class="foot"><a class="btn-arrow" href="#" aria-label="小売・サービス向けサービス詳細">→</a></div>
+      </article>
+
+      <article class="ind-card rv">
+        <header>
+          <h3>建設・設備<small>Construction</small></h3>
+          <svg class="ind-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 40h32M12 40V20l12-10 12 10v20"/><path d="M20 40v-8h8v8"/></svg>
+        </header>
+        <span class="label label--issue">課題</span>
+        <ul class="pt-list">
+          <li>申請・管轄・資材・人員の段取りが複雑で、経験者しか回せない</li>
+          <li>案件ごとの利益が、終わってみないと分からない</li>
+        </ul>
+        <span class="label label--solve">解決</span>
+        <ul class="pt-list pt-list--solve">
+          <li>段取りをボード化し、抜け漏れが構造的に起きない計画運用へ</li>
+          <li>案件別の収支をリアルタイムに可視化し、判断を早める</li>
+        </ul>
+        <div class="foot"><a class="btn-arrow" href="#" aria-label="建設・設備向けサービス詳細">→</a></div>
+      </article>
+
+      <article class="ind-card rv rv-d1">
+        <header>
+          <h3>医療・福祉<small>Care & Welfare</small></h3>
+          <svg class="ind-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><path d="M24 42s-16-9.3-16-21a9 9 0 0 1 16-5.6A9 9 0 0 1 40 21c0 11.7-16 21-16 21z"/></svg>
+        </header>
+        <span class="label label--issue">課題</span>
+        <ul class="pt-list">
+          <li>記録・報告・請求の事務作業が現場の時間を圧迫している</li>
+          <li>制度要件が複雑で、既製ソフトが現場の運用に合わない</li>
+        </ul>
+        <span class="label label--solve">解決</span>
+        <ul class="pt-list pt-list--solve">
+          <li>施設の運用に合わせた管理システムを、小さく作って育てる</li>
+          <li>記録から請求までの流れを一本化し、事務時間を短縮</li>
+        </ul>
+        <div class="foot"><a class="btn-arrow" href="#" aria-label="医療・福祉向けサービス詳細">→</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Reason -->
+<section class="reason" id="reason">
+  <div class="wrap">
+    <p class="eyebrow rv">Reason</p>
+    <h2 class="sec-title rv">提案書で終わらせず、<br>触れるものから始める理由。</h2>
+
+    <div class="reason-item rv">
+      <p class="reason-num">01</p>
+      <h3>デモファーストだから、認識のズレがない</h3>
+      <div class="fig">
+        <svg viewBox="0 0 360 140" fill="none">
+          <rect x="12" y="40" width="88" height="60" rx="8" stroke="#1B3A8C" stroke-width="2"/>
+          <text x="56" y="74" text-anchor="middle" font-size="13" font-weight="700" fill="#1B3A8C">課題を聞く</text>
+          <path d="M108 70h36" stroke="#2B6FE0" stroke-width="2"/><path d="M138 64l8 6-8 6" stroke="#2B6FE0" stroke-width="2"/>
+          <rect x="152" y="30" width="96" height="80" rx="8" fill="#DCEBFA" stroke="#2B6FE0" stroke-width="2"/>
+          <text x="200" y="66" text-anchor="middle" font-size="13" font-weight="700" fill="#1B3A8C">デモを作る</text>
+          <text x="200" y="88" text-anchor="middle" font-size="10" fill="#2B6FE0">最短1〜2週間</text>
+          <path d="M256 70h36" stroke="#2B6FE0" stroke-width="2"/><path d="M286 64l8 6-8 6" stroke="#2B6FE0" stroke-width="2"/>
+          <rect x="300" y="40" width="50" height="60" rx="8" stroke="#1B3A8C" stroke-width="2"/>
+          <text x="325" y="66" text-anchor="middle" font-size="12" font-weight="700" fill="#1B3A8C">触って</text>
+          <text x="325" y="84" text-anchor="middle" font-size="12" font-weight="700" fill="#1B3A8C">判断</text>
+        </svg>
+      </div>
+      <p>要件定義書を何往復もする代わりに、まず動くデモを作って一緒に触ります。「思っていたのと違う」が起きるのは開発の後ではなく、契約の前。だから手戻りがありません。</p>
+    </div>
+
+    <div class="reason-item rv">
+      <p class="reason-num">02</p>
+      <h3>ツール導入ではなく、意思決定の仕組みを作る</h3>
+      <div class="fig">
+        <svg viewBox="0 0 360 150" fill="none">
+          <circle cx="180" cy="75" r="44" fill="#2B6FE0"/>
+          <text x="180" y="70" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">意思決定</text>
+          <text x="180" y="88" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">エンジン</text>
+          <circle cx="70" cy="42" r="30" stroke="#7FB2E8" stroke-width="2"/><text x="70" y="47" text-anchor="middle" font-size="11" font-weight="700" fill="#1B3A8C">現場の知恵</text>
+          <circle cx="70" cy="112" r="30" stroke="#7FB2E8" stroke-width="2"/><text x="70" y="117" text-anchor="middle" font-size="11" font-weight="700" fill="#1B3A8C">業務データ</text>
+          <circle cx="292" cy="75" r="32" stroke="#7FB2E8" stroke-width="2"/><text x="292" y="72" text-anchor="middle" font-size="11" font-weight="700" fill="#1B3A8C">根拠つきの</text><text x="292" y="87" text-anchor="middle" font-size="11" font-weight="700" fill="#1B3A8C">判断</text>
+          <path d="M98 52c14 6 26 12 40 16M98 102c14-6 26-12 40-16M226 75h32" stroke="#2B6FE0" stroke-width="2"/>
+        </svg>
+      </div>
+      <p>チャットボットや管理画面はあくまで入口です。私たちが作るのは、現場の知恵とデータを取り込み、「なぜその判断なのか」まで返す業務の背骨。だから使われ続けます。</p>
+    </div>
+
+    <div class="reason-item rv">
+      <p class="reason-num">03</p>
+      <h3>小さく作って、現場と一緒に育てる</h3>
+      <div class="fig">
+        <svg viewBox="0 0 360 150" fill="none">
+          <circle cx="180" cy="75" r="58" stroke="#7FB2E8" stroke-width="2" stroke-dasharray="4 6"/>
+          <rect x="150" y="16" width="60" height="26" rx="13" fill="#DCEBFA"/><text x="180" y="33" text-anchor="middle" font-size="10" font-weight="700" fill="#1B3A8C">デモ公開</text>
+          <rect x="252" y="62" width="72" height="26" rx="13" fill="#DCEBFA"/><text x="288" y="79" text-anchor="middle" font-size="10" font-weight="700" fill="#1B3A8C">現場の反応</text>
+          <rect x="150" y="108" width="60" height="26" rx="13" fill="#DCEBFA"/><text x="180" y="125" text-anchor="middle" font-size="10" font-weight="700" fill="#1B3A8C">改善</text>
+          <rect x="36" y="62" width="72" height="26" rx="13" fill="#2B6FE0"/><text x="72" y="79" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">運用に定着</text>
+        </svg>
+      </div>
+      <p>一度に大きく作るほど、外したときの損失も大きくなります。小さく出して反応を見て、良かったものだけを本実装へ。低コストで、確実に定着する順番で進めます。</p>
+    </div>
+  </div>
+</section>
+
+<!-- デモギャラリー -->
+<section class="gallery">
+  <div class="wrap">
+    <p class="eyebrow rv">Gallery</p>
+    <h2 class="sec-title rv">これまでに作った<br>開発デモの一部。</h2>
+    <p class="rv" style="max-width:600px;margin-bottom:var(--s5)">どれも実在する業務課題から生まれたものです。似た課題をお持ちなら、そのままカスタマイズの相談から始められます。</p>
+
+    <div class="cols-3">
+      <article class="g-card rv">
+        <div class="chips"><span class="chip chip--onblue">経営企画</span></div>
+        <h3>業界別ROIシミュレータ</h3>
+        <p>導入効果を数字で試算。CONFIG差し替えで業界横断に対応する設計。</p>
+        <div class="foot"><span>Web / 試算エンジン</span><a class="btn-arrow" href="#" aria-label="ROIシミュレータを開く">→</a></div>
+      </article>
+      <article class="g-card rv rv-d1">
+        <div class="chips"><span class="chip chip--onblue">M&A</span></div>
+        <h3>M&Aマッチング設計</h3>
+        <p>買い手・売り手の条件構造を整理したマッチングプラットフォームの設計デモ。</p>
+        <div class="foot"><span>プラットフォーム設計</span><a class="btn-arrow" href="#" aria-label="M&Aマッチングデモを開く">→</a></div>
+      </article>
+      <article class="g-card rv rv-d2">
+        <div class="chips"><span class="chip chip--onblue">医療・福祉</span></div>
+        <h3>障害福祉 施設管理システム</h3>
+        <p>記録から請求までを一本化する施設運営プロトタイプ。</p>
+        <div class="foot"><span>業務システム</span><a class="btn-arrow" href="#" aria-label="施設管理デモを開く">→</a></div>
+      </article>
+      <article class="g-card rv">
+        <div class="chips"><span class="chip chip--onblue">美容</span></div>
+        <h3>サロン顧客管理 × LINE</h3>
+        <p>来店記録とLINE配信をつなぎ、リピートを仕組み化する顧客管理アプリ。</p>
+        <div class="foot"><span>Web / LINE連携</span><a class="btn-arrow" href="#" aria-label="サロン顧客管理デモを開く">→</a></div>
+      </article>
+      <article class="g-card rv rv-d1">
+        <div class="chips"><span class="chip chip--onblue">自治体</span></div>
+        <h3>行政向け AIナレッジベース</h3>
+        <p>問い合わせ対応と庁内ナレッジを支えるAI活用の提案デモ。</p>
+        <div class="foot"><span>AI / ナレッジ</span><a class="btn-arrow" href="#" aria-label="行政向けデモを開く">→</a></div>
+      </article>
+      <article class="g-card rv rv-d2">
+        <div class="chips"><span class="chip chip--onblue">組織</span></div>
+        <h3>貢献度の見える化ダッシュボード</h3>
+        <p>相関分析で組織の状態を診断するダッシュボードの実験的デモ。</p>
+        <div class="foot"><span>データ可視化</span><a class="btn-arrow" href="#" aria-label="ダッシュボードデモを開く">→</a></div>
+      </article>
+    </div>
+
+    <div class="more rv"><a class="btn" href="#">デモ一覧をすべて見る</a></div>
+  </div>
+</section>
+
+<!-- News -->
+<section class="news" id="news">
+  <div class="wrap">
+    <p class="eyebrow rv">News</p>
+    <h2 class="sec-title rv">お知らせ</h2>
+    <ul class="rv">
+      <li><time>2026.07.10</time><a href="#">製造業向けナレッジベースデモを公開しました</a></li>
+      <li><time>2026.06.24</time><a href="#">シフト管理支援デモに負荷スコア機能を追加しました</a></li>
+      <li><time>2026.05.18</time><a href="#">Webサイトをリニューアルしました（このサイト自体もAstro製の制作デモです）</a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow rv">Contact</p>
+    <h2 class="sec-title rv">まだ課題が言葉になっていなくても、<br>大丈夫です。</h2>
+    <p class="rv">「なんとなく非効率な気がする」——その段階からで構いません。お話を伺いながら、まずは触れるデモのかたちでご提案します。デモのカスタマイズ相談だけでも歓迎です。</p>
+    <a class="btn rv" href="#">お問い合わせ</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="logo">ideal<small style="font-weight:400;font-size:11px;display:block;letter-spacing:.2em;opacity:.8">DEMO-FIRST DEVELOPMENT</small></p>
+    <address>ideal合同会社（神奈川県横浜市）<br>Web開発・DXコンサルティング</address>
+    <nav>
+      <a href="#top">トップ</a>
+      <a href="#demos">開発デモ</a>
+      <a href="#service">サービス</a>
+      <a href="#reason">選ばれる理由</a>
+      <a href="#news">お知らせ</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+    <p class="copy">© ideal LLC</p>
+  </div>
+</footer>
+
+<button class="pagetop" id="pagetop" aria-label="ページ上部へ">↑</button>
+
+<script>
+/* ===== C-01 ドロワー ===== */
+const fab = document.getElementById('fab');
+const drawer = document.getElementById('drawer');
+fab.addEventListener('click', () => {
+  const open = drawer.classList.toggle('open');
+  fab.classList.toggle('open', open);
+  fab.setAttribute('aria-expanded', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  drawer.classList.remove('open'); fab.classList.remove('open');
+  fab.setAttribute('aria-expanded','false'); document.body.style.overflow = '';
+}));
+
+/* ===== C-08 スクロールリビール（1回だけ発火） ===== */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+/* ===== Page Top ===== */
+const pt = document.getElementById('pagetop');
+addEventListener('scroll', () => pt.classList.toggle('show', scrollY > 600), {passive:true});
+pt.addEventListener('click', () => scrollTo({top:0, behavior:'smooth'}));
+</script>
+</body>
+</html>

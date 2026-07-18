@@ -13,7 +13,7 @@ import { typography, colors } from '../../lib/design-tokens'
 import { serviceNavLinks, labNavLinks } from '../../data/services/service-links'
 
 const servicesDescription =
-  'Webサイト・LP制作、Webアプリ・業務ツール開発、AIプロトタイプ・自動化。スタートアップの技術支援とコンサル会社の実装パートナーとして伴走します。'
+  '提案書の前に動くデモを。Webサイト・業務ツール・AI自動化まで、触って確かめてから開発するデモファーストのDX支援。'
 
 export const metadata: Metadata = {
   title: 'サービス | ideal',
@@ -29,27 +29,27 @@ const services = [
     id: 'web-development',
     title: 'Webサイト・LP制作',
     description:
-      'コーポレートサイト、サービスLP、新規事業サイトまで。構成・UI・モーション・実装まで一貫して伴走します。',
+      '構成・UI・モーション・実装まで一貫。このサイト自体が制作デモです。言葉だけの提案ではなく、動く体験で方向を合わせます。',
     image: '/images/sv_web.png',
     features: [
       'コーポレートサイト・サービスLP',
       'レスポンシブ・SEO・パフォーマンス最適化',
       'モーダル・モーションなど体験型UI',
       'CMS導入・コンテンツ更新のしやすさ',
-      '業務効率化Webアプリケーション',
+      'まず触れるプロトタイプから本実装へ',
     ],
   },
   {
     id: 'app-development',
     title: 'Webアプリ・業務ツール開発',
     description:
-      'Excel、紙、LINE、手作業で行う業務を、使いやすいWebツールに。入力→処理→結果の流れを体験しながら相談できます。',
+      'Excel、紙、LINE、手作業の業務をWebツールに。入力→処理→結果をデモで体験してから、本開発の範囲を決めます。',
     image: '/images/sv_app.png',
     features: [
       '業務Web・管理画面・現場入力ツール',
       'PWA・SPA・社内ツール',
       '既存業務フローのデジタル化',
-      'プロトタイプから本番運用まで',
+      'デモ検証から本番運用まで',
       'AI機能の組み込み（必要に応じて）',
     ],
   },
@@ -57,10 +57,10 @@ const services = [
     id: 'ai-consulting',
     title: 'AIプロトタイプ・自動化',
     description:
-      '「AIでできないか」を、まず動くデモから検証。7つの業務変化パターンから自社に近いものを選べます。',
+      '「AIでできないか」を、まず動くデモから検証。7つの業務変化パターンから自社に近いものを選び、触って判断できます。',
     image: '/images/top_ai.png',
     features: [
-      'AI Capability Demo Gallery',
+      'AI Capability Demo Gallery（触れるデモ）',
       '業務フローへの組み込み・効率化',
       'プロトタイプ検証から実装まで',
       '自然言語処理・データ活用',
@@ -77,9 +77,9 @@ export default function ServicesPage() {
   return (
     <>
       <HeroSection
-        title="社内にIT部門がなくても、 事業に必要な仕組みはつくれる。"
-        subText="課題整理から、Web・AI・業務ツールの開発、外部業者との調整まで。
-外部IT部門として、事業と技術の間をつなぎます。"
+        title="業務のかたちに合わせて、デモから始めるDX開発。"
+        subText="汎用ツールの導入で終わらせず、現場の課題を「触れるデモ」にしてから一緒に答え合わせをします。
+小さく作り、反応を見ながら育てる進め方です。"
       />
 
       <ServiceNavigation serviceLinks={serviceNavLinks} currentServiceId="" />

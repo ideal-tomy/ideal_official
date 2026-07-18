@@ -19,6 +19,7 @@ export function Footer() {
     { href: '/', label: 'トップ' },
     { href: '/ai-capability-gallery', label: 'デモ' },
     { href: '/cases', label: '事例' },
+    { href: '/estimate', label: '自動見積もり' },
     { href: '/contact', label: '問い合わせ' },
   ]
 
@@ -39,9 +40,9 @@ export function Footer() {
               ideal
             </h3>
             <p className={`${colors.text.muted} text-sm leading-relaxed`}>
-              多機能よりも
+              DEMO-FIRST DEVELOPMENT
               <br />
-              シンプルな使用環境を
+              まず、触って確かめる。
             </p>
           </div>
 

@@ -46,7 +46,7 @@ export const metadata: Metadata = {
 
 export default function AppDevelopmentPage() {
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-[var(--site-bg)]">
       <div className="border-b border-brand">
         <AppHubHero />
       </div>

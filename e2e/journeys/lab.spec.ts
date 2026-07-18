@@ -8,6 +8,7 @@ test.describe('LAB 導線', () => {
   test('ヘッダーから LAB → Blockchain へ進める', async ({ page }) => {
     await page.goto('/')
 
+    await page.getByRole('button', { name: 'メニューを開く' }).click()
     await page
       .getByRole('navigation', { name: 'メインナビゲーション' })
       .getByRole('link', { name: 'LAB' })

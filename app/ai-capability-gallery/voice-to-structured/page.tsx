@@ -19,7 +19,7 @@ const relatedCapabilities = capabilities.filter((c) => c.slug !== voiceDetailPag
 
 export default function VoiceToStructuredPage() {
   return (
-    <Suspense fallback={<div className="bg-black min-h-screen" />}>
+    <Suspense fallback={<div className="bg-[var(--site-bg)] min-h-screen" />}>
       <AiCapabilityDetailShell
         page={{
           slug: voiceDetailPage.slug,
@@ -33,27 +33,29 @@ export default function VoiceToStructuredPage() {
         <section id="demo">
           <VoiceToStructuredDemo />
         </section>
-        <TwoColumnSection
-          title="Before / After"
-          leftContent={
-            <div className="p-6 rounded-xl border border-gray-800 bg-gray-900/40">
-              <p className="text-xs uppercase tracking-wider text-gray-500 mb-2">
-                {voiceDetailPage.beforeTitle}
-              </p>
-              <p className="text-gray-300 leading-relaxed">{voiceDetailPage.beforeText}</p>
-            </div>
-          }
-          rightContent={
-            <div className="p-6 rounded-xl border border-brand/20 bg-brand/5">
-              <p className="text-xs uppercase tracking-wider text-brand/80 mb-2">
-                {voiceDetailPage.afterTitle}
-              </p>
-              <p className="text-gray-200 leading-relaxed">{voiceDetailPage.afterText}</p>
-            </div>
-          }
-          columnRatio="equal"
-          padding="md"
-        />
+        <div className="hidden md:block">
+          <TwoColumnSection
+            title="Before / After"
+            leftContent={
+              <div className="rounded-xl border border-gray-800 bg-gray-900/40 p-6">
+                <p className="mb-2 text-xs uppercase tracking-wider text-gray-500">
+                  {voiceDetailPage.beforeTitle}
+                </p>
+                <p className="leading-relaxed text-gray-300">{voiceDetailPage.beforeText}</p>
+              </div>
+            }
+            rightContent={
+              <div className="rounded-xl border border-brand/20 bg-brand/5 p-6">
+                <p className="mb-2 text-xs uppercase tracking-wider text-brand/80">
+                  {voiceDetailPage.afterTitle}
+                </p>
+                <p className="leading-relaxed text-gray-200">{voiceDetailPage.afterText}</p>
+              </div>
+            }
+            columnRatio="equal"
+            padding="md"
+          />
+        </div>
       </AiCapabilityDetailShell>
     </Suspense>
   )

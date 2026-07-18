@@ -22,7 +22,7 @@ const relatedCapabilities = capabilities.filter(
 
 export default function PhotoToClassificationPage() {
   return (
-    <Suspense fallback={<div className="bg-black min-h-screen" />}>
+    <Suspense fallback={<div className="bg-[var(--site-bg)] min-h-screen" />}>
       <AiCapabilityDetailShell
         page={{
           slug: photoDetailPage.slug,
@@ -37,27 +37,29 @@ export default function PhotoToClassificationPage() {
           <PhotoToClassificationDemo />
         </section>
 
-        <TwoColumnSection
-          title="Before / After"
-          leftContent={
-            <div className="p-6 rounded-xl border border-gray-800 bg-gray-900/40">
-              <p className="text-xs uppercase tracking-wider text-gray-500 mb-2">
-                {photoDetailPage.beforeTitle}
-              </p>
-              <p className="text-gray-300 leading-relaxed">{photoDetailPage.beforeText}</p>
-            </div>
-          }
-          rightContent={
-            <div className="p-6 rounded-xl border border-brand/20 bg-brand/5">
-              <p className="text-xs uppercase tracking-wider text-brand/80 mb-2">
-                {photoDetailPage.afterTitle}
-              </p>
-              <p className="text-gray-200 leading-relaxed">{photoDetailPage.afterText}</p>
-            </div>
-          }
-          columnRatio="equal"
-          padding="md"
-        />
+        <div className="hidden md:block">
+          <TwoColumnSection
+            title="Before / After"
+            leftContent={
+              <div className="p-6 rounded-xl border border-gray-800 bg-gray-900/40">
+                <p className="text-xs uppercase tracking-wider text-gray-500 mb-2">
+                  {photoDetailPage.beforeTitle}
+                </p>
+                <p className="text-gray-300 leading-relaxed">{photoDetailPage.beforeText}</p>
+              </div>
+            }
+            rightContent={
+              <div className="p-6 rounded-xl border border-brand/20 bg-brand/5">
+                <p className="text-xs uppercase tracking-wider text-brand/80 mb-2">
+                  {photoDetailPage.afterTitle}
+                </p>
+                <p className="text-gray-200 leading-relaxed">{photoDetailPage.afterText}</p>
+              </div>
+            }
+            columnRatio="equal"
+            padding="md"
+          />
+        </div>
 
         <div className="rounded-xl border border-gray-800 bg-gray-900/40 p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>

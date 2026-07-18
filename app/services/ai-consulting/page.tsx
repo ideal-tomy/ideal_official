@@ -43,7 +43,7 @@ export const metadata: Metadata = {
 
 export default function AIConsultingPage() {
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-[var(--site-bg)]">
       <div className="border-b border-brand">
         <AiHubHero />
       </div>

@@ -18,7 +18,7 @@ export default function CasesIndexPage() {
   const cases = getPublishedCases()
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-[var(--site-bg)]">
       <CasesIndexHero
         title="自社の仕事に、置き換えてみる。"
         subtitle="6つの業務フロー事例。Before / After を読み、関連デモを体験し、AIコンシェルジュで相談へ進めます。"

@@ -39,6 +39,14 @@ export function ServiceAiCta({ serviceId, className = '' }: ServiceAiCtaProps) {
             {serviceLabel}のお問い合わせ
           </Link>
         </div>
+        <p className="mt-6">
+          <Link
+            href="/estimate"
+            className="text-sm font-medium text-brand hover:text-brand-hover transition-colors"
+          >
+            概算の感触を先に見る →
+          </Link>
+        </p>
       </div>
     </div>
   )

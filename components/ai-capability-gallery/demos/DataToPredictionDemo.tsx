@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useDemoProcess } from '@/components/ai-capability-gallery/hooks/useDemoProcess'
+import { useStagedDemoScroll } from '@/components/ai-capability-gallery/hooks/useStagedDemoScroll'
 import {
   predictionSampleSets,
   predictionProcessingSteps,
@@ -11,6 +12,7 @@ import { DemoFrame } from './DemoFrame'
 import { SampleSetTabs } from './SampleSetTabs'
 import { ProcessingLog } from './ProcessingLog'
 import { DemoActions } from './DemoActions'
+import { DemoBeforeAfterRail } from './DemoBeforeAfterRail'
 
 function PredictionChart({ dataPoints, showForecast }: { dataPoints: PredictionSampleSet['dataPoints']; showForecast: boolean }) {
   const width = 320
@@ -88,6 +90,11 @@ function PredictionChart({ dataPoints, showForecast }: { dataPoints: PredictionS
 export function DataToPredictionDemo() {
   const [selectedSet, setSelectedSet] = useState<PredictionSampleSet>(predictionSampleSets[0])
   const { logs, isProcessing, isComplete, start, reset } = useDemoProcess()
+  const { beforeRef, afterRef, railRef } = useStagedDemoScroll(
+    isProcessing,
+    isComplete,
+    { fallbackDelayMs: predictionProcessingSteps.length * 500 * 0.55 },
+  )
 
   const handleSetChange = (setId: string) => {
     const next = predictionSampleSets.find((s) => s.id === setId)
@@ -96,6 +103,77 @@ export function DataToPredictionDemo() {
       reset()
     }
   }
+
+  const dataPanel = (
+    <div className="rounded-lg border border-[#D9DDE3] bg-white p-4">
+      <p className="mb-3 text-xs font-medium uppercase tracking-wider text-gray-500">
+        データ・条件
+      </p>
+      <p className="mb-2 text-sm font-medium text-gray-800">{selectedSet.metric}</p>
+      <dl className="mb-3 space-y-1 text-xs">
+        {selectedSet.dataPoints
+          .filter((d) => !d.isForecast)
+          .map((d) => (
+            <div key={d.label} className="flex justify-between text-gray-600">
+              <dt>{d.label}</dt>
+              <dd>
+                {d.value.toLocaleString()} {selectedSet.unit}
+              </dd>
+            </div>
+          ))}
+      </dl>
+    </div>
+  )
+
+  const resultPanel = (
+    <div className="rounded-lg border border-[#D9DDE3] bg-white p-4">
+      <p className="mb-3 text-xs font-medium uppercase tracking-wider text-gray-500">
+        予測結果
+      </p>
+      {!isComplete ? (
+        <p className="text-sm text-gray-400">処理完了後に表示されます</p>
+      ) : (
+        <div className="space-y-4">
+          <div>
+            <p className="text-[11px] text-gray-500">{selectedSet.forecast.period}</p>
+            <p className="text-2xl font-bold text-gray-800">
+              {selectedSet.forecast.value.toLocaleString()}
+              <span className="ml-1 text-sm font-normal text-gray-500">{selectedSet.unit}</span>
+            </p>
+            <p className="mt-1 text-xs text-gray-500">
+              信頼区間: {selectedSet.forecast.confidenceLow.toLocaleString()} 〜{' '}
+              {selectedSet.forecast.confidenceHigh.toLocaleString()} {selectedSet.unit}
+            </p>
+          </div>
+          <div>
+            <p className="mb-2 text-[11px] text-gray-500">影響要因</p>
+            <ul className="space-y-2">
+              {selectedSet.factors.map((factor) => (
+                <li
+                  key={factor.label}
+                  className="rounded border border-[#D9DDE3] bg-gray-50 p-2 text-xs"
+                >
+                  <span
+                    className={
+                      factor.impact === 'positive'
+                        ? 'text-green-600'
+                        : factor.impact === 'negative'
+                          ? 'text-red-600'
+                          : 'text-gray-500'
+                    }
+                  >
+                    {factor.impact === 'positive' ? '↑' : factor.impact === 'negative' ? '↓' : '→'}{' '}
+                    {factor.label}
+                  </span>
+                  <p className="mt-0.5 text-gray-600">{factor.description}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
+    </div>
+  )
 
   return (
     <DemoFrame title="データ → 予測デモ">
@@ -106,28 +184,30 @@ export function DataToPredictionDemo() {
         disabled={isProcessing}
       />
 
-      <div className="grid lg:grid-cols-3 gap-4">
-        <div className="rounded-lg border border-[#D9DDE3] bg-white p-4">
-          <p className="text-xs font-medium text-gray-500 uppercase tracking-wider mb-3">
-            データ・条件
-          </p>
-          <p className="text-sm font-medium text-gray-800 mb-2">{selectedSet.metric}</p>
-          <dl className="space-y-1 text-xs mb-3">
-            {selectedSet.dataPoints
-              .filter((d) => !d.isForecast)
-              .map((d) => (
-                <div key={d.label} className="flex justify-between text-gray-600">
-                  <dt>{d.label}</dt>
-                  <dd>
-                    {d.value.toLocaleString()} {selectedSet.unit}
-                  </dd>
-                </div>
-              ))}
-          </dl>
-        </div>
+      <DemoBeforeAfterRail
+        railRef={railRef}
+        beforeRef={beforeRef}
+        afterRef={afterRef}
+        before={dataPanel}
+        after={resultPanel}
+      />
 
+      <details className="mt-3 rounded-lg border border-[#D9DDE3] bg-white md:hidden">
+        <summary className="cursor-pointer px-4 py-2 text-xs font-medium text-gray-600">
+          グラフ・ログ {logs.length > 0 ? `(${logs.length})` : ''}
+        </summary>
+        <div className="space-y-3 border-t border-[#D9DDE3] p-3">
+          <ProcessingLog logs={logs} isProcessing={isProcessing} />
+          {isComplete && (
+            <PredictionChart dataPoints={selectedSet.dataPoints} showForecast={isComplete} />
+          )}
+        </div>
+      </details>
+
+      <div className="hidden gap-4 md:grid lg:grid-cols-3">
+        {dataPanel}
         <div className="rounded-lg border border-[#D9DDE3] bg-white p-4">
-          <p className="text-xs font-medium text-gray-500 uppercase tracking-wider mb-3">
+          <p className="mb-3 text-xs font-medium uppercase tracking-wider text-gray-500">
             予測グラフ
           </p>
           <ProcessingLog logs={logs} isProcessing={isProcessing} />
@@ -137,54 +217,7 @@ export function DataToPredictionDemo() {
             </div>
           )}
         </div>
-
-        <div className="rounded-lg border border-[#D9DDE3] bg-white p-4">
-          <p className="text-xs font-medium text-gray-500 uppercase tracking-wider mb-3">
-            予測結果
-          </p>
-          {!isComplete ? (
-            <p className="text-sm text-gray-400">処理完了後に表示されます</p>
-          ) : (
-            <div className="space-y-4">
-              <div>
-                <p className="text-[11px] text-gray-500">{selectedSet.forecast.period}</p>
-                <p className="text-2xl font-bold text-gray-800">
-                  {selectedSet.forecast.value.toLocaleString()}
-                  <span className="text-sm font-normal text-gray-500 ml-1">{selectedSet.unit}</span>
-                </p>
-                <p className="text-xs text-gray-500 mt-1">
-                  信頼区間: {selectedSet.forecast.confidenceLow.toLocaleString()} 〜{' '}
-                  {selectedSet.forecast.confidenceHigh.toLocaleString()} {selectedSet.unit}
-                </p>
-              </div>
-              <div>
-                <p className="text-[11px] text-gray-500 mb-2">影響要因</p>
-                <ul className="space-y-2">
-                  {selectedSet.factors.map((factor) => (
-                    <li
-                      key={factor.label}
-                      className="text-xs p-2 rounded border border-[#D9DDE3] bg-gray-50"
-                    >
-                      <span
-                        className={
-                          factor.impact === 'positive'
-                            ? 'text-green-600'
-                            : factor.impact === 'negative'
-                              ? 'text-red-600'
-                              : 'text-gray-500'
-                        }
-                      >
-                        {factor.impact === 'positive' ? '↑' : factor.impact === 'negative' ? '↓' : '→'}{' '}
-                        {factor.label}
-                      </span>
-                      <p className="text-gray-600 mt-0.5">{factor.description}</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          )}
-        </div>
+        {resultPanel}
       </div>
 
       <DemoActions

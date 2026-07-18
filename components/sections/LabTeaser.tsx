@@ -11,7 +11,7 @@ export function LabTeaser() {
           思想・研究・深い技術解説は LAB へ
         </h2>
         <p className="text-sm text-gray-400 mb-6 leading-relaxed">
-          DAO / Philosophy、Research、ブロックチェーンやメタバースの深掘りは、入口ではなく奥の領域としてまとめています。
+          最先端技術の社会実装についての考察など、研究内容に興味がある方はこちらへ。
         </p>
         <Link
           href="/lab"

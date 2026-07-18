@@ -18,18 +18,18 @@ export const spacing = {
 
 // カラーパレット（Tailwind CSS クラス名）
 export const colors = {
-  // ベース背景
+  // ベース背景（テーマ連動）
   bg: {
-    primary: 'bg-black',
-    secondary: 'bg-gray-900',
-    gradient: 'bg-gradient-to-b from-black to-gray-900',
+    primary: 'bg-[var(--site-bg)]',
+    secondary: 'bg-[var(--site-bg-elevated)]',
+    gradient: 'bg-gradient-to-b from-[var(--site-bg)] to-[var(--site-bg-elevated)]',
   },
-  // テキスト
+  // テキスト（テーマ連動）
   text: {
-    primary: 'text-white',
-    secondary: 'text-gray-200',
-    muted: 'text-gray-300',
-    disabled: 'text-gray-500',
+    primary: 'text-[var(--site-fg)]',
+    secondary: 'text-[var(--site-fg)]/90',
+    muted: 'text-[var(--site-fg-muted)]',
+    disabled: 'text-[var(--site-fg-muted)]/70',
   },
   // アクセント（変革・熱量 — Primary #9B2937 / Bright #D14A55 / Deep #681B26）
   accent: {
@@ -45,19 +45,19 @@ export const colors = {
   },
   // アクセント（高級感）
   luxury: {
-    border: 'border-gray-700',
+    border: 'border-[var(--site-border)]',
     gold: 'text-yellow-400',
   },
   // ボーダー
   border: {
-    default: 'border-gray-700',
+    default: 'border-[var(--site-border)]',
     accent: 'border-brand/40',
-    muted: 'border-gray-600',
+    muted: 'border-[var(--site-border)]',
   },
   // 状態カラー
   state: {
-    hover: 'hover:bg-gray-800',
-    focus: 'focus:ring-2 focus:ring-brand focus:ring-offset-2 focus:ring-offset-gray-900',
+    hover: 'hover:bg-[var(--site-bg-elevated)]',
+    focus: 'focus:ring-2 focus:ring-brand focus:ring-offset-2 focus:ring-offset-[var(--site-bg)]',
     disabled: 'disabled:opacity-50 disabled:cursor-not-allowed',
   },
 } as const
@@ -103,8 +103,8 @@ export const layout = {
 export const borders = {
   rounded: 'rounded-lg',
   roundedFull: 'rounded-full',
-  border: 'border border-gray-700',
-  borderTop: 'border-t border-gray-800',
+  border: 'border border-[var(--site-border)]',
+  borderTop: 'border-t border-[var(--site-border)]',
 } as const
 
 // シャドウ

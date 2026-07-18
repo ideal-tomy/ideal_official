@@ -2,28 +2,22 @@ import { test, expect } from '@playwright/test'
 import { openConciergeFromFab } from '../helpers'
 
 /**
- * シナリオ骨格: トップ → デモ → 個別デモ → AIコンシェルジュ
+ * シナリオ骨格: トップ → デモ一覧 → 個別デモ（カード直リンク）→ AIコンシェルジュ
  * @see docs/UX_AUDIT.md §4 シナリオ B / §7
- *
- * Gallery のカードはページ内アンカー。個別デモへは showcase の
- * 「このデモを体験」から遷移する。
  */
 test.describe('デモ体験から相談まで', () => {
   test('トップからデモを見てコンシェルジュを開ける', async ({ page }) => {
     await page.goto('/')
 
-    await expect(
-      page.getByRole('heading', { name: /多機能よりも|シンプルな使用環境/ }),
-    ).toBeVisible()
-
-    await page.getByRole('link', { name: /デモを体験/ }).first().click()
+    await page.getByRole('link', { name: /デモを体験|デモ一覧|Gallery/i }).first().click()
     await expect(page).toHaveURL(/ai-capability-gallery/)
 
-    const voiceSection = page.locator('#capability-voice-to-structured')
-    await voiceSection.scrollIntoViewIfNeeded()
     await Promise.all([
       page.waitForURL(/voice-to-structured/),
-      voiceSection.getByRole('link', { name: /このデモを体験/ }).click(),
+      page
+        .getByRole('link', { name: /話すだけで、記録が完成する/ })
+        .first()
+        .click(),
     ])
 
     await expect(

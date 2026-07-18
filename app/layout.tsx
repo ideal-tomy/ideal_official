@@ -1,35 +1,46 @@
 import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
-import { Header } from "../components/layout/Header";
 import { Footer } from "../components/layout/Footer";
+import { FabDrawerNav } from "../components/layout/FabDrawerNav";
 import { ConciergeProvider } from "@/components/concierge/concierge-context";
 import { ConciergeRoot } from "@/components/concierge/ConciergeRoot";
+import { ThemeProvider } from "@/components/theme/ThemeProvider";
 
-// Noto Sans JP フォントの設定（パフォーマンス最適化・配信最適化）
 const notoSansJP = Noto_Sans_JP({
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
+  weight: ["400", "500", "700", "900"],
   variable: "--font-noto-sans-jp",
   display: "swap",
   preload: true,
   adjustFontFallback: true,
-  // 配信最適化
   fallback: ['system-ui', 'arial'],
 });
 
 export const metadata: Metadata = {
-  title: "ideal | 高級感・最先端のデジタル体験",
+  title: "ideal｜まず、触ってください。— デモファーストのDX開発",
   description:
-    "Webサイト・LP制作、Webアプリ・業務ツール開発、AIプロトタイプ・自動化。デモを体験し、自社の課題に置き換えてから相談できます。",
+    "説明資料より先に、動くデモを。業務の課題を「触れるデモ」で確かめてから開発する、デモファーストのWeb・DX開発。",
   openGraph: {
-    title: "ideal | 高級感・最先端のデジタル体験",
+    title: "ideal｜まず、触ってください。— デモファーストのDX開発",
     description:
-      "Webサイト・LP制作、Webアプリ・業務ツール開発、AIプロトタイプ・自動化。デモを体験し、自社の課題に置き換えてから相談できます。",
+      "説明資料より先に、動くデモを。業務の課題を「触れるデモ」で確かめてから開発する、デモファーストのWeb・DX開発。",
     type: "website",
     locale: "ja_JP",
   },
 };
+
+const themeInitScript = `
+(function(){
+  try {
+    var k = 'ideal-theme';
+    var s = localStorage.getItem(k);
+    var m = s === 'light' || s === 'dark' ? s : 'dark';
+    document.documentElement.classList.add(m);
+    document.documentElement.style.colorScheme = m;
+  } catch (e) {}
+})();
+`;
 
 export default function RootLayout({
   children,
@@ -37,26 +48,31 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className={notoSansJP.variable}>
+    <html lang="ja" className={notoSansJP.variable} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body
         className={`
           ${notoSansJP.className}
           antialiased
-          bg-black
-          text-gray-200
           min-h-screen
           flex
           flex-col
+          bg-[var(--site-bg)]
+          text-[var(--site-fg)]
         `}
       >
-        <ConciergeProvider>
-          <Header />
-          <main className="flex-grow pt-16 lg:pt-20">
-            {children}
-          </main>
-          <Footer />
-          <ConciergeRoot />
-        </ConciergeProvider>
+        <ThemeProvider>
+          <ConciergeProvider>
+            <FabDrawerNav />
+            <main className="flex-grow">
+              {children}
+            </main>
+            <Footer />
+            <ConciergeRoot />
+          </ConciergeProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

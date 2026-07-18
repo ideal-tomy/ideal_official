@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 
 export default function LabBlockchainPage() {
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-[var(--site-bg)]">
       <LabAreaHero
         eyebrow={blockchainLabHero.eyebrow}
         title={blockchainLabHero.title}

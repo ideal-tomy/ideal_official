@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 
 export default function LabMetaversePage() {
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-[var(--site-bg)]">
       <LabAreaHero
         eyebrow={metaverseLabHero.eyebrow}
         title={metaverseLabHero.title}

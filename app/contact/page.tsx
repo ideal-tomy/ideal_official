@@ -6,6 +6,7 @@
  */
 
 import { Metadata } from 'next'
+import Link from 'next/link'
 import { Section } from '../../components/ui/Section'
 import { HeroSection } from '../../components/sections/HeroSection'
 import { ContactFormWrapper } from '../../components/forms/ContactFormWrapper'
@@ -33,7 +34,18 @@ export default function ContactPage() {
 
       {/* フォームセクション */}
       <Section backgroundColor="black" containerSize="narrow">
-        <div className="bg-black border border-gray-700 rounded-lg p-8 lg:p-12">
+        <p className={`mb-8 text-center ${typography.body} ${colors.text.muted}`}>
+          金額感を先に知りたい方は、
+          <Link
+            href="/estimate"
+            className="font-medium text-brand hover:text-brand-hover transition-colors"
+          >
+            自動見積もり
+          </Link>
+          もご利用ください。
+        </p>
+
+        <div className="bg-[var(--site-bg-elevated)] border border-[var(--site-border)] rounded-lg p-8 lg:p-12">
           <ContactFormWrapper />
         </div>
 

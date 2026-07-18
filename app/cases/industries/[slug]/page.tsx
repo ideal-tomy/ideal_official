@@ -40,7 +40,7 @@ export default async function CaseIndustryPage({ params }: PageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-[var(--site-bg)]">
       <CaseHero caseStudy={caseStudy} />
       <CaseBackLink />
       <CaseFlowCompare before={caseStudy.before} after={caseStudy.after} />

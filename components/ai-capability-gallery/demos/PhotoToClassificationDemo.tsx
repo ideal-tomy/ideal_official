@@ -1,16 +1,18 @@
 'use client'
 
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { Button } from '@/components/ui/Button'
 import {
   photoSampleSets,
   processingSteps,
   type PhotoSampleSet,
 } from '@/data/ai-capability-gallery/photo-to-classification'
+import { useStagedDemoScroll } from '@/components/ai-capability-gallery/hooks/useStagedDemoScroll'
 import { DemoFrame } from './DemoFrame'
 import { UploadArea } from './UploadArea'
 import { ProcessingLog } from './ProcessingLog'
 import { FolderTree } from './FolderTree'
+import { DemoActions } from './DemoActions'
+import { DemoBeforeAfterRail } from './DemoBeforeAfterRail'
 
 export function PhotoToClassificationDemo() {
   const [selectedSet, setSelectedSet] = useState<PhotoSampleSet>(photoSampleSets[0])
@@ -18,6 +20,11 @@ export function PhotoToClassificationDemo() {
   const [isProcessing, setIsProcessing] = useState(false)
   const [isComplete, setIsComplete] = useState(false)
   const timeoutRefs = useRef<ReturnType<typeof setTimeout>[]>([])
+  const { beforeRef, afterRef, railRef } = useStagedDemoScroll(
+    isProcessing,
+    isComplete,
+    { fallbackDelayMs: processingSteps.length * 500 * 0.55 },
+  )
 
   const clearTimeouts = useCallback(() => {
     timeoutRefs.current.forEach(clearTimeout)
@@ -61,70 +68,76 @@ export function PhotoToClassificationDemo() {
     })
   }
 
-  return (
-    <DemoFrame title="写真 → 分類デモ">
-      <div className="mb-4 flex flex-wrap gap-2">
-        {photoSampleSets.map((set) => (
-          <button
-            key={set.id}
-            type="button"
-            onClick={() => handleSetChange(set.id)}
-            disabled={isProcessing}
-            className={`
-              px-3 py-1.5 rounded-lg text-xs font-medium transition-colors
+  const tabs = (
+    <div className="mb-4 flex flex-wrap gap-2">
+      {photoSampleSets.map((set) => (
+        <button
+          key={set.id}
+          type="button"
+          onClick={() => handleSetChange(set.id)}
+          disabled={isProcessing}
+          className={`
+              rounded-lg px-3 py-1.5 text-xs font-medium transition-colors
               ${
                 selectedSet.id === set.id
                   ? 'bg-brand text-white'
-                  : 'bg-white border border-[#D9DDE3] text-gray-600 hover:border-brand-hover'
+                  : 'border border-[#D9DDE3] bg-white text-gray-600 hover:border-brand-hover'
               }
-              disabled:opacity-50 disabled:cursor-not-allowed
+              disabled:cursor-not-allowed disabled:opacity-50
             `}
-          >
-            {set.name}（{set.industry}）
-          </button>
-        ))}
-      </div>
+        >
+          {set.name}（{set.industry}）
+        </button>
+      ))}
+    </div>
+  )
 
-      <div className="grid lg:grid-cols-3 gap-4">
-        <div>
+  return (
+    <DemoFrame title="写真 → 分類デモ">
+      {tabs}
+
+      <DemoBeforeAfterRail
+        railRef={railRef}
+        beforeRef={beforeRef}
+        afterRef={afterRef}
+        before={
           <UploadArea photos={selectedSet.photos} selectedSetName={selectedSet.name} />
-        </div>
-        <div>
-          <ProcessingLog logs={logs} isProcessing={isProcessing} />
-        </div>
-        <div>
+        }
+        after={
           <FolderTree
             folders={selectedSet.folders}
             results={selectedSet.results}
             isComplete={isComplete}
           />
+        }
+      />
+
+      <details className="mt-3 rounded-lg border border-[#D9DDE3] bg-white md:hidden">
+        <summary className="cursor-pointer px-4 py-2 text-xs font-medium text-gray-600">
+          AI処理ログ {logs.length > 0 ? `(${logs.length})` : ''}
+        </summary>
+        <div className="border-t border-[#D9DDE3] p-3">
+          <ProcessingLog logs={logs} isProcessing={isProcessing} />
         </div>
+      </details>
+
+      <div className="hidden gap-4 md:grid lg:grid-cols-3">
+        <UploadArea photos={selectedSet.photos} selectedSetName={selectedSet.name} />
+        <ProcessingLog logs={logs} isProcessing={isProcessing} />
+        <FolderTree
+          folders={selectedSet.folders}
+          results={selectedSet.results}
+          isComplete={isComplete}
+        />
       </div>
 
-      <div className="mt-4 flex flex-wrap gap-3">
-        <Button
-          variant="primary"
-          size="md"
-          onClick={handleProcess}
-          disabled={isProcessing}
-          className="!bg-brand hover:!bg-brand-deep"
-        >
-          {isProcessing ? '整理中…' : '整理する'}
-        </Button>
-        <Button
-          variant="outline"
-          size="md"
-          onClick={handleReset}
-          disabled={isProcessing}
-          className="!border-gray-400 !text-gray-700 hover:!bg-gray-100 hover:!text-gray-900"
-        >
-          リセット
-        </Button>
-      </div>
-
-      <p className="mt-3 text-[11px] text-gray-500">
-        ※ デモ用サンプルデータを使用しています。実運用では要件に合わせて設計可能です。
-      </p>
+      <DemoActions
+        onProcess={handleProcess}
+        onReset={handleReset}
+        isProcessing={isProcessing}
+        processLabel="整理する"
+        processingLabel="整理中…"
+      />
     </DemoFrame>
   )
 }

@@ -42,7 +42,7 @@ export default async function LabInsightPage({ params }: PageProps) {
   const others = labInsights.filter((i) => i.slug !== insight.slug).slice(0, 3)
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-[var(--site-bg)]">
       <LabBreadcrumb
         items={[
           { href: '/lab/insights', label: 'Insights' },

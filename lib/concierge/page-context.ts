@@ -58,6 +58,10 @@ export function resolvePageContext(pathname: string): ConciergePageContext {
     return { pathname: path, pageType: 'contact', label: 'お問い合わせ' }
   }
 
+  if (path === '/estimate') {
+    return { pathname: path, pageType: 'other', label: '自動見積もり' }
+  }
+
   if (path === '/ai-capability-gallery') {
     return {
       pathname: path,

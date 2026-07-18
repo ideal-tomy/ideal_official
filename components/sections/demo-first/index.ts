@@ -1,0 +1,8 @@
+export { DemoFirstHero } from './DemoFirstHero'
+export { DemoFirstMarquee } from './DemoFirstMarquee'
+export { DemoFirstShowcase } from './DemoFirstShowcase'
+export { DemoFirstIndustryService } from './DemoFirstIndustryService'
+export { DemoFirstReason } from './DemoFirstReason'
+export { DemoFirstGallery } from './DemoFirstGallery'
+export { DemoFirstNews } from './DemoFirstNews'
+export { DemoFirstContact } from './DemoFirstContact'

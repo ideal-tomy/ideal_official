@@ -43,6 +43,15 @@ export default function CallToAction() {
           </Link>
         </div>
 
+        <p className="mt-8">
+          <Link
+            href="/estimate"
+            className="text-sm font-medium text-brand hover:text-brand-hover transition-colors"
+          >
+            概算の感触を先に見る →
+          </Link>
+        </p>
+
         <div className="mt-16 flex flex-wrap justify-center gap-6 text-gray-500 text-sm">
           <span>Next.js</span>
           <span>React Native</span>

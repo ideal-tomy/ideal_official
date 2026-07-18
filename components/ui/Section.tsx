@@ -42,9 +42,9 @@ export function Section({
     full: '',
   }
 
-  // 背景色のクラス
+  // 背景色のクラス（black はテーマ連動のサイト背景）
   const bgClasses = {
-    black: 'bg-black',
+    black: 'bg-[var(--site-bg)]',
     transparent: 'bg-transparent',
   }
 

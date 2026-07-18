@@ -6,7 +6,7 @@ import { assertHomeServiceCardAndOpen, openConciergeFromFab } from '../helpers'
  * @see docs/UX_AUDIT.md §4 シナリオ A / §7
  */
 test.describe('サービス導線', () => {
-  test('トップ「社内にIT部門がなくても、 事業に必要な仕組みはつくれる。」から Web へ進める', async ({ page }) => {
+  test('トップから Web サービスへ進める', async ({ page }) => {
     await assertHomeServiceCardAndOpen(page, '/services/web-development')
     await openConciergeFromFab(page)
   })

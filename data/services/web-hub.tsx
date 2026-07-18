@@ -1,11 +1,11 @@
 import type { ReactNode } from 'react'
 
 export const webHubHero = {
-  eyebrow: 'Web Craft Demo',
+  eyebrow: 'Demo-First Web',
   titleLine1: '見るだけではなく、',
   titleLine2: '触れたくなるWebを。',
   subtitle:
-    'このページ自体が、制作技術のデモです。モーダル、モーション、インタラクションを実際に触って確認できます。',
+    'このページ自体が制作デモです。モーダル、モーション、インタラクションを実際に触ってから、制作範囲を決められます。',
   primaryCta: {
     label: '技術を触ってみる',
     href: '#interaction-showcase',

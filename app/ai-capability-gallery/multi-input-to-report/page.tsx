@@ -19,7 +19,7 @@ const relatedCapabilities = capabilities.filter((c) => c.slug !== reportDetailPa
 
 export default function MultiInputToReportPage() {
   return (
-    <Suspense fallback={<div className="bg-black min-h-screen" />}>
+    <Suspense fallback={<div className="bg-[var(--site-bg)] min-h-screen" />}>
       <AiCapabilityDetailShell
         page={{
           slug: reportDetailPage.slug,
@@ -33,27 +33,29 @@ export default function MultiInputToReportPage() {
         <section id="demo">
           <MultiInputToReportDemo />
         </section>
-        <TwoColumnSection
-          title="Before / After"
-          leftContent={
-            <div className="p-6 rounded-xl border border-gray-800 bg-gray-900/40">
-              <p className="text-xs uppercase tracking-wider text-gray-500 mb-2">
-                {reportDetailPage.beforeTitle}
-              </p>
-              <p className="text-gray-300 leading-relaxed">{reportDetailPage.beforeText}</p>
-            </div>
-          }
-          rightContent={
-            <div className="p-6 rounded-xl border border-brand/20 bg-brand/5">
-              <p className="text-xs uppercase tracking-wider text-brand/80 mb-2">
-                {reportDetailPage.afterTitle}
-              </p>
-              <p className="text-gray-200 leading-relaxed">{reportDetailPage.afterText}</p>
-            </div>
-          }
-          columnRatio="equal"
-          padding="md"
-        />
+        <div className="hidden md:block">
+          <TwoColumnSection
+            title="Before / After"
+            leftContent={
+              <div className="p-6 rounded-xl border border-gray-800 bg-gray-900/40">
+                <p className="text-xs uppercase tracking-wider text-gray-500 mb-2">
+                  {reportDetailPage.beforeTitle}
+                </p>
+                <p className="text-gray-300 leading-relaxed">{reportDetailPage.beforeText}</p>
+              </div>
+            }
+            rightContent={
+              <div className="p-6 rounded-xl border border-brand/20 bg-brand/5">
+                <p className="text-xs uppercase tracking-wider text-brand/80 mb-2">
+                  {reportDetailPage.afterTitle}
+                </p>
+                <p className="text-gray-200 leading-relaxed">{reportDetailPage.afterText}</p>
+              </div>
+            }
+            columnRatio="equal"
+            padding="md"
+          />
+        </div>
       </AiCapabilityDetailShell>
     </Suspense>
   )
