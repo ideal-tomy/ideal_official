@@ -34,15 +34,18 @@ export function Footer() {
       `}
     >
       <div className={layout.container}>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-4 md:gap-12">
           <div>
             <h3 className={`${colors.text.primary} text-xl font-bold mb-4`}>
               ideal
             </h3>
             <p className={`${colors.text.muted} text-sm leading-relaxed`}>
-              DEMO-FIRST DEVELOPMENT
-              <br />
-              まず、触って確かめる。
+              <span className="md:hidden">まず、触って確かめる。</span>
+              <span className="hidden md:inline">
+                DEMO-FIRST DEVELOPMENT
+                <br />
+                まず、触って確かめる。
+              </span>
             </p>
           </div>
 

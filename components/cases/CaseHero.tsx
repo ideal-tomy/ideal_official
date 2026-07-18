@@ -10,10 +10,10 @@ interface CaseHeroProps {
 
 export function CaseHero({ caseStudy }: CaseHeroProps) {
   return (
-    <section className="relative flex min-h-[60vh] items-center justify-center overflow-hidden border-b border-brand/40">
+    <section className="relative -mt-16 flex min-h-[45vh] items-center justify-center overflow-hidden border-b border-brand/40 md:mt-0 md:min-h-[60vh]">
       <HeroBackground />
       <HeroReveal className={`relative z-10 ${layout.container} text-center`}>
-        <p className="text-xs font-medium tracking-[0.2em] uppercase text-brand/90 mb-4">
+        <p className="mb-4 hidden text-xs font-medium uppercase tracking-[0.2em] text-brand/90 md:block">
           Cases · {caseStudy.industryLabel}
         </p>
         <h1 className={`${typography.h1} ${colors.text.primary} mb-4`}>
@@ -21,7 +21,7 @@ export function CaseHero({ caseStudy }: CaseHeroProps) {
         </h1>
         <p className="text-sm text-brand/90 mb-6">{caseStudy.subtitle}</p>
         <p
-          className={`${typography.bodyLarge} ${colors.text.muted} max-w-2xl mx-auto mb-8`}
+          className={`${typography.bodyLarge} ${colors.text.muted} mx-auto mb-8 hidden max-w-2xl md:block`}
         >
           {caseStudy.lead}
         </p>
@@ -47,10 +47,10 @@ interface CasesIndexHeroProps {
 
 export function CasesIndexHero({ title, subtitle }: CasesIndexHeroProps) {
   return (
-    <section className="relative flex min-h-[50vh] items-center justify-center overflow-hidden border-b border-brand/40">
+    <section className="relative -mt-16 flex min-h-[40vh] items-center justify-center overflow-hidden border-b border-brand/40 md:mt-0 md:min-h-[50vh]">
       <HeroBackground />
       <HeroReveal className={`relative z-10 ${layout.container} text-center`}>
-        <p className="text-xs font-medium tracking-[0.2em] uppercase text-brand/90 mb-4">
+        <p className="mb-4 hidden text-xs font-medium uppercase tracking-[0.2em] text-brand/90 md:block">
           Cases / Ideas
         </p>
         <h1 className={`${typography.h1} ${colors.text.primary} mb-6`}>{title}</h1>

@@ -77,7 +77,7 @@ export default function ServicesPage() {
   return (
     <>
       <HeroSection
-        title="業務のかたちに合わせて、デモから始めるDX開発。"
+        title="デモから始めるDX開発"
         subText="汎用ツールの導入で終わらせず、現場の課題を「触れるデモ」にしてから一緒に答え合わせをします。
 小さく作り、反応を見ながら育てる進め方です。"
       />

@@ -48,7 +48,7 @@ export function AiCapabilityDetailShell({
         </nav>
 
         <header className="mb-4 md:mb-10 lg:mb-14">
-          <p className="mb-1.5 text-[10px] font-medium uppercase tracking-[0.2em] text-brand/90 md:mb-3 md:text-xs">
+          <p className="mb-1.5 hidden text-[10px] font-medium uppercase tracking-[0.2em] text-brand/90 md:mb-3 md:block md:text-xs">
             {page.eyebrow}
           </p>
           <h1 className="mb-2 text-xl font-bold leading-snug tracking-tight text-[var(--site-fg)] sm:text-2xl md:mb-4 md:text-3xl lg:text-4xl lg:leading-tight">

@@ -10,16 +10,16 @@ export function DemoFirstShowcase({ capabilities }: Props) {
   return (
     <section id="demos" className="bg-[var(--df-bg-blue)] py-[var(--df-sec-pad)]">
       <div className="mx-auto w-[min(100%-48px,1080px)]">
-        <p className="text-sm font-bold uppercase tracking-[0.12em] text-[var(--df-primary)]">
+        <p className="hidden text-sm font-bold uppercase tracking-[0.12em] text-[var(--df-primary)] md:block">
           Demos
         </p>
         <h2 className="my-2 mb-6 text-[clamp(26px,5.6vw,40px)] font-black leading-[1.5] text-[var(--df-text)]">
           資料ではなく、
-          <br />
+          <br className="hidden md:inline" />
           <span className="text-[var(--df-primary-deep)]">動くデモで確かめる。</span>
         </h2>
         <p className="mb-12 max-w-[640px] text-[var(--df-text)]">
-          ここにあるのは、実際の業務課題から生まれた開発デモです。ボタンひとつで、いま触れます。
+          ここにあるのは、実際の業務課題から生まれた開発デモです。
         </p>
 
         <div className="grid gap-6 md:grid-cols-3">
@@ -28,13 +28,13 @@ export function DemoFirstShowcase({ capabilities }: Props) {
               key={cap.slug}
               className="flex flex-col overflow-hidden rounded-[var(--df-radius-card)] bg-[var(--df-bg)]"
             >
-              <div className="relative aspect-[16/10] min-h-[180px] bg-[linear-gradient(160deg,#12315e,#1B3A8C)]">
+              <div className="relative aspect-[16/9] bg-[linear-gradient(160deg,#12315e,#1B3A8C)]">
                 <Image
                   src={cap.image}
                   alt=""
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover opacity-90"
+                  className="object-cover object-center opacity-90"
                 />
                 <span className="absolute left-3.5 top-3.5 rounded-full border border-white/80 px-3 py-0.5 text-xs font-bold text-white">
                   {cap.tags[0] ?? cap.subtitle}

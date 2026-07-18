@@ -11,7 +11,7 @@ export function DemoFirstNews({ items }: Props) {
   return (
     <section id="news" className="bg-[var(--df-bg)] py-[var(--df-sec-pad)]">
       <div className="mx-auto w-[min(100%-48px,1080px)]">
-        <p className="text-sm font-bold uppercase tracking-[0.12em] text-[var(--df-primary)]">
+        <p className="hidden text-sm font-bold uppercase tracking-[0.12em] text-[var(--df-primary)] md:block">
           News
         </p>
         <h2 className="my-2 mb-10 text-[clamp(26px,5.6vw,40px)] font-black leading-[1.5] text-[var(--df-text)]">

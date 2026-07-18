@@ -26,7 +26,7 @@ export function WebHubHero() {
   const glowY = mouse.y * 100
 
   return (
-    <section className="relative flex min-h-[calc(100svh-4rem)] lg:min-h-[calc(100svh-5rem)] items-center justify-center overflow-hidden">
+    <section className="relative -mt-16 flex min-h-[60svh] items-center justify-center overflow-hidden md:mt-0 md:min-h-[calc(100svh-4rem)] lg:min-h-[calc(100svh-5rem)]">
       <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-950 to-black" />
       <div
         className="absolute inset-0 transition-[background] duration-300 ease-out"
@@ -46,13 +46,13 @@ export function WebHubHero() {
       />
 
       <HeroReveal className={`relative z-10 ${layout.container} text-center`}>
-        <p className="text-xs font-medium tracking-[0.2em] uppercase text-brand/90 mb-4">
+        <p className="mb-4 hidden text-xs font-medium uppercase tracking-[0.2em] text-brand/90 md:block">
           {webHubHero.eyebrow}
         </p>
 
         <h1 className={`${typography.h1} ${colors.text.primary} mb-6`}>
           {webHubHero.titleLine1}
-          <br />
+          <br className="hidden md:inline" />
           {webHubHero.titleLine2}
         </h1>
 

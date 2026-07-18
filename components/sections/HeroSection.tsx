@@ -14,12 +14,12 @@ export function HeroSection({
 }: HeroSectionProps) {
   return (
     <section
-      className={`relative flex min-h-[70vh] items-center justify-center overflow-hidden ${className}`}
+      className={`relative -mt-16 flex min-h-[40vh] items-center justify-center overflow-hidden md:mt-0 md:min-h-[70vh] ${className}`}
     >
       <HeroBackground />
 
       <HeroReveal className={`relative z-10 ${layout.container} text-center`}>
-        <h1 className={`${typography.h1} ${colors.text.primary} mb-6`}>
+        <h1 className={`${typography.h1} ${colors.text.primary} mb-4 md:mb-6`}>
           {title}
         </h1>
         <p className={`${typography.bodyLarge} ${colors.text.muted} max-w-3xl mx-auto`}>

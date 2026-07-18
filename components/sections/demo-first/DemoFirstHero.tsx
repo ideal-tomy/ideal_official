@@ -5,7 +5,7 @@ export function DemoFirstHero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-[min(92svh,900px)] flex-col justify-center overflow-hidden px-0 py-24 text-white"
+      className="relative -mt-16 flex min-h-[min(78svh,720px)] flex-col justify-center overflow-hidden px-0 py-16 text-white md:mt-0 md:min-h-[min(92svh,900px)] md:py-24"
     >
       <Image
         src="/images/top.png"
@@ -27,14 +27,18 @@ export function DemoFirstHero() {
       />
 
       <div className="relative z-10 mx-auto w-[min(100%-48px,1080px)]">
-        <p className="df-rise-1 mb-3 text-xs font-bold tracking-[0.2em] text-white/85">
+        <p className="df-rise-1 mb-3 hidden text-xs font-bold tracking-[0.2em] text-white/85 md:block">
           DEMO-FIRST DEVELOPMENT
         </p>
-        <h1 className="text-[clamp(34px,9vw,64px)] font-black leading-[1.4] tracking-[0.04em] [text-shadow:0_2px_24px_rgba(0,0,0,.55)]">
-          <span className="df-rise-1 block">まず、触ってください。</span>
-          <span className="df-rise-2 block">説明より、動くデモを。</span>
+        <h1 className="df-rise-1 text-[clamp(28px,7.5vw,40px)] font-black leading-tight tracking-[0.04em] [text-shadow:0_2px_24px_rgba(0,0,0,.55)] md:text-[clamp(34px,9vw,64px)] md:leading-[1.4]">
+          まず、触ってください。
+          <br className="hidden md:block" />
+          説明より、動くデモを。
         </h1>
-        <p className="df-rise-3 mt-6 max-w-[560px] text-[clamp(15px,3.6vw,18px)] font-normal text-white/95 [text-shadow:0_1px_12px_rgba(0,0,0,.5)]">
+        <p className="df-rise-3 mt-6 max-w-[560px] text-[clamp(15px,3.6vw,18px)] font-normal text-white/95 [text-shadow:0_1px_12px_rgba(0,0,0,.5)] md:hidden">
+          提案書の前にデモを作り、触れるかたちで答え合わせをします。
+        </p>
+        <p className="df-rise-3 mt-6 hidden max-w-[560px] text-[clamp(15px,3.6vw,18px)] font-normal text-white/95 [text-shadow:0_1px_12px_rgba(0,0,0,.5)] md:block">
           私たちは提案書の前にデモを作ります。業務の課題を「触れるかたち」にしてから、一緒に答え合わせをする——それが、認識のズレをゼロにする最短ルートだと考えているからです。
         </p>
         <div className="df-rise-4 mt-8 flex flex-wrap gap-3.5">

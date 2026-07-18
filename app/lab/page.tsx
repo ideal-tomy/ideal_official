@@ -37,7 +37,7 @@ export default function LabHubPage() {
                 href={area.href}
                 className="rounded-xl border border-gray-800 bg-gray-900/40 p-6 hover:border-brand/30 hover:bg-gray-900/60 transition-colors"
               >
-                <p className="text-xs tracking-[0.16em] uppercase text-brand/90 mb-2">
+                <p className="mb-2 hidden text-xs uppercase tracking-[0.16em] text-brand/90 md:block">
                   {area.eyebrow}
                 </p>
                 <h3 className="text-lg font-semibold text-white mb-2">{area.title}</h3>

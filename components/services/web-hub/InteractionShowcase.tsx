@@ -9,7 +9,7 @@ import { usePrefersReducedMotion } from '@/lib/use-prefers-reduced-motion'
 function ModalPanel() {
   return (
     <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6 h-full flex flex-col">
-      <p className="text-xs tracking-[0.16em] text-brand/90 mb-2">01 · Modal</p>
+      <p className="mb-2 hidden text-xs tracking-[0.16em] text-brand/90 md:block">01 · Modal</p>
       <h3 className="text-xl font-semibold text-white mb-3">開いて、閉じる体験</h3>
       <p className="text-sm text-gray-400 mb-6 leading-relaxed flex-1">
         詳細はページ遷移ではなく、その場で開く。このサイトのサービス説明や技術詳細でも同じ仕組みを使っています。
@@ -52,7 +52,7 @@ function MotionPanel() {
 
   return (
     <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6 h-full flex flex-col">
-      <p className="text-xs tracking-[0.16em] text-brand/90 mb-2">02 · Motion</p>
+      <p className="mb-2 hidden text-xs tracking-[0.16em] text-brand/90 md:block">02 · Motion</p>
       <h3 className="text-xl font-semibold text-white mb-3">意図のある動き</h3>
       <p className="text-sm text-gray-400 mb-6 leading-relaxed">
         常時動かさず、再生したときだけ印象づける。ページ遷移や Hero でも同じ思想です。
@@ -104,7 +104,7 @@ function InteractionPanel() {
 
   return (
     <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6 h-full flex flex-col">
-      <p className="text-xs tracking-[0.16em] text-brand/90 mb-2">03 · Interaction</p>
+      <p className="mb-2 hidden text-xs tracking-[0.16em] text-brand/90 md:block">03 · Interaction</p>
       <h3 className="text-xl font-semibold text-white mb-3">切り替えて理解する</h3>
       <p className="text-sm text-gray-400 mb-6 leading-relaxed">
         タブで視点を変えながら読む。サービスページの技術提供でも同じパターンを使っています。

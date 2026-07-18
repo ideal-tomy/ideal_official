@@ -8,18 +8,17 @@ import { useTheme } from '@/components/theme/ThemeProvider'
 type NavItem = {
   href: string
   label: string
-  en: string
 }
 
 /** 実ページのみ（同一ページ内アンカーは含めない） */
 const NAV_ITEMS: NavItem[] = [
-  { href: '/', label: 'トップ', en: 'Top' },
-  { href: '/ai-capability-gallery', label: 'デモ一覧', en: 'Gallery' },
-  { href: '/cases', label: '事例', en: 'Cases' },
-  { href: '/services', label: 'サービス一覧', en: 'Services' },
-  { href: '/estimate', label: '自動見積もり', en: 'Estimate' },
-  { href: '/lab', label: 'LAB', en: 'Lab' },
-  { href: '/contact', label: 'お問い合わせ', en: 'Contact' },
+  { href: '/', label: 'トップ' },
+  { href: '/ai-capability-gallery', label: 'デモ一覧' },
+  { href: '/cases', label: '事例' },
+  { href: '/services', label: 'サービス一覧' },
+  { href: '/estimate', label: '自動見積もり' },
+  { href: '/lab', label: 'LAB' },
+  { href: '/contact', label: 'お問い合わせ' },
 ]
 
 function ThemeToggleButton({
@@ -126,10 +125,12 @@ export function FabDrawerNav() {
         </nav>
       </header>
 
-      {/* SP: ロゴ + ハンバーガー */}
+      {/* SP: ロゴ（メニュー開時は非表示） */}
       <Link
         href="/"
-        className="fixed left-4 top-4 z-[1000] rounded-lg bg-[color-mix(in_srgb,var(--site-bg)_55%,transparent)] px-3 py-2 text-[22px] font-black tracking-[0.06em] text-[var(--site-fg)] backdrop-blur-sm md:hidden"
+        className={`fixed left-4 top-4 z-[1000] rounded-lg bg-[color-mix(in_srgb,var(--site-bg)_55%,transparent)] px-3 py-2 text-[22px] font-black tracking-[0.06em] text-[var(--site-fg)] backdrop-blur-sm md:hidden ${
+          open ? 'hidden' : ''
+        }`}
       >
         ideal
         <small className="mt-0.5 block text-[11px] font-normal tracking-[0.2em] text-[var(--site-fg)]/80">
@@ -139,7 +140,7 @@ export function FabDrawerNav() {
 
       <button
         type="button"
-        className={`fixed right-4 top-4 z-[1000] grid h-14 w-14 place-items-center rounded-[10px] shadow-[0_4px_16px_rgba(0,0,0,.2)] md:hidden ${
+        className={`fixed right-4 top-4 z-[1100] grid h-14 w-14 place-items-center rounded-[10px] shadow-[0_4px_16px_rgba(0,0,0,.2)] md:hidden ${
           open ? 'fab-open' : ''
         }`}
         style={{ background: 'var(--df-primary)' }}
@@ -174,7 +175,7 @@ export function FabDrawerNav() {
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        className={`fixed inset-0 z-[900] flex flex-col justify-center px-8 py-12 transition-[opacity,visibility] duration-350 md:hidden ${
+        className={`fixed inset-0 z-[1000] flex flex-col justify-start px-8 pt-20 pb-12 transition-[opacity,visibility] duration-350 md:hidden ${
           open
             ? 'visible opacity-100'
             : 'invisible pointer-events-none opacity-0'
@@ -193,11 +194,8 @@ export function FabDrawerNav() {
               key={item.href}
               href={item.href}
               onClick={close}
-              className="block border-b border-white/15 py-3.5 text-[22px] font-bold text-white"
+              className="block border-b border-white/15 py-3 text-[20px] font-bold text-white"
             >
-              <small className="mb-0.5 block text-[11px] uppercase tracking-[0.15em] text-[var(--df-primary-light)]">
-                {item.en}
-              </small>
               {item.label}
             </Link>
           ))}

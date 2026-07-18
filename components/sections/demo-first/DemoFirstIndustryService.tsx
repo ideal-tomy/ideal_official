@@ -50,13 +50,13 @@ export function DemoFirstIndustryService({ cards }: Props) {
   return (
     <section id="service" className="bg-[var(--df-bg)] py-[var(--df-sec-pad)]">
       <div className="mx-auto w-[min(100%-48px,1080px)]">
-        <p className="text-sm font-bold uppercase tracking-[0.12em] text-[var(--df-primary)]">
+        <p className="hidden text-sm font-bold uppercase tracking-[0.12em] text-[var(--df-primary)] md:block">
           Service
         </p>
         <h2 className="my-2 mb-6 text-[clamp(26px,5.6vw,40px)] font-black leading-[1.5] text-[var(--df-text)]">
-          業務のかたちに合わせて、
-          <br />
-          デモから始めるDX開発。
+          
+          <br className="hidden md:inline" />
+          デモから始めるDX開発
         </h2>
         <p className="mb-12 max-w-[640px] text-[var(--df-text)]">
           汎用ツールの導入で終わらせず、業界ごとの商習慣・現場ルールを踏まえた仕組みを設計します。まず小さく動くものを作り、現場の反応を見ながら育てていきます。

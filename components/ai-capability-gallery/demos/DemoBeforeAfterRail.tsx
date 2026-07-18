@@ -54,11 +54,12 @@ export function DemoBeforeAfterRail({
       <p className="mb-2 text-[11px] text-gray-500">{hint}</p>
       <div
         ref={rail}
-        className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="flex snap-x snap-mandatory overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
+        {/* w-full min-w-full: レール幅ぴったり。100vw 指定だと隣スライドが覗いて中途半端に見える */}
         <div
           ref={beforeRef}
-          className="w-[min(100%,calc(100vw-2.75rem))] shrink-0 snap-center"
+          className="w-full min-w-full shrink-0 snap-center pr-0"
         >
           <p className="mb-1.5 text-[10px] font-bold tracking-[0.16em] text-gray-400">
             {beforeLabel}
@@ -67,7 +68,7 @@ export function DemoBeforeAfterRail({
         </div>
         <div
           ref={afterRef}
-          className="w-[min(100%,calc(100vw-2.75rem))] shrink-0 snap-center"
+          className="w-full min-w-full shrink-0 snap-center"
         >
           <p className="mb-1.5 text-[10px] font-bold tracking-[0.16em] text-brand">
             {afterLabel}
@@ -94,6 +95,10 @@ export function scrollRailToAfter(
   smooth: boolean,
 ) {
   if (!rail || !after) return
+  // display:none（PC）のときは何もしない
+  if (rail.offsetParent === null && getComputedStyle(rail).display === 'none') {
+    return
+  }
   rail.scrollTo({
     left: after.offsetLeft - rail.offsetLeft,
     behavior: smooth ? 'smooth' : 'auto',

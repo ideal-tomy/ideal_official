@@ -19,10 +19,10 @@ export function LabAreaHero({
   return (
     <>
       <LabBreadcrumb items={[{ label: breadcrumbLabel }]} />
-      <section className="relative flex min-h-[45vh] items-center justify-center overflow-hidden border-b border-brand/40">
+      <section className="relative flex min-h-[40vh] items-center justify-center overflow-hidden border-b border-brand/40 md:min-h-[45vh]">
         <HeroBackground />
         <HeroReveal className={`relative z-10 ${layout.container} text-center`}>
-          <p className="text-xs font-medium tracking-[0.2em] uppercase text-brand/90 mb-4">
+          <p className="mb-4 hidden text-xs font-medium uppercase tracking-[0.2em] text-brand/90 md:block">
             {eyebrow}
           </p>
           <h1 className={`${typography.h1} ${colors.text.primary} mb-6 whitespace-pre-line`}>

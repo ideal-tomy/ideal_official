@@ -32,7 +32,7 @@ function InputProcessPanel() {
 
   return (
     <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6 h-full flex flex-col">
-      <p className="text-xs tracking-[0.16em] text-brand/90 mb-2">01 · Input → Process</p>
+      <p className="mb-2 hidden text-xs tracking-[0.16em] text-brand/90 md:block">01 · Input → Process</p>
       <h3 className="text-xl font-semibold text-white mb-3">入力して、結果を得る</h3>
       <p className="text-sm text-gray-400 mb-4 leading-relaxed">
         フォームに入力 → 処理中 → 結果カード。業務ツールの基本フローです。
@@ -125,7 +125,7 @@ function StatusPanel() {
 
   return (
     <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6 h-full flex flex-col">
-      <p className="text-xs tracking-[0.16em] text-brand/90 mb-2">02 · Status</p>
+      <p className="mb-2 hidden text-xs tracking-[0.16em] text-brand/90 md:block">02 · Status</p>
       <h3 className="text-xl font-semibold text-white mb-3">ステータスを進める</h3>
       <p className="text-sm text-gray-400 mb-4 leading-relaxed">
         未対応 → 対応中 → 確認待ち → 完了。案件管理の基本です。
@@ -207,7 +207,7 @@ function DashboardPanel() {
 
   return (
     <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6 h-full flex flex-col">
-      <p className="text-xs tracking-[0.16em] text-brand/90 mb-2">03 · Dashboard</p>
+      <p className="mb-2 hidden text-xs tracking-[0.16em] text-brand/90 md:block">03 · Dashboard</p>
       <h3 className="text-xl font-semibold text-white mb-3">フィルターで変わる一覧</h3>
       <p className="text-sm text-gray-400 mb-4 leading-relaxed">
         フィルターを変えるとデータとグラフが変わります。モバイル操作も体験できます。

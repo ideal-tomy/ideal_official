@@ -9,9 +9,16 @@ type Options = {
   fallbackDelayMs?: number
 }
 
+function isRailVisible(rail: HTMLDivElement | null): boolean {
+  if (!rail) return false
+  if (typeof window === 'undefined') return false
+  // md 以上ではレール非表示。scrollIntoView すると結果カードが中途半端に見える
+  return window.matchMedia('(max-width: 767px)').matches
+}
+
 /**
  * 実行開始 → Before へ短いスクロール
- * 完了（または fallback）→ After（縦 scroll + 横 snap）
+ * 完了（または fallback）→ After（横 snap のみ。ページ縦スクロールはしない）
  */
 export function useStagedDemoScroll(
   isProcessing: boolean,
@@ -30,6 +37,7 @@ export function useStagedDemoScroll(
     const started = isProcessing && !prevProcessing.current
     prevProcessing.current = isProcessing
     if (!started) return
+    if (!isRailVisible(railRef.current)) return
 
     const behavior = prefersReduced ? 'auto' : 'smooth'
     beforeRef.current?.scrollIntoView({ behavior, block: 'nearest' })
@@ -38,7 +46,7 @@ export function useStagedDemoScroll(
 
     const t = window.setTimeout(() => {
       if (prevComplete.current) return
-      afterRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      if (!isRailVisible(railRef.current)) return
       scrollRailToAfter(railRef.current, afterRef.current, true)
     }, fallbackDelayMs)
 
@@ -49,9 +57,8 @@ export function useStagedDemoScroll(
     const completed = isComplete && !prevComplete.current
     prevComplete.current = isComplete
     if (!completed) return
+    if (!isRailVisible(railRef.current)) return
 
-    const behavior = prefersReduced ? 'auto' : 'smooth'
-    afterRef.current?.scrollIntoView({ behavior, block: 'start' })
     scrollRailToAfter(railRef.current, afterRef.current, !prefersReduced)
   }, [isComplete, prefersReduced])
 

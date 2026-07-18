@@ -17,12 +17,12 @@ export function DemoFirstGallery({ capabilities }: Props) {
       }}
     >
       <div className="mx-auto w-[min(100%-48px,1080px)]">
-        <p className="text-sm font-bold uppercase tracking-[0.12em] text-[#BFE0FF]">
+        <p className="hidden text-sm font-bold uppercase tracking-[0.12em] text-[#BFE0FF] md:block">
           Gallery
         </p>
         <h2 className="my-2 mb-6 text-[clamp(26px,5.6vw,40px)] font-black leading-[1.5] text-white">
           これまでに作った
-          <br />
+          <br className="hidden md:inline" />
           開発デモの一部。
         </h2>
         <p className="mb-12 max-w-[600px] text-white/90">

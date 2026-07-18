@@ -8,13 +8,16 @@ export function DemoFirstContact() {
       className="bg-[var(--df-bg-blue-2)] py-[var(--df-sec-pad)] text-center"
     >
       <div className="mx-auto w-[min(100%-48px,1080px)]">
-        <p className="text-sm font-bold uppercase tracking-[0.12em] text-[var(--df-primary)]">
+        <p className="hidden text-sm font-bold uppercase tracking-[0.12em] text-[var(--df-primary)] md:block">
           Contact
         </p>
         <h2 className="my-2 mb-6 text-[clamp(26px,5.6vw,40px)] font-black leading-[1.5] text-[var(--df-text)]">
-          まだ課題が言葉になっていなくても、
-          <br />
-          大丈夫です。
+          <span className="md:hidden">まだ言葉になっていなくても大丈夫です。</span>
+          <span className="hidden md:inline">
+            まだ課題が言葉になっていなくても、
+            <br />
+            大丈夫です。
+          </span>
         </h2>
         <p className="mx-auto mb-10 max-w-[560px] text-[var(--df-text)]">
           「なんとなく非効率な気がする」——その段階からで構いません。お話を伺いながら、まずは触れるデモのかたちでご提案します。デモのカスタマイズ相談だけでも歓迎です。

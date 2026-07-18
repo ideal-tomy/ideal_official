@@ -49,7 +49,7 @@ export function HeroScrollHint({
 
   return (
     <motion.div
-      className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
+      className="absolute bottom-8 left-1/2 z-10 hidden -translate-x-1/2 md:block"
       initial={{ opacity: 0 }}
       animate={{ opacity: visible ? 1 : 0 }}
       transition={{ duration: 0.8, ease: revealEase }}

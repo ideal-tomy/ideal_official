@@ -32,7 +32,7 @@ html.light {
   --df-on-primary: #ffffff;
   --df-radius-card: 12px;
   --df-radius-btn: 8px;
-  --df-sec-pad: clamp(72px, 12vw, 120px);
+  --df-sec-pad: clamp(48px, 10vw, 72px);
   --site-bg: #ffffff;
   --site-bg-elevated: #f4f8fc;
   --site-fg: #1a1a2e;
@@ -235,6 +235,12 @@ html.dark {
 @media (min-width: 768px) {
   .parallax-bg {
     background-attachment: fixed;
+  }
+
+  :root,
+  html.light,
+  html.dark {
+    --df-sec-pad: clamp(72px, 12vw, 120px);
   }
 }
 

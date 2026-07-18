@@ -65,7 +65,7 @@ export const colors = {
 // タイポグラフィ（フォントサイズ）
 export const typography = {
   // 見出し
-  h1: 'text-4xl lg:text-6xl font-bold',
+  h1: 'text-2xl sm:text-3xl lg:text-6xl font-bold',
   h2: 'text-3xl lg:text-5xl font-bold',
   h3: 'text-2xl lg:text-3xl font-bold',
   h4: 'text-xl lg:text-2xl font-bold',
@@ -92,7 +92,7 @@ export const layout = {
   containerNarrow: 'max-w-4xl mx-auto px-4 sm:px-6 lg:px-8',
   containerWide: 'max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8',
   // セクション余白
-  section: 'py-24 lg:py-32',
+  section: 'py-14 md:py-24 lg:py-32',
   sectionSmall: 'py-12 lg:py-16',
   // ヘッダー・フッター
   header: 'h-16 lg:h-20',

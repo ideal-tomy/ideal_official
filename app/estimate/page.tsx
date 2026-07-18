@@ -35,9 +35,9 @@ export default function EstimatePage() {
 
   return (
     <>
-      <Section backgroundColor="black" className="pt-16 md:pt-24 pb-8 md:pb-10">
+      <Section backgroundColor="black" className="pt-8 md:pt-24 pb-8 md:pb-10">
         <div className="max-w-3xl mx-auto text-center px-4">
-          <p className="text-xs font-medium tracking-[0.2em] uppercase text-brand/90 mb-3">
+          <p className="mb-3 hidden text-xs font-medium uppercase tracking-[0.2em] text-brand/90 md:block">
             Estimate
           </p>
           <h1 className={`${typography.h2} ${colors.text.primary} mb-4`}>
