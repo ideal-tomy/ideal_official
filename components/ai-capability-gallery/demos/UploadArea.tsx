@@ -13,6 +13,9 @@ export function UploadArea({ photos, selectedSetName }: UploadAreaProps) {
         <p className="text-xs text-gray-500">
           サンプルセット: <span className="font-medium text-gray-700">{selectedSetName}</span>
         </p>
+        <p className="mt-1 text-[11px] text-gray-400">
+          実ファイルのアップロードは不要です
+        </p>
       </div>
 
       <ul className="space-y-2" aria-label="アップロード済み写真一覧">

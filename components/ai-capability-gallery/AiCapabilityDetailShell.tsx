@@ -30,14 +30,14 @@ export function AiCapabilityDetailShell({
       <div className="mx-auto max-w-5xl px-4 py-6 sm:px-6 md:py-12 lg:px-8 lg:py-20">
         <nav
           className="mb-4 flex flex-wrap items-center gap-x-3 gap-y-1 border-b border-[var(--site-border)] pb-3 text-sm md:mb-8 md:pb-6"
-          aria-label="ギャラリーナビゲーション"
+          aria-label="デモ一覧ナビゲーション"
         >
           <Link
             href={GALLERY_BASE}
             className="text-[var(--site-fg-muted)] transition-colors hover:text-brand"
           >
-            <span className="md:hidden">← ギャラリー</span>
-            <span className="hidden md:inline">← AI Capability Demo Gallery</span>
+            <span className="md:hidden">← デモ一覧</span>
+            <span className="hidden md:inline">← デモ一覧</span>
           </Link>
           <span className="hidden text-gray-600 md:inline" aria-hidden="true">
             /
@@ -82,7 +82,7 @@ export function AiCapabilityDetailShell({
             <p className="mb-4 text-sm text-[var(--site-fg-muted)]">
               AIコンシェルジュが「{page.eyebrow}」を起点に、課題・必要な機能・概算の参考まで案内します。
             </p>
-            <div className="flex flex-col gap-3 sm:flex-row">
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <OpenConciergeButton
                 serviceId="ai-consulting"
                 variant="primary"
@@ -90,6 +90,12 @@ export function AiCapabilityDetailShell({
               >
                 自社でも使えるか相談する
               </OpenConciergeButton>
+              <Link
+                href={`/contact?service=ai-consulting&intent=gallery&demo=${encodeURIComponent(page.slug)}`}
+                className="inline-flex items-center justify-center rounded-lg border border-brand/40 bg-transparent px-6 py-3 text-sm font-medium text-[var(--site-fg)] transition-colors hover:border-brand hover:bg-brand/10"
+              >
+                お問い合わせ
+              </Link>
               <Link
                 href={GALLERY_BASE}
                 className="inline-flex items-center justify-center rounded-lg border border-[var(--site-border)] px-6 py-3 text-sm font-medium text-[var(--site-fg-muted)] transition-colors hover:border-brand/30 hover:text-[var(--site-fg)]"

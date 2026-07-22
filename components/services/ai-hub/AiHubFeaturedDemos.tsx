@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import {
-  galleryCapabilityHref,
+  AI_HUB_GALLERY,
   galleryDemoHref,
   getFeaturedCapabilities,
 } from '@/data/services/ai-hub'
@@ -17,7 +17,7 @@ export function AiHubFeaturedDemos() {
             まずはここから触る
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-gray-300">
-            変化が分かりやすい3本です。ショーケースで流れを見て、そのままデモを体験できます。
+            トップと同じ代表3本です。サンプルデータで動くデモをそのまま体験できます。
           </p>
         </header>
 
@@ -28,7 +28,7 @@ export function AiHubFeaturedDemos() {
               className="flex flex-col overflow-hidden rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)]"
             >
               <Link
-                href={galleryCapabilityHref(capability.slug)}
+                href={galleryDemoHref(capability.slug)}
                 className="group relative aspect-[16/9] overflow-hidden"
               >
                 <Image
@@ -46,6 +46,9 @@ export function AiHubFeaturedDemos() {
               </Link>
 
               <div className="flex flex-1 flex-col bg-[var(--site-bg-elevated)] p-5">
+                <p className="mb-1 text-xs font-medium text-brand/90">
+                  {capability.subtitle}
+                </p>
                 <h3 className="mb-2 text-lg font-semibold leading-snug text-[var(--site-fg)]">
                   {capability.title}
                 </h3>
@@ -54,16 +57,16 @@ export function AiHubFeaturedDemos() {
                 </p>
                 <div className="flex flex-col gap-2">
                   <Link
-                    href={galleryCapabilityHref(capability.slug)}
-                    className="text-sm font-medium text-brand transition-colors hover:text-brand-hover"
-                  >
-                    ギャラリーで見る →
-                  </Link>
-                  <Link
                     href={galleryDemoHref(capability.slug)}
                     className="inline-flex items-center justify-center rounded-lg bg-brand px-4 py-2.5 text-sm font-bold text-white transition-colors hover:bg-brand-hover"
                   >
                     デモを体験
+                  </Link>
+                  <Link
+                    href={AI_HUB_GALLERY}
+                    className="text-center text-sm font-medium text-brand transition-colors hover:text-brand-hover"
+                  >
+                    デモ一覧を見る →
                   </Link>
                 </div>
               </div>

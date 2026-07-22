@@ -36,10 +36,10 @@ export function DemoFirstHero() {
           説明より、動くデモを。
         </h1>
         <p className="df-rise-3 mt-6 max-w-[560px] text-[clamp(15px,3.6vw,18px)] font-normal text-white/95 [text-shadow:0_1px_12px_rgba(0,0,0,.5)] md:hidden">
-          提案書の前にデモを作り、触れるかたちで答え合わせをします。
+          Web・業務アプリ・AIの開発を、動くデモから始めます。提案書の前に触れて、答え合わせをします。
         </p>
         <p className="df-rise-3 mt-6 hidden max-w-[560px] text-[clamp(15px,3.6vw,18px)] font-normal text-white/95 [text-shadow:0_1px_12px_rgba(0,0,0,.5)] md:block">
-          私たちは提案書の前にデモを作ります。業務の課題を「触れるかたち」にしてから、一緒に答え合わせをする——それが、認識のズレをゼロにする最短ルートだと考えているからです。
+          idealは、Webサイト・業務アプリ・AIプロトタイプを、触れるデモから一緒に設計する開発チームです。提案書の前に業務の課題を「触れるかたち」にしてから答え合わせをする——それが、認識のズレをゼロにする最短ルートだと考えています。
         </p>
         <div className="df-rise-4 mt-8 flex flex-wrap gap-3.5">
           <a
@@ -48,12 +48,12 @@ export function DemoFirstHero() {
           >
             デモを触ってみる
           </a>
-          <a
-            href="#service"
+          <Link
+            href="/services"
             className="inline-flex items-center gap-2.5 rounded-[var(--df-radius-btn)] border border-white/70 bg-white/15 px-7 py-3.5 font-bold text-white transition-colors hover:bg-white/25"
           >
-            サービスを見る
-          </a>
+            サービス一覧
+          </Link>
           <Link
             href="/estimate"
             className="inline-flex items-center gap-2.5 rounded-[var(--df-radius-btn)] border border-white/40 bg-transparent px-7 py-3.5 text-sm font-bold text-white/90 transition-colors hover:border-white/80 hover:text-white"

@@ -73,6 +73,17 @@ export function CapabilityCard({
           {capability.title}
         </h3>
 
+        {!compact && (
+          <>
+            <p className="mb-1.5 text-xs font-medium text-brand/90">
+              {capability.subtitle}
+            </p>
+            <p className="mb-3 text-xs leading-relaxed text-[var(--site-fg-muted)]">
+              {capability.before} → {capability.after}
+            </p>
+          </>
+        )}
+
         <div
           className={
             compact ? 'mb-2 flex flex-wrap gap-1' : 'mb-4 flex flex-wrap gap-1.5'

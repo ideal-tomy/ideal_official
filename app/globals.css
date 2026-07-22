@@ -113,6 +113,16 @@ html.dark {
   animation-play-state: paused;
 }
 
+.demo-first .df-portfolio-scroller {
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+
+.demo-first .df-portfolio-card {
+  scroll-snap-align: start;
+}
+
 .related-marquee-track {
   /* カードが縦長なので、少しゆっくり流す */
   animation: df-marquee 52s linear infinite;

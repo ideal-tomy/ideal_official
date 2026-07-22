@@ -20,9 +20,9 @@ export const headerFooterServiceLinks: { href: string; label: string }[] = [
 export const labNavLinks: { href: string; label: string }[] = [
   { href: '/lab', label: 'LAB トップ' },
   { href: '/lab/insights', label: 'Insights' },
-  { href: '/philosophy', label: 'Philosophy / DAO' },
+  { href: '/philosophy', label: 'Philosophy（DAO思想）' },
   { href: '/research', label: 'Research' },
-  { href: '/lab/blockchain', label: 'Blockchain / DAO' },
+  { href: '/lab/blockchain', label: 'Blockchain（DAO研究）' },
   { href: '/lab/metaverse', label: 'Spatial / VR・AR' },
 ]
 

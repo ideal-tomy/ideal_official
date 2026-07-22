@@ -27,7 +27,7 @@ export function GalleryHero() {
 
       <HeroReveal className={`relative z-10 ${layout.container} text-center`}>
         <p className="mb-4 hidden text-xs font-medium uppercase tracking-[0.2em] text-brand/90 md:block">
-          AI Capability Demo Gallery
+          デモ一覧
         </p>
 
         <h1 className={`${typography.h1} ${colors.text.primary} mb-6`}>
@@ -41,7 +41,7 @@ export function GalleryHero() {
         >
           音声、写真、文書、データ。
           日々の業務をAIがどう理解し、整理し、実行するのか。
-          実際に触れる7つのデモで体験できます。
+          サンプルデータで動く7つのデモを、そのまま触って体験できます（実アップロード不要）。
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { capabilities } from '@/data/ai-capability-gallery/capabilities'
 import {
   AI_HUB_GALLERY,
-  galleryCapabilityHref,
+  galleryDemoHref,
 } from '@/data/services/ai-hub'
 
 export function AiHubCapabilityGrid() {
@@ -21,7 +21,7 @@ export function AiHubCapabilityGrid() {
 
         <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-5">
           {capabilities.map((capability) => {
-            const href = galleryCapabilityHref(capability.slug)
+            const href = galleryDemoHref(capability.slug)
             return (
               <Link
                 key={capability.id}
@@ -46,9 +46,15 @@ export function AiHubCapabilityGrid() {
                   </span>
                 </div>
                 <div className="flex flex-1 flex-col bg-[var(--site-bg-elevated)] p-4">
+                  <p className="mb-1 text-xs font-medium text-brand/90">
+                    {capability.subtitle}
+                  </p>
                   <h3 className="mb-2 text-base font-semibold leading-snug text-[var(--site-fg)]">
                     {capability.title}
                   </h3>
+                  <p className="mb-3 text-xs leading-relaxed text-[var(--site-fg-muted)]">
+                    {capability.before} → {capability.after}
+                  </p>
                   <span className="mt-auto inline-flex items-center text-sm font-medium text-brand transition-colors group-hover:text-brand-hover">
                     デモを見る →
                   </span>
@@ -63,7 +69,7 @@ export function AiHubCapabilityGrid() {
             href={AI_HUB_GALLERY}
             className="inline-flex items-center text-sm font-medium text-brand hover:text-brand-hover transition-colors"
           >
-            ギャラリー全体を見る →
+            デモ一覧をすべて見る →
           </Link>
         </div>
       </div>

@@ -1,9 +1,3 @@
-/**
- * トップページ — デモファースト・ハブ
- *
- * Hero → Marquee → Demos → Service → Reason → Gallery → News → Contact
- */
-
 import {
   DemoFirstContact,
   DemoFirstGallery,
@@ -14,8 +8,8 @@ import {
   DemoFirstReason,
   DemoFirstShowcase,
 } from '@/components/sections/demo-first'
+import { getReadyPortfolioDemos } from '@/data/demo-first/portfolio'
 import {
-  getGalleryCapabilities,
   getIndustryCards,
   getShowcaseCapabilities,
 } from '@/data/demo-first/top-page'
@@ -23,7 +17,7 @@ import { getNewsItems } from '@/data/news/items'
 
 export default function Home() {
   const showcase = getShowcaseCapabilities()
-  const gallery = getGalleryCapabilities()
+  const portfolio = getReadyPortfolioDemos()
   const industryCards = getIndustryCards()
   const news = getNewsItems()
 
@@ -34,7 +28,7 @@ export default function Home() {
       <DemoFirstShowcase capabilities={showcase} />
       <DemoFirstIndustryService cards={industryCards} />
       <DemoFirstReason />
-      <DemoFirstGallery capabilities={gallery} />
+      <DemoFirstGallery items={portfolio} />
       <DemoFirstNews items={news} />
       <DemoFirstContact />
     </div>

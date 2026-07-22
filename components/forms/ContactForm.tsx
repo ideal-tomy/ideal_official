@@ -2,11 +2,10 @@
 
 /**
  * ContactForm コンポーネント
- * 
+ *
  * 問い合わせフォーム（クライアントコンポーネント）
  * react-hook-form + zod でバリデーション
- * 
- * 理由: フォーム状態管理、バリデーション、送信処理に useState/useEffect が必要
+ * 送信先: POST /api/contact（CONTACT_WEBHOOK_URL 必須）
  */
 
 import { useState, useMemo, useEffect } from 'react'
@@ -22,7 +21,6 @@ import {
   clearStagedConciergePrefill,
 } from '@/lib/concierge/contact-prefill'
 
-// バリデーションスキーマ
 const contactSchema = z.object({
   name: z
     .string()
@@ -41,13 +39,30 @@ const contactSchema = z.object({
 
 type ContactFormData = z.infer<typeof contactSchema>
 
-function buildDefaultMessage(intent: string | null, serviceId: string | null): string {
+function buildDefaultMessage(
+  intent: string | null,
+  serviceId: string | null,
+  caseSlug: string | null,
+  demoSlug: string | null,
+): string {
   const lines: string[] = []
   if (intent === 'ai-chat') {
     lines.push('【AIコンシェルジュ経由のご相談】')
   }
   if (intent === 'concierge') {
     lines.push('【コンシェルジュ（選択内容を整理）経由のご相談】')
+  }
+  if (intent === 'gallery') {
+    lines.push('【デモ一覧経由のご相談】')
+    if (demoSlug) {
+      lines.push(`【デモ】${demoSlug}`)
+    }
+  }
+  if (intent === 'cases') {
+    lines.push('【事例ページ経由のご相談】')
+    if (caseSlug) {
+      lines.push(`【事例】${caseSlug}`)
+    }
   }
   if (serviceId) {
     lines.push(`【相談種別】${getServiceLabel(serviceId)}`)
@@ -64,15 +79,18 @@ export function ContactForm() {
   const searchParams = useSearchParams()
   const intent = searchParams.get('intent')
   const serviceId = searchParams.get('service')
+  const caseSlug = searchParams.get('case')
+  const demoSlug = searchParams.get('demo')
   const prefillParam = searchParams.get('prefill')
 
   const defaultMessage = useMemo(
-    () => buildDefaultMessage(intent, serviceId),
-    [intent, serviceId]
+    () => buildDefaultMessage(intent, serviceId, caseSlug, demoSlug),
+    [intent, serviceId, caseSlug, demoSlug],
   )
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [submitError, setSubmitError] = useState<string | null>(null)
 
   const {
     register,
@@ -113,19 +131,38 @@ export function ContactForm() {
     if (message) {
       setValue('message', message, { shouldValidate: true })
     }
-  }, [prefillParam, intent, serviceId, defaultMessage, setValue])
+  }, [prefillParam, intent, serviceId, caseSlug, demoSlug, defaultMessage, setValue])
 
-  // フォーム送信処理
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true)
     setSubmitStatus('idle')
+    setSubmitError(null)
 
     try {
-      // TODO: 実際のAPI呼び出しに置き換える
-      // 現在はモックとして2秒待機
-      await new Promise((resolve) => setTimeout(resolve, 2000))
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...data,
+          company: data.company || undefined,
+          intent,
+          service: serviceId,
+          caseSlug,
+        }),
+      })
 
-      console.log('フォーム送信データ:', data)
+      const payload = (await res.json().catch(() => null)) as
+        | { ok?: boolean; error?: string }
+        | null
+
+      if (!res.ok || !payload?.ok) {
+        setSubmitStatus('error')
+        setSubmitError(
+          payload?.error ??
+            '送信に失敗しました。しばらくしてから再度お試しください。',
+        )
+        return
+      }
 
       setSubmitStatus('success')
       clearStagedConciergePrefill()
@@ -135,24 +172,25 @@ export function ContactForm() {
         company: '',
         message: '',
       })
-
-      // 3秒後にメッセージをクリア
-      setTimeout(() => {
-        setSubmitStatus('idle')
-      }, 3000)
     } catch (error) {
       console.error('送信エラー:', error)
       setSubmitStatus('error')
+      setSubmitError('送信に失敗しました。しばらくしてから再度お試しください。')
     } finally {
       setIsSubmitting(false)
     }
   }
 
+  const showContextBanner =
+    intent === 'ai-chat' ||
+    intent === 'concierge' ||
+    intent === 'gallery' ||
+    intent === 'cases' ||
+    Boolean(serviceId)
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-      {(intent === 'ai-chat' ||
-        intent === 'concierge' ||
-        serviceId) && (
+      {showContextBanner && (
         <div className="p-4 bg-brand-deep/30 border border-brand/50 rounded-lg text-sm text-gray-300">
           {intent === 'ai-chat' && (
             <p>AIコンシェルジュからのお問い合わせです。</p>
@@ -163,11 +201,22 @@ export function ContactForm() {
               AI チャットは未接続の MVP です）。
             </p>
           )}
+          {intent === 'gallery' && (
+            <p>
+              デモ一覧からのお問い合わせです
+              {demoSlug ? `（${demoSlug}）` : ''}。
+            </p>
+          )}
+          {intent === 'cases' && (
+            <p>
+              事例ページからのお問い合わせです
+              {caseSlug ? `（${caseSlug}）` : ''}。
+            </p>
+          )}
           {serviceId && <p>相談種別: {getServiceLabel(serviceId)}</p>}
         </div>
       )}
 
-      {/* 名前 */}
       <div>
         <label
           htmlFor="name"
@@ -203,7 +252,6 @@ export function ContactForm() {
         )}
       </div>
 
-      {/* メールアドレス */}
       <div>
         <label
           htmlFor="email"
@@ -239,7 +287,6 @@ export function ContactForm() {
         )}
       </div>
 
-      {/* 会社名 */}
       <div>
         <label
           htmlFor="company"
@@ -263,7 +310,6 @@ export function ContactForm() {
         />
       </div>
 
-      {/* メッセージ */}
       <div>
         <label
           htmlFor="message"
@@ -300,7 +346,6 @@ export function ContactForm() {
         )}
       </div>
 
-      {/* 送信ボタン */}
       <div>
         <Button
           type="submit"
@@ -313,14 +358,13 @@ export function ContactForm() {
         </Button>
       </div>
 
-      {/* 送信ステータスメッセージ */}
       {submitStatus === 'success' && (
         <div
           className="p-4 bg-green-900/50 border border-green-400 rounded-lg"
           role="alert"
         >
           <p className="text-green-400">
-            ✓ お問い合わせありがとうございます。内容を確認次第、ご連絡いたします。
+            ✓ お問い合わせありがとうございます。通常、1〜2営業日以内にご返信いたします。
           </p>
         </div>
       )}
@@ -331,11 +375,10 @@ export function ContactForm() {
           role="alert"
         >
           <p className="text-red-400">
-            ✗ 送信に失敗しました。しばらくしてから再度お試しください。
+            ✗ {submitError ?? '送信に失敗しました。しばらくしてから再度お試しください。'}
           </p>
         </div>
       )}
     </form>
   )
 }
-

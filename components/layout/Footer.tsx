@@ -17,7 +17,7 @@ export function Footer() {
 
   const exploreLinks = [
     { href: '/', label: 'トップ' },
-    { href: '/ai-capability-gallery', label: 'デモ' },
+    { href: '/ai-capability-gallery', label: 'デモ一覧' },
     { href: '/cases', label: '事例' },
     { href: '/estimate', label: '自動見積もり' },
     { href: '/contact', label: '問い合わせ' },
@@ -40,11 +40,13 @@ export function Footer() {
               ideal
             </h3>
             <p className={`${colors.text.muted} text-sm leading-relaxed`}>
-              <span className="md:hidden">まず、触って確かめる。</span>
+              <span className="md:hidden">
+                Web・業務アプリ・AIを、動くデモから。
+              </span>
               <span className="hidden md:inline">
                 DEMO-FIRST DEVELOPMENT
                 <br />
-                まず、触って確かめる。
+                Web・業務アプリ・AIを、動くデモから一緒に設計します。
               </span>
             </p>
           </div>

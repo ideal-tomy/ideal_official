@@ -192,15 +192,21 @@ export function DataToPredictionDemo() {
         after={resultPanel}
       />
 
+      {isComplete && (
+        <div className="mt-3 rounded-lg border border-[#D9DDE3] bg-white p-3 md:hidden">
+          <p className="mb-2 text-xs font-medium uppercase tracking-wider text-gray-500">
+            予測グラフ
+          </p>
+          <PredictionChart dataPoints={selectedSet.dataPoints} showForecast={isComplete} />
+        </div>
+      )}
+
       <details className="mt-3 rounded-lg border border-[#D9DDE3] bg-white md:hidden">
         <summary className="cursor-pointer px-4 py-2 text-xs font-medium text-gray-600">
-          グラフ・ログ {logs.length > 0 ? `(${logs.length})` : ''}
+          AI処理ログ {logs.length > 0 ? `(${logs.length})` : ''}
         </summary>
-        <div className="space-y-3 border-t border-[#D9DDE3] p-3">
+        <div className="border-t border-[#D9DDE3] p-3">
           <ProcessingLog logs={logs} isProcessing={isProcessing} />
-          {isComplete && (
-            <PredictionChart dataPoints={selectedSet.dataPoints} showForecast={isComplete} />
-          )}
         </div>
       </details>
 

@@ -48,6 +48,13 @@ export function KnowledgeToSearchDemo() {
     setSelectedQuestion(question)
     setActiveSourceId(null)
     reset()
+  }
+
+  const runSearch = (question: KnowledgeQuestion) => {
+    if (isProcessing) return
+    setSelectedQuestion(question)
+    setActiveSourceId(null)
+    reset()
     start(knowledgeProcessingSteps)
   }
 
@@ -93,7 +100,11 @@ export function KnowledgeToSearchDemo() {
         回答
       </p>
       {!currentAnswer ? (
-        <p className="text-sm text-gray-400">左の質問を選んでください</p>
+        <p className="text-sm text-gray-400">
+          {selectedQuestion
+            ? '「検索する」を押すと回答が表示されます'
+            : '質問を選んでから「検索する」を押してください'}
+        </p>
       ) : (
         <div>
           <p className="mb-2 text-sm leading-relaxed text-gray-800">
@@ -157,8 +168,8 @@ export function KnowledgeToSearchDemo() {
 
       <DemoActions
         onProcess={() => {
-          if (selectedQuestion) handleQuestionSelect(selectedQuestion)
-          else if (selectedSet.questions[0]) handleQuestionSelect(selectedSet.questions[0])
+          if (selectedQuestion) runSearch(selectedQuestion)
+          else if (selectedSet.questions[0]) runSearch(selectedSet.questions[0])
         }}
         onReset={() => {
           reset()
@@ -166,7 +177,7 @@ export function KnowledgeToSearchDemo() {
           setActiveSourceId(null)
         }}
         isProcessing={isProcessing}
-        processLabel="質問を選んで検索"
+        processLabel={selectedQuestion ? '検索する' : '質問を選んで検索'}
         processingLabel="検索中…"
       />
     </DemoFrame>

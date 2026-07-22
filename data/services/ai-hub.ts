@@ -14,7 +14,7 @@ export const aiHubHero = {
   subtitle:
     '提案書の前に、触ってください。7つの業務変化デモから自社に近いパターンを見つけ、判断の根拠まで体験できます。',
   primaryCta: {
-    label: 'デモギャラリーを体験する',
+    label: 'デモ一覧を体験する',
     href: GALLERY_BASE,
   },
   secondaryCta: {
@@ -23,11 +23,11 @@ export const aiHubHero = {
   },
 } as const
 
-/** 注目デモ（Gallery ショーケースへのアンカー） */
+/** 注目デモ（TOP Showcase と同じ3本で揃える） */
 export const featuredDemoSlugs = [
   'photo-to-classification',
+  'knowledge-to-search',
   'voice-to-structured',
-  'document-to-extraction',
 ] as const
 
 export function getFeaturedCapabilities(): Capability[] {
@@ -36,8 +36,9 @@ export function getFeaturedCapabilities(): Capability[] {
     .filter((c): c is Capability => Boolean(c))
 }
 
+/** @deprecated ギャラリー内アンカーはモバイルで無効なため、個別デモ URL を返す */
 export function galleryCapabilityHref(slug: string): string {
-  return `${GALLERY_BASE}#capability-${slug}`
+  return galleryDemoHref(slug)
 }
 
 export function galleryDemoHref(slug: string): string {

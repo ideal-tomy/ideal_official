@@ -54,12 +54,10 @@ export function DemoFirstIndustryService({ cards }: Props) {
           Service
         </p>
         <h2 className="my-2 mb-6 text-[clamp(26px,5.6vw,40px)] font-black leading-[1.5] text-[var(--df-text)]">
-          
-          <br className="hidden md:inline" />
           デモから始めるDX開発
         </h2>
         <p className="mb-12 max-w-[640px] text-[var(--df-text)]">
-          汎用ツールの導入で終わらせず、業界ごとの商習慣・現場ルールを踏まえた仕組みを設計します。まず小さく動くものを作り、現場の反応を見ながら育てていきます。
+          汎用ツールの導入で終わらせず、業界ごとの商習慣・現場ルールを踏まえた仕組みを設計します。下の「業務デモ」は本格的な体験用アプリです（別タブで開きます）。短いパターンデモは上のセクションからどうぞ。
         </p>
 
         <div className="grid gap-6 md:grid-cols-2">
@@ -106,21 +104,45 @@ export function DemoFirstIndustryService({ cards }: Props) {
                 ))}
               </ul>
 
-              <div className="flex flex-wrap items-center justify-between gap-3">
-                <Link
-                  href={card.tryHref}
-                  className="text-sm font-bold text-[var(--df-primary)] hover:underline"
-                >
-                  触ってみる（{card.tryLabel}）
-                </Link>
-                {card.detailHref && (
-                  <Link
-                    href={card.detailHref}
-                    className="inline-flex h-10 w-14 items-center justify-center rounded-[var(--df-radius-btn)] bg-[var(--df-primary)] font-bold text-white transition-transform hover:translate-x-1"
-                    aria-label={`${card.title}の詳細`}
-                  >
-                    →
-                  </Link>
+              <div className="space-y-2">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  {card.tryExternal ? (
+                    <a
+                      href={card.tryHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-bold text-[var(--df-primary)] hover:underline"
+                    >
+                      業務デモを開く（{card.tryLabel}）↗
+                    </a>
+                  ) : (
+                    <Link
+                      href={card.tryHref}
+                      className="text-sm font-bold text-[var(--df-primary)] hover:underline"
+                    >
+                      触ってみる（{card.tryLabel}）
+                    </Link>
+                  )}
+                  {card.detailHref && (
+                    <Link
+                      href={card.detailHref}
+                      className="inline-flex items-center gap-1.5 text-sm font-bold text-[var(--df-primary-deep)] transition-colors hover:text-[var(--df-primary)]"
+                      aria-label={card.detailLabel ?? `${card.title}の詳細`}
+                    >
+                      {card.detailLabel ?? '詳細を見る'}
+                      <span
+                        className="inline-flex h-9 w-9 items-center justify-center rounded-[var(--df-radius-btn)] bg-[var(--df-primary)] font-bold text-white"
+                        aria-hidden="true"
+                      >
+                        →
+                      </span>
+                    </Link>
+                  )}
+                </div>
+                {card.tryNote && (
+                  <p className="text-xs leading-relaxed text-[var(--df-text-muted)]">
+                    {card.tryNote}
+                  </p>
                 )}
               </div>
             </article>

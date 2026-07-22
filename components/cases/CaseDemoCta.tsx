@@ -23,15 +23,20 @@ export function CaseDemoCta({ caseStudy }: CaseDemoCtaProps) {
           {relatedDemo.description}
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center flex-wrap">
           <Link href={relatedDemo.href}>
             <Button variant="primary" size="lg">
               デモを体験
             </Button>
           </Link>
+          <Link href={caseStudy.contactHref}>
+            <Button variant="secondary" size="lg">
+              お問い合わせ
+            </Button>
+          </Link>
           <OpenConciergeButton
             serviceId="ai-consulting"
-            variant="secondary"
+            variant="outline"
             size="lg"
           >
             自社でも使えるか相談する

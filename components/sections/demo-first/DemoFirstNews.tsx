@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import type { NewsItem } from '@/data/news/items'
+import { GALLERY_BASE } from '@/data/ai-capability-gallery/capabilities'
 
 type Props = {
   items: NewsItem[]
@@ -40,6 +41,15 @@ export function DemoFirstNews({ items }: Props) {
             </li>
           ))}
         </ul>
+
+        <div className="mt-10 text-center">
+          <Link
+            href={GALLERY_BASE}
+            className="text-sm font-bold text-[var(--df-primary)] hover:underline"
+          >
+            デモ一覧を見る →
+          </Link>
+        </div>
       </div>
     </section>
   )

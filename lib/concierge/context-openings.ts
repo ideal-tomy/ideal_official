@@ -137,7 +137,7 @@ function demoOpening(ctx: ConciergePageContext): ContextOpening {
       id: 'see_related',
       label: copy?.caseLabel
         ? `関連事例（${copy.caseLabel}）を見る`
-        : '関連する事例を見る',
+        : '関連する流れを見る',
       track: null,
       linkKind: 'related_case',
     },

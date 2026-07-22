@@ -11,7 +11,7 @@ export function DemoFirstShowcase({ capabilities }: Props) {
     <section id="demos" className="bg-[var(--df-bg-blue)] py-[var(--df-sec-pad)]">
       <div className="mx-auto w-[min(100%-48px,1080px)]">
         <p className="hidden text-sm font-bold uppercase tracking-[0.12em] text-[var(--df-primary)] md:block">
-          Demos
+          デモ
         </p>
         <h2 className="my-2 mb-6 text-[clamp(26px,5.6vw,40px)] font-black leading-[1.5] text-[var(--df-text)]">
           資料ではなく、
@@ -19,7 +19,7 @@ export function DemoFirstShowcase({ capabilities }: Props) {
           <span className="text-[var(--df-primary-deep)]">動くデモで確かめる。</span>
         </h2>
         <p className="mb-12 max-w-[640px] text-[var(--df-text)]">
-          ここにあるのは、実際の業務課題から生まれた開発デモです。
+          ここにあるのは、実際の業務課題から生まれた開発デモです。サンプルデータで動くため、実ファイルのアップロードは不要です。
         </p>
 
         <div className="grid gap-6 md:grid-cols-3">
