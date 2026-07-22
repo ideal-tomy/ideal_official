@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { CasesIndexHero } from '@/components/cases/CaseHero'
 import { CaseCard } from '@/components/cases/CaseCard'
-import { IntroductionFlowSection } from '@/components/shared/IntroductionFlowSection'
+import { HowWeWorkSummary } from '@/components/how-we-work/HowWeWorkSummary'
 import { getPublishedCases } from '@/data/cases'
 
 export const metadata: Metadata = {
@@ -33,7 +33,7 @@ export default function CasesIndexPage() {
         </div>
       </section>
 
-      <IntroductionFlowSection showEstimateLink showCasesLink={false} />
+      <HowWeWorkSummary showEstimateLink showCasesLink={false} />
     </div>
   )
 }

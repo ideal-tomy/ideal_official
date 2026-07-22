@@ -19,6 +19,7 @@ export function Footer() {
     { href: '/', label: 'トップ' },
     { href: '/ai-capability-gallery', label: 'デモ一覧' },
     { href: '/cases', label: '活用イメージ' },
+    { href: '/how-we-work', label: '相談〜導入の進め方' },
     { href: '/estimate', label: '自動見積もり' },
     { href: '/contact', label: '問い合わせ' },
   ]

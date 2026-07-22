@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import { CaseBackLink, CaseHero } from '@/components/cases/CaseHero'
 import { CaseFlowCompare } from '@/components/cases/CaseFlow'
 import { CaseDemoCta } from '@/components/cases/CaseDemoCta'
-import { IntroductionFlowSection } from '@/components/shared/IntroductionFlowSection'
+import { HowWeWorkSummary } from '@/components/how-we-work/HowWeWorkSummary'
 import { caseStudies, getCaseBySlug } from '@/data/cases'
 
 interface PageProps {
@@ -46,7 +46,10 @@ export default async function CaseIndustryPage({ params }: PageProps) {
       <CaseBackLink />
       <CaseFlowCompare before={caseStudy.before} after={caseStudy.after} />
       <CaseDemoCta caseStudy={caseStudy} />
-      <IntroductionFlowSection showEstimateLink />
+      <HowWeWorkSummary
+        demoSlug={caseStudy.relatedDemo.slug}
+        showEstimateLink
+      />
     </div>
   )
 }

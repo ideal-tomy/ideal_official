@@ -4,6 +4,7 @@ import Link from 'next/link'
 import type { CaseStudy } from '@/data/cases'
 import { Button } from '@/components/ui/Button'
 import { OpenConciergeButton } from '@/components/concierge/OpenConciergeButton'
+import { getHowWeWorkHref } from '@/data/how-we-work'
 
 interface CaseDemoCtaProps {
   caseStudy: CaseStudy
@@ -23,7 +24,7 @@ export function CaseDemoCta({ caseStudy }: CaseDemoCtaProps) {
         </h2>
         <p className="mb-10 text-base leading-relaxed text-gray-300">
           簡易デモで仕組みを確かめ、業務デモで現場寄りの画面を体験できます。
-          金額感が先なら、概算見積もりへ進めます。
+          依頼後の進め方や金額感も、ここから進められます。
         </p>
 
         <div className="mb-8 rounded-xl border border-gray-800 bg-gray-900/40 p-5 text-left sm:p-6">
@@ -68,6 +69,11 @@ export function CaseDemoCta({ caseStudy }: CaseDemoCtaProps) {
         )}
 
         <div className="flex flex-col flex-wrap items-center justify-center gap-4 sm:flex-row">
+          <Link href={getHowWeWorkHref(relatedDemo.slug)}>
+            <Button variant="secondary" size="lg">
+              このデモの導入の進め方
+            </Button>
+          </Link>
           <Link href="/estimate">
             <Button variant="secondary" size="lg">
               概算見積もりへ

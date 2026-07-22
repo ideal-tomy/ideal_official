@@ -9,6 +9,7 @@ import type { Capability } from '@/data/ai-capability-gallery/capabilities'
 import { GALLERY_BASE } from '@/data/ai-capability-gallery/capabilities'
 import { OpenConciergeButton } from '@/components/concierge/OpenConciergeButton'
 import { RelatedPatternsMarquee } from '@/components/ai-capability-gallery/RelatedPatternsMarquee'
+import { getHowWeWorkHref } from '@/data/how-we-work'
 
 export interface CapabilityDetailMeta {
   slug: string
@@ -85,7 +86,7 @@ export function AiCapabilityDetailShell({
               次のステップ
             </h2>
             <p className="mb-5 text-sm text-[var(--site-fg-muted)]">
-              ピンとこなければ活用イメージで現場の流れを読み、業務デモや概算へ進めます。
+              ピンとこなければ活用イメージで現場の流れを読み、導入の進め方や概算へ進めます。
             </p>
             <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               {relatedCase ? (
@@ -103,6 +104,12 @@ export function AiCapabilityDetailShell({
                   活用イメージ一覧へ
                 </Link>
               )}
+              <Link
+                href={getHowWeWorkHref(page.slug)}
+                className="inline-flex items-center justify-center rounded-lg border border-brand/40 bg-transparent px-6 py-3 text-sm font-medium text-[var(--site-fg)] transition-colors hover:border-brand hover:bg-brand/10"
+              >
+                このデモの導入の進め方
+              </Link>
               {externalDemo && (
                 <a
                   href={externalDemo.href}
