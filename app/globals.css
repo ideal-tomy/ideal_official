@@ -273,6 +273,19 @@ html.dark {
   color: color-mix(in srgb, var(--color-brand) 70%, transparent);
 }
 
+/* テーマ別画像（ThemeImage）— デフォルトはダーク版。fill でも absolute を維持 */
+.theme-img-light {
+  display: none !important;
+}
+
+html.light .theme-img-dark {
+  display: none !important;
+}
+
+html.light .theme-img-light {
+  display: unset !important;
+}
+
 /* Research 詳細ページ — philosophy-prose と同等の可読性ルール */
 .research-prose strong {
   color: rgb(243 244 246);

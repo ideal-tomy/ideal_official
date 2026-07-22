@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import { ThemeImage } from '@/components/ui/ThemeImage'
 import { PageHero } from '@/components/sections/PageHero'
 import { galleryImages } from '@/data/ai-capability-gallery/capabilities'
 
@@ -9,7 +9,7 @@ export function GalleryHero() {
       description="日々の業務を変えるヒントが、7つのデモ体験から得られます。"
       background={
         <>
-          <Image
+          <ThemeImage
             src={galleryImages.hero}
             alt=""
             fill

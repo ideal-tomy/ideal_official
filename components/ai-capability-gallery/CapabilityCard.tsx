@@ -1,5 +1,5 @@
-import Image from 'next/image'
 import Link from 'next/link'
+import { ThemeImage } from '@/components/ui/ThemeImage'
 import type { Capability } from '@/data/ai-capability-gallery/capabilities'
 
 interface CapabilityCardProps {
@@ -18,7 +18,7 @@ export function CapabilityCard({
   const content = (
     <>
       <div className="relative aspect-[16/9] overflow-hidden bg-[var(--site-bg)]">
-        <Image
+        <ThemeImage
           src={capability.image}
           alt=""
           fill

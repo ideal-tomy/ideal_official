@@ -1,5 +1,5 @@
-import Image from 'next/image'
 import Link from 'next/link'
+import { ThemeImage } from '@/components/ui/ThemeImage'
 import { getCaseHref, type CaseStudy } from '@/data/cases'
 import { getCapabilityBySlug } from '@/data/ai-capability-gallery/capabilities'
 
@@ -35,7 +35,7 @@ export function CaseCard({ caseStudy }: CaseCardProps) {
     >
       {demo && (
         <div className="relative aspect-[16/10] shrink-0 sm:aspect-auto sm:min-h-[160px] sm:w-56 md:w-64">
-          <Image
+          <ThemeImage
             src={demo.image}
             alt=""
             fill

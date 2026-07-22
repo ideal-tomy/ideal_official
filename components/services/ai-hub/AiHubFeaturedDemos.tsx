@@ -1,5 +1,5 @@
-import Image from 'next/image'
 import Link from 'next/link'
+import { ThemeImage } from '@/components/ui/ThemeImage'
 import {
   AI_HUB_GALLERY,
   galleryDemoHref,
@@ -31,7 +31,7 @@ export function AiHubFeaturedDemos() {
                 href={galleryDemoHref(capability.slug)}
                 className="group relative aspect-[16/9] overflow-hidden"
               >
-                <Image
+                <ThemeImage
                   src={capability.image}
                   alt=""
                   fill

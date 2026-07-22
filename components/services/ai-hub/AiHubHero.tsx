@@ -1,6 +1,6 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
+import { ThemeImage } from '@/components/ui/ThemeImage'
 import { PageHero, pageHeroActionsClass } from '@/components/sections/PageHero'
 import { galleryImages } from '@/data/ai-capability-gallery/capabilities'
 import { aiHubHero } from '@/data/services/ai-hub'
@@ -12,7 +12,7 @@ export function AiHubHero() {
       description={aiHubHero.subtitle}
       background={
         <>
-          <Image
+          <ThemeImage
             src={galleryImages.hero}
             alt=""
             fill

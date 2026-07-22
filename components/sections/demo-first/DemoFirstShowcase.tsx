@@ -1,6 +1,6 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import type { Capability } from '@/data/ai-capability-gallery/capabilities'
+import { ThemeImage } from '@/components/ui/ThemeImage'
 
 type Props = {
   capabilities: Capability[]
@@ -29,7 +29,7 @@ export function DemoFirstShowcase({ capabilities }: Props) {
               className="flex flex-col overflow-hidden rounded-[var(--df-radius-card)] bg-[var(--df-bg)]"
             >
               <div className="relative aspect-[16/9] bg-[linear-gradient(160deg,var(--df-hero-2),var(--df-primary-hover))]">
-                <Image
+                <ThemeImage
                   src={cap.image}
                   alt=""
                   fill

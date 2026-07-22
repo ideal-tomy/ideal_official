@@ -1,5 +1,5 @@
-import Image from 'next/image'
 import Link from 'next/link'
+import { ThemeImage } from '@/components/ui/ThemeImage'
 import { capabilities } from '@/data/ai-capability-gallery/capabilities'
 import {
   AI_HUB_GALLERY,
@@ -29,7 +29,7 @@ export function AiHubCapabilityGrid() {
                 className="group flex h-full flex-col overflow-hidden rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)] transition-colors hover:border-brand/40"
               >
                 <div className="relative aspect-[16/9] overflow-hidden bg-[var(--site-bg)]">
-                  <Image
+                  <ThemeImage
                     src={capability.image}
                     alt=""
                     fill

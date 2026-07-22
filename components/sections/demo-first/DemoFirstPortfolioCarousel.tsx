@@ -1,8 +1,8 @@
 'use client'
 
 import { useRef } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
+import { ThemeImage } from '@/components/ui/ThemeImage'
 import type { PortfolioDemo } from '@/data/demo-first/portfolio'
 
 type Props = {
@@ -52,7 +52,7 @@ export function DemoFirstPortfolioCarousel({ items }: Props) {
             className="df-portfolio-card flex w-[min(85vw,320px)] shrink-0 snap-start flex-col overflow-hidden rounded-[var(--df-radius-card)] border border-[var(--site-border)] bg-[var(--df-bg-card)]"
           >
             <div className="relative aspect-[16/9] bg-[linear-gradient(160deg,var(--df-hero-2),var(--df-primary-hover))]">
-              <Image
+              <ThemeImage
                 src={item.image}
                 alt=""
                 fill

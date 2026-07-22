@@ -1,8 +1,8 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
+import { ThemeImage } from '@/components/ui/ThemeImage'
 import { galleryImages } from '@/data/ai-capability-gallery/capabilities'
 
 export function DemoEntryBanner() {
@@ -10,7 +10,7 @@ export function DemoEntryBanner() {
     <section className="bg-black py-16 md:py-20 border-y border-brand/25">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative overflow-hidden rounded-2xl border border-brand/20 min-h-[280px] md:min-h-[320px] flex items-center">
-          <Image
+          <ThemeImage
             src={galleryImages.hero}
             alt=""
             fill
