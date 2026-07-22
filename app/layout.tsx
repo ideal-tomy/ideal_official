@@ -6,6 +6,7 @@ import { FabDrawerNav } from "../components/layout/FabDrawerNav";
 import { ConciergeProvider } from "@/components/concierge/concierge-context";
 import { ConciergeRoot } from "@/components/concierge/ConciergeRoot";
 import { FooterConcierge } from "@/components/concierge/FooterConcierge";
+import { WelcomeConcierge } from "@/components/concierge/WelcomeConcierge";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 
 const notoSansJP = Noto_Sans_JP({
@@ -71,6 +72,7 @@ export default function RootLayout({
               {children}
             </main>
             <FooterConcierge />
+            <WelcomeConcierge />
             <Footer />
             <ConciergeRoot />
           </ConciergeProvider>

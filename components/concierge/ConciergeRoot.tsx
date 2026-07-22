@@ -13,9 +13,10 @@ export function ConciergeRoot() {
     flowSessionNonce,
     openConcierge,
     footerGreetingVisible,
+    welcomeVisible,
   } = useConcierge()
 
-  const showFab = !open && !footerGreetingVisible
+  const showFab = !open && !footerGreetingVisible && !welcomeVisible
 
   return (
     <>

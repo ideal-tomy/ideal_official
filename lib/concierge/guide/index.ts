@@ -26,3 +26,11 @@ export {
   resolveGuideLocally,
 } from './resolve'
 export { getGuideOpening } from './opening'
+export {
+  getFooterPrompt,
+  footerGreetedStorageKey,
+  WELCOME_STORAGE_KEY,
+  WELCOME_MESSAGE,
+  FOOTER_CHIP_DELAY_MS,
+  WELCOME_AUTO_DISMISS_MS,
+} from './footer-prompts'

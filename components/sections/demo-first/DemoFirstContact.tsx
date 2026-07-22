@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { OpenConciergeButton } from '@/components/concierge/OpenConciergeButton'
 
 export function DemoFirstContact() {
   return (
@@ -30,9 +29,6 @@ export function DemoFirstContact() {
           >
             お問い合わせ
           </Link>
-          <OpenConciergeButton variant="secondary" size="lg">
-            自社でも使えるか相談する
-          </OpenConciergeButton>
         </div>
 
         <p className="mt-8">

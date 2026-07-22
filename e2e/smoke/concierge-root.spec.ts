@@ -6,6 +6,13 @@ import { openConciergeFromFab } from '../helpers'
  */
 test.describe('サイト案内コンシェルジュ', () => {
   test('トップから開くと案内チップが表示される', async ({ page }) => {
+    await page.addInitScript(() => {
+      try {
+        sessionStorage.setItem('ideal_welcome_greeted', '1')
+      } catch {
+        /* ignore */
+      }
+    })
     await page.goto('/')
     await openConciergeFromFab(page)
 
@@ -34,6 +41,13 @@ test.describe('サイト案内コンシェルジュ', () => {
   })
 
   test('金額チップで見積もりリンクが出る', async ({ page }) => {
+    await page.addInitScript(() => {
+      try {
+        sessionStorage.setItem('ideal_welcome_greeted', '1')
+      } catch {
+        /* ignore */
+      }
+    })
     await page.goto('/')
     await openConciergeFromFab(page)
 
@@ -47,10 +61,29 @@ test.describe('サイト案内コンシェルジュ', () => {
     )
   })
 
-  test('フッター直前であいさつが出る（セッション1回）', async ({ page }) => {
+  test('初回訪問であいさつが出て消える', async ({ page }) => {
     await page.addInitScript(() => {
       try {
-        sessionStorage.removeItem('ideal_greeted')
+        sessionStorage.removeItem('ideal_welcome_greeted')
+      } catch {
+        /* ignore */
+      }
+    })
+    await page.goto('/')
+    await expect(
+      page.getByRole('status', { name: 'コンシェルジュからのあいさつ' }),
+    ).toBeVisible({ timeout: 10_000 })
+    await expect(page.getByText('来てくれてありがとうございます')).toBeVisible()
+    await expect(
+      page.getByRole('status', { name: 'コンシェルジュからのあいさつ' }),
+    ).toBeHidden({ timeout: 15_000 })
+  })
+
+  test('フッター直前であいさつが出る（ページごと）', async ({ page }) => {
+    await page.addInitScript(() => {
+      try {
+        sessionStorage.setItem('ideal_welcome_greeted', '1')
+        sessionStorage.removeItem('ideal_footer_greeted:/')
       } catch {
         /* ignore */
       }
@@ -60,9 +93,47 @@ test.describe('サイト案内コンシェルジュ', () => {
     await expect(
       page.getByRole('dialog', { name: 'コンシェルジュからのメッセージ' }),
     ).toBeVisible({ timeout: 15_000 })
-    await expect(page.getByRole('link', { name: 'デモを触る' })).toHaveAttribute(
+    await expect(
+      page.getByText('読んでくれてありがとうございます'),
+    ).toBeVisible()
+    // クロスフェード後にボタンのみ吹き出し
+    await expect(page.getByRole('link', { name: 'デモ一覧' })).toBeVisible({
+      timeout: 10_000,
+    })
+    await expect(page.getByRole('link', { name: 'デモ一覧' })).toHaveAttribute(
       'href',
       '/ai-capability-gallery',
+    )
+    await expect(page.getByRole('link', { name: '活用イメージ' })).toHaveAttribute(
+      'href',
+      '/cases',
+    )
+    // チップ表示後はありがとう文が消えている（非表示）
+    await expect(
+      page.getByText('読んでくれてありがとうございます'),
+    ).toBeHidden({ timeout: 5_000 })
+  })
+
+  test('デモ一覧のフッターは別導線チップ', async ({ page }) => {
+    await page.addInitScript(() => {
+      try {
+        sessionStorage.setItem('ideal_welcome_greeted', '1')
+        sessionStorage.removeItem('ideal_footer_greeted:/ai-capability-gallery')
+      } catch {
+        /* ignore */
+      }
+    })
+    await page.goto('/ai-capability-gallery')
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight))
+    await expect(
+      page.getByRole('dialog', { name: 'コンシェルジュからのメッセージ' }),
+    ).toBeVisible({ timeout: 15_000 })
+    await expect(page.getByRole('link', { name: '活用イメージ' })).toBeVisible({
+      timeout: 10_000,
+    })
+    await expect(page.getByRole('link', { name: 'お問い合わせ' })).toHaveAttribute(
+      'href',
+      '/contact',
     )
   })
 })

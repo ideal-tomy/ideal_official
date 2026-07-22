@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import { OpenConciergeButton } from '@/components/concierge/OpenConciergeButton'
 import { Button } from '@/components/ui/Button'
 import {
   getCaseByRelatedDemoSlug,
@@ -83,9 +82,6 @@ export function HowWeWorkPageCta({
             お問い合わせ
           </Button>
         </Link>
-        <OpenConciergeButton serviceId="ai-consulting" variant="outline" size="md">
-          自社でも使えるか相談する
-        </OpenConciergeButton>
       </div>
     </section>
   )

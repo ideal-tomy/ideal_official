@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import { OpenConciergeButton } from '@/components/concierge/OpenConciergeButton'
 import { Section } from '@/components/ui/Section'
 import { typography, colors } from '@/lib/design-tokens'
 
@@ -10,18 +9,14 @@ export function GalleryCta() {
     <Section backgroundColor="black">
       <div className="text-center max-w-4xl mx-auto">
         <h2 className={`${typography.h2} ${colors.text.primary} mb-6`}>
-          これ、自社でも使えるか一緒に整理しませんか。
+          次の一歩を選んでください。
         </h2>
 
         <p className={`${typography.bodyLarge} ${colors.text.muted} mb-12`}>
-          デモを起点に、課題の整理・必要な機能・概算の参考まで、AIコンシェルジュが案内します。
-          ピンとこなければ、活用イメージで現場の流れも読めます。
+          活用イメージで現場の流れを読むか、概算で金額感をつかむか、そのままお問い合わせでも構いません。
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <OpenConciergeButton serviceId="ai-consulting" variant="primary" size="lg">
-            自社でも使えるか相談する
-          </OpenConciergeButton>
           <Link
             href="/contact?service=ai-consulting&intent=gallery"
             className="

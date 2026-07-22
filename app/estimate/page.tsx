@@ -8,7 +8,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { Section } from '@/components/ui/Section'
-import { OpenConciergeButton } from '@/components/concierge/OpenConciergeButton'
 import { HowWeWorkSummary } from '@/components/how-we-work/HowWeWorkSummary'
 import { PageHero } from '@/components/sections/PageHero'
 import { typography, colors } from '@/lib/design-tokens'
@@ -37,7 +36,7 @@ export default function EstimatePage() {
     <>
       <PageHero
         title="自動見積もり"
-        description="いくつかの質問に答えると、参考の価格レンジがわかります。課題整理や進め方の相談は、AIコンシェルジュもご利用ください。"
+        description="いくつかの質問に答えると、参考の価格レンジがわかります。進め方や依頼の相談は、導入の流れ・お問い合わせからどうぞ。"
       >
         <p className={`mt-4 max-w-[560px] ${typography.small} ${colors.text.disabled}`}>
           {ESTIMATE_DISCLAIMER}
@@ -93,16 +92,12 @@ export default function EstimatePage() {
       >
         <div className="mx-auto max-w-3xl px-4 text-center">
           <h2 className={`${typography.h3} ${colors.text.primary} mb-3`}>
-            概算のあとに、相談内容を整理できます
+            概算のあとに、次の一歩へ
           </h2>
           <p className={`${typography.body} ${colors.text.muted} mb-8`}>
-            金額感がつかめたら、AIコンシェルジュで課題・機能を整理し、そのままお問い合わせへ引き継げます。
-            依頼後の進め方は「相談〜導入の進め方」でも確認できます。
+            金額感がつかめたら、相談〜導入の進め方を確認するか、そのままお問い合わせへ進んでください。
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <OpenConciergeButton variant="primary" size="lg">
-              自社でも使えるか相談する
-            </OpenConciergeButton>
             <Link
               href={getHowWeWorkHref()}
               className="
@@ -120,11 +115,10 @@ export default function EstimatePage() {
               href="/contact"
               className="
                 inline-flex items-center justify-center rounded-lg
-                border border-[color-mix(in_srgb,var(--site-fg)_25%,transparent)]
-                bg-transparent px-8 py-4 text-lg font-bold text-[var(--site-fg)]
+                bg-brand px-8 py-4 text-lg font-bold text-white
                 transition-all duration-300 ease-in-out
-                hover:scale-105 hover:border-brand/60 hover:text-brand-hover active:scale-95
-                focus:outline-none focus:ring-2 focus:ring-brand/50 focus:ring-offset-2 focus:ring-offset-[var(--site-bg)]
+                hover:scale-105 hover:bg-brand-hover active:scale-95
+                focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 focus:ring-offset-[var(--site-bg)]
               "
             >
               お問い合わせ

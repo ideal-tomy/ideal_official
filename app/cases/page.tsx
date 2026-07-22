@@ -7,11 +7,11 @@ import { getPublishedCases } from '@/data/cases'
 export const metadata: Metadata = {
   title: '活用イメージ | ideal',
   description:
-    '業界・課題ごとの業務フロー変化を読み、関連デモを体験し、AIコンシェルジュで自社への応用を整理できます。',
+    '業界・課題ごとの業務フロー変化を読み、関連デモを体験できます。',
   openGraph: {
     title: '活用イメージ | ideal',
     description:
-      '業界・課題ごとの業務フロー変化を読み、関連デモを体験し、AIコンシェルジュで自社への応用を整理できます。',
+      '業界・課題ごとの業務フロー変化を読み、関連デモを体験できます。',
   },
 }
 

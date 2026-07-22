@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import { OpenConciergeButton } from '@/components/concierge/OpenConciergeButton'
 import { colors, typography } from '../../lib/design-tokens'
 import { getServiceLabel } from '../../data/services/service-links'
 
@@ -17,15 +16,12 @@ export function ServiceAiCta({ serviceId, className = '' }: ServiceAiCtaProps) {
     <div className={`border-b border-brand bg-black ${className}`}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
         <h2 className={`${typography.h3} ${colors.text.primary} mb-3`}>
-          このページを起点に、相談内容を整理できます
+          この内容について相談できます
         </h2>
         <p className={`${typography.body} ${colors.text.muted} mb-8 max-w-2xl mx-auto`}>
-          AIコンシェルジュが現状のヒアリングから、必要な機能・概算の参考・お問い合わせ引き継ぎまで案内します。
+          要件が固まっていなくても構いません。お問い合わせからご相談ください。概算だけ先に見ることもできます。
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <OpenConciergeButton serviceId={serviceId} variant="primary" size="lg">
-            自社でも使えるか相談する
-          </OpenConciergeButton>
           <Link
             href={`/contact?service=${serviceId}`}
             className="
