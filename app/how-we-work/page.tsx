@@ -10,6 +10,10 @@ import {
   howWeWorkDemoGuides,
 } from '@/data/how-we-work'
 import { getCapabilityBySlug } from '@/data/ai-capability-gallery/capabilities'
+import {
+  getCaseByRelatedDemoSlug,
+  getCaseHref,
+} from '@/data/cases'
 import { typography, colors } from '@/lib/design-tokens'
 
 export const metadata: Metadata = {
@@ -48,25 +52,29 @@ export default function HowWeWorkHubPage() {
       <section className="border-t border-[var(--site-border)] px-4 py-12 md:py-16">
         <div className="mx-auto max-w-3xl">
           <h2 className="mb-2 text-xl font-bold text-[var(--site-fg)] md:text-2xl">
-            体験したデモ向けの進め方
+            デモ別の活用イメージで詳しく読む
           </h2>
           <p className="mb-8 text-sm text-[var(--site-fg-muted)]">
-            簡易デモを起点にした場合の、ヒアリングや PoC の具体を読めます。
+            現場の流れ・向き不向き・このテーマ向けの進め方まで、1ページにまとめています。
           </p>
           <ul className="space-y-3">
             {howWeWorkDemoGuides.map((guide) => {
               const cap = getCapabilityBySlug(guide.demoSlug)
+              const relatedCase = getCaseByRelatedDemoSlug(guide.demoSlug)
+              const href = relatedCase
+                ? getCaseHref(relatedCase.slug)
+                : '/cases'
               return (
                 <li key={guide.demoSlug}>
                   <Link
-                    href={getHowWeWorkHref(guide.demoSlug)}
+                    href={href}
                     className="block rounded-lg border border-[var(--site-border)] px-4 py-3 transition-colors hover:border-brand/40"
                   >
                     <p className="font-medium text-[var(--site-fg)]">
                       {cap?.subtitle ?? guide.title}
                     </p>
                     <p className="mt-0.5 text-sm text-[var(--site-fg-muted)]">
-                      {guide.lead}
+                      {relatedCase?.title ?? guide.lead}
                     </p>
                   </Link>
                 </li>

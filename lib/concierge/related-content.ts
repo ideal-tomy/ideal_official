@@ -33,7 +33,7 @@ const DEMO_TO_CASE: Record<string, string> = {
   'data-to-prediction': 'retail-demand-prediction',
   'workflow-to-automation': 'backoffice-workflow-automation',
   'multi-input-to-report': 'agriculture-field-report',
-  'knowledge-to-search': 'backoffice-workflow-automation',
+  'knowledge-to-search': 'knowledge-internal-search',
 }
 
 const TRACK_DEFAULT_DEMOS: Record<Exclude<IdealTrack, 'unsure'>, string[]> = {

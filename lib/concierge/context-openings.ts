@@ -68,6 +68,7 @@ const DEMO_OPENING_COPY: Record<
   'knowledge-to-search': {
     headlineSuffix: '聞けば社内ナレッジが見つかる仕組み',
     body: '規程・マニュアル・FAQを、根拠付きで答えられる形にできるか一緒に整理します。',
+    caseLabel: '社内ナレッジの活用イメージ',
   },
   'multi-input-to-report': {
     headlineSuffix: '素材から報告書まで一気に作る仕組み',
@@ -90,6 +91,8 @@ const CASE_OPENING_PROMPTS: Record<string, string> = {
     '来客・需要・発注判断など、データ活用の相談から進められます。',
   'backoffice-workflow-automation':
     'メール転記・登録・通知など、繰り返し作業の自動化から整理できます。',
+  'knowledge-internal-search':
+    '規程・マニュアル・FAQなど、根拠付きの社内回答から相談できます。',
 }
 
 const CONSULT_THEN_ROOT: OpeningAction[] = [
@@ -421,7 +424,7 @@ export function resolveOpeningLinkHref(
       return '/cases/industries/agriculture-field-report'
     }
     if (ctx.demoId === 'knowledge-to-search') {
-      return '/cases'
+      return '/cases/industries/knowledge-internal-search'
     }
     return '/cases'
   }

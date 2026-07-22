@@ -13,6 +13,25 @@ export interface CaseStudy {
   metaTitle: string
   metaDescription: string
   tags: string[]
+  /** 現場の痛み・誰が困るか */
+  pain: {
+    headline: string
+    body: string
+    who: string
+  }
+  /**  qualitatively 何が変わるか（3点想定） */
+  outcomes: string[]
+  /** 簡易デモ／業務デモで分かること・限界 */
+  demoScope: {
+    simpleShows: string
+    simpleLimits: string
+    externalShows?: string
+  }
+  /** 向いている／向いていない */
+  fit: {
+    goodFor: string[]
+    notIdealFor: string[]
+  }
   before: {
     title: string
     summary: string

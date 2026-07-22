@@ -1,10 +1,15 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { CaseBackLink, CaseHero } from '@/components/cases/CaseHero'
+import { CasePainSection } from '@/components/cases/CasePainSection'
 import { CaseFlowCompare } from '@/components/cases/CaseFlow'
+import { CaseOutcomes } from '@/components/cases/CaseOutcomes'
+import { CaseHowWeWorkSection } from '@/components/cases/CaseHowWeWorkSection'
+import { CaseDemoScope } from '@/components/cases/CaseDemoScope'
+import { CaseFitSection } from '@/components/cases/CaseFitSection'
 import { CaseDemoCta } from '@/components/cases/CaseDemoCta'
-import { HowWeWorkSummary } from '@/components/how-we-work/HowWeWorkSummary'
 import { caseStudies, getCaseBySlug } from '@/data/cases'
+import { HOW_WE_WORK_STEPS } from '@/data/how-we-work'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -44,12 +49,19 @@ export default async function CaseIndustryPage({ params }: PageProps) {
     <div className="min-h-screen bg-[var(--site-bg)]">
       <CaseHero caseStudy={caseStudy} />
       <CaseBackLink />
+      <CasePainSection pain={caseStudy.pain} />
       <CaseFlowCompare before={caseStudy.before} after={caseStudy.after} />
-      <CaseDemoCta caseStudy={caseStudy} />
-      <HowWeWorkSummary
+      <CaseOutcomes outcomes={caseStudy.outcomes} />
+      <CaseHowWeWorkSection
         demoSlug={caseStudy.relatedDemo.slug}
-        showEstimateLink
+        fallbackSteps={HOW_WE_WORK_STEPS}
       />
+      <CaseDemoScope
+        demoScope={caseStudy.demoScope}
+        hasExternalDemo={Boolean(caseStudy.externalDemo)}
+      />
+      <CaseFitSection fit={caseStudy.fit} />
+      <CaseDemoCta caseStudy={caseStudy} />
     </div>
   )
 }

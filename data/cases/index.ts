@@ -6,6 +6,7 @@ import { agricultureFieldReport } from './agriculture-field-report'
 import { ddDocumentExtraction } from './dd-document-extraction'
 import { retailDemandPrediction } from './retail-demand-prediction'
 import { backofficeWorkflowAutomation } from './backoffice-workflow-automation'
+import { knowledgeInternalSearch } from './knowledge-internal-search'
 
 export const caseStudies: CaseStudy[] = [
   constructionPhotoSorting,
@@ -14,6 +15,7 @@ export const caseStudies: CaseStudy[] = [
   ddDocumentExtraction,
   retailDemandPrediction,
   backofficeWorkflowAutomation,
+  knowledgeInternalSearch,
 ]
 
 export function getPublishedCases(): CaseStudy[] {

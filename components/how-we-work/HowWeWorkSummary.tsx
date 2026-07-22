@@ -5,9 +5,10 @@ import {
   HOW_WE_WORK_TITLE,
   getHowWeWorkHref,
 } from '@/data/how-we-work'
+import { getCaseByRelatedDemoSlug, getCaseHref } from '@/data/cases'
 
 type HowWeWorkSummaryProps = {
-  /** 指定時はデモ別詳細へ。未指定はハブへ */
+  /** 指定時は対応する活用イメージへ。未指定はハブへ */
   demoSlug?: string
   showEstimateLink?: boolean
   showCasesLink?: boolean
@@ -20,7 +21,12 @@ export function HowWeWorkSummary({
   showCasesLink = false,
   className = '',
 }: HowWeWorkSummaryProps) {
-  const detailHref = getHowWeWorkHref(demoSlug)
+  const relatedCase = demoSlug
+    ? getCaseByRelatedDemoSlug(demoSlug)
+    : undefined
+  const detailHref = relatedCase
+    ? getCaseHref(relatedCase.slug)
+    : getHowWeWorkHref()
 
   return (
     <section
@@ -75,7 +81,9 @@ export function HowWeWorkSummary({
             href={detailHref}
             className="font-medium text-brand transition-colors hover:text-brand-hover"
           >
-            {demoSlug ? 'このデモ向けの進め方を詳しく見る →' : '詳しく見る →'}
+            {relatedCase
+              ? '活用イメージで詳しく読む →'
+              : '詳しく見る →'}
           </Link>
           {showEstimateLink && (
             <Link
@@ -90,7 +98,7 @@ export function HowWeWorkSummary({
               href="/cases"
               className="font-medium text-[var(--site-fg-muted)] transition-colors hover:text-brand"
             >
-              活用イメージを読む →
+              活用イメージ一覧 →
             </Link>
           )}
         </div>

@@ -3,7 +3,10 @@
 import Link from 'next/link'
 import { OpenConciergeButton } from '@/components/concierge/OpenConciergeButton'
 import { Button } from '@/components/ui/Button'
-import { getCaseByRelatedDemoSlug, getCaseHref } from '@/data/cases'
+import {
+  getCaseByRelatedDemoSlug,
+  getCaseHref,
+} from '@/data/cases'
 import { GALLERY_BASE } from '@/data/ai-capability-gallery/capabilities'
 import { buildRoiSimulatorHref } from '@/lib/roiSimulator'
 import { getHowWeWorkHref } from '@/data/how-we-work'
@@ -11,7 +14,7 @@ import { getHowWeWorkHref } from '@/data/how-we-work'
 type HowWeWorkPageCtaProps = {
   demoSlug?: string
   estimateKit?: string
-  /** return 先（デフォルトは現在の how-we-work ページ） */
+  /** return 先（デフォルトはハブ or 活用イメージ） */
   returnPath?: string
 }
 
@@ -25,7 +28,9 @@ export function HowWeWorkPageCta({
     : undefined
   const resolvedReturn =
     returnPath ??
-    (demoSlug ? getHowWeWorkHref(demoSlug) : getHowWeWorkHref())
+    (relatedCase
+      ? getCaseHref(relatedCase.slug)
+      : getHowWeWorkHref())
   const roiHref = buildRoiSimulatorHref({
     kit: estimateKit,
     returnPath: resolvedReturn,
@@ -57,7 +62,7 @@ export function HowWeWorkPageCta({
         {roiHref ? (
           <a href={roiHref} target="_blank" rel="noopener noreferrer">
             <Button variant="primary" size="md">
-              概算見積もりを開く
+              概算見積もりへ
             </Button>
           </a>
         ) : (

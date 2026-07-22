@@ -7,17 +7,34 @@ interface CaseCardProps {
   caseStudy: CaseStudy
 }
 
+/** 一覧カード用に lead を先頭2文相当へ切り詰める */
+function truncateLead(lead: string, maxChars = 110): string {
+  const normalized = lead.replace(/\s+/g, ' ').trim()
+  if (normalized.length <= maxChars) return normalized
+
+  const sentenceEnd = normalized.search(/[。！？]/)
+  if (sentenceEnd > 40 && sentenceEnd < maxChars) {
+    return normalized.slice(0, sentenceEnd + 1)
+  }
+
+  const sliced = normalized.slice(0, maxChars)
+  const lastSpace = sliced.lastIndexOf(' ')
+  const cut = lastSpace > 60 ? sliced.slice(0, lastSpace) : sliced
+  return `${cut}…`
+}
+
 export function CaseCard({ caseStudy }: CaseCardProps) {
   const demo = getCapabilityBySlug(caseStudy.relatedDemo.slug)
   const href = getCaseHref(caseStudy.slug)
+  const teaser = truncateLead(caseStudy.lead)
 
   return (
     <Link
       href={href}
-      className="group flex flex-col sm:flex-row overflow-hidden rounded-xl border border-gray-800 bg-gray-900/40 hover:border-brand/30 transition-colors"
+      className="group flex flex-col overflow-hidden rounded-xl border border-gray-800 bg-gray-900/40 transition-colors hover:border-brand/30 sm:flex-row"
     >
       {demo && (
-        <div className="relative sm:w-56 md:w-64 shrink-0 aspect-[16/10] sm:aspect-auto sm:min-h-[160px]">
+        <div className="relative aspect-[16/10] shrink-0 sm:aspect-auto sm:min-h-[160px] sm:w-56 md:w-64">
           <Image
             src={demo.image}
             alt=""
@@ -27,22 +44,22 @@ export function CaseCard({ caseStudy }: CaseCardProps) {
             aria-hidden="true"
           />
           <div
-            className="absolute inset-0 bg-gradient-to-r from-transparent to-gray-950/40 hidden sm:block"
+            className="absolute inset-0 hidden bg-gradient-to-r from-transparent to-gray-950/40 sm:block"
             aria-hidden="true"
           />
         </div>
       )}
-      <div className="p-5 sm:p-6 flex flex-col flex-1">
-        <p className="text-xs tracking-[0.16em] text-brand/90 mb-2">
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
+        <p className="mb-2 text-xs tracking-[0.16em] text-brand/90">
           {caseStudy.industryLabel}
         </p>
-        <h2 className="text-xl font-semibold text-white mb-2 group-hover:text-brand-hover transition-colors">
+        <h2 className="mb-2 text-xl font-semibold text-white transition-colors group-hover:text-brand-hover">
           {caseStudy.title}
         </h2>
-        <p className="text-sm text-gray-400 leading-relaxed mb-4 flex-1">
-          {caseStudy.lead}
+        <p className="mb-4 flex-1 text-sm leading-relaxed text-gray-400">
+          {teaser}
         </p>
-        <span className="text-sm font-medium text-brand group-hover:text-brand-hover transition-colors">
+        <span className="text-sm font-medium text-brand transition-colors group-hover:text-brand-hover">
           読む →
         </span>
       </div>

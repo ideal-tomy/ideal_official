@@ -7,9 +7,7 @@ import {
 } from '@/data/cases'
 import type { Capability } from '@/data/ai-capability-gallery/capabilities'
 import { GALLERY_BASE } from '@/data/ai-capability-gallery/capabilities'
-import { OpenConciergeButton } from '@/components/concierge/OpenConciergeButton'
 import { RelatedPatternsMarquee } from '@/components/ai-capability-gallery/RelatedPatternsMarquee'
-import { getHowWeWorkHref } from '@/data/how-we-work'
 
 export interface CapabilityDetailMeta {
   slug: string
@@ -25,13 +23,17 @@ interface AiCapabilityDetailShellProps {
   relatedCapabilities?: Capability[]
 }
 
+const btnBase =
+  'inline-flex flex-1 items-center justify-center rounded-lg px-6 py-3.5 text-sm font-semibold transition-colors sm:min-w-[9.5rem]'
+
 export function AiCapabilityDetailShell({
   page,
   children,
   relatedCapabilities = [],
 }: AiCapabilityDetailShellProps) {
   const relatedCase = getCaseByRelatedDemoSlug(page.slug)
-  const externalDemo = relatedCase?.externalDemo
+  const caseHref = relatedCase ? getCaseHref(relatedCase.slug) : '/cases'
+  const contactHref = `/contact?service=ai-consulting&intent=gallery&demo=${encodeURIComponent(page.slug)}`
 
   return (
     <div className="min-h-screen bg-[var(--site-bg)]">
@@ -80,86 +82,35 @@ export function AiCapabilityDetailShell({
 
         <div className="space-y-8 md:space-y-10">{children}</div>
 
-        <footer className="mt-12 border-t border-[var(--site-border)] pt-8 md:mt-16 md:pt-10">
-          <div className="mb-8 rounded-xl border border-[var(--site-border)] bg-[color-mix(in_srgb,var(--site-fg)_3%,transparent)] p-6">
-            <h2 className="mb-2 text-lg font-semibold text-[var(--site-fg)]">
-              次のステップ
-            </h2>
-            <p className="mb-5 text-sm text-[var(--site-fg-muted)]">
-              ピンとこなければ活用イメージで現場の流れを読み、導入の進め方や概算へ進めます。
+        <footer className="mt-12 border-t border-[var(--site-border)] pt-10 md:mt-16 md:pt-12">
+          <div className="mb-12 text-center">
+            <p className="mb-2 text-xs font-medium uppercase tracking-[0.2em] text-brand/90">
+              Next
             </p>
-            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              {relatedCase ? (
-                <Link
-                  href={getCaseHref(relatedCase.slug)}
-                  className="inline-flex items-center justify-center rounded-lg bg-brand px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-hover"
-                >
-                  活用イメージを読む
-                </Link>
-              ) : (
-                <Link
-                  href="/cases"
-                  className="inline-flex items-center justify-center rounded-lg bg-brand px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-hover"
-                >
-                  活用イメージ一覧へ
-                </Link>
-              )}
+            <h2 className="mb-3 text-xl font-bold text-[var(--site-fg)] md:text-2xl">
+              次に進む
+            </h2>
+            <p className="mx-auto mb-8 max-w-md text-sm text-[var(--site-fg-muted)]">
+              現場の流れを読む・金額感を見る・相談する。どれからでも大丈夫です。
+            </p>
+            <div className="mx-auto flex max-w-2xl flex-col gap-3 sm:flex-row sm:justify-center">
               <Link
-                href={getHowWeWorkHref(page.slug)}
-                className="inline-flex items-center justify-center rounded-lg border border-brand/40 bg-transparent px-6 py-3 text-sm font-medium text-[var(--site-fg)] transition-colors hover:border-brand hover:bg-brand/10"
+                href={caseHref}
+                className={`${btnBase} bg-brand text-white hover:bg-brand-hover`}
               >
-                このデモの導入の進め方
+                活用イメージ
               </Link>
-              {externalDemo && (
-                <a
-                  href={externalDemo.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-lg border border-brand/40 bg-transparent px-6 py-3 text-sm font-medium text-[var(--site-fg)] transition-colors hover:border-brand hover:bg-brand/10"
-                >
-                  業務デモを開く
-                </a>
-              )}
               <Link
                 href="/estimate"
-                className="inline-flex items-center justify-center rounded-lg border border-[var(--site-border)] px-6 py-3 text-sm font-medium text-[var(--site-fg-muted)] transition-colors hover:border-brand/30 hover:text-[var(--site-fg)]"
+                className={`${btnBase} border border-[var(--site-border)] text-[var(--site-fg)] hover:border-brand/40 hover:bg-brand/5`}
               >
-                概算見積もりへ
-              </Link>
-            </div>
-            {externalDemo?.note && (
-              <p className="mt-3 text-xs text-[var(--site-fg-muted)]">
-                {externalDemo.note}
-              </p>
-            )}
-          </div>
-
-          <div className="mb-10 rounded-xl border border-brand/20 bg-brand/5 p-6">
-            <h2 className="mb-2 text-lg font-semibold text-[var(--site-fg)]">
-              このデモ、自社でも使えるか整理しませんか
-            </h2>
-            <p className="mb-4 text-sm text-[var(--site-fg-muted)]">
-              AIコンシェルジュが「{page.eyebrow}」を起点に、課題・必要な機能・概算の参考まで案内します。
-            </p>
-            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <OpenConciergeButton
-                serviceId="ai-consulting"
-                variant="primary"
-                size="md"
-              >
-                自社でも使えるか相談する
-              </OpenConciergeButton>
-              <Link
-                href={`/contact?service=ai-consulting&intent=gallery&demo=${encodeURIComponent(page.slug)}`}
-                className="inline-flex items-center justify-center rounded-lg border border-brand/40 bg-transparent px-6 py-3 text-sm font-medium text-[var(--site-fg)] transition-colors hover:border-brand hover:bg-brand/10"
-              >
-                お問い合わせ
+                見積もり
               </Link>
               <Link
-                href={GALLERY_BASE}
-                className="inline-flex items-center justify-center rounded-lg border border-[var(--site-border)] px-6 py-3 text-sm font-medium text-[var(--site-fg-muted)] transition-colors hover:border-brand/30 hover:text-[var(--site-fg)]"
+                href={contactHref}
+                className={`${btnBase} border border-[var(--site-border)] text-[var(--site-fg)] hover:border-brand/40 hover:bg-brand/5`}
               >
-                他のデモを見る
+                問い合わせ
               </Link>
             </div>
           </div>
