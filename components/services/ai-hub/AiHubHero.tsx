@@ -29,12 +29,12 @@ export function AiHubHero() {
       }
     >
       <div className={pageHeroActionsClass}>
-        <Link href={aiHubHero.primaryCta.href} className="w-1/2 sm:w-auto sm:flex-1">
+        <Link href={aiHubHero.primaryCta.href} className="min-w-0 flex-1 basis-1/2">
           <Button variant="primary" size="lg" className="w-full">
             {aiHubHero.primaryCta.label}
           </Button>
         </Link>
-        <Link href={aiHubHero.secondaryCta.href} className="w-1/2 sm:w-auto sm:flex-1">
+        <Link href={aiHubHero.secondaryCta.href} className="min-w-0 flex-1 basis-1/2">
           <Button variant="secondary" size="lg" className="w-full">
             {aiHubHero.secondaryCta.label}
           </Button>

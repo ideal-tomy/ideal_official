@@ -25,12 +25,12 @@ export function LabServiceBridge({
     <div className="min-h-screen bg-black">
       <PageHero title={title} description={subtitle}>
         <div className={pageHeroActionsClass}>
-          <Link href={labHref} className="w-1/2 sm:w-auto sm:flex-1">
+          <Link href={labHref} className="min-w-0 flex-1 basis-1/2">
             <Button variant="primary" size="lg" className="w-full">
               {labLabel}を見る
             </Button>
           </Link>
-          <Link href={contactHref} className="w-1/2 sm:w-auto sm:flex-1">
+          <Link href={contactHref} className="min-w-0 flex-1 basis-1/2">
             <Button variant="secondary" size="lg" className="w-full">
               相談する
             </Button>

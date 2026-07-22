@@ -5,6 +5,7 @@ import { Footer } from "../components/layout/Footer";
 import { FabDrawerNav } from "../components/layout/FabDrawerNav";
 import { ConciergeProvider } from "@/components/concierge/concierge-context";
 import { ConciergeRoot } from "@/components/concierge/ConciergeRoot";
+import { FooterConcierge } from "@/components/concierge/FooterConcierge";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 
 const notoSansJP = Noto_Sans_JP({
@@ -69,6 +70,7 @@ export default function RootLayout({
             <main className="flex-grow pt-16 md:pt-0">
               {children}
             </main>
+            <FooterConcierge />
             <Footer />
             <ConciergeRoot />
           </ConciergeProvider>

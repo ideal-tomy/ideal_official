@@ -27,6 +27,9 @@ type ConciergeContextValue = {
   /** オープンごとに増分 — フローコンポーネントの key 用 */
   flowSessionNonce: number
   openConcierge: (opts?: OpenConciergeBridgeOpts) => void
+  /** FooterConcierge 表示中（右下 FAB を隠す） */
+  footerGreetingVisible: boolean
+  setFooterGreetingVisible: (v: boolean) => void
 }
 
 const ConciergeContext = createContext<ConciergeContextValue | null>(null)
@@ -39,6 +42,7 @@ export function ConciergeProvider({ children }: { children: ReactNode }) {
     ConciergePageContext | undefined
   >()
   const [flowSessionNonce, setFlowSessionNonce] = useState(0)
+  const [footerGreetingVisible, setFooterGreetingVisible] = useState(false)
 
   const openConcierge = useCallback(
     (opts?: OpenConciergeBridgeOpts) => {
@@ -80,8 +84,18 @@ export function ConciergeProvider({ children }: { children: ReactNode }) {
       pageContext,
       flowSessionNonce,
       openConcierge,
+      footerGreetingVisible,
+      setFooterGreetingVisible,
     }),
-    [close, flowSessionNonce, open, openConcierge, pageContext, serviceHint],
+    [
+      close,
+      flowSessionNonce,
+      footerGreetingVisible,
+      open,
+      openConcierge,
+      pageContext,
+      serviceHint,
+    ],
   )
 
   return (

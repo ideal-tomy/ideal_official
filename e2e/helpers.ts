@@ -1,10 +1,10 @@
 import { expect, type Page } from '@playwright/test'
 
-/** FAB（aria-label 既定: コンシェルジュ）でモーダルを開く */
+/** FAB（aria-label 既定: サイト案内）でモーダルを開く */
 export async function openConciergeFromFab(page: Page) {
-  await page.getByRole('button', { name: 'コンシェルジュ', exact: true }).click()
+  await page.getByRole('button', { name: 'サイト案内', exact: true }).click()
   await expect(
-    page.getByRole('heading', { name: 'AIコンシェルジュ', exact: true }),
+    page.getByRole('heading', { name: 'サイト案内', exact: true }),
   ).toBeVisible({ timeout: 15_000 })
 }
 

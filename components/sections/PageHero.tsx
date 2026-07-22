@@ -16,7 +16,7 @@ export const pageHeroDescriptionClass =
   'mt-4 max-w-[560px] text-[clamp(15px,3.6vw,18px)] font-normal text-white/95 [text-shadow:0_1px_12px_rgba(0,0,0,.5)] md:mt-6'
 
 export const pageHeroActionsClass =
-  'mt-5 flex w-full flex-wrap gap-3 sm:w-auto sm:max-w-md md:mt-8'
+  'mt-5 flex w-full flex-nowrap gap-3 sm:w-auto sm:max-w-md md:mt-8'
 
 type PageHeroProps = {
   title: string

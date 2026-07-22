@@ -1,32 +1,48 @@
 'use client'
 
+import { ConciergeRobot, CONCIERGE_ROBOT_CSS } from './ConciergeRobot'
+
 interface ConciergeFabProps {
   onClick: () => void
   label?: string
 }
 
-export function ConciergeFab({ onClick, label = 'コンシェルジュ' }: ConciergeFabProps) {
+export function ConciergeFab({
+  onClick,
+  label = 'サイト案内',
+}: ConciergeFabProps) {
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-label={label}
-      className="
-        fixed z-50
-        bottom-[max(1.25rem,env(safe-area-inset-bottom))]
-        right-[max(1.25rem,env(safe-area-inset-right))]
-        sm:bottom-8 sm:right-8
-        flex items-center gap-2 rounded-full
-        bg-brand-deep text-[#111] font-bold text-sm sm:text-base
-        px-5 py-3 sm:px-6 sm:py-4
-        shadow-lg shadow-[0_8px_24px_color-mix(in_srgb,var(--color-brand-deep)_35%,transparent)]
-        hover:brightness-95 hover:scale-105 active:scale-95
-        transition-all duration-300 ease-in-out
-        focus:outline-none focus:ring-2 focus:ring-brand-deep focus:ring-offset-2 focus:ring-offset-black
-      "
-    >
-      <span className="hidden sm:inline">{label}</span>
-      <span className="sm:hidden">相談</span>
-    </button>
+    <>
+      <style>{CONCIERGE_ROBOT_CSS}</style>
+      <button
+        type="button"
+        onClick={onClick}
+        aria-label={label}
+        className="
+          fixed z-50
+          bottom-[max(1rem,env(safe-area-inset-bottom))]
+          right-[max(1rem,env(safe-area-inset-right))]
+          sm:bottom-6 sm:right-6
+          flex flex-col items-center gap-1
+          rounded-full
+          bg-transparent
+          p-0
+          transition-transform duration-300 ease-in-out
+          hover:scale-105 active:scale-95
+          focus:outline-none focus:ring-2 focus:ring-brand-deep focus:ring-offset-2 focus:ring-offset-[var(--site-bg)]
+        "
+      >
+        <ConciergeRobot size={72} />
+        <span
+          className="
+            rounded-full bg-brand-deep text-[#111]
+            px-2.5 py-0.5 text-[11px] font-bold
+            shadow-md
+          "
+        >
+          案内
+        </span>
+      </button>
+    </>
   )
 }

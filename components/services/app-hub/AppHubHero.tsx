@@ -50,12 +50,12 @@ export function AppHubHero() {
       }
     >
       <div className={pageHeroActionsClass}>
-        <Link href={appHubHero.primaryCta.href} className="w-1/2 sm:w-auto sm:flex-1">
+        <Link href={appHubHero.primaryCta.href} className="min-w-0 flex-1 basis-1/2">
           <Button variant="primary" size="lg" className="w-full">
             {appHubHero.primaryCta.label}
           </Button>
         </Link>
-        <Link href={appHubHero.secondaryCta.href} className="w-1/2 sm:w-auto sm:flex-1">
+        <Link href={appHubHero.secondaryCta.href} className="min-w-0 flex-1 basis-1/2">
           <Button variant="secondary" size="lg" className="w-full">
             {appHubHero.secondaryCta.label}
           </Button>

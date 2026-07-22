@@ -31,7 +31,11 @@ export function OpenConciergeButton({
       className={className}
       fullWidth={fullWidth}
       onClick={() =>
-        openConcierge(serviceId ? { serviceHint: serviceId } : undefined)
+        openConcierge(
+          serviceId
+            ? { serviceHint: serviceId }
+            : undefined,
+        )
       }
     >
       {children}
