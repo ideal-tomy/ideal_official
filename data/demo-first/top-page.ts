@@ -31,6 +31,8 @@ export type IndustryCard = {
   englishLabel: string
   issues: string[]
   solutions: string[]
+  /** カード用ビジュアル（/images/lp — ThemeImage で _light 切替） */
+  image: string
   /** 事例詳細（製造は AI サービスへ） */
   detailHref?: string
   /** detailHref 用ラベル（例: 流れを見る / AIサービスを見る） */
@@ -56,6 +58,7 @@ export function getIndustryCards(): IndustryCard[] {
       id: 'construction',
       title: '建設・設備',
       englishLabel: 'Construction',
+      image: '/images/lp/construction.png',
       issues: construction
         ? [
             construction.before.summary,
@@ -80,6 +83,7 @@ export function getIndustryCards(): IndustryCard[] {
       id: 'care',
       title: '医療・福祉',
       englishLabel: 'Care & Welfare',
+      image: '/images/lp/care.png',
       issues: care
         ? [
             care.before.summary,
@@ -102,6 +106,7 @@ export function getIndustryCards(): IndustryCard[] {
       id: 'retail',
       title: '小売・サービス',
       englishLabel: 'Retail & Service',
+      image: '/images/lp/retail.png',
       issues: [
         'よくある問い合わせ（商品・予約・返品など）に、毎回人が答えている',
         '営業時間外や混雑時に案内が止まり、取りこぼしが起きる',
@@ -120,6 +125,7 @@ export function getIndustryCards(): IndustryCard[] {
       id: 'manufacturing',
       title: '製造',
       englishLabel: 'Manufacturing',
+      image: '/images/lp/manufacturing.png',
       issues: [
         '判断基準がベテランの頭の中にあり、計画・調整が属人化している',
         '規程やマニュアルを何度も探し回り、根拠付きの判断が遅い',
