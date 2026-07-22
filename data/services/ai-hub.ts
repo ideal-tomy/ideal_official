@@ -8,11 +8,9 @@ import { getCaseHref } from '@/data/cases'
 export const AI_HUB_GALLERY = GALLERY_BASE
 
 export const aiHubHero = {
-  eyebrow: 'Demo-First AI',
-  titleLine1: 'AIで、仕事はどこまで',
-  titleLine2: '変えられるか。',
+  title: 'AIで仕事は変わっていく',
   subtitle:
-    '提案書の前に、触ってください。7つの業務変化デモから自社に近いパターンを見つけ、判断の根拠まで体験できます。',
+    '提案書の前に、触ってください。7つの業務変化デモから自社に近いパターンを見つけられます。',
   primaryCta: {
     label: 'デモ一覧を体験する',
     href: GALLERY_BASE,

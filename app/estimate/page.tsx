@@ -10,6 +10,7 @@ import Link from 'next/link'
 import { Section } from '@/components/ui/Section'
 import { OpenConciergeButton } from '@/components/concierge/OpenConciergeButton'
 import { HowWeWorkSummary } from '@/components/how-we-work/HowWeWorkSummary'
+import { PageHero } from '@/components/sections/PageHero'
 import { typography, colors } from '@/lib/design-tokens'
 import { ESTIMATE_DISCLAIMER } from '@/lib/concierge/pricing-rules'
 import { buildRoiSimulatorHref } from '@/lib/roiSimulator'
@@ -34,24 +35,14 @@ export default function EstimatePage() {
 
   return (
     <>
-      <Section backgroundColor="black" className="pt-8 md:pt-24 pb-8 md:pb-10">
-        <div className="mx-auto max-w-3xl px-4 text-center">
-          <p className="mb-3 hidden text-xs font-medium uppercase tracking-[0.2em] text-brand/90 md:block">
-            Estimate
-          </p>
-          <h1 className={`${typography.h2} ${colors.text.primary} mb-4`}>
-            自動見積もり
-          </h1>
-          <p className={`${typography.body} ${colors.text.muted} mb-4`}>
-            いくつかの質問に答えると、参考の価格レンジがわかります。
-            <br className="hidden sm:block" />
-            課題の整理や進め方の相談は、AIコンシェルジュもご利用ください。
-          </p>
-          <p className={`${typography.small} ${colors.text.disabled}`}>
-            {ESTIMATE_DISCLAIMER}
-          </p>
-        </div>
-      </Section>
+      <PageHero
+        title="自動見積もり"
+        description="いくつかの質問に答えると、参考の価格レンジがわかります。課題整理や進め方の相談は、AIコンシェルジュもご利用ください。"
+      >
+        <p className={`mt-4 max-w-[560px] ${typography.small} ${colors.text.disabled}`}>
+          {ESTIMATE_DISCLAIMER}
+        </p>
+      </PageHero>
 
       <Section
         backgroundColor="black"

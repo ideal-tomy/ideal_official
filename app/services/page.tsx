@@ -78,8 +78,7 @@ export default function ServicesPage() {
     <>
       <HeroSection
         title="デモから始めるDX開発"
-        subText="汎用ツールの導入で終わらせず、現場の課題を「触れるデモ」にしてから一緒に答え合わせをします。
-小さく作り、反応を見ながら育てる進め方です。"
+        subText="汎用ツールの導入で終わらせず、現場の課題を触れるデモにして答え合わせ。小さく作り、反応を見ながら育てます。"
       />
 
       <ServiceNavigation serviceLinks={serviceNavLinks} currentServiceId="" />

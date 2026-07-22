@@ -1,31 +1,21 @@
 import { HeroSectionProps } from '../../types/service'
-import { typography, colors, layout } from '../../lib/design-tokens'
-import { HeroReveal } from '../motion/HeroReveal'
-import { HeroBackground } from '../motion/HeroBackground'
+import { PageHero } from './PageHero'
 
 /**
- * ヒーローセクションコンポーネント
- * 下層ページ用 — トップと同じ宇宙背景・全画面レイアウト
+ * 下層ページ用ヒーロー（トップと同設定）
  */
 export function HeroSection({
   title,
   subText,
   className = '',
+  overlapHeader = true,
 }: HeroSectionProps) {
   return (
-    <section
-      className={`relative -mt-16 flex min-h-[40vh] items-center justify-center overflow-hidden md:mt-0 md:min-h-[70vh] ${className}`}
-    >
-      <HeroBackground />
-
-      <HeroReveal className={`relative z-10 ${layout.container} text-center`}>
-        <h1 className={`${typography.h1} ${colors.text.primary} mb-4 md:mb-6`}>
-          {title}
-        </h1>
-        <p className={`${typography.bodyLarge} ${colors.text.muted} max-w-3xl mx-auto`}>
-          {subText}
-        </p>
-      </HeroReveal>
-    </section>
+    <PageHero
+      title={title}
+      description={subText}
+      className={className}
+      overlapHeader={overlapHeader}
+    />
   )
 }

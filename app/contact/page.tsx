@@ -28,7 +28,7 @@ export default function ContactPage() {
     <>
       <HeroSection
         title="お問い合わせ"
-        subText="ご相談・お見積もりなど、お気軽にご連絡ください。"
+        subText="ご相談・お見積もりなど、お気軽にご連絡ください。金額感を先に知りたい方は自動見積もりもご利用いただけます。"
       />
 
       <Section backgroundColor="black" containerSize="narrow">

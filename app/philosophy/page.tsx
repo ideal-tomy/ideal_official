@@ -40,7 +40,8 @@ export default function PhilosophyPage() {
 
       <HeroSection
         title="自由と秩序が両立した社会を設計する"
-        subText="正直であることが合理的な環境の設計へ"
+        subText="正直であることが合理的な環境の設計へ。思想と仕組みの両面から、理想の社会像を示します。"
+        overlapHeader={false}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 lg:pb-24">

@@ -1,17 +1,15 @@
 import Link from 'next/link'
-import { HeroReveal } from '@/components/motion/HeroReveal'
-import { HeroBackground } from '@/components/motion/HeroBackground'
-import { typography, colors, layout } from '@/lib/design-tokens'
+import { typography, colors } from '@/lib/design-tokens'
 import { LabBreadcrumb } from '@/components/lab/LabChrome'
+import { PageHero } from '@/components/sections/PageHero'
 import { Button } from '@/components/ui/Button'
 
 export function LabAreaHero({
-  eyebrow,
   title,
   subtitle,
   breadcrumbLabel,
 }: {
-  eyebrow: string
+  eyebrow?: string
   title: string
   subtitle: string
   breadcrumbLabel: string
@@ -19,20 +17,11 @@ export function LabAreaHero({
   return (
     <>
       <LabBreadcrumb items={[{ label: breadcrumbLabel }]} />
-      <section className="relative flex min-h-[40vh] items-center justify-center overflow-hidden border-b border-brand/40 md:min-h-[45vh]">
-        <HeroBackground />
-        <HeroReveal className={`relative z-10 ${layout.container} text-center`}>
-          <p className="mb-4 hidden text-xs font-medium uppercase tracking-[0.2em] text-brand/90 md:block">
-            {eyebrow}
-          </p>
-          <h1 className={`${typography.h1} ${colors.text.primary} mb-6 whitespace-pre-line`}>
-            {title}
-          </h1>
-          <p className={`${typography.bodyLarge} ${colors.text.muted} max-w-2xl mx-auto`}>
-            {subtitle}
-          </p>
-        </HeroReveal>
-      </section>
+      <PageHero
+        title={title}
+        description={subtitle}
+        overlapHeader={false}
+      />
     </>
   )
 }

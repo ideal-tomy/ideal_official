@@ -1,8 +1,8 @@
 export const metaverseLabHero = {
   eyebrow: 'Spatial / VR・AR Lab',
-  title: '画面を見るだけではなく、\n空間を体験する',
+  title: '画面ではなく、空間を体験する',
   subtitle:
-    'VR、AR、3D、バーチャルイベント。ideal は空間体験を、訓練・展示・物語の領域として研究・制作してきました。',
+    'VR・AR・3D・バーチャルイベント。空間体験を訓練・展示・物語の領域として研究・制作しています。',
 } as const
 
 export const metaverseCategories = [

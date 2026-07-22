@@ -2,7 +2,7 @@ export const blockchainLabHero = {
   eyebrow: 'Blockchain / DAO Lab',
   title: '分散型技術を、研究する',
   subtitle:
-    '透明性・貢献・ガバナンス。ideal はブロックチェーンと DAO を、組織設計と技術実験の領域として研究しています。',
+    '透明性・貢献・ガバナンス。ブロックチェーンと DAO を、組織設計と技術実験の領域として研究しています。',
 } as const
 
 export const blockchainPhilosophyPoints = [

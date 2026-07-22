@@ -1,8 +1,7 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
-import { HeroReveal } from '@/components/motion/HeroReveal'
-import { HeroBackground } from '@/components/motion/HeroBackground'
-import { typography, colors, layout } from '@/lib/design-tokens'
+import { PageHero, pageHeroActionsClass } from '@/components/sections/PageHero'
+import { typography, colors } from '@/lib/design-tokens'
 
 interface LabServiceBridgeProps {
   title: string
@@ -24,30 +23,20 @@ export function LabServiceBridge({
 }: LabServiceBridgeProps) {
   return (
     <div className="min-h-screen bg-black">
-      <section className="relative flex min-h-[60vh] items-center justify-center overflow-hidden border-b border-brand/40">
-        <HeroBackground />
-        <HeroReveal className={`relative z-10 ${layout.container} text-center`}>
-          <p className="text-xs font-medium tracking-[0.2em] uppercase text-brand/90 mb-4">
-            LAB へ移動しました
-          </p>
-          <h1 className={`${typography.h1} ${colors.text.primary} mb-6`}>{title}</h1>
-          <p className={`${typography.bodyLarge} ${colors.text.muted} max-w-2xl mx-auto mb-10`}>
-            {subtitle}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link href={labHref}>
-              <Button variant="primary" size="lg">
-                {labLabel}を見る
-              </Button>
-            </Link>
-            <Link href={contactHref}>
-              <Button variant="secondary" size="lg">
-                相談する
-              </Button>
-            </Link>
-          </div>
-        </HeroReveal>
-      </section>
+      <PageHero title={title} description={subtitle}>
+        <div className={pageHeroActionsClass}>
+          <Link href={labHref} className="w-1/2 sm:w-auto sm:flex-1">
+            <Button variant="primary" size="lg" className="w-full">
+              {labLabel}を見る
+            </Button>
+          </Link>
+          <Link href={contactHref} className="w-1/2 sm:w-auto sm:flex-1">
+            <Button variant="secondary" size="lg" className="w-full">
+              相談する
+            </Button>
+          </Link>
+        </div>
+      </PageHero>
 
       <section className="py-12 border-b border-brand/40">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

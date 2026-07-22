@@ -14,7 +14,7 @@ import {
   getCaseByRelatedDemoSlug,
   getCaseHref,
 } from '@/data/cases'
-import { typography, colors } from '@/lib/design-tokens'
+import { PageHero } from '@/components/sections/PageHero'
 
 export const metadata: Metadata = {
   title: `${HOW_WE_WORK_TITLE} | ideal`,
@@ -28,19 +28,7 @@ export const metadata: Metadata = {
 export default function HowWeWorkHubPage() {
   return (
     <div className="min-h-screen bg-[var(--site-bg)]">
-      <section className="border-b border-brand/40 px-4 pb-12 pt-10 md:pb-16 md:pt-24">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-3 hidden text-xs font-medium uppercase tracking-[0.2em] text-brand/90 md:block">
-            How we work
-          </p>
-          <h1 className={`${typography.h2} ${colors.text.primary} mb-4`}>
-            {HOW_WE_WORK_TITLE}
-          </h1>
-          <p className={`${typography.body} ${colors.text.muted}`}>
-            {HOW_WE_WORK_HUB_LEAD}
-          </p>
-        </div>
-      </section>
+      <PageHero title={HOW_WE_WORK_TITLE} description={HOW_WE_WORK_HUB_LEAD} />
 
       <section className="px-4 py-12 md:py-16">
         <div className="mx-auto max-w-3xl">

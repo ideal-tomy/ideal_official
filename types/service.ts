@@ -68,6 +68,7 @@ export interface HeroSectionProps {
   title: string
   subText: string
   className?: string
+  overlapHeader?: boolean
 }
 
 // サービスナビゲーションリンクのデータ型定義
