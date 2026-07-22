@@ -32,6 +32,7 @@ export function AiCapabilityDetailShell({
   relatedCapabilities = [],
 }: AiCapabilityDetailShellProps) {
   const relatedCase = getCaseByRelatedDemoSlug(page.slug)
+  const externalDemo = relatedCase?.externalDemo
   const caseHref = relatedCase ? getCaseHref(relatedCase.slug) : '/cases'
   const contactHref = `/contact?service=ai-consulting&intent=gallery&demo=${encodeURIComponent(page.slug)}`
 
@@ -60,9 +61,27 @@ export function AiCapabilityDetailShell({
           <p className="mb-1.5 hidden text-[10px] font-medium uppercase tracking-[0.2em] text-brand/90 md:mb-3 md:block md:text-xs">
             {page.eyebrow}
           </p>
-          <h1 className="mb-2 text-xl font-bold leading-snug tracking-tight text-[var(--site-fg)] sm:text-2xl md:mb-4 md:text-3xl lg:text-4xl lg:leading-tight">
-            {page.title}
-          </h1>
+
+          <div className="mb-2 flex flex-col gap-3 sm:mb-4 md:flex-row md:items-start md:justify-between md:gap-6">
+            <h1 className="min-w-0 flex-1 text-xl font-bold leading-snug tracking-tight text-[var(--site-fg)] sm:text-2xl md:text-3xl lg:text-4xl lg:leading-tight">
+              {page.title}
+            </h1>
+            {externalDemo && (
+              <div className="shrink-0 md:pt-1">
+                <a
+                  href={externalDemo.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full items-center justify-center gap-1.5 rounded-lg border border-brand/50 bg-brand/10 px-4 py-2.5 text-sm font-semibold text-brand transition-colors hover:border-brand hover:bg-brand/20 sm:w-auto"
+                >
+                  本格デモを開く
+                  <span aria-hidden className="text-xs opacity-80">
+                    ↗
+                  </span>
+                </a>
+              </div>
+            )}
+          </div>
 
           <p className="mb-4 hidden text-lg leading-relaxed text-[var(--site-fg)]/90 md:block">
             {page.lead}
