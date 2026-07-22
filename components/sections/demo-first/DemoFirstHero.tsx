@@ -5,7 +5,7 @@ export function DemoFirstHero() {
   return (
     <section
       id="top"
-      className="relative -mt-16 flex aspect-square max-h-[min(100svw,420px)] min-h-0 flex-col justify-center overflow-hidden px-0 py-8 text-white md:mt-0 md:aspect-auto md:max-h-none md:min-h-[min(92svh,900px)] md:py-24"
+      className="relative -mt-16 overflow-hidden px-0 pt-28 pb-4 text-white md:mt-0 md:flex md:min-h-[min(92svh,900px)] md:flex-col md:justify-center md:py-24"
     >
       <Image
         src="/images/top.png"
@@ -27,9 +27,6 @@ export function DemoFirstHero() {
       />
 
       <div className="relative z-10 mx-auto w-[min(100%-48px,1080px)]">
-        <p className="df-rise-1 mb-3 hidden text-xs font-bold tracking-[0.2em] text-white/85 md:block">
-          DEMO-FIRST DEVELOPMENT
-        </p>
         <h1 className="df-rise-1 text-[clamp(26px,6.5vw,56px)] font-black leading-tight tracking-[0.04em] [text-shadow:0_2px_24px_rgba(0,0,0,.55)] md:text-[clamp(34px,5.5vw,56px)] md:leading-[1.25]">
           触って試せるシステム開発
         </h1>

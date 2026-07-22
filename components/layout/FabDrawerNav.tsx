@@ -92,9 +92,6 @@ export function FabDrawerNav() {
             className="shrink-0 text-lg font-black tracking-[0.06em] text-[var(--site-fg)]"
           >
             ideal
-            <span className="ml-2 text-[10px] font-normal tracking-[0.18em] text-[var(--df-text-muted)]">
-              DEMO-FIRST
-            </span>
           </Link>
 
           <ul className="flex flex-1 items-center justify-end gap-5 lg:gap-6">
@@ -133,9 +130,6 @@ export function FabDrawerNav() {
         }`}
       >
         ideal
-        <small className="mt-0.5 block text-[11px] font-normal tracking-[0.2em] text-[var(--site-fg)]/80">
-          DEMO-FIRST
-        </small>
       </Link>
 
       <button
