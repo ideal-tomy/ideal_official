@@ -8,6 +8,7 @@ import {
 import type { Capability } from '@/data/ai-capability-gallery/capabilities'
 import { GALLERY_BASE } from '@/data/ai-capability-gallery/capabilities'
 import { RelatedPatternsMarquee } from '@/components/ai-capability-gallery/RelatedPatternsMarquee'
+import { buildRoiSimulatorHrefForGalleryDemo } from '@/lib/roiSimulator'
 
 export interface CapabilityDetailMeta {
   slug: string
@@ -35,6 +36,9 @@ export function AiCapabilityDetailShell({
   const externalDemo = relatedCase?.externalDemo
   const caseHref = relatedCase ? getCaseHref(relatedCase.slug) : '/cases'
   const contactHref = `/contact?service=ai-consulting&intent=gallery&demo=${encodeURIComponent(page.slug)}`
+  const estimateHref = buildRoiSimulatorHrefForGalleryDemo(page.slug, {
+    returnPath: `${GALLERY_BASE}/${page.slug}`,
+  })
 
   return (
     <div className="min-h-screen bg-[var(--site-bg)]">
@@ -119,12 +123,23 @@ export function AiCapabilityDetailShell({
               >
                 活用イメージ
               </Link>
-              <Link
-                href="/estimate"
-                className={`${btnBase} border border-[var(--site-border)] text-[var(--site-fg)] hover:border-brand/40 hover:bg-brand/5`}
-              >
-                見積もり
-              </Link>
+              {estimateHref ? (
+                <a
+                  href={estimateHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${btnBase} border border-[var(--site-border)] text-[var(--site-fg)] hover:border-brand/40 hover:bg-brand/5`}
+                >
+                  見積もり
+                </a>
+              ) : (
+                <Link
+                  href="/estimate"
+                  className={`${btnBase} border border-[var(--site-border)] text-[var(--site-fg)] hover:border-brand/40 hover:bg-brand/5`}
+                >
+                  見積もり
+                </Link>
+              )}
               <Link
                 href={contactHref}
                 className={`${btnBase} border border-[var(--site-border)] text-[var(--site-fg)] hover:border-brand/40 hover:bg-brand/5`}

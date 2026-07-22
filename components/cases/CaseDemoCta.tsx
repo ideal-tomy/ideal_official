@@ -4,8 +4,7 @@ import Link from 'next/link'
 import type { CaseStudy } from '@/data/cases'
 import { getCaseHref } from '@/data/cases'
 import { Button } from '@/components/ui/Button'
-import { buildRoiSimulatorHref } from '@/lib/roiSimulator'
-import { getHowWeWorkDemoGuide } from '@/data/how-we-work'
+import { buildRoiSimulatorHrefForGalleryDemo } from '@/lib/roiSimulator'
 
 interface CaseDemoCtaProps {
   caseStudy: CaseStudy
@@ -13,10 +12,8 @@ interface CaseDemoCtaProps {
 
 export function CaseDemoCta({ caseStudy }: CaseDemoCtaProps) {
   const { relatedDemo, externalDemo } = caseStudy
-  const guide = getHowWeWorkDemoGuide(relatedDemo.slug)
   const returnPath = getCaseHref(caseStudy.slug)
-  const roiHref = buildRoiSimulatorHref({
-    kit: guide?.estimateKit,
+  const roiHref = buildRoiSimulatorHrefForGalleryDemo(relatedDemo.slug, {
     returnPath,
   })
 
@@ -32,7 +29,7 @@ export function CaseDemoCta({ caseStudy }: CaseDemoCtaProps) {
         </p>
 
         <div className="flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-          <Link href={relatedDemo.href} className="sm:flex-1 sm:min-w-[10rem]">
+          <Link href={relatedDemo.href} className="sm:min-w-[10rem] sm:flex-1">
             <Button variant="primary" size="lg" fullWidth>
               簡易デモを体験
             </Button>
@@ -43,7 +40,7 @@ export function CaseDemoCta({ caseStudy }: CaseDemoCtaProps) {
               href={externalDemo.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="sm:flex-1 sm:min-w-[10rem]"
+              className="sm:min-w-[10rem] sm:flex-1"
             >
               <Button variant="secondary" size="lg" fullWidth>
                 業務デモを開く
@@ -56,14 +53,14 @@ export function CaseDemoCta({ caseStudy }: CaseDemoCtaProps) {
               href={roiHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="sm:flex-1 sm:min-w-[10rem]"
+              className="sm:min-w-[10rem] sm:flex-1"
             >
               <Button variant="outline" size="lg" fullWidth>
-                概算見積もりへ
+                概算見積もりを開く
               </Button>
             </a>
           ) : (
-            <Link href="/estimate" className="sm:flex-1 sm:min-w-[10rem]">
+            <Link href="/estimate" className="sm:min-w-[10rem] sm:flex-1">
               <Button variant="outline" size="lg" fullWidth>
                 概算見積もりへ
               </Button>
