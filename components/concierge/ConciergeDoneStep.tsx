@@ -163,7 +163,7 @@ export function ConciergeDoneStep({
         !pageContext?.caseSlug ? (
           <div>
             <p className={`${typography.caption} ${colors.text.muted} mb-2`}>
-              関連事例
+              関連の活用イメージ
             </p>
             <ul className="space-y-2">
               {result.relatedCases.map((c) => (

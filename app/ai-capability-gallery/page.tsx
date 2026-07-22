@@ -94,7 +94,7 @@ export default function AiCapabilityGalleryPage() {
       <div className="hidden md:block">
         <SingleColumnSection
           title="機能を作る前に、何を変えるべきかを見極める。"
-          description="我々は、企業ごとに異なる課題に対して、どこに技術を介入させるべきかを見つけ、必要ならプロトタイプを作り、業務の未来を先に見せます。このギャラリーは、そのための基本パターン集です。"
+          description="我々は、企業ごとの異なる課題に対して、どこに技術を介入させるべきかを見つけ、必要ならプロトタイプを作り、業務の未来を先に見せます。このギャラリーは、そのための基本パターン集です。"
           variant="dark"
           padding="lg"
         >
@@ -105,7 +105,7 @@ export default function AiCapabilityGalleryPage() {
       <section className="border-t border-[var(--site-border)] bg-[var(--site-bg)] py-10 md:py-12">
         <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
           <p className="mb-3 text-xs uppercase tracking-[0.2em] text-brand/90">
-            Cases
+            活用イメージ
           </p>
           <h2 className="mb-3 text-xl font-bold text-[var(--site-fg)] md:text-2xl">
             業界の流れに、置き換えてみる
@@ -117,7 +117,7 @@ export default function AiCapabilityGalleryPage() {
             href="/cases"
             className="inline-flex items-center text-sm font-medium text-[var(--site-fg-muted)] transition-colors hover:text-brand"
           >
-            事例を読む →
+            活用イメージを読む →
           </a>
         </div>
       </section>

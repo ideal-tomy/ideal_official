@@ -26,7 +26,7 @@ export function DemoActions({
           size="md"
           onClick={onProcess}
           disabled={isProcessing}
-          className="!bg-brand hover:!bg-brand-deep"
+          className="!bg-brand hover:!bg-brand-hover"
         >
           {isProcessing ? processingLabel : processLabel}
         </Button>
@@ -53,7 +53,7 @@ export function DemoActions({
             size="md"
             onClick={onProcess}
             disabled={isProcessing}
-            className="!bg-brand hover:!bg-brand-deep flex-1"
+            className="!bg-brand hover:!bg-brand-hover flex-1"
           >
             {isProcessing ? processingLabel : processLabel}
           </Button>

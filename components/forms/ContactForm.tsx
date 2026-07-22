@@ -59,9 +59,9 @@ function buildDefaultMessage(
     }
   }
   if (intent === 'cases') {
-    lines.push('【事例ページ経由のご相談】')
+    lines.push('【活用イメージページ経由のご相談】')
     if (caseSlug) {
-      lines.push(`【事例】${caseSlug}`)
+      lines.push(`【活用イメージ】${caseSlug}`)
     }
   }
   if (serviceId) {
@@ -209,7 +209,7 @@ export function ContactForm() {
           )}
           {intent === 'cases' && (
             <p>
-              事例ページからのお問い合わせです
+              活用イメージページからのお問い合わせです
               {caseSlug ? `（${caseSlug}）` : ''}。
             </p>
           )}

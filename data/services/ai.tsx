@@ -88,8 +88,9 @@ export const aiServiceData: ServicePageData = {
           },
           {
             id: 'use-cases',
-            name: '活用事例',
-            content: '実際の導入事例を通じて、AIの効果的な活用方法を学べます。'
+            name: '活用イメージ',
+            content:
+              '業界・課題ごとの業務フロー変化を読み、関連デモから自社への当てはめを考えられます。',
           }
         ]
       }

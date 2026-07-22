@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import type { PortfolioDemo } from '@/data/demo-first/portfolio'
 
@@ -25,7 +26,7 @@ export function DemoFirstPortfolioCarousel({ items }: Props) {
         <button
           type="button"
           onClick={() => scrollByCard(-1)}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/40 bg-white/10 text-lg font-bold text-white transition-colors hover:bg-white/20"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--df-primary)]/45 bg-[var(--df-bg-card)] text-lg font-bold text-[var(--df-on-primary)] transition-colors hover:border-[var(--df-primary)] hover:bg-[var(--df-primary)]/15"
           aria-label="前のデモへ"
         >
           ←
@@ -33,7 +34,7 @@ export function DemoFirstPortfolioCarousel({ items }: Props) {
         <button
           type="button"
           onClick={() => scrollByCard(1)}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/40 bg-white/10 text-lg font-bold text-white transition-colors hover:bg-white/20"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--df-primary)]/45 bg-[var(--df-bg-card)] text-lg font-bold text-[var(--df-on-primary)] transition-colors hover:border-[var(--df-primary)] hover:bg-[var(--df-primary)]/15"
           aria-label="次のデモへ"
         >
           →
@@ -48,47 +49,66 @@ export function DemoFirstPortfolioCarousel({ items }: Props) {
           <article
             key={item.id}
             data-portfolio-card
-            className="df-portfolio-card flex w-[min(85vw,320px)] shrink-0 snap-start flex-col rounded-[var(--df-radius-card)] border border-white/35 bg-white/10 p-6 backdrop-blur-[2px]"
+            className="df-portfolio-card flex w-[min(85vw,320px)] shrink-0 snap-start flex-col overflow-hidden rounded-[var(--df-radius-card)] border border-[var(--site-border)] bg-[var(--df-bg-card)]"
           >
-            <div className="mb-3 flex flex-wrap gap-2">
-              {item.tags.slice(0, 2).map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full border border-white/80 px-3 py-0.5 text-xs font-bold text-white"
-                >
-                  {tag}
-                </span>
-              ))}
+            <div className="relative aspect-[16/9] bg-[linear-gradient(160deg,var(--df-hero-2),var(--df-primary-hover))]">
+              <Image
+                src={item.image}
+                alt=""
+                fill
+                sizes="(max-width: 768px) 85vw, 320px"
+                className="object-cover object-center opacity-90"
+                aria-hidden="true"
+              />
+              <div
+                className="absolute inset-0 bg-gradient-to-t from-[var(--df-bg-card)] via-transparent to-transparent"
+                aria-hidden="true"
+              />
             </div>
-            <h3 className="mb-2 text-[17px] font-black leading-[1.6]">{item.title}</h3>
-            <p className="mb-5 flex-1 text-[13.5px] leading-relaxed opacity-90">
-              {item.lead}
-            </p>
 
-            <div className="mt-auto space-y-2 border-t border-white/25 pt-4">
-              {item.sampleHref && (
-                <Link
-                  href={item.sampleHref}
-                  className="flex w-full items-center justify-center rounded-[var(--df-radius-btn)] bg-white px-4 py-2.5 text-sm font-bold text-[var(--df-primary-deep)] transition-transform hover:-translate-y-0.5"
-                >
-                  サンプルで触る
-                </Link>
-              )}
-              {item.externalDemoUrl && (
-                <a
-                  href={item.externalDemoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex w-full items-center justify-center rounded-[var(--df-radius-btn)] border border-white/70 bg-white/10 px-4 py-2.5 text-sm font-bold text-white transition-colors hover:bg-white/20"
-                >
-                  本格デモを開く ↗
-                </a>
-              )}
-              {item.externalNote && (
-                <p className="text-[11px] leading-relaxed text-white/75">
-                  {item.externalNote}
-                </p>
-              )}
+            <div className="flex flex-1 flex-col p-5">
+              <div className="mb-3 flex flex-wrap gap-2">
+                {item.tags.slice(0, 2).map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full border border-[var(--df-primary)]/50 bg-[var(--df-primary)]/10 px-3 py-0.5 text-xs font-bold text-[var(--df-primary-deep)]"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <h3 className="mb-2 text-[17px] font-black leading-[1.6] text-[var(--df-text)]">
+                {item.title}
+              </h3>
+              <p className="mb-5 flex-1 text-[13.5px] leading-relaxed text-[var(--df-text-muted)]">
+                {item.lead}
+              </p>
+
+              <div className="mt-auto space-y-2 border-t border-[var(--site-border)] pt-4">
+                {item.sampleHref && (
+                  <Link
+                    href={item.sampleHref}
+                    className="flex w-full items-center justify-center rounded-[var(--df-radius-btn)] bg-[var(--df-primary)] px-4 py-2.5 text-sm font-bold text-[var(--df-on-primary)] transition-colors hover:bg-[var(--df-primary-hover)]"
+                  >
+                    サンプルで触る
+                  </Link>
+                )}
+                {item.externalDemoUrl && (
+                  <a
+                    href={item.externalDemoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex w-full items-center justify-center rounded-[var(--df-radius-btn)] border border-[var(--df-primary-deep)]/55 bg-transparent px-4 py-2.5 text-sm font-bold text-[var(--df-primary-deep)] transition-colors hover:bg-[var(--df-primary-deep)]/10"
+                  >
+                    本格デモを開く ↗
+                  </a>
+                )}
+                {item.externalNote && (
+                  <p className="text-[11px] leading-relaxed text-[var(--df-text-muted)]">
+                    {item.externalNote}
+                  </p>
+                )}
+              </div>
             </div>
           </article>
         ))}

@@ -2,7 +2,7 @@
  * Button コンポーネント
  *
  * variant:
- * - primary … ブランド深紅 #9B2937（サイト共通の主CTA）
+ * - primary … ブランドオレンジ #FF521C（サイト共通の主CTA）
  * - secondary … ダーク面上の白ボタン（Hero など）
  * - outline … 枠線のみ（副CTA）
  */

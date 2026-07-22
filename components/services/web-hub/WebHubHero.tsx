@@ -31,12 +31,12 @@ export function WebHubHero() {
       <div
         className="absolute inset-0 transition-[background] duration-300 ease-out"
         style={{
-          background: `radial-gradient(ellipse 55% 45% at ${glowX}% ${glowY}%, rgba(59,130,246,0.22), transparent 70%)`,
+          background: `radial-gradient(ellipse 55% 45% at ${glowX}% ${glowY}%, rgba(255,82,28,0.22), transparent 70%)`,
         }}
         aria-hidden="true"
       />
       <div
-        className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_80%_20%,rgba(6,182,212,0.08),transparent)]"
+        className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_80%_20%,rgba(240,192,32,0.08),transparent)]"
         aria-hidden="true"
       />
       <div className="hero-stars absolute inset-0 opacity-35" aria-hidden="true" />

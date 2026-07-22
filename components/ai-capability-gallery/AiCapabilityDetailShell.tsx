@@ -1,6 +1,10 @@
 'use client'
 
 import Link from 'next/link'
+import {
+  getCaseByRelatedDemoSlug,
+  getCaseHref,
+} from '@/data/cases'
 import type { Capability } from '@/data/ai-capability-gallery/capabilities'
 import { GALLERY_BASE } from '@/data/ai-capability-gallery/capabilities'
 import { OpenConciergeButton } from '@/components/concierge/OpenConciergeButton'
@@ -25,6 +29,9 @@ export function AiCapabilityDetailShell({
   children,
   relatedCapabilities = [],
 }: AiCapabilityDetailShellProps) {
+  const relatedCase = getCaseByRelatedDemoSlug(page.slug)
+  const externalDemo = relatedCase?.externalDemo
+
   return (
     <div className="min-h-screen bg-[var(--site-bg)]">
       <div className="mx-auto max-w-5xl px-4 py-6 sm:px-6 md:py-12 lg:px-8 lg:py-20">
@@ -36,8 +43,7 @@ export function AiCapabilityDetailShell({
             href={GALLERY_BASE}
             className="text-[var(--site-fg-muted)] transition-colors hover:text-brand"
           >
-            <span className="md:hidden">← デモ一覧</span>
-            <span className="hidden md:inline">← デモ一覧</span>
+            ← デモ一覧
           </Link>
           <span className="hidden text-gray-600 md:inline" aria-hidden="true">
             /
@@ -55,7 +61,6 @@ export function AiCapabilityDetailShell({
             {page.title}
           </h1>
 
-          {/* スマホではリード非表示。PC のみ表示 */}
           <p className="mb-4 hidden text-lg leading-relaxed text-[var(--site-fg)]/90 md:block">
             {page.lead}
           </p>
@@ -75,6 +80,53 @@ export function AiCapabilityDetailShell({
         <div className="space-y-8 md:space-y-10">{children}</div>
 
         <footer className="mt-12 border-t border-[var(--site-border)] pt-8 md:mt-16 md:pt-10">
+          <div className="mb-8 rounded-xl border border-[var(--site-border)] bg-[color-mix(in_srgb,var(--site-fg)_3%,transparent)] p-6">
+            <h2 className="mb-2 text-lg font-semibold text-[var(--site-fg)]">
+              次のステップ
+            </h2>
+            <p className="mb-5 text-sm text-[var(--site-fg-muted)]">
+              ピンとこなければ活用イメージで現場の流れを読み、業務デモや概算へ進めます。
+            </p>
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              {relatedCase ? (
+                <Link
+                  href={getCaseHref(relatedCase.slug)}
+                  className="inline-flex items-center justify-center rounded-lg bg-brand px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-hover"
+                >
+                  活用イメージを読む
+                </Link>
+              ) : (
+                <Link
+                  href="/cases"
+                  className="inline-flex items-center justify-center rounded-lg bg-brand px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-hover"
+                >
+                  活用イメージ一覧へ
+                </Link>
+              )}
+              {externalDemo && (
+                <a
+                  href={externalDemo.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center rounded-lg border border-brand/40 bg-transparent px-6 py-3 text-sm font-medium text-[var(--site-fg)] transition-colors hover:border-brand hover:bg-brand/10"
+                >
+                  業務デモを開く
+                </a>
+              )}
+              <Link
+                href="/estimate"
+                className="inline-flex items-center justify-center rounded-lg border border-[var(--site-border)] px-6 py-3 text-sm font-medium text-[var(--site-fg-muted)] transition-colors hover:border-brand/30 hover:text-[var(--site-fg)]"
+              >
+                概算見積もりへ
+              </Link>
+            </div>
+            {externalDemo?.note && (
+              <p className="mt-3 text-xs text-[var(--site-fg-muted)]">
+                {externalDemo.note}
+              </p>
+            )}
+          </div>
+
           <div className="mb-10 rounded-xl border border-brand/20 bg-brand/5 p-6">
             <h2 className="mb-2 text-lg font-semibold text-[var(--site-fg)]">
               このデモ、自社でも使えるか整理しませんか

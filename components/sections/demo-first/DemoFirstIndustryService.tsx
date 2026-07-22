@@ -154,7 +154,7 @@ export function DemoFirstIndustryService({ cards }: Props) {
             href="/cases"
             className="text-sm font-bold text-[var(--df-primary)] hover:underline"
           >
-            事例一覧を見る →
+            活用イメージ一覧を見る →
           </Link>
         </div>
       </div>

@@ -8,6 +8,8 @@ export type PortfolioDemo = {
   lead: string
   tags: string[]
   status: PortfolioStatus
+  /** カード用サムネイル（/public 配下） */
+  image: string
   /** サイト内サンプル */
   sampleHref?: string
   /** 本格/外部体験 */
@@ -45,6 +47,7 @@ export const portfolioDemos: PortfolioDemo[] = [
     lead: '現場の記録・確認の流れを、業務アプリとして体験できます。',
     tags: ['建設', '現場管理'],
     status: 'ready',
+    image: '/images/lp/autophoto.png',
     sampleHref: `${GALLERY_BASE}/photo-to-classification`,
     externalDemoUrl: EXTERNAL_DEMO_URLS.construction,
     externalNote:
@@ -56,6 +59,7 @@ export const portfolioDemos: PortfolioDemo[] = [
     lead: '属人化しがちな判断・調整を、動く業務画面で確かめられます。',
     tags: ['製造', 'フロー'],
     status: 'ready',
+    image: '/images/lp/workflow_prosess.png',
     sampleHref: `${GALLERY_BASE}/knowledge-to-search`,
     externalDemoUrl: EXTERNAL_DEMO_URLS.manufacturing,
   },
@@ -65,6 +69,7 @@ export const portfolioDemos: PortfolioDemo[] = [
     lead: '現場の記録負担を減らすケア業務の流れを体験できます。',
     tags: ['医療', '介護'],
     status: 'ready',
+    image: '/images/lp/voicememo.png',
     sampleHref: `${GALLERY_BASE}/voice-to-structured`,
     externalDemoUrl: EXTERNAL_DEMO_URLS.care,
   },
@@ -74,6 +79,7 @@ export const portfolioDemos: PortfolioDemo[] = [
     lead: '業種別の案内チャットで、定型問い合わせへの自動応答を体験できます。',
     tags: ['小売', 'サポート'],
     status: 'ready',
+    image: '/images/top_ai.png',
     externalDemoUrl: EXTERNAL_DEMO_URLS.retail,
   },
   {
@@ -82,6 +88,7 @@ export const portfolioDemos: PortfolioDemo[] = [
     lead: '規程・マニュアルへの質問に、回答と根拠をセットで返せます。',
     tags: ['ナレッジ', '社内'],
     status: 'ready',
+    image: '/images/lp/knowledge.png',
     sampleHref: `${GALLERY_BASE}/knowledge-to-search`,
     externalDemoUrl: EXTERNAL_DEMO_URLS.internalKnowledge,
   },
@@ -91,6 +98,7 @@ export const portfolioDemos: PortfolioDemo[] = [
     lead: '導入でいくら得して、何ヶ月で元が取れるかをシミュレーションできます。',
     tags: ['ROI', '試算'],
     status: 'ready',
+    image: '/images/lp/analytical.png',
     externalDemoUrl: EXTERNAL_DEMO_URLS.roiSimulator,
   },
   {
@@ -99,6 +107,7 @@ export const portfolioDemos: PortfolioDemo[] = [
     lead: '文書・データからDD〜EXITまでの業務変化をコンセプト実証として見せます。',
     tags: ['DD', '文書'],
     status: 'ready',
+    image: '/images/lp/document_workflow.png',
     sampleHref: `${GALLERY_BASE}/document-to-extraction`,
     externalDemoUrl: EXTERNAL_DEMO_URLS.ddDemo,
   },
@@ -108,6 +117,7 @@ export const portfolioDemos: PortfolioDemo[] = [
     lead: '事業者どうしをつなぐマッチング体験のサンプルです。',
     tags: ['マッチング', 'ネットワーク'],
     status: 'ready',
+    image: '/images/top_app.png',
     externalDemoUrl: EXTERNAL_DEMO_URLS.matching,
   },
   {
@@ -116,6 +126,7 @@ export const portfolioDemos: PortfolioDemo[] = [
     lead: '現場条件から申請・人員・書類の段取り案を自動で組み上げます。',
     tags: ['建設', '段取り'],
     status: 'ready',
+    image: '/images/lp/multiple_inputs.png',
     externalDemoUrl: EXTERNAL_DEMO_URLS.fieldDandori,
   },
   {
@@ -124,6 +135,7 @@ export const portfolioDemos: PortfolioDemo[] = [
     lead: '音声から申し送りカルテの下書きまでを一気に体験できます。',
     tags: ['介護', '音声'],
     status: 'ready',
+    image: '/images/lp/voicememo.png',
     sampleHref: `${GALLERY_BASE}/voice-to-structured`,
     externalDemoUrl: EXTERNAL_DEMO_URLS.voiceKarte,
   },
@@ -133,6 +145,7 @@ export const portfolioDemos: PortfolioDemo[] = [
     lead: '自分の画像を読み取り、書類作成につなげる体験を予定しています。',
     tags: ['OCR', '書類'],
     status: 'coming_soon',
+    image: '/images/lp/document_workflow.png',
   },
   {
     id: 'restaurant-shift',
@@ -140,6 +153,7 @@ export const portfolioDemos: PortfolioDemo[] = [
     lead: 'シフト調整の負担を減らすデモを準備中です。',
     tags: ['飲食', 'シフト'],
     status: 'coming_soon',
+    image: '/images/lp/analytical.png',
   },
   {
     id: 'medical-turnover',
@@ -147,6 +161,7 @@ export const portfolioDemos: PortfolioDemo[] = [
     lead: '現場定着に向けた改善デモを準備中です。',
     tags: ['医療', '人事'],
     status: 'coming_soon',
+    image: '/images/lp/analytical.png',
   },
 ]
 

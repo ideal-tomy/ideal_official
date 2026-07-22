@@ -43,27 +43,27 @@ const DEMO_OPENING_COPY: Record<
   'voice-to-structured': {
     headlineSuffix: '話すだけで記録が残る仕組み',
     body: '日報・申し送り・営業メモなど、「話す」だけで構造化データにできるか、御社の業務に置き換えて整理します。',
-    caseLabel: '介護の音声記録事例',
+    caseLabel: '介護の音声記録の活用イメージ',
   },
   'photo-to-classification': {
     headlineSuffix: '送るだけで写真が整理される仕組み',
     body: '現場写真・物件写真・点検画像など、手作業のフォルダ分けを自動化できるか一緒に整理します。',
-    caseLabel: '建設の現場写真整理事例',
+    caseLabel: '建設の現場写真整理の活用イメージ',
   },
   'document-to-extraction': {
     headlineSuffix: '文書から必要情報だけ抜き出す仕組み',
     body: '契約・請求・点検資料など、読む負担を減らす抽出フローを御社向けに整理できます。',
-    caseLabel: 'DD・文書抽出の事例',
+    caseLabel: 'DD・文書抽出の活用イメージ',
   },
   'data-to-prediction': {
     headlineSuffix: 'データから次の判断を支援する仕組み',
     body: '来客・需要・在庫など、予測を業務判断にどう載せるかを短い質問で整理します。',
-    caseLabel: '小売の需要予測事例',
+    caseLabel: '小売の需要予測の活用イメージ',
   },
   'workflow-to-automation': {
     headlineSuffix: '繰り返し作業を流れで代行する仕組み',
     body: 'メール確認・登録・通知など、定型業務をどこまで自動化できるか整理します。',
-    caseLabel: 'バックオフィス自動化の事例',
+    caseLabel: 'バックオフィス自動化の活用イメージ',
   },
   'knowledge-to-search': {
     headlineSuffix: '聞けば社内ナレッジが見つかる仕組み',
@@ -72,7 +72,7 @@ const DEMO_OPENING_COPY: Record<
   'multi-input-to-report': {
     headlineSuffix: '素材から報告書まで一気に作る仕組み',
     body: '写真・音声・メモをまとめて報告書にする流れを、御社の報告業務に置き換えて整理します。',
-    caseLabel: '農業の現場報告事例',
+    caseLabel: '農業の現場報告の活用イメージ',
   },
 }
 
@@ -136,7 +136,7 @@ function demoOpening(ctx: ConciergePageContext): ContextOpening {
     {
       id: 'see_related',
       label: copy?.caseLabel
-        ? `関連事例（${copy.caseLabel}）を見る`
+        ? `関連の活用イメージ（${copy.caseLabel}）を見る`
         : '関連する流れを見る',
       track: null,
       linkKind: 'related_case',
@@ -253,7 +253,7 @@ function caseOpening(ctx: ConciergePageContext): ContextOpening {
   const study = ctx.caseSlug ? getCaseBySlug(ctx.caseSlug) : undefined
   if (!study) {
     return {
-      headline: '業界・課題の事例を起点に、自社への応用を整理できます。',
+      headline: '業界・課題の活用イメージを起点に、自社への応用を整理できます。',
       body: '建設・介護・農業・DD など、近い課題があればそのまま相談フローへ進めます。',
       actions: [
         { id: 'consult_apply', label: '自社向けに相談する', track: 'ai' },
@@ -272,7 +272,7 @@ function caseOpening(ctx: ConciergePageContext): ContextOpening {
   return {
     headline: `${study.industryLabel}でのAI活用 — 「${study.subtitle}」について相談しますか？`,
     body: [
-      'この事例の流れを起点に、御社の状況へ置き換えて整理できます。',
+      'この活用イメージの流れを起点に、御社の状況へ置き換えて整理できます。',
       prompt,
     ]
       .filter(Boolean)

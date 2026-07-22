@@ -28,7 +28,7 @@ export function DemoFirstShowcase({ capabilities }: Props) {
               key={cap.slug}
               className="flex flex-col overflow-hidden rounded-[var(--df-radius-card)] bg-[var(--df-bg)]"
             >
-              <div className="relative aspect-[16/9] bg-[linear-gradient(160deg,#12315e,#1B3A8C)]">
+              <div className="relative aspect-[16/9] bg-[linear-gradient(160deg,var(--df-hero-2),var(--df-primary-hover))]">
                 <Image
                   src={cap.image}
                   alt=""

@@ -14,12 +14,12 @@ export function CaseHero({ caseStudy }: CaseHeroProps) {
       <HeroBackground />
       <HeroReveal className={`relative z-10 ${layout.container} text-center`}>
         <p className="mb-4 hidden text-xs font-medium uppercase tracking-[0.2em] text-brand/90 md:block">
-          Cases · {caseStudy.industryLabel}
+          活用イメージ · {caseStudy.industryLabel}
         </p>
         <h1 className={`${typography.h1} ${colors.text.primary} mb-4`}>
           {caseStudy.title}
         </h1>
-        <p className="text-sm text-brand/90 mb-6">{caseStudy.subtitle}</p>
+        <p className="mb-6 text-sm text-brand/90">{caseStudy.subtitle}</p>
         <p
           className={`${typography.bodyLarge} ${colors.text.muted} mx-auto mb-8 hidden max-w-2xl md:block`}
         >
@@ -29,7 +29,7 @@ export function CaseHero({ caseStudy }: CaseHeroProps) {
           {caseStudy.tags.map((tag) => (
             <span
               key={tag}
-              className="text-xs px-2.5 py-1 rounded-full border border-gray-700 text-gray-400"
+              className="rounded-full border border-gray-700 px-2.5 py-1 text-xs text-gray-400"
             >
               {tag}
             </span>
@@ -51,10 +51,10 @@ export function CasesIndexHero({ title, subtitle }: CasesIndexHeroProps) {
       <HeroBackground />
       <HeroReveal className={`relative z-10 ${layout.container} text-center`}>
         <p className="mb-4 hidden text-xs font-medium uppercase tracking-[0.2em] text-brand/90 md:block">
-          Cases / Ideas
+          活用イメージ
         </p>
         <h1 className={`${typography.h1} ${colors.text.primary} mb-6`}>{title}</h1>
-        <p className={`${typography.bodyLarge} ${colors.text.muted} max-w-2xl mx-auto`}>
+        <p className={`${typography.bodyLarge} ${colors.text.muted} mx-auto max-w-2xl`}>
           {subtitle}
         </p>
       </HeroReveal>
@@ -64,12 +64,12 @@ export function CasesIndexHero({ title, subtitle }: CasesIndexHeroProps) {
 
 export function CaseBackLink() {
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+    <div className="mx-auto max-w-3xl px-4 pt-8 sm:px-6 lg:px-8">
       <Link
         href="/cases"
-        className="text-sm text-gray-400 hover:text-brand transition-colors"
+        className="text-sm text-gray-400 transition-colors hover:text-brand"
       >
-        ← 事例一覧
+        ← 活用イメージ一覧
       </Link>
     </div>
   )

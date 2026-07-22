@@ -19,7 +19,7 @@ export default function CallToAction() {
         </h2>
 
         <p className={`${typography.bodyLarge} ${colors.text.muted} mb-12`}>
-          デモや事例を起点に、AIコンシェルジュが課題・必要な機能・概算の参考まで案内します。
+          デモや活用イメージを起点に、AIコンシェルジュが課題・必要な機能・概算の参考まで案内します。
           <br className="hidden sm:block" />
           要件が固まっていなくても大丈夫です。整理内容はそのままお問い合わせに引き継げます。
         </p>

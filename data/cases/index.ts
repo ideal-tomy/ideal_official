@@ -24,6 +24,13 @@ export function getCaseBySlug(slug: string): CaseStudy | undefined {
   return caseStudies.find((c) => c.slug === slug)
 }
 
+/** 簡易デモ slug から対応する活用イメージを返す */
+export function getCaseByRelatedDemoSlug(
+  demoSlug: string,
+): CaseStudy | undefined {
+  return getPublishedCases().find((c) => c.relatedDemo.slug === demoSlug)
+}
+
 export function getCaseHref(slug: string): string {
   return `${CASES_INDUSTRIES_BASE}/${slug}`
 }

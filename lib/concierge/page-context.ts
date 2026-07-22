@@ -102,7 +102,7 @@ export function resolvePageContext(pathname: string): ConciergePageContext {
     return {
       pathname: path,
       pageType: 'case',
-      label: 'Cases',
+      label: '活用イメージ',
       serviceId: 'ai-consulting',
     }
   }

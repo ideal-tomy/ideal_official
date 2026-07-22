@@ -8,8 +8,8 @@ export const agricultureFieldReport: CaseStudy = {
   title: '畑の記録が、机の上でまとまらない。',
   subtitle: '農業 × 現場報告の自動化',
   lead:
-    '写真・メモ・数値を手で集め、報告書を一から作る流れを、素材アップロードから完成報告書候補まで一気に変える事例です。',
-  metaTitle: '農業 × 現場報告の自動化 | Cases | ideal',
+    '写真・メモ・数値を手で集め、報告書を一から作る流れを、素材アップロードから完成報告書候補まで一気に変える活用イメージです。',
+  metaTitle: '農業 × 現場報告の自動化 | 活用イメージ | ideal',
   metaDescription:
     '農業現場の記録・報告を、手作業の集約から、複数素材の統合→報告書生成へ。関連デモを体験できます。',
   tags: ['農業', '現場報告', '写真', 'レポート'],
@@ -39,6 +39,7 @@ export const agricultureFieldReport: CaseStudy = {
     description:
       '現場報告サンプルで、複数素材が報告書にまとまる流れを体験できます。',
   },
-  contactHref: '/contact?service=ai-consulting&intent=cases&case=agriculture-field-report',
+  contactHref:
+    '/contact?service=ai-consulting&intent=cases&case=agriculture-field-report',
   status: 'published',
 }

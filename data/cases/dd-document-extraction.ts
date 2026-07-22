@@ -8,8 +8,8 @@ export const ddDocumentExtraction: CaseStudy = {
   title: '契約書を読む時間が、判断のボトルネックになる。',
   subtitle: 'DD / 契約 × 文書からの情報抽出',
   lead:
-    '通読・条項探し・抜粋転記。長い文書から必要情報を取り出す手作業を、アップロードから原文連動の抽出結果へ変える事例です。',
-  metaTitle: 'DD / 契約 × 文書抽出 | Cases | ideal',
+    '通読・条項探し・抜粋転記。長い文書から必要情報を取り出す手作業を、アップロードから原文連動の抽出結果へ変える活用イメージです。',
+  metaTitle: 'DD / 契約 × 文書抽出 | 活用イメージ | ideal',
   metaDescription:
     '契約書・DD資料のレビューを、通読→手作業から、必要項目の抽出と原文連動確認へ。関連デモを体験できます。',
   tags: ['DD', '契約', '文書', '抽出'],
@@ -39,6 +39,11 @@ export const ddDocumentExtraction: CaseStudy = {
     description:
       '契約・DDサンプルで、文書から必要情報が抽出される流れを体験できます。',
   },
-  contactHref: '/contact?service=ai-consulting&intent=cases&case=dd-document-extraction',
+  externalDemo: {
+    label: 'DD Intelligence デモ',
+    href: 'https://dd-demo-red.vercel.app/',
+  },
+  contactHref:
+    '/contact?service=ai-consulting&intent=cases&case=dd-document-extraction',
   status: 'published',
 }

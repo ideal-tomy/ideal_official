@@ -9,7 +9,7 @@ export const constructionPhotoSorting: CaseStudy = {
   subtitle: '建設 × 現場写真整理',
   lead:
     '撮る・戻る・整理・分類・転記。現場写真まわりの手作業を、アップロードから報告書候補まで一気に変える流れです。',
-  metaTitle: '建設 × 現場写真整理 | Cases | ideal',
+  metaTitle: '建設 × 現場写真整理 | 活用イメージ | ideal',
   metaDescription:
     '建設現場の写真整理を、撮る→戻る→手作業から、アップロード→AI判定→自動整理へ。関連デモを体験できます。',
   tags: ['建設', '現場写真', '分類', '報告書'],
@@ -41,6 +41,12 @@ export const constructionPhotoSorting: CaseStudy = {
     description:
       '建設現場サンプルで、散在した写真が分類・命名される流れを体験できます。',
   },
-  contactHref: '/contact?service=ai-consulting&intent=cases&case=construction-photo-sorting',
+  externalDemo: {
+    label: '建設・現場管理デモ',
+    href: 'https://kanri-kensetsu.vercel.app/login',
+    note: 'ログイン画面が開きます。ページ内の「デモアカウント」から体験できます。',
+  },
+  contactHref:
+    '/contact?service=ai-consulting&intent=cases&case=construction-photo-sorting',
   status: 'published',
 }

@@ -104,7 +104,7 @@ export const labInsights: LabInsight[] = [
     category: 'ai',
     publishedAt: '2026-07-10',
     relatedHref: '/cases',
-    relatedLabel: '事例を読む',
+    relatedLabel: '活用イメージを読む',
     sections: [
       {
         heading: '市場と意思決定の変化',
@@ -127,7 +127,7 @@ export const labInsights: LabInsight[] = [
       {
         heading: 'ideal の進め方',
         paragraphs: [
-          'デモで変化を共有し、業界フロー（Cases）で置き換えを想像し、プロトタイプから本番へつなぎます。',
+          'デモで変化を共有し、業界フロー（活用イメージ）で置き換えを想像し、プロトタイプから本番へつなぎます。',
         ],
       },
     ],

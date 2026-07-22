@@ -61,21 +61,21 @@ export default function PhotoToClassificationPage() {
           />
         </div>
 
-        <div className="rounded-xl border border-gray-800 bg-gray-900/40 p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div className="flex flex-col gap-4 rounded-xl border border-gray-800 bg-gray-900/40 p-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="text-xs tracking-[0.16em] text-brand/90 mb-1">Cases</p>
-            <p className="text-white font-semibold mb-1">
+            <p className="mb-1 text-xs tracking-[0.16em] text-brand/90">活用イメージ</p>
+            <p className="mb-1 font-semibold text-white">
               建設現場では、どう置き換わるか
             </p>
             <p className="text-sm text-gray-400">
-              撮る→戻る→整理の流れが、アップロード→AI判定へ変わる事例を読めます。
+              撮る→戻る→整理の流れが、アップロード→AI判定へ変わる活用イメージを読めます。
             </p>
           </div>
           <Link
             href="/cases/industries/construction-photo-sorting"
-            className="inline-flex shrink-0 items-center justify-center rounded-lg border border-brand/40 px-5 py-2.5 text-sm font-medium text-brand-hover hover:bg-brand/10 transition-colors"
+            className="inline-flex shrink-0 items-center justify-center rounded-lg border border-brand/40 px-5 py-2.5 text-sm font-medium text-brand-hover transition-colors hover:bg-brand/10"
           >
-            事例を読む →
+            活用イメージを読む →
           </Link>
         </div>
       </AiCapabilityDetailShell>

@@ -17,12 +17,12 @@ export function ConciergeFab({ onClick, label = 'コンシェルジュ' }: Conci
         right-[max(1.25rem,env(safe-area-inset-right))]
         sm:bottom-8 sm:right-8
         flex items-center gap-2 rounded-full
-        bg-brand text-white font-bold text-sm sm:text-base
+        bg-brand-deep text-[#111] font-bold text-sm sm:text-base
         px-5 py-3 sm:px-6 sm:py-4
-        shadow-lg shadow-[0_8px_24px_var(--color-brand-glow)]
-        hover:bg-brand-hover hover:scale-105 active:scale-95
+        shadow-lg shadow-[0_8px_24px_color-mix(in_srgb,var(--color-brand-deep)_35%,transparent)]
+        hover:brightness-95 hover:scale-105 active:scale-95
         transition-all duration-300 ease-in-out
-        focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 focus:ring-offset-black
+        focus:outline-none focus:ring-2 focus:ring-brand-deep focus:ring-offset-2 focus:ring-offset-black
       "
     >
       <span className="hidden sm:inline">{label}</span>

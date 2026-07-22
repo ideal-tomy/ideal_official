@@ -8,8 +8,8 @@ export const careVoiceRecords: CaseStudy = {
   title: 'ケアの記録が、帰ってから仕事になる。',
   subtitle: '介護 × ケア記録の音声入力',
   lead:
-    '聞き取り・メモ・転記・確認。現場の会話が記録に残らない流れを、話すだけで構造化データへ変える事例です。',
-  metaTitle: '介護 × ケア記録の音声入力 | Cases | ideal',
+    '聞き取り・メモ・転記・確認。現場の会話が記録に残らない流れを、話すだけで構造化データへ変える活用イメージです。',
+  metaTitle: '介護 × ケア記録の音声入力 | 活用イメージ | ideal',
   metaDescription:
     '介護現場のケア記録を、聞き取り→手書きから、話すだけで構造化記録へ。関連デモを体験できます。',
   tags: ['介護', 'ケア記録', '音声', '構造化'],
@@ -38,6 +38,10 @@ export const careVoiceRecords: CaseStudy = {
     href: `${GALLERY_BASE}/voice-to-structured`,
     description:
       '介護ケア記録サンプルで、音声が構造化データに変わる流れを体験できます。',
+  },
+  externalDemo: {
+    label: '医療・福祉ケア記録デモ',
+    href: 'https://kaigo-operation-demo.vercel.app/',
   },
   contactHref: '/contact?service=ai-consulting&intent=cases&case=care-voice-records',
   status: 'published',

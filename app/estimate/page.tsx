@@ -1,16 +1,18 @@
 /**
  * 自動見積もりページ
  *
- * 外部見積ツールを iframe で埋め込み。
- * ORIGIN は NEXT_PUBLIC_ESTIMATE_EMBED_ORIGIN で設定。
+ * 説明・免責のランディング。本体は roi-simulator フル版へ同一タブ遷移。
+ * ORIGIN は NEXT_PUBLIC_ROI_SIMULATOR_URL で設定。
  */
 
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { Section } from '@/components/ui/Section'
 import { OpenConciergeButton } from '@/components/concierge/OpenConciergeButton'
+import { IntroductionFlowSection } from '@/components/shared/IntroductionFlowSection'
 import { typography, colors } from '@/lib/design-tokens'
 import { ESTIMATE_DISCLAIMER } from '@/lib/concierge/pricing-rules'
+import { buildRoiSimulatorHref } from '@/lib/roiSimulator'
 
 const estimateDescription =
   'Webサイト・LP、Webアプリ・業務ツール、AIプロトタイプの参考価格を、質問に答えて概算できます。正式見積ではありません。'
@@ -24,14 +26,8 @@ export const metadata: Metadata = {
   },
 }
 
-function getEmbedSrc(): string | null {
-  const origin = process.env.NEXT_PUBLIC_ESTIMATE_EMBED_ORIGIN?.replace(/\/$/, '')
-  if (!origin) return null
-  return `${origin}/embed?brand=ideal&ui=full&embed=1`
-}
-
 export default function EstimatePage() {
-  const embedSrc = getEmbedSrc()
+  const roiHref = buildRoiSimulatorHref()
 
   return (
     <>
@@ -59,28 +55,40 @@ export default function EstimatePage() {
         containerSize="full"
         className="pt-0 pb-12 md:pb-16"
       >
-        {embedSrc ? (
-          <iframe
-            src={embedSrc}
-            title="ideal 自動見積もり"
-            className="w-full border-0 bg-[var(--site-bg)]"
-            style={{ height: 1400 }}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            allow="clipboard-write"
-          />
-        ) : (
-          <div className="mx-4 rounded-xl border border-gray-700 bg-gray-900/40 px-6 py-16 text-center sm:mx-6">
-            <p className={`${typography.body} ${colors.text.muted} mb-2`}>
-              見積ツールの接続先が未設定です。
-            </p>
-            <p className={`${typography.small} ${colors.text.disabled}`}>
-              環境変数{' '}
-              <code className="text-gray-400">NEXT_PUBLIC_ESTIMATE_EMBED_ORIGIN</code>{' '}
-              を設定してください。
-            </p>
-          </div>
-        )}
+        <div className="mx-4 max-w-xl sm:mx-auto rounded-xl border border-gray-700 bg-gray-900/40 px-6 py-12 text-center sm:px-10">
+          {roiHref ? (
+            <>
+              <p className={`${typography.body} ${colors.text.muted} mb-8`}>
+                見積シミュレーターで、作りたいものに答えて概算を出します。
+                <br className="hidden sm:block" />
+                別画面で開きます（あとからこのサイトに戻れます）。
+              </p>
+              <a
+                href={roiHref}
+                className="
+                  inline-flex items-center justify-center rounded-lg
+                  bg-brand px-8 py-4 text-lg font-bold text-white
+                  transition-all duration-300 ease-in-out
+                  hover:scale-105 hover:bg-brand-hover active:scale-95
+                  focus:outline-none focus:ring-2 focus:ring-brand/50 focus:ring-offset-2 focus:ring-offset-[var(--site-bg)]
+                "
+              >
+                概算見積もりをはじめる
+              </a>
+            </>
+          ) : (
+            <>
+              <p className={`${typography.body} ${colors.text.muted} mb-2`}>
+                見積ツールの接続先が未設定です。
+              </p>
+              <p className={`${typography.small} ${colors.text.disabled}`}>
+                環境変数{' '}
+                <code className="text-gray-400">NEXT_PUBLIC_ROI_SIMULATOR_URL</code>{' '}
+                を設定してください。
+              </p>
+            </>
+          )}
+        </div>
       </Section>
 
       <Section
@@ -114,6 +122,8 @@ export default function EstimatePage() {
           </div>
         </div>
       </Section>
+
+      <IntroductionFlowSection showEstimateLink={false} showCasesLink />
     </>
   )
 }

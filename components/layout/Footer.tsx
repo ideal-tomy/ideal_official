@@ -18,7 +18,7 @@ export function Footer() {
   const exploreLinks = [
     { href: '/', label: 'トップ' },
     { href: '/ai-capability-gallery', label: 'デモ一覧' },
-    { href: '/cases', label: '事例' },
+    { href: '/cases', label: '活用イメージ' },
     { href: '/estimate', label: '自動見積もり' },
     { href: '/contact', label: '問い合わせ' },
   ]

@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
-/* ideal brand — 黒 × 白 × 深紅 (#9B2937) */
+/* ideal brand — 黒 × オレンジ (#FF521C) × ゴールド (#F0C020) */
 @theme {
-  --color-brand: #9b2937;
-  --color-brand-hover: #d14a55;
-  --color-brand-deep: #681b26;
-  --color-brand-muted: #b83a46;
-  --color-brand-glow: color-mix(in srgb, #9b2937 22%, transparent);
+  --color-brand: #ff521c;
+  --color-brand-hover: #e0430f;
+  --color-brand-deep: #f0c020;
+  --color-brand-muted: #e52626;
+  --color-brand-glow: color-mix(in srgb, #ff521c 22%, transparent);
 }
 
 /*
  * サイト共通セマンティック変数
- * ライト = モック青系 / ダーク = 現行黒×深紅
+ * ライト = モック青系 / ダーク = 黒×オレンジ×ゴールド
  * ThemeProvider が html.light / html.dark を付与
  */
 :root,
@@ -41,22 +41,22 @@ html.light {
 }
 
 html.dark {
-  --df-primary: #9b2937;
-  --df-primary-deep: #681b26;
-  --df-primary-light: #d14a55;
-  --df-primary-hover: #d14a55;
+  --df-primary: #ff521c;
+  --df-primary-deep: #f0c020;
+  --df-primary-light: #e52626;
+  --df-primary-hover: #e0430f;
   --df-hero-1: #1a1a1a;
   --df-hero-2: #0a0a0a;
   --df-hero-3: #1f1214;
-  --df-bg: #000000;
-  --df-bg-blue: #111111;
+  --df-bg: #000;
+  --df-bg-blue: #111;
   --df-bg-blue-2: #1a1a1a;
-  --df-bg-card: #171717;
+  --df-bg-card: #141414;
   --df-text: #f3f4f6;
   --df-text-muted: #9ca3af;
-  --df-on-primary: #ffffff;
-  --site-bg: #000000;
-  --site-bg-elevated: #111111;
+  --df-on-primary: #fff;
+  --site-bg: #000;
+  --site-bg-elevated: #111;
   --site-fg: #e5e7eb;
   --site-fg-muted: #9ca3af;
   --site-border: #374151;
@@ -185,7 +185,7 @@ html.dark {
     radial-gradient(1px 1px at 50px 160px, rgba(255, 255, 255, 0.3), transparent),
     radial-gradient(1px 1px at 90px 40px, rgba(255, 255, 255, 0.2), transparent),
     radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.35), transparent),
-    radial-gradient(1.5px 1.5px at 160px 120px, rgba(155, 41, 55, 0.45), transparent),
+    radial-gradient(1.5px 1.5px at 160px 120px, rgba(255, 82, 28, 0.45), transparent),
     radial-gradient(1px 1px at 200px 50px, rgba(255, 255, 255, 0.25), transparent),
     radial-gradient(1px 1px at 250px 140px, rgba(255, 255, 255, 0.3), transparent);
   background-size: 280px 180px;
@@ -270,7 +270,7 @@ html.dark {
 }
 
 .philosophy-prose li::marker {
-  color: rgb(96 165 250 / 0.7);
+  color: color-mix(in srgb, var(--color-brand) 70%, transparent);
 }
 
 /* Research 詳細ページ — philosophy-prose と同等の可読性ルール */
@@ -289,5 +289,5 @@ html.dark {
 }
 
 .research-prose li::marker {
-  color: rgb(96 165 250 / 0.7);
+  color: color-mix(in srgb, var(--color-brand) 70%, transparent);
 }

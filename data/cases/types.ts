@@ -29,6 +29,12 @@ export interface CaseStudy {
     href: string
     description: string
   }
+  /** 業務アプリ寄りの外部デモ（任意） */
+  externalDemo?: {
+    label: string
+    href: string
+    note?: string
+  }
   contactHref: string
   status: 'published' | 'coming_soon'
 }

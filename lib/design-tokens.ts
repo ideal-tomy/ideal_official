@@ -31,7 +31,7 @@ export const colors = {
     muted: 'text-[var(--site-fg-muted)]',
     disabled: 'text-[var(--site-fg-muted)]/70',
   },
-  // アクセント（変革・熱量 — Primary #9B2937 / Bright #D14A55 / Deep #681B26）
+  // アクセント（変革・熱量 — Primary #FF521C / Hover #E0430F / Deep Gold #F0C020）
   accent: {
     primary: 'text-brand',
     secondary: 'text-brand-hover',

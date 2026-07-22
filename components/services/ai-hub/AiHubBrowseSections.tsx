@@ -10,7 +10,7 @@ export function AiHubIndustryGrid() {
             業界で見る
           </h2>
           <p className="text-base text-gray-300 max-w-xl mx-auto">
-            公開済みの事例から読むか、近いデモから自社業務への置き換えを想像できます。
+            公開済みの活用イメージから読むか、近いデモから自社業務への置き換えを想像できます。
           </p>
         </header>
 
@@ -39,7 +39,7 @@ export function AiHubIndustryGrid() {
             href="/cases"
             className="text-sm font-medium text-brand hover:text-brand-hover transition-colors"
           >
-            事例一覧を見る →
+            活用イメージ一覧を見る →
           </Link>
         </div>
       </div>

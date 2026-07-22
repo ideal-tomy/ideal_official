@@ -14,7 +14,7 @@ type NavItem = {
 const NAV_ITEMS: NavItem[] = [
   { href: '/', label: 'トップ' },
   { href: '/ai-capability-gallery', label: 'デモ一覧' },
-  { href: '/cases', label: '事例' },
+  { href: '/cases', label: '活用イメージ' },
   { href: '/services', label: 'サービス一覧' },
   { href: '/estimate', label: '自動見積もり' },
   { href: '/lab', label: 'LAB' },

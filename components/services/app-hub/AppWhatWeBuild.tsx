@@ -74,7 +74,7 @@ export function AppRelatedDemos() {
             関連する実デモ
           </h2>
           <p className="text-base text-gray-300 max-w-xl mx-auto">
-            業務ツールに近いデモや事例から、自社への置き換えを想像できます。
+            業務ツールに近いデモや活用イメージから、自社への置き換えを想像できます。
           </p>
         </header>
 
@@ -102,7 +102,7 @@ export function AppRelatedDemos() {
             href="/cases"
             className="text-sm font-medium text-brand hover:text-brand-hover transition-colors"
           >
-            事例一覧 →
+            活用イメージ一覧 →
           </Link>
         </div>
       </div>

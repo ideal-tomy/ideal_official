@@ -65,7 +65,7 @@ export const relatedDemos = [
   {
     id: 'construction-case',
     label: '建設 × 現場写真整理',
-    hint: '業務フローを置き換える事例',
+    hint: '業務フローを置き換える活用イメージ',
     href: '/cases/industries/construction-photo-sorting',
   },
 ] as const
@@ -187,7 +187,7 @@ export const underTheHoodCards: AppHoodCard[] = [
     modalBody: (
       <HoodBody
         lead="業務データの構造設計と、既存ツール（LINE、スプレッドシート、会計ソフト等）との連携を行います。"
-        siteUsage="事例ページの Before/After フロー設計で、データの流れを可視化しています。"
+        siteUsage="活用イメージページの Before/After フロー設計で、データの流れを可視化しています。"
         points={[
           {
             title: 'リレーショナルDB設計',

@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import { CaseBackLink, CaseHero } from '@/components/cases/CaseHero'
 import { CaseFlowCompare } from '@/components/cases/CaseFlow'
 import { CaseDemoCta } from '@/components/cases/CaseDemoCta'
+import { IntroductionFlowSection } from '@/components/shared/IntroductionFlowSection'
 import { caseStudies, getCaseBySlug } from '@/data/cases'
 
 interface PageProps {
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params
   const caseStudy = getCaseBySlug(slug)
   if (!caseStudy) {
-    return { title: 'Cases | ideal' }
+    return { title: '活用イメージ | ideal' }
   }
   return {
     title: caseStudy.metaTitle,
@@ -45,6 +46,7 @@ export default async function CaseIndustryPage({ params }: PageProps) {
       <CaseBackLink />
       <CaseFlowCompare before={caseStudy.before} after={caseStudy.after} />
       <CaseDemoCta caseStudy={caseStudy} />
+      <IntroductionFlowSection showEstimateLink />
     </div>
   )
 }

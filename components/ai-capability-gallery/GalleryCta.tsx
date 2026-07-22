@@ -15,7 +15,7 @@ export function GalleryCta() {
 
         <p className={`${typography.bodyLarge} ${colors.text.muted} mb-12`}>
           デモを起点に、課題の整理・必要な機能・概算の参考まで、AIコンシェルジュが案内します。
-          要件が固まっていなくても大丈夫です。
+          ピンとこなければ、活用イメージで現場の流れも読めます。
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -35,10 +35,16 @@ export function GalleryCta() {
             お問い合わせフォームへ
           </Link>
         </div>
-        <p className="mt-8">
+        <p className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+          <Link
+            href="/cases"
+            className="text-sm font-medium text-brand hover:text-brand-hover transition-colors"
+          >
+            活用イメージを読む →
+          </Link>
           <Link
             href="/estimate"
-            className="text-sm font-medium text-brand hover:text-brand-hover transition-colors"
+            className="text-sm font-medium text-[var(--site-fg-muted)] hover:text-brand transition-colors"
           >
             概算の感触を先に見る →
           </Link>

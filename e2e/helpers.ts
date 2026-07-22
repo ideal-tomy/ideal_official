@@ -22,7 +22,7 @@ export async function expectMainNav(page: Page) {
   const nav = page.getByRole('navigation', { name: 'メインナビゲーション' })
   await expect(nav.getByRole('link', { name: 'トップ' })).toBeVisible()
   await expect(nav.getByRole('link', { name: 'デモ一覧' })).toBeVisible()
-  await expect(nav.getByRole('link', { name: '事例' })).toBeVisible()
+  await expect(nav.getByRole('link', { name: '活用イメージ' })).toBeVisible()
   await expect(nav.getByRole('link', { name: 'LAB' })).toBeVisible()
   await expect(
     page.getByRole('link', { name: 'お問い合わせ' }).first(),
