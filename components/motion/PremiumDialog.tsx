@@ -42,19 +42,22 @@ export function PremiumDialog({
   const exitDuration = prefersReduced ? 0.15 : popupMotion.exit
 
   useEffect(() => {
-    if (!open) return
+    if (!open) {
+      setShowContent(false)
+      setIsExiting(false)
+      return
+    }
 
     const timer = window.setTimeout(() => setShowContent(true), contentDelayMs)
     return () => {
       window.clearTimeout(timer)
-      setShowContent(false)
     }
   }, [open, contentDelayMs])
 
   const handleClose = () => {
     if (isExiting) return
     setIsExiting(true)
-    setShowContent(false)
+    // 中身だけ先に隠さず、パネル全体の opacity で一緒に消す
     window.setTimeout(() => {
       setIsExiting(false)
       onClose()
@@ -97,18 +100,19 @@ export function PremiumDialog({
             aria-hidden
           />
 
-          <motion.div className="fixed inset-0 overflow-y-auto">
-            <motion.div
+          <div className="fixed inset-0 overflow-y-auto">
+            <div
               className={`flex min-h-full justify-center p-0 sm:p-4 text-center ${panelAlign}`}
             >
               <Dialog.Panel
                 className={`
-                  transform overflow-y-auto text-left align-middle shadow-xl
+                  transform overflow-y-auto text-left align-middle
                   ${panelShape}
-                  ${panelClassName}
                 `}
               >
+                {/* bg / border / shadow はここに置き、exit で箱と文字を同時にフェード */}
                 <motion.div
+                  className={`shadow-xl ${panelClassName}`}
                   initial={
                     mobileBottomSheet
                       ? { opacity: 0, y: 32, scale: 0.98 }
@@ -131,15 +135,15 @@ export function PremiumDialog({
                   }}
                 >
                   <StaggerReveal
-                    play={showContent && !isExiting}
+                    play={showContent}
                     className="flex flex-col gap-3 sm:gap-4"
                   >
                     {staggerItems}
                   </StaggerReveal>
                 </motion.div>
               </Dialog.Panel>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </Dialog>
       ) : null}
     </AnimatePresence>
