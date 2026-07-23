@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { ThemeImage } from '@/components/ui/ThemeImage'
 import type { Capability } from '@/data/ai-capability-gallery/capabilities'
 
 interface CapabilityCardProps {
@@ -8,8 +9,8 @@ interface CapabilityCardProps {
 }
 
 /**
- * 機能／パターン選択カード（画像なし）
- * 目的＝読む（CaseCard）と対になる「選んで体験」の視覚言語
+ * 機能／パターン選択カード（サムネイル付き）
+ * アクセントは --df-primary（ライト=青 / ダーク=オレンジ）
  */
 export function CapabilityCard({
   capability,
@@ -20,6 +21,17 @@ export function CapabilityCard({
 
   const content = (
     <>
+      <div className="relative aspect-[16/10] w-full overflow-hidden bg-[var(--site-bg)]">
+        <ThemeImage
+          src={capability.image}
+          alt=""
+          fill
+          sizes={compact ? '200px' : '(max-width: 768px) 100vw, 33vw'}
+          className="object-cover object-center transition-transform duration-300 group-hover:scale-[1.03]"
+          aria-hidden
+        />
+      </div>
+
       <div
         className={
           compact
@@ -30,25 +42,16 @@ export function CapabilityCard({
         <div
           className={
             compact
-              ? 'mb-1.5 flex items-center justify-between gap-1'
-              : 'mb-3 flex items-center justify-between gap-2'
+              ? 'mb-1.5 flex items-center justify-end'
+              : 'mb-3 flex items-center justify-end'
           }
         >
-          <span
-            className={
-              compact
-                ? 'font-mono text-[9px] font-bold tabular-nums text-brand/70'
-                : 'font-mono text-xs font-bold tabular-nums text-brand/80'
-            }
-          >
-            {String(capability.number).padStart(2, '0')}
-          </span>
           {isReady ? (
             <span
               className={
                 compact
-                  ? 'rounded-full bg-brand/15 px-1.5 py-px text-[8px] font-bold text-brand'
-                  : 'rounded-full bg-brand/15 px-2.5 py-0.5 text-[11px] font-bold text-brand'
+                  ? 'rounded-full bg-[var(--df-primary)]/10 px-1.5 py-px text-[8px] font-bold text-[var(--df-primary-deep)]'
+                  : 'rounded-full bg-[var(--df-primary)]/10 px-2.5 py-0.5 text-[11px] font-bold text-[var(--df-primary-deep)]'
               }
             >
               体験
@@ -69,8 +72,8 @@ export function CapabilityCard({
         <p
           className={
             compact
-              ? 'mb-1 text-[10px] font-bold tracking-wide text-brand'
-              : 'mb-1.5 text-sm font-bold tracking-wide text-brand'
+              ? 'mb-1 text-[10px] font-bold tracking-wide text-[var(--df-primary)]'
+              : 'mb-1.5 text-sm font-bold tracking-wide text-[var(--df-primary)]'
           }
         >
           {capability.subtitle}
@@ -89,7 +92,7 @@ export function CapabilityCard({
         {!compact && (
           <p className="mb-3 text-xs leading-relaxed text-[var(--site-fg-muted)]">
             {capability.before}
-            <span className="mx-1.5 font-bold text-brand">→</span>
+            <span className="mx-1.5 font-bold text-[var(--df-primary)]">→</span>
             {capability.after}
           </p>
         )}
@@ -120,8 +123,8 @@ export function CapabilityCard({
             <span
               className={
                 compact
-                  ? 'inline-flex items-center text-[10px] font-medium text-brand transition-colors group-hover:text-brand-hover'
-                  : 'inline-flex items-center text-sm font-medium text-brand transition-colors group-hover:text-brand-hover'
+                  ? 'inline-flex items-center text-[10px] font-medium text-[var(--df-primary)] transition-colors group-hover:text-[var(--df-primary-hover)]'
+                  : 'inline-flex items-center text-sm font-medium text-[var(--df-primary)] transition-colors group-hover:text-[var(--df-primary-hover)]'
               }
             >
               体験する →
@@ -143,8 +146,8 @@ export function CapabilityCard({
   )
 
   const shellClass = compact
-    ? 'group flex h-full min-w-[9.5rem] flex-col overflow-hidden rounded-lg border border-[var(--site-border)] bg-[var(--site-bg-elevated)] transition-colors hover:border-brand/40'
-    : 'group flex h-full flex-col overflow-hidden rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)] transition-colors hover:border-brand/40'
+    ? 'group flex h-full min-w-[9.5rem] flex-col overflow-hidden rounded-lg border border-[var(--site-border)] bg-[var(--site-bg-elevated)] transition-colors hover:border-[var(--df-primary)]/40'
+    : 'group flex h-full flex-col overflow-hidden rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)] transition-colors hover:border-[var(--df-primary)]/40'
 
   if (isReady) {
     return (

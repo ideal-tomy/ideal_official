@@ -63,9 +63,6 @@ export function ReasonLoopDiagram() {
       <div className={`${styles.node} ${styles.leftNode}`}>運用に定着</div>
 
       <div className={styles.center}>
-        <span className={styles.centerIcon} aria-hidden="true">
-          ↻
-        </span>
         <strong className={styles.centerLabel}>土台を作る</strong>
       </div>
     </div>

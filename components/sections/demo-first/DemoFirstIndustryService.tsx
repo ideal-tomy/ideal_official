@@ -71,83 +71,87 @@ export function DemoFirstIndustryService({ cards }: Props) {
 
                 {isOpen && (
                   <div className="border-t border-[var(--df-bg-blue-2)] px-4 pb-6 pt-5 sm:px-6">
-                    <div className="relative mb-5 aspect-[16/9] overflow-hidden rounded-lg bg-[linear-gradient(160deg,var(--df-hero-2),var(--df-primary-hover))] md:mb-6">
-                      <ThemeImage
-                        src={card.image}
-                        alt=""
-                        fill
-                        sizes="(max-width: 768px) 100vw, 640px"
-                        className="object-cover object-center"
-                        aria-hidden="true"
-                      />
+                    <div className="md:grid md:grid-cols-2 md:items-start md:gap-8">
+                      <div className="relative mb-5 aspect-[16/9] overflow-hidden rounded-lg bg-[linear-gradient(160deg,var(--df-hero-2),var(--df-primary-hover))] md:mb-0">
+                        <ThemeImage
+                          src={card.image}
+                          alt=""
+                          fill
+                          sizes="(max-width: 768px) 100vw, 480px"
+                          className="object-cover object-center"
+                          aria-hidden="true"
+                        />
+                      </div>
+
+                      <div>
+                        <span className="mb-3 inline-block rounded border border-[var(--df-text-muted)] px-3 py-0.5 text-[13px] font-bold text-[var(--df-text-muted)]">
+                          課題
+                        </span>
+                        <ul className="mb-5 space-y-2">
+                          {card.issues.map((issue) => (
+                            <li
+                              key={issue}
+                              className="relative pl-[18px] text-[14.5px] text-[var(--df-text)] before:absolute before:left-0 before:top-[0.75em] before:h-[7px] before:w-[7px] before:rounded-full before:bg-[var(--df-text-muted)]"
+                            >
+                              {issue}
+                            </li>
+                          ))}
+                        </ul>
+
+                        <span className="mb-3 inline-block rounded bg-[var(--df-primary)] px-3 py-0.5 text-[13px] font-bold text-white">
+                          解決
+                        </span>
+                        <ul className="mb-6 space-y-2">
+                          {card.solutions.map((solution) => (
+                            <li
+                              key={solution}
+                              className="relative pl-[18px] text-[14.5px] text-[var(--df-text)] before:absolute before:left-0 before:top-[0.75em] before:h-[7px] before:w-[7px] before:rounded-full before:bg-[var(--df-primary)]"
+                            >
+                              {solution}
+                            </li>
+                          ))}
+                        </ul>
+
+                        <div className="flex flex-wrap items-center justify-between gap-3">
+                          {card.tryExternal ? (
+                            <a
+                              href={card.tryHref}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-sm font-bold text-[var(--df-primary)] hover:underline"
+                            >
+                              業務デモを開く（{card.tryLabel}）↗
+                            </a>
+                          ) : (
+                            <Link
+                              href={card.tryHref}
+                              className="text-sm font-bold text-[var(--df-primary)] hover:underline"
+                            >
+                              触ってみる（{card.tryLabel}）
+                            </Link>
+                          )}
+                          {card.detailHref && (
+                            <Link
+                              href={card.detailHref}
+                              className="inline-flex items-center gap-1.5 text-sm font-bold text-[var(--df-primary-deep)] transition-colors hover:text-[var(--df-primary)]"
+                            >
+                              {card.detailLabel ?? '詳細を見る'}
+                              <span
+                                className="inline-flex h-9 w-9 items-center justify-center rounded-[var(--df-radius-btn)] bg-[var(--df-primary)] font-bold text-white"
+                                aria-hidden
+                              >
+                                →
+                              </span>
+                            </Link>
+                          )}
+                        </div>
+                        {card.tryNote && (
+                          <p className="mt-3 text-xs leading-relaxed text-[var(--df-text-muted)]">
+                            {card.tryNote}
+                          </p>
+                        )}
+                      </div>
                     </div>
-
-                    <span className="mb-3 inline-block rounded border border-[var(--df-text-muted)] px-3 py-0.5 text-[13px] font-bold text-[var(--df-text-muted)]">
-                      課題
-                    </span>
-                    <ul className="mb-5 space-y-2">
-                      {card.issues.map((issue) => (
-                        <li
-                          key={issue}
-                          className="relative pl-[18px] text-[14.5px] text-[var(--df-text)] before:absolute before:left-0 before:top-[0.75em] before:h-[7px] before:w-[7px] before:rounded-full before:bg-[var(--df-text-muted)]"
-                        >
-                          {issue}
-                        </li>
-                      ))}
-                    </ul>
-
-                    <span className="mb-3 inline-block rounded bg-[var(--df-primary)] px-3 py-0.5 text-[13px] font-bold text-white">
-                      解決
-                    </span>
-                    <ul className="mb-6 space-y-2">
-                      {card.solutions.map((solution) => (
-                        <li
-                          key={solution}
-                          className="relative pl-[18px] text-[14.5px] text-[var(--df-text)] before:absolute before:left-0 before:top-[0.75em] before:h-[7px] before:w-[7px] before:rounded-full before:bg-[var(--df-primary)]"
-                        >
-                          {solution}
-                        </li>
-                      ))}
-                    </ul>
-
-                    <div className="flex flex-wrap items-center justify-between gap-3">
-                      {card.tryExternal ? (
-                        <a
-                          href={card.tryHref}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-sm font-bold text-[var(--df-primary)] hover:underline"
-                        >
-                          業務デモを開く（{card.tryLabel}）↗
-                        </a>
-                      ) : (
-                        <Link
-                          href={card.tryHref}
-                          className="text-sm font-bold text-[var(--df-primary)] hover:underline"
-                        >
-                          触ってみる（{card.tryLabel}）
-                        </Link>
-                      )}
-                      {card.detailHref && (
-                        <Link
-                          href={card.detailHref}
-                          className="inline-flex items-center gap-1.5 text-sm font-bold text-[var(--df-primary-deep)] transition-colors hover:text-[var(--df-primary)]"
-                        >
-                          {card.detailLabel ?? '詳細を見る'}
-                          <span
-                            className="inline-flex h-9 w-9 items-center justify-center rounded-[var(--df-radius-btn)] bg-[var(--df-primary)] font-bold text-white"
-                            aria-hidden
-                          >
-                            →
-                          </span>
-                        </Link>
-                      )}
-                    </div>
-                    {card.tryNote && (
-                      <p className="mt-3 text-xs leading-relaxed text-[var(--df-text-muted)]">
-                        {card.tryNote}
-                      </p>
-                    )}
                   </div>
                 )}
               </article>

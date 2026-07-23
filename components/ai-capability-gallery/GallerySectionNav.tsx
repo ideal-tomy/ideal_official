@@ -11,7 +11,7 @@ export function GallerySectionNav() {
     () =>
       capabilities.map((capability) => ({
         slug: capability.slug,
-        label: String(capability.number).padStart(2, '0'),
+        label: capability.subtitle,
         title: capability.title,
       })),
     [],

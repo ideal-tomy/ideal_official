@@ -465,9 +465,6 @@ function ShowcaseText({
 }) {
   return (
     <div className="max-w-xl">
-      <p className="text-sm font-mono tracking-[0.2em] text-gray-500 mb-4">
-        {String(capability.number).padStart(2, '0')}
-      </p>
       <p className="text-xs md:text-sm mb-4">
         <ChangeLabel label={capability.englishLabel} className="tracking-[0.22em]" />
       </p>

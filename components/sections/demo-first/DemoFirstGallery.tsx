@@ -1,13 +1,14 @@
 import Link from 'next/link'
-import type { PortfolioDemo } from '@/data/demo-first/portfolio'
+import type { Capability } from '@/data/ai-capability-gallery/capabilities'
 import { GALLERY_BASE } from '@/data/ai-capability-gallery/capabilities'
-import { DemoFirstPortfolioCarousel } from './DemoFirstPortfolioCarousel'
+import { RelatedPatternsMarquee } from '@/components/ai-capability-gallery/RelatedPatternsMarquee'
 import { SectionKicker } from './SectionKicker'
 
 type Props = {
-  items: PortfolioDemo[]
+  items: Capability[]
 }
 
+/** 04—デモ一覧：画像付きパターンカルーセル（他のパターンと同型） */
 export function DemoFirstGallery({ items }: Props) {
   return (
     <section
@@ -22,10 +23,10 @@ export function DemoFirstGallery({ items }: Props) {
           開発デモの一部。
         </h2>
         <p className="mb-8 max-w-[640px] text-[var(--df-text-muted)] md:mb-10">
-          タグで見比べて、近いものから体験できます。深く触りたいときは本格デモ（別タブ）へ。
+          パターンを流して見比べて、近いものから体験できます。
         </p>
 
-        <DemoFirstPortfolioCarousel items={items} />
+        <RelatedPatternsMarquee items={items} title="" />
 
         <div className="mt-10 flex justify-center">
           <Link

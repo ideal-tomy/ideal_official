@@ -5,13 +5,17 @@ import { CapabilityCard } from './CapabilityCard'
 
 type Props = {
   items: Capability[]
+  /** 省略時「他のパターン」。空文字で見出しなし */
+  title?: string
 }
 
 /**
- * 他デモへの誘導マーキー。
- * 一覧と同じカードを縮小（〜176px、スマホ幅で約2枚見える）して流す。
+ * 画像付きパターンカードのマーキー。
  */
-export function RelatedPatternsMarquee({ items }: Props) {
+export function RelatedPatternsMarquee({
+  items,
+  title = '他のパターン',
+}: Props) {
   const ready = items.filter((c) => c.status === 'ready')
   if (ready.length === 0) return null
 
@@ -19,18 +23,20 @@ export function RelatedPatternsMarquee({ items }: Props) {
 
   return (
     <div>
-      <p className="mb-4 text-sm font-medium uppercase tracking-wider text-[var(--site-fg-muted)]">
-        他のパターン
-      </p>
+      {title ? (
+        <p className="mb-4 text-sm font-medium uppercase tracking-wider text-[var(--site-fg-muted)]">
+          {title}
+        </p>
+      ) : null}
       <div
         className="related-marquee overflow-hidden"
-        aria-label="他のデモパターン"
+        aria-label={title || 'デモパターン'}
       >
         <div className="related-marquee-track flex w-max gap-3 py-1">
           {cards.map((cap, i) => (
             <div
               key={`${cap.slug}-${i}`}
-              className="w-[168px] shrink-0 sm:w-[176px]"
+              className="w-[188px] shrink-0 sm:w-[200px]"
             >
               <CapabilityCard capability={cap} size="compact" />
             </div>

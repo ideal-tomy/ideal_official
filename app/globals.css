@@ -275,15 +275,21 @@ html.dark {
 
 /* テーマ別画像（ThemeImage）— デフォルトはダーク版。fill でも absolute を維持 */
 .theme-img-light {
-  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
 }
 
 html.light .theme-img-dark {
-  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
 }
 
 html.light .theme-img-light {
-  display: unset !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  visibility: visible !important;
 }
 
 /* Research 詳細ページ — philosophy-prose と同等の可読性ルール */
