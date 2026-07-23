@@ -1,40 +1,42 @@
 .diagram {
   position: relative;
   width: 100%;
-  max-width: 420px;
+  max-width: 400px;
   margin-inline: auto;
-  aspect-ratio: 600 / 520;
+  /* 真円が歪まないよう正方形 */
+  aspect-ratio: 1;
 }
 
 .cycleSvg {
   position: absolute;
   inset: 0;
+  z-index: 1;
   width: 100%;
   height: 100%;
   overflow: visible;
   pointer-events: none;
 }
 
-.arcBase {
+.orbitBase {
   fill: none;
-  stroke: color-mix(in srgb, var(--df-primary) 42%, transparent);
+  stroke: color-mix(in srgb, var(--df-primary) 40%, transparent);
   stroke-width: 2;
-  stroke-linecap: round;
 }
 
-.arcFlow {
+.orbitFlow {
   fill: none;
   stroke: var(--df-primary);
-  stroke-width: 3;
+  stroke-width: 2.75;
   stroke-linecap: round;
-  stroke-dasharray: 12 28;
+  stroke-dasharray: 12 26;
   filter: url('#reason-loop-glow');
-  animation: reason-loop-flow 1.5s linear infinite;
+  /* 円周の長さ ≈ 2πR = 1256.6 → dash が右回りに流れる */
+  animation: reason-orbit-flow 2s linear infinite;
 }
 
-@keyframes reason-loop-flow {
+@keyframes reason-orbit-flow {
   from {
-    stroke-dashoffset: 40;
+    stroke-dashoffset: 38;
   }
   to {
     stroke-dashoffset: 0;
@@ -46,11 +48,11 @@
   z-index: 2;
   display: grid;
   place-items: center;
-  width: clamp(96px, 28%, 128px);
-  min-height: clamp(48px, 12%, 64px);
-  padding: 8px 12px;
+  width: clamp(96px, 30%, 124px);
+  min-height: clamp(48px, 14%, 58px);
+  padding: 8px 10px;
   color: var(--df-text);
-  font-size: clamp(12px, 2.4vw, 15px);
+  font-size: clamp(12px, 2.6vw, 15px);
   font-weight: 700;
   line-height: 1.35;
   text-align: center;
@@ -58,30 +60,32 @@
   border: 1.5px solid color-mix(in srgb, var(--df-primary) 55%, transparent);
   border-radius: 20px;
   box-shadow: 0 8px 20px color-mix(in srgb, var(--df-text) 6%, transparent);
+  /* 円周上の点 = タブ中心 */
+  transform: translate(-50%, -50%);
 }
 
+/*
+ * viewBox 560 / 中心 280 / R 200
+ * 上 (280, 80)  右 (480, 280)  下 (280, 480)  左 (80, 280)
+ */
 .topNode {
-  top: 0;
   left: 50%;
-  transform: translateX(-50%);
+  top: calc(80 / 560 * 100%);
 }
 
 .rightNode {
+  left: calc(480 / 560 * 100%);
   top: 50%;
-  right: 0;
-  transform: translateY(-50%);
 }
 
 .bottomNode {
-  bottom: 0;
   left: 50%;
-  transform: translateX(-50%);
+  top: calc(480 / 560 * 100%);
 }
 
 .leftNode {
+  left: calc(80 / 560 * 100%);
   top: 50%;
-  left: 0;
-  transform: translateY(-50%);
   color: #fff;
   background: var(--df-primary);
   border-color: var(--df-primary);
@@ -151,7 +155,7 @@
 @media (max-width: 420px) {
   .node {
     width: 88px;
-    min-height: 48px;
+    min-height: 46px;
     padding-inline: 6px;
     border-radius: 16px;
     font-size: 11px;
@@ -161,13 +165,13 @@
     width: 108px;
   }
 
-  .arcBase {
+  .orbitBase {
     stroke-width: 2.25;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .arcFlow,
+  .orbitFlow,
   .center {
     animation: none;
   }
