@@ -12,7 +12,7 @@ export function DemoFrame({ title = 'デモ体験', children }: DemoFrameProps) 
         <span className="h-2.5 w-2.5 rounded-full bg-red-400/80" aria-hidden="true" />
         <span className="h-2.5 w-2.5 rounded-full bg-amber-400/80" aria-hidden="true" />
         <span className="h-2.5 w-2.5 rounded-full bg-green-400/80" aria-hidden="true" />
-        <span className="ml-2 text-xs font-medium text-gray-500">{title}</span>
+        <span className="ml-2 text-xs font-medium text-[var(--site-fg-muted)]">{title}</span>
       </div>
       <div className="p-4 sm:p-6">{children}</div>
     </div>

@@ -16,8 +16,8 @@ export default function LabInsightsIndexPage() {
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 pt-6">
         <header className="mb-12">
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">Insights</h1>
-          <p className="text-lg text-gray-300 max-w-2xl leading-relaxed">
+          <h1 className="text-3xl md:text-4xl font-bold text-[var(--site-fg)] mb-4">Insights</h1>
+          <p className="text-lg text-[var(--site-fg-muted)] max-w-2xl leading-relaxed">
             入口ページを軽く保つため、比較・導入理由・働き方などの解説をここに集約しています。
           </p>
         </header>

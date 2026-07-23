@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function GapsDetailPage() {
   return (
-    <Suspense fallback={<div className="bg-black min-h-screen" />}>
+    <Suspense fallback={<div className="bg-[var(--site-bg)] min-h-screen" />}>
       <ResearchDetailShell page={page}>
         <GapsDemo />
       </ResearchDetailShell>

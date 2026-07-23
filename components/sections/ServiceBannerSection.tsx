@@ -18,7 +18,7 @@ export function ServiceBannerSection({
   children,
 }: ServiceBannerSectionProps) {
   return (
-    <section className="relative overflow-hidden border-b border-brand bg-black">
+    <section className="relative overflow-hidden border-b border-brand bg-[var(--site-bg)]">
       <div
         className="absolute inset-0 z-0 hidden bg-cover bg-center opacity-40 parallax-bg md:block"
         style={{ backgroundImage: `url(${imageSrc})` }}
@@ -29,7 +29,7 @@ export function ServiceBannerSection({
         style={{ backgroundImage: `url(${imageSrc})` }}
         aria-hidden
       />
-      <div className="absolute inset-0 bg-black/50 z-0" aria-hidden />
+      <div className="absolute inset-0 bg-[var(--site-bg)]/50 z-0" aria-hidden />
 
       <div className="relative z-10 py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -24,7 +24,7 @@ export function SampleSetTabs({ sets, selectedId, onSelect, disabled }: SampleSe
             px-3 py-1.5 rounded-lg text-xs font-medium transition-colors
             ${
               selectedId === set.id
-                ? 'bg-brand text-white'
+                ? 'bg-brand text-[var(--df-on-primary)]'
                 : 'bg-white border border-[#D9DDE3] text-gray-600 hover:border-brand-hover'
             }
             disabled:opacity-50 disabled:cursor-not-allowed

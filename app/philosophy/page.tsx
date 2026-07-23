@@ -28,13 +28,13 @@ export const metadata: Metadata = {
 export default function PhilosophyPage() {
   return (
     <>
-      <div className="border-b border-brand/40 bg-gray-900/40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 text-sm text-gray-400">
+      <div className="border-b border-brand/40 bg-[var(--site-bg-elevated)]/40">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 text-sm text-[var(--site-fg-muted)]">
           <Link href="/lab" className="text-brand hover:text-brand-hover transition-colors">
             ← LAB
           </Link>
           <span className="mx-2 text-gray-600">/</span>
-          <span className="text-gray-300">Philosophy</span>
+          <span className="text-[var(--site-fg-muted)]">Philosophy</span>
         </div>
       </div>
 

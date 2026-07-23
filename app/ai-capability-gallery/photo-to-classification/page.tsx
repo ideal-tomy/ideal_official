@@ -41,11 +41,11 @@ export default function PhotoToClassificationPage() {
           <TwoColumnSection
             title="Before / After"
             leftContent={
-              <div className="p-6 rounded-xl border border-gray-800 bg-gray-900/40">
-                <p className="text-xs uppercase tracking-wider text-gray-500 mb-2">
+              <div className="p-6 rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)]/40">
+                <p className="text-xs uppercase tracking-wider text-[var(--site-fg-muted)] mb-2">
                   {photoDetailPage.beforeTitle}
                 </p>
-                <p className="text-gray-300 leading-relaxed">{photoDetailPage.beforeText}</p>
+                <p className="text-[var(--site-fg-muted)] leading-relaxed">{photoDetailPage.beforeText}</p>
               </div>
             }
             rightContent={
@@ -53,7 +53,7 @@ export default function PhotoToClassificationPage() {
                 <p className="text-xs uppercase tracking-wider text-brand/80 mb-2">
                   {photoDetailPage.afterTitle}
                 </p>
-                <p className="text-gray-200 leading-relaxed">{photoDetailPage.afterText}</p>
+                <p className="text-[var(--site-fg)] leading-relaxed">{photoDetailPage.afterText}</p>
               </div>
             }
             columnRatio="equal"
@@ -61,13 +61,13 @@ export default function PhotoToClassificationPage() {
           />
         </div>
 
-        <div className="flex flex-col gap-4 rounded-xl border border-gray-800 bg-gray-900/40 p-6 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-4 rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)]/40 p-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="mb-1 text-xs tracking-[0.16em] text-brand/90">活用イメージ</p>
-            <p className="mb-1 font-semibold text-white">
+            <p className="mb-1 font-semibold text-[var(--site-fg)]">
               建設現場では、どう置き換わるか
             </p>
-            <p className="text-sm text-gray-400">
+            <p className="text-sm text-[var(--site-fg-muted)]">
               撮る→戻る→整理の流れが、アップロード→AI判定へ変わる活用イメージを読めます。
             </p>
           </div>

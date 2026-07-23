@@ -31,8 +31,8 @@ export function PhilosophySolutionLink({
           <p className="text-xs font-medium tracking-[0.15em] uppercase text-brand/80 mb-2">
             解決案 · Proposal Demo
           </p>
-          <h4 className="text-lg font-semibold text-white mb-2">{link.title}</h4>
-          <p className="text-base text-gray-300 leading-relaxed mb-4">
+          <h4 className="text-lg font-semibold text-[var(--site-fg)] mb-2">{link.title}</h4>
+          <p className="text-base text-[var(--site-fg-muted)] leading-relaxed mb-4">
             {link.description}
           </p>
           <Link

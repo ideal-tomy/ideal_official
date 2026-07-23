@@ -84,12 +84,12 @@ export function LoopDiagramDemo() {
         <div className="divide-y divide-gray-800">
           {loopSteps.map((step) => (
             <div key={step.number} className="grid grid-cols-[34px_1fr] gap-4 py-4">
-              <span className="text-xs font-mono text-gray-400 pt-1">{step.number}</span>
+              <span className="text-xs font-mono text-[var(--site-fg-muted)] pt-1">{step.number}</span>
               <div>
-                <h3 className="text-base font-medium text-white mb-1">
+                <h3 className="text-base font-medium text-[var(--site-fg)] mb-1">
                   {step.title} — {step.subtitle}
                 </h3>
-                <p className="text-sm text-gray-300 leading-relaxed">{step.description}</p>
+                <p className="text-sm text-[var(--site-fg-muted)] leading-relaxed">{step.description}</p>
               </div>
             </div>
           ))}

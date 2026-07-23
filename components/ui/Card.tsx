@@ -63,7 +63,7 @@ export function Card({
     ${borders.rounded}
     ${borders.border}
     ${shadows.hover}
-    hover:bg-gray-800 hover:-translate-y-2
+    hover:bg-[var(--site-bg-elevated)] hover:-translate-y-2
     ${transitions.all}
     p-6
     ${className}

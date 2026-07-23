@@ -12,12 +12,12 @@ export function ChangeLabel({
   const parts = label.split(/\s*→\s*/)
   if (parts.length < 2) {
     return (
-      <span className={`tracking-[0.18em] text-gray-400 ${className}`}>{label}</span>
+      <span className={`tracking-[0.18em] text-[var(--site-fg-muted)] ${className}`}>{label}</span>
     )
   }
 
   return (
-    <span className={`tracking-[0.18em] text-gray-400 ${className}`}>
+    <span className={`tracking-[0.18em] text-[var(--site-fg-muted)] ${className}`}>
       {parts.map((part, index) => (
         <span key={`${part}-${index}`}>
           {index > 0 && <span className="mx-1.5 text-brand font-medium">→</span>}

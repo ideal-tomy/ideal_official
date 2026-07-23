@@ -31,7 +31,7 @@ export const colors = {
     muted: 'text-[var(--site-fg-muted)]',
     disabled: 'text-[var(--site-fg-muted)]/70',
   },
-  // アクセント（変革・熱量 — Primary #FF521C / Hover #E0430F / Deep Gold #F0C020）
+  // アクセント（ライト=青 / ダーク=オレンジ — CSS 変数 brand が切替）
   accent: {
     primary: 'text-brand',
     secondary: 'text-brand-hover',
@@ -46,7 +46,7 @@ export const colors = {
   // アクセント（高級感）
   luxury: {
     border: 'border-[var(--site-border)]',
-    gold: 'text-yellow-400',
+    gold: 'text-brand-deep',
   },
   // ボーダー
   border: {
@@ -74,7 +74,7 @@ export const typography = {
   bodyLarge: 'text-lg lg:text-xl leading-relaxed',
   // その他
   small: 'text-sm lg:text-base',
-  caption: 'text-xs lg:text-sm text-gray-400', // ラベル・キャプション専用
+  caption: 'text-xs lg:text-sm text-[var(--site-fg-muted)]',
 } as const
 
 // トランジション（アニメーション）

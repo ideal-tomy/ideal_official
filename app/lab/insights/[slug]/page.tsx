@@ -52,9 +52,9 @@ export default async function LabInsightPage({ params }: PageProps) {
       <LabInsightArticle insight={insight} />
 
       {others.length > 0 && (
-        <section className="border-t border-gray-800 py-12">
+        <section className="border-t border-[var(--site-border)] py-12">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-sm font-medium tracking-wider uppercase text-gray-500 mb-4">
+            <h2 className="text-sm font-medium tracking-wider uppercase text-[var(--site-fg-muted)] mb-4">
               他の Insights
             </h2>
             <ul className="space-y-2">

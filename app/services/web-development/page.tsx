@@ -17,7 +17,7 @@ const FAQSection = dynamic(
     import('../../../components/sections/FAQSection').then((mod) => ({
       default: mod.FAQSection,
     })),
-  { loading: () => <div className="animate-pulse bg-gray-800 rounded-lg h-64" /> }
+  { loading: () => <div className="animate-pulse bg-[var(--site-bg-elevated)] rounded-lg h-64" /> }
 )
 
 const RelatedServicesSection = dynamic(
@@ -25,7 +25,7 @@ const RelatedServicesSection = dynamic(
     import('../../../components/sections/RelatedServicesSection').then((mod) => ({
       default: mod.RelatedServicesSection,
     })),
-  { loading: () => <div className="animate-pulse bg-gray-800 rounded-lg h-64" /> }
+  { loading: () => <div className="animate-pulse bg-[var(--site-bg-elevated)] rounded-lg h-64" /> }
 )
 
 export const metadata: Metadata = {

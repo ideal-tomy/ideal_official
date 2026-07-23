@@ -35,7 +35,7 @@ export function ScrollHeader({ children }: ScrollHeaderProps) {
         fixed top-0 w-full ${zIndex.fixed}
         ${layout.header}
         ${transitions.all}
-        ${isScrolled ? 'bg-black/80 backdrop-blur-md shadow-lg' : 'bg-transparent'}
+        ${isScrolled ? 'bg-[var(--site-bg)]/80 backdrop-blur-md shadow-lg' : 'bg-transparent'}
       `}
     >
       {children}

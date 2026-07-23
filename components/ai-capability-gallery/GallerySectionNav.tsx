@@ -69,10 +69,10 @@ export function GallerySectionNav() {
       aria-label="ショーケースナビゲーション"
       className="fixed left-1/2 bottom-24 sm:bottom-8 -translate-x-1/2 z-20"
     >
-      <div className="flex items-center gap-2 rounded-full border border-gray-700 bg-black/75 backdrop-blur-md px-3 py-2 shadow-lg">
+      <div className="flex items-center gap-2 rounded-full border border-[var(--site-border)] bg-[var(--site-bg)]/75 backdrop-blur-md px-3 py-2 shadow-lg">
         <a
           href="#capabilities"
-          className="hidden sm:inline-flex text-xs text-gray-300 hover:text-white transition-colors pr-2 border-r border-gray-700"
+          className="hidden sm:inline-flex text-xs text-[var(--site-fg-muted)] hover:text-[var(--site-fg)] transition-colors pr-2 border-r border-[var(--site-border)]"
         >
           一覧
         </a>
@@ -93,7 +93,7 @@ export function GallerySectionNav() {
             )
           })}
         </div>
-        <span className="hidden md:inline-block text-xs text-gray-300 pl-2 border-l border-gray-700 whitespace-nowrap">
+        <span className="hidden md:inline-block text-xs text-[var(--site-fg-muted)] pl-2 border-l border-[var(--site-border)] whitespace-nowrap">
           {active.label} {active.title}
         </span>
       </div>

@@ -88,19 +88,19 @@ const ValueClogSection = React.memo(() => {
       <PhilosophySubheading className="mt-0">高すぎる「信用のコスト」</PhilosophySubheading>
 
       <PhilosophyWideContent>
-        <div className="p-6 md:p-10 rounded-2xl bg-gray-900/60 border border-gray-700/50">
+        <div className="p-6 md:p-10 rounded-2xl bg-[var(--site-bg-elevated)]/60 border border-[var(--site-border)]/50">
           <h4 className="text-center text-lg md:text-xl font-bold text-brand mb-8 tracking-wide">
             構造的矛盾が誘発する「不誠実の連鎖」
           </h4>
 
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4 items-center max-w-4xl mx-auto">
-            <div className="col-span-1 md:col-span-2 p-5 md:p-6 border border-gray-600/60 rounded-xl text-center bg-gray-800/50 h-full flex flex-col justify-center">
+            <div className="col-span-1 md:col-span-2 p-5 md:p-6 border border-[var(--site-border)]/60 rounded-xl text-center bg-[var(--site-bg-elevated)]/50 h-full flex flex-col justify-center">
               <svg className="w-10 h-10 text-brand mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.970 9.970 0 011.563-3.029m5.61 5.61L12 16a4 4 0 10-4-4" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M1.385 4.195L4.545 7.355M19.46 19.46l-3.23-3.23m-4.52-4.52l-4.52-4.52M21 12c-1.275 4.057-5.065 7-9.543 7-4.103 0-7.795-2.221-9.397-5" />
               </svg>
-              <p className="text-base md:text-lg font-bold mb-2 text-white">貢献把握の限界</p>
-              <p className="text-sm text-gray-400 leading-relaxed">小さな貢献が評価できず、貢献者の不満が蓄積</p>
+              <p className="text-base md:text-lg font-bold mb-2 text-[var(--site-fg)]">貢献把握の限界</p>
+              <p className="text-sm text-[var(--site-fg-muted)] leading-relaxed">小さな貢献が評価できず、貢献者の不満が蓄積</p>
             </div>
 
             <div className="col-span-1 flex justify-center items-center h-full">
@@ -116,12 +116,12 @@ const ValueClogSection = React.memo(() => {
               </div>
             </div>
 
-            <div className="col-span-1 md:col-span-2 p-5 md:p-6 border border-gray-600/60 rounded-xl text-center bg-gray-800/50 h-full flex flex-col justify-center">
+            <div className="col-span-1 md:col-span-2 p-5 md:p-6 border border-[var(--site-border)]/60 rounded-xl text-center bg-[var(--site-bg-elevated)]/50 h-full flex flex-col justify-center">
               <svg className="w-10 h-10 text-brand mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <p className="text-base md:text-lg font-bold mb-2 text-white">不正や怠惰の誘惑</p>
-              <p className="text-sm text-gray-400 leading-relaxed">短期利益や個人の利得を求めると、組織や集団への不誠実な行動が合理的となる</p>
+              <p className="text-base md:text-lg font-bold mb-2 text-[var(--site-fg)]">不正や怠惰の誘惑</p>
+              <p className="text-sm text-[var(--site-fg-muted)] leading-relaxed">短期利益や個人の利得を求めると、組織や集団への不誠実な行動が合理的となる</p>
             </div>
           </div>
 

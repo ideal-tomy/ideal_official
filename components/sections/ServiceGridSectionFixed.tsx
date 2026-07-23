@@ -31,7 +31,7 @@ export default function ServiceGridSectionFixed({
   className = '',
 }: ServiceGridSectionFixedProps) {
   return (
-    <section className={`bg-black py-16 md:py-24 ${className}`}>
+    <section className={`bg-[var(--site-bg)] py-16 md:py-24 ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {(title || subtitle || description) && (
           <ScrollReveal className="mb-12 text-center">
@@ -41,7 +41,7 @@ export default function ServiceGridSectionFixed({
               </p>
             )}
             {title && (
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-[var(--site-fg)] mb-4">
                 {title}
               </h2>
             )}
@@ -94,7 +94,7 @@ export default function ServiceGridSectionFixed({
                 </p>
 
                 <div className="text-center">
-                  <span className="inline-flex items-center text-sm font-medium text-gray-300 group-hover:text-brand transition-colors duration-200">
+                  <span className="inline-flex items-center text-sm font-medium text-[var(--site-fg-muted)] group-hover:text-brand transition-colors duration-200">
                     {service.linkText}
                     <svg
                       className="ml-2 w-4 h-4 transition-transform duration-200 group-hover:translate-x-1"
@@ -120,7 +120,7 @@ export default function ServiceGridSectionFixed({
           <Link
             href="/services"
             className={`
-              inline-flex items-center px-6 py-3 ${colors.accent.bg} text-white font-medium rounded-lg ${colors.accent.bgHover} transition-all duration-300 hover:scale-105
+              inline-flex items-center px-6 py-3 ${colors.accent.bg} text-[var(--site-fg)] font-medium rounded-lg ${colors.accent.bgHover} transition-all duration-300 hover:scale-105
             `}
           >
             全サービス一覧を見る

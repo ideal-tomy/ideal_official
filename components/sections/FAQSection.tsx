@@ -53,7 +53,7 @@ export function FAQSection({
 }: FAQSectionProps) {
   // バリアント別のスタイル
   const getVariantStyles = () => {
-    return 'bg-black'
+    return 'bg-[var(--site-bg)]'
   }
 
   // パディングサイズ

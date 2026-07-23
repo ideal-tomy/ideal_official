@@ -91,7 +91,7 @@ export function DemoFirstReason() {
         <div className="mt-12 flex flex-wrap justify-center gap-4 md:mt-16">
           <a
             href="#demos"
-            className="inline-flex items-center gap-2 rounded-[var(--df-radius-btn)] bg-[var(--df-primary)] px-6 py-3 text-sm font-bold text-white transition-transform hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 rounded-[var(--df-radius-btn)] bg-[var(--df-primary)] px-6 py-3 text-sm font-bold text-[var(--df-on-primary)] transition-transform hover:-translate-y-0.5"
           >
             デモを触ってみる
           </a>

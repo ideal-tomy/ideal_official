@@ -37,11 +37,11 @@ export default function VoiceToStructuredPage() {
           <TwoColumnSection
             title="Before / After"
             leftContent={
-              <div className="rounded-xl border border-gray-800 bg-gray-900/40 p-6">
-                <p className="mb-2 text-xs uppercase tracking-wider text-gray-500">
+              <div className="rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)]/40 p-6">
+                <p className="mb-2 text-xs uppercase tracking-wider text-[var(--site-fg-muted)]">
                   {voiceDetailPage.beforeTitle}
                 </p>
-                <p className="leading-relaxed text-gray-300">{voiceDetailPage.beforeText}</p>
+                <p className="leading-relaxed text-[var(--site-fg-muted)]">{voiceDetailPage.beforeText}</p>
               </div>
             }
             rightContent={
@@ -49,7 +49,7 @@ export default function VoiceToStructuredPage() {
                 <p className="mb-2 text-xs uppercase tracking-wider text-brand/80">
                   {voiceDetailPage.afterTitle}
                 </p>
-                <p className="leading-relaxed text-gray-200">{voiceDetailPage.afterText}</p>
+                <p className="leading-relaxed text-[var(--site-fg)]">{voiceDetailPage.afterText}</p>
               </div>
             }
             columnRatio="equal"

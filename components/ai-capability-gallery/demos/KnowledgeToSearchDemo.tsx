@@ -66,7 +66,7 @@ export function KnowledgeToSearchDemo() {
 
   const questionsPanel = (
     <div className="rounded-lg border border-[#D9DDE3] bg-white p-4">
-      <p className="mb-3 text-xs font-medium uppercase tracking-wider text-gray-500">
+      <p className="mb-3 text-xs font-medium uppercase tracking-wider text-[var(--site-fg-muted)]">
         質問一覧
       </p>
       <ul className="space-y-2">
@@ -96,11 +96,11 @@ export function KnowledgeToSearchDemo() {
 
   const answerPanel = (
     <div className="min-h-[120px] rounded-lg border border-[#D9DDE3] bg-white p-4">
-      <p className="mb-3 text-xs font-medium uppercase tracking-wider text-gray-500">
+      <p className="mb-3 text-xs font-medium uppercase tracking-wider text-[var(--site-fg-muted)]">
         回答
       </p>
       {!currentAnswer ? (
-        <p className="text-sm text-gray-400">
+        <p className="text-sm text-[var(--site-fg-muted)]">
           {selectedQuestion
             ? '「検索する」を押すと回答が表示されます'
             : '質問を選んでから「検索する」を押してください'}

@@ -6,9 +6,9 @@ import { ContactForm } from './ContactForm'
 function ContactFormFallback() {
   return (
     <div className="animate-pulse space-y-6">
-      <div className="h-12 bg-gray-800 rounded" />
-      <div className="h-12 bg-gray-800 rounded" />
-      <div className="h-32 bg-gray-800 rounded" />
+      <div className="h-12 bg-[var(--site-bg-elevated)] rounded" />
+      <div className="h-12 bg-[var(--site-bg-elevated)] rounded" />
+      <div className="h-32 bg-[var(--site-bg-elevated)] rounded" />
     </div>
   )
 }

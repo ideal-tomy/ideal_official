@@ -51,7 +51,7 @@ export function DemoBeforeAfterRail({
 
   return (
     <div className="md:hidden">
-      <p className="mb-2 text-[11px] text-gray-500">{hint}</p>
+      <p className="mb-2 text-[11px] text-[var(--site-fg-muted)]">{hint}</p>
       <div
         ref={rail}
         className="flex snap-x snap-mandatory overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
@@ -61,7 +61,7 @@ export function DemoBeforeAfterRail({
           ref={beforeRef}
           className="w-full min-w-full shrink-0 snap-center pr-0"
         >
-          <p className="mb-1.5 text-[10px] font-bold tracking-[0.16em] text-gray-400">
+          <p className="mb-1.5 text-[10px] font-bold tracking-[0.16em] text-[var(--site-fg-muted)]">
             {beforeLabel}
           </p>
           {before}

@@ -51,7 +51,7 @@ const featureCards = [
 
 const DAOOverviewSection = React.memo(function DAOOverviewSection() {
   return (
-    <section className="py-16 md:py-24 bg-black">
+    <section className="py-16 md:py-24 bg-[var(--site-bg)]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="text-center mb-12">
           <h2 className={`${typography.h2} ${colors.text.primary} mb-4`}>
@@ -63,7 +63,7 @@ const DAOOverviewSection = React.memo(function DAOOverviewSection() {
         </ScrollReveal>
 
         <ScrollReveal delay={0.1}>
-          <div className="relative overflow-hidden bg-gray-800 rounded-lg mb-8">
+          <div className="relative overflow-hidden bg-[var(--site-bg-elevated)] rounded-lg mb-8">
             <div className="absolute inset-0 opacity-20">
               <Image
                 src="/images/DAO_para.png"
@@ -97,11 +97,11 @@ const DAOOverviewSection = React.memo(function DAOOverviewSection() {
           {featureCards.map((card) => (
             <div
               key={card.title}
-              className="bg-gray-800/80 border border-gray-700/50 rounded-lg p-6 text-center transition-colors duration-300 hover:border-brand/30"
+              className="bg-[var(--site-bg-elevated)]/80 border border-[var(--site-border)]/50 rounded-lg p-6 text-center transition-colors duration-300 hover:border-brand/30"
             >
               <div className="w-12 h-12 bg-brand/90 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg
-                  className="w-6 h-6 text-white"
+                  className="w-6 h-6 text-[var(--site-fg)]"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -120,7 +120,7 @@ const DAOOverviewSection = React.memo(function DAOOverviewSection() {
         <ScrollReveal className="text-center" delay={0.15}>
           <Link
             href="/philosophy"
-            className={`inline-flex items-center px-8 py-4 ${colors.accent.bg} text-white font-medium rounded-lg ${colors.accent.bgHover} transition-all duration-300 hover:scale-105 text-lg`}
+            className={`inline-flex items-center px-8 py-4 ${colors.accent.bg} text-[var(--site-fg)] font-medium rounded-lg ${colors.accent.bgHover} transition-all duration-300 hover:scale-105 text-lg`}
           >
             詳しくはこちら&gt;&gt;
             <svg

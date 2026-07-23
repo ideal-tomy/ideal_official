@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
-/* ideal brand — 黒 × オレンジ (#FF521C) × ゴールド (#F0C020) */
+/* ideal brand — ライト=青 / ダーク=オレンジ×ゴールド（html.light|dark で上書き） */
 @theme {
-  --color-brand: #ff521c;
-  --color-brand-hover: #e0430f;
-  --color-brand-deep: #f0c020;
-  --color-brand-muted: #e52626;
-  --color-brand-glow: color-mix(in srgb, #ff521c 22%, transparent);
+  --color-brand: #2b6fe0;
+  --color-brand-hover: #1f5ac4;
+  --color-brand-deep: #5d5f97;
+  --color-brand-muted: #7fb2e8;
+  --color-brand-glow: color-mix(in srgb, #2b6fe0 22%, transparent);
 }
 
 /*
@@ -16,8 +16,13 @@
  */
 :root,
 html.light {
+  --color-brand: #2b6fe0;
+  --color-brand-hover: #1f5ac4;
+  --color-brand-deep: #5d5f97;
+  --color-brand-muted: #7fb2e8;
+  --color-brand-glow: color-mix(in srgb, #2b6fe0 22%, transparent);
   --df-primary: #2b6fe0;
-  --df-primary-deep: #1b3a8c;
+  --df-primary-deep: #5d5f97;
   --df-primary-light: #7fb2e8;
   --df-primary-hover: #1f5ac4;
   --df-hero-1: #2e8fcb;
@@ -38,9 +43,19 @@ html.light {
   --site-fg: #1a1a2e;
   --site-fg-muted: #6b7280;
   --site-border: #e5e7eb;
+  --hero-grad-from: #eaf3fb;
+  --hero-grad-via: #dcebfa;
+  --hero-grad-to: #ffffff;
+  --hero-glow-primary: color-mix(in srgb, #2b6fe0 18%, transparent);
+  --hero-glow-secondary: color-mix(in srgb, #1b3a8c 8%, transparent);
 }
 
 html.dark {
+  --color-brand: #ff521c;
+  --color-brand-hover: #e0430f;
+  --color-brand-deep: #f0c020;
+  --color-brand-muted: #e52626;
+  --color-brand-glow: color-mix(in srgb, #ff521c 22%, transparent);
   --df-primary: #ff521c;
   --df-primary-deep: #f0c020;
   --df-primary-light: #e52626;
@@ -60,6 +75,11 @@ html.dark {
   --site-fg: #e5e7eb;
   --site-fg-muted: #9ca3af;
   --site-border: #374151;
+  --hero-grad-from: #000000;
+  --hero-grad-via: #0a0a0a;
+  --hero-grad-to: #000000;
+  --hero-glow-primary: color-mix(in srgb, #ff521c 14%, transparent);
+  --hero-glow-secondary: color-mix(in srgb, #f0c020 6%, transparent);
 }
 
 .demo-first {

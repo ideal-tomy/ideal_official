@@ -19,23 +19,23 @@ export function StructuredResult({
   if (!isComplete) {
     return (
       <div className="rounded-lg border border-[#D9DDE3] bg-white p-4 h-full min-h-[200px]">
-        <p className="text-xs font-medium text-gray-500 uppercase tracking-wider mb-3">
+        <p className="text-xs font-medium text-[var(--site-fg-muted)] uppercase tracking-wider mb-3">
           {title}
         </p>
-        <p className="text-sm text-gray-400">{emptyMessage}</p>
+        <p className="text-sm text-[var(--site-fg-muted)]">{emptyMessage}</p>
       </div>
     )
   }
 
   return (
     <div className="rounded-lg border border-[#D9DDE3] bg-white p-4 h-full">
-      <p className="text-xs font-medium text-gray-500 uppercase tracking-wider mb-3">
+      <p className="text-xs font-medium text-[var(--site-fg-muted)] uppercase tracking-wider mb-3">
         {title}
       </p>
       <dl className="space-y-3">
         {fields.map((field) => (
           <div key={field.key} className="border-b border-[#D9DDE3] pb-2 last:border-0">
-            <dt className="text-[11px] text-gray-500 mb-0.5">{field.key}</dt>
+            <dt className="text-[11px] text-[var(--site-fg-muted)] mb-0.5">{field.key}</dt>
             <dd className="text-sm text-gray-800 leading-relaxed">{field.value}</dd>
           </div>
         ))}

@@ -69,13 +69,13 @@ const DeclarationSection = React.memo(() => {
       <PhilosophyCallout className="mt-6">
         <div>
           <p className="font-bold text-brand mb-3">人間だけでは不可能だった&ldquo;観測&rdquo;と&ldquo;記録&rdquo;</p>
-          <ul className="list-disc list-outside ml-5 space-y-2 text-gray-300">
+          <ul className="list-disc list-outside ml-5 space-y-2 text-[var(--site-fg-muted)]">
             <li>
-              <strong className="text-gray-100">AIによる継続的な観測：</strong>{' '}
+              <strong className="text-[var(--site-fg)]">AIによる継続的な観測：</strong>{' '}
               人間には不可能なスケールで、あらゆる行動とその文脈、影響範囲を24時間365日観測し続けることが可能になった。
             </li>
             <li>
-              <strong className="text-gray-100">ブロックチェーンによる永続的な記録：</strong>{' '}
+              <strong className="text-[var(--site-fg)]">ブロックチェーンによる永続的な記録：</strong>{' '}
               観測された行動とその結果は、改ざん困難な履歴としてブロックチェーンに刻まれ、
               個人に紐づく&ldquo;検証可能なアイデンティティ&rdquo;ととして活用できる技術に応用できるようになった。
             </li>
@@ -83,14 +83,14 @@ const DeclarationSection = React.memo(() => {
         </div>
         <div>
           <p className="font-bold text-brand mb-3">時間と範囲を超えた&ldquo;影響測定&rdquo;と&ldquo;フィードバック&rdquo;</p>
-          <ul className="list-disc list-outside ml-5 space-y-2 text-gray-300">
+          <ul className="list-disc list-outside ml-5 space-y-2 text-[var(--site-fg-muted)]">
             <li>
-              <strong className="text-gray-100">長期的な影響分析：</strong>{' '}
+              <strong className="text-[var(--site-fg)]">長期的な影響分析：</strong>{' '}
               AIとブロックチェーンにより、個々の行動、活動が時間（数年、数十年）と範囲（チーム、社会）を超えて
               どのような影響を与えたかを確認できるようになった。
             </li>
             <li>
-              <strong className="text-gray-100">永続的なフィードバックループ：</strong>{' '}
+              <strong className="text-[var(--site-fg)]">永続的なフィードバックループ：</strong>{' '}
               その結果は、未来のあらゆるインセンティブ計算に自動的に反映され、
               責任もリスクもメリットも公平に分散できる可能性を拡げました。
             </li>
@@ -116,7 +116,7 @@ const DeclarationSection = React.memo(() => {
             </span>
             <div className="min-w-0 pt-0.5">
               <p className="font-semibold text-brand mb-1">{item.title}</p>
-              <p className="text-base text-gray-300 leading-relaxed">{item.body}</p>
+              <p className="text-base text-[var(--site-fg-muted)] leading-relaxed">{item.body}</p>
             </div>
           </li>
         ))}

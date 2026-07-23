@@ -40,7 +40,7 @@ export function DemoActions({
           リセット
         </Button>
       </div>
-      <p className="mt-3 hidden text-[11px] text-gray-500 md:block">
+      <p className="mt-3 hidden text-[11px] text-[var(--site-fg-muted)] md:block">
         ※ デモ用サンプルデータを使用しています。実運用では要件に合わせて設計可能です。
       </p>
 
@@ -67,7 +67,7 @@ export function DemoActions({
             リセット
           </Button>
         </div>
-        <p className="mx-auto mt-1.5 max-w-lg text-[10px] text-gray-500">
+        <p className="mx-auto mt-1.5 max-w-lg text-[10px] text-[var(--site-fg-muted)]">
           ※ デモ用サンプルデータです
         </p>
       </div>

@@ -2,13 +2,13 @@ import { whatWeBuild, webProcessSteps } from '@/data/services/web-hub'
 
 export function WebWhatWeBuild() {
   return (
-    <section className="bg-black py-16 lg:py-20 border-b border-brand/40">
+    <section className="bg-[var(--site-bg)] py-16 lg:py-20 border-b border-brand/40">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <header className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[var(--site-fg)]">
             What we build
           </h2>
-          <p className="text-base text-gray-300 max-w-xl mx-auto">
+          <p className="text-base text-[var(--site-fg-muted)] max-w-xl mx-auto">
             社内にIT部門がなくても、 事業に必要な仕組みはつくれる。の概要です。詳細な技術は下の Under the Hood で触れます。
           </p>
         </header>
@@ -17,10 +17,10 @@ export function WebWhatWeBuild() {
           {whatWeBuild.map((item) => (
             <div
               key={item.title}
-              className="rounded-xl border border-gray-800 bg-gray-900/40 p-6"
+              className="rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)]/40 p-6"
             >
-              <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
-              <p className="text-sm text-gray-400 leading-relaxed">{item.description}</p>
+              <h3 className="text-lg font-semibold text-[var(--site-fg)] mb-2">{item.title}</h3>
+              <p className="text-sm text-[var(--site-fg-muted)] leading-relaxed">{item.description}</p>
             </div>
           ))}
         </div>
@@ -31,13 +31,13 @@ export function WebWhatWeBuild() {
 
 export function WebProcess() {
   return (
-    <section className="bg-black py-16 lg:py-20 border-b border-brand/40">
+    <section className="bg-[var(--site-bg)] py-16 lg:py-20 border-b border-brand/40">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <header className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[var(--site-fg)]">
             進め方
           </h2>
-          <p className="text-base text-gray-300 max-w-xl mx-auto">
+          <p className="text-base text-[var(--site-fg-muted)] max-w-xl mx-auto">
             質感を先に合わせ、設計・実装、公開後の改善まで伴走します。
           </p>
         </header>
@@ -46,13 +46,13 @@ export function WebProcess() {
           {webProcessSteps.map((item) => (
             <div
               key={item.step}
-              className="rounded-xl border border-gray-800 bg-gray-900/40 p-6"
+              className="rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)]/40 p-6"
             >
               <span className="text-2xl font-bold text-brand/70 mb-3 block">
                 {item.step}
               </span>
-              <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
-              <p className="text-sm text-gray-300 leading-relaxed">{item.description}</p>
+              <h3 className="text-lg font-semibold text-[var(--site-fg)] mb-2">{item.title}</h3>
+              <p className="text-sm text-[var(--site-fg-muted)] leading-relaxed">{item.description}</p>
             </div>
           ))}
         </div>

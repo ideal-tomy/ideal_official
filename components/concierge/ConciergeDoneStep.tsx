@@ -75,7 +75,7 @@ export function ConciergeDoneStep({
       </div>
 
       <div
-        className={`rounded-lg bg-gray-900/60 ${borders.border} border-brand/30 p-4 space-y-4 max-h-[min(42dvh,24rem)] sm:max-h-[min(52vh,28rem)] overflow-y-auto overscroll-contain`}
+        className={`rounded-lg bg-[var(--site-bg-elevated)]/60 ${borders.border} border-brand/30 p-4 space-y-4 max-h-[min(42dvh,24rem)] sm:max-h-[min(52vh,28rem)] overflow-y-auto overscroll-contain`}
       >
         {result.situationLabel ? (
           <ResultBlock
@@ -116,7 +116,7 @@ export function ConciergeDoneStep({
               {result.featureTags.map((tag) => (
                 <span
                   key={tag}
-                  className={`rounded-md px-2.5 py-1 text-xs ${borders.border} border-brand/40 ${colors.text.secondary} bg-gray-950/80`}
+                  className={`rounded-md px-2.5 py-1 text-xs ${borders.border} border-brand/40 ${colors.text.secondary} bg-[var(--site-bg)]/80`}
                 >
                   {tag}
                 </span>
@@ -224,7 +224,7 @@ export function ConciergeDoneStep({
         <button
           type="button"
           onClick={onRestart}
-          className={`text-sm ${colors.text.muted} hover:text-white underline-offset-4 hover:underline`}
+          className={`text-sm ${colors.text.muted} hover:text-[var(--site-fg)] underline-offset-4 hover:underline`}
         >
           もう一度最初から選ぶ
         </button>

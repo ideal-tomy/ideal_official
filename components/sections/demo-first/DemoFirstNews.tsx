@@ -30,7 +30,7 @@ export function DemoFirstNews({ items }: Props) {
                 {item.date}
               </time>
               {item.isNew && (
-                <span className="rounded-full bg-[var(--df-primary)] px-2.5 py-0.5 text-xs font-bold text-white">
+                <span className="rounded-full bg-[var(--df-primary)] px-2.5 py-0.5 text-xs font-bold text-[var(--df-on-primary)]">
                   NEW
                 </span>
               )}

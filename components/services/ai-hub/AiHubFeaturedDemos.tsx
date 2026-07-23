@@ -9,13 +9,13 @@ export function AiHubFeaturedDemos() {
   const featured = getFeaturedCapabilities()
 
   return (
-    <section className="border-b border-brand/40 bg-black py-16 lg:py-20">
+    <section className="border-b border-brand/40 bg-[var(--site-bg)] py-16 lg:py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <header className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
+          <h2 className="mb-4 text-3xl font-bold text-[var(--site-fg)] md:text-4xl">
             まずはここから触る
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-gray-300">
+          <p className="mx-auto max-w-2xl text-lg text-[var(--site-fg-muted)]">
             トップと同じ代表3本です。機能ラベルで見比べて、すぐ体験できます。
           </p>
         </header>

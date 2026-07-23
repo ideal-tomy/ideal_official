@@ -191,7 +191,7 @@ export function ContactForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       {showContextBanner && (
-        <div className="p-4 bg-brand-deep/30 border border-brand/50 rounded-lg text-sm text-gray-300">
+        <div className="p-4 bg-brand-deep/30 border border-brand/50 rounded-lg text-sm text-[var(--site-fg-muted)]">
           {intent === 'ai-chat' && (
             <p>AIコンシェルジュからのお問い合わせです。</p>
           )}
@@ -230,11 +230,11 @@ export function ContactForm() {
           {...register('name')}
           className={`
             w-full
-            bg-gray-800 ${colors.text.primary}
+            bg-[var(--site-bg-elevated)] ${colors.text.primary}
             ${borders.border} ${borders.rounded}
             px-4 py-3
             focus:outline-none focus:ring-2 focus:ring-brand
-            placeholder:text-gray-500
+            placeholder:text-[var(--site-fg-muted)]
             ${errors.name ? 'border-red-400' : ''}
           `}
           placeholder="山田 太郎"
@@ -265,11 +265,11 @@ export function ContactForm() {
           {...register('email')}
           className={`
             w-full
-            bg-gray-800 ${colors.text.primary}
+            bg-[var(--site-bg-elevated)] ${colors.text.primary}
             ${borders.border} ${borders.rounded}
             px-4 py-3
             focus:outline-none focus:ring-2 focus:ring-brand
-            placeholder:text-gray-500
+            placeholder:text-[var(--site-fg-muted)]
             ${errors.email ? 'border-red-400' : ''}
           `}
           placeholder="example@example.com"
@@ -300,11 +300,11 @@ export function ContactForm() {
           {...register('company')}
           className={`
             w-full
-            bg-gray-800 ${colors.text.primary}
+            bg-[var(--site-bg-elevated)] ${colors.text.primary}
             ${borders.border} ${borders.rounded}
             px-4 py-3
             focus:outline-none focus:ring-2 focus:ring-brand
-            placeholder:text-gray-500
+            placeholder:text-[var(--site-fg-muted)]
           `}
           placeholder="株式会社ideal"
         />
@@ -323,11 +323,11 @@ export function ContactForm() {
           {...register('message')}
           className={`
             w-full
-            bg-gray-800 ${colors.text.primary}
+            bg-[var(--site-bg-elevated)] ${colors.text.primary}
             ${borders.border} ${borders.rounded}
             px-4 py-3
             focus:outline-none focus:ring-2 focus:ring-brand
-            placeholder:text-gray-500
+            placeholder:text-[var(--site-fg-muted)]
             resize-vertical
             ${errors.message ? 'border-red-400' : ''}
           `}

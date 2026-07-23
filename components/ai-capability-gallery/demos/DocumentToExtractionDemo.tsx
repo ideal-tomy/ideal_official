@@ -40,7 +40,7 @@ export function DocumentToExtractionDemo() {
 
   const documentView = (
     <div className="rounded-lg border border-[#D9DDE3] bg-white p-4">
-      <p className="mb-3 text-xs font-medium uppercase tracking-wider text-gray-500">
+      <p className="mb-3 text-xs font-medium uppercase tracking-wider text-[var(--site-fg-muted)]">
         文書ビュー
       </p>
       <p className="mb-3 text-sm font-semibold text-gray-800">{selectedSet.documentTitle}</p>
@@ -63,17 +63,17 @@ export function DocumentToExtractionDemo() {
 
   const extractionResult = (
     <div className="rounded-lg border border-[#D9DDE3] bg-white p-4">
-      <p className="mb-3 text-xs font-medium uppercase tracking-wider text-gray-500">
+      <p className="mb-3 text-xs font-medium uppercase tracking-wider text-[var(--site-fg-muted)]">
         抽出結果
       </p>
       {!isComplete ? (
-        <p className="text-sm text-gray-400">処理完了後に表示されます</p>
+        <p className="text-sm text-[var(--site-fg-muted)]">処理完了後に表示されます</p>
       ) : (
         <table className="w-full text-xs">
           <thead>
             <tr className="border-b border-[#D9DDE3]">
-              <th className="py-2 text-left font-medium text-gray-500">項目</th>
-              <th className="py-2 text-left font-medium text-gray-500">値</th>
+              <th className="py-2 text-left font-medium text-[var(--site-fg-muted)]">項目</th>
+              <th className="py-2 text-left font-medium text-[var(--site-fg-muted)]">値</th>
             </tr>
           </thead>
           <tbody>
@@ -140,7 +140,7 @@ export function DocumentToExtractionDemo() {
 
       {isComplete && (
         <div className="mb-4 rounded-lg border border-[#D9DDE3] bg-white p-4">
-          <p className="mb-3 text-xs font-medium uppercase tracking-wider text-gray-500">
+          <p className="mb-3 text-xs font-medium uppercase tracking-wider text-[var(--site-fg-muted)]">
             重要項目サマリー
           </p>
           <div className="flex flex-wrap gap-2">

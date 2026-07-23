@@ -58,7 +58,7 @@ export function RelatedServicesSection({
 }: RelatedServicesSectionProps) {
   // バリアント別のスタイル
   const getVariantStyles = () => {
-    return 'bg-black'
+    return 'bg-[var(--site-bg)]'
   }
 
   // パディングサイズ
@@ -197,7 +197,7 @@ export function RelatedServicesSection({
               <div className="text-center">
                 <span className={`
                   inline-flex items-center text-sm font-medium
-                  text-brand hover:text-white
+                  text-brand hover:text-[var(--site-fg)]
                   transition-colors duration-200
                 `}>
                   詳細を見る

@@ -33,7 +33,7 @@ export function DemoFirstHero() {
       <div className={pageHeroActionsClass}>
         <a
           href="#demos"
-          className="inline-flex min-w-0 flex-1 basis-1/2 items-center justify-center gap-2 rounded-[var(--df-radius-btn)] bg-[var(--df-primary)] px-3 py-3.5 text-center text-sm font-bold text-white transition-transform duration-250 hover:-translate-y-0.5 hover:bg-[var(--df-primary-hover)] sm:px-7 sm:text-base"
+          className="inline-flex min-w-0 flex-1 basis-1/2 items-center justify-center gap-2 rounded-[var(--df-radius-btn)] bg-[var(--df-primary)] px-3 py-3.5 text-center text-sm font-bold text-[var(--df-on-primary)] transition-transform duration-250 hover:-translate-y-0.5 hover:bg-[var(--df-primary-hover)] sm:px-7 sm:text-base"
         >
           デモを触ってみる
         </a>

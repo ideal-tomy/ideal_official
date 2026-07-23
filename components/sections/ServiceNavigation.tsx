@@ -16,7 +16,7 @@ export function ServiceNavigation({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* スクロールインジケーター（スマホ表示時のみ） */}
         <div className="lg:hidden flex justify-center mb-4">
-          <div className="flex items-center gap-2 text-sm text-gray-400">
+          <div className="flex items-center gap-2 text-sm text-[var(--site-fg-muted)]">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
             </svg>
@@ -42,7 +42,7 @@ export function ServiceNavigation({
                   focus:outline-none
                   ${isActive
                     ? `${colors.accent.bg} ${colors.text.primary}`
-                    : `${colors.text.secondary} hover:${colors.text.primary} hover:bg-gray-800/50`
+                    : `${colors.text.secondary} hover:${colors.text.primary} hover:bg-[var(--site-bg-elevated)]/50`
                   }
                 `}
               >

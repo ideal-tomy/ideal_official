@@ -20,7 +20,7 @@ export function LabBreadcrumb({
       aria-label="パンくず"
       className="mx-auto max-w-3xl px-4 pb-2 pt-8 sm:px-6 lg:px-8"
     >
-      <ol className="flex flex-wrap items-center gap-2 text-sm text-gray-500">
+      <ol className="flex flex-wrap items-center gap-2 text-sm text-[var(--site-fg-muted)]">
         <li>
           <Link href="/lab" className="transition-colors hover:text-brand">
             LAB
@@ -34,7 +34,7 @@ export function LabBreadcrumb({
                 {item.label}
               </Link>
             ) : (
-              <span className="text-gray-300">{item.label}</span>
+              <span className="text-[var(--site-fg-muted)]">{item.label}</span>
             )}
           </li>
         ))}

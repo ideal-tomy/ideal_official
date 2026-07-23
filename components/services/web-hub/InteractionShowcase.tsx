@@ -8,10 +8,10 @@ import { usePrefersReducedMotion } from '@/lib/use-prefers-reduced-motion'
 
 function ModalPanel() {
   return (
-    <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6 h-full flex flex-col">
+    <div className="rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)]/50 p-6 h-full flex flex-col">
       <p className="mb-2 hidden text-xs tracking-[0.16em] text-brand/90 md:block">01 · Modal</p>
-      <h3 className="text-xl font-semibold text-white mb-3">開いて、閉じる体験</h3>
-      <p className="text-sm text-gray-400 mb-6 leading-relaxed flex-1">
+      <h3 className="text-xl font-semibold text-[var(--site-fg)] mb-3">開いて、閉じる体験</h3>
+      <p className="text-sm text-[var(--site-fg-muted)] mb-6 leading-relaxed flex-1">
         詳細はページ遷移ではなく、その場で開く。このサイトのサービス説明や技術詳細でも同じ仕組みを使っています。
       </p>
       <Modal
@@ -20,10 +20,10 @@ function ModalPanel() {
         size="md"
       >
         <div className="space-y-4">
-          <p className="text-gray-300 leading-relaxed">
+          <p className="text-[var(--site-fg-muted)] leading-relaxed">
             このダイアログは framer-motion 付きの PremiumDialog です。開いたときだけマウントし、初期表示を軽く保ちます。
           </p>
-          <ul className="space-y-2 text-sm text-gray-400">
+          <ul className="space-y-2 text-sm text-[var(--site-fg-muted)]">
             <li className="flex items-start gap-2">
               <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
               オーバーレイのフェードイン
@@ -37,7 +37,7 @@ function ModalPanel() {
               Esc / 外側クリックで閉じる
             </li>
           </ul>
-          <p className="text-xs text-brand/80 pt-2 border-t border-gray-700">
+          <p className="text-xs text-brand/80 pt-2 border-t border-[var(--site-border)]">
             使用箇所: サービスカード詳細、Under the Hood、各種説明モーダル
           </p>
         </div>
@@ -51,14 +51,14 @@ function MotionPanel() {
   const [key, setKey] = useState(0)
 
   return (
-    <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6 h-full flex flex-col">
+    <div className="rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)]/50 p-6 h-full flex flex-col">
       <p className="mb-2 hidden text-xs tracking-[0.16em] text-brand/90 md:block">02 · Motion</p>
-      <h3 className="text-xl font-semibold text-white mb-3">意図のある動き</h3>
-      <p className="text-sm text-gray-400 mb-6 leading-relaxed">
+      <h3 className="text-xl font-semibold text-[var(--site-fg)] mb-3">意図のある動き</h3>
+      <p className="text-sm text-[var(--site-fg-muted)] mb-6 leading-relaxed">
         常時動かさず、再生したときだけ印象づける。ページ遷移や Hero でも同じ思想です。
       </p>
 
-      <div className="relative flex-1 min-h-[140px] rounded-lg border border-gray-700 bg-black/60 overflow-hidden mb-4 flex items-center justify-center">
+      <div className="relative flex-1 min-h-[140px] rounded-lg border border-[var(--site-border)] bg-[var(--site-bg)]/60 overflow-hidden mb-4 flex items-center justify-center">
         <AnimatePresence mode="wait">
           <motion.div
             key={key}
@@ -68,8 +68,8 @@ function MotionPanel() {
             transition={{ duration: prefersReduced ? 0 : 0.45, ease: [0.33, 1, 0.68, 1] }}
             className="px-6 py-4 rounded-lg border border-brand/30 bg-brand/10 text-center"
           >
-            <p className="text-sm font-medium text-white">Fade &amp; Rise</p>
-            <p className="text-xs text-gray-400 mt-1">再生 #{key + 1}</p>
+            <p className="text-sm font-medium text-[var(--site-fg)]">Fade &amp; Rise</p>
+            <p className="text-xs text-[var(--site-fg-muted)] mt-1">再生 #{key + 1}</p>
           </motion.div>
         </AnimatePresence>
       </div>
@@ -77,7 +77,7 @@ function MotionPanel() {
       <button
         type="button"
         onClick={() => setKey((k) => k + 1)}
-        className="inline-flex items-center justify-center rounded-lg bg-brand px-5 py-2.5 text-sm font-bold text-white hover:bg-brand-hover transition-colors"
+        className="inline-flex items-center justify-center rounded-lg bg-brand px-5 py-2.5 text-sm font-bold text-[var(--df-on-primary)] hover:bg-brand-hover transition-colors"
       >
         モーションを再生
       </button>
@@ -103,15 +103,15 @@ function InteractionPanel() {
   ]
 
   return (
-    <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6 h-full flex flex-col">
+    <div className="rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)]/50 p-6 h-full flex flex-col">
       <p className="mb-2 hidden text-xs tracking-[0.16em] text-brand/90 md:block">03 · Interaction</p>
-      <h3 className="text-xl font-semibold text-white mb-3">切り替えて理解する</h3>
-      <p className="text-sm text-gray-400 mb-6 leading-relaxed">
+      <h3 className="text-xl font-semibold text-[var(--site-fg)] mb-3">切り替えて理解する</h3>
+      <p className="text-sm text-[var(--site-fg-muted)] mb-6 leading-relaxed">
         タブで視点を変えながら読む。サービスページの技術提供でも同じパターンを使っています。
       </p>
 
       <Tab.Group selectedIndex={tabIndex} onChange={setTabIndex}>
-        <Tab.List className="flex gap-4 border-b border-gray-700 mb-4">
+        <Tab.List className="flex gap-4 border-b border-[var(--site-border)] mb-4">
           {panels.map((panel) => (
             <Tab as={Fragment} key={panel.name}>
               {({ selected }) => (
@@ -119,8 +119,8 @@ function InteractionPanel() {
                   type="button"
                   className={`pb-2 text-sm font-semibold focus:outline-none relative ${
                     selected
-                      ? 'text-white border-b-2 border-brand -mb-px'
-                      : 'text-gray-400 hover:text-gray-200'
+                      ? 'text-[var(--site-fg)] border-b-2 border-brand -mb-px'
+                      : 'text-[var(--site-fg-muted)] hover:text-[var(--site-fg)]'
                   }`}
                 >
                   {panel.name}
@@ -131,7 +131,7 @@ function InteractionPanel() {
         </Tab.List>
         <Tab.Panels className="flex-1">
           {panels.map((panel) => (
-            <Tab.Panel key={panel.name} className="text-sm text-gray-300 leading-relaxed">
+            <Tab.Panel key={panel.name} className="text-sm text-[var(--site-fg-muted)] leading-relaxed">
               {panel.body}
             </Tab.Panel>
           ))}
@@ -145,14 +145,14 @@ export function InteractionShowcase() {
   return (
     <section
       id="interaction-showcase"
-      className="scroll-mt-24 bg-black py-16 lg:py-20 border-b border-brand/40"
+      className="scroll-mt-24 bg-[var(--site-bg)] py-16 lg:py-20 border-b border-brand/40"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <header className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[var(--site-fg)]">
             Interaction Showcase
           </h2>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+          <p className="text-lg text-[var(--site-fg-muted)] max-w-2xl mx-auto">
             「実装できます」ではなく、ここで触ってください。Modal / Motion / Interaction の3つです。
           </p>
         </header>

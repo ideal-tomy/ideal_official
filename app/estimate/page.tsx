@@ -48,7 +48,7 @@ export default function EstimatePage() {
         containerSize="full"
         className="pt-0 pb-12 md:pb-16"
       >
-        <div className="mx-4 max-w-xl rounded-xl border border-gray-700 bg-gray-900/40 px-6 py-12 text-center sm:mx-auto sm:px-10">
+        <div className="mx-4 max-w-xl rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)]/40 px-6 py-12 text-center sm:mx-auto sm:px-10">
           {roiHref ? (
             <>
               <p className={`${typography.body} ${colors.text.muted} mb-8`}>
@@ -62,7 +62,7 @@ export default function EstimatePage() {
                 rel="noopener noreferrer"
                 className="
                   inline-flex items-center justify-center rounded-lg
-                  bg-brand px-8 py-4 text-lg font-bold text-white
+                  bg-brand px-8 py-4 text-lg font-bold text-[var(--df-on-primary)]
                   transition-all duration-300 ease-in-out
                   hover:scale-105 hover:bg-brand-hover active:scale-95
                   focus:outline-none focus:ring-2 focus:ring-brand/50 focus:ring-offset-2 focus:ring-offset-[var(--site-bg)]
@@ -78,7 +78,7 @@ export default function EstimatePage() {
               </p>
               <p className={`${typography.small} ${colors.text.disabled}`}>
                 環境変数{' '}
-                <code className="text-gray-400">NEXT_PUBLIC_ROI_SIMULATOR_URL</code>{' '}
+                <code className="text-[var(--site-fg-muted)]">NEXT_PUBLIC_ROI_SIMULATOR_URL</code>{' '}
                 を設定してください。
               </p>
             </>
@@ -115,7 +115,7 @@ export default function EstimatePage() {
               href="/contact"
               className="
                 inline-flex items-center justify-center rounded-lg
-                bg-brand px-8 py-4 text-lg font-bold text-white
+                bg-brand px-8 py-4 text-lg font-bold text-[var(--df-on-primary)]
                 transition-all duration-300 ease-in-out
                 hover:scale-105 hover:bg-brand-hover active:scale-95
                 focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 focus:ring-offset-[var(--site-bg)]

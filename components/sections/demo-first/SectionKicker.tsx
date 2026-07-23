@@ -33,7 +33,7 @@ export function SectionKicker({
           </span>
           <span
             className={`mx-2 ${
-              tone === 'inverse' ? 'text-white/40' : 'text-[var(--df-primary)]/40'
+              tone === 'inverse' ? 'text-[var(--site-fg)]/40' : 'text-[var(--df-primary)]/40'
             }`}
             aria-hidden
           >

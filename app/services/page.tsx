@@ -153,7 +153,7 @@ export default function ServicesPage() {
         </div>
       ))}
 
-      <Section backgroundColor="black" className="py-16 md:py-20 border-t border-gray-800">
+      <Section backgroundColor="black" className="py-16 md:py-20 border-t border-[var(--site-border)]">
         <div className="max-w-3xl mx-auto text-center px-4">
           <p className="text-xs font-medium tracking-[0.2em] uppercase text-brand/90 mb-3">
             LAB
@@ -169,7 +169,7 @@ export default function ServicesPage() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="inline-block px-4 py-2 rounded-lg border border-gray-700 text-sm text-gray-300 hover:border-brand/40 hover:text-white transition-colors"
+                  className="inline-block px-4 py-2 rounded-lg border border-[var(--site-border)] text-sm text-[var(--site-fg-muted)] hover:border-brand/40 hover:text-[var(--site-fg)] transition-colors"
                 >
                   {link.label}
                 </Link>

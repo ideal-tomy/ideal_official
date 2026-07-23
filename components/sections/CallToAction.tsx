@@ -28,10 +28,10 @@ export default function CallToAction() {
             href="/contact"
             className="
               inline-flex items-center justify-center rounded-lg
-              bg-brand px-8 py-4 text-lg font-bold text-white
+              bg-brand px-8 py-4 text-lg font-bold text-[var(--df-on-primary)]
               transition-all duration-300 ease-in-out
               hover:scale-105 hover:bg-brand-hover active:scale-95
-              focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 focus:ring-offset-black
+              focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 focus:ring-offset-[var(--site-bg)]
             "
           >
             お問い合わせ
@@ -47,7 +47,7 @@ export default function CallToAction() {
           </Link>
         </p>
 
-        <div className="mt-16 flex flex-wrap justify-center gap-6 text-gray-500 text-sm">
+        <div className="mt-16 flex flex-wrap justify-center gap-6 text-[var(--site-fg-muted)] text-sm">
           <span>Next.js</span>
           <span>React Native</span>
           <span>Unity</span>

@@ -18,13 +18,13 @@ export function CaseDemoCta({ caseStudy }: CaseDemoCtaProps) {
   })
 
   return (
-    <section className="border-b border-brand/40 bg-black py-16 lg:py-20">
+    <section className="border-b border-brand/40 bg-[var(--site-bg)] py-16 lg:py-20">
       <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
         <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-brand/90">
           Next
         </p>
-        <h2 className="mb-3 text-3xl font-bold text-white">次に進む</h2>
-        <p className="mb-10 text-base leading-relaxed text-gray-300">
+        <h2 className="mb-3 text-3xl font-bold text-[var(--site-fg)]">次に進む</h2>
+        <p className="mb-10 text-base leading-relaxed text-[var(--site-fg-muted)]">
           体験で確かめたいか、金額感が先か。ここから選べます。
         </p>
 
@@ -69,7 +69,7 @@ export function CaseDemoCta({ caseStudy }: CaseDemoCtaProps) {
         </div>
 
         {externalDemo?.note && (
-          <p className="mt-4 text-xs text-gray-500">{externalDemo.note}</p>
+          <p className="mt-4 text-xs text-[var(--site-fg-muted)]">{externalDemo.note}</p>
         )}
       </div>
     </section>

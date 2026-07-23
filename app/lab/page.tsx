@@ -24,8 +24,8 @@ export default function LabHubPage() {
       <section className="py-16 lg:py-20 border-b border-brand/40">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <header className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-3">領域を選ぶ</h2>
-            <p className="text-base text-gray-400">
+            <h2 className="text-3xl font-bold text-[var(--site-fg)] mb-3">領域を選ぶ</h2>
+            <p className="text-base text-[var(--site-fg-muted)]">
               入口のデモや依頼ページは軽く保ち、深さはここに置いています。
             </p>
           </header>
@@ -35,13 +35,13 @@ export default function LabHubPage() {
               <Link
                 key={area.id}
                 href={area.href}
-                className="rounded-xl border border-gray-800 bg-gray-900/40 p-6 hover:border-brand/30 hover:bg-gray-900/60 transition-colors"
+                className="rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)]/40 p-6 hover:border-brand/30 hover:bg-[var(--site-bg-elevated)]/60 transition-colors"
               >
                 <p className="mb-2 hidden text-xs uppercase tracking-[0.16em] text-brand/90 md:block">
                   {area.eyebrow}
                 </p>
-                <h3 className="text-lg font-semibold text-white mb-2">{area.title}</h3>
-                <p className="text-sm text-gray-400 leading-relaxed">{area.description}</p>
+                <h3 className="text-lg font-semibold text-[var(--site-fg)] mb-2">{area.title}</h3>
+                <p className="text-sm text-[var(--site-fg-muted)] leading-relaxed">{area.description}</p>
               </Link>
             ))}
           </div>
@@ -52,8 +52,8 @@ export default function LabHubPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <header className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
             <div>
-              <h2 className="text-3xl font-bold text-white mb-2">Insights</h2>
-              <p className="text-base text-gray-400">
+              <h2 className="text-3xl font-bold text-[var(--site-fg)] mb-2">Insights</h2>
+              <p className="text-base text-[var(--site-fg-muted)]">
                 サービス長文から再配置した解説記事
               </p>
             </div>

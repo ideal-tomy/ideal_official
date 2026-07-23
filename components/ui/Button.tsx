@@ -2,8 +2,8 @@
  * Button コンポーネント
  *
  * variant:
- * - primary … ブランドオレンジ #FF521C（サイト共通の主CTA）
- * - secondary … ダーク面上の白ボタン（Hero など）
+ * - primary … テーマ連動アクセント（ライト=青 / ダーク=オレンジ）
+ * - secondary … 対比面の塗りボタン
  * - outline … 枠線のみ（副CTA）
  */
 
@@ -31,22 +31,22 @@ export function Button({
 }: ButtonProps) {
   const variantClasses = {
     primary: `
-      bg-brand text-white
+      bg-brand text-[var(--df-on-primary)]
       hover:bg-brand-hover hover:scale-105
       active:scale-95
-      focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 focus:ring-offset-black
+      focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 focus:ring-offset-[var(--site-bg)]
     `,
     secondary: `
-      bg-white text-gray-950
-      hover:bg-gray-100 hover:scale-105
+      bg-[var(--site-bg-elevated)] text-[var(--site-fg)] border border-[var(--site-border)]
+      hover:bg-[var(--site-border)]/40 hover:scale-105
       active:scale-95
-      focus:outline-none focus:ring-2 focus:ring-white/60 focus:ring-offset-2 focus:ring-offset-black
+      focus:outline-none focus:ring-2 focus:ring-brand/50 focus:ring-offset-2 focus:ring-offset-[var(--site-bg)]
     `,
     outline: `
-      bg-transparent text-white border border-white/25
+      bg-transparent text-[var(--site-fg)] border border-[var(--site-border)]
       hover:border-brand/60 hover:text-brand-hover hover:scale-105
       active:scale-95
-      focus:outline-none focus:ring-2 focus:ring-brand/50 focus:ring-offset-2 focus:ring-offset-black
+      focus:outline-none focus:ring-2 focus:ring-brand/50 focus:ring-offset-2 focus:ring-offset-[var(--site-bg)]
     `,
   }
 

@@ -7,7 +7,7 @@ import { TabData } from '../../types/service'
 // TabContainerを動的インポート（パフォーマンス最適化）
 const TabContainer = dynamic(() => import('../ui/TabContainer').then(mod => ({ default: mod.TabContainer })), {
   ssr: false,
-  loading: () => <div className="animate-pulse bg-gray-800 rounded-lg h-64" />
+  loading: () => <div className="animate-pulse bg-[var(--site-bg-elevated)] rounded-lg h-64" />
 })
 
 /**
@@ -47,7 +47,7 @@ export function TabSection({
 }: TabSectionProps) {
   // バリアント別のスタイル
   const getVariantStyles = () => {
-    return 'bg-black'
+    return 'bg-[var(--site-bg)]'
   }
 
   // パディングサイズ

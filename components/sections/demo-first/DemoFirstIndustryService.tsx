@@ -98,7 +98,7 @@ export function DemoFirstIndustryService({ cards }: Props) {
                           ))}
                         </ul>
 
-                        <span className="mb-3 inline-block rounded bg-[var(--df-primary)] px-3 py-0.5 text-[13px] font-bold text-white">
+                        <span className="mb-3 inline-block rounded bg-[var(--df-primary)] px-3 py-0.5 text-[13px] font-bold text-[var(--df-on-primary)]">
                           解決
                         </span>
                         <ul className="mb-6 space-y-2">
@@ -137,7 +137,7 @@ export function DemoFirstIndustryService({ cards }: Props) {
                             >
                               {card.detailLabel ?? '詳細を見る'}
                               <span
-                                className="inline-flex h-9 w-9 items-center justify-center rounded-[var(--df-radius-btn)] bg-[var(--df-primary)] font-bold text-white"
+                                className="inline-flex h-9 w-9 items-center justify-center rounded-[var(--df-radius-btn)] bg-[var(--df-primary)] font-bold text-[var(--df-on-primary)]"
                                 aria-hidden
                               >
                                 →

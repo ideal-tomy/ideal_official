@@ -33,15 +33,15 @@ export function WorkflowToAutomationDemo() {
 
   const inboxPanel = (
     <div className="rounded-lg border border-[#D9DDE3] bg-white p-4">
-      <p className="mb-3 text-xs font-medium uppercase tracking-wider text-gray-500">
+      <p className="mb-3 text-xs font-medium uppercase tracking-wider text-[var(--site-fg-muted)]">
         受信トレイ
       </p>
       <div className="overflow-hidden rounded-lg border border-[#D9DDE3]">
-        <div className="border-b border-[#D9DDE3] bg-gray-50 px-3 py-2 text-xs text-gray-500">
+        <div className="border-b border-[#D9DDE3] bg-gray-50 px-3 py-2 text-xs text-[var(--site-fg-muted)]">
           受信メール 1件
         </div>
         <div className="space-y-2 p-3">
-          <p className="text-xs text-gray-500">From: {selectedSet.email.from}</p>
+          <p className="text-xs text-[var(--site-fg-muted)]">From: {selectedSet.email.from}</p>
           <p className="text-sm font-medium text-gray-800">{selectedSet.email.subject}</p>
           <p className="text-xs leading-relaxed text-gray-600">{selectedSet.email.body}</p>
           {selectedSet.email.attachment && (
@@ -54,26 +54,26 @@ export function WorkflowToAutomationDemo() {
 
   const resultPanel = (
     <div className="rounded-lg border border-[#D9DDE3] bg-white p-4">
-      <p className="mb-3 text-xs font-medium uppercase tracking-wider text-gray-500">
+      <p className="mb-3 text-xs font-medium uppercase tracking-wider text-[var(--site-fg-muted)]">
         登録結果
       </p>
       {!isComplete ? (
-        <p className="text-sm text-gray-400">処理完了後に表示されます</p>
+        <p className="text-sm text-[var(--site-fg-muted)]">処理完了後に表示されます</p>
       ) : (
         <div className="space-y-3">
           <div className="rounded-lg border border-green-200 bg-green-50 p-3">
             <p className="mb-1 text-xs font-medium text-green-700">登録完了</p>
             <dl className="space-y-1 text-xs">
               <div className="flex justify-between">
-                <dt className="text-gray-500">ID</dt>
+                <dt className="text-[var(--site-fg-muted)]">ID</dt>
                 <dd className="font-mono text-gray-800">{selectedSet.result.registeredId}</dd>
               </div>
               <div className="flex justify-between">
-                <dt className="text-gray-500">カテゴリ</dt>
+                <dt className="text-[var(--site-fg-muted)]">カテゴリ</dt>
                 <dd className="text-gray-800">{selectedSet.result.category}</dd>
               </div>
               <div className="flex justify-between">
-                <dt className="text-gray-500">ステータス</dt>
+                <dt className="text-[var(--site-fg-muted)]">ステータス</dt>
                 <dd className="text-green-700">{selectedSet.result.status}</dd>
               </div>
             </dl>
@@ -88,7 +88,7 @@ export function WorkflowToAutomationDemo() {
 
   const stepsPanel = isComplete ? (
     <div className="mt-3 rounded-lg border border-[#D9DDE3] bg-white p-3">
-      <p className="mb-2 text-[11px] text-gray-500">実行ステップ</p>
+      <p className="mb-2 text-[11px] text-[var(--site-fg-muted)]">実行ステップ</p>
       <ol className="space-y-1">
         {selectedSet.steps.map((step) => (
           <li key={step.id} className="flex gap-2 text-xs text-gray-600">

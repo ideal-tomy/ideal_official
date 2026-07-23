@@ -39,8 +39,8 @@ export function ServiceCard({
         `
       default:
         return `
-          bg-gray-900/50
-          border-gray-700 hover:border-gray-600
+          bg-[var(--site-bg-elevated)]/50
+          border-[var(--site-border)] hover:border-[var(--site-border)]
         `
     }
   }
@@ -51,7 +51,7 @@ export function ServiceCard({
     
     return (
       <div className="mb-4 flex justify-center">
-        <div className="p-3 rounded-lg bg-gray-800/50">
+        <div className="p-3 rounded-lg bg-[var(--site-bg-elevated)]/50">
           {cardData.icon}
         </div>
       </div>
@@ -73,7 +73,7 @@ export function ServiceCard({
                 ? 'bg-brand-deep/50 text-brand-hover' 
                 : variant === 'technology'
                 ? 'bg-green-900/50 text-green-300'
-                : 'bg-gray-800 text-gray-300'
+                : 'bg-[var(--site-bg-elevated)] text-[var(--site-fg-muted)]'
               }
             `}
           >

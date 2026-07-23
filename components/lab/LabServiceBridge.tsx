@@ -22,7 +22,7 @@ export function LabServiceBridge({
   contactHref,
 }: LabServiceBridgeProps) {
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-[var(--site-bg)]">
       <PageHero title={title} description={subtitle}>
         <div className={pageHeroActionsClass}>
           <Link href={labHref} className="min-w-0 flex-1 basis-1/2">
@@ -40,7 +40,7 @@ export function LabServiceBridge({
 
       <section className="py-12 border-b border-brand/40">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm text-gray-400 leading-relaxed">
+          <p className="text-sm text-[var(--site-fg-muted)] leading-relaxed">
             この領域は、依頼の主力サービスではなく研究・実験の領域として LAB に集約しています。
             思想・デモ・過去の企画は{' '}
             <Link href="/lab" className="text-brand hover:text-brand-hover">

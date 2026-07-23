@@ -37,11 +37,11 @@ export default function KnowledgeToSearchPage() {
           <TwoColumnSection
             title="Before / After"
             leftContent={
-              <div className="p-6 rounded-xl border border-gray-800 bg-gray-900/40">
-                <p className="text-xs uppercase tracking-wider text-gray-500 mb-2">
+              <div className="p-6 rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)]/40">
+                <p className="text-xs uppercase tracking-wider text-[var(--site-fg-muted)] mb-2">
                   {knowledgeDetailPage.beforeTitle}
                 </p>
-                <p className="text-gray-300 leading-relaxed">{knowledgeDetailPage.beforeText}</p>
+                <p className="text-[var(--site-fg-muted)] leading-relaxed">{knowledgeDetailPage.beforeText}</p>
               </div>
             }
             rightContent={
@@ -49,7 +49,7 @@ export default function KnowledgeToSearchPage() {
                 <p className="text-xs uppercase tracking-wider text-brand/80 mb-2">
                   {knowledgeDetailPage.afterTitle}
                 </p>
-                <p className="text-gray-200 leading-relaxed">{knowledgeDetailPage.afterText}</p>
+                <p className="text-[var(--site-fg)] leading-relaxed">{knowledgeDetailPage.afterText}</p>
               </div>
             }
             columnRatio="equal"

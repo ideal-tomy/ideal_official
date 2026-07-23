@@ -92,7 +92,7 @@ export function PremiumDialog({
             animate={{ opacity: isExiting ? 0 : 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: backdropDuration, ease: [0.33, 1, 0.68, 1] }}
-            className="fixed inset-0 bg-black/70"
+            className="fixed inset-0 bg-[var(--site-bg)]/70"
             style={{
               backdropFilter: `blur(${popupMotion.backdropBlurPx}px)`,
               WebkitBackdropFilter: `blur(${popupMotion.backdropBlurPx}px)`,

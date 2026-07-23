@@ -61,7 +61,7 @@ export function ServicesDropdown({ serviceLinks }: ServicesDropdownProps) {
       </button>
 
       {isServicesDropdownOpen && (
-        <div className="absolute top-full left-0 mt-2 w-64 bg-gray-900 border border-gray-700 rounded-lg shadow-xl z-50">
+        <div className="absolute top-full left-0 mt-2 w-64 bg-[var(--site-bg-elevated)] border border-[var(--site-border)] rounded-lg shadow-xl z-50">
           <div className="py-2">
             {serviceLinks.map((link) => (
               <Link
@@ -69,18 +69,18 @@ export function ServicesDropdown({ serviceLinks }: ServicesDropdownProps) {
                 href={link.href}
                 scroll
                 prefetch={false}
-                className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"
+                className="block px-4 py-2 text-sm text-[var(--site-fg-muted)] hover:bg-[var(--site-bg-elevated)] hover:text-[var(--site-fg)] transition-colors"
                 onClick={() => setIsServicesDropdownOpen(false)}
               >
                 {link.label}
               </Link>
             ))}
-            <div className="border-t border-gray-700 my-2"></div>
+            <div className="border-t border-[var(--site-border)] my-2"></div>
             <Link
               href="/services"
               scroll
               prefetch={false}
-              className="block px-4 py-2 text-sm text-brand hover:bg-gray-800 transition-colors"
+              className="block px-4 py-2 text-sm text-brand hover:bg-[var(--site-bg-elevated)] transition-colors"
               onClick={() => setIsServicesDropdownOpen(false)}
             >
               すべてのサービスを見る
@@ -89,7 +89,7 @@ export function ServicesDropdown({ serviceLinks }: ServicesDropdownProps) {
               href="/lab"
               scroll
               prefetch={false}
-              className="block px-4 py-2 text-xs text-gray-500 hover:bg-gray-800 hover:text-gray-300 transition-colors"
+              className="block px-4 py-2 text-xs text-[var(--site-fg-muted)] hover:bg-[var(--site-bg-elevated)] hover:text-[var(--site-fg-muted)] transition-colors"
               onClick={() => setIsServicesDropdownOpen(false)}
             >
               BC / Metaverse・研究は LAB へ

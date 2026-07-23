@@ -58,7 +58,7 @@ export function HeroScrollHint({
       <motion.div
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-        className="flex flex-col items-center gap-2 text-gray-500"
+        className="flex flex-col items-center gap-2 text-[var(--site-fg-muted)]"
       >
         <span className="text-xs tracking-widest uppercase">Scroll</span>
         <svg

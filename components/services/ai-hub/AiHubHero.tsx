@@ -22,7 +22,7 @@ export function AiHubHero() {
             aria-hidden="true"
           />
           <div
-            className="absolute inset-0 z-[1] bg-gradient-to-b from-black/75 via-black/55 to-black/85"
+            className="absolute inset-0 z-[1] bg-gradient-to-b from-black/70 via-black/50 to-black/75"
             aria-hidden="true"
           />
         </>

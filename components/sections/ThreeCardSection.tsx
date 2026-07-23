@@ -87,7 +87,7 @@ export function ThreeCardSection({
   // variant パラメータは将来の拡張性のために保持
   // バリアント別のスタイル
   const getVariantStyles = () => {
-    return 'bg-black'
+    return 'bg-[var(--site-bg)]'
   }
 
   // パディングサイズ
@@ -158,7 +158,7 @@ export function ThreeCardSection({
         {/* スクロールインジケーター（スマホ表示時のみ） */}
         {enableMobileScroll && (
           <div className="md:hidden flex justify-center mb-4">
-            <div className="flex items-center gap-2 text-sm text-gray-400">
+            <div className="flex items-center gap-2 text-sm text-[var(--site-fg-muted)]">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
               </svg>

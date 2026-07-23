@@ -4,7 +4,7 @@ import { TwoColumnSection } from './TwoColumnSection'
 
 const ThreeCardSection = dynamic(
   () => import('./ThreeCardSection').then((mod) => ({ default: mod.ThreeCardSection })),
-  { loading: () => <div className="animate-pulse bg-gray-800 rounded-lg h-64" /> }
+  { loading: () => <div className="animate-pulse bg-[var(--site-bg-elevated)] rounded-lg h-64" /> }
 )
 
 export function BlockchainDaoSections() {
@@ -17,7 +17,7 @@ export function BlockchainDaoSections() {
           variant="dark"
         >
           <div className="mt-6">
-            <p className="text-gray-300 leading-relaxed">
+            <p className="text-[var(--site-fg-muted)] leading-relaxed">
               投資DAO、プロトコルDAO、コミュニティDAOなど、目的に応じたガバナンスモデルとスマートコントラクト連携を設計します。
             </p>
           </div>
@@ -57,8 +57,8 @@ export function BlockchainDaoSections() {
           title="従来組織との比較"
           leftContent={
             <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-white mb-4">従来の中央集権組織</h3>
-              <ul className="space-y-3 text-gray-300 inline-block text-left">
+              <h3 className="text-xl font-semibold text-[var(--site-fg)] mb-4">従来の中央集権組織</h3>
+              <ul className="space-y-3 text-[var(--site-fg-muted)] inline-block text-left">
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-red-400 rounded-full mr-3 mt-2 flex-shrink-0" />
                   <span>トップダウンの意思決定</span>
@@ -76,8 +76,8 @@ export function BlockchainDaoSections() {
           }
           rightContent={
             <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-white mb-4">DAO（分散型自律組織）</h3>
-              <ul className="space-y-3 text-gray-300 inline-block text-left">
+              <h3 className="text-xl font-semibold text-[var(--site-fg)] mb-4">DAO（分散型自律組織）</h3>
+              <ul className="space-y-3 text-[var(--site-fg-muted)] inline-block text-left">
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-green-400 rounded-full mr-3 mt-2 flex-shrink-0" />
                   <span>分散型の意思決定</span>
@@ -104,7 +104,7 @@ export function BlockchainDaoSections() {
           description="日本のDAO法（株式会社法の特例等）を踏まえた合同会社型DAOの設計、定款・ガバナンスルールの策定、トークン発行と法務の整合をサポートします。"
           variant="accent"
         >
-          <div className="mt-6 space-y-4 text-gray-300 leading-relaxed">
+          <div className="mt-6 space-y-4 text-[var(--site-fg-muted)] leading-relaxed">
             <p>
               トークン発行、ガバナンストークン設計、投票・提案プロセスのルール策定、法人格・税務の論点整理まで、
               オンチェーンとオフチェーンの両面から伴走します。

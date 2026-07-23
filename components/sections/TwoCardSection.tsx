@@ -38,13 +38,13 @@ const twoCardData: TwoCardData[] = [
 
 const TwoCardSection = React.memo(() => {
   return (
-    <section className="py-16 md:py-24 bg-gray-900">
+    <section className="py-16 md:py-24 bg-[var(--site-bg-elevated)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[var(--site-fg)] mb-4">
             私たちの取り組み
           </h2>
-          <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg text-[var(--site-fg-muted)] max-w-3xl mx-auto">
             理想合同会社は、DAO研究・取り組みとITサービス提供の2つの核を通じて、
             テクノロジーで自由と秩序が両立した未来を創造します。
           </p>
@@ -54,7 +54,7 @@ const TwoCardSection = React.memo(() => {
           {twoCardData.map((card) => (
             <div
               key={card.id}
-              className="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-96"
+              className="bg-[var(--site-bg-elevated)] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-96"
             >
               {/* 画像部分（上半分） */}
               <div className="relative h-48 overflow-hidden">
@@ -66,16 +66,16 @@ const TwoCardSection = React.memo(() => {
                   className="w-full h-full object-cover"
                   priority={false}
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-20" />
+                <div className="absolute inset-0 bg-[var(--site-bg)] bg-opacity-20" />
               </div>
 
               {/* コンテンツ部分（下半分） */}
               <div className="p-6 h-48 flex flex-col justify-between">
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-3">
+                  <h3 className="text-xl font-bold text-[var(--site-fg)] mb-3">
                     {card.title}
                   </h3>
-                  <p className="text-gray-300 text-sm leading-relaxed">
+                  <p className="text-[var(--site-fg-muted)] text-sm leading-relaxed">
                     {card.description}
                   </p>
                 </div>

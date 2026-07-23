@@ -40,7 +40,7 @@ export function MultiInputToReportDemo() {
 
   const materialsPanel = (
     <div className="rounded-lg border border-[#D9DDE3] bg-white p-4">
-      <p className="mb-3 text-xs font-medium uppercase tracking-wider text-gray-500">
+      <p className="mb-3 text-xs font-medium uppercase tracking-wider text-[var(--site-fg-muted)]">
         入力素材
       </p>
       <ul className="space-y-2">
@@ -52,7 +52,7 @@ export function MultiInputToReportDemo() {
             <span aria-hidden="true">{typeIcons[mat.type]}</span>
             <div>
               <p className="text-xs font-medium text-gray-700">{mat.label}</p>
-              <p className="text-[11px] text-gray-500">{mat.preview}</p>
+              <p className="text-[11px] text-[var(--site-fg-muted)]">{mat.preview}</p>
             </div>
           </li>
         ))}
@@ -62,11 +62,11 @@ export function MultiInputToReportDemo() {
 
   const reportPanel = (
     <div className="rounded-lg border border-[#D9DDE3] bg-white p-4">
-      <p className="mb-3 text-xs font-medium uppercase tracking-wider text-gray-500">
+      <p className="mb-3 text-xs font-medium uppercase tracking-wider text-[var(--site-fg-muted)]">
         完成報告書
       </p>
       {!isComplete ? (
-        <p className="text-sm text-gray-400">処理完了後に表示されます</p>
+        <p className="text-sm text-[var(--site-fg-muted)]">処理完了後に表示されます</p>
       ) : (
         <div className="space-y-4">
           <h3 className="border-b border-[#D9DDE3] pb-2 text-sm font-semibold text-gray-800">

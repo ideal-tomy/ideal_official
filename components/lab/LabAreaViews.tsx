@@ -39,9 +39,9 @@ export function LabCardGrid({
     <section className="py-16 lg:py-20 border-b border-brand/40">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <header className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-white mb-3">{title}</h2>
+          <h2 className="text-3xl font-bold text-[var(--site-fg)] mb-3">{title}</h2>
           {description && (
-            <p className="text-base text-gray-400 max-w-xl mx-auto">{description}</p>
+            <p className="text-base text-[var(--site-fg-muted)] max-w-xl mx-auto">{description}</p>
           )}
         </header>
 
@@ -52,8 +52,8 @@ export function LabCardGrid({
                 {item.category && (
                   <p className="text-xs text-brand/80 mb-1">{item.category}</p>
                 )}
-                <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-400 leading-relaxed">{item.description}</p>
+                <h3 className="text-lg font-semibold text-[var(--site-fg)] mb-2">{item.title}</h3>
+                <p className="text-sm text-[var(--site-fg-muted)] leading-relaxed">{item.description}</p>
                 {item.status === 'ready' && item.href && (
                   <p className="text-xs text-brand mt-3">体験する →</p>
                 )}
@@ -65,7 +65,7 @@ export function LabCardGrid({
                 <Link
                   key={item.id}
                   href={item.href}
-                  className="rounded-xl border border-gray-800 bg-gray-900/40 p-6 hover:border-brand/30 hover:bg-gray-900/60 transition-colors"
+                  className="rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)]/40 p-6 hover:border-brand/30 hover:bg-[var(--site-bg-elevated)]/60 transition-colors"
                 >
                   {inner}
                 </Link>
@@ -75,7 +75,7 @@ export function LabCardGrid({
             return (
               <div
                 key={item.id}
-                className="rounded-xl border border-gray-800 bg-gray-900/40 p-6"
+                className="rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)]/40 p-6"
               >
                 {inner}
               </div>
@@ -104,18 +104,18 @@ export function LabPhilosophyGrid({
     <section className="py-16 lg:py-20 border-b border-brand/40">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <header className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-white mb-3">{title}</h2>
-          <p className="text-base text-gray-400 max-w-xl mx-auto">{description}</p>
+          <h2 className="text-3xl font-bold text-[var(--site-fg)] mb-3">{title}</h2>
+          <p className="text-base text-[var(--site-fg-muted)] max-w-xl mx-auto">{description}</p>
         </header>
 
         <div className="grid sm:grid-cols-2 gap-4 mb-8">
           {points.map((point) => (
             <div
               key={point.title}
-              className="rounded-xl border border-gray-800 bg-gray-900/40 p-5"
+              className="rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)]/40 p-5"
             >
-              <h3 className="text-lg font-semibold text-white mb-2">{point.title}</h3>
-              <p className="text-sm text-gray-400 leading-relaxed">{point.description}</p>
+              <h3 className="text-lg font-semibold text-[var(--site-fg)] mb-2">{point.title}</h3>
+              <p className="text-sm text-[var(--site-fg-muted)] leading-relaxed">{point.description}</p>
             </div>
           ))}
         </div>
@@ -146,17 +146,17 @@ export function LabTechList({
     <section className="py-16 lg:py-20 border-b border-brand/40">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <header className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-white mb-3">{title}</h2>
+          <h2 className="text-3xl font-bold text-[var(--site-fg)] mb-3">{title}</h2>
         </header>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {technologies.map((tech) => (
             <div
               key={tech.name}
-              className="rounded-lg border border-gray-800 bg-gray-900/40 px-4 py-4"
+              className="rounded-lg border border-[var(--site-border)] bg-[var(--site-bg-elevated)]/40 px-4 py-4"
             >
-              <p className="text-white font-semibold mb-1">{tech.name}</p>
-              <p className="text-sm text-gray-400">{tech.description}</p>
+              <p className="text-[var(--site-fg)] font-semibold mb-1">{tech.name}</p>
+              <p className="text-sm text-[var(--site-fg-muted)]">{tech.description}</p>
             </div>
           ))}
         </div>
@@ -177,8 +177,8 @@ export function LabSoftCta({
   return (
     <section className="py-16 lg:py-20">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-2xl font-bold text-white mb-4">{title}</h2>
-        <p className="text-base text-gray-400 leading-relaxed mb-8">{description}</p>
+        <h2 className="text-2xl font-bold text-[var(--site-fg)] mb-4">{title}</h2>
+        <p className="text-base text-[var(--site-fg-muted)] leading-relaxed mb-8">{description}</p>
         <Link href={href}>
           <Button variant="secondary" size="lg">
             相談する

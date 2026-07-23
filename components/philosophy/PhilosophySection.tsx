@@ -41,7 +41,7 @@ const philosophyItems: AccordionItem[] = [
         <p>
           個々の得意不得意や向き不向きも含め、個別環境化での&ldquo;無能&rdquo;は罪ではない。しかし、その事実が曖昧な評価基準で&ldquo;調整&rdquo;され、二つの悲劇を生みます。
         </p>
-        <div className="space-y-3 border-t border-gray-700/50 pt-4 mt-4">
+        <div className="space-y-3 border-t border-[var(--site-border)]/50 pt-4 mt-4">
           <p className="text-brand-hover/90">
             １，組織全体の評価基準を破壊し、誠実な貢献者の意欲を削いでしまうこと。
           </p>
@@ -81,14 +81,14 @@ const PhilosophySection = React.memo(() => {
         previewText=""
         fullText={
           <div className="space-y-5 max-w-3xl">
-            <ul className="list-disc list-outside ml-5 space-y-3 text-gray-300 leading-relaxed">
+            <ul className="list-disc list-outside ml-5 space-y-3 text-[var(--site-fg-muted)] leading-relaxed">
               <li>
-                <strong className="text-gray-100">評価の絶対性：</strong>
+                <strong className="text-[var(--site-fg)]">評価の絶対性：</strong>
                 個人の貢献、能力、誠実さは、透明なロジックの下で絶対的に評価される。
                 貢献や活動結果に対する報酬や対価は、この評価によってのみ得られるべきです。
               </li>
               <li>
-                <strong className="text-gray-100">救済の透明性：</strong>
+                <strong className="text-[var(--site-fg)]">救済の透明性：</strong>
                 評価をごまかすのではなく、<strong>事実を認めた上で、尊厳ある評価と対応をする。</strong>
               </li>
             </ul>
@@ -98,12 +98,12 @@ const PhilosophySection = React.memo(() => {
             </p>
 
             <div className="pt-4">
-              <h4 className="text-lg font-semibold text-white mb-4 pl-4 border-l-2 border-brand/70">
+              <h4 className="text-lg font-semibold text-[var(--site-fg)] mb-4 pl-4 border-l-2 border-brand/70">
                 ラディカルな正直さの物理法則
               </h4>
-              <div className="space-y-5 text-base sm:text-lg text-gray-300 leading-relaxed">
+              <div className="space-y-5 text-base sm:text-lg text-[var(--site-fg-muted)] leading-relaxed">
                 <p>
-                  <strong className="text-gray-100">&ldquo;生きるために、正直な感情や行動を抑制しなければならない社会は、本当に成熟していると言えるのか？&rdquo;</strong>
+                  <strong className="text-[var(--site-fg)]">&ldquo;生きるために、正直な感情や行動を抑制しなければならない社会は、本当に成熟していると言えるのか？&rdquo;</strong>
                 </p>
 
                 <PhilosophyQuote>
@@ -126,7 +126,7 @@ const PhilosophySection = React.memo(() => {
                 </p>
                 <p>
                   欲望に正直な行動が、あるDAOでは最大の貢献とみなされ、別のDAOではマイナスとみなされる。
-                  この<strong className="text-gray-100">&ldquo;ラディカルな正直さの許容&rdquo;</strong>と<strong className="text-gray-100">&ldquo;価値観ごとの厳格な結果責任&rdquo;</strong>の両立こそが、
+                  この<strong className="text-[var(--site-fg)]">&ldquo;ラディカルな正直さの許容&rdquo;</strong>と<strong className="text-[var(--site-fg)]">&ldquo;価値観ごとの厳格な結果責任&rdquo;</strong>の両立こそが、
                   我々の設計する&ldquo;正直さの物理法則&rdquo;によって描かれる世界の断片です。
                 </p>
               </div>
@@ -136,7 +136,7 @@ const PhilosophySection = React.memo(() => {
         className="max-w-3xl"
       />
 
-      <div className="mt-12 pt-8 border-t border-gray-800/60 max-w-3xl space-y-5">
+      <div className="mt-12 pt-8 border-t border-[var(--site-border)]/60 max-w-3xl space-y-5">
         <p className="text-xl font-bold text-brand">
           個人の合理的な選択を、根本から変える。
         </p>

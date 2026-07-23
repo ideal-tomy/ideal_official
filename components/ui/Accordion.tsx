@@ -58,7 +58,7 @@ export function Accordion({
           key={item.id || index} 
           as="div"
           defaultOpen={defaultOpenId === item.id}
-          className={isCard ? 'rounded-xl border border-gray-700/50 bg-gray-900/40 overflow-hidden' : undefined}
+          className={isCard ? 'rounded-xl border border-[var(--site-border)]/50 bg-[var(--site-bg-elevated)]/40 overflow-hidden' : undefined}
         >
           {({ open }) => (
             <>
@@ -67,8 +67,8 @@ export function Accordion({
                 className={`
                   flex justify-between items-center w-full text-left
                   ${isCard ? 'px-5 sm:px-6 py-4 sm:py-5 text-base sm:text-lg font-semibold' : `px-0 py-4 ${typography.h4}`}
-                  text-white
-                  hover:text-gray-200
+                  text-[var(--site-fg)]
+                  hover:text-[var(--site-fg)]
                   focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/50 focus-visible:ring-inset
                   ${transitions.all}
                 `}
@@ -117,8 +117,8 @@ export function Accordion({
               >
                 <Disclosure.Panel 
                   className={`
-                    ${isCard ? 'px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-gray-700/40' : 'px-0 pt-4 pb-6 mt-2'}
-                    text-base sm:text-lg leading-relaxed text-gray-300
+                    ${isCard ? 'px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-[var(--site-border)]/40' : 'px-0 pt-4 pb-6 mt-2'}
+                    text-base sm:text-lg leading-relaxed text-[var(--site-fg-muted)]
                   `}
                 >
                   {item.content}

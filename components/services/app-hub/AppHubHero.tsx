@@ -29,7 +29,7 @@ export function AppHubHero() {
       description={appHubHero.subtitle}
       background={
         <>
-          <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-950 to-black" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[var(--site-bg)] via-[var(--site-bg-elevated)] to-[var(--site-bg)]" />
           <div
             className="absolute inset-0 transition-[background] duration-300 ease-out"
             style={{
@@ -43,7 +43,7 @@ export function AppHubHero() {
           />
           <div className="hero-stars absolute inset-0 opacity-35" aria-hidden="true" />
           <div
-            className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent"
+            className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[var(--site-bg)] to-transparent"
             aria-hidden="true"
           />
         </>

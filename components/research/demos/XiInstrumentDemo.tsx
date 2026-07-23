@@ -136,18 +136,18 @@ export function XiInstrumentDemo() {
   return (
     <div className="space-y-10">
       <section>
-        <p className="text-gray-300 leading-relaxed mb-6">
+        <p className="text-[var(--site-fg-muted)] leading-relaxed mb-6">
           Chatterjee の ξ は「Y が X の関数か」を検出します。X＝AIが観測した貢献シグナル、Y＝実際に実現した中長期インパクト。ゲーミング混入率と観測ノイズを変えて、測定系の健全性を診断してください。
         </p>
 
-        <div className="grid lg:grid-cols-2 gap-8 p-6 rounded-xl border border-gray-800 bg-gray-900/40">
+        <div className="grid lg:grid-cols-2 gap-8 p-6 rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)]/40">
           <div>
-            <div className="flex justify-between text-[10px] uppercase tracking-wider text-gray-400 mb-2 font-mono">
+            <div className="flex justify-between text-[10px] uppercase tracking-wider text-[var(--site-fg-muted)] mb-2 font-mono">
               <span>Y ↑ 実インパクト</span>
               <span>X → 観測シグナル</span>
             </div>
             <ScatterPlot pts={pts} />
-            <div className="flex flex-wrap gap-4 mt-3 text-xs text-gray-300">
+            <div className="flex flex-wrap gap-4 mt-3 text-xs text-[var(--site-fg-muted)]">
               <span className="flex items-center gap-2">
                 <i className="w-2 h-2 rounded-full bg-brand-hover" />
                 誠実な貢献 — Y は X に従属
@@ -161,9 +161,9 @@ export function XiInstrumentDemo() {
 
           <div className="flex flex-col items-center justify-center">
             <Gauge xi={xi} />
-            <p className="text-3xl font-medium text-gray-300 mt-2">
+            <p className="text-3xl font-medium text-[var(--site-fg-muted)] mt-2">
               <span className="italic">ξ</span>&nbsp;
-              <span className="text-white">{xi.toFixed(2)}</span>
+              <span className="text-[var(--site-fg)]">{xi.toFixed(2)}</span>
             </p>
             <p
               className="mt-3 px-4 py-2 rounded border text-sm font-medium"
@@ -171,16 +171,16 @@ export function XiInstrumentDemo() {
             >
               {verdict.label}
             </p>
-            <p className="mt-3 text-xs text-gray-400 text-center max-w-[24ch] leading-relaxed">
+            <p className="mt-3 text-xs text-[var(--site-fg-muted)] text-center max-w-[24ch] leading-relaxed">
               {verdict.note}
             </p>
           </div>
         </div>
 
-        <div className="mt-6 grid sm:grid-cols-2 gap-6 p-6 rounded-xl border border-gray-800 bg-gray-900/30">
+        <div className="mt-6 grid sm:grid-cols-2 gap-6 p-6 rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)]/30">
           <div>
-            <label className="block text-xs uppercase tracking-wider text-gray-400 mb-3 font-mono">
-              ゲーミング混入率 <b className="text-gray-200">{gamingPct}%</b>
+            <label className="block text-xs uppercase tracking-wider text-[var(--site-fg-muted)] mb-3 font-mono">
+              ゲーミング混入率 <b className="text-[var(--site-fg)]">{gamingPct}%</b>
             </label>
             <input
               type="range"
@@ -197,9 +197,9 @@ export function XiInstrumentDemo() {
             />
           </div>
           <div>
-            <label className="block text-xs uppercase tracking-wider text-gray-400 mb-3 font-mono">
+            <label className="block text-xs uppercase tracking-wider text-[var(--site-fg-muted)] mb-3 font-mono">
               観測ノイズ（オラクル品質）{' '}
-              <b className="text-gray-200">{(noisePct / 100).toFixed(2)}</b>
+              <b className="text-[var(--site-fg)]">{(noisePct / 100).toFixed(2)}</b>
             </label>
             <input
               type="range"
@@ -219,7 +219,7 @@ export function XiInstrumentDemo() {
             <button
               type="button"
               onClick={() => regen(gamingPct, noisePct)}
-              className="px-4 py-2 text-sm border border-gray-700 rounded text-gray-200 hover:border-gray-500 transition-colors"
+              className="px-4 py-2 text-sm border border-[var(--site-border)] rounded text-[var(--site-fg)] hover:border-gray-500 transition-colors"
             >
               再サンプル 
             </button>
@@ -228,11 +228,11 @@ export function XiInstrumentDemo() {
       </section>
 
       <section className="p-6 rounded-xl border border-brand/20 bg-brand/5">
-        <p className="text-gray-200 leading-relaxed">
-          <strong className="text-white">この計器が示すこと。</strong> ξ は個々のメンバーを名指ししません。
+        <p className="text-[var(--site-fg)] leading-relaxed">
+          <strong className="text-[var(--site-fg)]">この計器が示すこと。</strong> ξ は個々のメンバーを名指ししません。
           高X・低Y の点が混じるほど集計 ξ が落ち、DAO は「測定系が信用できない」という
-          <strong className="text-white">システムレベルの警報</strong>を受け取ります。誰が不正かは開示せず、
-          <strong className="text-white">基準の再設計や監査を発動する引き金</strong>としてだけ機能します。
+          <strong className="text-[var(--site-fg)]">システムレベルの警報</strong>を受け取ります。誰が不正かは開示せず、
+          <strong className="text-[var(--site-fg)]">基準の再設計や監査を発動する引き金</strong>としてだけ機能します。
         </p>
       </section>
     </div>

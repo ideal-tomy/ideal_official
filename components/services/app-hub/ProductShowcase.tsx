@@ -31,10 +31,10 @@ function InputProcessPanel() {
   }
 
   return (
-    <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6 h-full flex flex-col">
+    <div className="rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)]/50 p-6 h-full flex flex-col">
       <p className="mb-2 hidden text-xs tracking-[0.16em] text-brand/90 md:block">01 · Input → Process</p>
-      <h3 className="text-xl font-semibold text-white mb-3">入力して、結果を得る</h3>
-      <p className="text-sm text-gray-400 mb-4 leading-relaxed">
+      <h3 className="text-xl font-semibold text-[var(--site-fg)] mb-3">入力して、結果を得る</h3>
+      <p className="text-sm text-[var(--site-fg-muted)] mb-4 leading-relaxed">
         フォームに入力 → 処理中 → 結果カード。業務ツールの基本フローです。
       </p>
 
@@ -45,7 +45,7 @@ function InputProcessPanel() {
           onChange={(e) => setInput(e.target.value)}
           placeholder="例: 見積依頼を送る"
           disabled={state === 'processing'}
-          className="w-full rounded-lg border border-gray-700 bg-black/60 px-4 py-2.5 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-brand/50 disabled:opacity-50"
+          className="w-full rounded-lg border border-[var(--site-border)] bg-[var(--site-bg)]/60 px-4 py-2.5 text-sm text-[var(--site-fg)] placeholder:text-[var(--site-fg-muted)] focus:outline-none focus:border-brand/50 disabled:opacity-50"
         />
 
         <div className="flex gap-2">
@@ -61,14 +61,14 @@ function InputProcessPanel() {
             <button
               type="button"
               onClick={handleReset}
-              className="rounded-lg border border-gray-600 px-4 py-2.5 text-sm text-gray-300 hover:border-gray-500 transition-colors"
+              className="rounded-lg border border-[var(--site-border)] px-4 py-2.5 text-sm text-[var(--site-fg-muted)] hover:border-gray-500 transition-colors"
             >
               リセット
             </button>
           )}
         </div>
 
-        <div className="min-h-[100px] rounded-lg border border-gray-700 bg-black/40 p-4 flex items-center justify-center">
+        <div className="min-h-[100px] rounded-lg border border-[var(--site-border)] bg-[var(--site-bg)]/40 p-4 flex items-center justify-center">
           <AnimatePresence mode="wait">
             {state === 'idle' && (
               <motion.p
@@ -76,7 +76,7 @@ function InputProcessPanel() {
                 initial={prefersReduced ? false : { opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={prefersReduced ? undefined : { opacity: 0 }}
-                className="text-sm text-gray-500"
+                className="text-sm text-[var(--site-fg-muted)]"
               >
                 入力して「処理する」を押してください
               </motion.p>
@@ -101,7 +101,7 @@ function InputProcessPanel() {
                 className="w-full"
               >
                 <p className="text-xs text-brand/80 mb-2">結果</p>
-                <p className="text-sm text-white leading-relaxed">{result}</p>
+                <p className="text-sm text-[var(--site-fg)] leading-relaxed">{result}</p>
               </motion.div>
             )}
           </AnimatePresence>
@@ -124,10 +124,10 @@ function StatusPanel() {
   const reset = () => setCurrentIndex(0)
 
   return (
-    <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6 h-full flex flex-col">
+    <div className="rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)]/50 p-6 h-full flex flex-col">
       <p className="mb-2 hidden text-xs tracking-[0.16em] text-brand/90 md:block">02 · Status</p>
-      <h3 className="text-xl font-semibold text-white mb-3">ステータスを進める</h3>
-      <p className="text-sm text-gray-400 mb-4 leading-relaxed">
+      <h3 className="text-xl font-semibold text-[var(--site-fg)] mb-3">ステータスを進める</h3>
+      <p className="text-sm text-[var(--site-fg-muted)] mb-4 leading-relaxed">
         未対応 → 対応中 → 確認待ち → 完了。案件管理の基本です。
       </p>
 
@@ -141,7 +141,7 @@ function StatusPanel() {
                 className={`flex-1 rounded-lg px-2 py-2 text-xs font-medium transition-colors ${
                   i <= currentIndex
                     ? 'bg-brand/20 border border-brand/40 text-brand-hover'
-                    : 'bg-gray-800/50 border border-gray-700 text-gray-500'
+                    : 'bg-[var(--site-bg-elevated)]/50 border border-[var(--site-border)] text-[var(--site-fg-muted)]'
                 }`}
               >
                 {step}
@@ -153,12 +153,12 @@ function StatusPanel() {
           ))}
         </div>
 
-        <div className="rounded-lg border border-gray-700 bg-black/40 p-4 mb-4">
-          <p className="text-xs text-gray-500 mb-1">現在のステータス</p>
-          <p className="text-lg font-semibold text-white">
+        <div className="rounded-lg border border-[var(--site-border)] bg-[var(--site-bg)]/40 p-4 mb-4">
+          <p className="text-xs text-[var(--site-fg-muted)] mb-1">現在のステータス</p>
+          <p className="text-lg font-semibold text-[var(--site-fg)]">
             {STATUS_STEPS[currentIndex]}
           </p>
-          <p className="text-sm text-gray-400 mt-2">
+          <p className="text-sm text-[var(--site-fg-muted)] mt-2">
             案件 #1042 — 現場写真の整理依頼
           </p>
         </div>
@@ -168,14 +168,14 @@ function StatusPanel() {
             type="button"
             onClick={advance}
             disabled={currentIndex >= STATUS_STEPS.length - 1}
-            className="flex-1 rounded-lg bg-brand px-4 py-2.5 text-sm font-bold text-white hover:bg-brand-hover transition-colors disabled:opacity-40"
+            className="flex-1 rounded-lg bg-brand px-4 py-2.5 text-sm font-bold text-[var(--df-on-primary)] hover:bg-brand-hover transition-colors disabled:opacity-40"
           >
             次のステータスへ
           </button>
           <button
             type="button"
             onClick={reset}
-            className="rounded-lg border border-gray-600 px-4 py-2.5 text-sm text-gray-300 hover:border-gray-500 transition-colors"
+            className="rounded-lg border border-[var(--site-border)] px-4 py-2.5 text-sm text-[var(--site-fg-muted)] hover:border-gray-500 transition-colors"
           >
             リセット
           </button>
@@ -206,10 +206,10 @@ function DashboardPanel() {
   const total = filtered.reduce((sum, d) => sum + d.value, 0)
 
   return (
-    <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6 h-full flex flex-col">
+    <div className="rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)]/50 p-6 h-full flex flex-col">
       <p className="mb-2 hidden text-xs tracking-[0.16em] text-brand/90 md:block">03 · Dashboard</p>
-      <h3 className="text-xl font-semibold text-white mb-3">フィルターで変わる一覧</h3>
-      <p className="text-sm text-gray-400 mb-4 leading-relaxed">
+      <h3 className="text-xl font-semibold text-[var(--site-fg)] mb-3">フィルターで変わる一覧</h3>
+      <p className="text-sm text-[var(--site-fg-muted)] mb-4 leading-relaxed">
         フィルターを変えるとデータとグラフが変わります。モバイル操作も体験できます。
       </p>
 
@@ -228,7 +228,7 @@ function DashboardPanel() {
             className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
               filter === f.key
                 ? 'bg-brand/20 border border-brand/40 text-brand-hover'
-                : 'border border-gray-700 text-gray-400 hover:text-gray-200'
+                : 'border border-[var(--site-border)] text-[var(--site-fg-muted)] hover:text-[var(--site-fg)]'
             }`}
           >
             {f.label}
@@ -238,14 +238,14 @@ function DashboardPanel() {
 
       <div className="flex-1 grid sm:grid-cols-2 gap-4">
         <div className="space-y-2">
-          <p className="text-xs text-gray-500">件数: {filtered.length} / 合計: {total}</p>
+          <p className="text-xs text-[var(--site-fg-muted)]">件数: {filtered.length} / 合計: {total}</p>
           <div className="space-y-1.5">
             {filtered.map((item) => (
               <div
                 key={item.id}
-                className="flex items-center justify-between rounded-lg border border-gray-700 bg-black/40 px-3 py-2"
+                className="flex items-center justify-between rounded-lg border border-[var(--site-border)] bg-[var(--site-bg)]/40 px-3 py-2"
               >
-                <span className="text-sm text-white">{item.label}</span>
+                <span className="text-sm text-[var(--site-fg)]">{item.label}</span>
                 <span className="text-xs text-brand">{item.value}</span>
               </div>
             ))}
@@ -263,9 +263,9 @@ function DashboardPanel() {
         </div>
 
         <div className="flex flex-col items-center">
-          <p className="text-xs text-gray-500 mb-2 self-start">モバイル操作</p>
-          <div className="w-[140px] rounded-2xl border-4 border-gray-700 bg-black overflow-hidden">
-            <div className="h-6 bg-gray-800 flex items-center justify-center">
+          <p className="text-xs text-[var(--site-fg-muted)] mb-2 self-start">モバイル操作</p>
+          <div className="w-[140px] rounded-2xl border-4 border-[var(--site-border)] bg-[var(--site-bg)] overflow-hidden">
+            <div className="h-6 bg-[var(--site-bg-elevated)] flex items-center justify-center">
               <div className="w-12 h-1 rounded-full bg-gray-600" />
             </div>
             <div className="p-3 min-h-[160px]">
@@ -276,7 +276,7 @@ function DashboardPanel() {
                       key={item.id}
                       type="button"
                       onClick={() => setMobileView('detail')}
-                      className="w-full text-left rounded border border-gray-700 px-2 py-1.5 text-xs text-white hover:border-brand/40"
+                      className="w-full text-left rounded border border-[var(--site-border)] px-2 py-1.5 text-xs text-[var(--site-fg)] hover:border-brand/40"
                     >
                       {item.label}
                     </button>
@@ -291,8 +291,8 @@ function DashboardPanel() {
                   >
                     ← 戻る
                   </button>
-                  <p className="text-sm text-white font-medium">詳細</p>
-                  <p className="text-xs text-gray-400 mt-1">タップで詳細表示</p>
+                  <p className="text-sm text-[var(--site-fg)] font-medium">詳細</p>
+                  <p className="text-xs text-[var(--site-fg-muted)] mt-1">タップで詳細表示</p>
                 </div>
               )}
             </div>
@@ -307,14 +307,14 @@ export function ProductShowcase() {
   return (
     <section
       id="product-showcase"
-      className="scroll-mt-24 bg-black py-16 lg:py-20 border-b border-brand/40"
+      className="scroll-mt-24 bg-[var(--site-bg)] py-16 lg:py-20 border-b border-brand/40"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <header className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[var(--site-fg)]">
             Interactive Product Showcase
           </h2>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+          <p className="text-lg text-[var(--site-fg-muted)] max-w-2xl mx-auto">
             「アプリ開発できます」ではなく、Webアプリとはこういう「動く仕組み」です。ここで触ってください。
           </p>
         </header>

@@ -27,15 +27,15 @@ export function ResearchDetailShell({ page, children }: ResearchDetailShellProps
   const relatedPages = detailPages.filter((p) => p.slug !== page.slug)
 
   return (
-    <div className="bg-black min-h-screen">
+    <div className="bg-[var(--site-bg)] min-h-screen">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
         <nav
-          className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm mb-8 pb-6 border-b border-gray-800"
+          className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm mb-8 pb-6 border-b border-[var(--site-border)]"
           aria-label="Research ナビゲーション"
         >
           <Link
             href="/philosophy"
-            className="text-gray-300 hover:text-brand transition-colors"
+            className="text-[var(--site-fg-muted)] hover:text-brand transition-colors"
           >
             ← DAO研究・取り組み
           </Link>
@@ -44,7 +44,7 @@ export function ResearchDetailShell({ page, children }: ResearchDetailShellProps
           </span>
           <Link
             href={POC_INSTRUMENT_LP}
-            className="text-gray-300 hover:text-brand transition-colors"
+            className="text-[var(--site-fg-muted)] hover:text-brand transition-colors"
           >
             PoC Instrument 全体像
           </Link>
@@ -53,7 +53,7 @@ export function ResearchDetailShell({ page, children }: ResearchDetailShellProps
           </span>
           <Link
             href="/research"
-            className="text-gray-300 hover:text-brand transition-colors"
+            className="text-[var(--site-fg-muted)] hover:text-brand transition-colors"
           >
             Research 一覧
           </Link>
@@ -64,7 +64,7 @@ export function ResearchDetailShell({ page, children }: ResearchDetailShellProps
             className="mb-8 p-4 rounded-lg border border-brand/25 bg-brand/10"
             role="status"
           >
-            <p className="text-sm text-gray-200">
+            <p className="text-sm text-[var(--site-fg)]">
               <span className="text-brand font-medium">Philosophy から：</span>{' '}
               「{sectionLabel}」で述べた内容の技術的アプローチです。
             </p>
@@ -75,19 +75,19 @@ export function ResearchDetailShell({ page, children }: ResearchDetailShellProps
           <p className="text-xs font-medium tracking-[0.2em] uppercase text-brand/90 mb-3">
             {page.eyebrow}
           </p>
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-6 leading-tight tracking-tight">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[var(--site-fg)] mb-6 leading-tight tracking-tight">
             {page.title}
           </h1>
-          <p className="text-lg text-gray-200 leading-relaxed mb-4">{page.lead}</p>
-          <p className="text-base text-gray-300 leading-relaxed border-l-2 border-brand/50 pl-4">
+          <p className="text-lg text-[var(--site-fg)] leading-relaxed mb-4">{page.lead}</p>
+          <p className="text-base text-[var(--site-fg-muted)] leading-relaxed border-l-2 border-brand/50 pl-4">
             {page.philosophyConnection}
           </p>
         </header>
 
         <div className="research-prose space-y-10">{children}</div>
 
-        <footer className="mt-16 pt-10 border-t border-gray-800">
-          <p className="text-sm font-medium text-gray-400 mb-4 uppercase tracking-wider">
+        <footer className="mt-16 pt-10 border-t border-[var(--site-border)]">
+          <p className="text-sm font-medium text-[var(--site-fg-muted)] mb-4 uppercase tracking-wider">
             関連するデモ
           </p>
           <ul className="grid sm:grid-cols-2 gap-3">
@@ -95,10 +95,10 @@ export function ResearchDetailShell({ page, children }: ResearchDetailShellProps
               <li key={related.slug}>
                 <Link
                   href={`/research/poc-instrument/${related.slug}`}
-                  className="block p-4 rounded-lg border border-gray-800 bg-gray-900/40 hover:border-brand/30 hover:bg-gray-900/60 transition-colors"
+                  className="block p-4 rounded-lg border border-[var(--site-border)] bg-[var(--site-bg-elevated)]/40 hover:border-brand/30 hover:bg-[var(--site-bg-elevated)]/60 transition-colors"
                 >
-                  <span className="text-sm font-medium text-white">{related.title}</span>
-                  <span className="block text-xs text-gray-400 mt-1 line-clamp-2">
+                  <span className="text-sm font-medium text-[var(--site-fg)]">{related.title}</span>
+                  <span className="block text-xs text-[var(--site-fg-muted)] mt-1 line-clamp-2">
                     {related.lead.slice(0, 60)}…
                   </span>
                 </Link>

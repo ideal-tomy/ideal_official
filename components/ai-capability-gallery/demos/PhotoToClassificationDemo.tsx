@@ -80,7 +80,7 @@ export function PhotoToClassificationDemo() {
               rounded-lg px-3 py-1.5 text-xs font-medium transition-colors
               ${
                 selectedSet.id === set.id
-                  ? 'bg-brand text-white'
+                  ? 'bg-brand text-[var(--df-on-primary)]'
                   : 'border border-[#D9DDE3] bg-white text-gray-600 hover:border-brand-hover'
               }
               disabled:cursor-not-allowed disabled:opacity-50

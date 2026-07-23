@@ -19,10 +19,10 @@ export function ConciergeChoiceButton({
       onClick={onClick}
       className={`
         w-full text-left px-4 py-3 rounded-lg
-        bg-gray-900/80 ${borders.border} border-brand/60
+        bg-[var(--site-bg-elevated)]/80 ${borders.border} border-brand/60
         ${colors.text.primary} ${typography.small}
         ${transitions.all}
-        hover:bg-gray-800 hover:border-brand
+        hover:bg-[var(--site-bg-elevated)] hover:border-brand
         focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 focus:ring-offset-gray-950
         ${selected ? 'ring-2 ring-brand border-brand' : ''}
         ${shadows.md}

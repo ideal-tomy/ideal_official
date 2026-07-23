@@ -7,14 +7,14 @@ export function AiHubCapabilityGrid() {
   return (
     <section
       id="capabilities"
-      className="border-b border-brand/40 bg-black py-16 lg:py-20"
+      className="border-b border-brand/40 bg-[var(--site-bg)] py-16 lg:py-20"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <header className="mb-12 text-center">
           <h2 className="mb-4 bg-gradient-to-r from-brand to-brand-hover bg-clip-text text-3xl font-bold text-transparent md:text-4xl">
             7つの業務変化パターン
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-gray-200">
+          <p className="mx-auto max-w-2xl text-lg text-[var(--site-fg)]">
             機能ラベルで見比べて、近いパターンから体験できます。
           </p>
         </header>

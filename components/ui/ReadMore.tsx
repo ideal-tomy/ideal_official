@@ -87,9 +87,9 @@ export function ReadMore({
               onClick={toggleExpanded}
               className={`
                 w-full py-3 px-4 rounded-lg
-                bg-gray-800/90 backdrop-blur-sm
-                border border-gray-600
-                text-white font-medium
+                bg-[var(--site-bg-elevated)]/90 backdrop-blur-sm
+                border border-[var(--site-border)]
+                text-[var(--site-fg)] font-medium
                 hover:bg-gray-700/90
                 transition-all duration-200
                 shadow-lg

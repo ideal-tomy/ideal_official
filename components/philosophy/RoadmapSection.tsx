@@ -26,13 +26,13 @@ const roadmapItems: AccordionItem[] = [
         </p>
         <ul className="list-disc list-outside ml-5 space-y-3">
           <li>
-            <strong className="text-gray-100">価値の定義と設計：</strong> 何を「貢献」とし、それに対してどのような対価（トークン等）を紐付けるのか。その価値交換システムの基本設計を確立します。
+            <strong className="text-[var(--site-fg)]">価値の定義と設計：</strong> 何を「貢献」とし、それに対してどのような対価（トークン等）を紐付けるのか。その価値交換システムの基本設計を確立します。
           </li>
           <li>
-            <strong className="text-gray-100">技術的基盤の確立：</strong> 貢献を検知するAIと、それを記録するブロックチェーンが連携するための、基本的なアーキテクチャを設計・検証します。
+            <strong className="text-[var(--site-fg)]">技術的基盤の確立：</strong> 貢献を検知するAIと、それを記録するブロックチェーンが連携するための、基本的なアーキテクチャを設計・検証します。
           </li>
           <li>
-            <strong className="text-gray-100">プライバシーと透明性の両立：</strong> ゼロ知識証明（zk-SNARKs等）の技術を活用し、貢献の事実は検証可能でありながら、個人のプライバシーを完全に保護する技術的アプローチを研究、検証します。
+            <strong className="text-[var(--site-fg)]">プライバシーと透明性の両立：</strong> ゼロ知識証明（zk-SNARKs等）の技術を活用し、貢献の事実は検証可能でありながら、個人のプライバシーを完全に保護する技術的アプローチを研究、検証します。
           </li>
         </ul>
       </div>
@@ -52,13 +52,13 @@ const roadmapItems: AccordionItem[] = [
         </p>
         <ul className="list-disc list-outside ml-5 space-y-3">
           <li>
-            <strong className="text-gray-100">多様な組織モデルでの検証：</strong> 数人規模のチームから数万人規模のコミュニティまで、様々な組織、社会モデルをシミュレートし、システムの有効性と限界を洗い出します。
+            <strong className="text-[var(--site-fg)]">多様な組織モデルでの検証：</strong> 数人規模のチームから数万人規模のコミュニティまで、様々な組織、社会モデルをシミュレートし、システムの有効性と限界を洗い出します。
           </li>
           <li>
-            <strong className="text-gray-100">報酬バランスの最適化：</strong> 貢献度に対する報酬の変数（インセンティブの強弱や時間経過による減衰率など）を動的に調整し、最も健全なエコシステムが生まれるパラメータを探求します。
+            <strong className="text-[var(--site-fg)]">報酬バランスの最適化：</strong> 貢献度に対する報酬の変数（インセンティブの強弱や時間経過による減衰率など）を動的に調整し、最も健全なエコシステムが生まれるパラメータを探求します。
           </li>
           <li>
-            <strong className="text-gray-100">耐攻撃性のストレステスト：</strong> あらゆる「攻略法」を試みる敵対的なAIエージェントを投入し、システムの免疫機能が正しく作動するかを徹底的にテストします。
+            <strong className="text-[var(--site-fg)]">耐攻撃性のストレステスト：</strong> あらゆる「攻略法」を試みる敵対的なAIエージェントを投入し、システムの免疫機能が正しく作動するかを徹底的にテストします。
           </li>
         </ul>
       </div>
@@ -79,17 +79,17 @@ const roadmapItems: AccordionItem[] = [
         </p>
         <ul className="list-disc list-outside ml-5 space-y-3">
           <li>
-            <strong className="text-gray-100">価値観による適応性の検証：</strong> &ldquo;中心に据える価値観&rdquo;によって、&ldquo;貢献の定義&rdquo;と&ldquo;公正さの形&rdquo;がどう変化し、システムがそれに適応できるかを検証します。
+            <strong className="text-[var(--site-fg)]">価値観による適応性の検証：</strong> &ldquo;中心に据える価値観&rdquo;によって、&ldquo;貢献の定義&rdquo;と&ldquo;公正さの形&rdquo;がどう変化し、システムがそれに適応できるかを検証します。
           </li>
           <li>
-            <strong className="text-gray-100">多様なユースケースでの実証：</strong> 個人の哲学、企業理念、社会課題解決など、様々な価値観を持つコミュニティでの適用可能性を実証します。
+            <strong className="text-[var(--site-fg)]">多様なユースケースでの実証：</strong> 個人の哲学、企業理念、社会課題解決など、様々な価値観を持つコミュニティでの適用可能性を実証します。
           </li>
         </ul>
 
         <p>
           DAOの実現に必要なのは&ldquo;環境&rdquo;であり、その環境に必要な要素を開発し、誰もが入手可能な状態とすることが、本格的な社会実装のスタートラインであり、当面の目標地点です。
         </p>
-        <p className="font-semibold text-gray-100">
+        <p className="font-semibold text-[var(--site-fg)]">
           持続可能で多様な組織の未来が形作られ、選択肢が広がる未来に必要なシステムとして機能するかの重要なフェーズです。
         </p>
       </div>

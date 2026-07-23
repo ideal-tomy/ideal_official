@@ -6,12 +6,12 @@ interface ProcessingLogProps {
 export function ProcessingLog({ logs, isProcessing }: ProcessingLogProps) {
   return (
     <div className="rounded-lg border border-[#D9DDE3] bg-white p-4 h-full min-h-[200px]">
-      <p className="text-xs font-medium text-gray-500 uppercase tracking-wider mb-3">
+      <p className="text-xs font-medium text-[var(--site-fg-muted)] uppercase tracking-wider mb-3">
         AI処理ログ
       </p>
       <ul className="space-y-2 font-mono text-xs" aria-live="polite" aria-busy={isProcessing}>
         {logs.length === 0 && (
-          <li className="text-gray-400">「整理する」を押すと処理が始まります</li>
+          <li className="text-[var(--site-fg-muted)]">「整理する」を押すと処理が始まります</li>
         )}
         {logs.map((log, index) => (
           <li
@@ -24,13 +24,13 @@ export function ProcessingLog({ logs, isProcessing }: ProcessingLogProps) {
                   : 'text-gray-600'
             }
           >
-            <span className="text-gray-400 mr-2">›</span>
+            <span className="text-[var(--site-fg-muted)] mr-2">›</span>
             {log}
           </li>
         ))}
         {isProcessing && (
           <li className="text-brand animate-pulse">
-            <span className="text-gray-400 mr-2">›</span>
+            <span className="text-[var(--site-fg-muted)] mr-2">›</span>
             処理中…
           </li>
         )}

@@ -170,10 +170,10 @@ export function ConciergeAiStep({
           maxLength={CONCIERGE_AI_MAX_ANSWER}
           placeholder="分かる範囲で入力してください"
           className={`
-            w-full rounded-lg bg-gray-900/80 px-3 py-2
+            w-full rounded-lg bg-[var(--site-bg-elevated)]/80 px-3 py-2
             ${borders.border} border-brand/40
             ${typography.small} ${colors.text.primary}
-            placeholder:text-gray-500
+            placeholder:text-[var(--site-fg-muted)]
             focus:outline-none focus:ring-2 focus:ring-brand
           `}
         />
@@ -196,7 +196,7 @@ export function ConciergeAiStep({
           <button
             type="button"
             onClick={onSkipToTemplate}
-            className={`text-sm ${colors.text.muted} hover:text-white underline-offset-4 hover:underline`}
+            className={`text-sm ${colors.text.muted} hover:text-[var(--site-fg)] underline-offset-4 hover:underline`}
           >
             AIなしで結果へ進む
           </button>
@@ -223,10 +223,10 @@ export function ConciergeAiStep({
         maxLength={CONCIERGE_AI_MAX_FREE_TEXT}
         placeholder="自由に入力（任意）"
         className={`
-          w-full rounded-lg bg-gray-900/80 px-3 py-2
+          w-full rounded-lg bg-[var(--site-bg-elevated)]/80 px-3 py-2
           ${borders.border} border-brand/40
           ${typography.small} ${colors.text.primary}
-          placeholder:text-gray-500
+          placeholder:text-[var(--site-fg-muted)]
           focus:outline-none focus:ring-2 focus:ring-brand
         `}
       />
@@ -252,7 +252,7 @@ export function ConciergeAiStep({
         <button
           type="button"
           onClick={onBack}
-          className={`text-sm ${colors.text.muted} hover:text-white underline-offset-4 hover:underline`}
+          className={`text-sm ${colors.text.muted} hover:text-[var(--site-fg)] underline-offset-4 hover:underline`}
         >
           ← 選択に戻る
         </button>
@@ -270,7 +270,7 @@ function SuggestedDemos({ slugs }: { slugs: string[] }) {
 
   return (
     <div
-      className={`rounded-md ${borders.border} border-brand/30 bg-gray-900/50 p-3 space-y-2`}
+      className={`rounded-md ${borders.border} border-brand/30 bg-[var(--site-bg-elevated)]/50 p-3 space-y-2`}
     >
       <p className={`${typography.caption} ${colors.text.muted}`}>関連しそうなデモ</p>
       <ul className="space-y-1.5">

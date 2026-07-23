@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function ZkpDetailPage() {
   return (
-    <Suspense fallback={<div className="bg-black min-h-screen" />}>
+    <Suspense fallback={<div className="bg-[var(--site-bg)] min-h-screen" />}>
       <ResearchDetailShell page={page}>
         <ZkpDemo />
       </ResearchDetailShell>

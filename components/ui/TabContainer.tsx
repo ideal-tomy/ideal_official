@@ -15,7 +15,7 @@ export function TabContainer({ tabs, defaultTab, className = '' }: TabContainerP
       <Tab.Group defaultIndex={defaultTab ? tabs.findIndex(tab => tab.id === defaultTab) : 0}>
         {/* タブボタン部分 - 高級感のあるテキストベースデザイン */}
         <div className="flex justify-center mb-12">
-          <Tab.List className="inline-flex gap-8 border-b border-gray-700">
+          <Tab.List className="inline-flex gap-8 border-b border-[var(--site-border)]">
             {tabs.map((tab) => (
               <Tab as={Fragment} key={tab.id}>
                 {({ selected }) => (

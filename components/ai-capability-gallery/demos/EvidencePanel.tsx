@@ -22,10 +22,10 @@ export function EvidencePanel({
   if (sources.length === 0) {
     return (
       <div className="rounded-lg border border-[#D9DDE3] bg-white p-4 h-full min-h-[200px]">
-        <p className="text-xs font-medium text-gray-500 uppercase tracking-wider mb-3">
+        <p className="text-xs font-medium text-[var(--site-fg-muted)] uppercase tracking-wider mb-3">
           {title}
         </p>
-        <p className="text-sm text-gray-400">{emptyMessage}</p>
+        <p className="text-sm text-[var(--site-fg-muted)]">{emptyMessage}</p>
       </div>
     )
   }
@@ -34,7 +34,7 @@ export function EvidencePanel({
 
   return (
     <div className="rounded-lg border border-[#D9DDE3] bg-white p-4 h-full space-y-3">
-      <p className="text-xs font-medium text-gray-500 uppercase tracking-wider">{title}</p>
+      <p className="text-xs font-medium text-[var(--site-fg-muted)] uppercase tracking-wider">{title}</p>
 
       <ul className="space-y-1">
         {sources.map((source) => (
@@ -58,7 +58,7 @@ export function EvidencePanel({
       </ul>
 
       <div className="border-t border-[#D9DDE3] pt-3">
-        <p className="text-[11px] text-gray-500 mb-1">原文プレビュー</p>
+        <p className="text-[11px] text-[var(--site-fg-muted)] mb-1">原文プレビュー</p>
         <p className="text-xs text-gray-700 leading-relaxed bg-gray-50 p-2 rounded border border-[#D9DDE3]">
           {active.excerpt}
         </p>

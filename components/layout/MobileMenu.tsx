@@ -93,7 +93,7 @@ export function MobileMenu({ navLinks, serviceLinks }: MobileMenuProps) {
             ))}
 
             <li>
-              <div className="text-gray-300 font-medium mb-2">サービス</div>
+              <div className="text-[var(--site-fg-muted)] font-medium mb-2">サービス</div>
               <ul className="ml-4 space-y-2">
                 {serviceLinks.map((link) => (
                   <li key={link.href}>

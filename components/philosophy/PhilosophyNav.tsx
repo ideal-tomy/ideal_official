@@ -48,7 +48,7 @@ export function PhilosophyNav() {
       {/* モバイル: 横スクロール目次 */}
       <nav
         aria-label="ページ内目次"
-        className="lg:hidden sticky top-16 z-20 -mx-4 sm:-mx-6 px-4 sm:px-6 py-3 mb-6 bg-black/90 backdrop-blur-md border-b border-gray-800/60"
+        className="lg:hidden sticky top-16 z-20 -mx-4 sm:-mx-6 px-4 sm:px-6 py-3 mb-6 bg-[var(--site-bg)]/90 backdrop-blur-md border-b border-[var(--site-border)]/60"
       >
         <ul className="flex gap-2 overflow-x-auto scrollbar-hide pb-1">
           {NAV_ITEMS.map((item) => (
@@ -58,7 +58,7 @@ export function PhilosophyNav() {
                 className={`inline-block px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-colors duration-200 ${
                   activeId === item.id
                     ? 'bg-brand/20 text-brand-hover border border-brand/40'
-                    : 'text-gray-400 hover:text-gray-200 border border-transparent'
+                    : 'text-[var(--site-fg-muted)] hover:text-[var(--site-fg)] border border-transparent'
                 }`}
               >
                 {item.label}
@@ -73,10 +73,10 @@ export function PhilosophyNav() {
         aria-label="ページ内目次"
         className="hidden lg:block sticky top-28 self-start pt-4"
       >
-        <p className="text-xs font-medium tracking-[0.15em] uppercase text-gray-500 mb-4">
+        <p className="text-xs font-medium tracking-[0.15em] uppercase text-[var(--site-fg-muted)] mb-4">
           Contents
         </p>
-        <ul className="space-y-1 border-l border-gray-800">
+        <ul className="space-y-1 border-l border-[var(--site-border)]">
           {NAV_ITEMS.map((item) => (
             <li key={item.id}>
               <a
@@ -84,7 +84,7 @@ export function PhilosophyNav() {
                 className={`block pl-4 py-2 text-sm leading-snug border-l-2 -ml-px transition-colors duration-200 ${
                   activeId === item.id
                     ? 'border-brand text-brand-hover font-medium'
-                    : 'border-transparent text-gray-500 hover:text-gray-300 hover:border-gray-600'
+                    : 'border-transparent text-[var(--site-fg-muted)] hover:text-[var(--site-fg-muted)] hover:border-[var(--site-border)]'
                 }`}
               >
                 {item.label}
@@ -92,10 +92,10 @@ export function PhilosophyNav() {
             </li>
           ))}
         </ul>
-        <div className="mt-8 pt-6 border-t border-gray-800">
+        <div className="mt-8 pt-6 border-t border-[var(--site-border)]">
           <Link
             href="/research"
-            className="block pl-4 text-sm text-gray-400 hover:text-brand transition-colors duration-200"
+            className="block pl-4 text-sm text-[var(--site-fg-muted)] hover:text-brand transition-colors duration-200"
           >
             Research Demos →
           </Link>

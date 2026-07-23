@@ -47,7 +47,7 @@ export default function AiCapabilityGalleryPage() {
           <div className="flex gap-2 sm:gap-3">
             <Link
               href="/cases"
-              className={`${navBtn} bg-brand text-white hover:bg-brand-hover`}
+              className={`${navBtn} bg-brand text-[var(--df-on-primary)] hover:bg-brand-hover`}
             >
               活用イメージ
             </Link>
@@ -67,7 +67,7 @@ export default function AiCapabilityGalleryPage() {
         </div>
       </section>
 
-      <HowWeWorkSummary showEstimateLink showCasesLink={false} />
+      <HowWeWorkSummary showEstimateLink={false} showCasesLink={false} />
     </div>
   )
 }

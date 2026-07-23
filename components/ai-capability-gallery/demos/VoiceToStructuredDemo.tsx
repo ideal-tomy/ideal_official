@@ -41,7 +41,7 @@ function VoiceInputPanel({
 }) {
   return (
     <div className="space-y-3 rounded-lg border border-[#D9DDE3] bg-white p-4">
-      <p className="text-xs font-medium uppercase tracking-wider text-gray-500">
+      <p className="text-xs font-medium uppercase tracking-wider text-[var(--site-fg-muted)]">
         音声入力
       </p>
       <div className="flex items-center gap-3 rounded-lg border border-[#D9DDE3] bg-gray-50 p-3">
@@ -50,12 +50,12 @@ function VoiceInputPanel({
         </span>
         <div>
           <p className="text-sm font-medium text-gray-700">サンプル音声</p>
-          <p className="text-xs text-gray-500">長さ: {selectedSet.duration}</p>
+          <p className="text-xs text-[var(--site-fg-muted)]">長さ: {selectedSet.duration}</p>
         </div>
       </div>
       <Waveform active={isProcessing || isComplete} />
       <div className="border-t border-[#D9DDE3] pt-3">
-        <p className="mb-1 text-[11px] text-gray-500">文字起こし（プレビュー）</p>
+        <p className="mb-1 text-[11px] text-[var(--site-fg-muted)]">文字起こし（プレビュー）</p>
         <p className="rounded bg-gray-50 p-2 text-xs leading-relaxed text-gray-700">
           {isComplete || isProcessing
             ? selectedSet.transcript

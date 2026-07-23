@@ -6,13 +6,13 @@ import { techDetailItems, whatWeBuild } from '@/data/services/ai-hub'
 
 export function AiHubTechDetails() {
   return (
-    <section className="bg-black py-16 lg:py-20 border-b border-brand/40">
+    <section className="bg-[var(--site-bg)] py-16 lg:py-20 border-b border-brand/40">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <header className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[var(--site-fg)]">
             社内にIT部門がなくても、 事業に必要な仕組みはつくれる。 / 技術詳細
           </h2>
-          <p className="text-base text-gray-300">
+          <p className="text-base text-[var(--site-fg-muted)]">
             まずはデモで変化を共有し、必要なら技術の詳細を確認してください。
           </p>
         </header>
@@ -21,7 +21,7 @@ export function AiHubTechDetails() {
           {whatWeBuild.map((item) => (
             <li
               key={item}
-              className="flex items-start text-sm text-gray-300"
+              className="flex items-start text-sm text-[var(--site-fg-muted)]"
             >
               <span className="mt-1.5 mr-3 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
               {item}
@@ -36,12 +36,12 @@ export function AiHubTechDetails() {
             id: item.id,
             title: item.title,
             content: (
-              <p className="text-sm text-gray-300 leading-relaxed">{item.summary}</p>
+              <p className="text-sm text-[var(--site-fg-muted)] leading-relaxed">{item.summary}</p>
             ),
           }))}
         />
 
-        <p className="mt-8 text-center text-sm text-gray-400">
+        <p className="mt-8 text-center text-sm text-[var(--site-fg-muted)]">
           比較・導入理由・働き方などの解説は{' '}
           <Link
             href="/lab/insights"

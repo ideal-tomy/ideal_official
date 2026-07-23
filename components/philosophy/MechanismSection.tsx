@@ -130,7 +130,7 @@ const processSteps: AccordionItem[] = [
           AIによって感知された情報は、ブロックチェーン上に「PoC要素」として刻まれます。
           この情報を中長期的に貢献度測定の影響要素とすることで、貢献は一過性の評価ではなく、個人に永続的に紐づく&ldquo;デジタル資産（負債）&rdquo;となります。
         </p>
-        <div className="rounded-lg bg-gray-800/50 p-4 border border-gray-700/40">
+        <div className="rounded-lg bg-[var(--site-bg-elevated)]/50 p-4 border border-[var(--site-border)]/40">
           <p>
             このスコアは、組織に対して紐づくものではなく活動者個人に紐づくものとします。また組織の解散や組織の移動によってリセットされることはありません。
             長期的な活動履歴の積み重ねが、個々人の価値観や評価基準の揺るがない情報となります。
@@ -149,10 +149,10 @@ const processSteps: AccordionItem[] = [
           ここには一切の人間的裁量や遅延は介在出来ないものとします。
         </p>
         <ul className="list-disc list-outside ml-5 space-y-2">
-          <li><strong className="text-gray-100">トークンエコノミクス:</strong> PoC要素に基づく結果に応じて執行されるインセンティブ報酬の移動は、トークンによって行われることで実現可能となります。</li>
-          <li><strong className="text-gray-100">ガバナンス設計:</strong> 各組織や集団ごとの意思決定プロセスに基づき、自由に投票方式やリワード（活動報酬）トークン活用が可能な環境を実現とします。</li>
+          <li><strong className="text-[var(--site-fg)]">トークンエコノミクス:</strong> PoC要素に基づく結果に応じて執行されるインセンティブ報酬の移動は、トークンによって行われることで実現可能となります。</li>
+          <li><strong className="text-[var(--site-fg)]">ガバナンス設計:</strong> 各組織や集団ごとの意思決定プロセスに基づき、自由に投票方式やリワード（活動報酬）トークン活用が可能な環境を実現とします。</li>
         </ul>
-        <p className="font-semibold text-gray-100">
+        <p className="font-semibold text-[var(--site-fg)]">
           この自動執行されたインセンティブの基となる要素が、中長期的にその個人のインセンティブに永続的に影響を与える仕組みとなることで、
           一つ一つの判断や行動に中長期的な責任とリスクを発生させます。
         </p>
@@ -201,10 +201,10 @@ const processSteps: AccordionItem[] = [
           「その個人が持つデジタル資産」の内容をを証明し、ブロックチェーンに記録しておくことが可能になります。
         </p>
         <ul className="list-disc list-outside ml-5 space-y-2">
-          <li><strong className="text-gray-100">プロセスは透明に：</strong>どのようなルール（スマートコントラクト）で貢献が評価され、インセンティブが執行されるかは、誰でも検証可能な状態とする。</li>
-          <li><strong className="text-gray-100">データは非公開に：</strong>その評価の根拠となった個々の具体的な行動データは、本人の同意なしに公開されることがないものとする。</li>
+          <li><strong className="text-[var(--site-fg)]">プロセスは透明に：</strong>どのようなルール（スマートコントラクト）で貢献が評価され、インセンティブが執行されるかは、誰でも検証可能な状態とする。</li>
+          <li><strong className="text-[var(--site-fg)]">データは非公開に：</strong>その評価の根拠となった個々の具体的な行動データは、本人の同意なしに公開されることがないものとする。</li>
         </ul>
-        <p className="font-semibold text-gray-100">
+        <p className="font-semibold text-[var(--site-fg)]">
           この技術的な両立が、公正さへの信頼と個人の心理的安全性を同時に担保し、自分らしく貢献できる環境を実現するための鍵となります。
         </p>
       </div>

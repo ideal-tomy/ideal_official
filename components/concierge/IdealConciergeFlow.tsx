@@ -195,7 +195,7 @@ export function IdealConciergeFlow({
           <button
             type="button"
             onClick={() => setPhase('opening')}
-            className={`text-sm ${colors.text.muted} hover:text-white underline-offset-4 hover:underline`}
+            className={`text-sm ${colors.text.muted} hover:text-[var(--site-fg)] underline-offset-4 hover:underline`}
           >
             ← ページに合わせた案内に戻る
           </button>

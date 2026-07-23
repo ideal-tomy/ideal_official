@@ -53,7 +53,7 @@ export function HowWeWorkSummary({
               >
                 <div className="flex w-7 shrink-0 flex-col items-center">
                   <span
-                    className="relative z-10 flex h-7 w-7 items-center justify-center rounded-full bg-brand text-xs font-bold text-white shadow-[0_0_0_3px_var(--site-bg)]"
+                    className="relative z-10 flex h-7 w-7 items-center justify-center rounded-full bg-brand text-xs font-bold text-[var(--df-on-primary)] shadow-[0_0_0_3px_var(--site-bg)]"
                     aria-hidden
                   >
                     {index + 1}
@@ -66,7 +66,7 @@ export function HowWeWorkSummary({
                   )}
                 </div>
                 <div className="min-w-0 flex-1 rounded-xl border border-[var(--site-border)] bg-[color-mix(in_srgb,var(--site-fg)_3%,transparent)] px-4 py-3">
-                  <p className="font-semibold text-amber-300/95">{item.title}</p>
+                  <p className="font-semibold text-brand-deep">{item.title}</p>
                   <p className="mt-0.5 text-sm text-[var(--site-fg-muted)]">
                     {item.summary}
                   </p>
@@ -90,7 +90,7 @@ export function HowWeWorkSummary({
               href="/estimate"
               className="font-medium text-[var(--site-fg-muted)] transition-colors hover:text-brand"
             >
-              概算見積もりを見る →
+              概算見積もり →
             </Link>
           )}
           {showCasesLink && (

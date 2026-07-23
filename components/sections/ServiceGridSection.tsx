@@ -54,13 +54,13 @@ const serviceData: ServiceData[] = [
 
 const ServiceGridSection = React.memo(() => {
   return (
-    <section className="py-16 md:py-24 bg-black">
+    <section className="py-16 md:py-24 bg-[var(--site-bg)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[var(--site-fg)] mb-4">
             提供サービス
           </h2>
-          <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg text-[var(--site-fg-muted)] max-w-3xl mx-auto">
             最新技術を活用した包括的なITソリューションで、
             お客様のビジネス成長をサポートします。
           </p>
@@ -70,7 +70,7 @@ const ServiceGridSection = React.memo(() => {
           {serviceData.map((service) => (
             <div
               key={service.id}
-              className="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="bg-[var(--site-bg-elevated)] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
               {/* 画像部分（上半分） */}
               <div className="relative h-48 overflow-hidden">
@@ -82,15 +82,15 @@ const ServiceGridSection = React.memo(() => {
                   className="w-full h-full object-cover"
                   priority={false}
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-20" />
+                <div className="absolute inset-0 bg-[var(--site-bg)] bg-opacity-20" />
               </div>
 
               {/* コンテンツ部分（下半分） */}
               <div className="p-6">
-                <h3 className="text-lg font-bold text-white mb-3">
+                <h3 className="text-lg font-bold text-[var(--site-fg)] mb-3">
                   {service.title}
                 </h3>
-                <p className="text-gray-300 text-sm leading-relaxed mb-4">
+                <p className="text-[var(--site-fg-muted)] text-sm leading-relaxed mb-4">
                   {service.description}
                 </p>
 
@@ -123,7 +123,7 @@ const ServiceGridSection = React.memo(() => {
         <div className="text-center mt-12">
           <Link
             href="/services"
-            className={`inline-flex items-center px-6 py-3 ${colors.accent.bg} text-white font-medium rounded-lg ${colors.accent.bgHover} transition-colors duration-200`}
+            className={`inline-flex items-center px-6 py-3 ${colors.accent.bg} text-[var(--site-fg)] font-medium rounded-lg ${colors.accent.bgHover} transition-colors duration-200`}
           >
             全サービス一覧を見る
             <svg

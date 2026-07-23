@@ -24,40 +24,40 @@ export function ZkpDemo() {
 
   return (
     <div className="space-y-8">
-      <p className="text-gray-300 leading-relaxed">
+      <p className="text-[var(--site-fg-muted)] leading-relaxed">
         プロセス（どんなルールで評価・執行されるか）は誰でも検証可能に。データ（具体的な発言・コード・行動）は本人の同意なく公開されません。
       </p>
 
       <div className="grid md:grid-cols-2 gap-6">
-        <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6">
-          <span className="block text-[10px] uppercase tracking-wider text-gray-400 mb-4 font-mono">
+        <div className="rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)]/50 p-6">
+          <span className="block text-[10px] uppercase tracking-wider text-[var(--site-fg-muted)] mb-4 font-mono">
             Private — 本人以外は参照不可
           </span>
           {zkpPrivateRows.map((row, i) => (
             <div
               key={row}
-              className="flex items-center gap-3 py-3 border-b border-gray-800 text-sm text-gray-300 last:border-0"
+              className="flex items-center gap-3 py-3 border-b border-[var(--site-border)] text-sm text-[var(--site-fg-muted)] last:border-0"
             >
               {row}
-              <span className="blur-sm select-none text-gray-500">{blurSamples[i]}</span>
-              <span className="ml-auto text-[10px] font-mono text-gray-500 border border-gray-700 px-2 py-0.5 rounded">
+              <span className="blur-sm select-none text-[var(--site-fg-muted)]">{blurSamples[i]}</span>
+              <span className="ml-auto text-[10px] font-mono text-[var(--site-fg-muted)] border border-[var(--site-border)] px-2 py-0.5 rounded">
                 🔒 秘匿
               </span>
             </div>
           ))}
-          <p className="text-xs text-gray-400 mt-4">
+          <p className="text-xs text-[var(--site-fg-muted)] mt-4">
             「詳細を開示」ボタンは存在しない — 秘匿はUIの都合ではなく、証明の設計そのもの。
           </p>
         </div>
 
-        <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6">
-          <span className="block text-[10px] uppercase tracking-wider text-gray-400 mb-4 font-mono">
+        <div className="rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)]/50 p-6">
+          <span className="block text-[10px] uppercase tracking-wider text-[var(--site-fg-muted)] mb-4 font-mono">
             Public — 誰でも検証可能
           </span>
-          <p className="text-sm text-gray-200 mb-4">
-            証明する主張：<strong className="text-white">{zkpClaims[idx].claim}</strong>
+          <p className="text-sm text-[var(--site-fg)] mb-4">
+            証明する主張：<strong className="text-[var(--site-fg)]">{zkpClaims[idx].claim}</strong>
           </p>
-          <p className="font-mono text-xs text-gray-400 mb-4 break-all">{proof}</p>
+          <p className="font-mono text-xs text-[var(--site-fg-muted)] mb-4 break-all">{proof}</p>
           <p className="flex items-center gap-2 text-sm text-brand mb-6">
             <span className="w-2 h-2 rounded-full bg-brand-hover" />
             検証成功 — VALID（生データ参照ゼロ）
@@ -65,11 +65,11 @@ export function ZkpDemo() {
           <button
             type="button"
             onClick={verify}
-            className="px-4 py-2 text-sm border border-gray-700 rounded text-gray-200 hover:border-gray-500 transition-colors"
+            className="px-4 py-2 text-sm border border-[var(--site-border)] rounded text-[var(--site-fg)] hover:border-gray-500 transition-colors"
           >
             別の主張を検証する
           </button>
-          <p className="text-xs text-gray-400 mt-4">
+          <p className="text-xs text-[var(--site-fg-muted)] mt-4">
             検証者は主張が真だと確信できるが、その根拠となった行動は一切見えません。
           </p>
         </div>

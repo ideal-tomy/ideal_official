@@ -28,7 +28,7 @@ export function ConciergePanel({
       mobileBottomSheet
       zIndexClass={zIndex.modal}
       panelClassName={`
-        bg-gray-950 ${borders.border} border-brand/40
+        bg-[var(--site-bg)] ${borders.border} border-brand/40
         p-5 sm:p-6
       `}
       title={

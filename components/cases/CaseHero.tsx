@@ -13,7 +13,7 @@ export function CaseHero({ caseStudy }: CaseHeroProps) {
         {caseStudy.tags.map((tag) => (
           <span
             key={tag}
-            className="rounded-full border border-white/25 px-2.5 py-1 text-xs text-white/80"
+            className="rounded-full border border-white/25 px-2.5 py-1 text-xs text-[var(--site-fg)]/80"
           >
             {tag}
           </span>
@@ -37,7 +37,7 @@ export function CaseBackLink() {
     <div className="mx-auto max-w-3xl px-4 pt-8 sm:px-6 lg:px-8">
       <Link
         href="/cases"
-        className="text-sm text-gray-400 transition-colors hover:text-brand"
+        className="text-sm text-[var(--site-fg-muted)] transition-colors hover:text-brand"
       >
         ← 活用イメージ一覧
       </Link>

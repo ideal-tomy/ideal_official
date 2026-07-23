@@ -120,7 +120,7 @@ export function HowWeWorkDetail({ steps }: HowWeWorkDetailProps) {
             {/* timeline */}
             <div className="flex w-8 shrink-0 flex-col items-center md:w-9">
               <span
-                className="relative z-10 flex h-8 w-8 items-center justify-center rounded-full bg-brand text-sm font-bold text-white shadow-[0_0_0_4px_var(--site-bg)] md:h-9 md:w-9"
+                className="relative z-10 flex h-8 w-8 items-center justify-center rounded-full bg-brand text-sm font-bold text-[var(--df-on-primary)] shadow-[0_0_0_4px_var(--site-bg)] md:h-9 md:w-9"
                 aria-hidden
               >
                 {index + 1}
@@ -135,7 +135,7 @@ export function HowWeWorkDetail({ steps }: HowWeWorkDetailProps) {
 
             {/* card */}
             <div className="min-w-0 flex-1 rounded-2xl border border-[var(--site-border)] bg-[color-mix(in_srgb,var(--site-fg)_4%,transparent)] p-5 md:p-6">
-              <h2 className="text-lg font-bold tracking-tight text-amber-300 md:text-xl">
+              <h2 className="text-lg font-bold tracking-tight text-brand-deep md:text-xl">
                 {step.title}
               </h2>
               <p className="mt-2 text-sm leading-relaxed text-[var(--site-fg-muted)] md:text-[15px]">

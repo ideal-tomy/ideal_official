@@ -136,7 +136,7 @@ export function GuideConciergeFlow({
                 max-w-[92%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed
                 ${
                   m.role === 'user'
-                    ? 'bg-brand text-white rounded-br-md'
+                    ? 'bg-brand text-[var(--df-on-primary)] rounded-br-md'
                     : `bg-[var(--site-bg-elevated)] ${colors.text.primary} border border-[var(--site-border)] rounded-bl-md`
                 }
               `}

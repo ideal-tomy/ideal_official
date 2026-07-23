@@ -106,7 +106,7 @@ export function DataToPredictionDemo() {
 
   const dataPanel = (
     <div className="rounded-lg border border-[#D9DDE3] bg-white p-4">
-      <p className="mb-3 text-xs font-medium uppercase tracking-wider text-gray-500">
+      <p className="mb-3 text-xs font-medium uppercase tracking-wider text-[var(--site-fg-muted)]">
         データ・条件
       </p>
       <p className="mb-2 text-sm font-medium text-gray-800">{selectedSet.metric}</p>
@@ -127,26 +127,26 @@ export function DataToPredictionDemo() {
 
   const resultPanel = (
     <div className="rounded-lg border border-[#D9DDE3] bg-white p-4">
-      <p className="mb-3 text-xs font-medium uppercase tracking-wider text-gray-500">
+      <p className="mb-3 text-xs font-medium uppercase tracking-wider text-[var(--site-fg-muted)]">
         予測結果
       </p>
       {!isComplete ? (
-        <p className="text-sm text-gray-400">処理完了後に表示されます</p>
+        <p className="text-sm text-[var(--site-fg-muted)]">処理完了後に表示されます</p>
       ) : (
         <div className="space-y-4">
           <div>
-            <p className="text-[11px] text-gray-500">{selectedSet.forecast.period}</p>
+            <p className="text-[11px] text-[var(--site-fg-muted)]">{selectedSet.forecast.period}</p>
             <p className="text-2xl font-bold text-gray-800">
               {selectedSet.forecast.value.toLocaleString()}
-              <span className="ml-1 text-sm font-normal text-gray-500">{selectedSet.unit}</span>
+              <span className="ml-1 text-sm font-normal text-[var(--site-fg-muted)]">{selectedSet.unit}</span>
             </p>
-            <p className="mt-1 text-xs text-gray-500">
+            <p className="mt-1 text-xs text-[var(--site-fg-muted)]">
               信頼区間: {selectedSet.forecast.confidenceLow.toLocaleString()} 〜{' '}
               {selectedSet.forecast.confidenceHigh.toLocaleString()} {selectedSet.unit}
             </p>
           </div>
           <div>
-            <p className="mb-2 text-[11px] text-gray-500">影響要因</p>
+            <p className="mb-2 text-[11px] text-[var(--site-fg-muted)]">影響要因</p>
             <ul className="space-y-2">
               {selectedSet.factors.map((factor) => (
                 <li
@@ -159,7 +159,7 @@ export function DataToPredictionDemo() {
                         ? 'text-green-600'
                         : factor.impact === 'negative'
                           ? 'text-red-600'
-                          : 'text-gray-500'
+                          : 'text-[var(--site-fg-muted)]'
                     }
                   >
                     {factor.impact === 'positive' ? '↑' : factor.impact === 'negative' ? '↓' : '→'}{' '}
@@ -194,7 +194,7 @@ export function DataToPredictionDemo() {
 
       {isComplete && (
         <div className="mt-3 rounded-lg border border-[#D9DDE3] bg-white p-3 md:hidden">
-          <p className="mb-2 text-xs font-medium uppercase tracking-wider text-gray-500">
+          <p className="mb-2 text-xs font-medium uppercase tracking-wider text-[var(--site-fg-muted)]">
             予測グラフ
           </p>
           <PredictionChart dataPoints={selectedSet.dataPoints} showForecast={isComplete} />
@@ -213,7 +213,7 @@ export function DataToPredictionDemo() {
       <div className="hidden gap-4 md:grid lg:grid-cols-3">
         {dataPanel}
         <div className="rounded-lg border border-[#D9DDE3] bg-white p-4">
-          <p className="mb-3 text-xs font-medium uppercase tracking-wider text-gray-500">
+          <p className="mb-3 text-xs font-medium uppercase tracking-wider text-[var(--site-fg-muted)]">
             予測グラフ
           </p>
           <ProcessingLog logs={logs} isProcessing={isProcessing} />
