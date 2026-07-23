@@ -131,23 +131,3 @@ export function Accordion({
     </div>
   )
 }
-
-/**
- * シンプルなアコーディオン（アイコンなし）
- */
-export function SimpleAccordion({
-  items,
-  className = '',
-  defaultOpenId,
-  allowMultiple = false
-}: Omit<AccordionProps, 'showIcon' | 'customIcon'>) {
-  return (
-    <Accordion
-      items={items}
-      className={className}
-      defaultOpenId={defaultOpenId}
-      allowMultiple={allowMultiple}
-      showIcon={false}
-    />
-  )
-}

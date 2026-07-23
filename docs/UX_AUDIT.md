@@ -82,9 +82,9 @@ CONTACT (/contact)
 
 | ID | 箇所 | メモ |
 |----|------|------|
-| L1 | `ServicesOverview` / `ServiceGridSection` / `TwoCardSection` | 未 import。旧5サービス hardcode |
-| L2 | `/test-*`（10ルート） | 開発用。旧コピー多数。本番導線外 |
-| L3 | `data/services/game-development.tsx` 等 | 未使用データ残存 |
+| L1 | ~~`ServicesOverview` / `ServiceGridSection` / `TwoCardSection`~~ | **削除済み**（死蔵掃除） |
+| L2 | ~~`/test-*`（10ルート）~~ | **削除済み** |
+| L3 | ~~`data/services/game-development.tsx` 等~~ | **削除済み** |
 | L4 | Hero「Web・AI・アプリ」 | 許容範囲だが正式名と揃えるとよい |
 
 ### 2.4 比較的きれいな領域
@@ -246,7 +246,7 @@ Visual Regression（任意・後続）:
 3. ~~シナリオ A〜D を確認~~ **E2E + 導線確認済み**
 4. **`npm run test:e2e` を CI またはローカル習慣に**（継続）
 5. Visual Regression を追加（後続）
-6. Low（オーファン・test-*）の整理（後続）
+6. ~~Low（オーファン・test-*）の整理~~ → **実施済み**（死蔵掃除）
 
 ---
 
