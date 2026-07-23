@@ -5,7 +5,7 @@ export function LabHubHero() {
   return (
     <PageHero
       title="深く知る場所"
-      description="思想・研究・導入の背景解説をここに集約。入口のデモや依頼は軽く、深さは LAB で満たします。"
+      description="思想・研究・導入の背景解説をここに集約。"
     />
   )
 }

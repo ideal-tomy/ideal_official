@@ -26,7 +26,7 @@ export default function LabHubPage() {
           <header className="text-center mb-12">
             <h2 className="text-3xl font-bold text-[var(--site-fg)] mb-3">領域を選ぶ</h2>
             <p className="text-base text-[var(--site-fg-muted)]">
-              入口のデモや依頼ページは軽く保ち、深さはここに置いています。
+              
             </p>
           </header>
 
