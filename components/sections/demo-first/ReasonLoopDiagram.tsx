@@ -1,201 +1,92 @@
 'use client'
 
-import { motion, useReducedMotion } from 'framer-motion'
-
-const ease = [0.45, 0, 0.55, 1] as const
-
-/** viewBox 中央。ラベルは軌道の外側に十分な隙間を空けて配置 */
-const CX = 160
-const CY = 150
-const ORBIT_R = 46
-/** 軌道端〜ラベル中心。重なり防止のため ORBIT_R + ラベル半高 + 余白 */
-const LABEL_R = 94
-
 /**
- * 時計回り 4 等分（12 / 3 / 6 / 9 時）
- * デモ公開 → 現場の反応 → 改善 → 運用に定着
+ * 土台を中心に、4工程を時計回りで回すサイクル図。
+ * SVG 弧＋dashoffset で右回りの流れ、中央はゆっくり点滅。
  */
-const STEPS = [
-  { label: 'デモ公開', deg: -90, w: 76 },
-  { label: '現場の反応', deg: 0, w: 92 },
-  { label: '改善', deg: 90, w: 64 },
-  { label: '運用に定着', deg: 180, w: 92 },
+import styles from './ReasonLoopDiagram.module.css'
+
+/** ノード間を結ぶ時計回りの弧（viewBox 600×520） */
+const ARCS = [
+  // 上 → 右
+  'M 355 86 C 435 105 490 160 505 215',
+  // 右 → 下
+  'M 505 305 C 490 375 430 420 355 436',
+  // 下 → 左
+  'M 245 436 C 170 420 110 375 95 305',
+  // 左 → 上
+  'M 95 215 C 110 145 170 100 245 86',
 ] as const
 
-const LABEL_H = 34
-
-function polar(deg: number, r: number) {
-  const rad = (deg * Math.PI) / 180
-  return {
-    x: CX + r * Math.cos(rad),
-    y: CY + r * Math.sin(rad),
-  }
-}
-
-function StepLabel({
-  label,
-  deg,
-  w,
-  delay,
-  animate,
-  emphasis,
-}: {
-  label: string
-  deg: number
-  w: number
-  delay: number
-  animate: boolean
-  emphasis?: boolean
-}) {
-  const { x, y } = polar(deg, LABEL_R)
-
-  return (
-    <motion.g
-      initial={animate ? { opacity: 0, scale: 0.92 } : false}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true, amount: 0.25 }}
-      transition={{ duration: 0.35, delay, ease }}
-      style={{ transformOrigin: `${x}px ${y}px` }}
-    >
-      {/* 軌道線を隠さないよう、軌道側にカード色の余白 */}
-      <rect
-        x={x - w / 2 - 4}
-        y={y - LABEL_H / 2 - 4}
-        width={w + 8}
-        height={LABEL_H + 8}
-        rx={12}
-        fill="var(--df-bg-card)"
-      />
-      <rect
-        x={x - w / 2}
-        y={y - LABEL_H / 2}
-        width={w}
-        height={LABEL_H}
-        rx={10}
-        fill={emphasis ? 'var(--df-primary)' : 'var(--df-bg-card)'}
-        stroke="var(--df-primary)"
-        strokeOpacity={emphasis ? 0 : 0.55}
-        strokeWidth={1.5}
-      />
-      <text
-        x={x}
-        y={y + 1}
-        textAnchor="middle"
-        dominantBaseline="middle"
-        fill={emphasis ? '#fff' : 'var(--df-text)'}
-        fontSize={12}
-        fontWeight={700}
-        style={{ fontFamily: 'inherit' }}
-      >
-        {label}
-      </text>
-    </motion.g>
-  )
-}
-
 export function ReasonLoopDiagram() {
-  const prefersReduced = useReducedMotion()
-  const animate = prefersReduced !== true
-
   return (
     <div
-      className="mx-auto w-full max-w-[400px]"
+      className={styles.diagram}
       role="img"
-      aria-label="デモ公開、現場の反応、改善、運用に定着を小さく回すサイクル"
+      aria-label="デモ公開、現場の反応、改善、運用に定着を回しながら土台を作るサイクル"
     >
       <svg
-        viewBox="0 0 320 300"
-        className="mx-auto block h-auto w-full"
-        fill="none"
+        className={styles.cycleSvg}
+        viewBox="0 0 600 520"
+        aria-hidden="true"
       >
-        {/* ガイド円 */}
-        <circle
-          cx={CX}
-          cy={CY}
-          r={ORBIT_R}
-          stroke="var(--df-primary)"
-          strokeOpacity={0.15}
-          strokeWidth={1}
-        />
-
-        {/* 回転破線 */}
-        <motion.g
-          animate={animate ? { rotate: 360 } : undefined}
-          transition={
-            animate
-              ? { duration: 10, repeat: Infinity, ease: 'linear' }
-              : undefined
-          }
-          style={{ transformOrigin: `${CX}px ${CY}px` }}
-        >
-          <circle
-            cx={CX}
-            cy={CY}
-            r={ORBIT_R}
-            stroke="var(--df-primary)"
-            strokeOpacity={0.7}
-            strokeWidth={1.5}
-            strokeDasharray="5 7"
-          />
-        </motion.g>
-
-        {/* 周回ドット */}
-        {animate ? (
-          <motion.g
-            animate={{ rotate: 360 }}
-            transition={{ duration: 3.6, repeat: Infinity, ease: 'linear' }}
-            style={{ transformOrigin: `${CX}px ${CY}px` }}
+        <defs>
+          <marker
+            id="reason-loop-arrow"
+            markerWidth="10"
+            markerHeight="10"
+            refX="8"
+            refY="5"
+            orient="auto"
+            markerUnits="strokeWidth"
           >
-            <circle
-              cx={CX}
-              cy={CY - ORBIT_R}
-              r={4}
-              fill="var(--df-primary)"
-              style={{
-                filter:
-                  'drop-shadow(0 0 5px color-mix(in srgb, var(--df-primary) 70%, transparent))',
-              }}
-            />
-          </motion.g>
-        ) : null}
+            <path d="M 0 0 L 10 5 L 0 10 Z" fill="var(--df-primary)" />
+          </marker>
+          <filter
+            id="reason-loop-glow"
+            x="-40%"
+            y="-40%"
+            width="180%"
+            height="180%"
+          >
+            <feGaussianBlur stdDeviation="2.5" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
 
-        {/* 中心 */}
-        <text
-          x={CX}
-          y={CY - 7}
-          textAnchor="middle"
-          fill="var(--df-primary)"
-          fontSize={14}
-          style={{ fontFamily: 'inherit' }}
-        >
-          ↻
-        </text>
-        <text
-          x={CX}
-          y={CY + 11}
-          textAnchor="middle"
-          fill="var(--df-primary)"
-          fontSize={11}
-          fontWeight={700}
-          letterSpacing="0.12em"
-          style={{ fontFamily: 'inherit' }}
-        >
-          小さく回す
-        </text>
+        {ARCS.map((path, index) => (
+          <path
+            key={`base-${index}`}
+            d={path}
+            className={styles.arcBase}
+            markerEnd="url(#reason-loop-arrow)"
+          />
+        ))}
 
-        {/* 4ステップ（90°等間隔・軌道の外側） */}
-        {STEPS.map((step, i) => (
-          <StepLabel
-            key={step.label}
-            label={step.label}
-            deg={step.deg}
-            w={step.w}
-            delay={animate ? 0.08 + i * 0.1 : 0}
-            animate={animate}
-            emphasis={step.label === '運用に定着'}
+        {ARCS.map((path, index) => (
+          <path
+            key={`flow-${index}`}
+            d={path}
+            className={styles.arcFlow}
+            style={{ animationDelay: `${index * -0.18}s` }}
           />
         ))}
       </svg>
+
+      <div className={`${styles.node} ${styles.topNode}`}>デモ公開</div>
+      <div className={`${styles.node} ${styles.rightNode}`}>現場の反応</div>
+      <div className={`${styles.node} ${styles.bottomNode}`}>改善</div>
+      <div className={`${styles.node} ${styles.leftNode}`}>運用に定着</div>
+
+      <div className={styles.center}>
+        <span className={styles.centerIcon} aria-hidden="true">
+          
+        </span>
+        <strong className={styles.centerLabel}>土台を作る</strong>
+      </div>
     </div>
   )
 }

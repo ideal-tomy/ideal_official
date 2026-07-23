@@ -1,0 +1,180 @@
+.diagram {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  margin-inline: auto;
+  aspect-ratio: 600 / 520;
+}
+
+.cycleSvg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.arcBase {
+  fill: none;
+  stroke: color-mix(in srgb, var(--df-primary) 42%, transparent);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.arcFlow {
+  fill: none;
+  stroke: var(--df-primary);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 12 28;
+  filter: url('#reason-loop-glow');
+  animation: reason-loop-flow 1.5s linear infinite;
+}
+
+@keyframes reason-loop-flow {
+  from {
+    stroke-dashoffset: 40;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.node {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: clamp(96px, 28%, 128px);
+  min-height: clamp(48px, 12%, 64px);
+  padding: 8px 12px;
+  color: var(--df-text);
+  font-size: clamp(12px, 2.4vw, 15px);
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: center;
+  background: var(--df-bg);
+  border: 1.5px solid color-mix(in srgb, var(--df-primary) 55%, transparent);
+  border-radius: 20px;
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--df-text) 6%, transparent);
+}
+
+.topNode {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.rightNode {
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.bottomNode {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.leftNode {
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  color: #fff;
+  background: var(--df-primary);
+  border-color: var(--df-primary);
+  box-shadow:
+    0 0 24px color-mix(in srgb, var(--df-primary) 22%, transparent),
+    0 8px 20px color-mix(in srgb, var(--df-text) 8%, transparent);
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: clamp(112px, 34%, 148px);
+  aspect-ratio: 1;
+  color: var(--df-primary);
+  text-align: center;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--df-primary) 12%, transparent) 0%,
+    color-mix(in srgb, var(--df-primary) 3%, transparent) 55%,
+    transparent 72%
+  );
+  border: 1.5px dashed color-mix(in srgb, var(--df-primary) 85%, transparent);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: reason-foundation-pulse 3.6s ease-in-out infinite;
+}
+
+.centerIcon {
+  font-size: 17px;
+  line-height: 1;
+  opacity: 0.9;
+}
+
+.centerLabel {
+  position: relative;
+  font-size: clamp(13px, 2.6vw, 17px);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1.3;
+}
+
+@keyframes reason-foundation-pulse {
+  0%,
+  100% {
+    opacity: 0.78;
+    box-shadow:
+      0 0 0 0 transparent,
+      0 0 16px color-mix(in srgb, var(--df-primary) 4%, transparent);
+    transform: translate(-50%, -50%) scale(0.985);
+  }
+  50% {
+    opacity: 1;
+    box-shadow:
+      0 0 0 8px color-mix(in srgb, var(--df-primary) 4%, transparent),
+      0 0 28px color-mix(in srgb, var(--df-primary) 16%, transparent);
+    transform: translate(-50%, -50%) scale(1.02);
+  }
+}
+
+@media (max-width: 420px) {
+  .node {
+    width: 88px;
+    min-height: 48px;
+    padding-inline: 6px;
+    border-radius: 16px;
+    font-size: 11px;
+  }
+
+  .center {
+    width: 108px;
+  }
+
+  .arcBase {
+    stroke-width: 2.25;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arcFlow,
+  .center {
+    animation: none;
+  }
+
+  .center {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    box-shadow: none;
+  }
+}

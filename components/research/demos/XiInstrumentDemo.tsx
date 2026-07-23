@@ -221,7 +221,7 @@ export function XiInstrumentDemo() {
               onClick={() => regen(gamingPct, noisePct)}
               className="px-4 py-2 text-sm border border-gray-700 rounded text-gray-200 hover:border-gray-500 transition-colors"
             >
-              再サンプル ↻
+              再サンプル 
             </button>
           </div>
         </div>
