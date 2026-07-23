@@ -1,22 +1,22 @@
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
-import { ServiceNavigation } from '../../../components/sections/ServiceNavigation'
-import { AiHubHero } from '../../../components/services/ai-hub/AiHubHero'
-import { AiHubCapabilityGrid } from '../../../components/services/ai-hub/AiHubCapabilityGrid'
-import { AiHubFeaturedDemos } from '../../../components/services/ai-hub/AiHubFeaturedDemos'
+import { ServiceNavigation } from '@/components/sections/ServiceNavigation'
+import { AiHubHero } from '@/components/services/ai-hub/AiHubHero'
+import { AiHubCapabilityGrid } from '@/components/services/ai-hub/AiHubCapabilityGrid'
+import { AiHubFeaturedDemos } from '@/components/services/ai-hub/AiHubFeaturedDemos'
 import {
   AiHubIndustryGrid,
   AiHubProblemGrid,
   AiHubProcess,
-} from '../../../components/services/ai-hub/AiHubBrowseSections'
-import { AiHubTechDetails } from '../../../components/services/ai-hub/AiHubTechDetails'
-import { ServiceAiCta } from '../../../components/sections/ServiceAiCta'
-import { aiServiceData } from '../../../data/services/ai'
-import { serviceNavLinks } from '../../../data/services/service-links'
+} from '@/components/services/ai-hub/AiHubBrowseSections'
+import { AiHubTechDetails } from '@/components/services/ai-hub/AiHubTechDetails'
+import { ServiceAiCta } from '@/components/sections/ServiceAiCta'
+import { aiServiceData } from '@/data/services/ai'
+import { serviceNavLinks } from '@/data/services/service-links'
 
 const FAQSection = dynamic(
   () =>
-    import('../../../components/sections/FAQSection').then((mod) => ({
+    import('@/components/sections/FAQSection').then((mod) => ({
       default: mod.FAQSection,
     })),
   { loading: () => <div className="animate-pulse bg-[var(--site-bg-elevated)] rounded-lg h-64" /> }
@@ -24,7 +24,7 @@ const FAQSection = dynamic(
 
 const RelatedServicesSection = dynamic(
   () =>
-    import('../../../components/sections/RelatedServicesSection').then((mod) => ({
+    import('@/components/sections/RelatedServicesSection').then((mod) => ({
       default: mod.RelatedServicesSection,
     })),
   { loading: () => <div className="animate-pulse bg-[var(--site-bg-elevated)] rounded-lg h-64" /> }

@@ -1,18 +1,13 @@
 'use client'
 
 import { Dialog } from '@headlessui/react'
-import { useCallback, useState, type ReactNode } from 'react'
-import { colors, typography, transitions, borders } from '../../lib/design-tokens'
-import { PremiumDialog } from '../motion/PremiumDialog'
+import { useState, type ReactNode } from 'react'
+import { colors, typography, transitions, borders } from '@/lib/design-tokens'
+import { PremiumDialog } from '@/components/motion/PremiumDialog'
 
 export interface ModalTriggerProps {
   children: React.ReactNode
-  /** 従来どおり、すでに持っているコンテンツ（任意） */
   modalContent?: ReactNode
-  /** 遅延ロード用 ID（modalPack と併用） */
-  modalId?: string
-  /** クリック時に本文を取得するローダー */
-  loadModalContent?: (id: string) => Promise<ReactNode>
   buttonText?: string
   title?: string
   size?: 'sm' | 'md' | 'lg' | 'xl'
@@ -21,37 +16,19 @@ export interface ModalTriggerProps {
 
 /**
  * モーダルトリガー
- * PremiumDialog は open 時のみマウントし、本文は必要なら遅延ロードする。
+ * PremiumDialog は open 時のみマウントする。
  */
 export function ModalTrigger({
   children,
   modalContent,
-  modalId,
-  loadModalContent,
   title,
   size = 'md',
   className = '',
 }: ModalTriggerProps) {
   const [isOpen, setIsOpen] = useState(false)
-  const [content, setContent] = useState<ReactNode>(modalContent ?? null)
-  const [isLoading, setIsLoading] = useState(false)
 
   const closeModal = () => setIsOpen(false)
-
-  const openModal = useCallback(async () => {
-    setIsOpen(true)
-
-    if (content != null) return
-    if (!modalId || !loadModalContent) return
-
-    setIsLoading(true)
-    try {
-      const loaded = await loadModalContent(modalId)
-      setContent(loaded)
-    } finally {
-      setIsLoading(false)
-    }
-  }, [content, modalId, loadModalContent])
+  const openModal = () => setIsOpen(true)
 
   const getMaxWidth = () => {
     switch (size) {
@@ -74,7 +51,6 @@ export function ModalTrigger({
         {children}
       </div>
 
-      {/* open 時のみ Dialog をマウント（framer-motion コストをカード数分抱えない） */}
       {isOpen ? (
         <PremiumDialog
           open={isOpen}
@@ -96,16 +72,7 @@ export function ModalTrigger({
           footer={<ModalCloseFooter onClose={closeModal} />}
         >
           <div className={`${typography.body} ${colors.text.secondary}`}>
-            {isLoading ? (
-              <div className="space-y-3 animate-pulse" aria-busy="true">
-                <div className="h-4 bg-gray-700 rounded w-3/4" />
-                <div className="h-4 bg-gray-700 rounded w-full" />
-                <div className="h-4 bg-gray-700 rounded w-5/6" />
-                <div className="h-4 bg-gray-700 rounded w-2/3" />
-              </div>
-            ) : (
-              content
-            )}
+            {modalContent}
           </div>
         </PremiumDialog>
       ) : null}

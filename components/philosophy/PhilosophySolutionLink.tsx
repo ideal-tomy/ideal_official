@@ -3,7 +3,7 @@ import {
   buildDetailHref,
   getSolutionLinksForSection,
   type PhilosophySectionId,
-} from '../../data/philosophy/solution-links'
+} from '@/data/philosophy/solution-links'
 
 interface PhilosophySolutionLinkProps {
   sectionId: PhilosophySectionId

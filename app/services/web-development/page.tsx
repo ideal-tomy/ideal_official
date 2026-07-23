@@ -1,20 +1,20 @@
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
-import { ServiceNavigation } from '../../../components/sections/ServiceNavigation'
-import { WebHubHero } from '../../../components/services/web-hub/WebHubHero'
-import { InteractionShowcase } from '../../../components/services/web-hub/InteractionShowcase'
+import { ServiceNavigation } from '@/components/sections/ServiceNavigation'
+import { WebHubHero } from '@/components/services/web-hub/WebHubHero'
+import { InteractionShowcase } from '@/components/services/web-hub/InteractionShowcase'
 import {
   WebWhatWeBuild,
   WebProcess,
-} from '../../../components/services/web-hub/WebWhatWeBuild'
-import { WebUnderTheHood } from '../../../components/services/web-hub/WebUnderTheHood'
-import { ServiceAiCta } from '../../../components/sections/ServiceAiCta'
-import { webDevelopmentData } from '../../../data/services/web-development'
-import { serviceNavLinks } from '../../../data/services/service-links'
+} from '@/components/services/web-hub/WebWhatWeBuild'
+import { WebUnderTheHood } from '@/components/services/web-hub/WebUnderTheHood'
+import { ServiceAiCta } from '@/components/sections/ServiceAiCta'
+import { webDevelopmentData } from '@/data/services/web-development'
+import { serviceNavLinks } from '@/data/services/service-links'
 
 const FAQSection = dynamic(
   () =>
-    import('../../../components/sections/FAQSection').then((mod) => ({
+    import('@/components/sections/FAQSection').then((mod) => ({
       default: mod.FAQSection,
     })),
   { loading: () => <div className="animate-pulse bg-[var(--site-bg-elevated)] rounded-lg h-64" /> }
@@ -22,7 +22,7 @@ const FAQSection = dynamic(
 
 const RelatedServicesSection = dynamic(
   () =>
-    import('../../../components/sections/RelatedServicesSection').then((mod) => ({
+    import('@/components/sections/RelatedServicesSection').then((mod) => ({
       default: mod.RelatedServicesSection,
     })),
   { loading: () => <div className="animate-pulse bg-[var(--site-bg-elevated)] rounded-lg h-64" /> }

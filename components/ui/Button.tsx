@@ -8,7 +8,7 @@
  */
 
 import { ButtonHTMLAttributes, ReactNode } from 'react'
-import { transitions } from '../../lib/design-tokens'
+import { transitions } from '@/lib/design-tokens'
 
 type ButtonVariant = 'primary' | 'secondary' | 'outline'
 type ButtonSize = 'sm' | 'md' | 'lg'

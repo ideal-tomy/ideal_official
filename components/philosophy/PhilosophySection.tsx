@@ -3,8 +3,8 @@
  */
 
 import React from 'react'
-import { Accordion, AccordionItem } from '../ui/Accordion'
-import { ReadMore } from '../ui/ReadMore'
+import { Accordion, AccordionItem } from '@/components/ui/Accordion'
+import { ReadMore } from '@/components/ui/ReadMore'
 import {
   PhilosophySectionShell,
   PhilosophySubheading,
@@ -160,4 +160,4 @@ const PhilosophySection = React.memo(() => {
 
 PhilosophySection.displayName = 'PhilosophySection'
 
-export default PhilosophySection
+export { PhilosophySection }

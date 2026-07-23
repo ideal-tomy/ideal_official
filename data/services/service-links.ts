@@ -1,6 +1,6 @@
 import type { FlowAnswer, IdealTrack } from '@/lib/concierge/ideal-flow'
 import { resolveEffectiveTrack } from '@/lib/concierge/ideal-flow'
-import { ServiceLinkData } from '../../types/service'
+import { ServiceLinkData } from '@/types/service'
 
 /** サービスページ横断ナビ（ServiceNavigation 用）— 主力3本のみ */
 export const serviceNavLinks: ServiceLinkData[] = [

@@ -2,9 +2,9 @@
 
 import { Dialog } from '@headlessui/react'
 import { useState } from 'react'
-import { colors, typography, transitions, borders } from '../../lib/design-tokens'
-import { ModalProps } from '../../types/service'
-import { PremiumDialog } from '../motion/PremiumDialog'
+import { colors, typography, transitions, borders } from '@/lib/design-tokens'
+import { ModalProps } from '@/types/service'
+import { PremiumDialog } from '@/components/motion/PremiumDialog'
 
 /**
  * モーダルコンポーネント

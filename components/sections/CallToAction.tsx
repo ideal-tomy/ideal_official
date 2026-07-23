@@ -6,10 +6,10 @@
 
 import Link from 'next/link'
 import { ScrollReveal } from '@/components/motion/ScrollReveal'
-import { Section } from '../ui/Section'
-import { typography, colors } from '../../lib/design-tokens'
+import { Section } from '@/components/ui/Section'
+import { typography, colors } from '@/lib/design-tokens'
 
-export default function CallToAction() {
+export function CallToAction() {
   return (
     <Section backgroundColor="black">
       <ScrollReveal className="text-center max-w-4xl mx-auto">

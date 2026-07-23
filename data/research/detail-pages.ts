@@ -1,4 +1,4 @@
-import type { PhilosophySectionId } from '../philosophy/solution-links'
+import type { PhilosophySectionId } from '@/data/philosophy/solution-links'
 
 export type DetailPageSlug =
   | 'environment'

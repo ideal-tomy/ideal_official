@@ -1,13 +1,8 @@
 'use client'
 
-import { useCallback } from 'react'
-import { colors } from '../../lib/design-tokens'
+import { colors } from '@/lib/design-tokens'
 import Image from 'next/image'
-import { ModalTrigger } from '../ui/ModalTrigger'
-import {
-  loadServiceModal,
-  type ServiceModalPack,
-} from '@/lib/load-service-modal'
+import { ModalTrigger } from '@/components/ui/ModalTrigger'
 
 /**
  * ThreeCardSection コンポーネント
@@ -31,9 +26,7 @@ export interface CardData {
   onClick?: () => void
   /** モーダルのタイトル（オプション） */
   modalTitle?: string
-  /** 遅延ロード用モーダル ID（modalPack と併用） */
-  modalId?: string
-  /** モーダルのコンテンツ（インライン。非推奨・後方互換） */
+  /** モーダルのコンテンツ */
   modalContent?: React.ReactNode
   /** モーダルのサイズ（オプション） */
   modalSize?: 'sm' | 'md' | 'lg' | 'xl'
@@ -60,8 +53,6 @@ export interface ThreeCardSectionProps {
   cardSize?: 'sm' | 'md' | 'lg'
   /** スマホ表示時の横スクロール有効化 */
   enableMobileScroll?: boolean
-  /** クリック時に modalId から本文を遅延ロードするパック名 */
-  modalPack?: ServiceModalPack
 }
 
 export function ThreeCardSection({
@@ -75,15 +66,7 @@ export function ThreeCardSection({
   cardAlignment = 'center',
   cardSize = 'md',
   enableMobileScroll = false,
-  modalPack,
 }: ThreeCardSectionProps) {
-  const loadModalContent = useCallback(
-    (id: string) => {
-      if (!modalPack) return Promise.resolve(null)
-      return loadServiceModal(modalPack, id)
-    },
-    [modalPack],
-  )
   // variant パラメータは将来の拡張性のために保持
   // バリアント別のスタイル
   const getVariantStyles = () => {
@@ -179,16 +162,14 @@ export function ThreeCardSection({
         ${getCardAlignmentStyles()}
       `}>
           {cards.map((card, index) => {
-            // モーダル機能がある場合のカード（インライン or 遅延ロード）
-            if (card.modalTitle && (card.modalContent || card.modalId)) {
+            // モーダル機能がある場合のカード
+            if (card.modalTitle && card.modalContent) {
               return (
                 <ModalTrigger
                   key={index}
                   title={card.modalTitle}
                   size={card.modalSize || 'lg'}
                   modalContent={card.modalContent}
-                  modalId={card.modalId}
-                  loadModalContent={card.modalId ? loadModalContent : undefined}
                 >
                   <div className={`
                     ${colors.bg.secondary} ${colors.border.default} border rounded-lg

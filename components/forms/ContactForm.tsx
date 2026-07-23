@@ -13,9 +13,9 @@ import { useSearchParams } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { Button } from '../ui/Button'
-import { colors, borders, typography } from '../../lib/design-tokens'
-import { getServiceLabel } from '../../data/services/service-links'
+import { Button } from '@/components/ui/Button'
+import { colors, borders, typography } from '@/lib/design-tokens'
+import { getServiceLabel } from '@/data/services/service-links'
 import {
   takeContactPrefillFromSession,
   clearStagedConciergePrefill,

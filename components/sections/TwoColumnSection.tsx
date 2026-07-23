@@ -1,5 +1,5 @@
 import React from 'react'
-import { colors, typography, spacing } from '../../lib/design-tokens'
+import { colors, typography, spacing } from '@/lib/design-tokens'
 
 /**
  * TwoColumnSection コンポーネント

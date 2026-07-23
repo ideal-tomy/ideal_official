@@ -128,4 +128,4 @@ const DeclarationSection = React.memo(() => {
 
 DeclarationSection.displayName = 'DeclarationSection'
 
-export default DeclarationSection
+export { DeclarationSection }

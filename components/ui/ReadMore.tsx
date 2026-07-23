@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { colors, typography, transitions } from '../../lib/design-tokens'
+import { colors, typography, transitions } from '@/lib/design-tokens'
 
 export interface ReadMoreProps {
   /** 短縮表示するテキスト */

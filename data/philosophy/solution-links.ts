@@ -1,7 +1,7 @@
 import {
   buildDetailHref,
   type DetailPageSlug,
-} from '../research/detail-pages'
+} from '@/data/research/detail-pages'
 
 export type PhilosophySectionId =
   | 'vision'

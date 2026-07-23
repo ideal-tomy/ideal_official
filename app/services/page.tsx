@@ -2,15 +2,15 @@
  * サービスページ
  */
 
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Section } from '../../components/ui/Section'
-import { HeroSection } from '../../components/sections/HeroSection'
-import { ServiceNavigation } from '../../components/sections/ServiceNavigation'
-import CallToAction from '../../components/sections/CallToAction'
-import { typography, colors } from '../../lib/design-tokens'
-import { serviceNavLinks, labNavLinks } from '../../data/services/service-links'
+import { Section } from '@/components/ui/Section'
+import { PageHero } from '@/components/sections/PageHero'
+import { ServiceNavigation } from '@/components/sections/ServiceNavigation'
+import { CallToAction } from '@/components/sections/CallToAction'
+import { typography, colors } from '@/lib/design-tokens'
+import { serviceNavLinks, labNavLinks } from '@/data/services/service-links'
 
 const servicesDescription =
   '提案書の前に動くデモを。Webサイト・業務ツール・AI自動化まで、触って確かめてから開発するデモファーストのDX支援。'
@@ -76,9 +76,9 @@ const labTeaserLinks = labNavLinks.filter((l) =>
 export default function ServicesPage() {
   return (
     <>
-      <HeroSection
+      <PageHero
         title="デモから始めるDX開発"
-        subText="汎用ツールの導入で終わらせず、現場の課題を触れるデモにして答え合わせ。小さく作り、反応を見ながら育てます。"
+        description="汎用ツールの導入で終わらせず、現場の課題を触れるデモにして答え合わせ。小さく作り、反応を見ながら育てます。"
       />
 
       <ServiceNavigation serviceLinks={serviceNavLinks} currentServiceId="" />

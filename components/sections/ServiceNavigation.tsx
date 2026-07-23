@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import { colors, typography, transitions } from '../../lib/design-tokens'
-import { ServiceNavigationProps } from '../../types/service'
+import { colors, typography, transitions } from '@/lib/design-tokens'
+import { ServiceNavigationProps } from '@/types/service'
 
 /**
  * サービスナビゲーションコンポーネント

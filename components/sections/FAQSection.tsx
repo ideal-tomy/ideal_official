@@ -1,6 +1,6 @@
 'use client'
 
-import { colors, typography, spacing } from '../../lib/design-tokens'
+import { colors, typography, spacing } from '@/lib/design-tokens'
 import { useState } from 'react'
 
 /**

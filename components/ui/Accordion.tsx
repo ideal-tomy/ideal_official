@@ -2,7 +2,7 @@
 
 import { Disclosure, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
-import { colors, typography, transitions } from '../../lib/design-tokens'
+import { colors, typography, transitions } from '@/lib/design-tokens'
 
 /**
  * アコーディオンアイテムの型定義

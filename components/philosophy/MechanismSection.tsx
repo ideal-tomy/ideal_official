@@ -3,8 +3,8 @@
  */
 
 import React from 'react'
-import { ThreeCardSection, CardData } from '../sections/ThreeCardSection'
-import { Accordion, AccordionItem } from '../ui/Accordion'
+import { ThreeCardSection, CardData } from '@/components/sections/ThreeCardSection'
+import { Accordion, AccordionItem } from '@/components/ui/Accordion'
 import {
   PhilosophySectionShell,
   PhilosophySubheading,
@@ -252,4 +252,4 @@ const MechanismSection = React.memo(() => {
 
 MechanismSection.displayName = 'MechanismSection'
 
-export default MechanismSection
+export { MechanismSection }

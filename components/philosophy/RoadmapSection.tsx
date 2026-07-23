@@ -3,7 +3,7 @@
  */
 
 import React from 'react'
-import { Accordion, AccordionItem } from '../ui/Accordion'
+import { Accordion, AccordionItem } from '@/components/ui/Accordion'
 import {
   PhilosophySectionShell,
   PhilosophySubheading,
@@ -120,4 +120,4 @@ const RoadmapSection = React.memo(() => {
 
 RoadmapSection.displayName = 'RoadmapSection'
 
-export default RoadmapSection
+export { RoadmapSection }

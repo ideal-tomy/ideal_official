@@ -1,25 +1,25 @@
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
-import { ServiceNavigation } from '../../../components/sections/ServiceNavigation'
-import { AppHubHero } from '../../../components/services/app-hub/AppHubHero'
-import { ProductShowcase } from '../../../components/services/app-hub/ProductShowcase'
+import { ServiceNavigation } from '@/components/sections/ServiceNavigation'
+import { AppHubHero } from '@/components/services/app-hub/AppHubHero'
+import { ProductShowcase } from '@/components/services/app-hub/ProductShowcase'
 import {
   AppWhatWeBuild,
   AppProblemSolution,
   AppRelatedDemos,
   AppProcess,
-} from '../../../components/services/app-hub/AppWhatWeBuild'
-import { AppUnderTheHood } from '../../../components/services/app-hub/AppUnderTheHood'
-import { ServiceAiCta } from '../../../components/sections/ServiceAiCta'
+} from '@/components/services/app-hub/AppWhatWeBuild'
+import { AppUnderTheHood } from '@/components/services/app-hub/AppUnderTheHood'
+import { ServiceAiCta } from '@/components/sections/ServiceAiCta'
 import {
   appHubFaqs,
   appHubRelatedServices,
-} from '../../../data/services/app-hub'
-import { serviceNavLinks } from '../../../data/services/service-links'
+} from '@/data/services/app-hub'
+import { serviceNavLinks } from '@/data/services/service-links'
 
 const FAQSection = dynamic(
   () =>
-    import('../../../components/sections/FAQSection').then((mod) => ({
+    import('@/components/sections/FAQSection').then((mod) => ({
       default: mod.FAQSection,
     })),
   { loading: () => <div className="animate-pulse bg-[var(--site-bg-elevated)] rounded-lg h-64" /> }
@@ -27,7 +27,7 @@ const FAQSection = dynamic(
 
 const RelatedServicesSection = dynamic(
   () =>
-    import('../../../components/sections/RelatedServicesSection').then((mod) => ({
+    import('@/components/sections/RelatedServicesSection').then((mod) => ({
       default: mod.RelatedServicesSection,
     })),
   { loading: () => <div className="animate-pulse bg-[var(--site-bg-elevated)] rounded-lg h-64" /> }

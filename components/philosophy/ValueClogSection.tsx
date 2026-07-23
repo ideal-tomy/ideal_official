@@ -3,7 +3,7 @@
  */
 
 import React from 'react'
-import { ThreeCardSection, CardData } from '../sections/ThreeCardSection'
+import { ThreeCardSection, CardData } from '@/components/sections/ThreeCardSection'
 import {
   PhilosophySectionShell,
   PhilosophySubheading,
@@ -207,4 +207,4 @@ const ValueClogSection = React.memo(() => {
 
 ValueClogSection.displayName = 'ValueClogSection'
 
-export default ValueClogSection
+export { ValueClogSection }

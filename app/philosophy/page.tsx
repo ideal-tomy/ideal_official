@@ -2,17 +2,19 @@
  * Philosophy ページ
  */
 
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Link from 'next/link'
-import { HeroSection } from '../../components/sections/HeroSection'
-import { PhilosophyNav } from '../../components/philosophy/PhilosophyNav'
-import VisionSection from '../../components/philosophy/VisionSection'
-import ValueClogSection from '../../components/philosophy/ValueClogSection'
-import PhilosophySection from '../../components/philosophy/PhilosophySection'
-import MechanismSection from '../../components/philosophy/MechanismSection'
-import StructureSection from '../../components/philosophy/StructureSection'
-import RoadmapSection from '../../components/philosophy/RoadmapSection'
-import DeclarationSection from '../../components/philosophy/DeclarationSection'
+import { PageHero } from '@/components/sections/PageHero'
+import { PhilosophyNav } from '@/components/philosophy/PhilosophyNav'
+import {
+  VisionSection,
+  ValueClogSection,
+  PhilosophySection,
+  MechanismSection,
+  StructureSection,
+  RoadmapSection,
+  DeclarationSection,
+} from '@/components/philosophy'
 
 export const metadata: Metadata = {
   title: 'Philosophy | LAB | ideal',
@@ -38,9 +40,9 @@ export default function PhilosophyPage() {
         </div>
       </div>
 
-      <HeroSection
+      <PageHero
         title="自由と秩序が両立した社会を設計する"
-        subText="正直であることが合理的な環境の設計へ。思想と仕組みの両面から、理想の社会像を示します。"
+        description="正直であることが合理的な環境の設計へ。思想と仕組みの両面から、理想の社会像を示します。"
         overlapHeader={false}
       />
 

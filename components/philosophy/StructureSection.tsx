@@ -90,4 +90,4 @@ const StructureSection = React.memo(() => {
 
 StructureSection.displayName = 'StructureSection'
 
-export default StructureSection
+export { StructureSection }

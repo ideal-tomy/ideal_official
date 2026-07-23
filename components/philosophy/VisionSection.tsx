@@ -46,4 +46,4 @@ const VisionSection = React.memo(() => {
 
 VisionSection.displayName = 'VisionSection'
 
-export default VisionSection
+export { VisionSection }

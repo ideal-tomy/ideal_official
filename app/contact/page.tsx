@@ -5,12 +5,12 @@
  * クライアントコンポーネント（ContactForm）を配置
  */
 
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Section } from '../../components/ui/Section'
-import { HeroSection } from '../../components/sections/HeroSection'
-import { ContactFormWrapper } from '../../components/forms/ContactFormWrapper'
-import { typography, colors } from '../../lib/design-tokens'
+import { Section } from '@/components/ui/Section'
+import { PageHero } from '@/components/sections/PageHero'
+import { ContactFormWrapper } from '@/components/forms/ContactFormWrapper'
+import { typography, colors } from '@/lib/design-tokens'
 
 export const metadata: Metadata = {
   title: 'お問い合わせ | ideal',
@@ -26,9 +26,9 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <HeroSection
+      <PageHero
         title="お問い合わせ"
-        subText="ご相談・お見積もりなど、お気軽にご連絡ください。金額感を先に知りたい方は自動見積もりもご利用いただけます。"
+        description="ご相談・お見積もりなど、お気軽にご連絡ください。金額感を先に知りたい方は自動見積もりもご利用いただけます。"
       />
 
       <Section backgroundColor="black" containerSize="narrow">

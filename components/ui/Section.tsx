@@ -6,7 +6,7 @@
  */
 
 import { ReactNode } from 'react'
-import { layout } from '../../lib/design-tokens'
+import { layout } from '@/lib/design-tokens'
 
 type SectionSize = 'default' | 'small'
 type ContainerSize = 'default' | 'narrow' | 'wide' | 'full'

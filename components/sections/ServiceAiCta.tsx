@@ -1,8 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { colors, typography } from '../../lib/design-tokens'
-import { getServiceLabel } from '../../data/services/service-links'
+import { colors, typography } from '@/lib/design-tokens'
+import { getServiceLabel } from '@/data/services/service-links'
 
 interface ServiceAiCtaProps {
   serviceId: string
