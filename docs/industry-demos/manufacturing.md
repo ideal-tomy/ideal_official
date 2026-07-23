@@ -29,9 +29,9 @@ Industry ID: `manufacturing`
 
 | # | Demo ID | テーマ名 | 体験の核（一言） | 主役役割 | status |
 |---|---------|----------|------------------|----------|--------|
-| ① | `mfg-field-judgment` | 現場判断 | 不良時手順・部門またぎ・版ずれ優先 | 現場 → 品質 | `needs_ux_split` |
-| ② | `mfg-sop-revision` | 手順改定・教育 | SOP差分 → 必須化 → 教育要否 | 管理職 | `needs_ux_split` |
-| ③ | `mfg-change-impact` | 変更影響 | 版差分 → 影響範囲 → 試験/FMEA | 設計・品質・経営 | `needs_ux_split` |
+| ① | `mfg-field-judgment` | 現場判断 | 不良時手順・部門またぎ・版ずれ優先 | 現場 → 品質 | `ready_asset` |
+| ② | `mfg-sop-revision` | 手順改定・教育 | SOP差分 → 必須化 → 教育要否 | 管理職 | `ready_asset` |
+| ③ | `mfg-change-impact` | 変更影響 | 版差分 → 影響範囲 → 試験/FMEA | 設計・品質・経営 | `ready_asset` |
 
 推奨の初回着地: **Demo①**（自分事化が最も速い）  
 業界カード暫定CTA: ハブ完成までは①直リンク可。完成後はハブ優先。
@@ -47,31 +47,24 @@ Industry ID: `manufacturing`
 
 - **Demo ID:** `mfg-field-judgment`
 - **テーマ:** 工場QMS文書に聞いて、その場で正しく動く
-- **体験してもらうこと:** 推奨順のガイド質問（即答 → 不良一気通貫 → QC/QA → **版ずれ優先** → 校正切れ報告）
-- **感じてほしいこと:** 「探すより聞いた方が早い。怒られそうなことも聞ける。うちにも版ずれがある」
+- **体験してもらうこと:** 短いガイドのあと、**現場言葉の自由記述 × 根拠付き回答**（社内ボット連想）
+- **感じてほしいこと:** 「探すより聞いた方が早い。怒られそうなことも聞ける。うちの言い方でも答えが来る」
 - **主役役割:** 現場（主）／品質管理（副）
-- **クライマックス:** 保持時間が手順と検査標準で食い違うとき、優先ルールと報告義務まで答える（台本 Q5）
-- **ガイド手数:** 5（Q1→Q2→Q3→Q5→Q7）
-- **AIの使い方:** サンプル先行。ツアー後に同じ質問を `/ai?pack=minato-factory` で任意ライブ
+- **本命（クライマックス）:** ガイド完走ではなく、**「塗装剥がれどうする？」等の現場一言が第7条フロー等に着地する**こと。ガイド内の版ずれ（台本 Q5）は入口の型見せ
+- **ガイド手数:** 5（Q1→Q2→Q3→Q5→Q7）→ その後に現場言葉入力が前面
+- **公開UI:** [`/play/minato-factory`](../../../../product_flow)（体験プレイヤー）。旧シェルは `?packs=1` 専用
+- **AIの使い方:** サンプル先行 → プレイヤー内でライブ／自社文書。ROI・相談は「次の一歩」折りたたみのみ
 - **既存資産:**
   - リポジトリ: [`product_flow`](../../../../product_flow)
-  - パック: `minato-factory`（`/?pack=minato-factory` / `/ai?pack=minato-factory`）
-  - 台本: [`product_flow/docs/knowledge2/14_想定質問リスト_製造現場デモ台本.md`](../../../../product_flow/docs/knowledge2/14_想定質問リスト_製造現場デモ台本.md)
-  - 公開ベース: `https://product-flow-jet.vercel.app/`（現状はパック同居）
+  - パック: `minato-factory`
+  - UX正本: [`product_flow/docs/experience-player-ux.md`](../../../../product_flow/docs/experience-player-ux.md)
+  - 解釈ルール: [`product_flow/docs/field-language-interpretation-rules.md`](../../../../product_flow/docs/field-language-interpretation-rules.md)
+  - 台本: [`product_flow/docs/knowledge2/14_…`](../../../../product_flow/docs/knowledge2/14_想定質問リスト_製造現場デモ台本.md) / 用例 [`15_…`](../../../../product_flow/docs/knowledge2/15_現場言葉_自由記述用例.md)
+  - 公開ベース: `https://product-flow-jet.vercel.app/manufacturing`
   - ギャラリー試食: `knowledge-to-search`
-- **status:** `needs_ux_split`
-- **ギャップ:**
-  - 公開入口がパック切替・Live/AI分岐で「どう触るか」が不明瞭
-  - 役割ガイドUIがない
-  - クライマックス（矛盾する2文書）の視覚化が弱い
-  - ideal カード文言が「製造フロー」で期待が広い
-- **実装ステップ:**
-  1. 公開用ランディングを①専用にする（表にパック一覧を出さない。入口コピー＝現場判断）
-  2. 「体験の始め方」＝役割（現場）固定のガイド5ボタン。自由入力は折りたたみ
-  3. Q5前後で手順と標準の食い違いを並べて表示
-  4. ツアー完了後だけ AIモード／自社資料追加を露出
-  5. 終了CTA: ハブへ（②③へ）＋ ROI（`kit=chatbot&industry=manufacturing`）＋相談
-- **受け入れ（Demo単体）:** 「版が食い違ったとき、どっちに従い、誰に報告するか」を体験後に言える
+- **status:** `ready_asset`（プレイヤー再設計中。ハブ `/manufacturing` 維持）
+- **ギャップ:** デプロイ後の `/play/…` 確認
+- **受け入れ（Demo単体）:** 「現場の言い方で聞いても、根拠付きで次の一手が分かる」と言える
 
 ### Demo② — 手順改定・教育
 
@@ -82,17 +75,11 @@ Industry ID: `manufacturing`
 - **主役役割:** 管理職（製造・品質・教育）
 - **クライマックス:** 「この改定を現場適用して大丈夫か」に、教育完了と旧版撤去が条件として返る
 - **ガイド手数:** 4
-- **AIの使い方:** サンプル先行。任意でライブ
+- **AIの使い方:** サンプル先行。プレイヤー内でライブ
 - **既存資産:**
   - パック: `work-procedure`（現行 `DEFAULT_PACK_ID`）
-  - URL例: `/?pack=work-procedure`
-- **status:** `needs_ux_split`
-- **ギャップ:** ①③と同じシェルに同居。①専用入口と物語・推奨質問を分離する必要あり
-- **実装ステップ:**
-  1. ②専用入口コピーと推奨カタログに絞る（差分→影響→教育→適用判断）
-  2. 管理職向け1文の導入（「改定を出す人のデモ」）
-  3. ハブから②へ、②完了後に①（現場）と③（設計変更）へ誘導
-- **受け入れ（Demo単体）:** 「改定の次に見るべきは教育と旧版」と言える
+  - URL例: `/play/work-procedure`（公開）/ `/?pack=work-procedure&packs=1`（旧シェル）
+- **status:** `ready_asset`（体験プレイヤー接続済）
 
 ### Demo③ — 変更影響
 
@@ -103,19 +90,13 @@ Industry ID: `manufacturing`
 - **主役役割:** 設計・品質（主）／経営（リスク要約）
 - **クライマックス:** 「この変更の影響範囲は？」に制御・試験・FMEAがセットで返る
 - **ガイド手数:** 4
-- **AIの使い方:** サンプル＋構造化回答が効く。ツアー後ライブ推奨
+- **AIの使い方:** サンプル＋構造化回答。プレイヤー内でライブ
 - **既存資産:**
   - パック: `tcu-480`
-  - URL例: `/?pack=tcu-480`
+  - URL例: `/play/tcu-480`（公開）/ `/?pack=tcu-480&packs=1`（旧シェル）
   - LP Before/After: [`product_flow` Landing](../../../../product_flow/src/pages/LandingPage.tsx) のメッセージと整合
   - 補強候補: `inspection`（判定基準の版・電子記録）— ③内の追加ガイドまたは営業用
-- **status:** `needs_ux_split`
-- **ギャップ:** 自動車TCU文脈が強く、汎用製造ハブ文言との翻訳が必要（「製品仕様の版変更」と一般化）
-- **実装ステップ:**
-  1. ③入口で業界を問わず通じるリード（版変更の影響漏れ）を固定
-  2. 推奨質問を影響系に限定
-  3. 経営向けに所要時間・漏れリスクの1枚要約をツアー末尾に
-  4. inspection は③の「関連シナリオ」リンクに留める
+- **status:** `ready_asset`（体験プレイヤー接続済）
 - **受け入れ（Demo単体）:** 「変更の影響を、試験とFMEAまで含めて見られる」と言える
 
 ---
@@ -124,12 +105,12 @@ Industry ID: `manufacturing`
 
 | 箇所 | 現状 | 直し方針 |
 |------|------|----------|
-| TOP 製造カード `tryHref` | `product-flow-jet` 直リンク | ハブ（理想）または `?pack=minato-factory` の① |
-| `tryLabel` | 製造フロー | **製造の判断（3体験）** または **現場判断デモ** |
-| 課題／解決文 | 属人化・ナレッジ | 楔（文書↔判断）に合わせて維持〜微修正。フロー全体暗示を弱める |
-| `detailHref` | `/services/ai-consulting` | 将来ハブ or Cases。当面AIハブでも可だが「例外」と分かる文言に |
+| TOP 製造カード `tryHref` | `/manufacturing` ハブ | ハブ完了 |
+| `tryLabel` | 製造の判断（3体験） | 反映済 |
+| 課題／解決文 | 文書↔判断の楔 | 反映済 |
+| `detailHref` | `/services/ai-consulting` | 将来ハブ or Cases。当面AIハブでも可 |
 | Cases | 製造専用事例が薄い | ハブ公開時に①起点の事例を検討 |
-| portfolio `manufacturing` | 1本の外部URL | ハブまたは①②③個別URLが揃い次第、3エントリ or 親+子 |
+| portfolio `manufacturing` | ハブURL | 反映済 |
 
 参照:
 
@@ -147,20 +128,23 @@ Industry ID: `manufacturing`
 - デモ内で①→②→③の業務ワークフロー画面をつなぐ
 - inspection / HR / 標準化教材を製造ハブの4本目にする
 - ギャラリーだけで製造本線を完結させる
+- 旧 Live/AI シェルへ公開機能を継ぎ足し続けること
 
 ---
 
-## 6. 実装優先度
+## 6. 実装優先度（体験プレイヤー再設計）
+
+旧シェル継ぎ足しは打ち切り。公開は体験プレイヤー。詳細順は rethink PLAN。
 
 | Phase | 内容 | 完了条件 |
 |-------|------|----------|
-| **P0** | 本 PLAN 固定（本ファイル） | 楔・3テーマ・status が合意済み |
-| **P1** | Demo① UX分離（ガイド5手・Q5視覚化・入口コピー） | ①単体受け入れ達成。ideal 製造CTAを①またはハブへ変更可能 |
-| **P2** | Demo②③の専用入口＋ハブページ（3カード＋組み合わせ文） | ハブ受け入れ達成 |
-| **P3** | AIライブ導線の整理・自社資料・ROI／相談の統一 | Access Mode が「ツアー後」に見える |
-| **P4** | ideal 文言・portfolio・Cases の本反映 | サイト導線表の「直し方針」が実装済み |
+| **0** | UX／解釈ルール文書＋本ファイル更新 | レビュー可能・UIなし |
+| **1** | ①現場言葉用例＋チャンク抜粋補強 | 用例の質問→条が分かる |
+| **2** | エイリアス＋`llmSystemPrompt` | 「塗装剥がれ」がサンプル／ライブで根拠付き |
+| **3** | `/play/:packId`（①）＋ハブリンク | 初訪5秒で番号、本命＝現場言葉 |
+| **4** | ②③を同型適用＋ハブ文言＋デプロイ確認 | ideal CTA `/manufacturing` がプレイヤーへ着地 |
 
-チケット化の単位: P1=①、P2=ハブ+②③入口、を別PR推奨。
+参照: [`product_flow/docs/experience-player-ux.md`](../../../../product_flow/docs/experience-player-ux.md)
 
 ---
 
@@ -176,10 +160,14 @@ Industry ID: `manufacturing`
 
 ## 付録: 入口URL（実装時の目安）
 
-| Demo | Sample Live | AI |
-|------|-------------|-----|
-| ① | `https://product-flow-jet.vercel.app/?pack=minato-factory` | 同 `/ai?pack=minato-factory` |
-| ② | `...?pack=work-procedure` | `/ai?pack=work-procedure` |
-| ③ | `...?pack=tcu-480` | `/ai?pack=tcu-480` |
+| 入口 | URL |
+|------|-----|
+| ハブ | `https://product-flow-jet.vercel.app/manufacturing` |
+| ① 公開プレイヤー | `/play/minato-factory` |
+| ② 公開プレイヤー | `/play/work-procedure` |
+| ③ 公開プレイヤー | `/play/tcu-480` |
+| 旧シェル（開発） | `/?pack=…&packs=1` |
 
-ハブ用パス（未実装）: ideal 側 `/demos/manufacturing` または product_flow の `/lp` 相当を製造ハブに再編。
+ローカル: `http://localhost:5173/manufacturing`（ポートは環境による）
+
+ideal 側 `/demos/manufacturing` は未作成（外部ハブへリンクで足りる）。

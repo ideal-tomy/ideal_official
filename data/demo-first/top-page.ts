@@ -127,17 +127,17 @@ export function getIndustryCards(): IndustryCard[] {
       englishLabel: 'Manufacturing',
       image: '/images/lp/manufacturing.png',
       issues: [
-        '判断基準がベテランの頭の中にあり、計画・調整が属人化している',
-        '規程やマニュアルを何度も探し回り、根拠付きの判断が遅い',
+        '判断基準がベテランの頭の中にあり、文書を探し回って判断が遅れる',
+        '手順と標準の版ずれや、QC/QAの窓口の違いで現場が止まる',
       ],
       solutions: [
-        '暗黙知をナレッジ化し、誰でも根拠付きで答えられる環境へ',
+        '文書に聞いて、優先ルールと連絡先まで根拠付きで答えられる',
         knowledge?.after ?? '回答と出典が同時に得られる',
       ],
       detailHref: '/services/ai-consulting',
       detailLabel: 'AIサービスを見る',
       tryHref: INDUSTRY_EXTERNAL_DEMOS.manufacturing,
-      tryLabel: '製造フロー',
+      tryLabel: '製造の判断（3体験）',
       tryExternal: true,
     },
   ]
