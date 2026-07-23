@@ -1,67 +1,69 @@
 import Link from 'next/link'
 import type { Capability } from '@/data/ai-capability-gallery/capabilities'
-import { ThemeImage } from '@/components/ui/ThemeImage'
+import { SectionKicker } from './SectionKicker'
 
 type Props = {
   capabilities: Capability[]
 }
 
+/** トップ用：機能選択カード（画像なし・比較しやすい） */
 export function DemoFirstShowcase({ capabilities }: Props) {
   return (
-    <section id="demos" className="bg-[var(--df-bg-blue)] py-[var(--df-sec-pad)]">
+    <section
+      id="demos"
+      className="bg-[var(--df-bg-blue)] py-[clamp(40px,8vw,64px)] md:py-[var(--df-sec-pad)]"
+    >
       <div className="mx-auto w-[min(100%-48px,1080px)]">
-        <p className="hidden text-sm font-bold uppercase tracking-[0.12em] text-[var(--df-primary)] md:block">
-          デモ
-        </p>
-        <h2 className="my-2 mb-6 text-[clamp(26px,5.6vw,40px)] font-black leading-[1.5] text-[var(--df-text)]">
+        <SectionKicker index="01" label="体験" />
+        <h2 className="my-2 mb-4 text-[clamp(26px,5.6vw,40px)] font-black leading-[1.5] text-[var(--df-text)] md:mb-6">
           資料ではなく、
           <br className="hidden md:inline" />
           <span className="text-[var(--df-primary-deep)]">動くデモで確かめる。</span>
         </h2>
-        <p className="mb-12 max-w-[640px] text-[var(--df-text)]">
-          ここにあるのは、実際の業務課題から生まれた開発デモです。サンプルデータで動くため、実ファイルのアップロードは不要です。
+        <p className="mb-8 max-w-[640px] text-[var(--df-text)] md:mb-10">
+          業務課題から生まれた開発デモです。パターンを見比べて、近いものから触ってください。
         </p>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3 md:gap-4">
           {capabilities.map((cap) => (
-            <article
+            <Link
               key={cap.slug}
-              className="flex flex-col overflow-hidden rounded-[var(--df-radius-card)] bg-[var(--df-bg)]"
+              href={cap.href}
+              className="group flex flex-col rounded-[var(--df-radius-card)] border border-[color-mix(in_srgb,var(--df-primary)_18%,transparent)] bg-[var(--df-bg)] px-4 py-4 transition-colors hover:border-[var(--df-primary)]/45 hover:bg-[var(--df-bg-card)] sm:px-5 sm:py-5"
             >
-              <div className="relative aspect-[16/9] bg-[linear-gradient(160deg,var(--df-hero-2),var(--df-primary-hover))]">
-                <ThemeImage
-                  src={cap.image}
-                  alt=""
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover object-center opacity-90"
-                />
-                <span className="absolute left-3.5 top-3.5 rounded-full border border-white/80 px-3 py-0.5 text-xs font-bold text-white">
-                  {cap.tags[0] ?? cap.subtitle}
+              <div className="mb-3 flex items-center justify-between gap-2">
+                <span className="font-mono text-[11px] font-bold tabular-nums text-[var(--df-primary)]/70">
+                  {String(cap.number).padStart(2, '0')}
+                </span>
+                <span className="rounded-full bg-[var(--df-primary)]/10 px-2.5 py-0.5 text-[11px] font-bold text-[var(--df-primary-deep)]">
+                  体験
                 </span>
               </div>
-              <div className="flex flex-1 flex-col p-6 pb-8">
-                <span className="inline-block w-fit rounded-full border border-[var(--df-text-muted)] px-3 py-0.5 text-xs font-bold text-[var(--df-text-muted)]">
-                  {cap.subtitle}
-                </span>
-                <h3 className="mt-2.5 mb-1.5 text-xl font-black leading-[1.5] text-[var(--df-primary-deep)]">
-                  {cap.title}
-                </h3>
-                <p className="text-sm text-[var(--df-text)]">{cap.showcaseLead}</p>
-                <div className="mt-auto flex items-center justify-between pt-6">
-                  <span className="text-sm font-bold text-[var(--df-primary)]">
-                    触ってみる
-                  </span>
-                  <Link
-                    href={cap.href}
-                    className="inline-flex h-10 w-14 items-center justify-center rounded-[var(--df-radius-btn)] bg-[var(--df-primary)] font-bold text-white transition-transform hover:translate-x-1"
-                    aria-label={`${cap.title}を開く`}
+              <p className="mb-1.5 text-sm font-black tracking-wide text-[var(--df-primary)]">
+                {cap.subtitle}
+              </p>
+              <h3 className="mb-2 text-base font-black leading-snug text-[var(--df-text)] md:text-lg">
+                {cap.title}
+              </h3>
+              <p className="mb-3 text-xs leading-relaxed text-[var(--df-text-muted)]">
+                {cap.before}
+                <span className="mx-1.5 font-bold text-[var(--df-primary)]">→</span>
+                {cap.after}
+              </p>
+              <div className="mb-4 flex flex-wrap gap-1.5">
+                {cap.tags.slice(0, 3).map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full border border-[var(--site-border)] px-2 py-px text-[10px] text-[var(--df-text-muted)]"
                   >
-                    →
-                  </Link>
-                </div>
+                    {tag}
+                  </span>
+                ))}
               </div>
-            </article>
+              <span className="mt-auto text-sm font-bold text-[var(--df-primary)] transition-colors group-hover:text-[var(--df-primary-hover)]">
+                触ってみる →
+              </span>
+            </Link>
           ))}
         </div>
       </div>

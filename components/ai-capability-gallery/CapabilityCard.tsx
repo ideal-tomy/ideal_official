@@ -1,13 +1,16 @@
 import Link from 'next/link'
-import { ThemeImage } from '@/components/ui/ThemeImage'
 import type { Capability } from '@/data/ai-capability-gallery/capabilities'
 
 interface CapabilityCardProps {
   capability: Capability
-  /** マーキー用の縮小カード（比率はそのまま） */
+  /** マーキー用の縮小カード */
   size?: 'default' | 'compact'
 }
 
+/**
+ * 機能／パターン選択カード（画像なし）
+ * 目的＝読む（CaseCard）と対になる「選んで体験」の視覚言語
+ */
 export function CapabilityCard({
   capability,
   size = 'default',
@@ -17,52 +20,62 @@ export function CapabilityCard({
 
   const content = (
     <>
-      <div className="relative aspect-[16/9] overflow-hidden bg-[var(--site-bg)]">
-        <ThemeImage
-          src={capability.image}
-          alt=""
-          fill
-          sizes={
-            compact
-              ? '176px'
-              : '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw'
-          }
-          className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
-          aria-hidden="true"
-        />
-        <div
-          className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"
-          aria-hidden="true"
-        />
-        <span
-          className={
-            compact
-              ? 'absolute left-1.5 top-1.5 hidden rounded bg-black/55 px-1 py-px font-mono text-[9px] text-white md:inline'
-              : 'absolute left-3 top-3 hidden rounded bg-black/55 px-2 py-0.5 font-mono text-xs text-white md:inline'
-          }
-        >
-          {String(capability.number).padStart(2, '0')}
-        </span>
-        {!isReady && (
-          <span
-            className={
-              compact
-                ? 'absolute right-1.5 top-1.5 rounded border border-white/30 bg-black/60 px-1 py-px text-[8px] uppercase tracking-wider text-white'
-                : 'absolute right-3 top-3 rounded border border-white/30 bg-black/60 px-1.5 py-0.5 text-[10px] uppercase tracking-wider text-white'
-            }
-          >
-            準備中
-          </span>
-        )}
-      </div>
-
       <div
         className={
           compact
-            ? 'flex flex-1 flex-col bg-[var(--site-bg-elevated)] p-2.5'
-            : 'flex flex-1 flex-col bg-[var(--site-bg-elevated)] p-4'
+            ? 'flex flex-1 flex-col p-2.5'
+            : 'flex flex-1 flex-col p-4 sm:p-5'
         }
       >
+        <div
+          className={
+            compact
+              ? 'mb-1.5 flex items-center justify-between gap-1'
+              : 'mb-3 flex items-center justify-between gap-2'
+          }
+        >
+          <span
+            className={
+              compact
+                ? 'font-mono text-[9px] font-bold tabular-nums text-brand/70'
+                : 'font-mono text-xs font-bold tabular-nums text-brand/80'
+            }
+          >
+            {String(capability.number).padStart(2, '0')}
+          </span>
+          {isReady ? (
+            <span
+              className={
+                compact
+                  ? 'rounded-full bg-brand/15 px-1.5 py-px text-[8px] font-bold text-brand'
+                  : 'rounded-full bg-brand/15 px-2.5 py-0.5 text-[11px] font-bold text-brand'
+              }
+            >
+              体験
+            </span>
+          ) : (
+            <span
+              className={
+                compact
+                  ? 'rounded-full border border-[var(--site-border)] px-1.5 py-px text-[8px] text-[var(--site-fg-muted)]'
+                  : 'rounded-full border border-[var(--site-border)] px-2 py-0.5 text-[10px] text-[var(--site-fg-muted)]'
+              }
+            >
+              準備中
+            </span>
+          )}
+        </div>
+
+        <p
+          className={
+            compact
+              ? 'mb-1 text-[10px] font-bold tracking-wide text-brand'
+              : 'mb-1.5 text-sm font-bold tracking-wide text-brand'
+          }
+        >
+          {capability.subtitle}
+        </p>
+
         <h3
           className={
             compact
@@ -74,14 +87,11 @@ export function CapabilityCard({
         </h3>
 
         {!compact && (
-          <>
-            <p className="mb-1.5 text-xs font-medium text-brand/90">
-              {capability.subtitle}
-            </p>
-            <p className="mb-3 text-xs leading-relaxed text-[var(--site-fg-muted)]">
-              {capability.before} → {capability.after}
-            </p>
-          </>
+          <p className="mb-3 text-xs leading-relaxed text-[var(--site-fg-muted)]">
+            {capability.before}
+            <span className="mx-1.5 font-bold text-brand">→</span>
+            {capability.after}
+          </p>
         )}
 
         <div
@@ -89,7 +99,7 @@ export function CapabilityCard({
             compact ? 'mb-2 flex flex-wrap gap-1' : 'mb-4 flex flex-wrap gap-1.5'
           }
         >
-          {(compact ? capability.tags.slice(0, 3) : capability.tags).map(
+          {(compact ? capability.tags.slice(0, 2) : capability.tags).map(
             (tag) => (
               <span
                 key={tag}
@@ -114,7 +124,7 @@ export function CapabilityCard({
                   : 'inline-flex items-center text-sm font-medium text-brand transition-colors group-hover:text-brand-hover'
               }
             >
-              デモを見る →
+              体験する →
             </span>
           ) : (
             <span
@@ -133,7 +143,7 @@ export function CapabilityCard({
   )
 
   const shellClass = compact
-    ? 'group flex h-full flex-col overflow-hidden rounded-lg border border-[var(--site-border)] bg-[var(--site-bg-elevated)] transition-colors hover:border-brand/40'
+    ? 'group flex h-full min-w-[9.5rem] flex-col overflow-hidden rounded-lg border border-[var(--site-border)] bg-[var(--site-bg-elevated)] transition-colors hover:border-brand/40'
     : 'group flex h-full flex-col overflow-hidden rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)] transition-colors hover:border-brand/40'
 
   if (isReady) {
@@ -144,7 +154,5 @@ export function CapabilityCard({
     )
   }
 
-  return (
-    <div className={`${shellClass} opacity-75`}>{content}</div>
-  )
+  return <div className={`${shellClass} opacity-75`}>{content}</div>
 }

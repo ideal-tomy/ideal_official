@@ -14,13 +14,11 @@ export function CapabilityCardGrid() {
             7つの業務変化パターン
           </h2>
           <p className="mx-auto max-w-2xl text-sm text-[var(--site-fg-muted)] md:text-lg">
-            カードを選んで、すぐ体験できます。
-            <span className="text-brand">自社への変化</span>
-            をイメージしてください。
+            機能ラベルで見比べて、近いものから体験できます。
           </p>
         </header>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:gap-5 xl:grid-cols-4">
+        <div className="grid gap-3 sm:grid-cols-2 lg:gap-3 xl:grid-cols-3 2xl:grid-cols-4">
           {capabilities.map((capability) => (
             <MobileScrollTilt key={capability.id}>
               <CapabilityCard capability={capability} />

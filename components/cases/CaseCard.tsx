@@ -8,7 +8,7 @@ interface CaseCardProps {
 }
 
 /** 一覧カード用に lead を先頭2文相当へ切り詰める */
-function truncateLead(lead: string, maxChars = 110): string {
+function truncateLead(lead: string, maxChars = 120): string {
   const normalized = lead.replace(/\s+/g, ' ').trim()
   if (normalized.length <= maxChars) return normalized
 
@@ -23,6 +23,10 @@ function truncateLead(lead: string, maxChars = 110): string {
   return `${cut}…`
 }
 
+/**
+ * 目的／置き換えカード（エディトリアル・画像あり）
+ * 機能選択の CapabilityCard と対になる「読む」視覚言語
+ */
 export function CaseCard({ caseStudy }: CaseCardProps) {
   const demo = getCapabilityBySlug(caseStudy.relatedDemo.slug)
   const href = getCaseHref(caseStudy.slug)
@@ -31,34 +35,50 @@ export function CaseCard({ caseStudy }: CaseCardProps) {
   return (
     <Link
       href={href}
-      className="group flex flex-col overflow-hidden rounded-xl border border-gray-800 bg-gray-900/40 transition-colors hover:border-brand/30 sm:flex-row"
+      className="group flex flex-col overflow-hidden rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)] transition-colors hover:border-brand/40"
     >
       {demo && (
-        <div className="relative aspect-[16/10] shrink-0 sm:aspect-auto sm:min-h-[160px] sm:w-56 md:w-64">
+        <div className="relative aspect-[16/9] shrink-0 overflow-hidden sm:aspect-[21/9]">
           <ThemeImage
             src={demo.image}
             alt=""
             fill
-            sizes="(max-width: 640px) 100vw, 256px"
-            className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+            sizes="(max-width: 768px) 100vw, 896px"
+            className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
             aria-hidden="true"
           />
           <div
-            className="absolute inset-0 hidden bg-gradient-to-r from-transparent to-gray-950/40 sm:block"
+            className="absolute inset-0 bg-gradient-to-t from-[var(--site-bg-elevated)] via-[var(--site-bg-elevated)]/20 to-transparent"
             aria-hidden="true"
           />
+          <p className="absolute bottom-3 left-4 rounded bg-[var(--site-bg)]/85 px-2.5 py-1 text-[11px] font-bold tracking-[0.14em] text-brand backdrop-blur-sm">
+            {caseStudy.industryLabel}
+          </p>
         </div>
       )}
-      <div className="flex flex-1 flex-col p-5 sm:p-6">
-        <p className="mb-2 text-xs tracking-[0.16em] text-brand/90">
-          {caseStudy.industryLabel}
+
+      <div className="flex flex-1 flex-col px-5 pb-5 pt-4 sm:px-6 sm:pb-6">
+        {!demo && (
+          <p className="mb-2 text-xs font-bold tracking-[0.16em] text-brand/90">
+            {caseStudy.industryLabel}
+          </p>
+        )}
+        <p className="mb-2 text-xs font-medium text-[var(--site-fg-muted)]">
+          {caseStudy.subtitle}
         </p>
-        <h2 className="mb-2 text-xl font-semibold text-white transition-colors group-hover:text-brand-hover">
+        <h2 className="mb-3 text-xl font-bold leading-snug text-[var(--site-fg)] transition-colors group-hover:text-brand md:text-2xl">
           {caseStudy.title}
         </h2>
-        <p className="mb-4 flex-1 text-sm leading-relaxed text-gray-400">
+        <p className="mb-4 flex-1 text-sm leading-relaxed text-[var(--site-fg-muted)]">
           {teaser}
         </p>
+        {demo && (
+          <p className="mb-4 text-xs leading-relaxed text-[var(--site-fg-muted)]">
+            <span className="text-[var(--site-fg)]/80">{demo.before}</span>
+            <span className="mx-1.5 font-bold text-brand">→</span>
+            <span className="text-[var(--site-fg)]/80">{demo.after}</span>
+          </p>
+        )}
         <span className="text-sm font-medium text-brand transition-colors group-hover:text-brand-hover">
           読む →
         </span>

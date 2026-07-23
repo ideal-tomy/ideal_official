@@ -5,7 +5,7 @@ export function DemoFirstMarquee() {
 
   return (
     <div
-      className="df-marquee overflow-hidden bg-[var(--df-bg)] py-6 pb-12"
+      className="df-marquee overflow-hidden border-b border-[var(--df-bg-blue-2)] bg-[var(--df-bg)] py-5 pb-8"
       aria-hidden
     >
       <div className="df-marquee-track flex w-max gap-3.5">
