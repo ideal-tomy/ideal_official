@@ -63,20 +63,28 @@ export default function PhotoToClassificationPage() {
 
         <div className="flex flex-col gap-4 rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)]/40 p-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="mb-1 text-xs tracking-[0.16em] text-brand/90">活用イメージ</p>
+            <p className="mb-1 text-xs tracking-[0.16em] text-brand/90">建設デモ①</p>
             <p className="mb-1 font-semibold text-[var(--site-fg)]">
-              建設現場では、どう置き換わるか
+              サンプルで「写真が仕事になる」まで
             </p>
             <p className="text-sm text-[var(--site-fg-muted)]">
-              撮る→戻る→整理の流れが、アップロード→AI判定へ変わる活用イメージを読めます。
+              上はサンプル再生です。整えたあと、②報告書下書きや建設ハブ（3体験）へ進めます。
             </p>
           </div>
-          <Link
-            href="/cases/industries/construction-photo-sorting"
-            className="inline-flex shrink-0 items-center justify-center rounded-lg border border-brand/40 px-5 py-2.5 text-sm font-medium text-brand-hover transition-colors hover:bg-brand/10"
-          >
-            活用イメージを読む →
-          </Link>
+          <div className="flex shrink-0 flex-col gap-2 sm:items-end">
+            <Link
+              href="/construction"
+              className="inline-flex items-center justify-center rounded-lg bg-brand px-5 py-2.5 text-sm font-medium text-[var(--df-on-primary)] transition-colors hover:bg-brand-hover"
+            >
+              建設ハブ（3体験）→
+            </Link>
+            <Link
+              href="/cases/industries/construction-photo-sorting"
+              className="inline-flex items-center justify-center rounded-lg border border-brand/40 px-5 py-2.5 text-sm font-medium text-brand-hover transition-colors hover:bg-brand/10"
+            >
+              活用イメージを読む →
+            </Link>
+          </div>
         </div>
       </AiCapabilityDetailShell>
     </Suspense>

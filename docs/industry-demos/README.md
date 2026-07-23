@@ -11,6 +11,7 @@ ideal 公式サイトの業界カード本線を、**巨大なワークフロー
 
 関連:
 
+- **UX原則（業種ごとに別UI必須）:** [`ux-saas-principles.md`](./ux-saas-principles.md)
 - 体験IA: [`../SITE_EXPERIENCE_REDESIGN.md`](../SITE_EXPERIENCE_REDESIGN.md)
 - 業界カード: [`../../data/demo-first/top-page.ts`](../../data/demo-first/top-page.ts)
 - 外部URL一覧: [`../../data/demo-first/portfolio.ts`](../../data/demo-first/portfolio.ts)
@@ -33,12 +34,15 @@ TOP 業界カード
 
 | 原則 | 内容 |
 |------|------|
+| **業種別UI必須** | 見た目・操作感は業種ごとに別物。製造シェルの流用禁止。詳細は [`ux-saas-principles.md`](./ux-saas-principles.md) |
 | 1デモ1テーマ | クライマックスの質問／場面は1つ |
 | 短時間 | ガイド3〜5手、数分で完走 |
 | サンプル先行 | AI接続は効くデモだけ、ツアー後の任意 |
 | 役割の偏り | 現場／管理／経営をデモごとに偏らせてよい |
 | 組み合わせは文で | ハブに1行。WF画面は作らない |
 | 3本厳守 | 4本目は関連部品か営業用隠しパラメータ |
+
+**共通なのは体験の型だけ。スキンは共有しない。**
 
 ### status 語彙（各業界 PLAN で使用）
 
@@ -64,8 +68,9 @@ TOP 業界カード
 
 1. [`_template.md`](./_template.md) を複製  
 2. 楔・3テーマ・組み合わせ文を先に固定  
-3. 既存資産と status を埋める  
-4. 本 README の索引表に1行追加  
+3. [`ux-saas-principles.md`](./ux-saas-principles.md) に沿い **ビジュアル方針**（色・文字・端末・参考アプリ）を書く  
+4. 既存資産と status を埋める  
+5. 本 README の索引表に1行追加  
 
 実装フェーズでは、各デモリポジトリのテーマ別要件定義書と Demo Definition（[`AI-Demo-Studio/docs/ai_demo_standard_definition_template.md`](../../../../AI-Demo-Studio/docs/ai_demo_standard_definition_template.md)）がこの PLAN を参照する。
 

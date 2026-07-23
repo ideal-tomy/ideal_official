@@ -6,6 +6,7 @@ import {
   processingSteps,
   type PhotoSampleSet,
 } from '@/data/ai-capability-gallery/photo-to-classification'
+import { EXTERNAL_DEMO_URLS } from '@/data/demo-first/portfolio'
 import { useStagedDemoScroll } from '@/components/ai-capability-gallery/hooks/useStagedDemoScroll'
 import { DemoFrame } from './DemoFrame'
 import { UploadArea } from './UploadArea'
@@ -93,7 +94,10 @@ export function PhotoToClassificationDemo() {
   )
 
   return (
-    <DemoFrame title="写真 → 分類デモ">
+    <DemoFrame title="写真 → 分類デモ（サンプル）">
+      <p className="mb-3 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-xs font-medium leading-relaxed text-amber-950 sm:text-sm">
+        これはサンプル写真での体験です。実ファイルのアップロードは不要です。
+      </p>
       {tabs}
 
       <DemoBeforeAfterRail
@@ -138,6 +142,33 @@ export function PhotoToClassificationDemo() {
         processLabel="整理する"
         processingLabel="整理中…"
       />
+
+      {isComplete && (
+        <div className="mt-4 rounded-xl border-2 border-[#ff6b00] bg-[#fff8e7] p-4 text-[#1a1a1a]">
+          <p className="text-sm font-black sm:text-base">
+            整えた写真が、報告書の下書きになる
+          </p>
+          <p className="mt-1 text-xs text-[#3d3d3d] sm:text-sm">
+            次は建設デモ②で、複数写真から報告書／朝礼メモまで一気に出せます。
+          </p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            <a
+              href={EXTERNAL_DEMO_URLS.ocrConstruction}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-11 items-center rounded-lg bg-[#ff6b00] px-4 text-sm font-bold text-white"
+            >
+              ② 報告書下書きへ ↗
+            </a>
+            <a
+              href="/construction"
+              className="inline-flex min-h-11 items-center rounded-lg border-2 border-[#1a1a1a] px-4 text-sm font-bold text-[#1a1a1a]"
+            >
+              建設ハブへ
+            </a>
+          </div>
+        </div>
+      )}
     </DemoFrame>
   )
 }

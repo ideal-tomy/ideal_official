@@ -5,7 +5,21 @@ Industry ID: `care`
 サイト業界カード id: `care`
 
 共通原則: [`README.md`](./README.md)  
-型の先行例: [`manufacturing.md`](./manufacturing.md)
+型の先行例: [`manufacturing.md`](./manufacturing.md)  
+UX／業種別UI: [`ux-saas-principles.md`](./ux-saas-principles.md) §4.3
+
+---
+
+## 0. ビジュアル方針
+
+| 項目 | 決定 |
+|------|------|
+| トーン | 清潔・安心。誤操作しにくい |
+| 色 | **白基調**。アクセントは落ち着いた1色 |
+| 文字 | 明瞭・急かさない |
+| 主端末 | 記録用タブレット／端末 |
+| 参考 | 優れたヘルスケア／記録系アプリの余白と安心感 |
+| 禁止 | 建設の派手UI・飲食のブランド過剰・製造シェル流用 |
 
 ---
 

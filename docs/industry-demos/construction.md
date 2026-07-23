@@ -5,7 +5,21 @@ Industry ID: `construction`
 サイト業界カード id: `construction`
 
 共通原則: [`README.md`](./README.md)  
-型の先行例: [`manufacturing.md`](./manufacturing.md)
+型の先行例: [`manufacturing.md`](./manufacturing.md)  
+UX／業種別UI: [`ux-saas-principles.md`](./ux-saas-principles.md) §4.2
+
+---
+
+## 0. ビジュアル方針
+
+| 項目 | 決定 |
+|------|------|
+| トーン | 屋外・手袋でも押せる。目立つ色・大きな文字 |
+| 色 | 高コントラスト。完了／注意が遠くから分かる |
+| 文字 | 大きめ・短いラベル |
+| 主端末 | **スマホメイン** |
+| 参考 | 優れた現場／工事・配送系モバイルアプリ |
+| 禁止 | 製造プレイヤーシェルの流用 |
 
 ---
 
@@ -73,16 +87,12 @@ Industry ID: `construction`
 - **ガイド手数:** 4〜5
 - **AIの使い方:** サンプル必須。ライブはキー設定時のみ（既存仕様）
 - **既存資産:**
-  - リポジトリ: [`ocr-demo-nextjs`](../../../../ocr-demo-nextjs)
-  - Definition: `ocr-demo-nextjs/docs/ocr_construction_demo_definition.md`
-  - portfolio 上は `ocr-experience` が `coming_soon` — **本 PLAN では②の本命資産として扱う**
+  - リポジトリ: [`construction_demo`](../../../../construction_demo)（https://github.com/ideal-tomy/construction_demo）
+  - Definition: `construction_demo/docs/ocr_construction_demo_definition.md`
+  - 公開: `https://construction-demo-two.vercel.app`
+  - portfolio: `ocr-experience` → ready（建設②）
 - **status:** `ready_asset`
-- **ギャップ:** ideal への正式掲載（coming_soon 解除）とハブ②としてのラベル。公開URLの固定
-- **実装ステップ:**
-  1. デプロイURLを portfolio / ハブに登録
-  2. `ocr-experience` を ready にし、建設ハブ②に紐づけ
-  3. ①からの導線文「整えた写真が報告書になる」
-  4. ROI CTA（既存）をハブ出口と揃える
+- **ギャップ:** 本格体験としてのUI磨き（建設専用ビジュアル方針）。旧 `ocr-demo-nextjs` は deprecated
 - **受け入れ（Demo単体）:** 「写真から報告書下書きまで」を説明できる
 
 ### Demo③ — 現場オペ画面
@@ -140,8 +150,8 @@ Industry ID: `construction`
 | Phase | 内容 | 完了条件 |
 |-------|------|----------|
 | P0 | 本 PLAN 固定 | 3テーマ合意 |
-| P1 | ② OCR の正式掲載（URL・portfolio ready） | ハブなしでも②単体リンク可 |
-| P2 | 建設ハブ（①②③カード＋組み合わせ文） | ハブ受け入れ |
+| P1 | ② 本格デモの正式掲載（URL・portfolio ready） | **done** `construction_demo` → `https://construction-demo-two.vercel.app` |
+| P2 | 建設ハブ（①②③カード＋組み合わせ文） | ハブ受け入れ — **`/construction`** |
 | P3 | TOPカードをハブへ。③ログインUX改善は別 | サイト導線表どおり |
 
 製造P1完了後に建設P2を進める想定でも、OCR掲載（P1）は先行してよい。
@@ -150,8 +160,8 @@ Industry ID: `construction`
 
 ## 7. ハブ受け入れ（業界単位）
 
-- [ ] 楔と組み合わせ文がハブ上で読める
-- [ ] ①写真／②報告書／③オペの違いが30秒で分かる
-- [ ] 各デモのクライマックスが言える
-- [ ] 「撮る→整える→載せる」が想像できる
-- [ ] ROI / 相談へ進める
+- [x] 楔と組み合わせ文がハブ上で読める（`/construction`）
+- [x] ①写真／②報告書／③オペの違いが30秒で分かる
+- [x] 各デモのクライマックスが言える
+- [x] 「撮る→整える→載せる」が想像できる
+- [x] ROI / 相談へ進める

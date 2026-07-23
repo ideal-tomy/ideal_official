@@ -5,7 +5,22 @@ Industry ID: `retail`
 サイト業界カード id: `retail`
 
 共通原則: [`README.md`](./README.md)  
-型の先行例: [`manufacturing.md`](./manufacturing.md)
+型の先行例: [`manufacturing.md`](./manufacturing.md)  
+UX／業種別UI: [`ux-saas-principles.md`](./ux-saas-principles.md) §4.4 / §4.5
+
+---
+
+## 0. ビジュアル方針
+
+| 項目 | 決定 |
+|------|------|
+| トーン（小売本線） | 店舗のテンポ。応対が止まらない |
+| トーン（飲食・隣接） | **デザイン特に意識**。コンシューマ級の魅力 |
+| 色 | 製造の地味UI・医療の白基調とは明確に別パレット |
+| 文字 | 一瞬で読める短さ。飲食は表情のあるタイポ可 |
+| 主端末 | スマホ／ハンディ／店舗タブレット |
+| 参考 | 店舗オペ・サポート系 SaaS／優れた飲食アプリ |
+| 禁止 | 製造シェル流用・業務グレー一色 |
 
 ---
 

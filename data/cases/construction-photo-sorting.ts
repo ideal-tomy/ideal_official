@@ -25,11 +25,11 @@ export const constructionPhotoSorting: CaseStudy = {
   ],
   demoScope: {
     simpleShows:
-      '建設現場サンプルで、散在写真が分類・命名される流れを短い時間で体験できます。',
+      '建設デモ①：サンプル写真で、散在写真が分類・命名される流れを短い時間で体験できます。',
     simpleLimits:
       '貴社の工事区分ルールや共有フォルダ構成そのものは、要件整理のあとに合わせます。誤分類ゼロの保証はありません。',
     externalShows:
-      '建設・現場管理デモで、記録・確認に近い業務画面の感触を確かめられます。',
+      '建設ハブでは①写真 → ②報告書下書き → ③現場オペの3体験につながります。③はデモアカウントでログインできます。',
   },
   fit: {
     goodFor: [
@@ -66,15 +66,15 @@ export const constructionPhotoSorting: CaseStudy = {
   },
   relatedDemo: {
     slug: 'photo-to-classification',
-    label: '写真 → 分類',
+    label: '① 写真 → 分類',
     href: `${GALLERY_BASE}/photo-to-classification`,
     description:
       '建設現場サンプルで、散在した写真が分類・命名される流れを体験できます。',
   },
   externalDemo: {
-    label: '建設・現場管理デモ',
-    href: 'https://kanri-kensetsu.vercel.app/login',
-    note: 'ログイン画面が開きます。ページ内の「デモアカウント」から体験できます。',
+    label: '建設ハブ（3体験）',
+    href: '/construction',
+    note: '①写真・②報告書・③現場オペ。③はログイン画面の「デモアカウント」から体験できます。',
   },
   contactHref:
     '/contact?service=ai-consulting&intent=cases&case=construction-photo-sorting',

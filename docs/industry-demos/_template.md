@@ -1,6 +1,7 @@
 # （業界名）— 3本建てデモ構成 PLAN
 
-> [`_template.md`](./_template.md) を複製して使う。共通原則は [`README.md`](./README.md)。
+> [`_template.md`](./_template.md) を複製して使う。共通原則は [`README.md`](./README.md)。  
+> UX／業種別UI: [`ux-saas-principles.md`](./ux-saas-principles.md)
 
 最終更新: YYYY-MM-DD  
 Industry ID: `industry-id`  
@@ -17,6 +18,21 @@ Industry ID: `industry-id`
 ### 証明する一文
 
 （この業界ハブで訪問者に持ち帰ってほしい一文）
+
+---
+
+## 1b. ビジュアル方針（必須・他業種と別UI）
+
+正本: [`ux-saas-principles.md`](./ux-saas-principles.md) §4
+
+| 項目 | この業界の決定 |
+|------|----------------|
+| トーン | |
+| 色 | |
+| 文字 | |
+| 主端末 | |
+| 参考アプリ／SaaS（2〜3） | |
+| 製造シェル流用 | **しない** |
 
 ---
 

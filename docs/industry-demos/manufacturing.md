@@ -4,7 +4,23 @@
 Industry ID: `manufacturing`  
 サイト業界カード id: `manufacturing`
 
-共通原則: [`README.md`](./README.md)
+共通原則: [`README.md`](./README.md)  
+UX／業種別UI: [`ux-saas-principles.md`](./ux-saas-principles.md) §4.1
+
+---
+
+## 0. ビジュアル方針
+
+| 項目 | 決定 |
+|------|------|
+| トーン | 最低限のシンプル。文書と根拠が主役 |
+| 色 | 抑えめ（紺／ニュートラル） |
+| 文字 | 標準・煽らない |
+| 主端末 | デスク＋タブレット |
+| 参考 | 静かで速い業務ツール（Linear / Notion 的） |
+| UI正本 | [`product_flow/docs/experience-player-ux.md`](../../../../product_flow/docs/experience-player-ux.md) |
+
+他業種へこのシェルを流用しない。
 
 ---
 

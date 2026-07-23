@@ -20,7 +20,12 @@ export type PortfolioDemo = {
 
 /** 外部デモ URL（業界カード・ポートフォリオで共有） */
 export const EXTERNAL_DEMO_URLS = {
+  /** 建設③ 現場オペ（kanri） */
+  constructionOps: 'https://kanri-kensetsu.vercel.app/login',
+  /** @deprecated 建設ハブは `/construction`。互換のため ops と同値 */
   construction: 'https://kanri-kensetsu.vercel.app/login',
+  /** 建設② 報告書・朝礼（construction_demo） */
+  ocrConstruction: 'https://construction-demo-two.vercel.app',
   care: 'https://kaigo-operation-demo.vercel.app/',
   retail: 'https://customer-support-demo-lime.vercel.app/',
   manufacturing: 'https://product-flow-jet.vercel.app/manufacturing',
@@ -32,9 +37,12 @@ export const EXTERNAL_DEMO_URLS = {
   voiceKarte: 'https://lambent-smakager-7bcf0a.netlify.app/',
 } as const
 
+/** 建設ハブ（サイト内） */
+export const CONSTRUCTION_HUB_HREF = '/construction' as const
+
 /** @deprecated INDUSTRY_EXTERNAL_DEMOS 互換。EXTERNAL_DEMO_URLS を使う */
 export const INDUSTRY_EXTERNAL_DEMOS = {
-  construction: EXTERNAL_DEMO_URLS.construction,
+  construction: EXTERNAL_DEMO_URLS.constructionOps,
   care: EXTERNAL_DEMO_URLS.care,
   retail: EXTERNAL_DEMO_URLS.retail,
   manufacturing: EXTERNAL_DEMO_URLS.manufacturing,
@@ -43,15 +51,12 @@ export const INDUSTRY_EXTERNAL_DEMOS = {
 export const portfolioDemos: PortfolioDemo[] = [
   {
     id: 'construction',
-    title: '建設・現場管理デモ',
-    lead: '現場の記録・確認の流れを、業務アプリとして体験できます。',
-    tags: ['建設', '現場管理'],
+    title: '建設の記録デモ（3体験）',
+    lead: '撮る→整える→報告・管理に載せる。写真分類・報告書下書き・現場オペをまとめて体験できます。',
+    tags: ['建設', '写真', '報告書'],
     status: 'ready',
     image: '/images/lp/construction.png',
-    sampleHref: `${GALLERY_BASE}/photo-to-classification`,
-    externalDemoUrl: EXTERNAL_DEMO_URLS.construction,
-    externalNote:
-      'ログイン画面が開きます。ページ内の「デモアカウント」から体験できます。',
+    sampleHref: CONSTRUCTION_HUB_HREF,
   },
   {
     id: 'manufacturing',
@@ -141,11 +146,13 @@ export const portfolioDemos: PortfolioDemo[] = [
   },
   {
     id: 'ocr-experience',
-    title: 'OCR体験デモ',
-    lead: '自分の画像を読み取り、書類作成につなげる体験を予定しています。',
-    tags: ['OCR', '書類'],
-    status: 'coming_soon',
+    title: '建設・報告書／朝礼下書き',
+    lead: '複数の現場写真から、報告書や朝礼メモの下書きまで一気に出せます。',
+    tags: ['建設', 'OCR', '報告書'],
+    status: 'ready',
     image: '/images/lp/document_workflow.png',
+    sampleHref: CONSTRUCTION_HUB_HREF,
+    externalDemoUrl: EXTERNAL_DEMO_URLS.ocrConstruction,
   },
   {
     id: 'restaurant-shift',

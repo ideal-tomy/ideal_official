@@ -4,7 +4,10 @@ import {
   type Capability,
 } from '@/data/ai-capability-gallery/capabilities'
 import { getCaseBySlug, getCaseHref } from '@/data/cases'
-import { INDUSTRY_EXTERNAL_DEMOS } from '@/data/demo-first/portfolio'
+import {
+  CONSTRUCTION_HUB_HREF,
+  INDUSTRY_EXTERNAL_DEMOS,
+} from '@/data/demo-first/portfolio'
 
 /** Showcase 代表3本（業界バラエティ優先） */
 export const SHOWCASE_SLUGS = [
@@ -73,11 +76,9 @@ export function getIndustryCards(): IndustryCard[] {
         : [],
       detailHref: construction ? getCaseHref(construction.slug) : undefined,
       detailLabel: '流れを見る',
-      tryHref: INDUSTRY_EXTERNAL_DEMOS.construction,
-      tryLabel: '現場管理',
-      tryExternal: true,
-      tryNote:
-        'ログイン画面が開きます。ページ内の「デモアカウント」から体験できます。',
+      tryHref: CONSTRUCTION_HUB_HREF,
+      tryLabel: '建設の記録デモ（3体験）',
+      tryExternal: false,
     },
     {
       id: 'care',
