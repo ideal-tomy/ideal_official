@@ -22,16 +22,6 @@ export function CaseHero({ caseStudy }: CaseHeroProps) {
         <p className="mt-3 text-[0.9375rem] leading-relaxed text-[var(--site-fg)]/85 md:mt-4 md:text-base">
           {caseStudy.lead}
         </p>
-        <div className="mt-4 flex flex-wrap gap-1.5 md:mt-6 md:gap-2">
-          {caseStudy.tags.map((tag) => (
-            <span
-              key={tag}
-              className="rounded-full border border-[var(--site-border)] px-2.5 py-1 text-xs text-[var(--site-fg)]/80"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
       </div>
     </section>
   )

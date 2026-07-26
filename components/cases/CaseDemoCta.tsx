@@ -58,7 +58,7 @@ export function CaseDemoCta({ caseStudy }: CaseDemoCtaProps) {
               className="sm:min-w-[10rem] sm:flex-1"
             >
               <Button variant="outline" size="lg" fullWidth>
-                概算見積もりを開く
+                概算見積もり
               </Button>
             </a>
           ) : (
