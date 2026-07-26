@@ -457,6 +457,25 @@ function ShowcaseDemo({ slug }: { slug: Capability['slug'] }) {
   }
 }
 
+/** デモ枠の画像エリア左上に業種タグを重ねる */
+function ShowcaseDemoWithTags({ capability }: { capability: Capability }) {
+  return (
+    <div className="relative">
+      <div className="absolute left-2.5 top-[2.85rem] z-10 flex max-w-[calc(100%-1.25rem)] flex-wrap gap-1 sm:left-3.5 sm:top-[3.1rem] sm:gap-1.5">
+        {capability.tags.map((tag) => (
+          <span
+            key={tag}
+            className="rounded-full bg-[var(--df-primary)] px-2 py-0.5 text-[10px] font-semibold text-[var(--df-on-primary)] shadow-sm sm:px-2.5 sm:text-[11px]"
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
+      <ShowcaseDemo slug={capability.slug} />
+    </div>
+  )
+}
+
 function ShowcaseText({
   capability,
 }: {
@@ -464,23 +483,16 @@ function ShowcaseText({
 }) {
   return (
     <div className="max-w-xl">
-      <h2 className="mb-4 text-3xl font-bold leading-tight text-[var(--site-fg)] md:mb-6 md:text-5xl">
+      <h2
+        title={capability.title}
+        className="mb-2 truncate text-lg font-bold leading-tight text-[var(--site-fg)] sm:mb-3 sm:text-2xl md:mb-6 md:whitespace-normal md:text-5xl md:leading-tight"
+      >
         {capability.title}
       </h2>
-      <p className="mb-6 text-base leading-relaxed text-[var(--site-fg)]/85 md:text-lg">
+      <p className="mb-3 text-sm leading-relaxed text-[var(--site-fg)]/85 line-clamp-2 md:mb-6 md:line-clamp-none md:text-lg">
         {capability.showcaseLead}
       </p>
-      <div className="mb-8 flex flex-wrap gap-2">
-        {capability.tags.map((tag) => (
-          <span
-            key={tag}
-            className="rounded-full border border-[var(--site-border)] bg-[color-mix(in_srgb,var(--site-fg)_6%,transparent)] px-2.5 py-1 text-xs font-medium text-[var(--site-fg)]"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
-      <div className="mb-8 space-y-2 text-sm">
+      <div className="mb-4 hidden space-y-2 text-sm md:mb-8 md:block">
         <div className="flex gap-3">
           <span className="w-14 shrink-0 text-[var(--site-fg-muted)]">Before</span>
           <span className="text-[var(--site-fg)]/80">{capability.before}</span>
@@ -492,7 +504,7 @@ function ShowcaseText({
       </div>
       <Link
         href={capability.href}
-        className="inline-flex items-center rounded-lg bg-brand px-5 py-3 text-sm font-semibold text-[var(--df-on-primary)] transition-colors hover:bg-brand-hover"
+        className="inline-flex w-full items-center justify-center rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-[var(--df-on-primary)] transition-colors hover:bg-brand-hover sm:w-auto md:px-5 md:py-3"
       >
         このデモを体験
       </Link>
@@ -504,8 +516,8 @@ export function CapabilityShowcase() {
   const sections = useMemo(() => capabilities, [])
 
   return (
-    <section id="showcase" className="border-t border-[var(--site-border)] bg-[var(--site-bg)]">
-      <div className="mx-auto max-w-7xl space-y-8 px-4 py-12 sm:px-6 md:space-y-10 md:py-16 lg:px-8">
+    <section id="showcase" className="bg-[var(--site-bg)]">
+      <div className="mx-auto max-w-7xl space-y-4 px-4 py-6 sm:px-6 md:space-y-10 md:py-14 lg:px-8 lg:py-16">
         {sections.map((capability, index) => {
           const reverse = index % 2 === 1
 
@@ -513,15 +525,28 @@ export function CapabilityShowcase() {
             <article
               key={capability.id}
               id={`capability-${capability.slug}`}
-              className="scroll-mt-28 rounded-[28px] border border-[var(--site-border)] bg-[var(--site-bg-elevated)] p-6 md:p-8 lg:p-10"
+              className="scroll-mt-[13.5rem] rounded-2xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)] p-3 sm:rounded-[28px] sm:p-6 md:scroll-mt-[16rem] md:p-8 lg:scroll-mt-[18rem] lg:p-10"
             >
-              <div
-                className={`grid items-center gap-8 lg:grid-cols-2 lg:gap-10 ${
-                  reverse ? 'lg:[&>*:first-child]:order-2 lg:[&>*:last-child]:order-1' : ''
-                }`}
-              >
-                <ShowcaseText capability={capability} />
-                <ShowcaseDemo slug={capability.slug} />
+              <div className="grid items-center gap-4 sm:gap-8 lg:grid-cols-2 lg:gap-10">
+                {/* スマホはデモ先行。PC は偶数セクションで左右反転 */}
+                <div
+                  className={
+                    reverse
+                      ? 'order-2 lg:order-2'
+                      : 'order-2 lg:order-1'
+                  }
+                >
+                  <ShowcaseText capability={capability} />
+                </div>
+                <div
+                  className={
+                    reverse
+                      ? 'order-1 lg:order-1'
+                      : 'order-1 lg:order-2'
+                  }
+                >
+                  <ShowcaseDemoWithTags capability={capability} />
+                </div>
               </div>
             </article>
           )

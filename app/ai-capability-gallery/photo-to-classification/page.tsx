@@ -63,21 +63,23 @@ export default function PhotoToClassificationPage() {
 
         <div className="flex flex-col gap-4 rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)]/40 p-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="mb-1 text-xs tracking-[0.16em] text-brand/90">建設デモ①</p>
+            <p className="mb-1 text-xs tracking-[0.16em] text-brand/90">能力ギャラリー</p>
             <p className="mb-1 font-semibold text-[var(--site-fg)]">
-              サンプルで「写真が仕事になる」まで
+              部品サンプルです。建設本線は外部ハブへ
             </p>
             <p className="text-sm text-[var(--site-fg-muted)]">
-              上はサンプル再生です。整えたあと、②報告書下書きや建設ハブ（3体験）へ進めます。
+              建設の3体験（写真・報告書・現場オペ）は外部の建設ハブから体験できます。
             </p>
           </div>
           <div className="flex shrink-0 flex-col gap-2 sm:items-end">
-            <Link
-              href="/construction"
+            <a
+              href="https://construction-demo-two.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-lg bg-brand px-5 py-2.5 text-sm font-medium text-[var(--df-on-primary)] transition-colors hover:bg-brand-hover"
             >
-              建設ハブ（3体験）→
-            </Link>
+              建設ハブ（3体験）↗
+            </a>
             <Link
               href="/cases/industries/construction-photo-sorting"
               className="inline-flex items-center justify-center rounded-lg border border-brand/40 px-5 py-2.5 text-sm font-medium text-brand-hover transition-colors hover:bg-brand/10"

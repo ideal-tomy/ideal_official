@@ -25,11 +25,11 @@ export const constructionPhotoSorting: CaseStudy = {
   ],
   demoScope: {
     simpleShows:
-      '建設デモ①：サンプル写真で、散在写真が分類・命名される流れを短い時間で体験できます。',
+      '建設デモ①：散在写真が分類・命名される流れを短い時間で体験できます（外部ハブ内）。',
     simpleLimits:
       '貴社の工事区分ルールや共有フォルダ構成そのものは、要件整理のあとに合わせます。誤分類ゼロの保証はありません。',
     externalShows:
-      '建設ハブでは①写真 → ②報告書下書き → ③現場オペの3体験につながります。③はデモアカウントでログインできます。',
+      '建設ハブ（外部）で①写真 → ②報告書下書き → ③現場オペの3体験につながります。③はデモアカウントでログインできます。',
   },
   fit: {
     goodFor: [
@@ -66,14 +66,14 @@ export const constructionPhotoSorting: CaseStudy = {
   },
   relatedDemo: {
     slug: 'photo-to-classification',
-    label: '① 写真 → 分類',
+    label: '部品デモ（ギャラリー）',
     href: `${GALLERY_BASE}/photo-to-classification`,
     description:
-      '建設現場サンプルで、散在した写真が分類・命名される流れを体験できます。',
+      '能力ギャラリーの写真分類サンプルです。建設本線の3体験は外部ハブからどうぞ。',
   },
   externalDemo: {
     label: '建設ハブ（3体験）',
-    href: '/construction',
+    href: 'https://construction-demo-two.vercel.app',
     note: '①写真・②報告書・③現場オペ。③はログイン画面の「デモアカウント」から体験できます。',
   },
   contactHref:

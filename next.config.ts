@@ -15,6 +15,11 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: '/construction',
+        destination: 'https://construction-demo-two.vercel.app',
+        permanent: false,
+      },
+      {
         source: '/services/dao-design',
         destination: '/lab/blockchain#dao-governance',
         permanent: true,

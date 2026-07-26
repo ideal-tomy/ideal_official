@@ -153,18 +153,12 @@ export function PhotoToClassificationDemo() {
           </p>
           <div className="mt-3 flex flex-wrap gap-2">
             <a
-              href={EXTERNAL_DEMO_URLS.ocrConstruction}
+              href={EXTERNAL_DEMO_URLS.construction}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex min-h-11 items-center rounded-lg bg-[#ff6b00] px-4 text-sm font-bold text-white"
             >
-              ② 報告書下書きへ ↗
-            </a>
-            <a
-              href="/construction"
-              className="inline-flex min-h-11 items-center rounded-lg border-2 border-[#1a1a1a] px-4 text-sm font-bold text-[#1a1a1a]"
-            >
-              建設ハブへ
+              建設ハブ（3体験）↗
             </a>
           </div>
         </div>

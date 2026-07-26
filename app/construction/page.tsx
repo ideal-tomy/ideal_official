@@ -1,17 +1,7 @@
-import type { Metadata } from 'next'
-import { ConstructionHubView } from '@/components/construction/ConstructionHubView'
+import { redirect } from 'next/navigation'
+import { CONSTRUCTION_HUB_HREF } from '@/data/demo-first/portfolio'
 
-export const metadata: Metadata = {
-  title: '建設の記録デモ（3体験）| ideal',
-  description:
-    '撮る→整える→報告・管理に載せる。建設現場の写真分類・報告書下書き・現場オペを体験できます。',
-  openGraph: {
-    title: '建設の記録デモ（3体験）| ideal',
-    description:
-      '撮る→整える→報告・管理に載せる。建設現場の写真分類・報告書下書き・現場オペを体験できます。',
-  },
-}
-
-export default function ConstructionHubPage() {
-  return <ConstructionHubView />
+/** 建設ハブは外部 construction_demo へ（製造と同型） */
+export default function ConstructionRedirectPage() {
+  redirect(CONSTRUCTION_HUB_HREF)
 }

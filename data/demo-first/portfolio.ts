@@ -20,12 +20,12 @@ export type PortfolioDemo = {
 
 /** 外部デモ URL（業界カード・ポートフォリオで共有） */
 export const EXTERNAL_DEMO_URLS = {
+  /** 建設ハブ（construction_demo `/` · 製造 /manufacturing と同型） */
+  construction: 'https://construction-demo-two.vercel.app',
   /** 建設③ 現場オペ（kanri） */
   constructionOps: 'https://kanri-kensetsu.vercel.app/login',
-  /** @deprecated 建設ハブは `/construction`。互換のため ops と同値 */
-  construction: 'https://kanri-kensetsu.vercel.app/login',
-  /** 建設② 報告書・朝礼（construction_demo） */
-  ocrConstruction: 'https://construction-demo-two.vercel.app',
+  /** 建設② 直リンク（ハブ内 /report と同アプリ） */
+  ocrConstruction: 'https://construction-demo-two.vercel.app/report',
   care: 'https://kaigo-operation-demo.vercel.app/',
   retail: 'https://customer-support-demo-lime.vercel.app/',
   manufacturing: 'https://product-flow-jet.vercel.app/manufacturing',
@@ -37,12 +37,12 @@ export const EXTERNAL_DEMO_URLS = {
   voiceKarte: 'https://lambent-smakager-7bcf0a.netlify.app/',
 } as const
 
-/** 建設ハブ（サイト内） */
-export const CONSTRUCTION_HUB_HREF = '/construction' as const
+/** 建設ハブ（外部）。サイト内 `/construction` はここへリダイレクト */
+export const CONSTRUCTION_HUB_HREF = EXTERNAL_DEMO_URLS.construction
 
 /** @deprecated INDUSTRY_EXTERNAL_DEMOS 互換。EXTERNAL_DEMO_URLS を使う */
 export const INDUSTRY_EXTERNAL_DEMOS = {
-  construction: EXTERNAL_DEMO_URLS.constructionOps,
+  construction: EXTERNAL_DEMO_URLS.construction,
   care: EXTERNAL_DEMO_URLS.care,
   retail: EXTERNAL_DEMO_URLS.retail,
   manufacturing: EXTERNAL_DEMO_URLS.manufacturing,
@@ -56,7 +56,7 @@ export const portfolioDemos: PortfolioDemo[] = [
     tags: ['建設', '写真', '報告書'],
     status: 'ready',
     image: '/images/lp/construction.png',
-    sampleHref: CONSTRUCTION_HUB_HREF,
+    externalDemoUrl: EXTERNAL_DEMO_URLS.construction,
   },
   {
     id: 'manufacturing',
@@ -151,7 +151,6 @@ export const portfolioDemos: PortfolioDemo[] = [
     tags: ['建設', 'OCR', '報告書'],
     status: 'ready',
     image: '/images/lp/document_workflow.png',
-    sampleHref: CONSTRUCTION_HUB_HREF,
     externalDemoUrl: EXTERNAL_DEMO_URLS.ocrConstruction,
   },
   {

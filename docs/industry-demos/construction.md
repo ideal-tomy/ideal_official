@@ -58,90 +58,37 @@ UX／業種別UI: [`ux-saas-principles.md`](./ux-saas-principles.md) §4.2
 ### Demo① — 写真の仕事化
 
 - **Demo ID:** `con-photo-sort`
-- **テーマ:** 散在した現場写真が、意味のある名前と置き場に整う
-- **体験してもらうこと:** サンプル写真群 → 分類・リネーム結果を見る（ギャラリーの写真デモ）
-- **感じてほしいこと:** 「IMG_4832 の山が、工事の言葉に変わる」
-- **主役役割:** 現場監督・職長・事務（退勤後整理の当事者）
-- **クライマックス:** フォルダ分類＋リネーム一覧が一目で出る
-- **ガイド手数:** 3（選ぶ → 整理する → 結果）
-- **AIの使い方:** サンプル再生で十分。実アップロードは本格②側
-- **既存資産:**
-  - サイト内: `/ai-capability-gallery/photo-to-classification`
-  - 事例: [`construction-photo-sorting`](../../data/cases/construction-photo-sorting.ts)
+- **公開UI:** [`construction_demo` `/photo`](../../../../construction_demo)（外部ハブ内）
 - **status:** `ready_asset`
-- **ギャップ:** 入口の「サンプルである」明示。ハブからの①ラベル（部品ではなく建設テーマ①として）
-- **実装ステップ:**
-  1. ハブカード①のコピーを建設楔に合わせる
-  2. デモ完了後に②（報告書）へ誘導
-  3. 事例ページの relatedDemo と整合維持
+- **ギャップ:** なし（サイト内ギャラリーは本線に使わない）
 - **受け入れ（Demo単体）:** 「写真が分類・命名される」を自分の現場に置き換えられる
 
 ### Demo② — 報告書・朝礼下書き
 
 - **Demo ID:** `con-report-draft`
-- **テーマ:** 複数写真から、報告書／朝礼メモの下書きまで一気に出す
-- **体験してもらうこと:** モード選択 → サンプル再生（または実画像）→ 要確認の修正 → 確認・提出・PDF
-- **感じてほしいこと:** 「転記しなくていい。直して出すだけになる」
-- **主役役割:** 内勤・現場（報告を書く人）
-- **クライマックス:** 手作業約15分相当が、下書き＋要確認ハイライトになる
-- **ガイド手数:** 4〜5
-- **AIの使い方:** サンプル必須。ライブはキー設定時のみ（既存仕様）
-- **既存資産:**
-  - リポジトリ: [`construction_demo`](../../../../construction_demo)（https://github.com/ideal-tomy/construction_demo）
-  - Definition: `construction_demo/docs/ocr_construction_demo_definition.md`
-  - 公開: `https://construction-demo-two.vercel.app`
-  - portfolio: `ocr-experience` → ready（建設②）
+- **公開UI:** `construction_demo` `/report`
+- **リポジトリ:** [`construction_demo`](../../../../construction_demo)（https://github.com/ideal-tomy/construction_demo）
+- **公開:** `https://construction-demo-two.vercel.app`
 - **status:** `ready_asset`
-- **ギャップ:** 本格体験としてのUI磨き（建設専用ビジュアル方針）。旧 `ocr-demo-nextjs` は deprecated
 - **受け入れ（Demo単体）:** 「写真から報告書下書きまで」を説明できる
 
 ### Demo③ — 現場オペ画面
 
 - **Demo ID:** `con-site-ops`
-- **テーマ:** 記録・確認が、業務アプリの画面として回る
-- **体験してもらうこと:** デモアカウントでログインし、現場管理の一連を触る
-- **感じてほしいこと:** 「整理や下書きが、管理の仕組みに載るイメージが持てる」
-- **主役役割:** 管理・監督・事務責任者
-- **クライマックス:** ログイン後、記録・確認の業務画面に入れる（期待値はログイン注記で先出し）
-- **ガイド手数:** アプリ内シナリオに依存（ハブ側で「デモアカウントから」を必ず明示）
-- **AIの使い方:** アプリ依存。ハブでは①②のAI体験と役割分担を明示
-- **既存資産:**
-  - 公開: `https://kanri-kensetsu.vercel.app/login`（[`EXTERNAL_DEMO_URLS.construction`](../../data/demo-first/portfolio.ts)）
-  - 現行TOP業界カードの `tryHref` がここ
+- **公開:** `https://kanri-kensetsu.vercel.app/login`（ハブ③）
 - **status:** `external_only`
-- **ギャップ:** WS内リポジトリの有無・更新手順が不明瞭な場合あり。ログイン摩擦。ハブでは③＝オペ全体の縮図と位置づけ
-- **実装ステップ:**
-  1. ハブ③の注記（デモアカウント）を現行カードから継承
-  2. ①②完了後の「管理に載せる」着地として誘導
-  3. 可能ならログイン省略の体験モードを別チケット
 - **受け入れ（Demo単体）:** 「現場記録がアプリで回る」が、①②の延長として想像できる
-
-### 関連部品（非ハブ本線）
-
-| 資産 | 位置づけ |
-|------|----------|
-| 現場段取り `fieldDandori` | 申請・人員・書類の段取り案。③の関連 or App事例 |
-| マッチング `hookapp` | 建設ネットワーク。本ハブ外 |
 
 ---
 
 ## 4. サイト導線（ideal_official）
 
-| 箇所 | 現状 | 直し方針 |
-|------|------|----------|
-| TOP 建設カード `tryHref` | kanri ログイン直 | ハブ。暫定は①または②（体験摩擦が低い方） |
-| `tryLabel` | 現場管理 | **建設の記録デモ（3体験）** またはハブ完成まで「写真から報告」 |
-| Cases | `construction-photo-sorting` + external kanri | ハブ公開後、①②③の関係を CaseDemoScope に追記 |
-| portfolio | construction / ocr coming_soon / field-dandori | ocr を②として ready。親「建設ハブ」+子3の整理 |
-
----
-
-## 5. Won't（やらないこと）
-
-- 建設フル基幹（工程・原価・図面管理すべて）を1デモにする
-- 段取り・マッチングをハブ4本目にする
-- デモ内で①→②→③の統合WF画面を新造する
-- ログイン必須の③だけを初訪の唯一CTAにする（摩擦が高い）
+| 箇所 | 現状 | 方針 |
+|------|------|------|
+| TOP 建設カード `tryHref` | 外部ハブ | `EXTERNAL_DEMO_URLS.construction` · `tryExternal: true` |
+| `/construction` | 外部へ redirect | 互換用 |
+| ギャラリー photo-to-classification | 部品・試食 | **建設本線には使わない** |
+| portfolio | 外部ハブ | ready |
 
 ---
 
@@ -149,19 +96,16 @@ UX／業種別UI: [`ux-saas-principles.md`](./ux-saas-principles.md) §4.2
 
 | Phase | 内容 | 完了条件 |
 |-------|------|----------|
-| P0 | 本 PLAN 固定 | 3テーマ合意 |
-| P1 | ② 本格デモの正式掲載（URL・portfolio ready） | **done** `construction_demo` → `https://construction-demo-two.vercel.app` |
-| P2 | 建設ハブ（①②③カード＋組み合わせ文） | ハブ受け入れ — **`/construction`** |
-| P3 | TOPカードをハブへ。③ログインUX改善は別 | サイト導線表どおり |
-
-製造P1完了後に建設P2を進める想定でも、OCR掲載（P1）は先行してよい。
+| P1 | ② 本格デモ掲載 | **done** |
+| P2 | 建設ハブ（外部） | **done** `construction_demo` `/` |
+| P3 | TOP → 外部ハブ | **done**（製造と同型） |
 
 ---
 
 ## 7. ハブ受け入れ（業界単位）
 
-- [x] 楔と組み合わせ文がハブ上で読める（`/construction`）
+- [x] 楔と組み合わせ文がハブ上で読める（外部 `/`）
 - [x] ①写真／②報告書／③オペの違いが30秒で分かる
-- [x] 各デモのクライマックスが言える
+- [x] サイト内ギャラリーに建設本線が着地しない
 - [x] 「撮る→整える→載せる」が想像できる
 - [x] ROI / 相談へ進める

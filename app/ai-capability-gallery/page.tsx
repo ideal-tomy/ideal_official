@@ -25,16 +25,15 @@ export default function AiCapabilityGalleryPage() {
     <div className="min-h-screen bg-[var(--site-bg)]">
       <GalleryHero />
 
-      {/* PC: Showcase 用ドットナビ（スマホはカード主導線のため非表示） */}
+      {/* Showcase セクションへのドットナビ（PC中心。スマホは横スクロール目次） */}
       <div className="hidden md:contents">
         <GallerySectionNav />
       </div>
 
+      {/* 全幅: 1行横スクロール目次 → すぐ下の Showcase 本編へ */}
       <CapabilityCardGrid />
 
-      <div className="hidden md:block">
-        <CapabilityShowcase />
-      </div>
+      <CapabilityShowcase />
 
       <section className="border-t border-[var(--site-border)] bg-[var(--site-bg)] py-10 md:py-12">
         <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">

@@ -78,7 +78,7 @@ export function getIndustryCards(): IndustryCard[] {
       detailLabel: '流れを見る',
       tryHref: CONSTRUCTION_HUB_HREF,
       tryLabel: '建設の記録デモ（3体験）',
-      tryExternal: false,
+      tryExternal: true,
     },
     {
       id: 'care',
