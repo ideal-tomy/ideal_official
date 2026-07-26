@@ -22,6 +22,34 @@ export function getPublishedCases(): CaseStudy[] {
   return caseStudies.filter((c) => c.status === 'published')
 }
 
+export type CaseIndustryGroup = {
+  industry: string
+  industryLabel: string
+  cases: CaseStudy[]
+}
+
+/** 公開中の活用イメージを業種順でグループ化（一覧の読み物ディレクトリ用） */
+export function groupPublishedCasesByIndustry(): CaseIndustryGroup[] {
+  const groups: CaseIndustryGroup[] = []
+  const indexByIndustry = new Map<string, number>()
+
+  for (const caseStudy of getPublishedCases()) {
+    const existing = indexByIndustry.get(caseStudy.industry)
+    if (existing === undefined) {
+      indexByIndustry.set(caseStudy.industry, groups.length)
+      groups.push({
+        industry: caseStudy.industry,
+        industryLabel: caseStudy.industryLabel,
+        cases: [caseStudy],
+      })
+      continue
+    }
+    groups[existing].cases.push(caseStudy)
+  }
+
+  return groups
+}
+
 export function getCaseBySlug(slug: string): CaseStudy | undefined {
   return caseStudies.find((c) => c.slug === slug)
 }

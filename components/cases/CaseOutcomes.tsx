@@ -6,24 +6,24 @@ export function CaseOutcomes({ outcomes }: CaseOutcomesProps) {
   if (outcomes.length === 0) return null
 
   return (
-    <section className="border-b border-[var(--site-border)] py-14 md:py-16">
+    <section className="border-b border-[var(--site-border)] py-8 md:py-14">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-        <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-brand/90">
+        <p className="mb-2 text-xs font-medium uppercase tracking-[0.2em] text-brand/90 md:mb-3">
           Outcomes
         </p>
-        <h2 className="mb-8 text-2xl font-bold text-[var(--site-fg)] md:text-3xl">
+        <h2 className="mb-5 text-balance text-xl font-bold text-[var(--site-fg)] md:mb-8 md:text-3xl">
           何が変わるか
         </h2>
-        <ol className="space-y-5">
+        <ol className="space-y-3.5 md:space-y-5">
           {outcomes.map((item, index) => (
-            <li key={item} className="flex gap-4">
+            <li key={item} className="flex gap-3 md:gap-4">
               <span
-                className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand/15 text-sm font-bold text-brand"
+                className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand/15 text-xs font-bold text-brand md:h-8 md:w-8 md:text-sm"
                 aria-hidden
               >
                 {index + 1}
               </span>
-              <p className="pt-1 text-base leading-relaxed text-[var(--site-fg)]/90 md:text-lg">
+              <p className="pt-0.5 text-sm leading-relaxed text-[var(--site-fg)]/90 md:pt-1 md:text-base">
                 {item}
               </p>
             </li>

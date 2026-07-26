@@ -9,39 +9,52 @@ interface CaseFlowProps {
 
 export function CaseFlow({ title, summary, steps, variant }: CaseFlowProps) {
   const isAfter = variant === 'after'
-  const accent = isAfter ? 'border-brand/30 bg-brand/5' : 'border-[var(--site-border)] bg-[var(--site-bg-elevated)]/40'
+  const accent = isAfter
+    ? 'border-brand/30 bg-brand/5'
+    : 'border-[var(--site-border)] bg-[var(--site-bg-elevated)]/40'
   const stepAccent = isAfter
     ? 'border-brand/40 text-brand-hover'
     : 'border-[var(--site-border)] text-[var(--site-fg-muted)]'
   const labelColor = isAfter ? 'text-brand/80' : 'text-[var(--site-fg-muted)]'
 
   return (
-    <div className={`rounded-xl border p-6 sm:p-8 ${accent}`}>
-      <p className={`text-xs uppercase tracking-wider mb-2 ${labelColor}`}>
+    <div className={`rounded-xl border p-4 sm:p-6 md:p-8 ${accent}`}>
+      <p className={`mb-1.5 text-xs uppercase tracking-wider ${labelColor}`}>
         {isAfter ? 'After' : 'Before'}
       </p>
-      <h3 className="text-xl font-semibold text-[var(--site-fg)] mb-2">{title}</h3>
-      <p className="text-sm text-[var(--site-fg-muted)] mb-8 leading-relaxed">{summary}</p>
+      <h3 className="mb-1.5 text-lg font-semibold text-[var(--site-fg)] md:mb-2 md:text-xl">
+        {title}
+      </h3>
+      <p className="mb-5 text-sm leading-relaxed text-[var(--site-fg)]/85 md:mb-7">
+        {summary}
+      </p>
 
       <ol className="space-y-0">
         {steps.map((step, index) => (
-          <li key={step.label} className="relative flex gap-4 pb-8 last:pb-0">
+          <li
+            key={step.label}
+            className="relative flex gap-3 pb-4 last:pb-0 md:gap-4 md:pb-6"
+          >
             {index < steps.length - 1 && (
               <span
-                className="absolute left-[15px] top-8 bottom-0 w-px bg-gray-700"
+                className="absolute bottom-0 left-[13px] top-7 w-px bg-[var(--site-border)] md:left-[15px] md:top-8"
                 aria-hidden="true"
               />
             )}
             <span
-              className={`relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border text-xs font-mono ${stepAccent} bg-[var(--site-bg)]`}
+              className={`relative z-10 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border text-[11px] font-mono md:h-8 md:w-8 md:text-xs ${stepAccent} bg-[var(--site-bg)]`}
             >
               {index + 1}
             </span>
-            <div className="pt-0.5">
-              <p className="text-base font-semibold text-[var(--site-fg)] mb-1">{step.label}</p>
-              {step.detail && (
-                <p className="text-sm text-[var(--site-fg-muted)] leading-relaxed">{step.detail}</p>
-              )}
+            <div className="min-w-0 pt-0.5">
+              <p className="mb-0.5 text-sm font-semibold text-[var(--site-fg)] md:mb-1 md:text-base">
+                {step.label}
+              </p>
+              {step.detail ? (
+                <p className="text-xs leading-relaxed text-[var(--site-fg)]/80 md:text-sm">
+                  {step.detail}
+                </p>
+              ) : null}
             </div>
           </li>
         ))}
@@ -59,18 +72,18 @@ interface CaseFlowCompareProps {
 
 export function CaseFlowCompare({ before, after }: CaseFlowCompareProps) {
   return (
-    <section className="bg-[var(--site-bg)] py-16 lg:py-20 border-b border-brand/40">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <header className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[var(--site-fg)] mb-4">
+    <section className="border-b border-brand/40 bg-[var(--site-bg)] py-8 md:py-14 lg:py-16">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <header className="mb-6 text-left md:mb-10">
+          <h2 className="mb-2 text-balance text-xl font-bold leading-snug text-[var(--site-fg)] md:mb-3 md:text-3xl lg:text-4xl">
             業務の流れが、こう変わる
           </h2>
-          <p className="text-base text-[var(--site-fg-muted)] max-w-xl mx-auto">
+          <p className="max-w-xl text-sm text-[var(--site-fg)]/80 md:text-base">
             技術の説明ではなく、現場の手順の変化で見ます。
           </p>
         </header>
 
-        <div className="grid lg:grid-cols-2 gap-6">
+        <div className="grid gap-4 lg:grid-cols-2 lg:gap-6">
           <CaseFlow {...before} variant="before" />
           <CaseFlow {...after} variant="after" />
         </div>

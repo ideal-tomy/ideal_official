@@ -6,18 +6,18 @@ type CasePainSectionProps = {
 
 export function CasePainSection({ pain }: CasePainSectionProps) {
   return (
-    <section className="border-b border-[var(--site-border)] py-14 md:py-16">
+    <section className="border-b border-[var(--site-border)] py-8 md:py-14">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-        <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-brand/90">
+        <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-brand/90 md:mb-4">
           Pain
         </p>
-        <p className="mb-4 text-sm text-[var(--site-fg-muted)]">
-          誰が困るか — {pain.who}
-        </p>
-        <h2 className="mb-5 text-2xl font-bold leading-snug tracking-tight text-[var(--site-fg)] md:text-3xl">
+        <h2
+          title={pain.headline}
+          className="mb-3 whitespace-nowrap text-[clamp(0.8125rem,3.5vw,1.875rem)] font-bold leading-none tracking-tight text-[var(--site-fg)] md:mb-5"
+        >
           {pain.headline}
         </h2>
-        <p className="text-base leading-relaxed text-[var(--site-fg-muted)] md:text-lg">
+        <p className="text-sm leading-relaxed text-[var(--site-fg)]/90 md:text-base">
           {pain.body}
         </p>
       </div>
