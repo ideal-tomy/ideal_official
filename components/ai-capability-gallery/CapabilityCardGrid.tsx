@@ -91,7 +91,9 @@ export function CapabilityCardGrid() {
     const el = scrollerRef.current
     if (!el) return
     const card = el.querySelector<HTMLElement>('[data-toc-card]')
-    const delta = card ? (card.offsetWidth + 12) * dir : el.clientWidth * 0.7 * dir
+    const delta = card
+      ? (card.offsetWidth + 12) * dir
+      : el.clientWidth * 0.7 * dir
     el.scrollBy({ left: delta, behavior: 'smooth' })
   }
 
@@ -108,63 +110,56 @@ export function CapabilityCardGrid() {
         </header>
       </div>
 
-      {/* sticky 目次バー（ヘッダ下に固定） */}
-      <div className="sticky top-16 z-30 border-b border-[var(--site-border)] bg-[var(--site-bg)]/95 py-2.5 backdrop-blur-md lg:top-20">
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          {/* PC 矢印 */}
+      {/* sticky 目次バー（ヘッダ下に固定）— 不透明背景で下コンテンツの透けを防ぐ */}
+      <div className="sticky top-16 z-30 border-b border-[var(--site-border)] bg-[var(--site-bg)] py-2.5 lg:top-20">
+        <div className="mx-auto flex max-w-7xl items-stretch gap-2 px-4 sm:px-6 md:gap-3 lg:px-8">
           <button
             type="button"
             onClick={() => scrollByCards(-1)}
             disabled={!canPrev}
             aria-label="前のパターンへ"
-            className="absolute left-1 top-1/2 z-20 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--site-border)] bg-[var(--site-bg-elevated)] text-[var(--site-fg)] shadow-md transition-opacity hover:border-[var(--df-primary)]/50 disabled:pointer-events-none disabled:opacity-0 md:left-2 md:flex lg:left-3"
+            className="hidden h-auto w-10 shrink-0 items-center justify-center self-center rounded-full border border-[var(--site-border)] bg-[var(--site-bg-elevated)] text-[var(--site-fg)] transition-opacity hover:border-[var(--df-primary)]/50 disabled:pointer-events-none disabled:opacity-30 md:flex md:h-10"
           >
             <ChevronLeftIcon className="h-5 w-5" />
           </button>
+
+          {/* クリップ領域：カードはここで切れ、半透明フェードは使わない */}
+          <div className="min-w-0 flex-1 overflow-hidden">
+            <div
+              ref={scrollerRef}
+              className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              aria-label="業務変化パターン一覧"
+            >
+              {capabilities.map((capability) => (
+                <div
+                  key={capability.id}
+                  data-toc-card
+                  className="w-[10.5rem] shrink-0 snap-start sm:w-[12rem] md:w-[13.5rem]"
+                >
+                  <CapabilityCard
+                    capability={capability}
+                    size="compact"
+                    hideTitle
+                    href={
+                      capability.status === 'ready'
+                        ? `#capability-${capability.slug}`
+                        : undefined
+                    }
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
           <button
             type="button"
             onClick={() => scrollByCards(1)}
             disabled={!canNext}
             aria-label="次のパターンへ"
-            className="absolute right-1 top-1/2 z-20 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--site-border)] bg-[var(--site-bg-elevated)] text-[var(--site-fg)] shadow-md transition-opacity hover:border-[var(--df-primary)]/50 disabled:pointer-events-none disabled:opacity-0 md:right-2 md:flex lg:right-3"
+            className="hidden h-auto w-10 shrink-0 items-center justify-center self-center rounded-full border border-[var(--site-border)] bg-[var(--site-bg-elevated)] text-[var(--site-fg)] transition-opacity hover:border-[var(--df-primary)]/50 disabled:pointer-events-none disabled:opacity-30 md:flex md:h-10"
           >
             <ChevronRightIcon className="h-5 w-5" />
           </button>
-
-          <div
-            ref={scrollerRef}
-            className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] md:px-10 lg:px-12 [&::-webkit-scrollbar]:hidden"
-            aria-label="業務変化パターン一覧"
-          >
-            {capabilities.map((capability) => (
-              <div
-                key={capability.id}
-                data-toc-card
-                className="w-[10.5rem] shrink-0 snap-start sm:w-[12rem] md:w-[13.5rem]"
-              >
-                <CapabilityCard
-                  capability={capability}
-                  size="compact"
-                  hideTitle
-                  href={
-                    capability.status === 'ready'
-                      ? `#capability-${capability.slug}`
-                      : undefined
-                  }
-                />
-              </div>
-            ))}
-            <div className="w-2 shrink-0" aria-hidden />
-          </div>
-
-          <div
-            className="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-[var(--site-bg)] to-transparent md:right-10 md:w-12 lg:right-12"
-            aria-hidden
-          />
-          <div
-            className="pointer-events-none absolute inset-y-0 left-0 hidden w-8 bg-gradient-to-r from-[var(--site-bg)] to-transparent md:left-10 md:block md:w-12 lg:left-12"
-            aria-hidden
-          />
         </div>
       </div>
     </section>
