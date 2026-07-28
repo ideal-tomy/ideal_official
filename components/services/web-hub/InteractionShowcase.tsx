@@ -25,15 +25,15 @@ function ModalPanel() {
           </p>
           <ul className="space-y-2 text-sm text-[var(--site-fg-muted)]">
             <li className="flex items-start gap-2">
-              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--df-text-muted)]" />
               オーバーレイのフェードイン
             </li>
             <li className="flex items-start gap-2">
-              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--df-text-muted)]" />
               パネルの出現タイミング制御
             </li>
             <li className="flex items-start gap-2">
-              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--df-text-muted)]" />
               Esc / 外側クリックで閉じる
             </li>
           </ul>

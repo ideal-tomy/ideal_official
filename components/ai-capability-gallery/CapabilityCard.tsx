@@ -14,7 +14,7 @@ interface CapabilityCardProps {
 
 /**
  * 機能／パターン選択カード（サムネイル付き）
- * タグは画像左上オーバーレイ。アクセントは --df-primary
+ * タグは画像左上オーバーレイ。カテゴリは muted、リンクは Accent
  */
 export function CapabilityCard({
   capability,
@@ -55,8 +55,8 @@ export function CapabilityCard({
               key={tag}
               className={
                 compact
-                  ? 'rounded-full bg-[var(--df-primary)] px-1.5 py-px text-[8px] font-semibold text-[var(--df-on-primary)] shadow-sm'
-                  : 'rounded-full bg-[var(--df-primary)] px-2 py-0.5 text-[11px] font-semibold text-[var(--df-on-primary)] shadow-sm'
+                  ? 'rounded-full bg-black/55 px-1.5 py-px text-[8px] font-semibold text-white/90 backdrop-blur-sm'
+                  : 'rounded-full bg-black/55 px-2 py-0.5 text-[11px] font-semibold text-white/90 backdrop-blur-sm'
               }
             >
               {tag}
@@ -100,8 +100,8 @@ export function CapabilityCard({
         <p
           className={
             compact
-              ? 'mb-0.5 text-[10px] font-bold tracking-wide text-[var(--df-primary)]'
-              : 'mb-1.5 text-sm font-bold tracking-wide text-[var(--df-primary)]'
+              ? 'mb-0.5 text-[10px] font-bold tracking-wide text-[var(--df-text-muted)]'
+              : 'mb-1.5 text-sm font-bold tracking-wide text-[var(--df-text-muted)]'
           }
         >
           {capability.subtitle}
@@ -122,7 +122,7 @@ export function CapabilityCard({
         {!compact && (
           <p className="mb-3 text-xs leading-relaxed text-[var(--site-fg-muted)]">
             {capability.before}
-            <span className="mx-1.5 font-bold text-[var(--df-primary)]">→</span>
+            <span className="mx-1.5 font-bold text-[var(--df-text-muted)]">→</span>
             {capability.after}
           </p>
         )}

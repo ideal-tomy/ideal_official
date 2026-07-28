@@ -53,7 +53,7 @@ export function HowWeWorkSummary({
               >
                 <div className="flex w-7 shrink-0 flex-col items-center">
                   <span
-                    className="relative z-10 flex h-7 w-7 items-center justify-center rounded-full bg-brand text-xs font-bold text-[var(--df-on-primary)] shadow-[0_0_0_3px_var(--site-bg)]"
+                    className="relative z-10 flex h-7 w-7 items-center justify-center rounded-full border border-[var(--site-border)] bg-[var(--site-bg-elevated)] text-xs font-bold text-[var(--df-text)] shadow-[0_0_0_3px_var(--site-bg)]"
                     aria-hidden
                   >
                     {index + 1}
@@ -76,10 +76,10 @@ export function HowWeWorkSummary({
           })}
         </ol>
 
-        <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           <Link
             href={detailHref}
-            className="font-medium text-brand transition-colors hover:text-brand-hover"
+            className="inline-flex items-center justify-center rounded-lg bg-brand px-6 py-3 text-sm font-bold text-[var(--df-on-primary)] transition-all hover:scale-[1.02] hover:bg-brand-hover active:scale-[0.98] sm:text-base"
           >
             {relatedCase
               ? '活用イメージで詳しく読む →'
@@ -88,7 +88,7 @@ export function HowWeWorkSummary({
           {showEstimateLink && (
             <Link
               href="/estimate"
-              className="font-medium text-[var(--site-fg-muted)] transition-colors hover:text-brand"
+              className="inline-flex items-center justify-center rounded-lg border border-[var(--site-border)] bg-transparent px-6 py-3 text-sm font-bold text-[var(--site-fg)] transition-all hover:scale-[1.02] hover:border-brand/60 hover:text-brand-hover active:scale-[0.98] sm:text-base"
             >
               概算見積もり →
             </Link>
@@ -96,7 +96,7 @@ export function HowWeWorkSummary({
           {showCasesLink && (
             <Link
               href="/cases"
-              className="font-medium text-[var(--site-fg-muted)] transition-colors hover:text-brand"
+              className="inline-flex items-center justify-center rounded-lg border border-[var(--site-border)] bg-transparent px-6 py-3 text-sm font-bold text-[var(--site-fg)] transition-all hover:scale-[1.02] hover:border-brand/60 hover:text-brand-hover active:scale-[0.98] sm:text-base"
             >
               活用イメージ一覧 →
             </Link>

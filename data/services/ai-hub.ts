@@ -68,14 +68,14 @@ export const industryEntries = [
   },
   {
     id: 'dd',
-    label: 'DD / 契約',
+    label: '法務',
     hint: '文書からの情報抽出',
     href: getCaseHref('dd-document-extraction'),
     status: 'case' as const,
   },
   {
     id: 'retail',
-    label: '店舗 / 小売',
+    label: '小売',
     hint: '需要予測・判断支援',
     href: getCaseHref('retail-demand-prediction'),
     status: 'case' as const,

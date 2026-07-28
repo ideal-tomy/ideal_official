@@ -1,9 +1,11 @@
 @import "tailwindcss";
 
-/* ideal brand — ライト=青 / ダーク=オレンジ×ゴールド（html.light|dark で上書き） */
+/* ideal brand — ライト=青 / ダーク=暖色面×オレンジ1本（html.light|dark で上書き）
+ * ダーク役: Surface / Elevated / Text / Muted / Accent のみ */
 @theme {
   --color-brand: #2b6fe0;
   --color-brand-hover: #1f5ac4;
+  --color-brand-ink: #5b8fe8;
   --color-brand-deep: #5d5f97;
   --color-brand-muted: #7fb2e8;
   --color-brand-glow: color-mix(in srgb, #2b6fe0 22%, transparent);
@@ -11,20 +13,21 @@
 
 /*
  * サイト共通セマンティック変数
- * ライト = モック青系 / ダーク = 黒×オレンジ×ゴールド
  * ThemeProvider が html.light / html.dark を付与
  */
 :root,
 html.light {
   --color-brand: #2b6fe0;
   --color-brand-hover: #1f5ac4;
+  --color-brand-ink: #5b8fe8;
   --color-brand-deep: #5d5f97;
   --color-brand-muted: #7fb2e8;
   --color-brand-glow: color-mix(in srgb, #2b6fe0 22%, transparent);
   --df-primary: #2b6fe0;
+  --df-primary-hover: #1f5ac4;
+  --df-primary-ink: #5b8fe8;
   --df-primary-deep: #5d5f97;
   --df-primary-light: #7fb2e8;
-  --df-primary-hover: #1f5ac4;
   --df-hero-1: #2e8fcb;
   --df-hero-2: #1f7abf;
   --df-hero-3: #3399cc;
@@ -48,38 +51,56 @@ html.light {
   --hero-grad-to: #ffffff;
   --hero-glow-primary: color-mix(in srgb, #2b6fe0 18%, transparent);
   --hero-glow-secondary: color-mix(in srgb, #1b3a8c 8%, transparent);
+  /* マーキー帯・課題ハイライト（ライト） */
+  --df-marquee-band: #d6e6f5;
+  --df-marquee-chip: #ffffff;
+  --df-marquee-chip-border: #b7c9db;
+  --df-marquee-label: #6b7280;
+  --df-marquee-topic: #a16207;
 }
 
 html.dark {
-  --color-brand: #ff521c;
-  --color-brand-hover: #e0430f;
-  --color-brand-deep: #f0c020;
-  --color-brand-muted: #e52626;
-  --color-brand-glow: color-mix(in srgb, #ff521c 22%, transparent);
-  --df-primary: #ff521c;
-  --df-primary-deep: #f0c020;
-  --df-primary-light: #e52626;
-  --df-primary-hover: #e0430f;
-  --df-hero-1: #1a1a1a;
-  --df-hero-2: #0a0a0a;
-  --df-hero-3: #1f1214;
-  --df-bg: #000;
-  --df-bg-blue: #111;
-  --df-bg-blue-2: #1a1a1a;
-  --df-bg-card: #141414;
-  --df-text: #f3f4f6;
-  --df-text-muted: #9ca3af;
+  /* Accent — CTA・図解・押せるリンクのみ */
+  --color-brand: #f05a28;
+  --color-brand-hover: #d9481a;
+  --color-brand-ink: #f05a28;
+  /* deep はゴールドにせず Accent と同系統（図解互換）。装飾は muted を使う */
+  --color-brand-deep: #f05a28;
+  --color-brand-muted: #a39e97;
+  --color-brand-glow: color-mix(in srgb, #f05a28 16%, transparent);
+  --df-primary: #f05a28;
+  --df-primary-hover: #d9481a;
+  --df-primary-ink: #f05a28;
+  --df-primary-deep: #f05a28;
+  --df-primary-light: color-mix(in srgb, #f05a28 18%, transparent);
+  --df-hero-1: #1c1916;
+  --df-hero-2: #12100e;
+  --df-hero-3: #1a1614;
+  /* Surface / Elevated */
+  --df-bg: #12100e;
+  --df-bg-blue: #1c1916;
+  --df-bg-blue-2: #2e2a26;
+  --df-bg-card: #1c1916;
+  /* Text / Muted — 本文はほぼ白、グレーは補助のみ */
+  --df-text: #f2ede8;
+  --df-text-muted: #a39e97;
   --df-on-primary: #fff;
-  --site-bg: #000;
-  --site-bg-elevated: #111;
-  --site-fg: #e5e7eb;
-  --site-fg-muted: #9ca3af;
-  --site-border: #374151;
-  --hero-grad-from: #000000;
-  --hero-grad-via: #0a0a0a;
-  --hero-grad-to: #000000;
-  --hero-glow-primary: color-mix(in srgb, #ff521c 14%, transparent);
-  --hero-glow-secondary: color-mix(in srgb, #f0c020 6%, transparent);
+  --site-bg: #12100e;
+  --site-bg-elevated: #1c1916;
+  --site-fg: #f2ede8;
+  --site-fg-muted: #a39e97;
+  --site-border: #2e2a26;
+  --hero-grad-from: #12100e;
+  --hero-grad-via: #1c1916;
+  --hero-grad-to: #12100e;
+  --hero-glow-primary: color-mix(in srgb, #f05a28 12%, transparent);
+  --hero-glow-secondary: color-mix(in srgb, #f05a28 5%, transparent);
+  /* マーキー帯・課題ハイライト（ダーク） */
+  --df-marquee-band: #1c1916;
+  --df-marquee-chip: #2a2622;
+  --df-marquee-chip-border: #4a433c;
+  --df-marquee-label: #a39e97;
+  --df-marquee-topic: #e8c547;
 }
 
 .demo-first {
@@ -126,7 +147,7 @@ html.dark {
 }
 
 .demo-first .df-marquee-track {
-  animation: df-marquee 38s linear infinite;
+  animation: df-marquee 140s linear infinite;
 }
 
 .demo-first .df-marquee:hover .df-marquee-track {

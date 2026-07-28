@@ -4,11 +4,11 @@ import { GALLERY_BASE } from '@/data/ai-capability-gallery/capabilities'
 export const knowledgeInternalSearch: CaseStudy = {
   slug: 'knowledge-internal-search',
   industry: 'internal',
-  industryLabel: '社内 / ナレッジ',
+  industryLabel: '社内',
   title: '規程を、聞いただけですぐ見つける。',
   subtitle: '社内 × 規程・マニュアルの根拠付き回答',
   lead: '質問すると、回答と出典が一緒に返る。',
-  metaTitle: '社内ナレッジ × 根拠付き検索 | 活用イメージ | ideal',
+  metaTitle: '社内 × 根拠付き検索 | 活用イメージ | ideal',
   metaDescription:
     '規程・マニュアルへの問い合わせを、探す負担から、回答と出典のセットへ。関連デモを体験できます。',
   tags: ['規程', 'マニュアル', 'FAQ', '問い合わせ'],

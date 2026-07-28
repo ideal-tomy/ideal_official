@@ -85,9 +85,9 @@ function RoleColumn({
   if (items.length === 0) return null
 
   const accentText =
-    accent === 'brand' ? 'text-brand' : 'text-sky-400'
+    accent === 'brand' ? 'text-[var(--df-text-muted)]' : 'text-sky-400'
   const bullet =
-    accent === 'brand' ? 'bg-brand' : 'bg-sky-400'
+    accent === 'brand' ? 'bg-[var(--df-text-muted)]' : 'bg-sky-400'
 
   return (
     <div>
@@ -120,7 +120,7 @@ export function HowWeWorkDetail({ steps }: HowWeWorkDetailProps) {
             {/* timeline */}
             <div className="flex w-8 shrink-0 flex-col items-center md:w-9">
               <span
-                className="relative z-10 flex h-8 w-8 items-center justify-center rounded-full bg-brand text-sm font-bold text-[var(--df-on-primary)] shadow-[0_0_0_4px_var(--site-bg)] md:h-9 md:w-9"
+                className="relative z-10 flex h-8 w-8 items-center justify-center rounded-full border border-[var(--site-border)] bg-[var(--site-bg-elevated)] text-sm font-bold text-[var(--df-text)] shadow-[0_0_0_4px_var(--site-bg)] md:h-9 md:w-9"
                 aria-hidden
               >
                 {index + 1}

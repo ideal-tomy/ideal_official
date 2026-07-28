@@ -41,7 +41,7 @@ export function DemoFirstIndustryService({ cards }: Props) {
                   className="flex w-full items-center gap-3 px-4 py-4 text-left transition-colors hover:bg-[var(--df-bg-card)] sm:gap-4 sm:px-5"
                   aria-expanded={isOpen}
                 >
-                  <span className="relative h-14 w-20 shrink-0 overflow-hidden rounded-md bg-[linear-gradient(160deg,var(--df-hero-2),var(--df-primary-hover))] sm:h-16 sm:w-24">
+                  <span className="relative h-14 w-20 shrink-0 overflow-hidden rounded-md bg-[var(--df-bg-blue-2)] sm:h-16 sm:w-24">
                     <ThemeImage
                       src={card.image}
                       alt=""
@@ -52,15 +52,15 @@ export function DemoFirstIndustryService({ cards }: Props) {
                     />
                   </span>
                   <span className="min-w-0 flex-1">
-                    <span className="block text-lg font-black leading-tight text-[var(--df-primary-deep)] sm:text-xl">
+                    <span className="block text-lg font-black leading-tight text-[var(--df-text)] sm:text-xl">
                       {card.title}
                     </span>
-                    <span className="mt-0.5 block text-[11px] font-bold tracking-[0.1em] text-[var(--df-primary)]">
+                    <span className="mt-0.5 block text-[11px] font-bold tracking-[0.1em] text-[var(--df-text-muted)]">
                       {card.englishLabel}
                     </span>
                   </span>
                   <span
-                    className={`shrink-0 text-xl font-bold text-[var(--df-primary)] transition-transform ${
+                    className={`shrink-0 text-xl font-bold text-[var(--df-text-muted)] transition-transform ${
                       isOpen ? 'rotate-45' : ''
                     }`}
                     aria-hidden
@@ -72,7 +72,7 @@ export function DemoFirstIndustryService({ cards }: Props) {
                 {isOpen && (
                   <div className="border-t border-[var(--df-bg-blue-2)] px-4 pb-6 pt-5 sm:px-6">
                     <div className="md:grid md:grid-cols-2 md:items-start md:gap-8">
-                      <div className="relative mb-5 aspect-[16/9] overflow-hidden rounded-lg bg-[linear-gradient(160deg,var(--df-hero-2),var(--df-primary-hover))] md:mb-0">
+                      <div className="relative mb-5 aspect-[16/9] overflow-hidden rounded-lg bg-[var(--df-bg-blue-2)] md:mb-0">
                         <ThemeImage
                           src={card.image}
                           alt=""
@@ -105,7 +105,7 @@ export function DemoFirstIndustryService({ cards }: Props) {
                           {card.solutions.map((solution) => (
                             <li
                               key={solution}
-                              className="relative pl-[18px] text-[14.5px] text-[var(--df-text)] before:absolute before:left-0 before:top-[0.75em] before:h-[7px] before:w-[7px] before:rounded-full before:bg-[var(--df-primary)]"
+                              className="relative pl-[18px] text-[14.5px] text-[var(--df-text)] before:absolute before:left-0 before:top-[0.75em] before:h-[7px] before:w-[7px] before:rounded-full before:bg-[var(--df-text-muted)]"
                             >
                               {solution}
                             </li>
@@ -133,7 +133,7 @@ export function DemoFirstIndustryService({ cards }: Props) {
                           {card.detailHref && (
                             <Link
                               href={card.detailHref}
-                              className="inline-flex items-center gap-1.5 text-sm font-bold text-[var(--df-primary-deep)] transition-colors hover:text-[var(--df-primary)]"
+                              className="inline-flex items-center gap-1.5 text-sm font-bold text-[var(--df-text)] transition-colors hover:text-[var(--df-primary)]"
                             >
                               {card.detailLabel ?? '詳細を見る'}
                               <span

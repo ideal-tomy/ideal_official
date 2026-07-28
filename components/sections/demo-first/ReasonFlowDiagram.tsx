@@ -63,7 +63,7 @@ export function ReasonFlowDiagram() {
             className={`flex min-h-[88px] min-w-0 flex-1 flex-col items-center justify-center rounded-[10px] border px-2 py-3 text-center sm:min-h-[96px] sm:px-3.5 ${
               'emphasis' in step && step.emphasis
                 ? 'border-[var(--df-primary)] bg-[color-mix(in_srgb,var(--df-primary)_12%,var(--df-bg-card))] shadow-[0_1px_0_color-mix(in_srgb,var(--df-primary)_18%,transparent)]'
-                : 'border-[color-mix(in_srgb,var(--df-primary-deep)_35%,transparent)] bg-[var(--df-bg)]/50'
+                : 'border-[var(--site-border)] bg-[var(--df-bg)]/50'
             }`}
             initial={animate ? { opacity: 0, y: 10 } : false}
             whileInView={{ opacity: 1, y: 0 }}
@@ -74,11 +74,11 @@ export function ReasonFlowDiagram() {
               ease: [0.45, 0, 0.55, 1],
             }}
           >
-            <span className="text-[13px] font-bold leading-snug tracking-wide text-[var(--df-primary-deep)] sm:text-[14px]">
+            <span className="text-[13px] font-bold leading-snug tracking-wide text-[var(--df-text)] sm:text-[14px]">
               {step.label}
             </span>
             {'caption' in step && step.caption ? (
-              <span className="mt-1.5 text-[10px] font-medium tracking-wide text-[var(--df-primary)] sm:text-[11px]">
+              <span className="mt-1.5 text-[10px] font-medium tracking-wide text-[var(--df-text-muted)] sm:text-[11px]">
                 {step.caption}
               </span>
             ) : null}

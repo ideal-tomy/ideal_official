@@ -44,7 +44,7 @@ export function LabInsightArticle({ insight }: { insight: LabInsight }) {
               <ul className="space-y-2 mt-2">
                 {section.bullets.map((b) => (
                   <li key={b} className="flex items-start gap-3 text-sm text-[var(--site-fg-muted)]">
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--df-text-muted)]" />
                     {b}
                   </li>
                 ))}

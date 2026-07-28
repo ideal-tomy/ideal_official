@@ -6,7 +6,7 @@ type SectionKickerProps = {
   tone?: 'brand' | 'inverse'
 }
 
-/** セクション入口マーカー（スマホでも表示） */
+/** セクション入口マーカー（装飾 — Accent ではなく Muted） */
 export function SectionKicker({
   index,
   label,
@@ -16,7 +16,7 @@ export function SectionKicker({
   const toneClass =
     tone === 'inverse'
       ? 'text-white/85'
-      : 'text-[var(--df-primary)]'
+      : 'text-[var(--df-text-muted)]'
 
   return (
     <p
@@ -26,14 +26,14 @@ export function SectionKicker({
         <>
           <span
             className={`tabular-nums ${
-              tone === 'inverse' ? 'text-white/55' : 'text-[var(--df-primary)]/70'
+              tone === 'inverse' ? 'text-white/55' : 'text-[var(--df-text-muted)]'
             }`}
           >
             {index}
           </span>
           <span
             className={`mx-2 ${
-              tone === 'inverse' ? 'text-[var(--site-fg)]/40' : 'text-[var(--df-primary)]/40'
+              tone === 'inverse' ? 'text-[var(--site-fg)]/40' : 'text-[var(--df-text-muted)]/60'
             }`}
             aria-hidden
           >

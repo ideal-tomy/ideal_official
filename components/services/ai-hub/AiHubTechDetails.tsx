@@ -23,7 +23,7 @@ export function AiHubTechDetails() {
               key={item}
               className="flex items-start text-sm text-[var(--site-fg-muted)]"
             >
-              <span className="mt-1.5 mr-3 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
+              <span className="mt-1.5 mr-3 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--df-text-muted)]" />
               {item}
             </li>
           ))}

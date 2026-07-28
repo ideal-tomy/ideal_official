@@ -465,7 +465,7 @@ function ShowcaseDemoWithTags({ capability }: { capability: Capability }) {
         {capability.tags.map((tag) => (
           <span
             key={tag}
-            className="rounded-full bg-[var(--df-primary)] px-2 py-0.5 text-[10px] font-semibold text-[var(--df-on-primary)] shadow-sm sm:px-2.5 sm:text-[11px]"
+            className="rounded-full bg-black/55 px-2 py-0.5 text-[10px] font-semibold text-white/90 backdrop-blur-sm shadow-sm sm:px-2.5 sm:text-[11px]"
           >
             {tag}
           </span>

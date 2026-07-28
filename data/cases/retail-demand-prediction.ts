@@ -4,11 +4,11 @@ import { GALLERY_BASE } from '@/data/ai-capability-gallery/capabilities'
 export const retailDemandPrediction: CaseStudy = {
   slug: 'retail-demand-prediction',
   industry: 'retail',
-  industryLabel: '店舗 / 小売',
+  industryLabel: '小売',
   title: '発注を、感覚だけにしない。',
-  subtitle: '店舗 / 小売 × 需要予測',
+  subtitle: '小売 × 需要予測',
   lead: '過去データから、予測と理由を出して決める。',
-  metaTitle: '店舗 / 小売 × 需要予測 | 活用イメージ | ideal',
+  metaTitle: '小売 × 需要予測 | 活用イメージ | ideal',
   metaDescription:
     '小売の発注・在庫判断を、感覚ベースから、予測値と影響要因による意思決定へ。関連デモを体験できます。',
   tags: ['小売', '店舗', '需要予測', '在庫'],

@@ -200,7 +200,7 @@ ${CONCIERGE_ROBOT_CSS}
 .ideal-close{position:absolute;top:-6px;right:-6px;z-index:5;background:#17191d;border:.5px solid #2b2f36;border-radius:999px;color:#6a6a6a;font-size:14px;line-height:1;cursor:pointer;padding:2px 7px;pointer-events:auto;}
 .ideal-close:hover{color:#cfcfcf;}
 .ideal-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0;}
-.ideal-chip{font-size:12px;font-weight:700;color:#fff;text-decoration:none;background:#FF521C;border:none;border-radius:14px;padding:7px 12px;transition:filter .18s ease,transform .18s ease;}
+.ideal-chip{font-size:12px;font-weight:700;color:#fff;text-decoration:none;background:var(--df-primary,#e8481a);border:none;border-radius:14px;padding:7px 12px;transition:filter .18s ease,transform .18s ease;}
 .ideal-chip:hover{filter:brightness(1.08);transform:translateY(-1px);color:#fff;}
 @keyframes ideal-rise{from{transform:translateY(135%)}to{transform:translateY(0)}}
 @media (prefers-reduced-motion:reduce){

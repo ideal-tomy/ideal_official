@@ -134,10 +134,9 @@ export function FabDrawerNav() {
 
       <button
         type="button"
-        className={`fixed right-4 top-4 z-[1100] grid h-14 w-14 place-items-center rounded-[10px] shadow-[0_4px_16px_rgba(0,0,0,.2)] md:hidden ${
+        className={`fixed right-4 top-4 z-[1100] grid h-14 w-14 place-items-center rounded-[10px] border border-[color-mix(in_srgb,var(--site-fg)_22%,transparent)] bg-[color-mix(in_srgb,var(--site-bg)_70%,transparent)] shadow-[0_4px_16px_rgba(0,0,0,.2)] backdrop-blur-sm md:hidden ${
           open ? 'fab-open' : ''
         }`}
-        style={{ background: 'var(--df-primary)' }}
         aria-label={open ? 'メニューを閉じる' : 'メニューを開く'}
         aria-expanded={open}
         aria-controls="site-drawer"
@@ -146,17 +145,17 @@ export function FabDrawerNav() {
         <span className="sr-only">メニュー</span>
         <span className="flex w-6 flex-col gap-[5px]" aria-hidden>
           <span
-            className={`block h-0.5 w-full bg-white transition-transform duration-300 ${
+            className={`block h-0.5 w-full bg-[var(--site-fg)] transition-transform duration-300 ${
               open ? 'translate-y-[7px] rotate-45' : ''
             }`}
           />
           <span
-            className={`block h-0.5 w-full bg-white transition-opacity duration-300 ${
+            className={`block h-0.5 w-full bg-[var(--site-fg)] transition-opacity duration-300 ${
               open ? 'opacity-0' : ''
             }`}
           />
           <span
-            className={`block h-0.5 w-full bg-white transition-transform duration-300 ${
+            className={`block h-0.5 w-full bg-[var(--site-fg)] transition-transform duration-300 ${
               open ? '-translate-y-[7px] -rotate-45' : ''
             }`}
           />

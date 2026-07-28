@@ -4,11 +4,11 @@ import { GALLERY_BASE } from '@/data/ai-capability-gallery/capabilities'
 export const ddDocumentExtraction: CaseStudy = {
   slug: 'dd-document-extraction',
   industry: 'dd',
-  industryLabel: 'DD / 契約',
+  industryLabel: '法務',
   title: '探す時間を減らして、判断に入る。',
-  subtitle: 'DD / 契約 × 文書からの情報抽出',
+  subtitle: '法務 × 契約内容レビュー',
   lead: '長い文書から、必要な項目を先に抜き出す。',
-  metaTitle: 'DD / 契約 × 文書抽出 | 活用イメージ | ideal',
+  metaTitle: '法務 × 文書抽出 | 活用イメージ | ideal',
   metaDescription:
     '契約書・DD資料のレビューを、通読→手作業から、必要項目の抽出と原文連動確認へ。関連デモを体験できます。',
   tags: ['DD', '契約', '文書', '抽出'],

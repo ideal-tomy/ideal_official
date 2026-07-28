@@ -128,7 +128,7 @@ export default function ServicesPage() {
                     {service.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start gap-3">
                         <svg
-                          className="w-6 h-6 text-brand flex-shrink-0 mt-1"
+                          className="w-6 h-6 text-[var(--df-text-muted)] flex-shrink-0 mt-1"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"

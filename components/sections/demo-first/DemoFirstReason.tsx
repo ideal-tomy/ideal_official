@@ -26,7 +26,7 @@ const REASONS: {
     body: 'チャットボットや管理画面はあくまで入口です。私たちが作るのは、現場の知恵とデータを取り込み、「なぜその判断なのか」まで返す業務の背骨。だから使われ続けます。',
     diagram: <ReasonEngineDiagram />,
     diagramClassName:
-      'rounded-[var(--df-radius-card)] border border-[var(--df-primary)]/25 bg-[var(--df-bg)] px-4 py-8 shadow-[0_0_0_1px_color-mix(in_srgb,var(--df-primary)_12%,transparent)] sm:px-8',
+      'rounded-[var(--df-radius-card)] border border-[var(--site-border)] bg-[var(--df-bg)] px-4 py-8 sm:px-8',
   },
   {
     index: '03',
@@ -45,7 +45,7 @@ export function DemoFirstReason() {
       className="relative overflow-hidden bg-[var(--df-bg-blue)] py-[clamp(56px,12vw,96px)] md:py-[clamp(80px,14vw,120px)]"
     >
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-[var(--df-primary)]"
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[var(--site-border)]"
         aria-hidden
       />
       <div className="relative mx-auto w-[min(100%-48px,1080px)]">
@@ -73,10 +73,10 @@ export function DemoFirstReason() {
                 </div>
 
                 <div className="w-full md:w-[48%]">
-                  <p className="mb-2 font-mono text-sm font-bold tabular-nums tracking-[0.08em] text-[var(--df-primary)]">
+                  <p className="mb-2 font-mono text-sm font-bold tabular-nums tracking-[0.08em] text-[var(--df-text-muted)]">
                     {reason.index}
                   </p>
-                  <h3 className="mb-4 text-[clamp(20px,3.2vw,28px)] font-black leading-[1.4] text-[var(--df-primary-deep)]">
+                  <h3 className="mb-4 text-[clamp(20px,3.2vw,28px)] font-black leading-[1.4] text-[var(--df-text)]">
                     {reason.title}
                   </h3>
                   <p className="max-w-[34rem] text-[15px] leading-relaxed text-[var(--df-text)] md:text-base">
@@ -91,13 +91,13 @@ export function DemoFirstReason() {
         <div className="mt-12 flex flex-wrap justify-center gap-4 md:mt-16">
           <a
             href="#demos"
-            className="inline-flex items-center gap-2 rounded-[var(--df-radius-btn)] bg-[var(--df-primary)] px-6 py-3 text-sm font-bold text-[var(--df-on-primary)] transition-transform hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 rounded-[var(--df-radius-btn)] bg-[var(--df-primary)] px-6 py-3 text-sm font-bold text-[var(--df-on-primary)] transition-transform hover:-translate-y-0.5 hover:bg-[var(--df-primary-hover)]"
           >
             デモを触ってみる
           </a>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 rounded-[var(--df-radius-btn)] border border-[var(--df-primary)] px-6 py-3 text-sm font-bold text-[var(--df-primary)] transition-colors hover:bg-[var(--df-primary)]/10"
+            className="inline-flex items-center gap-2 rounded-[var(--df-radius-btn)] border border-[var(--site-border)] px-6 py-3 text-sm font-bold text-[var(--df-text)] transition-colors hover:border-[var(--df-primary)]/50 hover:text-[var(--df-primary)]"
           >
             相談してみる
           </Link>

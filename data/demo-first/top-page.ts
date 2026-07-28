@@ -144,14 +144,48 @@ export function getIndustryCards(): IndustryCard[] {
   ]
 }
 
-/** マーキー用チップ（現行デモ／事例タグ） */
-export const MARQUEE_CHIPS: { industry: string; demo: string }[] = [
-  { industry: '建設', demo: '写真分類' },
-  { industry: '介護', demo: '音声構造化' },
-  { industry: '小売', demo: 'チャット案内' },
-  { industry: '製造', demo: 'ナレッジ検索' },
-  { industry: '契約・DD', demo: '文書抽出' },
-  { industry: 'バックオフィス', demo: '業務自動化' },
-  { industry: '農業', demo: '報告書生成' },
-  { industry: '現場', demo: '複数入力レポート' },
+/** マーキー用チップ（業種×現場課題。hasDemo は実デモ／事例あり） */
+export type MarqueeChip = {
+  industry: string
+  demo: string
+  hasDemo?: boolean
+}
+
+export const MARQUEE_CHIPS: MarqueeChip[] = [
+  // Round 1 — デモ寄り先頭
+  { industry: '建設', demo: '現場写真の整理', hasDemo: true },
+  { industry: '介護', demo: '音声でケア記録', hasDemo: true },
+  { industry: '製造', demo: '規程・マニュアル検索', hasDemo: true },
+  { industry: '小売', demo: '需要・発注の判断', hasDemo: true },
+  { industry: '法務', demo: '契約内容レビュー', hasDemo: true },
+  { industry: 'バックオフィス', demo: '申請〜登録の自動化', hasDemo: true },
+  { industry: '農業', demo: '圃場写真つき報告', hasDemo: true },
+  { industry: '社内', demo: '規程を聞いて探す', hasDemo: true },
+  // Round 2
+  { industry: '建設', demo: '日報・記録の自動化', hasDemo: true },
+  { industry: '介護', demo: '申し送りの構造化', hasDemo: true },
+  { industry: '製造', demo: 'ナレッジ継承' },
+  { industry: '小売', demo: '店舗FAQ案内', hasDemo: true },
+  { industry: '法務', demo: 'デューデリジェンス', hasDemo: true },
+  { industry: 'バックオフィス', demo: 'メール添付の仕分け', hasDemo: true },
+  { industry: '農業', demo: '作業日報の下書き', hasDemo: true },
+  { industry: '社内', demo: 'マニュアル検索', hasDemo: true },
+  // Round 3
+  { industry: '建設', demo: '是正・確認の抜け防止' },
+  { industry: '介護', demo: '転倒・ヒヤリの記録' },
+  { industry: '製造', demo: '不具合の初動整理' },
+  { industry: '小売', demo: 'シフト・欠員の見える化' },
+  { industry: '法務', demo: '契約更新の抜け防止' },
+  { industry: 'バックオフィス', demo: '請求・支払の突合' },
+  { industry: '農業', demo: '農薬・資材の記録' },
+  { industry: '社内', demo: '新人オンボーディング' },
+  // Round 4
+  { industry: '建設', demo: '完工報告書の下書き' },
+  { industry: '介護', demo: '記録負担の削減' },
+  { industry: '製造', demo: 'トレーサビリティ記録' },
+  { industry: '小売', demo: '売れ筋の要因整理' },
+  { industry: '法務', demo: 'リスク条項の洗い出し' },
+  { industry: 'バックオフィス', demo: '問い合わせ一次回答' },
+  { industry: '農業', demo: '出荷前チェックリスト' },
+  { industry: '社内', demo: '問い合わせの一次切り分け' },
 ]

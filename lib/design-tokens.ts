@@ -31,7 +31,7 @@ export const colors = {
     muted: 'text-[var(--site-fg-muted)]',
     disabled: 'text-[var(--site-fg-muted)]/70',
   },
-  // アクセント（ライト=青 / ダーク=オレンジ — CSS 変数 brand が切替）
+  // アクセント（ダークはオレンジ1本。装飾は muted / text）
   accent: {
     primary: 'text-brand',
     secondary: 'text-brand-hover',
@@ -40,7 +40,8 @@ export const colors = {
     text: 'text-brand',
     border: 'border-brand',
     ring: 'focus:ring-brand',
-    deep: 'text-brand-deep',
+    deep: 'text-brand',
+    ink: 'text-brand',
     glow: 'shadow-[0_0_24px_var(--color-brand-glow)]',
   },
   // アクセント（高級感）

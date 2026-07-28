@@ -19,7 +19,7 @@ export function DemoFirstShowcase({ capabilities }: Props) {
         <h2 className="my-2 mb-4 text-[clamp(26px,5.6vw,40px)] font-black leading-[1.5] text-[var(--df-text)] md:mb-6">
           資料ではなく、
           <br className="hidden md:inline" />
-          <span className="text-[var(--df-primary-deep)]">動くデモで確かめる。</span>
+          動くデモで確かめる。
         </h2>
         <p className="mb-8 max-w-[640px] text-[var(--df-text)] md:mb-10">
           業務課題から生まれた開発デモです。パターンを見比べて、近いものから触ってください。
@@ -30,7 +30,7 @@ export function DemoFirstShowcase({ capabilities }: Props) {
             <Link
               key={cap.slug}
               href={cap.href}
-              className="group flex flex-col overflow-hidden rounded-[var(--df-radius-card)] border border-[color-mix(in_srgb,var(--df-primary)_18%,transparent)] bg-[var(--df-bg)] transition-colors hover:border-[var(--df-primary)]/45 hover:bg-[var(--df-bg-card)]"
+              className="group flex flex-col overflow-hidden rounded-[var(--df-radius-card)] border border-[var(--site-border)] bg-[var(--df-bg)] transition-colors hover:border-[var(--df-primary)]/45 hover:bg-[var(--df-bg-card)]"
             >
               <div className="relative aspect-[16/10] w-full overflow-hidden bg-[var(--df-bg-card)]">
                 <ThemeImage
@@ -44,11 +44,11 @@ export function DemoFirstShowcase({ capabilities }: Props) {
               </div>
               <div className="flex flex-1 flex-col px-4 py-4 sm:px-5 sm:py-5">
                 <div className="mb-3 flex items-center justify-end">
-                  <span className="rounded-full bg-[var(--df-primary)]/10 px-2.5 py-0.5 text-[11px] font-bold text-[var(--df-primary-deep)]">
+                  <span className="rounded-full border border-[var(--site-border)] px-2.5 py-0.5 text-[11px] font-bold text-[var(--df-text-muted)]">
                     体験
                   </span>
                 </div>
-                <p className="mb-1.5 text-sm font-black tracking-wide text-[var(--df-primary)]">
+                <p className="mb-1.5 text-sm font-black tracking-wide text-[var(--df-text-muted)]">
                   {cap.subtitle}
                 </p>
                 <h3 className="mb-2 text-base font-black leading-snug text-[var(--df-text)] md:text-lg">
@@ -56,7 +56,7 @@ export function DemoFirstShowcase({ capabilities }: Props) {
                 </h3>
                 <p className="mb-3 text-xs leading-relaxed text-[var(--df-text-muted)]">
                   {cap.before}
-                  <span className="mx-1.5 font-bold text-[var(--df-primary)]">→</span>
+                  <span className="mx-1.5 font-bold text-[var(--df-text-muted)]">→</span>
                   {cap.after}
                 </p>
                 <div className="mb-4 flex flex-wrap gap-1.5">

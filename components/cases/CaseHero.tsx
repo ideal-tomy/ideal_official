@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { PageHero } from '@/components/sections/PageHero'
 import { HeroBackground } from '@/components/motion/HeroBackground'
 import type { CaseStudy } from '@/data/cases'
 
@@ -32,8 +31,21 @@ interface CasesIndexHeroProps {
   subtitle: string
 }
 
+/** 一覧用の低背ヒーロー（目次へすぐ到達させる） */
 export function CasesIndexHero({ title, subtitle }: CasesIndexHeroProps) {
-  return <PageHero title={title} description={subtitle} />
+  return (
+    <section className="relative -mt-16 overflow-hidden px-0 pb-10 pt-24 text-[var(--site-fg)] md:mt-0 md:pb-12 md:pt-28">
+      <HeroBackground />
+      <div className="relative z-10 mx-auto w-[min(100%-2rem,42rem)]">
+        <h1 className="text-[clamp(1.5rem,5.5vw,2.75rem)] font-black leading-tight tracking-[0.02em] text-[var(--site-fg)]">
+          {title}
+        </h1>
+        <p className="mt-3 max-w-[36rem] text-[0.9375rem] leading-relaxed text-[var(--site-fg-muted)] md:mt-4 md:text-base">
+          {subtitle}
+        </p>
+      </div>
+    </section>
+  )
 }
 
 export function CaseBackLink() {
