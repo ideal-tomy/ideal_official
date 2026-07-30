@@ -82,7 +82,8 @@ export const appProcessSteps = [
   {
     step: 3,
     title: '本番運用まで伴走',
-    description: '認証、データ連携、公開後の改善まで一気通貫で対応します。',
+    description:
+      'ログインや他ツールとのつなぎ込み、公開後の改善まで一気通貫で対応します。',
   },
 ] as const
 

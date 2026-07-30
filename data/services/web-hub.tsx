@@ -3,9 +3,9 @@ import type { ReactNode } from 'react'
 export const webHubHero = {
   title: '見るだけではなく、触れたくなるWebを。',
   subtitle:
-    'このページ自体が制作デモです。モーダルやモーションを触ってから、制作範囲を決められます。',
+    'このページ自体が制作デモです。動きや開閉を触ってから、制作範囲を決められます。',
   primaryCta: {
-    label: '技術を触ってみる',
+    label: '触ってみる',
     href: '#interaction-showcase',
   },
   secondaryCta: {
@@ -33,17 +33,18 @@ export const webProcessSteps = [
   {
     step: 1,
     title: '体験で方向を合わせる',
-    description: 'このページのようなインタラクションや構成で、目指す質感を共有します。',
+    description:
+      'このページのような操作感や構成で、目指す質感を先に共有します。',
   },
   {
     step: 2,
     title: '設計して作る',
-    description: '情報設計・UI・実装を一気通貫。Next.js / TypeScript を標準にします。',
+    description: '情報の整理・画面・実装まで一気通貫で進めます。',
   },
   {
     step: 3,
     title: '公開後も育てる',
-    description: '計測・改善・CMS運用まで。作って終わりにしない伴走です。',
+    description: '計測・改善・更新まで。作って終わりにしない伴走です。',
   },
 ] as const
 

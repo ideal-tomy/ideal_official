@@ -11,6 +11,7 @@ import {
 } from '@/components/services/ai-hub/AiHubBrowseSections'
 import { AiHubTechDetails } from '@/components/services/ai-hub/AiHubTechDetails'
 import { ServiceAiCta } from '@/components/sections/ServiceAiCta'
+import { ServiceSectionShell } from '@/components/services/ServiceSectionShell'
 import { aiServiceData } from '@/data/services/ai'
 import { serviceNavLinks } from '@/data/services/service-links'
 
@@ -19,7 +20,11 @@ const FAQSection = dynamic(
     import('@/components/sections/FAQSection').then((mod) => ({
       default: mod.FAQSection,
     })),
-  { loading: () => <div className="animate-pulse bg-[var(--site-bg-elevated)] rounded-lg h-64" /> }
+  {
+    loading: () => (
+      <div className="h-64 animate-pulse rounded-lg bg-[var(--site-bg-elevated)]" />
+    ),
+  },
 )
 
 const RelatedServicesSection = dynamic(
@@ -27,7 +32,11 @@ const RelatedServicesSection = dynamic(
     import('@/components/sections/RelatedServicesSection').then((mod) => ({
       default: mod.RelatedServicesSection,
     })),
-  { loading: () => <div className="animate-pulse bg-[var(--site-bg-elevated)] rounded-lg h-64" /> }
+  {
+    loading: () => (
+      <div className="h-64 animate-pulse rounded-lg bg-[var(--site-bg-elevated)]" />
+    ),
+  },
 )
 
 export const metadata: Metadata = {
@@ -44,37 +53,35 @@ export const metadata: Metadata = {
 export default function AIConsultingPage() {
   return (
     <div className="min-h-screen bg-[var(--site-bg)]">
-      <div className="border-b border-brand">
-        <AiHubHero />
-      </div>
+      <AiHubHero />
 
       <ServiceNavigation
         serviceLinks={serviceNavLinks}
         currentServiceId="ai-consulting"
       />
 
-      <AiHubCapabilityGrid />
       <AiHubFeaturedDemos />
+      <AiHubCapabilityGrid />
       <AiHubIndustryGrid />
       <AiHubProblemGrid />
       <AiHubProcess />
       <AiHubTechDetails />
 
-      <div className="border-b border-brand">
+      <ServiceSectionShell surface="default" padded={false} maxWidth="4xl">
         <FAQSection
           title="よくある質問"
           faqs={aiServiceData.faqs!}
-          variant="dark"
+          variant="default"
         />
-      </div>
+      </ServiceSectionShell>
 
-      <div className="border-b border-brand">
+      <ServiceSectionShell surface="elevated" padded={false} maxWidth="7xl">
         <RelatedServicesSection
           title="関連サービス"
           services={aiServiceData.relatedServices!}
-          variant="dark"
+          variant="default"
         />
-      </div>
+      </ServiceSectionShell>
 
       <ServiceAiCta serviceId="ai-consulting" />
     </div>

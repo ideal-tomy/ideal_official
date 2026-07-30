@@ -6,6 +6,7 @@ export function DemoFirstHero() {
   return (
     <PageHero
       id="top"
+      onMedia
       title="触って試せるシステム開発"
       description="言葉や資料ではなく、触れるデモで答え合わせ。Web・業務アプリ・AIをスピーディに開発。"
       background={

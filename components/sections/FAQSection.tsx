@@ -96,7 +96,7 @@ export function FAQSection({
               </p>
             )}
             {title && (
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-brand to-brand-hover bg-clip-text text-transparent">
+              <h2 className="mb-4 text-3xl font-bold text-brand md:text-4xl">
                 {title}
               </h2>
             )}

@@ -4,18 +4,19 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useCallback, useEffect, useId, useState } from 'react'
 import { useTheme } from '@/components/theme/ThemeProvider'
+import { FabServicesMenu } from '@/components/layout/FabServicesMenu'
+import { headerFooterServiceLinks } from '@/data/services/service-links'
 
 type NavItem = {
   href: string
   label: string
 }
 
-/** 実ページのみ（同一ページ内アンカーは含めない） */
+/** サービス以外の実ページ（サービスはドロップダウン／サブリスト） */
 const NAV_ITEMS: NavItem[] = [
   { href: '/', label: 'トップ' },
   { href: '/ai-capability-gallery', label: 'デモ一覧' },
   { href: '/cases', label: '活用イメージ' },
-  { href: '/services', label: 'サービス一覧' },
   { href: '/estimate', label: '自動見積もり' },
   { href: '/lab', label: 'LAB' },
   { href: '/contact', label: 'お問い合わせ' },
@@ -52,6 +53,29 @@ function ThemeToggleButton({
   )
 }
 
+function NavLink({
+  href,
+  label,
+  pathname,
+}: {
+  href: string
+  label: string
+  pathname: string
+}) {
+  const active =
+    pathname === href || (href !== '/' && pathname.startsWith(href))
+  return (
+    <Link
+      href={href}
+      className={`text-sm font-medium transition-colors hover:text-[var(--df-primary)] ${
+        active ? 'text-[var(--df-primary)]' : 'text-[var(--site-fg)]/80'
+      }`}
+    >
+      {label}
+    </Link>
+  )
+}
+
 export function FabDrawerNav() {
   const [open, setOpen] = useState(false)
   const pathname = usePathname()
@@ -79,10 +103,7 @@ export function FabDrawerNav() {
 
   return (
     <>
-      {/* PC: 横ナビバー */}
-      <header
-        className="sticky top-0 z-[1000] hidden border-b border-[color-mix(in_srgb,var(--site-fg)_12%,transparent)] bg-[color-mix(in_srgb,var(--site-bg)_92%,transparent)] backdrop-blur-md md:block"
-      >
+      <header className="sticky top-0 z-[1000] hidden border-b border-[color-mix(in_srgb,var(--site-fg)_12%,transparent)] bg-[color-mix(in_srgb,var(--site-bg)_92%,transparent)] backdrop-blur-md md:block">
         <nav
           className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-4 px-6 lg:px-8"
           aria-label="メインナビゲーション"
@@ -95,21 +116,26 @@ export function FabDrawerNav() {
           </Link>
 
           <ul className="flex flex-1 items-center justify-end gap-5 lg:gap-6">
-            {NAV_ITEMS.filter((item) => item.href !== '/').map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className={`text-sm font-medium transition-colors hover:text-[var(--df-primary)] ${
-                    pathname === item.href ||
-                    (item.href !== '/' && pathname.startsWith(item.href))
-                      ? 'text-[var(--df-primary)]'
-                      : 'text-[var(--site-fg)]/80'
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
+            <li>
+              <NavLink
+                href="/ai-capability-gallery"
+                label="デモ一覧"
+                pathname={pathname}
+              />
+            </li>
+            <li>
+              <NavLink href="/cases" label="活用イメージ" pathname={pathname} />
+            </li>
+            <FabServicesMenu pathname={pathname} />
+            <li>
+              <NavLink href="/estimate" label="自動見積もり" pathname={pathname} />
+            </li>
+            <li>
+              <NavLink href="/lab" label="LAB" pathname={pathname} />
+            </li>
+            <li>
+              <NavLink href="/contact" label="お問い合わせ" pathname={pathname} />
+            </li>
             <li>
               <ThemeToggleButton
                 theme={theme}
@@ -122,7 +148,6 @@ export function FabDrawerNav() {
         </nav>
       </header>
 
-      {/* SP: ロゴ（メニュー開時は非表示） */}
       <Link
         href="/"
         className={`fixed left-4 top-4 z-[1000] rounded-lg bg-[color-mix(in_srgb,var(--site-bg)_55%,transparent)] px-3 py-2 text-[22px] font-black tracking-[0.06em] text-[var(--site-fg)] backdrop-blur-sm md:hidden ${
@@ -162,7 +187,6 @@ export function FabDrawerNav() {
         </span>
       </button>
 
-      {/* SP: 全画面ドロワー */}
       <div
         id="site-drawer"
         role="dialog"
@@ -182,7 +206,50 @@ export function FabDrawerNav() {
           サイトメニュー
         </h2>
         <nav className="mx-auto w-full max-w-md" aria-label="メインナビゲーション">
-          {NAV_ITEMS.map((item) => (
+          {NAV_ITEMS.filter((item) =>
+            ['/', '/ai-capability-gallery', '/cases'].includes(item.href),
+          ).map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={close}
+              className="block border-b border-white/15 py-3 text-[20px] font-bold text-white"
+            >
+              {item.label}
+            </Link>
+          ))}
+
+          <div className="border-b border-white/15 py-3">
+            <p className="text-[13px] font-bold tracking-[0.12em] text-white/55">
+              サービス
+            </p>
+            <ul className="mt-2 space-y-1">
+              {headerFooterServiceLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    onClick={close}
+                    className="block py-1.5 text-[17px] font-bold text-white/90"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link
+                  href="/services"
+                  onClick={close}
+                  className="block py-1.5 text-[15px] font-medium text-white/70"
+                >
+                  サービス一覧を見る
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {NAV_ITEMS.filter((item) =>
+            ['/estimate', '/lab', '/contact'].includes(item.href),
+          ).map((item) => (
             <Link
               key={item.href}
               href={item.href}

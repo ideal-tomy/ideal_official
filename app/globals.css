@@ -57,6 +57,12 @@ html.light {
   --df-marquee-chip-border: #b7c9db;
   --df-marquee-label: #6b7280;
   --df-marquee-topic: #a16207;
+  /* サービス LP 用 */
+  --service-band-bg: #0f2744;
+  --service-band-fg: #f8fafc;
+  --service-band-muted: #94a3b8;
+  --service-cta-tint: color-mix(in srgb, #2b6fe0 8%, #ffffff);
+  --service-card-shadow: 0 8px 28px color-mix(in srgb, #1a1a2e 8%, transparent);
 }
 
 html.dark {
@@ -101,6 +107,12 @@ html.dark {
   --df-marquee-chip-border: #4a433c;
   --df-marquee-label: #a39e97;
   --df-marquee-topic: #e8c547;
+  /* サービス LP 用（ダークは elevated 寄り） */
+  --service-band-bg: #1c1916;
+  --service-band-fg: #f2ede8;
+  --service-band-muted: #a39e97;
+  --service-cta-tint: color-mix(in srgb, #f05a28 10%, #1c1916);
+  --service-card-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
 }
 
 .demo-first {

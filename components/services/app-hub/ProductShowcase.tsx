@@ -3,6 +3,7 @@
 import { Fragment, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { usePrefersReducedMotion } from '@/lib/use-prefers-reduced-motion'
+import { ServiceSectionShell } from '@/components/services/ServiceSectionShell'
 
 type ProcessState = 'idle' | 'processing' | 'done'
 
@@ -31,11 +32,15 @@ function InputProcessPanel() {
   }
 
   return (
-    <div className="rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)]/50 p-6 h-full flex flex-col">
-      <p className="mb-2 hidden text-xs tracking-[0.16em] text-brand/90 md:block">01 · Input → Process</p>
-      <h3 className="text-xl font-semibold text-[var(--site-fg)] mb-3">入力して、結果を得る</h3>
-      <p className="text-sm text-[var(--site-fg-muted)] mb-4 leading-relaxed">
-        フォームに入力 → 処理中 → 結果カード。業務ツールの基本フローです。
+    <div className="rounded-xl border border-[var(--site-border)] bg-[var(--site-bg)] p-6 h-full flex flex-col shadow-[var(--service-card-shadow)]">
+      <p className="mb-2 hidden text-xs tracking-[0.16em] text-brand/90 md:block">
+        <span className="rounded-full bg-brand/10 px-2 py-0.5">01 · 入力から結果</span>
+      </p>
+      <h3 className="mb-3 text-xl font-semibold text-[var(--site-fg)]">
+        入力して、結果を得る
+      </h3>
+      <p className="mb-4 text-sm leading-relaxed text-[var(--site-fg-muted)]">
+        フォームに入力 → 処理中 → 結果表示。業務ツールの基本の流れです。
       </p>
 
       <div className="flex-1 space-y-4">
@@ -124,11 +129,15 @@ function StatusPanel() {
   const reset = () => setCurrentIndex(0)
 
   return (
-    <div className="rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)]/50 p-6 h-full flex flex-col">
-      <p className="mb-2 hidden text-xs tracking-[0.16em] text-brand/90 md:block">02 · Status</p>
-      <h3 className="text-xl font-semibold text-[var(--site-fg)] mb-3">ステータスを進める</h3>
-      <p className="text-sm text-[var(--site-fg-muted)] mb-4 leading-relaxed">
-        未対応 → 対応中 → 確認待ち → 完了。案件管理の基本です。
+    <div className="rounded-xl border border-[var(--site-border)] bg-[var(--site-bg)] p-6 h-full flex flex-col shadow-[var(--service-card-shadow)]">
+      <p className="mb-2 hidden text-xs tracking-[0.16em] text-brand/90 md:block">
+        <span className="rounded-full bg-brand/10 px-2 py-0.5">02 · 進捗</span>
+      </p>
+      <h3 className="mb-3 text-xl font-semibold text-[var(--site-fg)]">
+        ステータスを進める
+      </h3>
+      <p className="mb-4 text-sm leading-relaxed text-[var(--site-fg-muted)]">
+        未対応 → 対応中 → 確認待ち → 完了。案件の進み具合をみんなで共有できます。
       </p>
 
       <div className="flex-1 flex flex-col justify-between">
@@ -206,11 +215,15 @@ function DashboardPanel() {
   const total = filtered.reduce((sum, d) => sum + d.value, 0)
 
   return (
-    <div className="rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)]/50 p-6 h-full flex flex-col">
-      <p className="mb-2 hidden text-xs tracking-[0.16em] text-brand/90 md:block">03 · Dashboard</p>
-      <h3 className="text-xl font-semibold text-[var(--site-fg)] mb-3">フィルターで変わる一覧</h3>
-      <p className="text-sm text-[var(--site-fg-muted)] mb-4 leading-relaxed">
-        フィルターを変えるとデータとグラフが変わります。モバイル操作も体験できます。
+    <div className="rounded-xl border border-[var(--site-border)] bg-[var(--site-bg)] p-6 h-full flex flex-col shadow-[var(--service-card-shadow)]">
+      <p className="mb-2 hidden text-xs tracking-[0.16em] text-brand/90 md:block">
+        <span className="rounded-full bg-brand/10 px-2 py-0.5">03 · 一覧</span>
+      </p>
+      <h3 className="mb-3 text-xl font-semibold text-[var(--site-fg)]">
+        フィルターで変わる一覧
+      </h3>
+      <p className="mb-4 text-sm leading-relaxed text-[var(--site-fg-muted)]">
+        条件を変えると一覧とグラフが変わります。スマホでの操作感も試せます。
       </p>
 
       <div className="flex gap-2 mb-4">
@@ -305,26 +318,19 @@ function DashboardPanel() {
 
 export function ProductShowcase() {
   return (
-    <section
+    <ServiceSectionShell
       id="product-showcase"
-      className="scroll-mt-24 bg-[var(--site-bg)] py-16 lg:py-20 border-b border-brand/40"
+      surface="elevated"
+      title="ここで触ってみる"
+      lead="言葉で説明する前に、動く仕組みの感触を確かめてください。入力・進捗・一覧の3つです。"
+      maxWidth="6xl"
+      className="scroll-mt-24"
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <header className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[var(--site-fg)]">
-            Interactive Product Showcase
-          </h2>
-          <p className="text-lg text-[var(--site-fg-muted)] max-w-2xl mx-auto">
-            「アプリ開発できます」ではなく、Webアプリとはこういう「動く仕組み」です。ここで触ってください。
-          </p>
-        </header>
-
-        <div className="grid lg:grid-cols-3 gap-5">
-          <InputProcessPanel />
-          <StatusPanel />
-          <DashboardPanel />
-        </div>
+      <div className="grid gap-5 lg:grid-cols-3">
+        <InputProcessPanel />
+        <StatusPanel />
+        <DashboardPanel />
       </div>
-    </section>
+    </ServiceSectionShell>
   )
 }

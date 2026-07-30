@@ -1,48 +1,44 @@
 import Link from 'next/link'
-import { colors, typography, transitions } from '@/lib/design-tokens'
+import { colors, transitions } from '@/lib/design-tokens'
 import { ServiceNavigationProps } from '@/types/service'
 
 /**
- * サービスナビゲーションコンポーネント
- * 単一責任: サービス間のナビゲーション表示のみを管理
+ * サービス間ナビ（sticky + blur）
  */
-export function ServiceNavigation({ 
-  serviceLinks, 
+export function ServiceNavigation({
+  serviceLinks,
   currentServiceId,
-  className = '' 
+  className = '',
 }: ServiceNavigationProps) {
   return (
-    <section className={`py-8 ${className}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* スクロールインジケーター（スマホ表示時のみ） */}
-        <div className="lg:hidden flex justify-center mb-4">
-          <div className="flex items-center gap-2 text-sm text-[var(--site-fg-muted)]">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
-            </svg>
-            <span>左右にスワイプしてスクロール</span>
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </div>
+    <nav
+      aria-label="サービス切替"
+      className={`sticky top-0 z-40 border-b border-[var(--site-border)] bg-[color-mix(in_srgb,var(--site-bg)_88%,transparent)] py-3 backdrop-blur-md md:py-4 ${className}`.trim()}
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-2 flex justify-center lg:hidden">
+          <p className="text-xs text-[var(--site-fg-muted)]">
+            ← 左右にスワイプ →
+          </p>
         </div>
-        
-        <div className="flex overflow-x-auto gap-2 sm:gap-4 pb-4 scrollbar-hide lg:flex-nowrap lg:justify-center lg:overflow-visible lg:pb-0 snap-x snap-mandatory px-4 lg:px-0">
+
+        <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide snap-x snap-mandatory sm:gap-3 lg:justify-center lg:overflow-visible lg:pb-0 lg:px-0">
           {serviceLinks.map((link) => {
             const isActive = currentServiceId === link.id
-            
+
             return (
               <Link
                 key={link.id}
                 href={link.href}
                 className={`
-                  px-4 py-2 rounded-lg text-sm font-medium flex-shrink-0 snap-start
+                  shrink-0 snap-start rounded-lg px-4 py-2 text-sm font-medium
                   ${transitions.colors}
                   ${colors.state.focus}
                   focus:outline-none
-                  ${isActive
-                    ? `${colors.accent.bg} ${colors.text.primary}`
-                    : `${colors.text.secondary} hover:${colors.text.primary} hover:bg-[var(--site-bg-elevated)]/50`
+                  ${
+                    isActive
+                      ? `${colors.accent.bg} text-[var(--df-on-primary)]`
+                      : `${colors.text.secondary} hover:${colors.text.primary} hover:bg-[var(--site-bg-elevated)]/50`
                   }
                 `}
               >
@@ -52,6 +48,6 @@ export function ServiceNavigation({
           })}
         </div>
       </div>
-    </section>
+    </nav>
   )
 }

@@ -8,6 +8,7 @@ import { aiHubHero } from '@/data/services/ai-hub'
 export function AiHubHero() {
   return (
     <PageHero
+      onMedia
       title={aiHubHero.title}
       description={aiHubHero.subtitle}
       background={

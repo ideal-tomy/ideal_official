@@ -1,62 +1,40 @@
 import { whatWeBuild, webProcessSteps } from '@/data/services/web-hub'
+import { ServiceProcessSteps } from '@/components/services/ServiceProcessSteps'
+import { ServiceSectionShell } from '@/components/services/ServiceSectionShell'
 
 export function WebWhatWeBuild() {
   return (
-    <section className="bg-[var(--site-bg)] py-16 lg:py-20 border-b border-brand/40">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <header className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[var(--site-fg)]">
-            What we build
-          </h2>
-          <p className="text-base text-[var(--site-fg-muted)] max-w-xl mx-auto">
-            社内にIT部門がなくても、 事業に必要な仕組みはつくれる。の概要です。詳細な技術は下の Under the Hood で触れます。
-          </p>
-        </header>
-
-        <div className="grid md:grid-cols-3 gap-5">
-          {whatWeBuild.map((item) => (
-            <div
-              key={item.title}
-              className="rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)]/40 p-6"
-            >
-              <h3 className="text-lg font-semibold text-[var(--site-fg)] mb-2">{item.title}</h3>
-              <p className="text-sm text-[var(--site-fg-muted)] leading-relaxed">{item.description}</p>
-            </div>
-          ))}
-        </div>
+    <ServiceSectionShell
+      surface="default"
+      title="こんなサイトが作れます"
+      lead="会社の顔になるサイトから、申込・会員まで。よくご依頼いただく型です。"
+      maxWidth="5xl"
+    >
+      <div className="grid gap-5 md:grid-cols-3">
+        {whatWeBuild.map((item) => (
+          <div
+            key={item.title}
+            className="flex h-full flex-col rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)] p-6 shadow-[var(--service-card-shadow)]"
+          >
+            <h3 className="mb-2 text-lg font-semibold text-[var(--site-fg)]">
+              {item.title}
+            </h3>
+            <p className="text-sm leading-relaxed text-[var(--site-fg-muted)]">
+              {item.description}
+            </p>
+          </div>
+        ))}
       </div>
-    </section>
+    </ServiceSectionShell>
   )
 }
 
 export function WebProcess() {
   return (
-    <section className="bg-[var(--site-bg)] py-16 lg:py-20 border-b border-brand/40">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <header className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[var(--site-fg)]">
-            進め方
-          </h2>
-          <p className="text-base text-[var(--site-fg-muted)] max-w-xl mx-auto">
-            質感を先に合わせ、設計・実装、公開後の改善まで伴走します。
-          </p>
-        </header>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {webProcessSteps.map((item) => (
-            <div
-              key={item.step}
-              className="rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)]/40 p-6"
-            >
-              <span className="text-2xl font-bold text-brand/70 mb-3 block">
-                {item.step}
-              </span>
-              <h3 className="text-lg font-semibold text-[var(--site-fg)] mb-2">{item.title}</h3>
-              <p className="text-sm text-[var(--site-fg-muted)] leading-relaxed">{item.description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <ServiceProcessSteps
+      lead="質感を先に合わせ、設計・実装、公開後の改善まで伴走します。"
+      steps={webProcessSteps}
+      surface="elevated"
+    />
   )
 }

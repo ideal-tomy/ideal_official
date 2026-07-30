@@ -42,8 +42,8 @@ type PageHeroProps = {
   /** false のときヘッダー重なり用の -mt-16 を付けない */
   overlapHeader?: boolean
   /**
-   * 写真など暗いオーバーレイ上に載せるとき true（白文字）
-   * background 指定時はデフォルト true
+   * 写真など暗いオーバーレイ上に載せるとき true（白文字）。
+   * テーマ連動のグラデ背景では false（未指定時も false）。
    */
   onMedia?: boolean
 }
@@ -59,9 +59,9 @@ export function PageHero({
   className = '',
   id,
   overlapHeader = true,
-  onMedia,
+  onMedia = false,
 }: PageHeroProps) {
-  const media = onMedia ?? Boolean(background)
+  const media = onMedia
 
   const sectionClass = media
     ? overlapHeader

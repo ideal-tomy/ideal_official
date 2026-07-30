@@ -1,16 +1,19 @@
 /**
- * サービスページ
+ * サービス一覧ハブ（営業 LP 型）
  */
 
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
-import { Section } from '@/components/ui/Section'
-import { PageHero } from '@/components/sections/PageHero'
-import { ServiceNavigation } from '@/components/sections/ServiceNavigation'
 import { CallToAction } from '@/components/sections/CallToAction'
-import { typography, colors } from '@/lib/design-tokens'
-import { serviceNavLinks, labNavLinks } from '@/data/services/service-links'
+import { ServiceHubHero } from '@/components/services/hub/ServiceHubHero'
+import { ServiceProblemSolution } from '@/components/services/hub/ServiceProblemSolution'
+import { ServiceCardGrid } from '@/components/services/hub/ServiceCardGrid'
+import { ServiceFeaturedDemos } from '@/components/services/hub/ServiceFeaturedDemos'
+import { ServiceFeaturedCases } from '@/components/services/hub/ServiceFeaturedCases'
+import { ServiceProcessSteps } from '@/components/services/ServiceProcessSteps'
+import { ServiceSectionShell } from '@/components/services/ServiceSectionShell'
+import { hubProcessSteps } from '@/data/services/hub'
+import { labNavLinks } from '@/data/services/service-links'
 
 const servicesDescription =
   '提案書の前に動くデモを。Webサイト・業務ツール・AI自動化まで、触って確かめてから開発するデモファーストのDX支援。'
@@ -24,162 +27,48 @@ export const metadata: Metadata = {
   },
 }
 
-const services = [
-  {
-    id: 'web-development',
-    title: 'Webサイト・LP制作',
-    description:
-      '構成・UI・モーション・実装まで一貫。このサイト自体が制作デモです。言葉だけの提案ではなく、動く体験で方向を合わせます。',
-    image: '/images/sv_web.png',
-    features: [
-      'コーポレートサイト・サービスLP',
-      'レスポンシブ・SEO・パフォーマンス最適化',
-      'モーダル・モーションなど体験型UI',
-      'CMS導入・コンテンツ更新のしやすさ',
-      'まず触れるプロトタイプから本実装へ',
-    ],
-  },
-  {
-    id: 'app-development',
-    title: 'Webアプリ・業務ツール開発',
-    description:
-      'Excel、紙、LINE、手作業の業務をWebツールに。入力→処理→結果をデモで体験してから、本開発の範囲を決めます。',
-    image: '/images/sv_app.png',
-    features: [
-      '業務Web・管理画面・現場入力ツール',
-      'PWA・SPA・社内ツール',
-      '既存業務フローのデジタル化',
-      'デモ検証から本番運用まで',
-      'AI機能の組み込み（必要に応じて）',
-    ],
-  },
-  {
-    id: 'ai-consulting',
-    title: 'AIプロトタイプ・自動化',
-    description:
-      '「AIでできないか」を、まず動くデモから検証。7つの業務変化パターンから自社に近いものを選び、触って判断できます。',
-    image: '/images/top_ai.png',
-    features: [
-      'AI Capability Demo Gallery（触れるデモ）',
-      '業務フローへの組み込み・効率化',
-      'プロトタイプ検証から実装まで',
-      '自然言語処理・データ活用',
-      '業界別の活用イメージとの接続',
-    ],
-  },
-]
-
 const labTeaserLinks = labNavLinks.filter((l) =>
   ['/lab', '/lab/insights', '/lab/blockchain', '/lab/metaverse'].includes(l.href),
 )
 
 export default function ServicesPage() {
   return (
-    <>
-      <PageHero
-        title="デモから始めるDX開発"
-        description="汎用ツールの導入で終わらせず、現場の課題を触れるデモにして答え合わせ。小さく作り、反応を見ながら育てます。"
+    <div className="min-h-screen bg-[var(--site-bg)]">
+      <ServiceHubHero />
+      <ServiceProblemSolution />
+      <ServiceCardGrid />
+      <ServiceFeaturedDemos />
+      <ServiceFeaturedCases />
+      <ServiceProcessSteps
+        lead="質感を先に合わせ、設計・実装、公開後の改善まで伴走します。"
+        steps={hubProcessSteps}
+        surface="elevated"
       />
 
-      <ServiceNavigation serviceLinks={serviceNavLinks} currentServiceId="" />
+      <div className="bg-[var(--service-cta-tint)]">
+        <CallToAction />
+      </div>
 
-      {services.map((service, index) => (
-        <div key={service.id}>
-          {index > 0 && <div className="border-b border-brand" />}
-
-          <Section backgroundColor="black" className="py-16 md:py-24">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className={index % 2 === 0 ? 'lg:order-1' : 'lg:order-2'}>
-                <div className="relative overflow-hidden rounded-lg">
-                  <div className="absolute inset-0 z-0">
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      fill
-                      className="object-cover opacity-20"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                  </div>
-
-                  <div className="relative z-10 p-8 md:p-12">
-                    <h2 className={`${typography.h2} ${colors.text.primary} mb-4`}>
-                      {service.title}
-                    </h2>
-                    <p className={`${typography.body} ${colors.text.muted} mb-8`}>
-                      {service.description}
-                    </p>
-
-                    <Link
-                      href={`/services/${service.id}`}
-                      className="inline-block text-brand hover:text-brand-hover font-medium text-lg transition-colors duration-200"
-                    >
-                      {service.title}の詳細へ →
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              <div className={`text-center ${index % 2 === 0 ? 'lg:order-2' : 'lg:order-1'}`}>
-                <div className="inline-block text-left">
-                  <h3 className={`${typography.h4} ${colors.text.primary} mb-6`}>
-                    主な内容
-                  </h3>
-                  <ul className="space-y-4">
-                    {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-start gap-3">
-                        <svg
-                          className="w-6 h-6 text-[var(--df-text-muted)] flex-shrink-0 mt-1"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M5 13l4 4L19 7"
-                          />
-                        </svg>
-                        <span className={`${typography.body} ${colors.text.secondary}`}>
-                          {feature}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </Section>
-        </div>
-      ))}
-
-      <Section backgroundColor="black" className="py-16 md:py-20 border-t border-[var(--site-border)]">
-        <div className="max-w-3xl mx-auto text-center px-4">
-          <p className="text-xs font-medium tracking-[0.2em] uppercase text-brand/90 mb-3">
-            LAB
-          </p>
-          <h2 className={`${typography.h3} ${colors.text.primary} mb-4`}>
-            深い技術・研究は LAB へ
-          </h2>
-          <p className={`${typography.body} ${colors.text.muted} mb-8`}>
-            Blockchain / DAO、Spatial / VR・AR、Insights など、依頼の主力サービスではなく研究・実験の領域としてまとめています。
-          </p>
-          <ul className="flex flex-wrap justify-center gap-3">
-            {labTeaserLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="inline-block px-4 py-2 rounded-lg border border-[var(--site-border)] text-sm text-[var(--site-fg-muted)] hover:border-brand/40 hover:text-[var(--site-fg)] transition-colors"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </Section>
-
-      <CallToAction />
-    </>
+      <ServiceSectionShell
+        surface="default"
+        kicker="LAB"
+        title="深い技術・研究は LAB へ"
+        lead="Blockchain / DAO、Spatial / VR・AR、Insights など、依頼の主力サービスではなく研究・実験の領域としてまとめています。"
+        maxWidth="3xl"
+      >
+        <ul className="flex flex-wrap justify-center gap-3">
+          {labTeaserLinks.map((link) => (
+            <li key={link.href}>
+              <Link
+                href={link.href}
+                className="inline-block rounded-lg border border-[var(--site-border)] px-4 py-2 text-sm text-[var(--site-fg-muted)] transition-colors hover:border-brand/40 hover:text-[var(--site-fg)]"
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </ServiceSectionShell>
+    </div>
   )
 }

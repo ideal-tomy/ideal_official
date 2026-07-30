@@ -113,7 +113,7 @@ export function RelatedServicesSection({
               </p>
             )}
             {title && (
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-brand to-brand-hover bg-clip-text text-transparent">
+              <h2 className="mb-4 text-3xl font-bold text-brand md:text-4xl">
                 {title}
               </h2>
             )}
@@ -135,12 +135,13 @@ export function RelatedServicesSection({
               key={service.id}
               href={service.href}
               className={`
-                ${colors.bg.secondary} ${colors.border.default} border rounded-lg
+                group flex h-full flex-col
+                ${colors.bg.secondary} ${colors.border.default} border rounded-xl
                 ${getCardSizeStyles()}
-                ${colors.state.hover} ${colors.state.focus}
+                ${colors.state.focus}
                 focus:outline-none cursor-pointer
                 transition-all duration-300
-                hover:scale-105 hover:shadow-lg
+                hover:-translate-y-0.5 hover:border-brand/40 hover:shadow-[var(--service-card-shadow)]
                 block
               `}
             >
@@ -176,16 +177,12 @@ export function RelatedServicesSection({
                 {service.description}
               </p>
 
-              {/* タグ */}
               {service.tags && service.tags.length > 0 && (
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="mb-4 flex flex-wrap gap-2">
                   {service.tags.map((tag, tagIndex) => (
                     <span
                       key={tagIndex}
-                      className={`
-                        px-2 py-1 text-xs font-medium rounded-full
-                        ${colors.accent.bg} ${colors.text.primary}
-                      `}
+                      className="rounded-full border border-brand/30 bg-brand/10 px-2.5 py-0.5 text-xs font-medium text-brand"
                     >
                       {tag}
                     </span>
@@ -193,16 +190,11 @@ export function RelatedServicesSection({
                 </div>
               )}
 
-              {/* リンクインジケーター */}
-              <div className="text-center">
-                <span className={`
-                  inline-flex items-center text-sm font-medium
-                  text-brand hover:text-[var(--site-fg)]
-                  transition-colors duration-200
-                `}>
+              <div className="mt-auto text-right">
+                <span className="inline-flex items-center text-sm font-medium text-brand transition-colors group-hover:text-brand-hover">
                   詳細を見る
                   <svg
-                    className="ml-1 w-4 h-4"
+                    className="ml-1 h-4 w-4"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
