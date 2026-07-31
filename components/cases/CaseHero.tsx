@@ -79,17 +79,16 @@ export function CasesIndexHero({
 
       <div
         className="
-          mx-auto grid min-h-[680px] w-full max-w-[1440px]
+          mx-auto grid w-full max-w-[1440px]
           items-center gap-10
-          px-5 pb-16 pt-24
+          px-5 py-[clamp(72px,10vh,128px)]
           sm:px-8
-          md:pb-20 md:pt-24
           lg:grid-cols-[0.82fr_1.18fr] lg:gap-4 lg:px-12
           xl:px-16
         "
       >
         {/* 左側：HTMLコンテンツ */}
-        <div className="relative z-20 max-w-[560px] py-4 lg:py-10">
+        <div className="relative z-20 max-w-[560px]">
           <p className="mb-7 flex items-center gap-4 text-base font-bold text-blue-600 md:text-lg">
             <span
               aria-hidden="true"
