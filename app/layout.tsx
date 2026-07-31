@@ -68,7 +68,7 @@ export default function RootLayout({
         <ThemeProvider>
           <ConciergeProvider>
             <FabDrawerNav />
-            <main className="flex-grow pt-16 md:pt-0">
+            <main className="flex-grow pt-16 pb-28 md:pt-0">
               {children}
             </main>
             <FooterConcierge />

@@ -20,7 +20,10 @@ export function ConciergeRoot() {
 
   return (
     <>
-      {showFab ? <ConciergeFab onClick={() => openConcierge()} /> : null}
+      <ConciergeFab
+        enabled={showFab}
+        onClick={() => openConcierge()}
+      />
       <ConciergePanel
         open={open}
         onClose={() => setOpen(false)}
