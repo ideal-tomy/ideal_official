@@ -23,10 +23,11 @@ export default function CasesIndexPage() {
     <div className="min-h-screen bg-[var(--site-bg)]">
       <CasesIndexHero
         title="自社の仕事に、置き換えてみる。"
-        subtitle="業界ごとの現場の流れと変化を読むページです。詳細で Before / After や向き不向きを確認し、そこから関連デモへ進めます。"
+        subtitle="現場管理、報告、進捗確認。実際のツールに触れながら、業務の流れを具体的にイメージできます。"
+        primaryCta={{ label: '業種から探す', href: '#cases-browse' }}
       />
 
-      <div className="pb-4 pt-8 md:pb-6 md:pt-10">
+      <div id="cases-browse" className="scroll-mt-24 pb-4 pt-8 md:scroll-mt-28 md:pb-6 md:pt-10">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <p className="mb-6 text-xs font-medium uppercase tracking-[0.18em] text-[var(--site-fg-muted)] md:mb-8">
             業種から選ぶ

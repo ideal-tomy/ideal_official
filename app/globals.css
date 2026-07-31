@@ -363,3 +363,20 @@ html.light .theme-img-light {
 .research-prose li::marker {
   color: color-mix(in srgb, var(--color-brand) 70%, transparent);
 }
+
+/* /cases 一覧 Hero — ライトは氷青固定、ダークは elevated + brand グロー */
+.cases-index-hero-bg {
+  background:
+    radial-gradient(circle at 68% 18%, rgba(147, 197, 253, 0.42), transparent 46%),
+    linear-gradient(180deg, #eef5ff 0%, #ffffff 78%);
+}
+
+html.dark .cases-index-hero-bg {
+  background:
+    radial-gradient(
+      circle at 70% 20%,
+      color-mix(in srgb, var(--color-brand) 14%, transparent),
+      transparent 48%
+    ),
+    linear-gradient(180deg, var(--site-bg-elevated) 0%, var(--site-bg) 88%);
+}
