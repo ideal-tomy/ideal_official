@@ -152,7 +152,7 @@ export function CasesIndexHero({
         >
           <div className="relative aspect-square w-full">
             <Image
-              src="/images/cases/genba-phone.png"
+              src="/images/cases/cases-hero-visual01.png"
               alt="現場管理ダッシュボードとスマートフォンの操作画面"
               fill
               priority
