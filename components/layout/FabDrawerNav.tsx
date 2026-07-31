@@ -103,7 +103,7 @@ export function FabDrawerNav() {
 
   return (
     <>
-      <header className="sticky top-0 z-[1000] hidden border-b border-[color-mix(in_srgb,var(--site-fg)_12%,transparent)] bg-[color-mix(in_srgb,var(--site-bg)_92%,transparent)] backdrop-blur-md md:block">
+      <header className="sticky top-0 z-[1000] hidden border-b border-[color-mix(in_srgb,var(--site-fg)_12%,transparent)] bg-[color-mix(in_srgb,var(--site-bg)_80%,transparent)] backdrop-blur-md md:block">
         <nav
           className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-4 px-6 lg:px-8"
           aria-label="メインナビゲーション"
@@ -148,44 +148,48 @@ export function FabDrawerNav() {
         </nav>
       </header>
 
-      <Link
-        href="/"
-        className={`fixed left-4 top-4 z-[1000] rounded-lg bg-[color-mix(in_srgb,var(--site-bg)_55%,transparent)] px-3 py-2 text-[22px] font-black tracking-[0.06em] text-[var(--site-fg)] backdrop-blur-sm md:hidden ${
-          open ? 'hidden' : ''
-        }`}
-      >
-        ideal
-      </Link>
+      <header className="sticky top-0 z-[1100] border-b border-[var(--site-border)] bg-[color-mix(in_srgb,var(--site-bg)_80%,transparent)] backdrop-blur-md md:hidden">
+        <div className="flex h-14 items-center justify-between px-4">
+          <Link
+            href="/"
+            className={`px-1 py-2 text-[22px] font-black tracking-[0.06em] text-[var(--site-fg)] ${
+              open ? 'invisible' : ''
+            }`}
+          >
+            ideal
+          </Link>
 
-      <button
-        type="button"
-        className={`fixed right-4 top-4 z-[1100] grid h-14 w-14 place-items-center rounded-[10px] border border-[color-mix(in_srgb,var(--site-fg)_22%,transparent)] bg-[color-mix(in_srgb,var(--site-bg)_70%,transparent)] shadow-[0_4px_16px_rgba(0,0,0,.2)] backdrop-blur-sm md:hidden ${
-          open ? 'fab-open' : ''
-        }`}
-        aria-label={open ? 'メニューを閉じる' : 'メニューを開く'}
-        aria-expanded={open}
-        aria-controls="site-drawer"
-        onClick={() => setOpen((v) => !v)}
-      >
-        <span className="sr-only">メニュー</span>
-        <span className="flex w-6 flex-col gap-[5px]" aria-hidden>
-          <span
-            className={`block h-0.5 w-full bg-[var(--site-fg)] transition-transform duration-300 ${
-              open ? 'translate-y-[7px] rotate-45' : ''
+          <button
+            type="button"
+            className={`grid h-11 min-h-11 w-11 min-w-11 place-items-center text-[var(--site-fg)] ${
+              open ? 'fab-open' : ''
             }`}
-          />
-          <span
-            className={`block h-0.5 w-full bg-[var(--site-fg)] transition-opacity duration-300 ${
-              open ? 'opacity-0' : ''
-            }`}
-          />
-          <span
-            className={`block h-0.5 w-full bg-[var(--site-fg)] transition-transform duration-300 ${
-              open ? '-translate-y-[7px] -rotate-45' : ''
-            }`}
-          />
-        </span>
-      </button>
+            aria-label={open ? 'メニューを閉じる' : 'メニューを開く'}
+            aria-expanded={open}
+            aria-controls="site-drawer"
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span className="sr-only">メニュー</span>
+            <span className="flex w-6 flex-col gap-[5px]" aria-hidden>
+              <span
+                className={`block h-0.5 w-full bg-[var(--site-fg)] transition-transform duration-300 ${
+                  open ? 'translate-y-[7px] rotate-45' : ''
+                }`}
+              />
+              <span
+                className={`block h-0.5 w-full bg-[var(--site-fg)] transition-opacity duration-300 ${
+                  open ? 'opacity-0' : ''
+                }`}
+              />
+              <span
+                className={`block h-0.5 w-full bg-[var(--site-fg)] transition-transform duration-300 ${
+                  open ? '-translate-y-[7px] -rotate-45' : ''
+                }`}
+              />
+            </span>
+          </button>
+        </div>
+      </header>
 
       <div
         id="site-drawer"
