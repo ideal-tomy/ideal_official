@@ -101,9 +101,8 @@ export function CasesIndexHero({
           <h1 className="text-[clamp(2.75rem,5.4vw,4.5rem)] font-black leading-[1.16] tracking-[-0.055em] text-slate-950">
             {titleLines.length === 2 ? (
               <>
-                {titleLines[0]}
-                <br />
-                {titleLines[1]}
+                <span className="inline-block">{titleLines[0]}</span>{' '}
+                <span className="inline-block">{titleLines[1]}</span>
               </>
             ) : (
               title

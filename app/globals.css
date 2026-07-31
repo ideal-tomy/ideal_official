@@ -380,3 +380,9 @@ html.dark .cases-index-hero-bg {
     ),
     linear-gradient(180deg, var(--site-bg-elevated) 0%, var(--site-bg) 88%);
 }
+
+h1, h2, h3 {
+  word-break: auto-phrase;
+  line-break: strict;
+  text-wrap: balance;
+}
