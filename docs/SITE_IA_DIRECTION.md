@@ -169,10 +169,12 @@ cases が悪いのではなく、**デモ/業種の説明双子になってい�
 ### Phase A — 建設W型を1本作る（最初にやること）
 
 1. 建設の記録デモ向け **W型LP v1.1** を1本作成  
+   - slug（確定）: `construction-record` → 公開URL `/demo/w/construction-record`
    - 参照ブロック: [`re_demo/lp-block-definition-v1.md`](./re_demo/lp-block-definition-v1.md)  
+   - brief: [`re_demo/brief-construction-record-w.md`](./re_demo/brief-construction-record-w.md)
    - 体験先: 既存外部ハブ（`construction_demo`）  
    - 吸収元: `data/cases/construction-photo-sorting.ts` の説明  
-   - 推奨slug案: `construction-records`（確定は実装時。TOPカードの `detailHref` と一致させる）
+   - 実装: `data/demo-lp/construction-record.ts`（Phase A 済み）
 2. TOPの建設カードだけ  
    - 主ボタン「詳しく見る」→ 建設W型LP  
    - 補助「デモを直接開く ↗」→ 外部ハブ  
@@ -183,7 +185,7 @@ cases が悪いのではなく、**デモ/業種の説明双子になってい�
 
 | 順 | 業種カード | W型LP | 外部デモ |
 |---|---|---|---|
-| 1 | 建設・設備 | 建設の記録 | 建設ハブ |
+| 1 | 建設・設備 | `/demo/w/construction-record`（建設の記録） | 建設ハブ |
 | 2 | 医療・福祉 | ケア記録 | 介護デモ |
 | 3 | 製造 | 製造の判断（またはナレッジ） | 製造ハブ |
 | 4 | 小売・サービス | 案内/CS系（準備できてから） | 既存外部 |
@@ -272,9 +274,9 @@ LP内の意思決定CTAは原則:
 
 実装着手のチェックリスト（Phase A）。
 
-- [ ] 建設W型の slug / brief / LpConfig 置き場を決めた
-- [ ] `construction-photo-sorting` からの吸収項目を brief に転記した
-- [ ] TOP建設カードの `detailHref` / ラベル / 補助リンク仕様を決めた
+- [x] 建設W型の slug / brief / LpConfig 置き場を決めた（`/demo/w/construction-record` · `data/demo-lp/construction-record.ts`）
+- [x] `construction-photo-sorting` からの吸収項目を brief に転記した（Phase A 実装済み）
+- [x] TOP建設カードの `detailHref` / ラベル / 補助リンク仕様を決めた
 - [ ] 旧cases URLのリダイレクト方針（即時 or Phase C）を決めた
 
 ---

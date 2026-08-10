@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { demoLpSlugs, getDemoLp } from '@/data/demo-lp'
+import { getDemoLp, listWorkflowLpSlugs } from '@/data/demo-lp'
 import { assertLpConfig } from '@/lib/demo-lp/assert'
 import { DemoLpClient } from '@/components/demo-lp/DemoLpClient'
 
@@ -9,9 +9,7 @@ type PageProps = {
 }
 
 export function generateStaticParams() {
-  return demoLpSlugs
-    .filter((slug) => getDemoLp(slug)?.delivery.kind !== 'workflow')
-    .map((slug) => ({ slug }))
+  return listWorkflowLpSlugs().map((slug) => ({ slug }))
 }
 
 export async function generateMetadata({
@@ -19,7 +17,7 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { slug } = await params
   const cfg = getDemoLp(slug)
-  if (!cfg || cfg.delivery.kind === 'workflow') return {}
+  if (!cfg || cfg.delivery.kind !== 'workflow') return {}
   const { ogp, noindex } = cfg.delivery
   return {
     title: ogp.title,
@@ -36,10 +34,10 @@ export async function generateMetadata({
   }
 }
 
-export default async function DemoLpRoutePage({ params }: PageProps) {
+export default async function WorkflowDemoLpPage({ params }: PageProps) {
   const { slug } = await params
   const cfg = getDemoLp(slug)
-  if (!cfg || cfg.delivery.kind === 'workflow') notFound()
+  if (!cfg || cfg.delivery.kind !== 'workflow') notFound()
 
   const errors = assertLpConfig(cfg)
   if (errors.length) {

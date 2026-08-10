@@ -42,6 +42,33 @@ export function assertLpConfig(cfg: LpConfig): string[] {
     errors.push('B14のフォーム項目が5つを超えています（離脱要因）')
   }
 
+  if (cfg.partsCatalog) {
+    if (cfg.partsCatalog.items.length < 3) {
+      errors.push('W-B07aの部品カタログは3枚以上必要です')
+    }
+    for (const part of cfg.partsCatalog.items) {
+      if (!part.seamRemoved?.trim()) {
+        errors.push(`W-B07a「${part.name}」に seamRemoved がありません`)
+      }
+      if (!part.demoUrl?.trim()) {
+        errors.push(`W-B07a「${part.name}」に demoUrl がありません`)
+      }
+      if (!part.standalone && (!part.dependsOn || part.dependsOn.length === 0)) {
+        errors.push(
+          `W-B07a「${part.name}」は standalone:false のため dependsOn が必要です`,
+        )
+      }
+    }
+  }
+
+  if (cfg.delivery.kind === 'workflow' && !cfg.fit.scopeNote?.trim()) {
+    errors.push('W型の B05 に scopeNote がありません')
+  }
+
+  if (cfg.resultTabs && cfg.resultTabs.tabs.length !== 3) {
+    errors.push('W-B08 の resultTabs は3枚である必要があります')
+  }
+
   const brandWords = ['AXEON', 'ideal合同会社']
   const scan = JSON.stringify({ ...cfg, brand: undefined })
   for (const w of brandWords) {

@@ -2,10 +2,13 @@
 
 import { useEffect } from 'react'
 import type { LpConfig } from '@/lib/demo-lp/types'
+import { getLpPublicPath } from '@/lib/demo-lp/types'
 import { DemoLpCtaLink } from './DemoLpCtaLink'
 import { DemoLpRoiSection } from './DemoLpRoiSection'
 import { DemoLpFaq } from './DemoLpFaq'
 import { DemoLpFinalForm } from './DemoLpFinalForm'
+import { DemoLpPartsCatalog } from './DemoLpPartsCatalog'
+import { DemoLpResultTabs } from './DemoLpResultTabs'
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
@@ -17,6 +20,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 
 export function DemoLpPage({ config }: { config: LpConfig }) {
   const { brand, delivery } = config
+  const publicPath = getLpPublicPath(delivery)
 
   useEffect(() => {
     if (!delivery.trackReferrer || typeof window === 'undefined') return
@@ -210,13 +214,19 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
               >
                 <p className="mb-1 text-xs font-semibold text-[var(--lp-primary)]">
                   {c.no}
+                  {c.roleLabel ? ` · ${c.roleLabel}` : ''}
                 </p>
                 <h3 className="mb-2 font-bold leading-snug">{c.title}</h3>
                 <p className="text-sm text-[var(--lp-ink)]/70">{c.body}</p>
               </div>
             ))}
           </div>
-          <p className="mt-6 text-sm font-medium text-[var(--lp-ink)]">
+          {config.fit.scopeNote && (
+            <p className="mt-6 text-sm leading-relaxed text-[var(--lp-ink)]/55">
+              {config.fit.scopeNote}
+            </p>
+          )}
+          <p className="mt-4 text-sm font-medium text-[var(--lp-ink)]">
             {config.fit.affirm}
           </p>
           <p className="mt-3 text-sm leading-relaxed text-[var(--lp-ink)]/60">
@@ -258,6 +268,11 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
         </section>
       )}
 
+      {/* W-B07a parts catalog */}
+      {config.partsCatalog && (
+        <DemoLpPartsCatalog block={config.partsCatalog} />
+      )}
+
       {/* B07 mechanism */}
       <section className="py-14 md:py-20">
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
@@ -293,8 +308,13 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
         </div>
       </section>
 
-      {/* B08 result */}
-      {config.resultShot && (
+      {/* B08 result — tabs (W) 優先、なければ単発ショット */}
+      {config.resultTabs ? (
+        <DemoLpResultTabs
+          tabs={config.resultTabs.tabs}
+          note={config.resultTabs.note}
+        />
+      ) : config.resultShot ? (
         <section className="bg-white py-14 md:py-16">
           <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
             <p className="mb-4 font-semibold text-[var(--lp-ink)]">
@@ -311,7 +331,7 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
             </p>
           </div>
         </section>
-      )}
+      ) : null}
 
       {/* B09 comparison */}
       {config.comparison && (
@@ -387,7 +407,11 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
       )}
 
       {/* B11 ROI */}
-      <DemoLpRoiSection block={config.roi} demoSlug={delivery.slug} />
+      <DemoLpRoiSection
+        block={config.roi}
+        demoSlug={delivery.slug}
+        returnPath={publicPath}
+      />
 
       {/* B12 process */}
       <section className="py-14 md:py-20">
@@ -417,6 +441,16 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
           <p className="mt-6 text-sm text-[var(--lp-ink)]/55">
             {config.process.exitNote}
           </p>
+          {config.process.detailHref && (
+            <p className="mt-4">
+              <a
+                href={config.process.detailHref}
+                className="text-sm font-semibold text-[var(--lp-primary)] hover:underline"
+              >
+                {config.process.detailLabel ?? '導入の流れの詳細を見る →'}
+              </a>
+            </p>
+          )}
         </div>
       </section>
 

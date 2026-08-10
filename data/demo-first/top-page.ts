@@ -74,10 +74,10 @@ export function getIndustryCards(): IndustryCard[] {
             ...construction.after.steps.slice(-1).map((s) => `${s.label}：${s.detail}`),
           ]
         : [],
-      detailHref: construction ? getCaseHref(construction.slug) : undefined,
-      detailLabel: '流れを見る',
+      detailHref: '/demo/w/construction-record',
+      detailLabel: '詳しく見る',
       tryHref: CONSTRUCTION_HUB_HREF,
-      tryLabel: '建設の記録デモ（3体験）',
+      tryLabel: 'デモを直接開く',
       tryExternal: true,
     },
     {

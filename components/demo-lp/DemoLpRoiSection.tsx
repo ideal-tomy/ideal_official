@@ -9,9 +9,12 @@ import { buildRoiSimulatorHrefForGalleryDemo } from '@/lib/roiSimulator'
 export function DemoLpRoiSection({
   block,
   demoSlug,
+  returnPath,
 }: {
   block: RoiBlock
   demoSlug: string
+  /** 未指定時は /demo/{slug}（F型）。W型は呼び出し側で publicPath を渡す */
+  returnPath?: string
 }) {
   const { config } = block
   const [values, setValues] = useState<Record<string, number>>(() =>
@@ -29,12 +32,14 @@ export function DemoLpRoiSection({
   )
   const payback =
     dev && recoverable > 0
-      ? `${(dev.low / recoverable * 12).toFixed(1)}〜${(dev.high / recoverable * 12).toFixed(1)}ヶ月`
+      ? `${((dev.low / recoverable) * 12).toFixed(1)}〜${((dev.high / recoverable) * 12).toFixed(1)}ヶ月`
       : null
 
   const externalRoi = buildRoiSimulatorHrefForGalleryDemo(demoSlug, {
-    returnPath: `/demo/${demoSlug}`,
+    returnPath: returnPath ?? `/demo/${demoSlug}`,
   })
+  const { leadTimeLabel, leadTimeValue } = config.outputs
+  const hasLeadTime = Boolean(leadTimeLabel && leadTimeValue)
 
   return (
     <section
@@ -100,6 +105,14 @@ export function DemoLpRoiSection({
               {formatManYen(recoverable)}
             </p>
           </div>
+          {hasLeadTime && (
+            <div className="rounded-xl border border-[var(--lp-primary)]/25 bg-[var(--lp-primary)]/5 p-5 sm:col-span-2">
+              <p className="text-xs text-[var(--lp-ink)]/60">{leadTimeLabel}</p>
+              <p className="mt-1 text-xl font-bold tracking-tight text-[var(--lp-primary)] md:text-2xl">
+                {leadTimeValue}
+              </p>
+            </div>
+          )}
           {payback && config.outputs.paybackLabel && (
             <div className="rounded-xl border border-[var(--lp-ink)]/10 bg-white p-5 sm:col-span-2">
               <p className="text-xs text-[var(--lp-ink)]/60">
@@ -117,6 +130,7 @@ export function DemoLpRoiSection({
         </p>
 
         <div className="mt-6 flex flex-wrap gap-3">
+          <DemoLpCtaLink cta={config.cta} />
           {externalRoi ? (
             <a
               href={externalRoi}
@@ -126,9 +140,7 @@ export function DemoLpRoiSection({
             >
               詳細シミュレーターで試す
             </a>
-          ) : (
-            <DemoLpCtaLink cta={config.cta} />
-          )}
+          ) : null}
         </div>
       </div>
     </section>

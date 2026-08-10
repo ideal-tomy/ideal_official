@@ -112,36 +112,35 @@ export function DemoFirstIndustryService({ cards }: Props) {
                           ))}
                         </ul>
 
-                        <div className="flex flex-wrap items-center justify-between gap-3">
+                        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
+                          {card.detailHref && (
+                            <Link
+                              href={card.detailHref}
+                              className="inline-flex w-full items-center justify-center gap-2 rounded-[var(--df-radius-btn)] bg-[var(--df-primary)] px-5 py-3 text-sm font-bold text-[var(--df-on-primary)] transition-opacity hover:opacity-90 sm:w-auto"
+                            >
+                              {card.detailLabel ?? '詳しく見る'}
+                              <span aria-hidden>→</span>
+                            </Link>
+                          )}
                           {card.tryExternal ? (
                             <a
                               href={card.tryHref}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-sm font-bold text-[var(--df-primary)] hover:underline"
+                              className="text-center text-sm font-medium text-[var(--df-text-muted)] hover:text-[var(--df-primary)] hover:underline sm:text-left"
                             >
-                              業務デモを開く（{card.tryLabel}）↗
+                              {card.tryLabel.includes('デモを直接開く')
+                                ? `${card.tryLabel} ↗`
+                                : `デモを直接開く（${card.tryLabel}）↗`}
                             </a>
                           ) : (
                             <Link
                               href={card.tryHref}
-                              className="text-sm font-bold text-[var(--df-primary)] hover:underline"
+                              className="text-center text-sm font-medium text-[var(--df-text-muted)] hover:text-[var(--df-primary)] hover:underline sm:text-left"
                             >
-                              触ってみる（{card.tryLabel}）
-                            </Link>
-                          )}
-                          {card.detailHref && (
-                            <Link
-                              href={card.detailHref}
-                              className="inline-flex items-center gap-1.5 text-sm font-bold text-[var(--df-text)] transition-colors hover:text-[var(--df-primary)]"
-                            >
-                              {card.detailLabel ?? '詳細を見る'}
-                              <span
-                                className="inline-flex h-9 w-9 items-center justify-center rounded-[var(--df-radius-btn)] bg-[var(--df-primary)] font-bold text-[var(--df-on-primary)]"
-                                aria-hidden
-                              >
-                                →
-                              </span>
+                              {card.tryLabel.includes('デモを直接開く')
+                                ? card.tryLabel
+                                : `デモを直接開く（${card.tryLabel}）`}
                             </Link>
                           )}
                         </div>

@@ -1,7 +1,10 @@
 /**
- * デモ紹介LP 共通CONFIG型定義 v1.0
+ * デモ紹介LP 共通CONFIG型定義 v1.0 + W型拡張
  * 正本: docs/re_demo/lp-config.types.ts
  */
+
+/** F型=部品能力 / W型=業種ワークフロー */
+export type LpKind = 'feature' | 'workflow'
 
 export interface Asset {
   src: string
@@ -94,6 +97,8 @@ export interface FitBlock {
   headline: string
   lead: string
   conditions: [FitCondition, FitCondition, FitCondition]
+  /** W型: 工種・ツールは問わない旨など */
+  scopeNote?: string
   affirm: string
   exclude: string
 }
@@ -102,6 +107,8 @@ export interface FitCondition {
   no: string
   title: string
   body: string
+  /** W型: 現場監督・職長 など業界語 */
+  roleLabel?: string
 }
 
 export interface UseCase {
@@ -140,6 +147,44 @@ export interface ResultShotBlock {
   caption: string
   image: Asset
   note: string
+}
+
+/** W-B08: 役割別タブ1枚 */
+export interface ResultTab {
+  id: string
+  label: string
+  surface?: 'mobile' | 'dashboard' | 'document'
+  caption: string
+  image: Asset
+}
+
+/** 単発ショット or 役割別タブ（W型は tabs を推奨） */
+export type ResultBlock =
+  | ResultShotBlock
+  | {
+      note: string
+      tabs: [ResultTab, ResultTab, ResultTab]
+    }
+
+/** W-B07a 部品カタログ1枚 */
+export interface PartCard {
+  no: string
+  name: string
+  body: string
+  /** どの継ぎ目を消すか（例: 01 転記 — …） */
+  seamRemoved: string
+  standalone: boolean
+  dependsOn?: string[]
+  demoUrl: string
+  lpUrl?: string
+}
+
+export interface PartsCatalogBlock {
+  label: string
+  headline: string
+  lead: string
+  closing: string
+  items: PartCard[]
 }
 
 export interface ComparisonBlock {
@@ -195,6 +240,9 @@ export interface RoiConfig {
     lossLabel: string
     recoverableLabel: string
     paybackLabel?: string
+    /** 金額に丸めない指標（例: 提出リードタイム） */
+    leadTimeLabel?: string
+    leadTimeValue?: string
   }
   cta: Cta
   disclaimer: string
@@ -214,6 +262,9 @@ export interface ProcessBlock {
   steps: [ProcessStep, ProcessStep, ProcessStep]
   illustration?: Asset
   exitNote: string
+  /** 導入の流れ詳細など（W型: /how-we-work） */
+  detailHref?: string
+  detailLabel?: string
 }
 
 export interface ProcessStep {
@@ -233,6 +284,8 @@ export type FaqCategory =
   | 'coexistence'
   | 'preparation'
   | 'small-start'
+  | 'flow-fit'
+  | 'partial'
   | 'other'
 
 export interface FaqItem {
@@ -266,6 +319,9 @@ export interface DeliveryConfig {
   slug: string
   demoName: string
   demoUrl: string
+  /** 公開パス用。未指定時は feature = /demo/{slug}、workflow = /demo/w/{slug} */
+  publicPath?: string
+  kind?: LpKind
   ogp: {
     title: string
     description: string
@@ -284,12 +340,26 @@ export interface LpConfig {
   problem: ProblemBlock
   fit: FitBlock
   usecases?: UseCasesBlock
+  /** W-B07a 部品カタログ */
+  partsCatalog?: PartsCatalogBlock
   mechanism: MechanismBlock
+  /** 単発 or 役割別タブ（resultTabs があれば優先） */
   resultShot?: ResultShotBlock
+  resultTabs?: {
+    note: string
+    tabs: [ResultTab, ResultTab, ResultTab]
+  }
   comparison?: ComparisonBlock
   growth?: GrowthBlock
   roi: RoiBlock
   process: ProcessBlock
   faq: FaqItem[]
   finalCta: FinalCtaBlock
+}
+
+/** 公開URLを導出 */
+export function getLpPublicPath(delivery: DeliveryConfig): string {
+  if (delivery.publicPath) return delivery.publicPath
+  if (delivery.kind === 'workflow') return `/demo/w/${delivery.slug}`
+  return `/demo/${delivery.slug}`
 }
