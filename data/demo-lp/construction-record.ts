@@ -119,6 +119,23 @@ export const constructionRecordLp: LpConfig = {
     label: 'コストの正体',
     headline: '「現場は終わったのに、仕事が終わらない」を生む 4つの継ぎ目',
     lead: 'どれも会計帳簿には出てきません。しかし毎日、残業と休日出勤という形で支払われ続けています。',
+    cardHiddenItemNos: ['01', '04'],
+    spotDiagrams: [
+      {
+        placement: 'after-lead',
+        asset: {
+          src: '/images/lp/construction/transcribe-cost.svg',
+          alt: '同じ内容を、三度書き直している（写真1枚からファイル名・日報・台帳へ）',
+        },
+      },
+      {
+        placement: 'before-summary',
+        asset: {
+          src: '/images/lp/construction/cannot-reshoot.svg',
+          alt: '後から撮り直せる写真は1枚もない（着工前・施工中・完成の不可逆性）',
+        },
+      },
+    ],
     items: [
       {
         no: '01',
@@ -219,12 +236,16 @@ export const constructionRecordLp: LpConfig = {
     label: '部品カタログ',
     headline: 'このフローは、3つの機能でできています',
     lead: 'すべてを同時に入れる必要はありません。',
+    diagram: {
+      src: '/images/lp/construction/parts-to-flow.svg',
+      alt: '部品が継ぎ目を埋め、つなぐと現場から提出まで一本になる',
+    },
     closing: '1つだけ入れることも、全部つなぐこともできます。',
     items: [
       {
         no: '01',
         name: '写真の仕事化',
-        body: '散在した写真を、日付・工区・工種で分類し、意味のある名前をつけて振り分ける',
+        body: '散在写真を分類・命名して振り分け',
         seamRemoved: '01 転記 — 現場→事務所で「名前をつけ直す」作業',
         standalone: true,
         demoUrl: hubUrl,
@@ -232,7 +253,7 @@ export const constructionRecordLp: LpConfig = {
       {
         no: '02',
         name: '報告書・朝礼下書き',
-        body: '整理済みの写真から、日報・朝礼資料・写真台帳の下書きを生成する',
+        body: '整理済み写真から日報・台帳の下書きを生成',
         seamRemoved: '01 転記 — 写真→報告書の「貼り直し・打ち直し」',
         standalone: false,
         dependsOn: ['写真の仕事化'],
@@ -241,7 +262,7 @@ export const constructionRecordLp: LpConfig = {
       {
         no: '03',
         name: '現場オペ画面',
-        body: '記録と確認が回る業務アプリ。提出状況と担当が一覧になる',
+        body: '提出状況と担当が一覧で見える業務アプリ',
         seamRemoved: '02 待つ / 03 催促 — 「誰で止まっているか」を探す時間',
         standalone: true,
         demoUrl: opsUrl,
@@ -291,37 +312,38 @@ export const constructionRecordLp: LpConfig = {
     note: '※画像はイメージです。撮って送るところから、提出できる形になるまでを1本の流れで確認できます。',
     tabs: [
       {
-        id: 'originator',
-        label: '現場監督',
+        id: 'field',
+        label: '現場',
         surface: 'mobile',
         caption:
-          '写真を選んで送るだけの画面。ボタンは最小限。撮影後30秒で完了する動線',
+          '現場で撮って送るだけ。写真・チェック・図面がそのまま次の工程へ渡る。',
         image: {
-          src: '/images/lp/autophoto.png',
-          alt: '現場監督向け：写真を送るモバイル画面のイメージ',
+          src: '/images/lp/construction/result-field.png',
+          alt: '現場：スマホで撮影し、現場データがデジタルへ流れるイメージ',
           note: '※画像はイメージです',
         },
       },
       {
         id: 'office',
-        label: '内勤・所長',
+        label: '内勤',
         surface: 'dashboard',
         caption:
-          '現場別の一覧。滞留日数と担当者名が一目で分かるダッシュボード（イメージ）',
+          '事務所で一覧・グラフ・レポートへ整理。滞留と担当が見える状態に。',
         image: {
-          src: '/images/lp/construction.png',
-          alt: '内勤・所長向け：滞留日数と担当が見える一覧のイメージ',
-          note: '※画像はイメージです。本番UIでは滞留日数・担当者名を必須表示',
+          src: '/images/lp/construction/result-office.png',
+          alt: '内勤：PC画面で現場データを整理・確認するイメージ',
+          note: '※画像はイメージです',
         },
       },
       {
         id: 'deliverable',
         label: '成果物',
         surface: 'document',
-        caption: '工事写真台帳／日報／朝礼資料の完成カット（イメージ）',
+        caption:
+          '報告書・写真台帳・分析ビューなど、提出できる形に出し分けられる。',
         image: {
-          src: '/images/lp/technology_background.png',
-          alt: '写真台帳・日報・朝礼資料の成果物イメージ',
+          src: '/images/lp/construction/result-deliverable.png',
+          alt: '成果物：報告書・写真ギャラリー・台帳など提出物のイメージ',
           note: '※画像はイメージです',
         },
       },

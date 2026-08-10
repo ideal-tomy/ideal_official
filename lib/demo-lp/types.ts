@@ -80,10 +80,20 @@ export interface ProblemBlock {
   lead: string
   items: [ProblemItem, ProblemItem, ProblemItem, ProblemItem]
   illustration?: Asset
+  /** 図で説明する項目はカード表示を省略（例: 01・04） */
+  cardHiddenItemNos?: string[]
+  /** セクション内の図解（テキスト羅列の代替） */
+  spotDiagrams?: ProblemSpotDiagram[]
   summary: {
     headline: string
     body: string
   }
+}
+
+/** B04 など：図の挿入位置 */
+export interface ProblemSpotDiagram {
+  asset: Asset
+  placement: 'after-lead' | 'before-summary'
 }
 
 export interface ProblemItem {
@@ -184,6 +194,8 @@ export interface PartsCatalogBlock {
   headline: string
   lead: string
   closing: string
+  /** W-B07a 前の全体図（部品→フロー） */
+  diagram?: Asset
   items: PartCard[]
 }
 

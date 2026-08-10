@@ -1,4 +1,5 @@
 import type { PartsCatalogBlock } from '@/lib/demo-lp/types'
+import { DemoLpIllustration } from './DemoLpIllustration'
 
 export function DemoLpPartsCatalog({ block }: { block: PartsCatalogBlock }) {
   return (
@@ -11,6 +12,11 @@ export function DemoLpPartsCatalog({ block }: { block: PartsCatalogBlock }) {
           {block.headline}
         </h2>
         <p className="mb-8 max-w-2xl text-[var(--lp-ink)]/75">{block.lead}</p>
+
+        {block.diagram && (
+          <DemoLpIllustration asset={block.diagram} className="mb-10" />
+        )}
+
         <div className="grid gap-4 md:grid-cols-3">
           {block.items.map((part) => (
             <article

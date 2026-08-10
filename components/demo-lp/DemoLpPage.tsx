@@ -9,6 +9,7 @@ import { DemoLpFaq } from './DemoLpFaq'
 import { DemoLpFinalForm } from './DemoLpFinalForm'
 import { DemoLpPartsCatalog } from './DemoLpPartsCatalog'
 import { DemoLpResultTabs } from './DemoLpResultTabs'
+import { DemoLpIllustration } from './DemoLpIllustration'
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
@@ -171,22 +172,49 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
           <p className="mb-8 max-w-2xl text-[var(--lp-ink)]/75">
             {config.problem.lead}
           </p>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {config.problem.items.map((item) => (
-              <div
-                key={item.no}
-                className="rounded-xl border border-[var(--lp-ink)]/10 p-5"
-              >
-                <p className="mb-1 text-xs font-semibold text-[var(--lp-primary)]">
-                  {item.no}
-                </p>
-                <h3 className="mb-2 font-bold">{item.title}</h3>
-                <p className="text-sm leading-relaxed text-[var(--lp-ink)]/70">
-                  {item.body}
-                </p>
-              </div>
+
+          {config.problem.spotDiagrams
+            ?.filter((d) => d.placement === 'after-lead')
+            .map((d) => (
+              <DemoLpIllustration
+                key={d.asset.src}
+                asset={d.asset}
+                className="mb-10"
+              />
             ))}
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            {config.problem.items
+              .filter(
+                (item) =>
+                  !config.problem.cardHiddenItemNos?.includes(item.no),
+              )
+              .map((item) => (
+                <div
+                  key={item.no}
+                  className="rounded-xl border border-[var(--lp-ink)]/10 p-5"
+                >
+                  <p className="mb-1 text-xs font-semibold text-[var(--lp-primary)]">
+                    {item.no}
+                  </p>
+                  <h3 className="mb-2 font-bold">{item.title}</h3>
+                  <p className="text-sm leading-relaxed text-[var(--lp-ink)]/70">
+                    {item.body}
+                  </p>
+                </div>
+              ))}
           </div>
+
+          {config.problem.spotDiagrams
+            ?.filter((d) => d.placement === 'before-summary')
+            .map((d) => (
+              <DemoLpIllustration
+                key={d.asset.src}
+                asset={d.asset}
+                className="mt-10"
+              />
+            ))}
+
           <div className="mt-8 rounded-xl bg-[var(--lp-surface)] px-5 py-6">
             <p className="font-bold text-[var(--lp-ink)]">
               {config.problem.summary.headline}
