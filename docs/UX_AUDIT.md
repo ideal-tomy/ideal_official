@@ -50,6 +50,9 @@ CONTACT (/contact)
   → 要件整理・概算 → 問い合わせ
 ```
 
+**公開IAの最新確定方針:** [`SITE_IA_DIRECTION.md`](./SITE_IA_DIRECTION.md)  
+（TOP業種カード → W型LPが説明の正本。cases詳細は吸収・廃止方針）
+
 営業デモ手順: [`AI_CONCIERGE_SALES_SCENARIO.md`](./AI_CONCIERGE_SALES_SCENARIO.md)
 
 ---

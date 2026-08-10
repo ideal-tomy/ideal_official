@@ -118,8 +118,14 @@ export function AiCapabilityDetailShell({
             </p>
             <div className="mx-auto flex max-w-2xl flex-col gap-3 sm:flex-row sm:justify-center">
               <Link
-                href={caseHref}
+                href={`/demo/${page.slug}`}
                 className={`${btnBase} bg-brand text-[var(--df-on-primary)] hover:bg-brand-hover`}
+              >
+                詳しく知る
+              </Link>
+              <Link
+                href={caseHref}
+                className={`${btnBase} border border-[var(--site-border)] text-[var(--site-fg)] hover:border-brand/40 hover:bg-brand/5`}
               >
                 活用イメージ
               </Link>

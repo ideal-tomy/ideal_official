@@ -37,6 +37,15 @@ export function CaseDemoCta({ caseStudy }: CaseDemoCtaProps) {
             </Button>
           </Link>
 
+          <Link
+            href={`/demo/${relatedDemo.slug}`}
+            className="sm:min-w-[10rem] sm:flex-1"
+          >
+            <Button variant="secondary" size="lg" fullWidth>
+              詳しく知る
+            </Button>
+          </Link>
+
           {externalDemo && (
             <a
               href={externalDemo.href}

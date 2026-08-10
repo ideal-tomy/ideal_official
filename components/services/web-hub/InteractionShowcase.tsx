@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { Tab } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -93,19 +94,27 @@ function MotionPanel() {
 }
 
 function InteractionPanel() {
+  const prefersReduced = usePrefersReducedMotion()
   const [tabIndex, setTabIndex] = useState(0)
+  const fadeMs = prefersReduced ? 0 : 400
   const panels = [
     {
       name: '構成',
       body: '伝えたい順にセクションを並べ、読み手が迷わない流れをつくります。',
+      image: '/images/web/tab01.png',
+      imageAlt: '構成のイメージ',
     },
     {
       name: 'UI',
       body: 'タブやカードなど、触って理解できる部品で情報を整理します。',
+      image: '/images/web/tab02.png',
+      imageAlt: 'UIのイメージ',
     },
     {
       name: '実装',
       body: '見た目だけでなく、スマホ操作や開閉の快適さまで含めて作り込みます。',
+      image: '/images/web/tab03.png',
+      imageAlt: '実装のイメージ',
     },
   ]
 
@@ -140,16 +149,45 @@ function InteractionPanel() {
             </Tab>
           ))}
         </Tab.List>
-        <Tab.Panels className="flex-1">
-          {panels.map((panel) => (
-            <Tab.Panel
+
+        {/* タブ連動の背景画像 + 説明文 */}
+        <div className="relative min-h-[160px] flex-1 overflow-hidden rounded-lg border border-[var(--site-border)]">
+          {panels.map((panel, index) => (
+            <div
               key={panel.name}
-              className="text-sm leading-relaxed text-[var(--site-fg-muted)]"
+              className="absolute inset-0"
+              style={{
+                opacity: index === tabIndex ? 1 : 0,
+                transition: `opacity ${fadeMs}ms ease`,
+                pointerEvents: 'none',
+              }}
+              aria-hidden={index !== tabIndex}
             >
-              {panel.body}
-            </Tab.Panel>
+              <Image
+                src={panel.image}
+                alt={index === tabIndex ? panel.imageAlt : ''}
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover object-center"
+                priority={index === 0}
+              />
+            </div>
           ))}
-        </Tab.Panels>
+          <div
+            className="absolute inset-0 bg-gradient-to-t from-[var(--site-bg)]/92 via-[var(--site-bg)]/55 to-[var(--site-bg)]/20"
+            aria-hidden
+          />
+          <Tab.Panels className="relative z-10 flex h-full min-h-[160px] items-end p-4">
+            {panels.map((panel) => (
+              <Tab.Panel
+                key={panel.name}
+                className="w-full text-sm leading-relaxed text-[var(--site-fg)] outline-none focus:outline-none"
+              >
+                {panel.body}
+              </Tab.Panel>
+            ))}
+          </Tab.Panels>
+        </div>
       </Tab.Group>
     </div>
   )

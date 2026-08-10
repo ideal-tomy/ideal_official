@@ -112,7 +112,7 @@ export function PremiumDialog({
               >
                 {/* bg / border / shadow はここに置き、exit で箱と文字を同時にフェード */}
                 <motion.div
-                  className={`shadow-xl ${panelClassName}`}
+                  className={`mx-auto w-full shadow-xl ${panelClassName}`}
                   initial={
                     mobileBottomSheet
                       ? { opacity: 0, y: 32, scale: 0.98 }

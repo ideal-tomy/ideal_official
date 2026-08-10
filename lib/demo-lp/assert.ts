@@ -1,0 +1,56 @@
+import type { FaqCategory, LpConfig } from './types'
+import { formatManYen } from './format'
+
+/**
+ * ビルド前チェック。品質ゲートのうち機械的に検証できるもの。
+ */
+export function assertLpConfig(cfg: LpConfig): string[] {
+  const errors: string[] = []
+
+  const defaults = Object.fromEntries(
+    cfg.roi.config.sliders.map((s) => [s.key, s.defaultValue]),
+  )
+  const derived = cfg.roi.config.computeAnnualLoss(defaults)
+  if (!cfg.impact.mainFigure.value.includes(formatManYen(derived))) {
+    errors.push(
+      'B02の主要数字がROI初期値と一致していません（設計原則P1: 単一ソース）',
+    )
+  }
+
+  if (!cfg.fit.exclude?.trim()) {
+    errors.push('B05の除外文が空です（設計原則P2: 除外の明示）')
+  }
+  if (cfg.comparison && !cfg.comparison.fairnessNote?.trim()) {
+    errors.push('B09のフェアネス注記が空です（設計原則P2）')
+  }
+
+  if (!cfg.roi.config.disclaimer?.trim()) {
+    errors.push('B11の試算注記が空です（設計原則P4）')
+  }
+
+  const cats = new Set(cfg.faq.map((f) => f.category))
+  for (const required of ['price', 'security'] as FaqCategory[]) {
+    if (!cats.has(required)) {
+      errors.push(`B13に必須カテゴリ「${required}」の質問がありません`)
+    }
+  }
+  if (cfg.faq.length < 8) {
+    errors.push('B13のFAQが8問未満です')
+  }
+
+  if (cfg.finalCta.fields.length > 5) {
+    errors.push('B14のフォーム項目が5つを超えています（離脱要因）')
+  }
+
+  const brandWords = ['AXEON', 'ideal合同会社']
+  const scan = JSON.stringify({ ...cfg, brand: undefined })
+  for (const w of brandWords) {
+    if (scan.includes(w)) {
+      errors.push(
+        `ブランド名「${w}」がBrandConfig外に直書きされています（設計原則P6）`,
+      )
+    }
+  }
+
+  return errors
+}

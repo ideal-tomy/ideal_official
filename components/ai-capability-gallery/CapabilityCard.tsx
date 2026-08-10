@@ -158,6 +158,30 @@ export function CapabilityCard({
     ? 'group flex h-full min-w-[9.5rem] flex-col overflow-hidden rounded-lg border border-[var(--site-border)] bg-[var(--site-bg-elevated)] transition-colors hover:border-[var(--df-primary)]/40'
     : 'group flex h-full flex-col overflow-hidden rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)] transition-colors hover:border-[var(--df-primary)]/40'
 
+  if (isReady && !compact) {
+    return (
+      <article className={shellClass}>
+        <Link href={targetHref} className="flex min-h-0 flex-1 flex-col">
+          {content}
+        </Link>
+        <div className="flex gap-3 border-t border-[var(--site-border)] px-4 py-3 sm:px-5">
+          <Link
+            href={targetHref}
+            className="text-sm font-medium text-[var(--df-primary)] hover:underline"
+          >
+            体験
+          </Link>
+          <Link
+            href={`/demo/${capability.slug}`}
+            className="text-sm font-medium text-[var(--site-fg)]/80 hover:text-[var(--df-primary)] hover:underline"
+          >
+            詳しく知る
+          </Link>
+        </div>
+      </article>
+    )
+  }
+
   if (isReady) {
     return (
       <Link href={targetHref} className={shellClass}>
