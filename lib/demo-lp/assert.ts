@@ -47,9 +47,6 @@ export function assertLpConfig(cfg: LpConfig): string[] {
       errors.push('W-B07aの部品カタログは3枚以上必要です')
     }
     for (const part of cfg.partsCatalog.items) {
-      if (!part.seamRemoved?.trim()) {
-        errors.push(`W-B07a「${part.name}」に seamRemoved がありません`)
-      }
       if (!part.demoUrl?.trim()) {
         errors.push(`W-B07a「${part.name}」に demoUrl がありません`)
       }

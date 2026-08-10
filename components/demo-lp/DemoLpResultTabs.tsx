@@ -4,9 +4,13 @@ import { useState } from 'react'
 import type { ResultTab } from '@/lib/demo-lp/types'
 
 export function DemoLpResultTabs({
+  sectionLabel = '結果イメージ',
+  headline = '現場・事務所・成果物を、ひとつの流れで確認できます。',
   tabs,
   note,
 }: {
+  sectionLabel?: string
+  headline?: string
   tabs: [ResultTab, ResultTab, ResultTab]
   note: string
 }) {
@@ -17,10 +21,10 @@ export function DemoLpResultTabs({
     <section className="bg-white py-14 md:py-16">
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
         <p className="mb-4 text-center text-xs font-semibold uppercase tracking-[0.18em] text-[var(--lp-primary)]">
-          結果イメージ
+          {sectionLabel}
         </p>
         <h2 className="mb-6 text-center text-2xl font-bold md:text-3xl [text-wrap:balance]">
-          4つの壁を壊すと、こうなります
+          {headline}
         </h2>
 
         {/* 狭い幅: セレクト / md+: タブ */}

@@ -183,27 +183,31 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
               />
             ))}
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            {config.problem.items
-              .filter(
-                (item) =>
-                  !config.problem.cardHiddenItemNos?.includes(item.no),
-              )
-              .map((item) => (
-                <div
-                  key={item.no}
-                  className="rounded-xl border border-[var(--lp-ink)]/10 p-5"
-                >
-                  <p className="mb-1 text-xs font-semibold text-[var(--lp-primary)]">
-                    {item.no}
-                  </p>
-                  <h3 className="mb-2 font-bold">{item.title}</h3>
-                  <p className="text-sm leading-relaxed text-[var(--lp-ink)]/70">
-                    {item.body}
-                  </p>
-                </div>
-              ))}
-          </div>
+          {config.problem.items.some(
+            (item) => !config.problem.cardHiddenItemNos?.includes(item.no),
+          ) ? (
+            <div className="grid gap-4 sm:grid-cols-2">
+              {config.problem.items
+                .filter(
+                  (item) =>
+                    !config.problem.cardHiddenItemNos?.includes(item.no),
+                )
+                .map((item) => (
+                  <div
+                    key={item.no}
+                    className="rounded-xl border border-[var(--lp-ink)]/10 p-5"
+                  >
+                    <p className="mb-1 text-xs font-semibold text-[var(--lp-primary)]">
+                      {item.no}
+                    </p>
+                    <h3 className="mb-2 font-bold">{item.title}</h3>
+                    <p className="text-sm leading-relaxed text-[var(--lp-ink)]/70">
+                      {item.body}
+                    </p>
+                  </div>
+                ))}
+            </div>
+          ) : null}
 
           {config.problem.spotDiagrams
             ?.filter((d) => d.placement === 'before-summary')
@@ -301,7 +305,8 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
         <DemoLpPartsCatalog block={config.partsCatalog} />
       )}
 
-      {/* B07 mechanism */}
+      {/* B07 mechanism（省略可） */}
+      {config.mechanism && (
       <section className="py-14 md:py-20">
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <SectionLabel>{config.mechanism.label}</SectionLabel>
@@ -316,7 +321,9 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
                 className="grid gap-2 rounded-xl border border-[var(--lp-ink)]/10 bg-white p-5 md:grid-cols-[1fr_1.2fr]"
               >
                 <div>
-                  <p className="text-xs text-[var(--lp-ink)]/50">壁</p>
+                  <p className="text-xs text-[var(--lp-ink)]/50">
+                    {config.mechanism!.wallLabel ?? '壁'}
+                  </p>
                   <p className="font-semibold">{item.wall}</p>
                 </div>
                 <div>
@@ -335,10 +342,13 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
           </div>
         </div>
       </section>
+      )}
 
       {/* B08 result — tabs (W) 優先、なければ単発ショット */}
       {config.resultTabs ? (
         <DemoLpResultTabs
+          sectionLabel={config.resultTabs.sectionLabel}
+          headline={config.resultTabs.headline}
           tabs={config.resultTabs.tabs}
           note={config.resultTabs.note}
         />

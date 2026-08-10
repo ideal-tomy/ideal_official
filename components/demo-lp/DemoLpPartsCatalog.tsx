@@ -32,13 +32,15 @@ export function DemoLpPartsCatalog({ block }: { block: PartsCatalogBlock }) {
               <p className="mt-2 flex-1 text-sm leading-relaxed text-[var(--lp-ink)]/70">
                 {part.body}
               </p>
-              <p className="mt-3 rounded-lg bg-[var(--lp-surface)] px-3 py-2 text-xs font-medium text-[var(--lp-ink)]/80">
-                消す継ぎ目: {part.seamRemoved}
-              </p>
+              {part.seamRemoved ? (
+                <p className="mt-3 rounded-lg bg-[var(--lp-surface)] px-3 py-2 text-xs font-medium text-[var(--lp-ink)]/80">
+                  {part.seamRemoved}
+                </p>
+              ) : null}
               <p className="mt-2 text-xs text-[var(--lp-ink)]/55">
                 {part.standalone
-                  ? '単独導入可'
-                  : `依存: ${(part.dependsOn ?? []).join('、')}`}
+                  ? '単独で利用できます'
+                  : `先に必要: ${(part.dependsOn ?? []).join('、')}`}
               </p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {part.lpUrl ? (
@@ -55,7 +57,7 @@ export function DemoLpPartsCatalog({ block }: { block: PartsCatalogBlock }) {
                   rel="noopener noreferrer"
                   className="text-sm font-semibold text-[var(--lp-ink)]/80 hover:text-[var(--lp-primary)] hover:underline"
                 >
-                  デモを開く ↗
+                  デモを試す ↗
                 </a>
               </div>
             </article>

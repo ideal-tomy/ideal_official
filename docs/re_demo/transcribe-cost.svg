@@ -76,5 +76,5 @@
   <!-- 締め -->
   <line x1="62" y1="380" x2="818" y2="380" stroke="var(--edge)" stroke-width="1.2"/>
   <text class="t" x="440" y="418" text-anchor="middle" font-size="19" font-weight="700">中身は同じなのに、出す先が変わるたびに人が書き直している。</text>
-  <text class="t-mut" x="440" y="448" text-anchor="middle" font-size="13.5">1現場あたり 約40分／日の整理・転記（試算は下のスライダーで調整）</text>
+  <text class="t-mut" x="440" y="448" text-anchor="middle" font-size="13.5">1現場あたり 約40分／日の整理や入力（試算は下のスライダーで調整）</text>
 </svg>

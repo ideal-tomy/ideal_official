@@ -142,6 +142,8 @@ export interface MechanismBlock {
   headline: string
   lead: string
   diagram: Asset
+  /** 左列の見出し（既定: 壁） */
+  wallLabel?: string
   items: MechanismItem[]
 }
 
@@ -181,8 +183,8 @@ export interface PartCard {
   no: string
   name: string
   body: string
-  /** どの継ぎ目を消すか（例: 01 転記 — …） */
-  seamRemoved: string
+  /** 減らせる作業の補足（任意。未設定ならカードに表示しない） */
+  seamRemoved?: string
   standalone: boolean
   dependsOn?: string[]
   demoUrl: string
@@ -354,10 +356,13 @@ export interface LpConfig {
   usecases?: UseCasesBlock
   /** W-B07a 部品カタログ */
   partsCatalog?: PartsCatalogBlock
-  mechanism: MechanismBlock
+  /** B07b 連結の仕組み（W型で省略可） */
+  mechanism?: MechanismBlock
   /** 単発 or 役割別タブ（resultTabs があれば優先） */
   resultShot?: ResultShotBlock
   resultTabs?: {
+    sectionLabel?: string
+    headline?: string
     note: string
     tabs: [ResultTab, ResultTab, ResultTab]
   }

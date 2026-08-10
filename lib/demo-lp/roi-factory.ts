@@ -135,23 +135,23 @@ export function createWorkflowSiteRoiConfig(
     sliders: [
       {
         key: 'sites',
-        label: '同時進行している現場数',
+        label: '同時に動いている現場数',
         unit: '現場',
         min: 1,
         max: 50,
         step: 1,
         defaultValue: defaults.sites,
-        note: 'まず1部署から。全社ならその分大きく',
+        note: 'まず1部署から。全社ならその分大きくなります',
       },
       {
         key: 'minutesPerSiteDay',
-        label: '1現場1日あたりの整理・転記時間',
+        label: '1現場・1日あたりの整理や入力時間',
         unit: '分',
         min: 10,
         max: 120,
         step: 5,
         defaultValue: defaults.minutesPerSiteDay,
-        note: '名前つけ・貼り付け・打ち直しの合計',
+        note: '名前付け・入力・貼り付けの合計',
       },
       {
         key: 'hourlyYen',
@@ -161,11 +161,11 @@ export function createWorkflowSiteRoiConfig(
         max: 8000,
         step: 100,
         defaultValue: defaults.hourlyYen,
-        note: '建設業の実勢に合わせて調整',
+        note: '実勢に合わせて動かしてください',
       },
       {
         key: 'reworkRate',
-        label: '記録不足による差戻し率',
+        label: '写真の不足による差し戻し率',
         unit: '%',
         min: 0,
         max: 50,
@@ -181,8 +181,8 @@ export function createWorkflowSiteRoiConfig(
       high: defaults.devHigh ?? 6_000_000,
     }),
     outputs: {
-      lossLabel: '「整理・転記・催促」に消えている人件費（年間）',
-      recoverableLabel: '導入で取り戻せる金額（年間・試算）',
+      lossLabel: '現在使われている人件費（年間）',
+      recoverableLabel: '削減できる金額の目安（年間）',
       paybackLabel: '回収期間の目安',
       leadTimeLabel:
         defaults.leadTimeLabel ?? '提出までのリードタイム（イメージ）',
@@ -194,7 +194,7 @@ export function createWorkflowSiteRoiConfig(
       variant: 'primary',
     },
     disclaimer:
-      'ご入力にもとづく試算例です（効果の保証ではありません）。実際の効果は現場数・データのばらつきにより異なります。',
+      '※入力内容にもとづく試算であり、効果を保証するものではありません。',
   }
 }
 
@@ -211,5 +211,5 @@ export function laborBasisNote(d: LaborRoiDefaults): string {
 
 export function workflowSiteBasisNote(d: WorkflowSiteRoiDefaults): string {
   const days = d.workDays ?? 240
-  return `計算根拠（初期値）: 1現場1日あたり整理・転記${d.minutesPerSiteDay}分 × ${d.sites}現場 × ${days}営業日 × 時間単価${d.hourlyYen.toLocaleString('ja-JP')}円（差戻し率${d.reworkRatePercent}%を加算）`
+  return `計算根拠（初期値）: 1現場・1日あたり整理や入力${d.minutesPerSiteDay}分 × ${d.sites}現場 × ${days}営業日 × 時間単価${d.hourlyYen.toLocaleString('ja-JP')}円（差し戻し${d.reworkRatePercent}%を加算）`
 }
