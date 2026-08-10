@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import type { FinalCtaBlock, BrandConfig } from '@/lib/demo-lp/types'
 import { DemoLpCtaLink } from './DemoLpCtaLink'
+import { lpBody, lpH2, lpNote } from './lpTypography'
 
 export function DemoLpFinalForm({
   block,
@@ -43,11 +44,13 @@ export function DemoLpFinalForm({
       className="scroll-mt-24 bg-[var(--lp-ink)] py-14 text-white md:py-20"
     >
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
-        <h2 className="mb-3 text-2xl font-bold tracking-tight md:text-3xl [text-wrap:balance]">
+        <h2 className={`mb-3 ${lpH2} text-white`}>
           {block.headline}
         </h2>
-        <p className="mb-6 text-white/80 leading-relaxed">{block.body}</p>
-        <ul className="mb-8 flex flex-wrap gap-3 text-sm text-white/75">
+        <p className={`mb-6 text-lg leading-relaxed text-white/90 md:text-xl md:leading-8`}>
+          {block.body}
+        </p>
+        <ul className="mb-8 flex flex-wrap gap-3 text-base text-white/85">
           {block.assurances.map((a) => (
             <li
               key={a}
@@ -67,9 +70,9 @@ export function DemoLpFinalForm({
 
         <div className="rounded-2xl bg-white p-6 text-[var(--lp-ink)] shadow-lg md:p-8">
           <h3 className="mb-1 text-lg font-bold">{block.formTitle}</h3>
-          <p className="mb-6 text-sm text-[var(--lp-ink)]/65">{block.formNote}</p>
+          <p className={`mb-6 ${lpNote}`}>{block.formNote}</p>
           {status === 'sent' ? (
-            <p className="text-sm">送信画面へ移動します…</p>
+            <p className={lpBody}>送信画面へ移動します…</p>
           ) : (
             <form onSubmit={onSubmit} className="space-y-4">
               {block.fields.map((field) => {

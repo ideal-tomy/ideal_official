@@ -64,8 +64,8 @@ B05 向いている会社 / B06 業務例 / B07 機能から導入 / B08 利用�
 
 ## 図解（v3 文案と併用）
 
-- **transcribe-cost.svg** — 「いま発生している作業」。4カードは非表示
-- **cannot-reshoot.svg** — 撮り直せないリスク
+- **transcribe-cost.svg** — ブロック「いま発生している作業」。4カードは非表示
+- **cannot-reshoot.svg** — ブロック「よく起きる問題」（毎日の手間とは別軸）
 - **parts-to-flow.svg** — B07 機能から段階導入
 
 ---

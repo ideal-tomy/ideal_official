@@ -1,4 +1,5 @@
 import type { Asset } from '@/lib/demo-lp/types'
+import { lpNote } from './lpTypography'
 
 export function DemoLpIllustration({
   asset,
@@ -16,7 +17,7 @@ export function DemoLpIllustration({
         className="mx-auto w-full max-w-4xl rounded-xl border border-[var(--lp-ink)]/10 bg-white"
       />
       {asset.note && (
-        <figcaption className="mt-2 text-center text-xs text-[var(--lp-ink)]/50">
+        <figcaption className={`mt-2 text-center ${lpNote}`}>
           {asset.note}
         </figcaption>
       )}

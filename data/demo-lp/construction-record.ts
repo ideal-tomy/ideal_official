@@ -72,15 +72,11 @@ export const constructionRecordLp: LpConfig = {
         variant: 'secondary',
       },
     ],
-    badges: [
-      '実証トライアルは無償',
-      'NDA締結・秘密厳守',
-      '現在の撮影方法をそのまま利用',
-    ],
     visual: {
-      src: '/images/lp/autophoto.png',
-      alt: '整理された現場写真が一覧で表示されている画面のイメージ',
+      src: '/images/cases/cases-hero-visual01.png',
+      alt: '現場管理のダッシュボードとスマートフォンの操作画面',
       note: '※画像はイメージです',
+      fit: 'contain',
     },
   },
   impact: {
@@ -97,23 +93,6 @@ export const constructionRecordLp: LpConfig = {
       { value: '3〜6ヶ月', label: '投資回収の目安' },
     ],
   },
-  pillars: [
-    {
-      icon: 'send',
-      title: '1. 写真を整理する',
-      body: '現場で写真を撮影するところまでは、これまでと同じです。変わるのは、その後の作業です。現場から送られた写真を確認し、工区・工種・状況などに合わせて分類します。写真の名前を一枚ずつ付け直したり、フォルダへ手作業で振り分けたりする作業を減らします。',
-    },
-    {
-      icon: 'draft',
-      title: '2. 報告書の下書きを作る',
-      body: '整理した写真と情報をもとに、日報・朝礼資料・工事写真台帳などの下書きを作成します。同じ内容を別の書類へ何度も入力する必要がありません。',
-    },
-    {
-      icon: 'visible',
-      title: '3. 提出状況を確認する',
-      body: '撮影済・整理済・下書き・確認待ち・提出済などの状態を一覧で確認できます。どの現場の作業が止まっているかを、電話やLINEで一件ずつ問い合わせる必要がなくなります。',
-    },
-  ],
   problem: {
     label: 'いま発生している作業',
     headline: '同じ現場の情報を、何度も入力していませんか。',
@@ -125,13 +104,6 @@ export const constructionRecordLp: LpConfig = {
         asset: {
           src: '/images/lp/construction/transcribe-cost.svg',
           alt: '同じ内容を、三度入力している（写真1枚からファイル名・日報・工事写真台帳へ）',
-        },
-      },
-      {
-        placement: 'before-summary',
-        asset: {
-          src: '/images/lp/construction/cannot-reshoot.svg',
-          alt: '工事が進んだ後では、着工前・施工中の写真は撮り直せない',
         },
       },
     ],
@@ -160,7 +132,21 @@ export const constructionRecordLp: LpConfig = {
     summary: {
       headline:
         '内容は同じでも、提出する書類が変わるたびに入力や整理をやり直しています。',
-      body: '現在の試算では、こうした作業に1現場あたり1日約40分が使われています。また、必要な写真が不足していることに提出前になって気づいても、工事が進んだ後では撮り直せない場合があります。',
+      body: '現在の試算では、こうした作業に1現場あたり1日約40分が使われています。',
+    },
+  },
+  recurringProblems: {
+    label: 'よく起きる問題',
+    headline:
+      '提出前に、写真の不足や使える画像かどうかが分かりにくい。',
+    diagram: {
+      src: '/images/lp/construction/cannot-reshoot.svg',
+      alt: '着工前・施工中の写真は、完成後には撮り直せない',
+    },
+    closing: {
+      line1: '工事が進んだ後では、もう撮り直せません。',
+      line2:
+        '写真の不足や不備に気づくのは、担当者の記憶や提出直前の確認に頼る形が多くなります。',
     },
   },
   fit: {

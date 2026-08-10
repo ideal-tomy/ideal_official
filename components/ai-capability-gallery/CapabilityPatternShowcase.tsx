@@ -1,14 +1,11 @@
 'use client'
 
 import Link from 'next/link'
-import {
-  capabilities,
-  type Capability,
-} from '@/data/ai-capability-gallery/capabilities'
+import type { Capability } from '@/data/ai-capability-gallery/capabilities'
 import { DemoFrame } from '@/components/ai-capability-gallery/demos/DemoFrame'
 import { useDemoProcess } from '@/components/ai-capability-gallery/hooks/useDemoProcess'
 import { useInViewAutoPlay } from '@/components/ai-capability-gallery/hooks/useInViewAutoPlay'
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect } from 'react'
 import { voiceProcessingSteps, voiceSampleSets } from '@/data/ai-capability-gallery/voice-to-structured'
 import { photoSampleSets, processingSteps as photoProcessingSteps } from '@/data/ai-capability-gallery/photo-to-classification'
 import { documentProcessingSteps, documentSampleSets } from '@/data/ai-capability-gallery/document-to-extraction'
@@ -478,8 +475,10 @@ function ShowcaseDemoWithTags({ capability }: { capability: Capability }) {
 
 function ShowcaseText({
   capability,
+  experienceCtaLabel,
 }: {
   capability: Capability
+  experienceCtaLabel: string
 }) {
   return (
     <div className="max-w-xl">
@@ -506,18 +505,34 @@ function ShowcaseText({
         href={capability.href}
         className="inline-flex w-full items-center justify-center rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-[var(--df-on-primary)] transition-colors hover:bg-brand-hover sm:w-auto md:px-5 md:py-3"
       >
-        このデモを体験
+        {experienceCtaLabel}
       </Link>
     </div>
   )
 }
 
-export function CapabilityShowcase() {
-  const sections = useMemo(() => capabilities, [])
+type CapabilityPatternShowcaseProps = {
+  capabilities: Capability[]
+  experienceCtaLabel?: string
+  /** top = トップ統合セクション内。gallery は旧互換用 */
+  variant?: 'top' | 'gallery'
+}
+
+export function CapabilityPatternShowcase({
+  capabilities: sections,
+  experienceCtaLabel = '触ってみる →',
+  variant = 'gallery',
+}: CapabilityPatternShowcaseProps) {
+  const isTop = variant === 'top'
+  const sectionPadding = isTop
+    ? 'space-y-4 py-2 sm:space-y-8 md:space-y-10'
+    : 'space-y-4 py-6 sm:px-6 md:space-y-10 md:py-14 lg:px-8 lg:py-16'
 
   return (
-    <section id="showcase" className="bg-[var(--site-bg)]">
-      <div className="mx-auto max-w-7xl space-y-4 px-4 py-6 sm:px-6 md:space-y-10 md:py-14 lg:px-8 lg:py-16">
+    <div className={isTop ? '' : 'bg-[var(--site-bg)]'}>
+      <div
+        className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ${sectionPadding}`}
+      >
         {sections.map((capability, index) => {
           const reverse = index % 2 === 1
 
@@ -525,7 +540,11 @@ export function CapabilityShowcase() {
             <article
               key={capability.id}
               id={`capability-${capability.slug}`}
-              className="scroll-mt-[13.5rem] rounded-2xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)] p-3 sm:rounded-[28px] sm:p-6 md:scroll-mt-[16rem] md:p-8 lg:scroll-mt-[18rem] lg:p-10"
+              className={`scroll-mt-[13.5rem] rounded-2xl border border-[var(--site-border)] p-3 sm:rounded-[28px] sm:p-6 md:scroll-mt-[16rem] md:p-8 lg:scroll-mt-[18rem] lg:p-10 ${
+                isTop
+                  ? 'bg-[var(--df-bg)]'
+                  : 'bg-[var(--site-bg-elevated)]'
+              }`}
             >
               <div className="grid items-center gap-4 sm:gap-8 lg:grid-cols-2 lg:gap-10">
                 {/* スマホはデモ先行。PC は偶数セクションで左右反転 */}
@@ -536,7 +555,10 @@ export function CapabilityShowcase() {
                       : 'order-2 lg:order-1'
                   }
                 >
-                  <ShowcaseText capability={capability} />
+                  <ShowcaseText
+                    capability={capability}
+                    experienceCtaLabel={experienceCtaLabel}
+                  />
                 </div>
                 <div
                   className={
@@ -552,6 +574,6 @@ export function CapabilityShowcase() {
           )
         })}
       </div>
-    </section>
+    </div>
   )
 }

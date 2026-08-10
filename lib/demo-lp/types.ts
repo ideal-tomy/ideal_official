@@ -48,8 +48,8 @@ export interface HeroBlock {
   body: string
   highlight?: Highlight
   ctas: [Cta, Cta]
-  badges: [string, string, string]
-  visual: Asset
+  badges?: string[]
+  visual: Asset & { fit?: 'cover' | 'contain' }
 }
 
 export interface ImpactBlock {
@@ -100,6 +100,18 @@ export interface ProblemItem {
   no: string
   title: string
   body: string
+}
+
+/** W型: 毎日の作業とは別軸の「よく起きる問題」（図1枚＋締め） */
+export interface RecurringProblemsBlock {
+  label: string
+  headline: string
+  lead?: string
+  diagram: Asset
+  closing: {
+    line1: string
+    line2?: string
+  }
 }
 
 export interface FitBlock {
@@ -352,6 +364,8 @@ export interface LpConfig {
   impact: ImpactBlock
   pillars?: [Pillar, Pillar, Pillar]
   problem: ProblemBlock
+  /** W型: 提出前のリスクなど、毎日の作業とは別のよく起きる問題 */
+  recurringProblems?: RecurringProblemsBlock
   fit: FitBlock
   usecases?: UseCasesBlock
   /** W-B07a 部品カタログ */

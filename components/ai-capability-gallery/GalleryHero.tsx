@@ -7,7 +7,7 @@ export function GalleryHero() {
     <PageHero
       onMedia
       title="AIで仕事は変わっていく"
-      description="日々の業務を変えるヒントが、7つのデモ体験から得られます。"
+      description="パターンを選んで、サンプルデータでそのまま体験できます。"
       background={
         <>
           <ThemeImage

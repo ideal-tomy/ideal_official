@@ -5,6 +5,7 @@ import type { RoiBlock } from '@/lib/demo-lp/types'
 import { formatManYen } from '@/lib/demo-lp/format'
 import { DemoLpCtaLink } from './DemoLpCtaLink'
 import { buildRoiSimulatorHrefForGalleryDemo } from '@/lib/roiSimulator'
+import { lpBody, lpH2, lpLead, lpNote, lpSectionLabel } from './lpTypography'
 
 export function DemoLpRoiSection({
   block,
@@ -47,24 +48,18 @@ export function DemoLpRoiSection({
       className="scroll-mt-24 border-y border-[var(--lp-ink)]/10 bg-white py-14 md:py-20"
     >
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
-        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--lp-primary)]">
-          {block.label}
-        </p>
-        <h2 className="mb-3 text-2xl font-bold tracking-tight text-[var(--lp-ink)] md:text-3xl [text-wrap:balance]">
-          {block.headline}
-        </h2>
-        <p className="mb-8 text-[var(--lp-ink)]/80 leading-relaxed">
-          {block.lead}
-        </p>
+        <p className={lpSectionLabel}>{block.label}</p>
+        <h2 className={lpH2}>{block.headline}</h2>
+        <p className={lpLead}>{block.lead}</p>
 
         <div className="space-y-6">
           {config.sliders.map((s) => (
             <label key={s.key} className="block">
               <div className="mb-1 flex flex-wrap items-baseline justify-between gap-2">
-                <span className="text-sm font-medium text-[var(--lp-ink)]">
+                <span className="text-base font-medium text-[var(--lp-ink)]">
                   {s.label}
                 </span>
-                <span className="text-sm tabular-nums text-[var(--lp-primary)]">
+                <span className="text-base tabular-nums text-[var(--lp-primary)]">
                   {values[s.key].toLocaleString('ja-JP')}
                   {s.unit}
                 </span>
@@ -83,31 +78,27 @@ export function DemoLpRoiSection({
                 }
                 className="w-full accent-[var(--lp-primary)]"
               />
-              <p className="mt-1 text-xs text-[var(--lp-ink)]/55">{s.note}</p>
+              <p className={`mt-1 ${lpNote}`}>{s.note}</p>
             </label>
           ))}
         </div>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-2">
           <div className="rounded-xl border border-[var(--lp-ink)]/10 bg-[var(--lp-surface)] p-5">
-            <p className="text-xs text-[var(--lp-ink)]/60">
-              {config.outputs.lossLabel}
-            </p>
+            <p className={lpNote}>{config.outputs.lossLabel}</p>
             <p className="mt-1 text-2xl font-bold tabular-nums text-[var(--lp-ink)]">
               {formatManYen(loss)}
             </p>
           </div>
           <div className="rounded-xl border border-[var(--lp-primary)]/30 bg-[var(--lp-primary)]/5 p-5">
-            <p className="text-xs text-[var(--lp-ink)]/60">
-              {config.outputs.recoverableLabel}
-            </p>
+            <p className={lpNote}>{config.outputs.recoverableLabel}</p>
             <p className="mt-1 text-2xl font-bold tabular-nums text-[var(--lp-primary)]">
               {formatManYen(recoverable)}
             </p>
           </div>
           {hasLeadTime && (
             <div className="rounded-xl border border-[var(--lp-primary)]/25 bg-[var(--lp-primary)]/5 p-5 sm:col-span-2">
-              <p className="text-xs text-[var(--lp-ink)]/60">{leadTimeLabel}</p>
+              <p className={lpNote}>{leadTimeLabel}</p>
               <p className="mt-1 text-xl font-bold tracking-tight text-[var(--lp-primary)] md:text-2xl">
                 {leadTimeValue}
               </p>
@@ -115,9 +106,7 @@ export function DemoLpRoiSection({
           )}
           {payback && config.outputs.paybackLabel && (
             <div className="rounded-xl border border-[var(--lp-ink)]/10 bg-white p-5 sm:col-span-2">
-              <p className="text-xs text-[var(--lp-ink)]/60">
-                {config.outputs.paybackLabel}
-              </p>
+              <p className={lpNote}>{config.outputs.paybackLabel}</p>
               <p className="mt-1 text-xl font-semibold text-[var(--lp-ink)]">
                 {payback}
               </p>
@@ -125,9 +114,7 @@ export function DemoLpRoiSection({
           )}
         </div>
 
-        <p className="mt-6 text-xs leading-relaxed text-[var(--lp-ink)]/55">
-          {config.disclaimer}
-        </p>
+        <p className={`mt-6 ${lpNote}`}>{config.disclaimer}</p>
 
         <div className="mt-6 flex flex-wrap gap-3">
           <DemoLpCtaLink cta={config.cta} />

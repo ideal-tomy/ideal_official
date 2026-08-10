@@ -2,8 +2,6 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { GalleryHero } from '@/components/ai-capability-gallery/GalleryHero'
 import { CapabilityCardGrid } from '@/components/ai-capability-gallery/CapabilityCardGrid'
-import { CapabilityShowcase } from '@/components/ai-capability-gallery/CapabilityShowcase'
-import { GallerySectionNav } from '@/components/ai-capability-gallery/GallerySectionNav'
 import { HowWeWorkSummary } from '@/components/how-we-work/HowWeWorkSummary'
 
 export const metadata: Metadata = {
@@ -25,30 +23,25 @@ export default function AiCapabilityGalleryPage() {
     <div className="min-h-screen bg-[var(--site-bg)]">
       <GalleryHero />
 
-      {/* Showcase セクションへのドットナビ（PC中心。スマホは横スクロール目次） */}
-      <div className="hidden md:contents">
-        <GallerySectionNav />
-      </div>
-
-      {/* 全幅: 1行横スクロール目次 → すぐ下の Showcase 本編へ */}
       <CapabilityCardGrid />
-
-      <CapabilityShowcase />
 
       <section className="border-t border-[var(--site-border)] bg-[var(--site-bg)] py-10 md:py-12">
         <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
           <p className="mb-3 text-center text-xs font-medium uppercase tracking-[0.2em] text-brand/90">
             Next
           </p>
-          <h2 className="mb-6 text-center text-xl font-bold text-[var(--site-fg)] md:text-2xl">
+          <h2 className="mb-4 text-center text-xl font-bold text-[var(--site-fg)] md:text-2xl">
             次に進む
           </h2>
+          <p className="mb-6 text-center text-sm leading-relaxed text-[var(--site-fg-muted)] md:text-base">
+            パターンを選んで体験したあとは、業種別の説明ページや概算・相談へ進めます。
+          </p>
           <div className="flex gap-2 sm:gap-3">
             <Link
-              href="/cases"
+              href="/"
               className={`${navBtn} bg-brand text-[var(--df-on-primary)] hover:bg-brand-hover`}
             >
-              活用イメージ
+              トップのデモ一覧へ
             </Link>
             <Link
               href="/estimate"

@@ -19,7 +19,7 @@ export function DemoFirstIndustryService({ cards }: Props) {
       className="bg-[var(--df-bg-card)] py-[clamp(40px,8vw,64px)] md:py-[var(--df-sec-pad)]"
     >
       <div className="mx-auto w-[min(100%-48px,1080px)]">
-        <SectionKicker index="02" label="業種" />
+        <SectionKicker index="01" label="業種" />
         <h2 className="my-2 mb-4 text-[clamp(26px,5.6vw,40px)] font-black leading-[1.5] text-[var(--df-text)] md:mb-6">
           デモから始めるDX開発
         </h2>

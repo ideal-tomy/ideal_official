@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import type { FaqItem } from '@/lib/demo-lp/types'
+import { lpBody, lpH2, lpSectionLabel } from './lpTypography'
 
 export function DemoLpFaq({ items }: { items: FaqItem[] }) {
   const [open, setOpen] = useState(() =>
@@ -13,12 +14,8 @@ export function DemoLpFaq({ items }: { items: FaqItem[] }) {
   return (
     <section className="py-14 md:py-20">
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
-        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--lp-primary)]">
-          FAQ
-        </p>
-        <h2 className="mb-8 text-2xl font-bold text-[var(--lp-ink)] md:text-3xl">
-          よくある質問
-        </h2>
+        <p className={lpSectionLabel}>FAQ</p>
+        <h2 className={`mb-8 ${lpH2}`}>よくある質問</h2>
         <div className="divide-y divide-[var(--lp-ink)]/10 border-y border-[var(--lp-ink)]/10">
           {items.map((item, i) => {
             const isOpen = open === i
@@ -30,17 +27,15 @@ export function DemoLpFaq({ items }: { items: FaqItem[] }) {
                   onClick={() => setOpen(isOpen ? -1 : i)}
                   aria-expanded={isOpen}
                 >
-                  <span className="font-semibold text-[var(--lp-ink)]">
+                  <span className="text-base font-semibold text-[var(--lp-ink)] md:text-lg">
                     {item.q}
                   </span>
-                  <span className="text-[var(--lp-ink)]/40" aria-hidden>
+                  <span className="text-slate-400" aria-hidden>
                     {isOpen ? '−' : '+'}
                   </span>
                 </button>
                 {isOpen && (
-                  <p className="pb-4 text-sm leading-relaxed text-[var(--lp-ink)]/75">
-                    {item.a}
-                  </p>
+                  <p className={`pb-4 ${lpBody}`}>{item.a}</p>
                 )}
               </div>
             )

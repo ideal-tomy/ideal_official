@@ -2,6 +2,12 @@
 
 import { useState } from 'react'
 import type { ResultTab } from '@/lib/demo-lp/types'
+import {
+  lpCaption,
+  lpH2Centered,
+  lpNote,
+  lpSectionLabel,
+} from './lpTypography'
 
 export function DemoLpResultTabs({
   sectionLabel = '結果イメージ',
@@ -20,12 +26,10 @@ export function DemoLpResultTabs({
   return (
     <section className="bg-white py-14 md:py-16">
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
-        <p className="mb-4 text-center text-xs font-semibold uppercase tracking-[0.18em] text-[var(--lp-primary)]">
+        <p className={`mb-4 text-center ${lpSectionLabel}`}>
           {sectionLabel}
         </p>
-        <h2 className="mb-6 text-center text-2xl font-bold md:text-3xl [text-wrap:balance]">
-          {headline}
-        </h2>
+        <h2 className={`mb-6 ${lpH2Centered}`}>{headline}</h2>
 
         {/* 狭い幅: セレクト / md+: タブ */}
         <div className="mb-4 md:hidden">
@@ -36,7 +40,7 @@ export function DemoLpResultTabs({
             id="result-tab-select"
             value={activeId}
             onChange={(e) => setActiveId(e.target.value)}
-            className="w-full rounded-lg border border-[var(--lp-ink)]/15 bg-white px-3 py-2.5 text-sm font-medium"
+            className="w-full rounded-lg border border-[var(--lp-ink)]/15 bg-white px-3 py-2.5 text-base font-medium"
           >
             {tabs.map((t) => (
               <option key={t.id} value={t.id}>
@@ -63,7 +67,7 @@ export function DemoLpResultTabs({
                 className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
                   selected
                     ? 'bg-[var(--lp-primary)] text-white'
-                    : 'border border-[var(--lp-ink)]/15 text-[var(--lp-ink)]/70 hover:border-[var(--lp-primary)]/40'
+                    : 'border border-[var(--lp-ink)]/15 text-slate-600 hover:border-[var(--lp-primary)]/40'
                 }`}
               >
                 {t.label}
@@ -73,9 +77,7 @@ export function DemoLpResultTabs({
         </div>
 
         <div role="tabpanel" className="text-center">
-          <p className="mb-4 text-sm font-medium text-[var(--lp-ink)]">
-            {active.caption}
-          </p>
+          <p className={`mb-4 ${lpCaption}`}>{active.caption}</p>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={active.image.src}
@@ -83,7 +85,7 @@ export function DemoLpResultTabs({
             className="mx-auto w-full rounded-xl border border-[var(--lp-ink)]/10 object-cover shadow-sm"
           />
           {(active.image.note || note) && (
-            <p className="mt-3 text-sm text-[var(--lp-ink)]/65">
+            <p className={`mt-3 ${lpNote}`}>
               {active.image.note ?? note}
             </p>
           )}

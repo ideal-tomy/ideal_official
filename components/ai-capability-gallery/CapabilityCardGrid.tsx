@@ -142,7 +142,7 @@ export function CapabilityCardGrid() {
                     hideTitle
                     href={
                       capability.status === 'ready'
-                        ? `#capability-${capability.slug}`
+                        ? capability.href
                         : undefined
                     }
                   />

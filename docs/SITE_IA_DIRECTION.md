@@ -1,11 +1,13 @@
 # サイト IA 方向性確定 PLAN
 
-最終更新: 2026-08-10  
+最終更新: 2026-08-11  
 状態: **方向性確定用（実装前の合意文書）**  
 対象: `ideal_official` 公開導線（TOP / 業種LP / デモ一覧 / 活用イメージ / 導入の流れ）
 
 関連:
 
+- **サイトマップ v2（URLツリー）:** [`SITE_MAP_v2.md`](./SITE_MAP_v2.md)
+- **リダイレクトマップ:** [`REDIRECT_MAP.md`](./REDIRECT_MAP.md)
 - LP ブロック定義: [`re_demo/lp-block-definition-v1.md`](./re_demo/lp-block-definition-v1.md)
 - 旧ギャラリー／LP分担（公開導線は本書が優先）: [`re_demo/ia-gallery-lp.md`](./re_demo/ia-gallery-lp.md)
 - 業種デモ本線: [`industry-demos/README.md`](./industry-demos/README.md)
@@ -277,7 +279,7 @@ LP内の意思決定CTAは原則:
 - [x] 建設W型の slug / brief / LpConfig 置き場を決めた（`/demo/w/construction-record` · `data/demo-lp/construction-record.ts`）
 - [x] `construction-photo-sorting` からの吸収項目を brief に転記した（Phase A 実装済み）
 - [x] TOP建設カードの `detailHref` / ラベル / 補助リンク仕様を決めた
-- [ ] 旧cases URLのリダイレクト方針（即時 or Phase C）を決めた
+- [ ] 旧cases URLのリダイレクト方針（即時 or Phase C）を決めた → [`REDIRECT_MAP.md`](./REDIRECT_MAP.md)
 
 ---
 
@@ -301,3 +303,19 @@ LP内の意思決定CTAは原則:
 5. 反応確認後、Phase B/C へ
 
 実装は「建設1本」が完了するまで他業種の削除・非表示を行わない。
+
+---
+
+## 12. TOP デモセクション統合（2026-08-11 実施）
+
+旧 §01「体験」（静止画カード3枚）と §04「デモ一覧」（マーキー）を **§01「体験・デモ」** に統合した。
+
+| 変更 | 内容 |
+|---|---|
+| TOP §01 | 全7パターンのプレビュー（自動再生デモ枠 + Before/After）+「触ってみる →」でギャラリー詳細（体験ページ）へ |
+| TOP §04 | 廃止（News §04 · LAB §05 · Contact §06） |
+| 表示順 | §01 業種 → §02 理由 → §03 体験・デモ → §04 News → §05 LAB → §06 Contact |
+| `/ai-capability-gallery` 本編 | 長い `CapabilityShowcase` 縦積みを削除。索引（`CapabilityCardGrid`）+ 体験詳細へのリンクのみ |
+| 体験の正本 | `/ai-capability-gallery/{pattern}`（インタラクティブデモ） |
+
+プレビュー（TOP）と体験（ギャラリー詳細）の二段構え。ギャラリー本編での「見たあとまた体験」は廃止。

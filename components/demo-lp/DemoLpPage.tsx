@@ -10,13 +10,29 @@ import { DemoLpFinalForm } from './DemoLpFinalForm'
 import { DemoLpPartsCatalog } from './DemoLpPartsCatalog'
 import { DemoLpResultTabs } from './DemoLpResultTabs'
 import { DemoLpIllustration } from './DemoLpIllustration'
+import { DemoLpRecurringProblems } from './DemoLpRecurringProblems'
+import {
+  lpAffirm,
+  lpBody,
+  lpCardMeta,
+  lpCardTitle,
+  lpCardTitleLg,
+  lpCompareCommon,
+  lpCompareOurs,
+  lpH1,
+  lpH2,
+  lpHeroBody,
+  lpHeroSub,
+  lpLead,
+  lpNote,
+  lpQuote,
+  lpSectionLabel,
+  lpSummaryBox,
+  lpSummaryHeadline,
+} from './lpTypography'
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
-  return (
-    <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--lp-primary)]">
-      {children}
-    </p>
-  )
+  return <p className={lpSectionLabel}>{children}</p>
 }
 
 export function DemoLpPage({ config }: { config: LpConfig }) {
@@ -75,39 +91,47 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
                 {config.hero.eyebrow}
               </p>
             )}
-            <h1 className="mb-4 text-3xl font-bold leading-tight tracking-tight md:text-4xl [text-wrap:balance] [word-break:auto-phrase]">
+            <h1 className={`mb-4 ${lpH1}`}>
               {config.hero.headline}
             </h1>
-            <p className="mb-3 text-lg font-medium text-[var(--lp-ink)]/85 [text-wrap:balance]">
+            <p className={`mb-3 ${lpHeroSub}`}>
               {config.hero.subline}
             </p>
-            <p className="mb-6 text-sm leading-relaxed text-[var(--lp-ink)]/70 md:text-base">
+            <p className={`mb-6 ${lpHeroBody}`}>
               {config.hero.body}
             </p>
             <div className="mb-6 flex flex-col gap-3 sm:flex-row">
               <DemoLpCtaLink cta={config.hero.ctas[0]} />
               <DemoLpCtaLink cta={config.hero.ctas[1]} />
             </div>
-            <ul className="flex flex-wrap gap-2 text-xs text-[var(--lp-ink)]/65">
-              {config.hero.badges.map((b) => (
-                <li
-                  key={b}
-                  className="rounded-full border border-[var(--lp-ink)]/15 px-2.5 py-1"
-                >
-                  {b}
-                </li>
-              ))}
-            </ul>
+            {config.hero.badges && config.hero.badges.length > 0 ? (
+              <ul className="flex flex-wrap gap-2 text-xs text-[var(--lp-ink)]/65">
+                {config.hero.badges.map((b) => (
+                  <li
+                    key={b}
+                    className="rounded-full border border-[var(--lp-ink)]/15 px-2.5 py-1"
+                  >
+                    {b}
+                  </li>
+                ))}
+              </ul>
+            ) : null}
           </div>
           <div>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={config.hero.visual.src}
-              alt={config.hero.visual.alt}
-              className="w-full rounded-xl border border-[var(--lp-ink)]/10 object-cover shadow-sm"
-            />
+            <div className="relative aspect-square w-full max-w-xl mx-auto md:max-w-none">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={config.hero.visual.src}
+                alt={config.hero.visual.alt}
+                className={
+                  config.hero.visual.fit === 'contain'
+                    ? 'absolute inset-0 h-full w-full rounded-xl object-contain object-center'
+                    : 'h-full w-full rounded-xl border border-[var(--lp-ink)]/10 object-cover shadow-sm'
+                }
+              />
+            </div>
             {config.hero.visual.note && (
-              <p className="mt-2 text-center text-xs text-[var(--lp-ink)]/45">
+              <p className={`mt-2 text-center ${lpNote}`}>
                 {config.hero.visual.note}
               </p>
             )}
@@ -118,7 +142,7 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
       {/* B02 impact */}
       <section className="border-b border-[var(--lp-ink)]/10 bg-[var(--lp-ink)] py-12 text-white md:py-14">
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
-          <p className="text-center text-sm text-white/70">
+          <p className="text-center text-base text-white/85 md:text-lg">
             {config.impact.mainFigure.lead}
           </p>
           <p className="mt-2 text-center text-3xl font-bold tabular-nums md:text-4xl">
@@ -127,7 +151,7 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
               {config.impact.mainFigure.trail}
             </span>
           </p>
-          <p className="mx-auto mt-3 max-w-2xl text-center text-xs text-white/50">
+          <p className="mx-auto mt-3 max-w-2xl text-center text-sm text-white/55">
             {config.impact.basis}
           </p>
           <div className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-4">
@@ -137,7 +161,7 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
                 className="rounded-xl border border-white/15 bg-white/5 px-3 py-4 text-center"
               >
                 <p className="text-lg font-bold">{m.value}</p>
-                <p className="mt-1 text-xs text-white/60">{m.label}</p>
+                <p className="mt-1 text-sm text-white/65">{m.label}</p>
               </div>
             ))}
           </div>
@@ -150,10 +174,10 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
           <div className="mx-auto grid max-w-5xl gap-6 px-4 sm:grid-cols-3 sm:px-6">
             {config.pillars.map((p) => (
               <div key={p.title}>
-                <h3 className="mb-2 text-lg font-bold text-[var(--lp-ink)]">
+                <h3 className={`mb-2 ${lpCardTitleLg}`}>
                   {p.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-[var(--lp-ink)]/75">
+                <p className={lpBody}>
                   {p.body}
                 </p>
               </div>
@@ -166,10 +190,10 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
       <section className="bg-white py-14 md:py-20">
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <SectionLabel>{config.problem.label}</SectionLabel>
-          <h2 className="mb-3 text-2xl font-bold md:text-3xl [text-wrap:balance]">
+          <h2 className={lpH2}>
             {config.problem.headline}
           </h2>
-          <p className="mb-8 max-w-2xl text-[var(--lp-ink)]/75">
+          <p className={`${lpLead} max-w-2xl`}>
             {config.problem.lead}
           </p>
 
@@ -197,11 +221,11 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
                     key={item.no}
                     className="rounded-xl border border-[var(--lp-ink)]/10 p-5"
                   >
-                    <p className="mb-1 text-xs font-semibold text-[var(--lp-primary)]">
+                    <p className={`mb-1 ${lpCardMeta}`}>
                       {item.no}
                     </p>
-                    <h3 className="mb-2 font-bold">{item.title}</h3>
-                    <p className="text-sm leading-relaxed text-[var(--lp-ink)]/70">
+                    <h3 className={`mb-2 ${lpCardTitle}`}>{item.title}</h3>
+                    <p className={lpBody}>
                       {item.body}
                     </p>
                   </div>
@@ -219,49 +243,53 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
               />
             ))}
 
-          <div className="mt-8 rounded-xl bg-[var(--lp-surface)] px-5 py-6">
-            <p className="font-bold text-[var(--lp-ink)]">
+          <div className={lpSummaryBox}>
+            <p className={lpSummaryHeadline}>
               {config.problem.summary.headline}
             </p>
-            <p className="mt-2 text-sm text-[var(--lp-ink)]/75">
+            <p className={`mt-2 ${lpBody}`}>
               {config.problem.summary.body}
             </p>
           </div>
         </div>
       </section>
 
+      {config.recurringProblems && (
+        <DemoLpRecurringProblems block={config.recurringProblems} />
+      )}
+
       {/* B05 fit */}
       <section className="py-14 md:py-20">
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <SectionLabel>{config.fit.label}</SectionLabel>
-          <h2 className="mb-3 text-2xl font-bold md:text-3xl [text-wrap:balance]">
+          <h2 className={lpH2}>
             {config.fit.headline}
           </h2>
-          <p className="mb-8 text-[var(--lp-ink)]/75">{config.fit.lead}</p>
+          <p className={lpLead}>{config.fit.lead}</p>
           <div className="grid gap-4 md:grid-cols-3">
             {config.fit.conditions.map((c) => (
               <div
                 key={c.no}
                 className="rounded-xl border border-[var(--lp-ink)]/10 bg-white p-5"
               >
-                <p className="mb-1 text-xs font-semibold text-[var(--lp-primary)]">
+                <p className={`mb-1 ${lpCardMeta}`}>
                   {c.no}
                   {c.roleLabel ? ` · ${c.roleLabel}` : ''}
                 </p>
-                <h3 className="mb-2 font-bold leading-snug">{c.title}</h3>
-                <p className="text-sm text-[var(--lp-ink)]/70">{c.body}</p>
+                <h3 className={`mb-2 ${lpCardTitle} leading-snug`}>{c.title}</h3>
+                <p className={lpBody}>{c.body}</p>
               </div>
             ))}
           </div>
           {config.fit.scopeNote && (
-            <p className="mt-6 text-sm leading-relaxed text-[var(--lp-ink)]/55">
+            <p className={`mt-6 ${lpNote}`}>
               {config.fit.scopeNote}
             </p>
           )}
-          <p className="mt-4 text-sm font-medium text-[var(--lp-ink)]">
+          <p className={`mt-4 ${lpAffirm}`}>
             {config.fit.affirm}
           </p>
-          <p className="mt-3 text-sm leading-relaxed text-[var(--lp-ink)]/60">
+          <p className={`mt-3 ${lpNote}`}>
             {config.fit.exclude}
           </p>
         </div>
@@ -272,28 +300,28 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
         <section className="bg-white py-14 md:py-20">
           <div className="mx-auto max-w-5xl px-4 sm:px-6">
             <SectionLabel>{config.usecases.label}</SectionLabel>
-            <h2 className="mb-3 text-2xl font-bold md:text-3xl">
+            <h2 className={lpH2}>
               {config.usecases.headline}
             </h2>
-            <p className="mb-8 text-[var(--lp-ink)]/75">{config.usecases.lead}</p>
+            <p className={lpLead}>{config.usecases.lead}</p>
             <div className="grid gap-4 sm:grid-cols-2">
               {config.usecases.items.map((u) => (
                 <div
                   key={u.industry}
                   className="rounded-xl border border-[var(--lp-ink)]/10 p-5"
                 >
-                  <p className="text-xs font-semibold text-[var(--lp-primary)]">
+                  <p className={lpCardMeta}>
                     {u.industry}
                   </p>
-                  <p className="mt-1 text-xs text-[var(--lp-ink)]/55">{u.scope}</p>
-                  <p className="mt-3 rounded-lg bg-[var(--lp-surface)] px-3 py-2 text-sm font-medium">
+                  <p className={`mt-1 ${lpNote}`}>{u.scope}</p>
+                  <p className={lpQuote}>
                     「{u.quote}」
                   </p>
-                  <p className="mt-3 text-sm text-[var(--lp-ink)]/70">{u.body}</p>
+                  <p className={`mt-3 ${lpBody}`}>{u.body}</p>
                 </div>
               ))}
             </div>
-            <p className="mt-6 text-sm text-[var(--lp-ink)]/60">
+            <p className={`mt-6 ${lpNote}`}>
               {config.usecases.more}
             </p>
           </div>
@@ -310,10 +338,10 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
       <section className="py-14 md:py-20">
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <SectionLabel>{config.mechanism.label}</SectionLabel>
-          <h2 className="mb-3 text-2xl font-bold md:text-3xl [text-wrap:balance]">
+          <h2 className={lpH2}>
             {config.mechanism.headline}
           </h2>
-          <p className="mb-8 text-[var(--lp-ink)]/75">{config.mechanism.lead}</p>
+          <p className={lpLead}>{config.mechanism.lead}</p>
           <div className="space-y-4">
             {config.mechanism.items.map((item) => (
               <div
@@ -321,19 +349,19 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
                 className="grid gap-2 rounded-xl border border-[var(--lp-ink)]/10 bg-white p-5 md:grid-cols-[1fr_1.2fr]"
               >
                 <div>
-                  <p className="text-xs text-[var(--lp-ink)]/50">
+                  <p className={lpNote}>
                     {config.mechanism!.wallLabel ?? '壁'}
                   </p>
-                  <p className="font-semibold">{item.wall}</p>
+                  <p className="font-semibold text-[var(--lp-ink)]">{item.wall}</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-[var(--lp-primary)]">
+                  <p className={lpCardMeta}>
                     {item.techNo} · {item.techName}
                   </p>
-                  <p className="mt-1 text-sm text-[var(--lp-ink)]/70">
+                  <p className={`mt-1 ${lpBody}`}>
                     {item.body}
                   </p>
-                  <p className="mt-2 text-sm font-medium text-[var(--lp-primary)]">
+                  <p className="mt-2 text-base font-medium text-[var(--lp-primary)]">
                     {item.effect}
                   </p>
                 </div>
@@ -355,7 +383,7 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
       ) : config.resultShot ? (
         <section className="bg-white py-14 md:py-16">
           <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
-            <p className="mb-4 font-semibold text-[var(--lp-ink)]">
+            <p className="mb-4 text-base font-semibold text-[var(--lp-ink)] md:text-lg">
               {config.resultShot.caption}
             </p>
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -364,7 +392,7 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
               alt={config.resultShot.image.alt}
               className="mx-auto w-full rounded-xl border border-[var(--lp-ink)]/10"
             />
-            <p className="mt-3 text-sm text-[var(--lp-ink)]/65">
+            <p className={`mt-3 ${lpNote}`}>
               {config.resultShot.note}
             </p>
           </div>
@@ -376,15 +404,15 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
         <section className="py-14 md:py-20">
           <div className="mx-auto max-w-5xl overflow-x-auto px-4 sm:px-6">
             <SectionLabel>{config.comparison.label}</SectionLabel>
-            <h2 className="mb-3 text-2xl font-bold md:text-3xl [text-wrap:balance]">
+            <h2 className={lpH2}>
               {config.comparison.headline}
             </h2>
-            <p className="mb-6 text-[var(--lp-ink)]/75">{config.comparison.lead}</p>
-            <table className="w-full min-w-[560px] border-collapse text-left text-sm">
+            <p className={`mb-6 ${lpLead}`}>{config.comparison.lead}</p>
+            <table className="w-full min-w-[560px] border-collapse text-left text-base">
               <thead>
                 <tr className="border-b border-[var(--lp-ink)]/15">
                   <th className="py-3 pr-3 font-semibold">観点</th>
-                  <th className="py-3 pr-3 font-semibold text-[var(--lp-ink)]/60">
+                  <th className={`py-3 pr-3 font-semibold ${lpCompareCommon}`}>
                     {config.comparison.columns.common}
                   </th>
                   <th className="py-3 font-semibold text-[var(--lp-primary)]">
@@ -399,15 +427,15 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
                     className="border-b border-[var(--lp-ink)]/10"
                   >
                     <td className="py-3 pr-3 font-medium">{row.point}</td>
-                    <td className="py-3 pr-3 text-[var(--lp-ink)]/65">
+                    <td className={`py-3 pr-3 ${lpCompareCommon}`}>
                       {row.common}
                     </td>
-                    <td className="py-3 text-[var(--lp-ink)]">{row.ours}</td>
+                    <td className={`py-3 ${lpCompareOurs}`}>{row.ours}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
-            <p className="mt-4 text-xs leading-relaxed text-[var(--lp-ink)]/55">
+            <p className={`mt-4 ${lpNote}`}>
               {config.comparison.fairnessNote}
             </p>
           </div>
@@ -419,25 +447,25 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
         <section className="bg-white py-14 md:py-20">
           <div className="mx-auto max-w-5xl px-4 sm:px-6">
             <SectionLabel>{config.growth.label}</SectionLabel>
-            <h2 className="mb-3 text-2xl font-bold md:text-3xl">
+            <h2 className={lpH2}>
               {config.growth.headline}
             </h2>
-            <p className="mb-8 text-[var(--lp-ink)]/75">{config.growth.lead}</p>
+            <p className={lpLead}>{config.growth.lead}</p>
             <div className="grid gap-4 md:grid-cols-3">
               {config.growth.cycles.map((c) => (
                 <div
                   key={c.no}
                   className="rounded-xl border border-[var(--lp-ink)]/10 p-5"
                 >
-                  <p className="text-xs font-semibold text-[var(--lp-primary)]">
+                  <p className={lpCardMeta}>
                     {c.no}
                   </p>
-                  <h3 className="mt-1 font-bold">{c.title}</h3>
-                  <p className="mt-2 text-sm text-[var(--lp-ink)]/70">{c.body}</p>
+                  <h3 className={`mt-1 ${lpCardTitle}`}>{c.title}</h3>
+                  <p className={`mt-2 ${lpBody}`}>{c.body}</p>
                 </div>
               ))}
             </div>
-            <p className="mt-6 text-sm text-[var(--lp-ink)]/70">
+            <p className={`mt-6 ${lpBody}`}>
               {config.growth.closing}
             </p>
           </div>
@@ -455,28 +483,28 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
       <section className="py-14 md:py-20">
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <SectionLabel>{config.process.label}</SectionLabel>
-          <h2 className="mb-3 text-2xl font-bold md:text-3xl">
+          <h2 className={lpH2}>
             {config.process.headline}
           </h2>
-          <p className="mb-8 text-[var(--lp-ink)]/75">{config.process.lead}</p>
+          <p className={lpLead}>{config.process.lead}</p>
           <div className="grid gap-4 md:grid-cols-3">
             {config.process.steps.map((s) => (
               <div
                 key={s.no}
                 className="rounded-xl border border-[var(--lp-ink)]/10 bg-white p-5"
               >
-                <p className="text-xs font-semibold text-[var(--lp-primary)]">
+                <p className={lpCardMeta}>
                   {s.no}
                 </p>
-                <h3 className="mt-1 font-bold">{s.title}</h3>
-                <p className="mt-1 text-xs text-[var(--lp-primary)]">
+                <h3 className={`mt-1 ${lpCardTitle}`}>{s.title}</h3>
+                <p className="mt-1 text-sm font-semibold text-[var(--lp-primary)]">
                   {s.costLabel}
                 </p>
-                <p className="mt-2 text-sm text-[var(--lp-ink)]/70">{s.body}</p>
+                <p className={`mt-2 ${lpBody}`}>{s.body}</p>
               </div>
             ))}
           </div>
-          <p className="mt-6 text-sm text-[var(--lp-ink)]/55">
+          <p className={`mt-6 ${lpNote}`}>
             {config.process.exitNote}
           </p>
           {config.process.detailHref && (
@@ -502,7 +530,7 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
         demoSlug={delivery.slug}
       />
 
-      <footer className="border-t border-[var(--lp-ink)]/10 bg-white py-8 text-center text-xs text-[var(--lp-ink)]/50">
+      <footer className={`border-t border-[var(--lp-ink)]/10 bg-white py-8 text-center ${lpNote}`}>
         <p>{brand.companyName}</p>
         <a
           href={brand.footer.contactUrl}

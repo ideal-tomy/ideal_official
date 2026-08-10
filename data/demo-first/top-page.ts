@@ -1,32 +1,9 @@
-import {
-  capabilities,
-  getCapabilityBySlug,
-  type Capability,
-} from '@/data/ai-capability-gallery/capabilities'
+import { getCapabilityBySlug } from '@/data/ai-capability-gallery/capabilities'
 import { getCaseBySlug, getCaseHref } from '@/data/cases'
 import {
   CONSTRUCTION_HUB_HREF,
   INDUSTRY_EXTERNAL_DEMOS,
 } from '@/data/demo-first/portfolio'
-
-/** Showcase 代表3本（業界バラエティ優先） */
-export const SHOWCASE_SLUGS = [
-  'photo-to-classification',
-  'knowledge-to-search',
-  'voice-to-structured',
-] as const
-
-export function getShowcaseCapabilities(): Capability[] {
-  return SHOWCASE_SLUGS.map((slug) => getCapabilityBySlug(slug)).filter(
-    (c): c is Capability => Boolean(c),
-  )
-}
-
-/** @deprecated トップ Gallery は portfolio へ移行。互換のため残置 */
-export function getGalleryCapabilities(): Capability[] {
-  const featured = new Set<string>(SHOWCASE_SLUGS)
-  return capabilities.filter((c) => c.status === 'ready' && !featured.has(c.slug))
-}
 
 export type IndustryCard = {
   id: string
