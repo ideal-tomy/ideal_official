@@ -23,7 +23,7 @@ export function DemoFirstIndustryService({ cards }: Props) {
         <h2 className="my-2 mb-4 text-[clamp(26px,5.6vw,40px)] font-black leading-[1.5] text-[var(--df-text)] md:mb-6">
           デモから始めるDX開発
         </h2>
-        <p className="mb-8 max-w-[640px] text-[var(--df-text)] md:mb-12">
+        <p className="mb-8 max-w-[640px] text-lg leading-relaxed text-slate-700 md:mb-12 md:text-xl md:leading-8">
           汎用ツールの導入で終わらせず、業界ごとの商習慣・現場ルールを踏まえた仕組みを設計します。気になる業種を開いて、課題と解決の流れを見てください。
         </p>
 

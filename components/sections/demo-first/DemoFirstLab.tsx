@@ -18,7 +18,7 @@ export function DemoFirstLab() {
           <br className="hidden md:inline" />
           深い解説へ。
         </h2>
-        <p className="mb-8 max-w-[640px] text-[var(--df-text-muted)] md:mb-10">
+        <p className="mb-8 max-w-[640px] text-lg leading-relaxed text-slate-700 md:mb-10 md:text-xl md:leading-8">
           デモと業種の話のほかに、思想・研究・導入の考え方など、もう一段深い読み物を LAB に集約しています。
         </p>
 

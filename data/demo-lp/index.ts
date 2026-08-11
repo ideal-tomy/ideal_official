@@ -8,6 +8,9 @@ import { dataToPredictionLp } from './data-to-prediction'
 import { workflowToAutomationLp } from './workflow-to-automation'
 import { multiInputToReportLp } from './multi-input-to-report'
 import { constructionRecordLp } from './construction-record'
+import { careRecordsLp } from './care-records'
+import { manufacturingJudgmentLp } from './manufacturing-judgment'
+import { retailSupportLp } from './retail-support'
 
 /** F型（能力）+ W型（業種）共用レジストリ。slug は重複させない */
 export const demoLpRegistry: Record<string, LpConfig> = {
@@ -19,6 +22,9 @@ export const demoLpRegistry: Record<string, LpConfig> = {
   [workflowToAutomationLp.delivery.slug]: workflowToAutomationLp,
   [multiInputToReportLp.delivery.slug]: multiInputToReportLp,
   [constructionRecordLp.delivery.slug]: constructionRecordLp,
+  [careRecordsLp.delivery.slug]: careRecordsLp,
+  [manufacturingJudgmentLp.delivery.slug]: manufacturingJudgmentLp,
+  [retailSupportLp.delivery.slug]: retailSupportLp,
 }
 
 export const demoLpSlugs = Object.keys(demoLpRegistry)

@@ -1,51 +1,84 @@
 /**
- * デモLP共通タイポグラフィ（GembaShift型LPに合わせた階層）
- *
- * Tier 1: 見出し — 大・太・ink
- * Tier 2: リード — 18–20px・slate-700（opacity で薄くしない）
- * Tier 3: 本文 — 16px・slate-600
- * Tier 4: 注記 — 14px・slate-500
+ * デモLP用タイポグラフィ（lib/content-typography の --lp-* 向けラッパ）
+ * 既存 import パスを維持。定義の正本は content-typography。
  */
 
-export const lpSectionLabel =
-  'mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--lp-primary)]'
+import {
+  contentAffirm,
+  contentBody,
+  contentBodyMuted,
+  contentCaption,
+  contentCardMeta,
+  contentCardTitle,
+  contentCardTitleLg,
+  contentH1,
+  contentH2,
+  contentH2Centered,
+  contentHeroBody,
+  contentHeroSub,
+  contentLead,
+  contentLeadCentered,
+  contentNote,
+  contentQuote,
+  contentSectionLabel,
+} from '@/lib/content-typography'
 
-export const lpH1 =
-  'text-3xl font-bold leading-tight tracking-tight text-[var(--lp-ink)] md:text-4xl lg:text-[2.75rem] [text-wrap:balance] [word-break:auto-phrase]'
+export const lpSectionLabel = contentSectionLabel.replace(
+  'text-brand',
+  'text-[var(--lp-primary)]',
+)
 
-export const lpHeroSub =
-  'text-lg font-semibold leading-snug text-[var(--lp-ink)] md:text-xl [text-wrap:balance]'
+export const lpH1 = contentH1
+  .replaceAll('text-[var(--site-fg)]', 'text-[var(--lp-ink)]')
 
-export const lpHeroBody =
-  'text-base leading-relaxed text-slate-600 md:text-lg md:leading-8'
+export const lpHeroSub = contentHeroSub.replaceAll(
+  'text-[var(--site-fg)]',
+  'text-[var(--lp-ink)]',
+)
 
-export const lpH2 =
-  'mb-3 text-2xl font-bold tracking-tight text-[var(--lp-ink)] md:text-4xl [text-wrap:balance]'
+export const lpHeroBody = contentHeroBody
+
+export const lpH2 = contentH2.replaceAll(
+  'text-[var(--site-fg)]',
+  'text-[var(--lp-ink)]',
+)
 
 export const lpH2Centered = `${lpH2} text-center`
 
-export const lpLead =
-  'mb-8 max-w-3xl text-lg leading-relaxed text-slate-700 md:text-xl md:leading-8'
+export const lpLead = contentLead
 
-export const lpLeadCentered = `${lpLead} mx-auto text-center`
+export const lpLeadCentered = contentLeadCentered
 
-export const lpBody = 'text-base leading-relaxed text-slate-600'
+export const lpBody = contentBody
 
-export const lpBodyMuted = 'text-sm leading-relaxed text-slate-500'
+export const lpBodyMuted = contentBodyMuted
 
-export const lpNote = 'text-sm leading-relaxed text-slate-500'
+export const lpNote = contentNote
 
-export const lpCaption = 'text-base font-medium leading-relaxed text-[var(--lp-ink)]'
+export const lpCaption = contentCaption.replaceAll(
+  'text-[var(--site-fg)]',
+  'text-[var(--lp-ink)]',
+)
 
-export const lpCardTitle = 'font-bold text-[var(--lp-ink)]'
+export const lpCardTitle = contentCardTitle.replaceAll(
+  'text-[var(--site-fg)]',
+  'text-[var(--lp-ink)]',
+)
 
-export const lpCardTitleLg = 'text-lg font-bold text-[var(--lp-ink)]'
+export const lpCardTitleLg = contentCardTitleLg.replaceAll(
+  'text-[var(--site-fg)]',
+  'text-[var(--lp-ink)]',
+)
 
-export const lpCardMeta =
-  'text-xs font-semibold uppercase tracking-wide text-[var(--lp-primary)]'
+export const lpCardMeta = contentCardMeta.replace(
+  'text-brand',
+  'text-[var(--lp-primary)]',
+)
 
-export const lpQuote =
-  'mt-3 rounded-xl bg-[var(--lp-primary)]/[0.07] px-4 py-3 text-base font-bold leading-relaxed text-slate-900 md:text-[17px] md:leading-8'
+export const lpQuote = contentQuote.replace(
+  'bg-brand/[0.07]',
+  'bg-[var(--lp-primary)]/[0.07]',
+)
 
 export const lpSummaryBox =
   'mt-8 rounded-xl border border-[var(--lp-ink)]/10 bg-[var(--lp-surface)] px-5 py-6'
@@ -53,7 +86,10 @@ export const lpSummaryBox =
 export const lpSummaryHeadline =
   'text-lg font-bold leading-snug text-[var(--lp-ink)] md:text-xl'
 
-export const lpAffirm = 'text-base font-medium leading-relaxed text-[var(--lp-ink)]'
+export const lpAffirm = contentAffirm.replaceAll(
+  'text-[var(--site-fg)]',
+  'text-[var(--lp-ink)]',
+)
 
 export const lpCompareOurs = 'text-[var(--lp-ink)] font-medium'
 

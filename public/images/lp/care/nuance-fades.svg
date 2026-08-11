@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" style="width:100%;height:auto;display:block" viewBox="0 0 880 450" role="img" aria-labelledby="nfTitle nfDesc">
+  <title id="nfTitle">シフトが終わると、その場のニュアンスは撮り直せない</title>
+  <desc id="nfDesc">現場中から交代前、帰宅後へと時間が進むと、会話の吹き出しが薄れ、思い出せなくなる。</desc>
+  <style>
+    svg{
+      --ink:#1F2A33; --line:#3A4650; --muted:#6B7780;
+      --soft:#F4F6F7; --edge:#C4CBD1; --solid:#B9C1C7;
+      --loss:#A8574B;
+      color-scheme: light only;
+      font-family:"Noto Sans CJK JP","Noto Sans JP",system-ui,sans-serif;
+    }
+    .t{fill:var(--ink)} .t-mut{fill:var(--muted)} .t-loss{fill:var(--loss)}
+    .frame{fill:var(--soft);stroke:var(--line);stroke-width:1.8}
+    .axis{stroke:var(--line);stroke-width:1.6;fill:none}
+    .back{stroke:var(--loss);stroke-width:1.8;fill:none;stroke-dasharray:7 6}
+    .drop{stroke:var(--loss);stroke-width:1.8;fill:none;stroke-dasharray:7 6}
+</style>
+  <defs>
+    <marker id="nfAh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3A4650"/>
+    </marker>
+    <marker id="nfAhL" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#A8574B"/>
+    </marker>
+  </defs>
+  <text class="t" x="165" y="76" text-anchor="middle" font-size="15.5" font-weight="700">① 現場中</text>
+  <text class="t" x="440" y="76" text-anchor="middle" font-size="15.5" font-weight="700">② 交代前</text>
+  <text class="t" x="715" y="76" text-anchor="middle" font-size="15.5" font-weight="700">③ 帰宅後</text>
+  <rect class="frame" x="55" y="92" width="220" height="140" rx="3"/>
+  <ellipse cx="165" cy="150" rx="58" ry="36" fill="#FFFFFF" stroke="var(--line)" stroke-width="1.6"/>
+  <text class="t" x="165" y="155" text-anchor="middle" font-size="14" font-weight="700">様子・声</text>
+  <text class="t-mut" x="165" y="256" text-anchor="middle" font-size="13.5">はっきり残っている</text>
+  <rect class="frame" x="330" y="92" width="220" height="140" rx="3"/>
+  <ellipse cx="440" cy="150" rx="58" ry="36" fill="#FFFFFF" stroke="var(--edge)" stroke-width="1.5" opacity="0.7"/>
+  <text class="t-mut" x="440" y="155" text-anchor="middle" font-size="14" font-weight="700" opacity="0.65">断片的</text>
+  <text class="t-mut" x="440" y="256" text-anchor="middle" font-size="13.5">薄れはじめる</text>
+  <rect class="frame" x="605" y="92" width="220" height="140" rx="3"/>
+  <ellipse cx="715" cy="150" rx="58" ry="36" fill="var(--soft)" stroke="var(--edge)" stroke-width="1.4" stroke-dasharray="6 5" opacity="0.45"/>
+  <text class="t-mut" x="715" y="155" text-anchor="middle" font-size="13" opacity="0.4">???</text>
+  <text class="t-loss" x="715" y="256" text-anchor="middle" font-size="13.5" font-weight="700">もう思い出せない</text>
+  <path class="axis" d="M55,300 L830,300" marker-end="url(#nfAh)"/>
+  <g stroke="var(--line)" stroke-width="1.2">
+    <line x1="165" y1="295" x2="165" y2="306"/>
+    <line x1="440" y1="295" x2="440" y2="306"/>
+    <line x1="715" y1="295" x2="715" y2="306"/>
+  </g>
+  <text class="t-mut" x="828" y="322" text-anchor="end" font-size="13">時間の経過</text>
+  <circle cx="715" cy="300" r="7" fill="var(--ink)"/>
+  <text class="t" x="715" y="284" text-anchor="middle" font-size="13.5" font-weight="700">記録を書くとき</text>
+  <path class="back" d="M700,352 L200,352" marker-end="url(#nfAhL)"/>
+  <g stroke="var(--loss)" stroke-width="2.8" stroke-linecap="round">
+    <line x1="432" y1="344" x2="448" y2="360"/><line x1="448" y1="344" x2="432" y2="360"/>
+    <line x1="180" y1="344" x2="196" y2="360"/><line x1="196" y1="344" x2="180" y2="360"/>
+  </g>
+  <text class="t-loss" x="450" y="382" text-anchor="middle" font-size="14" font-weight="700">その場の様子は撮り直せない</text>
+  <text class="t" x="440" y="428" text-anchor="middle" font-size="19" font-weight="700">シフトが終わると、ニュアンスは戻ってこない。</text>
+</svg>

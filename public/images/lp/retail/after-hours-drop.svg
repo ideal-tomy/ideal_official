@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" style="width:100%;height:auto;display:block" viewBox="0 0 880 450" role="img" aria-labelledby="ahdTitle ahdDesc">
+  <title id="ahdTitle">閉店後の問い合わせは、その瞬間に取りこぼす</title>
+  <desc id="ahdDesc">営業中は案内が通り、時間外は吹き出しが落ちて翌朝まで返せず機会が消える。</desc>
+  <style>
+    svg{
+      --ink:#1F2A33; --line:#3A4650; --muted:#6B7780;
+      --soft:#F4F6F7; --edge:#C4CBD1; --solid:#B9C1C7;
+      --loss:#A8574B;
+      color-scheme: light only;
+      font-family:"Noto Sans CJK JP","Noto Sans JP",system-ui,sans-serif;
+    }
+    .t{fill:var(--ink)} .t-mut{fill:var(--muted)} .t-loss{fill:var(--loss)}
+    .frame{fill:var(--soft);stroke:var(--line);stroke-width:1.8}
+    .axis{stroke:var(--line);stroke-width:1.6;fill:none}
+    .back{stroke:var(--loss);stroke-width:1.8;fill:none;stroke-dasharray:7 6}
+    .drop{stroke:var(--loss);stroke-width:1.8;fill:none;stroke-dasharray:7 6}
+</style>
+  <defs>
+    <marker id="ahdAh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3A4650"/>
+    </marker>
+    <marker id="ahdAhL" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#A8574B"/>
+    </marker>
+  </defs>
+  <text class="t" x="200" y="56" text-anchor="middle" font-size="15.5" font-weight="700">営業中</text>
+  <text class="t-loss" x="440" y="56" text-anchor="middle" font-size="15.5" font-weight="700">閉店ライン</text>
+  <text class="t" x="680" y="56" text-anchor="middle" font-size="15.5" font-weight="700">時間外 → 翌朝</text>
+  <rect class="frame" x="70" y="80" width="260" height="180" rx="3"/>
+  <ellipse cx="160" cy="140" rx="50" ry="32" fill="#FFF" stroke="var(--line)" stroke-width="1.6"/>
+  <text class="t" x="160" y="145" text-anchor="middle" font-size="13" font-weight="700">質問</text>
+  <path d="M220,140 L280,140" stroke="var(--line)" stroke-width="2" marker-end="url(#ahdAh)"/>
+  <rect x="286" y="118" width="90" height="44" rx="3" fill="#FFF" stroke="var(--line)" stroke-width="1.6"/>
+  <text class="t" x="331" y="145" text-anchor="middle" font-size="13" font-weight="700">案内</text>
+  <text class="t-mut" x="200" y="240" text-anchor="middle" font-size="13.5">その場で返せる</text>
+  <line x1="420" y1="70" x2="420" y2="290" stroke="var(--loss)" stroke-width="2.4" stroke-dasharray="6 5"/>
+  <text class="t-loss" x="440" y="110" text-anchor="middle" font-size="13" font-weight="700" transform="rotate(-90 440 160)">閉店</text>
+  <rect class="frame" x="500" y="80" width="300" height="180" rx="3"/>
+  <ellipse cx="560" cy="130" rx="44" ry="28" fill="#FFF" stroke="var(--edge)" stroke-width="1.4" opacity="0.5"/>
+  <text class="t-mut" x="560" y="135" text-anchor="middle" font-size="12" opacity="0.6">質問</text>
+  <path class="drop" d="M600,150 C620,180 640,210 660,250" marker-end="url(#ahdAhL)"/>
+  <ellipse cx="670" cy="268" rx="40" ry="22" fill="var(--soft)" stroke="var(--loss)" stroke-width="1.4" stroke-dasharray="5 4"/>
+  <text class="t-loss" x="670" y="272" text-anchor="middle" font-size="11">落ちる</text>
+  <text class="t-mut" x="750" y="160" text-anchor="middle" font-size="12">返せず待機</text>
+  <text class="t-loss" x="650" y="240" text-anchor="middle" font-size="13.5" font-weight="700">機会が消える</text>
+  <path class="axis" d="M70,330 L810,330" marker-end="url(#ahdAh)"/>
+  <line x1="200" y1="325" x2="200" y2="336" stroke="var(--line)"/>
+  <line x1="420" y1="325" x2="420" y2="336" stroke="var(--loss)" stroke-width="2"/>
+  <line x1="680" y1="325" x2="680" y2="336" stroke="var(--line)"/>
+  <text class="t-mut" x="200" y="354" text-anchor="middle" font-size="12.5">日中</text>
+  <text class="t-loss" x="420" y="354" text-anchor="middle" font-size="12.5" font-weight="700">閉店</text>
+  <text class="t-mut" x="680" y="354" text-anchor="middle" font-size="12.5">翌朝返信</text>
+  <path class="drop" d="M660,370 L220,370" marker-end="url(#ahdAhL)"/>
+  <g stroke="var(--loss)" stroke-width="2.6" stroke-linecap="round">
+    <line x1="430" y1="362" x2="446" y2="378"/><line x1="446" y1="362" x2="430" y2="378"/>
+  </g>
+  <text class="t-loss" x="440" y="398" text-anchor="middle" font-size="14" font-weight="700">その瞬間の取りこぼしは、翌朝では戻らない</text>
+  <text class="t" x="440" y="430" text-anchor="middle" font-size="19" font-weight="700">時間外に定型案内が止まると、機会がその場で消える。</text>
+</svg>

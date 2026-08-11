@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { CapabilityPatternShowcase } from '@/components/ai-capability-gallery/CapabilityPatternShowcase'
 import type { Capability } from '@/data/ai-capability-gallery/capabilities'
 import { GALLERY_BASE } from '@/data/ai-capability-gallery/capabilities'
+import { contentLeadBare } from '@/lib/content-typography'
 import { SectionKicker } from './SectionKicker'
 
 type Props = {
@@ -22,7 +23,7 @@ export function DemoFirstPatternShowcase({ capabilities }: Props) {
           <br className="hidden md:inline" />
           動くデモで確かめる。
         </h2>
-        <p className="mb-6 max-w-[640px] text-[var(--df-text)] md:mb-8">
+        <p className={`mb-6 max-w-[640px] md:mb-8 ${contentLeadBare}`}>
           業務課題から生まれた開発デモです。パターンを見比べて、近いものから触ってください。
         </p>
       </div>

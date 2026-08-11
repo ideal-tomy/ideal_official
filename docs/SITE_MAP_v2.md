@@ -118,10 +118,10 @@ Hero CTA「デモを触ってみる」→ `#demos`（§03）。業種は §01 �
 
 | 業種カード | 詳しく見る（目標） | デモを直接開く | 現状 |
 |---|---|---|---|
-| 建設・設備 | `/demo/w/construction-record` ✅ | 建設ハブ ↗ | ✅ 合意どおり |
-| 医療・福祉 | `/demo/w/care-records` 🚧 | 介護デモ ↗ | ❌ cases 詳細へ |
-| 製造 | `/demo/w/manufacturing-judgment` 🚧 | 製造ハブ ↗ | ❌ `/services/ai-consulting` |
-| 小売・サービス | `/demo/w/retail-support` 🚧 | CSデモ ↗ | ❌ `/services/ai-consulting` |
+| 建設・設備 | `/demo/w/construction-record` ✅ | 建設ハブ ↗ | ✅ |
+| 医療・福祉 | `/demo/w/care-records` ✅ | 介護デモ ↗ | ✅ |
+| 製造 | `/demo/w/manufacturing-judgment` ✅ | 製造ハブ ↗ | ✅ |
+| 小売・サービス | `/demo/w/retail-support` ✅ | CSデモ ↗ | ✅ |
 
 ボタン規則（再掲）:
 
@@ -137,9 +137,9 @@ Hero CTA「デモを触ってみる」→ `#demos`（§03）。業種は §01 �
 | slug（案） | 公開URL | 吸収元 cases | 外部デモ | 状態 |
 |---|---|---|---|---|
 | `construction-record` | `/demo/w/construction-record` | `construction-photo-sorting` | 建設ハブ | ✅ 公開 |
-| `care-records` | `/demo/w/care-records` | `care-voice-records` | 介護デモ | 🚧 brief/LpConfig 未 |
-| `manufacturing-judgment` | `/demo/w/manufacturing-judgment` | `knowledge-internal-search`（一部） | 製造ハブ | 🚧 文案・資産ゲート |
-| `retail-support` | `/demo/w/retail-support` | `retail-demand-prediction`（一部） | CSデモ | 🚧 文案・資産ゲート |
+| `care-records` | `/demo/w/care-records` | `care-voice-records` | 介護デモ | ✅ 公開 |
+| `manufacturing-judgment` | `/demo/w/manufacturing-judgment` | `knowledge-internal-search`（一部） | 製造ハブ | ✅ 公開 |
+| `retail-support` | `/demo/w/retail-support` | `retail-demand-prediction`（副題吸収）/ CS主軸 | CSデモ | ✅ 公開 |
 
 slug は実装前に brief で確定。上表は **REDIRECT_MAP** と同期する。
 

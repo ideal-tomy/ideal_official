@@ -5,10 +5,15 @@ import {
   HOW_WE_WORK_TITLE,
   getHowWeWorkHref,
 } from '@/data/how-we-work'
-import { getCaseByRelatedDemoSlug, getCaseHref } from '@/data/cases'
+import { getCaseByRelatedDemoSlug } from '@/data/cases'
+import {
+  getWorkflowLpHrefForCase,
+  getWorkflowLpHrefForDemo,
+} from '@/lib/demo-lp/workflow-routes'
+import { contentBody, contentH2, contentLeadBare, contentNote } from '@/lib/content-typography'
 
 type HowWeWorkSummaryProps = {
-  /** 指定時は対応する活用イメージへ。未指定はハブへ */
+  /** 指定時は対応する W型LP（なければ how-we-work ハブ） */
   demoSlug?: string
   showEstimateLink?: boolean
   showCasesLink?: boolean
@@ -24,9 +29,13 @@ export function HowWeWorkSummary({
   const relatedCase = demoSlug
     ? getCaseByRelatedDemoSlug(demoSlug)
     : undefined
-  const detailHref = relatedCase
-    ? getCaseHref(relatedCase.slug)
-    : getHowWeWorkHref()
+  const workflowHref =
+    getWorkflowLpHrefForDemo(demoSlug) ??
+    getWorkflowLpHrefForCase(relatedCase?.slug)
+  const detailHref = workflowHref ?? getHowWeWorkHref()
+  const detailLabel = workflowHref
+    ? '業種の説明を見る →'
+    : '詳しく見る →'
 
   return (
     <section
@@ -36,12 +45,8 @@ export function HowWeWorkSummary({
         <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-brand/90">
           How we work
         </p>
-        <h2 className="mb-2 text-2xl font-bold text-[var(--site-fg)] md:text-3xl">
-          {HOW_WE_WORK_TITLE}
-        </h2>
-        <p className="mb-8 text-sm leading-relaxed text-[var(--site-fg-muted)] md:text-base">
-          {HOW_WE_WORK_LEAD}
-        </p>
+        <h2 className={`mb-2 ${contentH2}`}>{HOW_WE_WORK_TITLE}</h2>
+        <p className={`mb-8 ${contentLeadBare}`}>{HOW_WE_WORK_LEAD}</p>
 
         <ol className="relative">
           {HOW_WE_WORK_STEPS.map((item, index) => {
@@ -67,9 +72,7 @@ export function HowWeWorkSummary({
                 </div>
                 <div className="min-w-0 flex-1 rounded-xl border border-[var(--site-border)] bg-[color-mix(in_srgb,var(--site-fg)_3%,transparent)] px-4 py-3">
                   <p className="font-semibold text-brand-deep">{item.title}</p>
-                  <p className="mt-0.5 text-sm text-[var(--site-fg-muted)]">
-                    {item.summary}
-                  </p>
+                  <p className={`mt-0.5 ${contentBody}`}>{item.summary}</p>
                 </div>
               </li>
             )
@@ -81,9 +84,7 @@ export function HowWeWorkSummary({
             href={detailHref}
             className="inline-flex items-center justify-center rounded-lg bg-brand px-6 py-3 text-sm font-bold text-[var(--df-on-primary)] transition-all hover:scale-[1.02] hover:bg-brand-hover active:scale-[0.98] sm:text-base"
           >
-            {relatedCase
-              ? '活用イメージで詳しく読む →'
-              : '詳しく見る →'}
+            {detailLabel}
           </Link>
           {showEstimateLink && (
             <Link
@@ -95,13 +96,16 @@ export function HowWeWorkSummary({
           )}
           {showCasesLink && (
             <Link
-              href="/cases"
+              href="/"
               className="inline-flex items-center justify-center rounded-lg border border-[var(--site-border)] bg-transparent px-6 py-3 text-sm font-bold text-[var(--site-fg)] transition-all hover:scale-[1.02] hover:border-brand/60 hover:text-brand-hover active:scale-[0.98] sm:text-base"
             >
-              活用イメージ一覧 →
+              トップの業種一覧 →
             </Link>
           )}
         </div>
+        <p className={`mt-4 ${contentNote}`}>
+          導入の共通手順は、業種説明ページ（W型LP）のあとに詳細として読む想定です。
+        </p>
       </div>
     </section>
   )

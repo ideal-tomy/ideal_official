@@ -20,6 +20,26 @@ const nextConfig: NextConfig = {
         permanent: false,
       },
       {
+        source: '/cases/industries/construction-photo-sorting',
+        destination: '/demo/w/construction-record',
+        permanent: true,
+      },
+      {
+        source: '/cases/industries/care-voice-records',
+        destination: '/demo/w/care-records',
+        permanent: true,
+      },
+      {
+        source: '/cases/industries/knowledge-internal-search',
+        destination: '/demo/w/manufacturing-judgment',
+        permanent: true,
+      },
+      {
+        source: '/cases/industries/retail-demand-prediction',
+        destination: '/demo/w/retail-support',
+        permanent: true,
+      },
+      {
         source: '/services/dao-design',
         destination: '/lab/blockchain#dao-governance',
         permanent: true,

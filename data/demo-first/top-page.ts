@@ -1,5 +1,5 @@
 import { getCapabilityBySlug } from '@/data/ai-capability-gallery/capabilities'
-import { getCaseBySlug, getCaseHref } from '@/data/cases'
+import { getCaseBySlug } from '@/data/cases'
 import {
   CONSTRUCTION_HUB_HREF,
   INDUSTRY_EXTERNAL_DEMOS,
@@ -13,9 +13,9 @@ export type IndustryCard = {
   solutions: string[]
   /** カード用ビジュアル（/images/lp — ThemeImage で _light 切替） */
   image: string
-  /** 事例詳細（製造は AI サービスへ） */
+  /** W型LP（説明の正本） */
   detailHref?: string
-  /** detailHref 用ラベル（例: 流れを見る / AIサービスを見る） */
+  /** detailHref 用ラベル（詳しく見る） */
   detailLabel?: string
   /** 業務デモ（外部 URL 可） */
   tryHref: string
@@ -74,10 +74,10 @@ export function getIndustryCards(): IndustryCard[] {
             ...care.after.steps.slice(-1).map((s) => `${s.label}：${s.detail}`),
           ]
         : [],
-      detailHref: care ? getCaseHref(care.slug) : undefined,
-      detailLabel: '流れを見る',
+      detailHref: '/demo/w/care-records',
+      detailLabel: '詳しく見る',
       tryHref: INDUSTRY_EXTERNAL_DEMOS.care,
-      tryLabel: 'ケア記録',
+      tryLabel: 'デモを直接開く',
       tryExternal: true,
     },
     {
@@ -93,10 +93,10 @@ export function getIndustryCards(): IndustryCard[] {
         '業種別のチャット案内で、定型の質問にその場で答えられる',
         '必要なときだけ有人対応へつなぎ、応対の負担を減らせる',
       ],
-      detailHref: '/services/ai-consulting',
-      detailLabel: 'AIサービスを見る',
+      detailHref: '/demo/w/retail-support',
+      detailLabel: '詳しく見る',
       tryHref: INDUSTRY_EXTERNAL_DEMOS.retail,
-      tryLabel: 'カスタマーサポート',
+      tryLabel: 'デモを直接開く',
       tryExternal: true,
     },
     {
@@ -112,10 +112,10 @@ export function getIndustryCards(): IndustryCard[] {
         '文書に聞いて、優先ルールと連絡先まで根拠付きで答えられる',
         knowledge?.after ?? '回答と出典が同時に得られる',
       ],
-      detailHref: '/services/ai-consulting',
-      detailLabel: 'AIサービスを見る',
+      detailHref: '/demo/w/manufacturing-judgment',
+      detailLabel: '詳しく見る',
       tryHref: INDUSTRY_EXTERNAL_DEMOS.manufacturing,
-      tryLabel: '製造の判断（3体験）',
+      tryLabel: 'デモを直接開く',
       tryExternal: true,
     },
   ]

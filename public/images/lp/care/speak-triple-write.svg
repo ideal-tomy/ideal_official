@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" style="width:100%;height:auto;display:block" viewBox="0 0 880 480" role="img" aria-labelledby="stwTitle stwDesc">
+  <title id="stwTitle">話した1回が、三度扱われている（記憶・メモ・帳票）</title>
+  <desc id="stwDesc">その場の会話1つが、人の手で持ち帰られ、頭の中・メモ紙・記録票の3つに分かれて扱われる様子。</desc>
+  <style>
+    svg{
+      --ink:#1F2A33; --line:#3A4650; --muted:#6B7780;
+      --soft:#F4F6F7; --edge:#C4CBD1;
+      --loss:#A8574B;
+      color-scheme: light only;
+      font-family:"Noto Sans CJK JP","Noto Sans JP",system-ui,sans-serif;
+    }
+    .t{fill:var(--ink)} .t-mut{fill:var(--muted)} .t-w{fill:#FFFFFF} .t-loss{fill:var(--loss)}
+    .wire{stroke:var(--edge);stroke-width:2.4;fill:none}
+    .box{fill:#FFFFFF;stroke:var(--line);stroke-width:1.6}
+    .gate{fill:var(--loss)}
+</style>
+  <defs>
+    <marker id="stwAh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#C4CBD1"/>
+    </marker>
+  </defs>
+  <text class="t-mut" x="132" y="56" text-anchor="middle" font-size="14">その場で話す</text>
+  <text class="t-loss" x="415" y="56" text-anchor="middle" font-size="15" font-weight="700">人の手で持ち帰る</text>
+  <text class="t-mut" x="677" y="56" text-anchor="middle" font-size="14">扱う先</text>
+  <rect x="62" y="168" width="140" height="100" rx="3" fill="var(--soft)" stroke="var(--line)" stroke-width="1.6"/>
+  <ellipse cx="132" cy="208" rx="42" ry="28" fill="#FFFFFF" stroke="var(--line)" stroke-width="1.4"/>
+  <text class="t" x="132" y="213" text-anchor="middle" font-size="13" font-weight="700">会話</text>
+  <text class="t" x="132" y="292" text-anchor="middle" font-size="14.5" font-weight="700">話した1回</text>
+  <text class="t-mut" x="132" y="312" text-anchor="middle" font-size="12.5">中身は、これだけ</text>
+  <path class="wire" d="M204,218 C262,218 262,120 322,120"/>
+  <path class="wire" d="M204,218 L322,218"/>
+  <path class="wire" d="M204,218 C262,218 262,316 322,316"/>
+  <g>
+    <rect class="gate" x="322" y="98" width="150" height="44" rx="3"/>
+    <text class="t-w" x="397" y="125" text-anchor="middle" font-size="13.5" font-weight="700">記憶に留める</text>
+  </g>
+  <g>
+    <rect class="gate" x="322" y="196" width="150" height="44" rx="3"/>
+    <text class="t-w" x="397" y="223" text-anchor="middle" font-size="13.5" font-weight="700">走り書きする</text>
+  </g>
+  <g>
+    <rect class="gate" x="322" y="294" width="150" height="44" rx="3"/>
+    <text class="t-w" x="397" y="321" text-anchor="middle" font-size="13.5" font-weight="700">帳票へ転記</text>
+  </g>
+  <path class="wire" d="M472,120 L560,120" marker-end="url(#stwAh)"/>
+  <path class="wire" d="M472,218 L560,218" marker-end="url(#stwAh)"/>
+  <path class="wire" d="M472,316 L560,316" marker-end="url(#stwAh)"/>
+  <rect class="box" x="560" y="98" width="220" height="44" rx="3"/>
+  <text class="t" x="670" y="125" text-anchor="middle" font-size="14">頭の中</text>
+  <rect class="box" x="560" y="196" width="220" height="44" rx="3"/>
+  <text class="t" x="670" y="223" text-anchor="middle" font-size="14">メモ紙</text>
+  <rect class="box" x="560" y="294" width="220" height="44" rx="3"/>
+  <text class="t" x="670" y="321" text-anchor="middle" font-size="14">記録票</text>
+  <line x1="62" y1="380" x2="820" y2="380" stroke="var(--edge)" stroke-width="1.2"/>
+  <text class="t" x="440" y="418" text-anchor="middle" font-size="19" font-weight="700">話した1回が、記憶・走り書き・帳票で三度扱われている。</text>
+  <text class="t-mut" x="440" y="448" text-anchor="middle" font-size="13.5">同じ中身を、人が何度も運んでいる</text>
+</svg>

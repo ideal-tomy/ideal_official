@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" style="width:100%;height:auto;display:block" viewBox="0 0 880 480" role="img" aria-labelledby="sfhTitle sfhDesc">
+  <title id="sfhTitle">同じ答えなのに、チャネルごとに人が毎回説明している</title>
+  <desc id="sfhDesc">返品ルールは1つだが、電話・チャット・店頭・SNSで毎回人が同じ説明をする様子。</desc>
+  <style>
+    svg{
+      --ink:#1F2A33; --line:#3A4650; --muted:#6B7780;
+      --soft:#F4F6F7; --edge:#C4CBD1;
+      --loss:#A8574B;
+      color-scheme: light only;
+      font-family:"Noto Sans CJK JP","Noto Sans JP",system-ui,sans-serif;
+    }
+    .t{fill:var(--ink)} .t-mut{fill:var(--muted)} .t-w{fill:#FFFFFF} .t-loss{fill:var(--loss)}
+    .wire{stroke:var(--edge);stroke-width:2.4;fill:none}
+    .box{fill:#FFFFFF;stroke:var(--line);stroke-width:1.6}
+    .gate{fill:var(--loss)}
+</style>
+  <defs>
+    <marker id="sfhAh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#C4CBD1"/>
+    </marker>
+  </defs>
+  <text class="t-mut" x="120" y="52" text-anchor="middle" font-size="14">答えは1つ</text>
+  <text class="t-loss" x="400" y="52" text-anchor="middle" font-size="15" font-weight="700">チャネルごとに毎回説明</text>
+  <text class="t-mut" x="700" y="52" text-anchor="middle" font-size="14">同じ答えが4回</text>
+  <rect x="48" y="160" width="150" height="110" rx="3" fill="var(--soft)" stroke="var(--line)" stroke-width="1.6"/>
+  <text class="t" x="123" y="205" text-anchor="middle" font-size="14" font-weight="700">返品ルール</text>
+  <text class="t" x="123" y="228" text-anchor="middle" font-size="18" font-weight="700">1つ</text>
+  <text class="t-mut" x="123" y="252" text-anchor="middle" font-size="12">中身はこれだけ</text>
+  <path class="wire" d="M198,190 C250,120 280,100 320,100"/>
+  <path class="wire" d="M198,205 C250,170 280,155 320,155"/>
+  <path class="wire" d="M198,230 C250,250 280,265 320,265"/>
+  <path class="wire" d="M198,245 C250,300 280,320 320,320"/>
+  <g>
+    <rect class="gate" x="320" y="80" width="160" height="40" rx="3"/>
+    <text class="t-w" x="400" y="105" text-anchor="middle" font-size="13.5" font-weight="700">電話で毎回説明</text>
+  </g>
+  <g>
+    <rect class="gate" x="320" y="135" width="160" height="40" rx="3"/>
+    <text class="t-w" x="400" y="160" text-anchor="middle" font-size="13.5" font-weight="700">チャットで毎回説明</text>
+  </g>
+  <g>
+    <rect class="gate" x="320" y="245" width="160" height="40" rx="3"/>
+    <text class="t-w" x="400" y="270" text-anchor="middle" font-size="13.5" font-weight="700">店頭で毎回説明</text>
+  </g>
+  <g>
+    <rect class="gate" x="320" y="300" width="160" height="40" rx="3"/>
+    <text class="t-w" x="400" y="325" text-anchor="middle" font-size="13.5" font-weight="700">SNSで毎回説明</text>
+  </g>
+  <path class="wire" d="M480,100 L560,100" marker-end="url(#sfhAh)"/>
+  <path class="wire" d="M480,155 L560,155" marker-end="url(#sfhAh)"/>
+  <path class="wire" d="M480,265 L560,265" marker-end="url(#sfhAh)"/>
+  <path class="wire" d="M480,320 L560,320" marker-end="url(#sfhAh)"/>
+  <rect class="box" x="560" y="80" width="220" height="40" rx="3"/>
+  <text class="t" x="670" y="105" text-anchor="middle" font-size="14">同じ返品ルール</text>
+  <rect class="box" x="560" y="135" width="220" height="40" rx="3"/>
+  <text class="t" x="670" y="160" text-anchor="middle" font-size="14">同じ返品ルール</text>
+  <rect class="box" x="560" y="245" width="220" height="40" rx="3"/>
+  <text class="t" x="670" y="270" text-anchor="middle" font-size="14">同じ返品ルール</text>
+  <rect class="box" x="560" y="300" width="220" height="40" rx="3"/>
+  <text class="t" x="670" y="325" text-anchor="middle" font-size="14">同じ返品ルール</text>
+  <text class="t-loss" x="400" y="210" text-anchor="middle" font-size="13" font-weight="700">人の時間 × 4</text>
+  <line x1="48" y1="380" x2="830" y2="380" stroke="var(--edge)" stroke-width="1.2"/>
+  <text class="t" x="440" y="418" text-anchor="middle" font-size="19" font-weight="700">答えは1つなのに、出す窓口が変わるたびに人が説明している。</text>
+  <text class="t-mut" x="440" y="448" text-anchor="middle" font-size="13.5">定型ほど、人が繰り返し埋まる</text>
+</svg>

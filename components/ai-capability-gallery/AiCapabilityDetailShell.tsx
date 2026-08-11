@@ -1,14 +1,20 @@
 'use client'
 
 import Link from 'next/link'
-import {
-  getCaseByRelatedDemoSlug,
-  getCaseHref,
-} from '@/data/cases'
+import { getCaseByRelatedDemoSlug } from '@/data/cases'
 import type { Capability } from '@/data/ai-capability-gallery/capabilities'
 import { GALLERY_BASE } from '@/data/ai-capability-gallery/capabilities'
 import { RelatedPatternsMarquee } from '@/components/ai-capability-gallery/RelatedPatternsMarquee'
 import { buildRoiSimulatorHrefForGalleryDemo } from '@/lib/roiSimulator'
+import {
+  getWorkflowLpHrefForCase,
+  getWorkflowLpHrefForDemo,
+} from '@/lib/demo-lp/workflow-routes'
+import {
+  contentH1,
+  contentLeadBare,
+  contentNote,
+} from '@/lib/content-typography'
 
 export interface CapabilityDetailMeta {
   slug: string
@@ -34,7 +40,9 @@ export function AiCapabilityDetailShell({
 }: AiCapabilityDetailShellProps) {
   const relatedCase = getCaseByRelatedDemoSlug(page.slug)
   const externalDemo = relatedCase?.externalDemo
-  const caseHref = relatedCase ? getCaseHref(relatedCase.slug) : '/cases'
+  const workflowHref =
+    getWorkflowLpHrefForDemo(page.slug) ??
+    getWorkflowLpHrefForCase(relatedCase?.slug)
   const contactHref = `/contact?service=ai-consulting&intent=gallery&demo=${encodeURIComponent(page.slug)}`
   const estimateHref = buildRoiSimulatorHrefForGalleryDemo(page.slug, {
     returnPath: `${GALLERY_BASE}/${page.slug}`,
@@ -67,9 +75,7 @@ export function AiCapabilityDetailShell({
           </p>
 
           <div className="mb-2 flex flex-col gap-3 sm:mb-4 md:flex-row md:items-start md:justify-between md:gap-6">
-            <h1 className="min-w-0 flex-1 text-xl font-bold leading-snug tracking-tight text-[var(--site-fg)] sm:text-2xl md:text-3xl lg:text-4xl lg:leading-tight">
-              {page.title}
-            </h1>
+            <h1 className={`min-w-0 flex-1 ${contentH1}`}>{page.title}</h1>
             {externalDemo && (
               <div className="shrink-0 md:pt-1">
                 <a
@@ -87,9 +93,7 @@ export function AiCapabilityDetailShell({
             )}
           </div>
 
-          <p className="mb-4 hidden text-lg leading-relaxed text-[var(--site-fg)]/90 md:block">
-            {page.lead}
-          </p>
+          <p className={`mb-4 hidden md:block ${contentLeadBare}`}>{page.lead}</p>
 
           <div className="flex flex-wrap gap-1.5 md:gap-2">
             {page.tags.map((tag) => (
@@ -113,22 +117,25 @@ export function AiCapabilityDetailShell({
             <h2 className="mb-3 text-xl font-bold text-[var(--site-fg)] md:text-2xl">
               次に進む
             </h2>
-            <p className="mx-auto mb-8 max-w-md text-sm text-[var(--site-fg-muted)]">
-              現場の流れを読む・金額感を見る・相談する。どれからでも大丈夫です。
+            <p className={`mx-auto mb-8 max-w-md ${contentNote}`}>
+              業種の説明を読む・金額感を見る・相談する。どれからでも大丈夫です。
             </p>
             <div className="mx-auto flex max-w-2xl flex-col gap-3 sm:flex-row sm:justify-center">
-              <Link
-                href={`/demo/${page.slug}`}
-                className={`${btnBase} bg-brand text-[var(--df-on-primary)] hover:bg-brand-hover`}
-              >
-                詳しく知る
-              </Link>
-              <Link
-                href={caseHref}
-                className={`${btnBase} border border-[var(--site-border)] text-[var(--site-fg)] hover:border-brand/40 hover:bg-brand/5`}
-              >
-                活用イメージ
-              </Link>
+              {workflowHref ? (
+                <Link
+                  href={workflowHref}
+                  className={`${btnBase} bg-brand text-[var(--df-on-primary)] hover:bg-brand-hover`}
+                >
+                  業種の説明を見る
+                </Link>
+              ) : (
+                <Link
+                  href={`/demo/${page.slug}`}
+                  className={`${btnBase} bg-brand text-[var(--df-on-primary)] hover:bg-brand-hover`}
+                >
+                  詳しく知る
+                </Link>
+              )}
               {estimateHref ? (
                 <a
                   href={estimateHref}

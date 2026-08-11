@@ -78,6 +78,9 @@ export const typography = {
   caption: 'text-xs lg:text-sm text-[var(--site-fg-muted)]',
 } as const
 
+// コンテンツ階層（説明文・リード）。Hero 装飾用 typography とは別
+export { contentTypography } from '@/lib/content-typography'
+
 // トランジション（アニメーション）
 export const transitions = {
   colors: 'transition-colors duration-300',
