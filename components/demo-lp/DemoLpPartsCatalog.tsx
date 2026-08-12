@@ -14,7 +14,9 @@ import {
 
 export function DemoLpPartsCatalog({ block }: { block: PartsCatalogBlock }) {
   return (
-    <section className="bg-white py-14 md:py-20">
+    <section
+      className={`bg-white ${block.heroCta ? 'pt-14 md:pt-20' : 'py-14 md:py-20'}`}
+    >
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         <p className={lpSectionLabel}>{block.label}</p>
         <h2 className={lpH2}>{block.headline}</h2>
@@ -71,6 +73,16 @@ export function DemoLpPartsCatalog({ block }: { block: PartsCatalogBlock }) {
           </div>
         )}
       </div>
+      {block.heroCta && (
+        <div className="mt-14 bg-[var(--lp-ink)] px-4 py-12 text-center sm:px-6 md:py-16">
+          {block.heroCtaLead ? (
+            <p className="mb-5 text-lg font-semibold text-white md:text-xl">
+              {block.heroCtaLead}
+            </p>
+          ) : null}
+          <DemoLpCtaLink cta={block.heroCta} />
+        </div>
+      )}
     </section>
   )
 }

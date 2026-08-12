@@ -15,7 +15,7 @@ export function DemoLpProcess({ block }: { block: ProcessBlock }) {
 
   return (
     <section className="py-14 md:py-20">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6">
+      <div className={`mx-auto px-4 sm:px-6 ${timeline ? 'max-w-3xl' : 'max-w-5xl'}`}>
         <p className={lpSectionLabel}>{block.label}</p>
         <h2 className={lpH2}>{block.headline}</h2>
         <p className={`${lpLead} max-w-2xl`}>{block.lead}</p>

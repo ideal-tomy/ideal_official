@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
-import type { LpConfig } from '@/lib/demo-lp/types'
+import type { LpConfig, UseCasesBlock } from '@/lib/demo-lp/types'
 import { getLpPublicPath } from '@/lib/demo-lp/types'
 import { DemoLpCtaLink } from './DemoLpCtaLink'
 import { DemoLpHeroVisual } from './DemoLpHeroVisual'
@@ -35,6 +35,47 @@ import {
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return <p className={lpSectionLabel}>{children}</p>
+}
+
+function UseCasesSection({ block }: { block: UseCasesBlock }) {
+  const compact = block.layout === 'compact'
+  return (
+    <section className="bg-white py-14 md:py-20">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6">
+        <SectionLabel>{block.label}</SectionLabel>
+        <h2 className={lpH2}>{block.headline}</h2>
+        <p className={lpLead}>{block.lead}</p>
+        {compact ? (
+          <ul className="mt-6 divide-y divide-[var(--lp-ink)]/10 border-y border-[var(--lp-ink)]/10">
+            {block.items.map((u) => (
+              <li key={u.industry} className="py-4">
+                <p className="font-semibold text-[var(--lp-ink)]">
+                  {u.industry}
+                  <span className={`ml-2 font-normal ${lpNote}`}>{u.scope}</span>
+                </p>
+                <p className={`mt-1 ${lpBody}`}>{u.body}</p>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <div className="grid gap-4 sm:grid-cols-2">
+            {block.items.map((u) => (
+              <div
+                key={u.industry}
+                className="rounded-xl border border-[var(--lp-ink)]/10 p-5"
+              >
+                <p className={lpCardMeta}>{u.industry}</p>
+                <p className={`mt-1 ${lpNote}`}>{u.scope}</p>
+                <p className={lpQuote}>「{u.quote}」</p>
+                <p className={`mt-3 ${lpBody}`}>{u.body}</p>
+              </div>
+            ))}
+          </div>
+        )}
+        <p className={`mt-6 ${lpNote}`}>{block.more}</p>
+      </div>
+    </section>
+  )
 }
 
 export function DemoLpPage({ config }: { config: LpConfig }) {
@@ -238,11 +279,23 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
         </div>
       </section>
 
+      {config.fit.layout === 'prose' ? (
+        <section className="bg-white pb-14 md:pb-16">
+          <div className="mx-auto max-w-2xl px-4 sm:px-6">
+            <p className={lpBody}>{config.fit.headline}</p>
+            <p className={`mt-2 ${lpBody}`}>{config.fit.lead}</p>
+            {config.fit.scopeNote ? (
+              <p className={`mt-2 ${lpNote}`}>{config.fit.scopeNote}</p>
+            ) : null}
+          </div>
+        </section>
+      ) : null}
+
       {config.recurringProblems && (
         <DemoLpRecurringProblems block={config.recurringProblems} />
       )}
 
-      {/* B05 fit */}
+      {config.fit.layout !== 'prose' && (
       <section className="py-14 md:py-20">
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <SectionLabel>{config.fit.label}</SectionLabel>
@@ -278,38 +331,10 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
           </p>
         </div>
       </section>
+      )}
 
-      {/* B06 usecases */}
-      {config.usecases && (
-        <section className="bg-white py-14 md:py-20">
-          <div className="mx-auto max-w-5xl px-4 sm:px-6">
-            <SectionLabel>{config.usecases.label}</SectionLabel>
-            <h2 className={lpH2}>
-              {config.usecases.headline}
-            </h2>
-            <p className={lpLead}>{config.usecases.lead}</p>
-            <div className="grid gap-4 sm:grid-cols-2">
-              {config.usecases.items.map((u) => (
-                <div
-                  key={u.industry}
-                  className="rounded-xl border border-[var(--lp-ink)]/10 p-5"
-                >
-                  <p className={lpCardMeta}>
-                    {u.industry}
-                  </p>
-                  <p className={`mt-1 ${lpNote}`}>{u.scope}</p>
-                  <p className={lpQuote}>
-                    「{u.quote}」
-                  </p>
-                  <p className={`mt-3 ${lpBody}`}>{u.body}</p>
-                </div>
-              ))}
-            </div>
-            <p className={`mt-6 ${lpNote}`}>
-              {config.usecases.more}
-            </p>
-          </div>
-        </section>
+      {config.usecases && !config.usecasesAfterResult && (
+        <UseCasesSection block={config.usecases} />
       )}
 
       {/* W-B07a parts catalog */}
@@ -382,6 +407,10 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
           </div>
         </section>
       ) : null}
+
+      {config.usecases && config.usecasesAfterResult && (
+        <UseCasesSection block={config.usecases} />
+      )}
 
       {/* B09 comparison */}
       {config.comparison && (

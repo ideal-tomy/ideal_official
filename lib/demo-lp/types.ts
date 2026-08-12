@@ -112,6 +112,8 @@ export interface RecurringProblemsBlock {
     line1: string
     line2?: string
   }
+  /** peak: 全幅ダーク・1文。建設LPの「撮り直せない」用 */
+  variant?: 'default' | 'peak'
 }
 
 export interface FitBlock {
@@ -123,6 +125,8 @@ export interface FitBlock {
   scopeNote?: string
   affirm: string
   exclude: string
+  /** prose: カードを使わず2〜3行 */
+  layout?: 'cards' | 'prose'
 }
 
 export interface FitCondition {
@@ -147,6 +151,8 @@ export interface UseCasesBlock {
   lead: string
   items: UseCase[]
   more: string
+  /** compact: 引用なしの短い列 */
+  layout?: 'cards' | 'compact'
 }
 
 export interface MechanismBlock {
@@ -213,6 +219,9 @@ export interface PartsCatalogBlock {
   items: PartCard[]
   /** セクション末尾の導線（例: /how-we-work） */
   footerCta?: Cta
+  /** 中盤の主デモ入口（全幅。カード内リンクとは別に1本） */
+  heroCta?: Cta
+  heroCtaLead?: string
 }
 
 export interface ComparisonBlock {
@@ -324,6 +333,8 @@ export interface FaqItem {
   q: string
   a: string
   defaultOpen?: boolean
+  /** true の項目だけを主リストに出す。未指定なら全件表示 */
+  featured?: boolean
 }
 
 export type FormFieldKey = 'company' | 'name' | 'email' | 'message' | 'privacy'
@@ -391,6 +402,8 @@ export interface LpConfig {
   process: ProcessBlock
   faq: FaqItem[]
   finalCta: FinalCtaBlock
+  /** 建設LPなど: 記録業務を結果イメージの後へ */
+  usecasesAfterResult?: boolean
 }
 
 /** 公開URLを導出 */
