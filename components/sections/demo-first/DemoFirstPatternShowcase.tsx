@@ -1,16 +1,14 @@
 import Link from 'next/link'
-import { CapabilityPatternShowcase } from '@/components/ai-capability-gallery/CapabilityPatternShowcase'
-import type { Capability } from '@/data/ai-capability-gallery/capabilities'
 import { GALLERY_BASE } from '@/data/ai-capability-gallery/capabilities'
+import { getTopFeaturedDemos } from '@/data/demo-first/top-featured-demos'
 import { contentLeadBare } from '@/lib/content-typography'
 import { SectionKicker } from './SectionKicker'
+import { TopFeaturedDemoShowcase } from './TopFeaturedDemoShowcase'
 
-type Props = {
-  capabilities: Capability[]
-}
+/** TOP §03 — 代表デモ4枚（サンプル完走できるものだけ） */
+export function DemoFirstPatternShowcase() {
+  const demos = getTopFeaturedDemos()
 
-/** TOP §03 — 体験・デモ */
-export function DemoFirstPatternShowcase({ capabilities }: Props) {
   return (
     <section
       id="demos"
@@ -24,22 +22,18 @@ export function DemoFirstPatternShowcase({ capabilities }: Props) {
           動くデモで確かめる。
         </h2>
         <p className={`mb-6 max-w-[640px] md:mb-8 ${contentLeadBare}`}>
-          業務課題から生まれた開発デモです。動くイメージを確かめたうえで、近いパターンから詳しく見てください。
+          サンプルデータで完走できるデモです。右の動きはイメージ再生、本編は「サンプルで体験」から辿れます。
         </p>
       </div>
 
-      <CapabilityPatternShowcase
-        capabilities={capabilities}
-        experienceCtaLabel="詳しく見る →"
-        variant="top"
-      />
+      <TopFeaturedDemoShowcase demos={demos} />
 
-      <div className="mx-auto mt-8 w-[min(100%-48px,1080px)] flex justify-center md:mt-10">
+      <div className="mx-auto mt-8 flex w-[min(100%-48px,1080px)] justify-center md:mt-10">
         <Link
           href={GALLERY_BASE}
           className="inline-flex items-center gap-2.5 rounded-[var(--df-radius-btn)] border border-[var(--site-border)] bg-[var(--df-bg)] px-7 py-3.5 font-bold text-[var(--df-text)] transition-colors hover:border-[var(--df-primary)]/45 hover:text-[var(--df-primary)]"
         >
-          すべてのパターン一覧へ
+          能力パターン一覧へ
         </Link>
       </div>
     </section>

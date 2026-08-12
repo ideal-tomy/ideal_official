@@ -93,7 +93,7 @@ export function DemoFirstReason() {
             href="#demos"
             className="inline-flex items-center gap-2 rounded-[var(--df-radius-btn)] bg-[var(--df-primary)] px-6 py-3 text-sm font-bold text-[var(--df-on-primary)] transition-transform hover:-translate-y-0.5 hover:bg-[var(--df-primary-hover)]"
           >
-            デモを詳しく見る
+            サンプルで動くデモを見る
           </a>
           <Link
             href="/contact"

@@ -8,12 +8,10 @@ import {
   DemoFirstPatternShowcase,
   DemoFirstReason,
 } from '@/components/sections/demo-first'
-import { getReadyCapabilities } from '@/data/ai-capability-gallery/capabilities'
 import { getIndustryCards } from '@/data/demo-first/top-page'
 import { getNewsItems } from '@/data/news/items'
 
 export default function Home() {
-  const patternCapabilities = getReadyCapabilities()
   const industryCards = getIndustryCards()
   const news = getNewsItems()
 
@@ -23,7 +21,7 @@ export default function Home() {
       <DemoFirstMarquee />
       <DemoFirstIndustryService cards={industryCards} />
       <DemoFirstReason />
-      <DemoFirstPatternShowcase capabilities={patternCapabilities} />
+      <DemoFirstPatternShowcase />
       <DemoFirstNews items={news} />
       <DemoFirstLab />
       <DemoFirstContact />

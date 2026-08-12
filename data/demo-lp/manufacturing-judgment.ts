@@ -14,7 +14,7 @@ import { GALLERY_BASE } from '@/data/ai-capability-gallery/capabilities'
  * 規程や手順を探し回らず、質問すると回答と根拠がそろう。製造の判断を止めにくくする。
  */
 const slug = 'manufacturing-judgment'
-const hubUrl = EXTERNAL_DEMO_URLS.manufacturing
+const hubUrl = EXTERNAL_DEMO_URLS.manufacturingIdeal
 const knowledgeUrl = EXTERNAL_DEMO_URLS.internalKnowledge
 const galleryUrl = `${GALLERY_BASE}/knowledge-to-search`
 
@@ -72,8 +72,8 @@ export const manufacturingJudgmentLp: LpConfig = {
       },
     ],
     visual: {
-      src: '/images/lp/manufacturing.png',
-      alt: '製造現場・判断支援のイメージ',
+      src: '/images/product_flow_lphero.png',
+      alt: '製造現場の判断支援デモ画面',
       note: '※画像はイメージです',
       fit: 'contain',
       videoSrc: '/videos/demo-lp/manufacturing-judgment.mp4',

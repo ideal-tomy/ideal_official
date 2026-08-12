@@ -29,12 +29,18 @@ export const EXTERNAL_DEMO_URLS = {
   care: 'https://kaigo-operation-demo.vercel.app/',
   retail: 'https://customer-support-demo-lime.vercel.app/',
   manufacturing: 'https://product-flow-jet.vercel.app/manufacturing',
+  /** TOP §03 製造カード用（ideal ブランディング版） */
+  manufacturingIdeal: 'https://product-flowideal.vercel.app/manufacturing',
   internalKnowledge: 'https://internal-knowledge-demo.vercel.app/',
   roiSimulator: 'https://roi-simulator-eta.vercel.app/',
   ddDemo: 'https://dd-demo-red.vercel.app/',
   matching: 'https://hookapp-demo.vercel.app/',
   fieldDandori: 'https://rainbow-tarsier-5ce845.netlify.app/',
   voiceKarte: 'https://lambent-smakager-7bcf0a.netlify.app/',
+  /** 受入検査 承認フロー（AI×人） */
+  approvalDiagram: 'https://approvaldiagram.vercel.app/',
+  /** 保育支援・報告 */
+  childcare: 'https://childcaredemo.vercel.app/',
 } as const
 
 /** 建設ハブ（外部）。サイト内 `/construction` はここへリダイレクト */
