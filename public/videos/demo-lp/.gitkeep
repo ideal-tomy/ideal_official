@@ -1,0 +1,3 @@
+# W型 LP Hero 用動画を配置するディレクトリ
+# ファイル名: {slug}.mp4（例: construction-record.mp4）
+# 未配置時は CONFIG の poster 画像（visual.src）へフォールバック

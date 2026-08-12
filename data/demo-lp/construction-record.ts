@@ -77,6 +77,7 @@ export const constructionRecordLp: LpConfig = {
       alt: '現場管理のダッシュボードとスマートフォンの操作画面',
       note: '※画像はイメージです',
       fit: 'contain',
+      videoSrc: '/videos/demo-lp/construction-record.mp4',
     },
   },
   impact: {

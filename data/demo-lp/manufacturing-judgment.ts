@@ -76,6 +76,7 @@ export const manufacturingJudgmentLp: LpConfig = {
       alt: '製造現場・判断支援のイメージ',
       note: '※画像はイメージです',
       fit: 'contain',
+      videoSrc: '/videos/demo-lp/manufacturing-judgment.mp4',
     },
   },
   impact: {

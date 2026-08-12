@@ -49,7 +49,7 @@ export interface HeroBlock {
   highlight?: Highlight
   ctas: [Cta, Cta]
   badges?: string[]
-  visual: Asset & { fit?: 'cover' | 'contain' }
+  visual: Asset & { fit?: 'cover' | 'contain'; videoSrc?: string }
 }
 
 export interface ImpactBlock {

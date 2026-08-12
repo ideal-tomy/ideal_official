@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import type { Capability } from '@/data/ai-capability-gallery/capabilities'
+import { getTopDemoLpHref } from '@/lib/demo-lp/workflow-routes'
 import { DemoFrame } from '@/components/ai-capability-gallery/demos/DemoFrame'
 import { useDemoProcess } from '@/components/ai-capability-gallery/hooks/useDemoProcess'
 import { useInViewAutoPlay } from '@/components/ai-capability-gallery/hooks/useInViewAutoPlay'
@@ -476,9 +477,11 @@ function ShowcaseDemoWithTags({ capability }: { capability: Capability }) {
 function ShowcaseText({
   capability,
   experienceCtaLabel,
+  experienceHref,
 }: {
   capability: Capability
   experienceCtaLabel: string
+  experienceHref: string
 }) {
   return (
     <div className="max-w-xl">
@@ -502,7 +505,7 @@ function ShowcaseText({
         </div>
       </div>
       <Link
-        href={capability.href}
+        href={experienceHref}
         className="inline-flex w-full items-center justify-center rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-[var(--df-on-primary)] transition-colors hover:bg-brand-hover sm:w-auto md:px-5 md:py-3"
       >
         {experienceCtaLabel}
@@ -514,6 +517,8 @@ function ShowcaseText({
 type CapabilityPatternShowcaseProps = {
   capabilities: Capability[]
   experienceCtaLabel?: string
+  /** TOP §03 等: pattern slug → LP href。未指定時は capability.href */
+  resolveExperienceHref?: (slug: string) => string | null
   /** top = トップ統合セクション内。gallery は旧互換用 */
   variant?: 'top' | 'gallery'
 }
@@ -521,12 +526,23 @@ type CapabilityPatternShowcaseProps = {
 export function CapabilityPatternShowcase({
   capabilities: sections,
   experienceCtaLabel = '触ってみる →',
+  resolveExperienceHref,
   variant = 'gallery',
 }: CapabilityPatternShowcaseProps) {
   const isTop = variant === 'top'
   const sectionPadding = isTop
     ? 'space-y-4 py-2 sm:space-y-8 md:space-y-10'
     : 'space-y-4 py-6 sm:px-6 md:space-y-10 md:py-14 lg:px-8 lg:py-16'
+
+  const resolveHref = (slug: string, fallback: string) => {
+    if (resolveExperienceHref) {
+      return resolveExperienceHref(slug) ?? fallback
+    }
+    if (isTop) {
+      return getTopDemoLpHref(slug) ?? fallback
+    }
+    return fallback
+  }
 
   return (
     <div className={isTop ? '' : 'bg-[var(--site-bg)]'}>
@@ -558,6 +574,10 @@ export function CapabilityPatternShowcase({
                   <ShowcaseText
                     capability={capability}
                     experienceCtaLabel={experienceCtaLabel}
+                    experienceHref={resolveHref(
+                      capability.slug,
+                      capability.href,
+                    )}
                   />
                 </div>
                 <div

@@ -77,6 +77,7 @@ export const retailSupportLp: LpConfig = {
       alt: '店舗・サービス案内のイメージ',
       note: '※画像はイメージです',
       fit: 'contain',
+      videoSrc: '/videos/demo-lp/retail-support.mp4',
     },
   },
   impact: {

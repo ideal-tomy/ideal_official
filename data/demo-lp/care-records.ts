@@ -75,6 +75,7 @@ export const careRecordsLp: LpConfig = {
       alt: 'ケア記録・音声入力のイメージ',
       note: '※画像はイメージです',
       fit: 'contain',
+      videoSrc: '/videos/demo-lp/care-records.mp4',
     },
   },
   impact: {

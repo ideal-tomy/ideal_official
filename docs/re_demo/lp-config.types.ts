@@ -75,8 +75,8 @@ export interface HeroBlock {
   highlight?: Highlight;
   ctas: [Cta, Cta];
   /** 安心バッジ3つ（無償・NDA・準備不要 等） */
-  badges: [string, string, string];
-  visual: Asset;
+  badges?: [string, string, string];
+  visual: Asset & { fit?: 'cover' | 'contain'; videoSrc?: string };
 }
 
 // ============================================================

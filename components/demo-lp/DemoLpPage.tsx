@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import type { LpConfig } from '@/lib/demo-lp/types'
 import { getLpPublicPath } from '@/lib/demo-lp/types'
 import { DemoLpCtaLink } from './DemoLpCtaLink'
+import { DemoLpHeroVisual } from './DemoLpHeroVisual'
 import { DemoLpRoiSection } from './DemoLpRoiSection'
 import { DemoLpFaq } from './DemoLpFaq'
 import { DemoLpFinalForm } from './DemoLpFinalForm'
@@ -117,25 +118,7 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
               </ul>
             ) : null}
           </div>
-          <div>
-            <div className="relative aspect-square w-full max-w-xl mx-auto md:max-w-none">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={config.hero.visual.src}
-                alt={config.hero.visual.alt}
-                className={
-                  config.hero.visual.fit === 'contain'
-                    ? 'absolute inset-0 h-full w-full rounded-xl object-contain object-center'
-                    : 'h-full w-full rounded-xl border border-[var(--lp-ink)]/10 object-cover shadow-sm'
-                }
-              />
-            </div>
-            {config.hero.visual.note && (
-              <p className={`mt-2 text-center ${lpNote}`}>
-                {config.hero.visual.note}
-              </p>
-            )}
-          </div>
+          <DemoLpHeroVisual visual={config.hero.visual} />
         </div>
       </section>
 

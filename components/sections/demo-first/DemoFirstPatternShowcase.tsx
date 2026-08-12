@@ -24,13 +24,13 @@ export function DemoFirstPatternShowcase({ capabilities }: Props) {
           動くデモで確かめる。
         </h2>
         <p className={`mb-6 max-w-[640px] md:mb-8 ${contentLeadBare}`}>
-          業務課題から生まれた開発デモです。パターンを見比べて、近いものから触ってください。
+          業務課題から生まれた開発デモです。動くイメージを確かめたうえで、近いパターンから詳しく見てください。
         </p>
       </div>
 
       <CapabilityPatternShowcase
         capabilities={capabilities}
-        experienceCtaLabel="触ってみる →"
+        experienceCtaLabel="詳しく見る →"
         variant="top"
       />
 
