@@ -1,4 +1,4 @@
-import type { PartsCatalogBlock } from '@/lib/demo-lp/types'
+import type { Cta, PartsCatalogBlock } from '@/lib/demo-lp/types'
 import { DemoLpCtaLink } from './DemoLpCtaLink'
 import { DemoLpIllustration } from './DemoLpIllustration'
 import {
@@ -7,25 +7,68 @@ import {
   lpCardMeta,
   lpCardTitleLg,
   lpH2,
+  lpH2Centered,
   lpLead,
+  lpLeadCentered,
   lpNote,
   lpSectionLabel,
 } from './lpTypography'
 
+export function DemoLpHeroCtaBand({
+  cta,
+  lead,
+  large,
+}: {
+  cta: Cta
+  lead?: string
+  large?: boolean
+}) {
+  return (
+    <section className="bg-[var(--lp-ink)] px-4 py-12 text-center sm:px-6 md:py-16">
+      {lead ? (
+        <p
+          className={
+            large
+              ? 'mb-6 text-[30px] font-bold leading-tight text-white md:text-[60px]'
+              : 'mb-5 text-lg font-semibold text-white md:text-xl'
+          }
+        >
+          {lead}
+        </p>
+      ) : null}
+      <DemoLpCtaLink
+        cta={cta}
+        className={large ? '!text-[14px]' : undefined}
+      />
+    </section>
+  )
+}
+
 export function DemoLpPartsCatalog({ block }: { block: PartsCatalogBlock }) {
+  const showCta = Boolean(block.heroCta) && block.heroCtaPlacement !== 'after-peak'
+  const centered = block.align === 'center'
   return (
     <section
-      className={`bg-white ${block.heroCta ? 'pt-14 md:pt-20' : 'py-14 md:py-20'}`}
+      className={`bg-white ${showCta ? 'pt-14 md:pt-20' : 'py-14 md:py-20'}`}
     >
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        <p className={lpSectionLabel}>{block.label}</p>
-        <h2 className={lpH2}>{block.headline}</h2>
-        <p className={`${lpLead} max-w-2xl`}>{block.lead}</p>
+        <p className={`${lpSectionLabel} ${centered ? 'text-center' : ''}`}>
+          {block.label}
+        </p>
+        <h2 className={centered ? lpH2Centered : lpH2}>{block.headline}</h2>
+        {block.lead ? (
+          <p
+            className={`${centered ? lpLeadCentered : lpLead} max-w-2xl ${centered ? 'mx-auto' : ''}`}
+          >
+            {block.lead}
+          </p>
+        ) : null}
 
         {block.diagram && (
           <DemoLpIllustration asset={block.diagram} className="mb-10" />
         )}
 
+        {block.hideItems ? null : (
         <div className="grid gap-4 md:grid-cols-3">
           {block.items.map((part) => (
             <article
@@ -66,23 +109,25 @@ export function DemoLpPartsCatalog({ block }: { block: PartsCatalogBlock }) {
             </article>
           ))}
         </div>
-        <p className={`mt-6 ${lpAffirm}`}>{block.closing}</p>
+        )}
+        {block.closing ? (
+          <p className={`mt-6 ${lpAffirm}`}>{block.closing}</p>
+        ) : null}
         {block.footerCta && (
-          <div className="mt-6">
+          <div className={`mt-6 ${centered ? 'flex justify-center' : ''}`}>
             <DemoLpCtaLink cta={block.footerCta} />
           </div>
         )}
       </div>
-      {block.heroCta && (
-        <div className="mt-14 bg-[var(--lp-ink)] px-4 py-12 text-center sm:px-6 md:py-16">
-          {block.heroCtaLead ? (
-            <p className="mb-5 text-lg font-semibold text-white md:text-xl">
-              {block.heroCtaLead}
-            </p>
-          ) : null}
-          <DemoLpCtaLink cta={block.heroCta} />
+      {showCta && block.heroCta ? (
+        <div className="mt-14">
+          <DemoLpHeroCtaBand
+            cta={block.heroCta}
+            lead={block.heroCtaLead}
+            large={block.heroCtaLarge}
+          />
         </div>
-      )}
+      ) : null}
     </section>
   )
 }

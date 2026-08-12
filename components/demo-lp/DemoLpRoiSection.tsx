@@ -116,8 +116,9 @@ export function DemoLpRoiSection({
 
         <p className={`mt-6 ${lpNote}`}>{config.disclaimer}</p>
 
+        {(block.hideCta ? Boolean(externalRoi) : true) && (
         <div className="mt-6 flex flex-wrap gap-3">
-          <DemoLpCtaLink cta={config.cta} />
+          {block.hideCta ? null : <DemoLpCtaLink cta={config.cta} />}
           {externalRoi ? (
             <a
               href={externalRoi}
@@ -129,6 +130,7 @@ export function DemoLpRoiSection({
             </a>
           ) : null}
         </div>
+        )}
       </div>
     </section>
   )

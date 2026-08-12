@@ -39,13 +39,31 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 
 function UseCasesSection({ block }: { block: UseCasesBlock }) {
   const compact = block.layout === 'compact'
+  const names = block.layout === 'names'
   return (
     <section className="bg-white py-14 md:py-20">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6">
+      <div
+        className={`mx-auto px-4 sm:px-6 ${names ? 'max-w-3xl' : 'max-w-5xl'}`}
+      >
         <SectionLabel>{block.label}</SectionLabel>
         <h2 className={lpH2}>{block.headline}</h2>
         <p className={lpLead}>{block.lead}</p>
-        {compact ? (
+        {names ? (
+          <p className={`mt-6 ${lpBody}`}>
+            {block.items.map((u, i) => (
+              <span key={u.industry}>
+                {i > 0 ? (
+                  <span className="mx-1.5 text-[var(--lp-ink)]/30" aria-hidden>
+                    ／
+                  </span>
+                ) : null}
+                <span className="font-medium text-[var(--lp-ink)]">
+                  {u.industry}
+                </span>
+              </span>
+            ))}
+          </p>
+        ) : compact ? (
           <ul className="mt-6 divide-y divide-[var(--lp-ink)]/10 border-y border-[var(--lp-ink)]/10">
             {block.items.map((u) => (
               <li key={u.industry} className="py-4">
@@ -72,7 +90,7 @@ function UseCasesSection({ block }: { block: UseCasesBlock }) {
             ))}
           </div>
         )}
-        <p className={`mt-6 ${lpNote}`}>{block.more}</p>
+        {block.more ? <p className={`mt-6 ${lpNote}`}>{block.more}</p> : null}
       </div>
     </section>
   )
@@ -179,6 +197,7 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
           <p className="mx-auto mt-3 max-w-2xl text-center text-sm text-white/55">
             {config.impact.basis}
           </p>
+          {config.impact.metrics && config.impact.metrics.length > 0 ? (
           <div className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-4">
             {config.impact.metrics.map((m) => (
               <div
@@ -190,6 +209,7 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
               </div>
             ))}
           </div>
+          ) : null}
         </div>
       </section>
 
@@ -283,7 +303,9 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
         <section className="bg-white pb-14 md:pb-16">
           <div className="mx-auto max-w-2xl px-4 sm:px-6">
             <p className={lpBody}>{config.fit.headline}</p>
-            <p className={`mt-2 ${lpBody}`}>{config.fit.lead}</p>
+            {config.fit.lead ? (
+              <p className={`mt-2 ${lpBody}`}>{config.fit.lead}</p>
+            ) : null}
             {config.fit.scopeNote ? (
               <p className={`mt-2 ${lpNote}`}>{config.fit.scopeNote}</p>
             ) : null}
@@ -338,7 +360,7 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
       )}
 
       {/* W-B07a parts catalog */}
-      {config.partsCatalog && (
+      {config.partsCatalog && !config.partsCatalogAfterResult && (
         <DemoLpPartsCatalog block={config.partsCatalog} />
       )}
 
@@ -407,6 +429,10 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
           </div>
         </section>
       ) : null}
+
+      {config.partsCatalog && config.partsCatalogAfterResult && (
+        <DemoLpPartsCatalog block={config.partsCatalog} />
+      )}
 
       {config.usecases && config.usecasesAfterResult && (
         <UseCasesSection block={config.usecases} />

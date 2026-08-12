@@ -73,7 +73,9 @@ export function DemoLpProcess({ block }: { block: ProcessBlock }) {
           </div>
         )}
 
-        <p className={`mt-6 ${lpNote}`}>{block.exitNote}</p>
+        {block.exitNote ? (
+          <p className={`mt-6 ${lpNote}`}>{block.exitNote}</p>
+        ) : null}
         {block.detailHref && (
           <div className="mt-5">
             <DemoLpCtaLink

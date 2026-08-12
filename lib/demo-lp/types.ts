@@ -59,7 +59,7 @@ export interface ImpactBlock {
     trail: string
   }
   basis: string
-  metrics: [MetricCard, MetricCard, MetricCard, MetricCard]
+  metrics?: [MetricCard, MetricCard, MetricCard, MetricCard]
 }
 
 export interface MetricCard {
@@ -150,9 +150,9 @@ export interface UseCasesBlock {
   headline: string
   lead: string
   items: UseCase[]
-  more: string
-  /** compact: 引用なしの短い列 */
-  layout?: 'cards' | 'compact'
+  more?: string
+  /** compact: 引用なしの短い列 / names: 業種名だけ横並び */
+  layout?: 'cards' | 'compact' | 'names'
 }
 
 export interface MechanismBlock {
@@ -212,16 +212,24 @@ export interface PartCard {
 export interface PartsCatalogBlock {
   label: string
   headline: string
-  lead: string
-  closing: string
+  lead?: string
+  closing?: string
   /** W-B07a 前の全体図（部品→フロー） */
   diagram?: Asset
   items: PartCard[]
+  /** true のとき図の下の部品カードを出さない */
+  hideItems?: boolean
+  /** 見出し・フッターCTAを中央寄せ（建設LP） */
+  align?: 'left' | 'center'
   /** セクション末尾の導線（例: /how-we-work） */
   footerCta?: Cta
   /** 中盤の主デモ入口（全幅。カード内リンクとは別に1本） */
   heroCta?: Cta
   heroCtaLead?: string
+  /** 中盤デモボタンを大きくする（建設LP） */
+  heroCtaLarge?: boolean
+  /** after-peak: よく起きる問題の直後にデモCTAを出す（カタログ末尾には出さない） */
+  heroCtaPlacement?: 'after-catalog' | 'after-peak'
 }
 
 export interface ComparisonBlock {
@@ -290,6 +298,8 @@ export interface RoiBlock {
   headline: string
   lead: string
   config: RoiConfig
+  /** true のときセクション内の試算CTAを出さない */
+  hideCta?: boolean
 }
 
 export interface ProcessBlock {
@@ -300,7 +310,7 @@ export interface ProcessBlock {
   /** cards=3枚グリッド（既定） / timeline=How we work 簡単版 */
   layout?: 'cards' | 'timeline'
   illustration?: Asset
-  exitNote: string
+  exitNote?: string
   /** 導入の流れ詳細など（W型: /how-we-work） */
   detailHref?: string
   detailLabel?: string
@@ -355,6 +365,9 @@ export interface FinalCtaBlock {
   formNote: string
   fields: FormField[]
   tryCta: Cta
+  /** true のとき入力フォームを出さず、デモ／問い合わせの2ボタンにする */
+  hideForm?: boolean
+  contactCta?: Cta
 }
 
 export interface DeliveryConfig {
@@ -404,6 +417,8 @@ export interface LpConfig {
   finalCta: FinalCtaBlock
   /** 建設LPなど: 記録業務を結果イメージの後へ */
   usecasesAfterResult?: boolean
+  /** 建設LPなど: 部品カタログを結果イメージの後へ */
+  partsCatalogAfterResult?: boolean
 }
 
 /** 公開URLを導出 */

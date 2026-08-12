@@ -61,6 +61,21 @@ export function DemoLpFinalForm({
           ))}
         </ul>
 
+        {block.hideForm ? (
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            <DemoLpCtaLink
+              cta={{ ...block.tryCta, variant: 'primary' }}
+              className="w-full"
+            />
+            {block.contactCta ? (
+              <DemoLpCtaLink
+                cta={{ ...block.contactCta, variant: 'primary' }}
+                className="w-full"
+              />
+            ) : null}
+          </div>
+        ) : (
+          <>
         <div className="mb-8">
           <DemoLpCtaLink
             cta={{ ...block.tryCta, variant: 'secondary' }}
@@ -139,6 +154,8 @@ export function DemoLpFinalForm({
             </form>
           )}
         </div>
+          </>
+        )}
       </div>
     </section>
   )

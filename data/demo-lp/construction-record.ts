@@ -54,7 +54,13 @@ export const constructionRecordLp: LpConfig = {
     noindex: false,
     trackReferrer: true,
   },
-  brand: idealBrand,
+  brand: {
+    ...idealBrand,
+    colors: {
+      ...idealBrand.colors,
+      primary: '#2B6FE0',
+    },
+  },
   hero: {
     headline: '現場写真の整理から、報告書の作成まで。',
     subline:
@@ -87,12 +93,6 @@ export const constructionRecordLp: LpConfig = {
       trail: 'の人件費が、写真の整理や入力作業に使われています。',
     },
     basis: workflowSiteBasisNote(siteDefaults),
-    metrics: [
-      { value: '40分', label: '1現場・1日あたりの整理や入力（試算初期値）' },
-      { value: '¥0', label: '実証トライアルは無償' },
-      { value: '1現場', label: 'まずは1現場から試せます' },
-      { value: '3〜6ヶ月', label: '投資回収の目安' },
-    ],
   },
   problem: {
     label: 'いま発生している作業',
@@ -154,9 +154,7 @@ export const constructionRecordLp: LpConfig = {
     label: 'どのような会社に向いているか',
     headline:
       '撮る人、まとめる人、提出前に確認する人が分かれている会社向けです。',
-    lead: '工種は問いません。',
-    scopeNote:
-      'いまのLINEやフォルダを、最初から全部変える必要はありません。',
+    lead: '',
     conditions: [
       {
         no: '1',
@@ -183,8 +181,9 @@ export const constructionRecordLp: LpConfig = {
       '一方、撮影から提出までを一人で行っている場合は、すべての機能を導入する必要はありません。写真整理など、必要な機能だけを利用できます。',
   },
   usecasesAfterResult: true,
+  partsCatalogAfterResult: true,
   usecases: {
-    layout: 'compact',
+    layout: 'names',
     label: '記録業務',
     headline: '記録の中身は違っても、写真を選んで名前を付ける手順は同じです。',
     lead: '総合建設から維持修繕まで、現場の写真を事務所で揃える仕事に使います。',
@@ -219,20 +218,18 @@ export const constructionRecordLp: LpConfig = {
         body: '場所・部位・時期から、以前の写真を探せます。',
       },
     ],
-    more: '解体・造園・設備の定期整備など、現場の写真を事務所で揃える仕事にも使えます。',
   },
   partsCatalog: {
     label: '必要な機能から',
     headline: '1つから始めて、つなぐ。',
-    lead: 'いま時間がかかっている作業からで構いません。',
+    align: 'center',
+    hideItems: true,
     diagram: {
       src: '/images/lp/construction/parts-to-flow.svg',
       alt: '写真整理・報告書作成・進捗管理を1つから入れて、現場から提出までつなげる',
     },
-    closing: '写真整理だけでも、そこまでは進む。',
-    heroCtaLead: 'まずは、写真整理だけ触ってみる。',
-    heroCta: {
-      label: '写真整理のデモを見る（1分）',
+    footerCta: {
+      label: 'デモで体験する',
       href: hubUrl,
       variant: 'primary',
     },
@@ -304,51 +301,19 @@ export const constructionRecordLp: LpConfig = {
       },
     ],
   },
-  comparison: {
-    label: '少しずつ導入する',
-    headline: '時間がかかっている作業から、少しずつ。',
-    lead: '現場の作業を増やさずに、足りないところだけ足します。',
-    columns: {
-      common: '一般的なやり方',
-      ours: 'この仕組み',
-    },
-    rows: [
-      {
-        point: '導入する範囲',
-        common: '全現場・全機能をまとめて変更する',
-        ours: '時間がかかっている作業を1つ選んで始める',
-      },
-      {
-        point: '現場での操作',
-        common: '撮影時に分類や情報入力が必要になる',
-        ours: '基本的には撮影して送る。整理はその後に行う',
-      },
-      {
-        point: '作業が止まった場合',
-        common: '電話やチャットで担当者へ確認する',
-        ours: '現場ごとの状態を一覧で確認する',
-      },
-      {
-        point: '差し戻し',
-        common: '口頭やチャットで連絡する',
-        ours: '差し戻した内容と履歴を残す',
-      },
-    ],
-    fairnessNote:
-      '現在使っている写真管理ソフトや共有フォルダを否定するものではありません。すでに問題なく運用できている部分はそのまま使い、時間がかかっている作業だけを対象にします。',
-  },
   roi: {
     label: '削減できる時間を試算',
     headline: 'いまの時間を入れて、近い数字を出す。',
     lead: '会社や現場によって、写真整理や報告書作成にかかる時間は異なります。固定の数字ではなく、いまの状況を入れて試算します。',
+    hideCta: true,
     config: roiConfig,
   },
-  process: howWeWorkProcess(),
+  process: { ...howWeWorkProcess(), exitNote: undefined },
   faq: [
     {
       category: 'price',
       q: '料金はいくらですか？',
-      a: '導入する機能、対象となる現場数、既存システムとの連携内容によって異なります。最初の実証トライアルは無償です。実際の対象業務を確認したうえで、本導入に必要な範囲と費用をご案内します。',
+      a: '導入する機能、対象となる現場数、既存システムとの連携内容によって異なります。実際の対象業務を確認したうえで、本導入に必要な範囲と費用をご案内します。',
       featured: true,
       defaultOpen: true,
     },
@@ -409,7 +374,7 @@ export const constructionRecordLp: LpConfig = {
   ],
   finalCta: {
     headline: 'まずは、1現場分の写真で試せます。',
-    body: '現在使っている写真を、そのままお預かりします。写真を選ぶ、名前を変更する、フォルダを整理するといった事前準備は必要ありません。実際の写真を使って整理を行い、どの作業をどれだけ減らせそうか確認します。実証トライアルは無償です。効果を確認したうえで、本導入するかどうかを判断してください。',
+    body: '現在使っている写真を、そのままお預かりします。写真を選ぶ、名前を変更する、フォルダを整理するといった事前準備は必要ありません。実際の写真を使って整理を行い、どの作業をどれだけ減らせそうか確認します。効果を確認したうえで、本導入するかどうかを判断してください。',
     assurances: [
       '無理な営業は行いません',
       'NDAを締結できます',
@@ -417,18 +382,16 @@ export const constructionRecordLp: LpConfig = {
     ],
     formTitle: '無料トライアルについて相談する',
     formNote: '入力は約1分です。1営業日以内にご連絡します。',
-    fields: defaultFormFields.map((f) =>
-      f.key === 'message'
-        ? {
-            ...f,
-            placeholder:
-              '例：土木部の工事写真台帳と日報が対象。まず整理だけ試したい',
-          }
-        : f,
-    ),
+    fields: defaultFormFields,
+    hideForm: true,
     tryCta: {
       label: 'デモを試す ↗',
       href: hubUrl,
+      variant: 'secondary',
+    },
+    contactCta: {
+      label: '問い合わせ',
+      href: '/contact?service=ai-consulting&intent=demo-lp&demo=construction-record',
       variant: 'secondary',
     },
   },
