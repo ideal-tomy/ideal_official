@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 400" role="img" aria-labelledby="rcrTitle rcrDesc" preserveAspectRatio="xMidYMid meet" style="width:100%;height:auto;display:block">
+  <title id="rcrTitle">報告書に園のルール引用が付く</title>
+  <desc id="rcrDesc">報告書の下書きに、安全管理マニュアルなどの根拠が引用される。</desc>
+  <style>
+    svg{--ink:#1F2A33;--line:#3A4650;--muted:#6B7780;--soft:#F4F6F7;--edge:#C4CBD1;--ok:#0E5C4C;color-scheme:light only;font-family:"Noto Sans CJK JP","Noto Sans JP",system-ui,sans-serif}
+    .t{fill:var(--ink)}.t-mut{fill:var(--muted)}.t-w{fill:#FFFFFF}.box{fill:#FFFFFF;stroke:var(--line);stroke-width:1.6}
+  </style>
+  <rect class="box" x="80" y="70" width="340" height="240" rx="4"/>
+  <text class="t" x="250" y="120" text-anchor="middle" font-size="16" font-weight="700">確認中の報告書</text>
+  <text class="t-mut" x="250" y="160" text-anchor="middle" font-size="14">事象：園庭転倒・擦り傷</text>
+  <text class="t-mut" x="250" y="190" text-anchor="middle" font-size="14">対応：流水洗浄・絆創膏</text>
+  <rect x="120" y="220" width="260" height="56" rx="4" fill="var(--ok)"/>
+  <text class="t-w" x="250" y="246" text-anchor="middle" font-size="13" font-weight="700">根拠：安全管理マニュアル 3-2</text>
+  <text class="t-w" x="250" y="266" text-anchor="middle" font-size="12">適切対応と判定</text>
+  <rect class="box" x="500" y="100" width="300" height="180" rx="4"/>
+  <text class="t-mut" x="650" y="150" text-anchor="middle" font-size="13">園のルール</text>
+  <text class="t" x="650" y="190" text-anchor="middle" font-size="15" font-weight="700">安全管理マニュアル</text>
+  <text class="t" x="650" y="222" text-anchor="middle" font-size="14">アレルギー対応基準</text>
+  <text class="t" x="650" y="250" text-anchor="middle" font-size="14">保護者連絡ガイドライン</text>
+  <text class="t" x="440" y="360" text-anchor="middle" font-size="18" font-weight="700">「書いた」だけでなく、「どのルールに沿ったか」が残る。</text>
+</svg>

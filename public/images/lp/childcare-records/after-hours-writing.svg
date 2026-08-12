@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 400" role="img" aria-labelledby="ahwTitle ahwDesc" preserveAspectRatio="xMidYMid meet" style="width:100%;height:auto;display:block">
+  <title id="ahwTitle">あとから書く負担が残る</title>
+  <desc id="ahwDesc">子ども対応のあとに、報告書と保護者連絡の作成が残っている様子。</desc>
+  <style>
+    svg{--ink:#1F2A33;--line:#3A4650;--muted:#6B7780;--soft:#F4F6F7;--edge:#C4CBD1;--loss:#A8574B;color-scheme:light only;font-family:"Noto Sans CJK JP","Noto Sans JP",system-ui,sans-serif}
+    .t{fill:var(--ink)}.t-mut{fill:var(--muted)}.t-w{fill:#FFFFFF}.box{fill:#FFFFFF;stroke:var(--line);stroke-width:1.6}
+  </style>
+  <rect class="box" x="80" y="100" width="220" height="120" rx="4"/>
+  <text class="t" x="190" y="160" text-anchor="middle" font-size="16" font-weight="700">子ども対応</text>
+  <text class="t-mut" x="190" y="190" text-anchor="middle" font-size="13">その場で処置・声かけ</text>
+  <path d="M320,160 L400,160" stroke="var(--edge)" stroke-width="2.4" fill="none"/>
+  <rect x="410" y="110" width="160" height="100" rx="4" fill="var(--loss)"/>
+  <text class="t-w" x="490" y="158" text-anchor="middle" font-size="15" font-weight="700">あとから</text>
+  <text class="t-w" x="490" y="184" text-anchor="middle" font-size="13">時間が空く</text>
+  <path d="M590,160 L670,160" stroke="var(--edge)" stroke-width="2.4" fill="none"/>
+  <rect class="box" x="680" y="80" width="160" height="70" rx="4"/>
+  <text class="t" x="760" y="122" text-anchor="middle" font-size="14" font-weight="700">報告書</text>
+  <rect class="box" x="680" y="170" width="160" height="70" rx="4"/>
+  <text class="t" x="760" y="212" text-anchor="middle" font-size="14" font-weight="700">保護者連絡</text>
+  <text class="t" x="440" y="320" text-anchor="middle" font-size="18" font-weight="700">対応は終わっているのに、書く仕事だけが残る。</text>
+  <text class="t-mut" x="440" y="352" text-anchor="middle" font-size="14">報告書と保護者連絡は、対応のあとに回される</text>
+</svg>

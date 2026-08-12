@@ -5,7 +5,7 @@ import {
   impactMainFigureValue,
   laborBasisNote,
 } from '@/lib/demo-lp/roi-factory'
-import { defaultFormFields } from '@/lib/demo-lp/shared-blocks'
+import { defaultFormFields, howWeWorkFooterCta, howWeWorkProcess } from '@/lib/demo-lp/shared-blocks'
 import { EXTERNAL_DEMO_URLS } from '@/data/demo-first/portfolio'
 import { GALLERY_BASE } from '@/data/ai-capability-gallery/capabilities'
 
@@ -223,6 +223,7 @@ export const manufacturingJudgmentLp: LpConfig = {
       alt: '聞いて根拠が返ると、判断が先に進む',
     },
     closing: '効いた範囲だけを本番に広げられます。',
+    footerCta: howWeWorkFooterCta,
     items: [
       {
         no: '01',
@@ -350,34 +351,7 @@ export const manufacturingJudgmentLp: LpConfig = {
     lead: '人数と1日あたりの探索時間を動かして、近い数字を確認できます。',
     config: roiConfig,
   },
-  process: {
-    label: '導入方法',
-    headline: 'まず触って、対象文書を決めてから進めます。',
-    lead: '全社一括を先に決めなくて構いません。',
-    steps: [
-      {
-        no: '01',
-        title: 'デモで体験する',
-        costLabel: '費用：無償',
-        body: '製造ハブやナレッジ検索で、回答と根拠がセットで返る感覚を確かめます。',
-      },
-      {
-        no: '02',
-        title: '対象コーパスを決める',
-        costLabel: 'ここまで費用ゼロに近い',
-        body: 'どの規程・手順から載せるか、権限とあわせて決めます。',
-      },
-      {
-        no: '03',
-        title: '小さく本番に載せる',
-        costLabel: '本導入・運用',
-        body: '環境に合わせて構築し、利用を見ながら広げます。',
-      },
-    ],
-    exitNote: '体験だけで終えても問題ありません。',
-    detailHref: '/how-we-work',
-    detailLabel: '導入の流れの詳細を見る →',
-  },
+  process: howWeWorkProcess(),
   faq: [
     {
       category: 'fit',

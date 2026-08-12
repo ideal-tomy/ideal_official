@@ -211,6 +211,8 @@ export interface PartsCatalogBlock {
   /** W-B07a 前の全体図（部品→フロー） */
   diagram?: Asset
   items: PartCard[]
+  /** セクション末尾の導線（例: /how-we-work） */
+  footerCta?: Cta
 }
 
 export interface ComparisonBlock {
@@ -285,7 +287,9 @@ export interface ProcessBlock {
   label: string
   headline: string
   lead: string
-  steps: [ProcessStep, ProcessStep, ProcessStep]
+  steps: ProcessStep[]
+  /** cards=3枚グリッド（既定） / timeline=How we work 簡単版 */
+  layout?: 'cards' | 'timeline'
   illustration?: Asset
   exitNote: string
   /** 導入の流れ詳細など（W型: /how-we-work） */
@@ -296,7 +300,8 @@ export interface ProcessBlock {
 export interface ProcessStep {
   no: string
   title: string
-  costLabel: string
+  /** 費用の発生点。timeline では省略可 */
+  costLabel?: string
   body: string
 }
 

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 540" role="img" aria-labelledby="rdTitle rdDesc" preserveAspectRatio="xMidYMid meet" style="width:100%;height:auto;display:block">
+  <title id="rdTitle">インシデント報告書の下書き</title>
+  <desc id="rdDesc">対象・時刻・場所・事象・対応・保護者連絡文案が並んだ報告書下書き。</desc>
+  <style>
+    svg{--ink:#1F2A33;--line:#3A4650;--muted:#6B7780;--soft:#F4F6F7;--edge:#C4CBD1;--brand:#1F4B7A;color-scheme:light only;font-family:"Noto Sans CJK JP","Noto Sans JP",system-ui,sans-serif}
+    .t{fill:var(--ink)}.t-mut{fill:var(--muted)}.t-w{fill:#FFFFFF}
+    .paper{fill:#FFFFFF;stroke:var(--line);stroke-width:1.6}
+  </style>
+  <rect class="paper" x="70" y="24" width="740" height="456" rx="6"/>
+  <rect x="70" y="24" width="740" height="56" rx="6" fill="var(--brand)"/>
+  <rect x="70" y="64" width="740" height="16" fill="var(--brand)"/>
+  <text class="t-w" x="440" y="60" text-anchor="middle" font-size="20" font-weight="700">インシデント報告書</text>
+  <rect x="640" y="96" width="140" height="28" rx="14" fill="#E8F0F4" stroke="var(--brand)" stroke-width="1.2"/>
+  <text x="710" y="115" text-anchor="middle" font-size="12" font-weight="700" fill="var(--brand)">下書き</text>
+  <text class="t-mut" x="100" y="148" font-size="12">対象者</text>
+  <text class="t" x="100" y="172" font-size="16" font-weight="700">A君（4歳）</text>
+  <text class="t-mut" x="360" y="148" font-size="12">発生時刻</text>
+  <text class="t" x="360" y="172" font-size="16">本日 10:15</text>
+  <text class="t-mut" x="600" y="148" font-size="12">場所</text>
+  <text class="t" x="600" y="172" font-size="16">園庭</text>
+  <line x1="100" y1="188" x2="780" y2="188" stroke="var(--edge)" stroke-width="1"/>
+  <text class="t-mut" x="100" y="216" font-size="12">事象</text>
+  <text class="t" x="100" y="242" font-size="15">かけっこ中に転倒し、右膝に擦り傷。</text>
+  <line x1="100" y1="258" x2="780" y2="258" stroke="var(--edge)" stroke-width="1"/>
+  <text class="t-mut" x="100" y="286" font-size="12">対応</text>
+  <text class="t" x="100" y="312" font-size="15">流水で洗浄し、絆創膏を貼付。その後、元気に活動へ戻った。</text>
+  <line x1="100" y1="328" x2="780" y2="328" stroke="var(--edge)" stroke-width="1"/>
+  <text class="t-mut" x="100" y="356" font-size="12">保護者連絡文案</text>
+  <rect x="100" y="368" width="680" height="72" rx="4" fill="var(--soft)" stroke="var(--edge)"/>
+  <text class="t" x="116" y="396" font-size="13">本日10時15分頃、園庭でかけっこ中に転倒し、右膝に軽度の擦り傷を負いました。</text>
+  <text class="t" x="116" y="420" font-size="13">洗浄のうえ絆創膏を貼付し、その後は元気に過ごしています。</text>
+  <text class="t" x="440" y="516" text-anchor="middle" font-size="16" font-weight="700">対象・時刻・対応・連絡文が、帳票の形で並ぶ。</text>
+</svg>

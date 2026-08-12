@@ -1,4 +1,5 @@
 import type { PartsCatalogBlock } from '@/lib/demo-lp/types'
+import { DemoLpCtaLink } from './DemoLpCtaLink'
 import { DemoLpIllustration } from './DemoLpIllustration'
 import {
   lpAffirm,
@@ -64,6 +65,11 @@ export function DemoLpPartsCatalog({ block }: { block: PartsCatalogBlock }) {
           ))}
         </div>
         <p className={`mt-6 ${lpAffirm}`}>{block.closing}</p>
+        {block.footerCta && (
+          <div className="mt-6">
+            <DemoLpCtaLink cta={block.footerCta} />
+          </div>
+        )}
       </div>
     </section>
   )

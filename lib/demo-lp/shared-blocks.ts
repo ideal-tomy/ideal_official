@@ -1,4 +1,33 @@
-import type { FaqItem, FinalCtaBlock, FormField, ProcessBlock } from './types'
+import {
+  HOW_WE_WORK_LEAD,
+  HOW_WE_WORK_STEPS,
+  HOW_WE_WORK_TITLE,
+} from '@/data/how-we-work'
+import type { Cta, FaqItem, FinalCtaBlock, FormField, ProcessBlock } from './types'
+
+export const howWeWorkFooterCta: Cta = {
+  label: '導入の流れを見る →',
+  href: '/how-we-work',
+  variant: 'secondary',
+}
+
+/** TOP代表LPなど：導入方法を How we work 簡単版にする */
+export function howWeWorkProcess(): ProcessBlock {
+  return {
+    label: 'How we work',
+    headline: HOW_WE_WORK_TITLE,
+    lead: HOW_WE_WORK_LEAD,
+    layout: 'timeline',
+    steps: HOW_WE_WORK_STEPS.map((step, index) => ({
+      no: String(index + 1),
+      title: step.title,
+      body: step.summary,
+    })),
+    exitNote: '相談だけで終えて構いません。試作のあとで止めることもできます。',
+    detailHref: '/how-we-work',
+    detailLabel: '詳細な導入の流れを見る →',
+  }
+}
 
 export const defaultFormFields: FormField[] = [
   {

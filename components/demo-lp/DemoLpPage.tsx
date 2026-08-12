@@ -9,6 +9,7 @@ import { DemoLpRoiSection } from './DemoLpRoiSection'
 import { DemoLpFaq } from './DemoLpFaq'
 import { DemoLpFinalForm } from './DemoLpFinalForm'
 import { DemoLpPartsCatalog } from './DemoLpPartsCatalog'
+import { DemoLpProcess } from './DemoLpProcess'
 import { DemoLpResultTabs } from './DemoLpResultTabs'
 import { DemoLpIllustration } from './DemoLpIllustration'
 import { DemoLpRecurringProblems } from './DemoLpRecurringProblems'
@@ -463,45 +464,7 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
       />
 
       {/* B12 process */}
-      <section className="py-14 md:py-20">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6">
-          <SectionLabel>{config.process.label}</SectionLabel>
-          <h2 className={lpH2}>
-            {config.process.headline}
-          </h2>
-          <p className={lpLead}>{config.process.lead}</p>
-          <div className="grid gap-4 md:grid-cols-3">
-            {config.process.steps.map((s) => (
-              <div
-                key={s.no}
-                className="rounded-xl border border-[var(--lp-ink)]/10 bg-white p-5"
-              >
-                <p className={lpCardMeta}>
-                  {s.no}
-                </p>
-                <h3 className={`mt-1 ${lpCardTitle}`}>{s.title}</h3>
-                <p className="mt-1 text-sm font-semibold text-[var(--lp-primary)]">
-                  {s.costLabel}
-                </p>
-                <p className={`mt-2 ${lpBody}`}>{s.body}</p>
-              </div>
-            ))}
-          </div>
-          <p className={`mt-6 ${lpNote}`}>
-            {config.process.exitNote}
-          </p>
-          {config.process.detailHref && (
-            <p className="mt-4">
-              <a
-                href={config.process.detailHref}
-                className="text-sm font-semibold text-[var(--lp-primary)] hover:underline"
-              >
-                {config.process.detailLabel ?? '導入の流れの詳細を見る →'}
-              </a>
-            </p>
-          )}
-        </div>
-      </section>
+      <DemoLpProcess block={config.process} />
 
       {/* B13 FAQ */}
       <DemoLpFaq items={config.faq} />

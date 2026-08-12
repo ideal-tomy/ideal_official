@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 400" role="img" aria-labelledby="nreTitle nreDesc" preserveAspectRatio="xMidYMid meet" style="width:100%;height:auto;display:block">
+  <title id="nreTitle">足りない項目を基準に戻すと、次の入荷が楽になる</title>
+  <desc id="nreDesc">見つかった不足を検査基準に足すと、次の入荷では同じ確認待ちが減る。</desc>
+  <style>
+    svg{--ink:#1F2A33;--line:#3A4650;--muted:#6B7780;--soft:#F4F6F7;--edge:#C4CBD1;--ok:#0E5C4C;--loss:#A8574B;color-scheme:light only;font-family:"Noto Sans CJK JP","Noto Sans JP",system-ui,sans-serif}
+    .t{fill:var(--ink)}.t-mut{fill:var(--muted)}.t-w{fill:#FFFFFF}.box{fill:#FFFFFF;stroke:var(--line);stroke-width:1.6}
+  </style>
+  <text class="t-mut" x="200" y="56" text-anchor="middle" font-size="14">1回目の入荷</text>
+  <text class="t-mut" x="680" y="56" text-anchor="middle" font-size="14">次の入荷</text>
+  <rect class="box" x="80" y="90" width="240" height="160" rx="4"/>
+  <text class="t" x="200" y="140" text-anchor="middle" font-size="15" font-weight="700">要確認 2件</text>
+  <text class="t-mut" x="200" y="172" text-anchor="middle" font-size="13">材質の表記ゆれ</text>
+  <text class="t-mut" x="200" y="198" text-anchor="middle" font-size="13">ロット番号なし</text>
+  <text class="t" x="200" y="232" text-anchor="middle" font-size="13" fill="var(--loss)">人が止まる</text>
+  <path d="M340,170 L420,170" stroke="var(--edge)" stroke-width="2.4" fill="none"/>
+  <rect x="430" y="120" width="160" height="100" rx="4" fill="var(--ok)"/>
+  <text class="t-w" x="510" y="160" text-anchor="middle" font-size="14" font-weight="700">基準に戻す</text>
+  <text class="t-w" x="510" y="186" text-anchor="middle" font-size="12">ロット記載を必須に</text>
+  <path d="M600,170 L680,170" stroke="var(--edge)" stroke-width="2.4" fill="none"/>
+  <rect class="box" x="690" y="90" width="150" height="160" rx="4"/>
+  <text class="t" x="765" y="160" text-anchor="middle" font-size="15" font-weight="700">要確認 0件</text>
+  <text class="t-mut" x="765" y="192" text-anchor="middle" font-size="13">同じ確認項目</text>
+  <text class="t" x="765" y="224" text-anchor="middle" font-size="13" fill="var(--ok)">人が止まらない</text>
+  <text class="t" x="440" y="340" text-anchor="middle" font-size="18" font-weight="700">見つかった不足を基準に足すと、次から同じことが減る。</text>
+</svg>

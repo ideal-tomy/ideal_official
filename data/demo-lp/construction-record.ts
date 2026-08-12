@@ -5,7 +5,7 @@ import {
   impactMainFigureValue,
   workflowSiteBasisNote,
 } from '@/lib/demo-lp/roi-factory'
-import { defaultFormFields } from '@/lib/demo-lp/shared-blocks'
+import { defaultFormFields, howWeWorkFooterCta, howWeWorkProcess } from '@/lib/demo-lp/shared-blocks'
 import { EXTERNAL_DEMO_URLS } from '@/data/demo-first/portfolio'
 
 /**
@@ -229,6 +229,7 @@ export const constructionRecordLp: LpConfig = {
     },
     closing:
       '必要に応じて1つだけ導入し、効果を確認してから対象を広げることができます。',
+    footerCta: howWeWorkFooterCta,
     items: [
       {
         no: '01',
@@ -360,35 +361,7 @@ export const constructionRecordLp: LpConfig = {
     lead: '会社や現場によって、写真整理や報告書作成にかかる時間は異なります。そのため、固定された数字ではなく、現在の状況を入力して試算できます。',
     config: roiConfig,
   },
-  process: {
-    label: '導入方法',
-    headline: 'まず1現場で試して、効果を確認します。',
-    lead: '全社への導入を決めてから始める必要はありません。',
-    steps: [
-      {
-        no: '01',
-        title: '現在の写真で試す',
-        costLabel: '費用：無償',
-        body: '1現場分の写真を使って、実際に整理を行います。事前に写真を選んだり、名前を変更したりする必要はありません。現在の状態のまま確認します。',
-      },
-      {
-        no: '02',
-        title: '必要な機能を追加する',
-        costLabel: 'ここまで費用ゼロ',
-        body: '写真整理の効果を確認したうえで、必要であれば報告書の下書き作成などを追加します。ここでも、全社への導入を決める必要はありません。',
-      },
-      {
-        no: '03',
-        title: '対象業務を広げる',
-        costLabel: '本導入・運用',
-        body: '実際に効果が確認できた機能を、ほかの現場や業務にも広げます。本導入する場合は、会社の環境や現在の運用に合わせて構築します。',
-      },
-    ],
-    exitNote:
-      '写真整理だけで終了することもできます。効果が確認できなければ、その時点で終了して構いません。',
-    detailHref: '/how-we-work',
-    detailLabel: '導入の流れの詳細を見る →',
-  },
+  process: howWeWorkProcess(),
   faq: [
     {
       category: 'fit',

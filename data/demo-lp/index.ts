@@ -11,6 +11,8 @@ import { constructionRecordLp } from './construction-record'
 import { careRecordsLp } from './care-records'
 import { manufacturingJudgmentLp } from './manufacturing-judgment'
 import { retailSupportLp } from './retail-support'
+import { receivingApprovalLp } from './receiving-approval'
+import { childcareRecordsLp } from './childcare-records'
 
 /** F型（能力）+ W型（業種）共用レジストリ。slug は重複させない */
 export const demoLpRegistry: Record<string, LpConfig> = {
@@ -25,6 +27,8 @@ export const demoLpRegistry: Record<string, LpConfig> = {
   [careRecordsLp.delivery.slug]: careRecordsLp,
   [manufacturingJudgmentLp.delivery.slug]: manufacturingJudgmentLp,
   [retailSupportLp.delivery.slug]: retailSupportLp,
+  [receivingApprovalLp.delivery.slug]: receivingApprovalLp,
+  [childcareRecordsLp.delivery.slug]: childcareRecordsLp,
 }
 
 export const demoLpSlugs = Object.keys(demoLpRegistry)

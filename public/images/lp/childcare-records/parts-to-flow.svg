@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 430" role="img" aria-labelledby="ccTitle ccDesc" preserveAspectRatio="xMidYMid meet" style="width:100%;height:auto;display:block">
+  <title id="ccTitle">事案記録を1つ入れると先まで進み、3つつなぐと報告まで通る</title>
+  <desc id="ccDesc">対応から報告までの流れ。事案記録・下書き・ルール引用を1つから入れてつなげる。</desc>
+  <style>
+    svg{--ink:#1F2A33;--muted:#7A858E;--track:#D2D8DC;--flow:#2B3740;--part:#0E5C4C;--loss:#A8574B;color-scheme:light only;font-family:"Noto Sans CJK JP","Noto Sans JP",system-ui,sans-serif}
+    .t{fill:var(--ink)}.t-mut{fill:var(--muted)}.t-part{fill:var(--part)}
+    .track{stroke:var(--track);stroke-width:9;stroke-linecap:butt}
+    .flow{stroke:var(--flow);stroke-width:9;stroke-linecap:butt}
+    .bridge{stroke:var(--part);stroke-width:9;stroke-linecap:butt}
+  </style>
+  <defs>
+    <marker id="ccAh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.4" markerHeight="5.4" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0E5C4C"/>
+    </marker>
+  </defs>
+  <text class="t-mut" x="215" y="40" text-anchor="start" font-size="14">対応</text>
+  <text class="t-mut" x="362" y="40" text-anchor="middle" font-size="14">メモ</text>
+  <text class="t-mut" x="522" y="40" text-anchor="middle" font-size="14">下書き</text>
+  <text class="t-mut" x="682" y="40" text-anchor="middle" font-size="14">確認</text>
+  <text class="t-mut" x="800" y="40" text-anchor="end" font-size="14">報告</text>
+  <text class="t" x="58" y="108" font-size="15" font-weight="700">① いま</text>
+  <line class="track" x1="215" y1="102" x2="340" y2="102"/>
+  <line class="track" x1="385" y1="102" x2="500" y2="102"/>
+  <line class="track" x1="545" y1="102" x2="660" y2="102"/>
+  <line class="track" x1="705" y1="102" x2="800" y2="102"/>
+  <line class="flow" x1="215" y1="102" x2="340" y2="102"/>
+  <circle cx="340" cy="102" r="7" fill="var(--flow)"/>
+  <g stroke="var(--loss)" stroke-width="2.4" stroke-linecap="round">
+    <line x1="356" y1="94" x2="370" y2="110"/><line x1="370" y1="94" x2="356" y2="110"/>
+    <line x1="516" y1="94" x2="530" y2="110"/><line x1="530" y1="94" x2="516" y2="110"/>
+    <line x1="676" y1="94" x2="690" y2="110"/><line x1="690" y1="94" x2="676" y2="110"/>
+  </g>
+  <text class="t" x="58" y="214" font-size="15" font-weight="700">② 1つ入れる</text>
+  <line class="track" x1="215" y1="208" x2="340" y2="208"/>
+  <line class="track" x1="385" y1="208" x2="500" y2="208"/>
+  <line class="track" x1="545" y1="208" x2="660" y2="208"/>
+  <line class="track" x1="705" y1="208" x2="800" y2="208"/>
+  <line class="flow" x1="215" y1="208" x2="340" y2="208"/>
+  <line class="bridge" x1="340" y1="208" x2="385" y2="208"/>
+  <line class="flow" x1="385" y1="208" x2="500" y2="208"/>
+  <circle cx="500" cy="208" r="7" fill="var(--flow)"/>
+  <text class="t-part" x="362" y="236" text-anchor="middle" font-size="13" font-weight="700">事案記録</text>
+  <g stroke="var(--loss)" stroke-width="2.4" stroke-linecap="round">
+    <line x1="516" y1="200" x2="530" y2="216"/><line x1="530" y1="200" x2="516" y2="216"/>
+    <line x1="676" y1="200" x2="690" y2="216"/><line x1="690" y1="200" x2="676" y2="216"/>
+  </g>
+  <text class="t" x="58" y="328" font-size="15" font-weight="700">③ 3つつなぐ</text>
+  <line class="track" x1="215" y1="322" x2="800" y2="322"/>
+  <line class="flow" x1="215" y1="322" x2="340" y2="322"/>
+  <line class="bridge" x1="340" y1="322" x2="385" y2="322"/>
+  <line class="flow" x1="385" y1="322" x2="500" y2="322"/>
+  <line class="bridge" x1="500" y1="322" x2="545" y2="322"/>
+  <line class="flow" x1="545" y1="322" x2="660" y2="322"/>
+  <line class="bridge" x1="660" y1="322" x2="705" y2="322"/>
+  <line class="flow" x1="705" y1="322" x2="795" y2="322"/>
+  <path d="M795,322 L820,322" stroke="var(--part)" stroke-width="9" marker-end="url(#ccAh)"/>
+  <text class="t-part" x="362" y="350" text-anchor="middle" font-size="13" font-weight="700">事案記録</text>
+  <text class="t-part" x="522" y="350" text-anchor="middle" font-size="13" font-weight="700">下書き</text>
+  <text class="t-part" x="682" y="350" text-anchor="middle" font-size="13" font-weight="700">ルール引用</text>
+  <text class="t" x="440" y="404" text-anchor="middle" font-size="18" font-weight="700">1つだけでも、そこまでは進む。つなぐと、最後まで通る。</text>
+</svg>

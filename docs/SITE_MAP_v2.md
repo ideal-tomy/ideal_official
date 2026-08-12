@@ -71,9 +71,11 @@ ideal_official（公開）
 ├─ /demo
 │     ├─ /w/{slug} ✅ W型LP（業種説得）
 │     │     construction-record ✅
-│     │     care-records 🚧（次スプリント）
-│     │     manufacturing-judgment 🚧（ゲート後）
-│     │     retail-support 🚧（ゲート後）
+│     │     care-records ✅
+│     │     manufacturing-judgment ✅
+│     │     retail-support ✅
+│     │     receiving-approval ✅
+│     │     childcare-records ✅
 │     │
 │     └─ /{slug} ✅ F型LP（能力説得）
 │           document-to-extraction 等3本（TOP §03 未マップ3本の着地。ナビ非掲載）
@@ -139,6 +141,8 @@ Hero CTA「デモを詳しく見る」→ `#demos`（§03）。業種は §01 �
 | `care-records` | `/demo/w/care-records` | `care-voice-records` | 介護デモ | ✅ 公開 |
 | `manufacturing-judgment` | `/demo/w/manufacturing-judgment` | `knowledge-internal-search`（一部） | 製造ハブ | ✅ 公開 |
 | `retail-support` | `/demo/w/retail-support` | `retail-demand-prediction`（副題吸収）/ CS主軸 | CSデモ | ✅ 公開 |
+| `receiving-approval` | `/demo/w/receiving-approval` | — | 受入検査デモ | ✅ 公開 |
+| `childcare-records` | `/demo/w/childcare-records` | — | 保育デモ | ✅ 公開 |
 
 slug は実装前に brief で確定。上表は **REDIRECT_MAP** と同期する。
 
