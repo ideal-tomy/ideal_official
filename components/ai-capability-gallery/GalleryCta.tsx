@@ -32,13 +32,13 @@ export function GalleryCta() {
         </div>
         <p className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
           <Link
-            href="/cases"
+            href="/flow"
             className="text-sm font-medium text-brand hover:text-brand-hover transition-colors"
           >
             活用イメージを読む →
           </Link>
           <Link
-            href="/estimate"
+            href="/flow#estimate"
             className="text-sm font-medium text-[var(--site-fg-muted)] hover:text-brand transition-colors"
           >
             概算の感触を先に見る →

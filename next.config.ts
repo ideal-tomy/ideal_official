@@ -40,6 +40,26 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/cases',
+        destination: '/flow',
+        permanent: true,
+      },
+      {
+        source: '/estimate',
+        destination: '/flow',
+        permanent: true,
+      },
+      {
+        source: '/ai-capability-gallery',
+        destination: '/flow',
+        permanent: true,
+      },
+      {
+        source: '/how-we-work',
+        destination: '/flow',
+        permanent: true,
+      },
+      {
         source: '/services/dao-design',
         destination: '/lab/blockchain#dao-governance',
         permanent: true,

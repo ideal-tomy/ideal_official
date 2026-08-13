@@ -27,17 +27,8 @@ function chipsFor(
 ): FooterChip[] {
   const path = pathname.split('?')[0] || '/'
 
-  if (path === '/estimate') {
+  if (path === '/flow' || path === '/estimate' || path === '/how-we-work' || path === '/cases') {
     return [
-      { label: '導入の流れ', href: '/how-we-work' },
-      { label: 'お問い合わせ', href: '/contact' },
-    ]
-  }
-
-  if (path === '/how-we-work' || path.startsWith('/how-we-work/')) {
-    return [
-      { label: 'デモ一覧', href: '/ai-capability-gallery' },
-      { label: '概算見積もり', href: '/estimate' },
       { label: 'お問い合わせ', href: '/contact' },
     ]
   }
@@ -45,47 +36,28 @@ function chipsFor(
   switch (pageType) {
     case 'home':
       return [
-        { label: 'デモ一覧', href: '/ai-capability-gallery' },
-        { label: '活用イメージ', href: '/cases' },
-        { label: '概算見積もり', href: '/estimate' },
+        { label: '導入の流れ', href: '/flow' },
+        { label: 'お問い合わせ', href: '/contact' },
       ]
     case 'demo_hub':
-      return [
-        { label: '活用イメージ', href: '/cases' },
-        { label: '概算見積もり', href: '/estimate' },
-        { label: 'お問い合わせ', href: '/contact' },
-      ]
     case 'demo':
-      return [
-        { label: '活用イメージ', href: '/cases' },
-        { label: '導入の流れ', href: '/how-we-work' },
-        { label: 'お問い合わせ', href: '/contact' },
-      ]
     case 'case':
-      return [
-        { label: 'デモ一覧', href: '/ai-capability-gallery' },
-        { label: '概算見積もり', href: '/estimate' },
-        { label: 'お問い合わせ', href: '/contact' },
-      ]
     case 'service':
       return [
-        { label: 'デモ一覧', href: '/ai-capability-gallery' },
-        { label: '概算見積もり', href: '/estimate' },
+        { label: '導入の流れ', href: '/flow' },
         { label: 'お問い合わせ', href: '/contact' },
       ]
     case 'lab':
     case 'insight':
       return [
-        { label: 'デモ一覧', href: '/ai-capability-gallery' },
-        { label: '活用イメージ', href: '/cases' },
+        { label: '導入の流れ', href: '/flow' },
         { label: 'お問い合わせ', href: '/contact' },
       ]
     case 'contact':
       return []
     default:
       return [
-        { label: 'デモ一覧', href: '/ai-capability-gallery' },
-        { label: '概算見積もり', href: '/estimate' },
+        { label: '導入の流れ', href: '/flow' },
         { label: 'お問い合わせ', href: '/contact' },
       ]
   }

@@ -377,7 +377,7 @@ export const careRecordsLp: LpConfig = {
     ],
     exitNote:
       '体験だけで終わって構いません。効果が分からなければ、その時点で終了できます。',
-    detailHref: '/how-we-work',
+    detailHref: '/flow#how-we-work',
     detailLabel: '導入の流れの詳細を見る →',
   },
   faq: [

@@ -322,6 +322,8 @@ export interface ProcessStep {
   /** 費用の発生点。timeline では省略可 */
   costLabel?: string
   body: string
+  /** How we work 詳細ポップアップ用（HOW_WE_WORK_STEPS の id） */
+  stepId?: string
 }
 
 export type FaqCategory =

@@ -1,3 +1,5 @@
+'use client'
+
 import type { ReactNode } from 'react'
 import type { HowWeWorkStep } from '@/data/how-we-work'
 
@@ -110,6 +112,53 @@ function RoleColumn({
   )
 }
 
+export function HowWeWorkStepContent({ step }: { step: HowWeWorkStep }) {
+  return (
+    <>
+      <h2 className="text-lg font-bold tracking-tight text-brand-deep md:text-xl">
+        {step.title}
+      </h2>
+      <p className="mt-2 text-sm leading-relaxed text-[var(--site-fg-muted)] md:text-[15px]">
+        {step.summary}
+      </p>
+
+      <div className="mt-5 grid gap-6 border-t border-[var(--site-border)] pt-5 sm:grid-cols-2 sm:gap-0">
+        <div className="sm:pr-6">
+          <RoleColumn
+            label="こちらがやること"
+            items={step.weDo}
+            accent="brand"
+            icon={<CheckIcon className="h-4 w-4 shrink-0" />}
+          />
+        </div>
+        <div className="border-[var(--site-border)] sm:border-l sm:pl-6">
+          <RoleColumn
+            label="お願いすること"
+            items={step.youDo}
+            accent="sky"
+            icon={<PersonIcon className="h-4 w-4 shrink-0" />}
+          />
+        </div>
+      </div>
+
+      {step.notDecidedYet.length > 0 && (
+        <div className="mt-5 flex gap-3 rounded-xl bg-[color-mix(in_srgb,var(--site-fg)_6%,transparent)] px-4 py-3">
+          <ClockIcon className="mt-0.5 h-4 w-4 shrink-0 text-[var(--site-fg-muted)]" />
+          <p className="text-sm leading-relaxed text-[var(--site-fg-muted)]">
+            <span className="font-semibold text-[var(--site-fg)]/80">
+              まだ決めなくてOK
+            </span>
+            <span className="mx-2 text-[var(--site-fg)]/25" aria-hidden>
+              /
+            </span>
+            {step.notDecidedYet.join('／')}
+          </p>
+        </div>
+      )}
+    </>
+  )
+}
+
 export function HowWeWorkDetail({ steps }: HowWeWorkDetailProps) {
   return (
     <ol className="relative">
@@ -135,46 +184,7 @@ export function HowWeWorkDetail({ steps }: HowWeWorkDetailProps) {
 
             {/* card */}
             <div className="min-w-0 flex-1 rounded-2xl border border-[var(--site-border)] bg-[color-mix(in_srgb,var(--site-fg)_4%,transparent)] p-5 md:p-6">
-              <h2 className="text-lg font-bold tracking-tight text-brand-deep md:text-xl">
-                {step.title}
-              </h2>
-              <p className="mt-2 text-sm leading-relaxed text-[var(--site-fg-muted)] md:text-[15px]">
-                {step.summary}
-              </p>
-
-              <div className="mt-5 grid gap-6 border-t border-[var(--site-border)] pt-5 sm:grid-cols-2 sm:gap-0">
-                <div className="sm:pr-6">
-                  <RoleColumn
-                    label="こちらがやること"
-                    items={step.weDo}
-                    accent="brand"
-                    icon={<CheckIcon className="h-4 w-4 shrink-0" />}
-                  />
-                </div>
-                <div className="border-[var(--site-border)] sm:border-l sm:pl-6">
-                  <RoleColumn
-                    label="お願いすること"
-                    items={step.youDo}
-                    accent="sky"
-                    icon={<PersonIcon className="h-4 w-4 shrink-0" />}
-                  />
-                </div>
-              </div>
-
-              {step.notDecidedYet.length > 0 && (
-                <div className="mt-5 flex gap-3 rounded-xl bg-[color-mix(in_srgb,var(--site-fg)_6%,transparent)] px-4 py-3">
-                  <ClockIcon className="mt-0.5 h-4 w-4 shrink-0 text-[var(--site-fg-muted)]" />
-                  <p className="text-sm leading-relaxed text-[var(--site-fg-muted)]">
-                    <span className="font-semibold text-[var(--site-fg)]/80">
-                      まだ決めなくてOK
-                    </span>
-                    <span className="mx-2 text-[var(--site-fg)]/25" aria-hidden>
-                      /
-                    </span>
-                    {step.notDecidedYet.join('／')}
-                  </p>
-                </div>
-              )}
+              <HowWeWorkStepContent step={step} />
             </div>
           </li>
         )

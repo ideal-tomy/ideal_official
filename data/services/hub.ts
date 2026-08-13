@@ -11,7 +11,7 @@ export const servicesHubHero = {
     'Webサイト・業務ツール・AIプロトタイプまで。触れるデモで方向を合わせ、小さく作って育てます。',
   primaryCta: {
     label: 'デモを触ってみる',
-    href: '/ai-capability-gallery',
+    href: '/flow',
   },
   secondaryCta: {
     label: 'サービスを選ぶ',

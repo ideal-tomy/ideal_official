@@ -69,8 +69,8 @@ export const labInsights: LabInsight[] = [
       'AI導入を成功させるために揃えるべき技術・ビジネス・人材の観点を短く整理します。',
     category: 'ai',
     publishedAt: '2026-07-10',
-    relatedHref: '/ai-capability-gallery',
-    relatedLabel: 'デモを体験',
+    relatedHref: '/flow',
+    relatedLabel: '導入の流れを見る',
     sections: [
       {
         heading: '技術要素',
@@ -103,8 +103,8 @@ export const labInsights: LabInsight[] = [
       '市場・顧客期待・技術成熟の観点から、いまAIを検討する意味を整理します。',
     category: 'ai',
     publishedAt: '2026-07-10',
-    relatedHref: '/cases',
-    relatedLabel: '活用イメージを読む',
+    relatedHref: '/flow',
+    relatedLabel: '導入の流れを見る',
     sections: [
       {
         heading: '市場と意思決定の変化',

@@ -377,7 +377,7 @@ export const retailSupportLp: LpConfig = {
       },
     ],
     exitNote: '体験だけで終えても問題ありません。',
-    detailHref: '/how-we-work',
+    detailHref: '/flow#how-we-work',
     detailLabel: '導入の流れの詳細を見る →',
   },
   faq: [

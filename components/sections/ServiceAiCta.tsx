@@ -32,7 +32,7 @@ export function ServiceAiCta({ serviceId, className = '' }: ServiceAiCtaProps) {
         </div>
         <p className="mt-6">
           <Link
-            href="/estimate"
+            href="/flow#estimate"
             className="text-sm font-medium text-brand transition-colors hover:text-brand-hover"
           >
             概算の感触を先に見る →

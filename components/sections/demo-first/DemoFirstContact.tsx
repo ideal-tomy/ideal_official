@@ -32,7 +32,7 @@ export function DemoFirstContact() {
 
         <p className="mt-8">
           <Link
-            href="/estimate"
+            href="/flow#estimate"
             className="text-sm font-bold text-[var(--df-primary)] underline-offset-4 hover:underline"
           >
             概算の感触を先に見る →

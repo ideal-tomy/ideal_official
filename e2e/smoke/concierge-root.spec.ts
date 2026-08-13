@@ -57,7 +57,7 @@ test.describe('サイト案内コンシェルジュ', () => {
     ).toBeVisible()
     await expect(page.getByRole('link', { name: '概算見積もりへ' })).toHaveAttribute(
       'href',
-      '/estimate',
+      '/flow#estimate',
     )
   })
 
@@ -97,16 +97,16 @@ test.describe('サイト案内コンシェルジュ', () => {
       page.getByText('読んでくれてありがとうございます'),
     ).toBeVisible()
     // クロスフェード後にボタンのみ吹き出し
-    await expect(page.getByRole('link', { name: 'デモ一覧' })).toBeVisible({
+    await expect(page.getByRole('link', { name: '導入の流れ' })).toBeVisible({
       timeout: 10_000,
     })
-    await expect(page.getByRole('link', { name: 'デモ一覧' })).toHaveAttribute(
+    await expect(page.getByRole('link', { name: '導入の流れ' })).toHaveAttribute(
       'href',
-      '/ai-capability-gallery',
+      '/flow',
     )
-    await expect(page.getByRole('link', { name: '活用イメージ' })).toHaveAttribute(
+    await expect(page.getByRole('link', { name: 'お問い合わせ' })).toHaveAttribute(
       'href',
-      '/cases',
+      '/contact',
     )
     // チップ表示後はありがとう文が消えている（非表示）
     await expect(
@@ -114,21 +114,21 @@ test.describe('サイト案内コンシェルジュ', () => {
     ).toBeHidden({ timeout: 5_000 })
   })
 
-  test('デモ一覧のフッターは別導線チップ', async ({ page }) => {
+  test('導入の流れのフッターはお問い合わせ導線', async ({ page }) => {
     await page.addInitScript(() => {
       try {
         sessionStorage.setItem('ideal_welcome_greeted', '1')
-        sessionStorage.removeItem('ideal_footer_greeted:/ai-capability-gallery')
+        sessionStorage.removeItem('ideal_footer_greeted:/flow')
       } catch {
         /* ignore */
       }
     })
-    await page.goto('/ai-capability-gallery')
+    await page.goto('/flow')
     await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight))
     await expect(
       page.getByRole('dialog', { name: 'コンシェルジュからのメッセージ' }),
     ).toBeVisible({ timeout: 15_000 })
-    await expect(page.getByRole('link', { name: '活用イメージ' })).toBeVisible({
+    await expect(page.getByRole('link', { name: 'お問い合わせ' })).toBeVisible({
       timeout: 10_000,
     })
     await expect(page.getByRole('link', { name: 'お問い合わせ' })).toHaveAttribute(

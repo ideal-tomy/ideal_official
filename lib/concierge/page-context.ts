@@ -58,16 +58,14 @@ export function resolvePageContext(pathname: string): ConciergePageContext {
     return { pathname: path, pageType: 'contact', label: 'お問い合わせ' }
   }
 
-  if (path === '/estimate') {
-    return { pathname: path, pageType: 'other', label: '自動見積もり' }
-  }
-
-  if (path === '/ai-capability-gallery') {
-    return {
-      pathname: path,
-      pageType: 'demo_hub',
-      label: 'AI Capability Gallery',
-    }
+  if (
+    path === '/flow' ||
+    path === '/estimate' ||
+    path === '/how-we-work' ||
+    path === '/cases' ||
+    path === '/ai-capability-gallery'
+  ) {
+    return { pathname: path, pageType: 'other', label: '導入の流れ' }
   }
 
   const demoMatch = path.match(/^\/ai-capability-gallery\/([^/]+)$/)
@@ -94,15 +92,6 @@ export function resolvePageContext(pathname: string): ConciergePageContext {
       demoId: study?.relatedDemo.slug,
       industry: study?.industry,
       label: study?.subtitle ?? caseSlug,
-      serviceId: 'ai-consulting',
-    }
-  }
-
-  if (path === '/cases') {
-    return {
-      pathname: path,
-      pageType: 'case',
-      label: '活用イメージ',
       serviceId: 'ai-consulting',
     }
   }

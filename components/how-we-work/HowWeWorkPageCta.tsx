@@ -65,7 +65,7 @@ export function HowWeWorkPageCta({
             </Button>
           </a>
         ) : (
-          <Link href="/estimate">
+          <Link href="/flow#estimate">
             <Button variant="primary" size="md">
               概算見積もりへ
             </Button>

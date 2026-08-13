@@ -37,6 +37,8 @@ export type RoiSimulatorLinkOpts = {
   cat?: 'field' | 'internal' | 'dashboard'
   returnPath?: string
   from?: string
+  /** true のとき /embed?embed=1（iframe 埋め込み） */
+  embed?: boolean
 }
 
 /** 簡易デモ slug → 見積入場パラメータ（kit 付きで見積モード直行） */
@@ -96,7 +98,9 @@ export function buildRoiSimulatorHref(
     const ret = normalizeReturnPath(opts.returnPath)
     if (ret) q.set('return', ret)
   }
-  return `${origin}/?${q.toString()}`
+  if (opts?.embed) q.set('embed', '1')
+  const path = opts?.embed ? '/embed' : '/'
+  return `${origin}${path}?${q.toString()}`
 }
 
 /** ギャラリー簡易デモから、対応キット付きで見積モードへ直行する URL */

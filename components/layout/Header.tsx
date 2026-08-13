@@ -15,8 +15,7 @@ import { MobileMenu } from './MobileMenu'
 export function Header() {
   const navLinks = [
     { href: '/', label: 'トップ' },
-    { href: '/ai-capability-gallery', label: 'デモ一覧' },
-    { href: '/cases', label: '活用イメージ' },
+    { href: '/flow', label: '導入の流れ' },
     { href: '/lab', label: 'LAB' },
     { href: '/contact', label: '問い合わせ' },
   ]

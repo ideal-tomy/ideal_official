@@ -1,4 +1,6 @@
+import { HOW_WE_WORK_STEPS } from '@/data/how-we-work'
 import type { ProcessBlock } from '@/lib/demo-lp/types'
+import { HowWeWorkStepDialog } from '@/components/how-we-work/HowWeWorkStepDialog'
 import { DemoLpCtaLink } from './DemoLpCtaLink'
 import {
   lpBody,
@@ -24,6 +26,22 @@ export function DemoLpProcess({ block }: { block: ProcessBlock }) {
           <ol className="relative mt-8 max-w-3xl">
             {block.steps.map((step, index) => {
               const isLast = index === block.steps.length - 1
+              const detail = step.stepId
+                ? HOW_WE_WORK_STEPS.find((item) => item.id === step.stepId)
+                : undefined
+              const card = (
+                <>
+                  <p className="font-semibold text-[var(--lp-primary)]">
+                    {step.title}
+                  </p>
+                  <p className={`mt-0.5 ${lpBody}`}>{step.body}</p>
+                  {detail ? (
+                    <p className="mt-1.5 text-xs font-semibold text-[var(--lp-primary)]">
+                      詳細を見る
+                    </p>
+                  ) : null}
+                </>
+              )
               return (
                 <li
                   key={step.no}
@@ -43,12 +61,19 @@ export function DemoLpProcess({ block }: { block: ProcessBlock }) {
                       />
                     )}
                   </div>
-                  <div className="min-w-0 flex-1 rounded-xl border border-[var(--lp-ink)]/10 bg-white px-4 py-3">
-                    <p className="font-semibold text-[var(--lp-primary)]">
-                      {step.title}
-                    </p>
-                    <p className={`mt-0.5 ${lpBody}`}>{step.body}</p>
-                  </div>
+                  {detail ? (
+                    <HowWeWorkStepDialog
+                      step={detail}
+                      index={index}
+                      className="min-w-0 flex-1 rounded-xl border border-[var(--lp-ink)]/10 bg-white px-4 py-3 text-left transition-colors hover:border-[var(--lp-primary)]/40"
+                    >
+                      {card}
+                    </HowWeWorkStepDialog>
+                  ) : (
+                    <div className="min-w-0 flex-1 rounded-xl border border-[var(--lp-ink)]/10 bg-white px-4 py-3">
+                      {card}
+                    </div>
+                  )}
                 </li>
               )
             })}

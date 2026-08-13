@@ -33,7 +33,7 @@ export function AiHubIndustryGrid() {
 
       <div className="mt-8 text-center">
         <Link
-          href="/cases"
+          href="/flow"
           className="text-sm font-medium text-brand transition-colors hover:text-brand-hover"
         >
           活用イメージ一覧を見る →

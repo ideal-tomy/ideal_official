@@ -40,7 +40,7 @@ export function CallToAction() {
 
         <p className="mt-8">
           <Link
-            href="/estimate"
+            href="/flow#estimate"
             className="text-sm font-medium text-brand hover:text-brand-hover transition-colors"
           >
             概算の感触を先に見る →

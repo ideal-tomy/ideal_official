@@ -1,65 +1,6 @@
-import type { Metadata } from 'next'
-import Link from 'next/link'
-import { GalleryHero } from '@/components/ai-capability-gallery/GalleryHero'
-import { CapabilityCardGrid } from '@/components/ai-capability-gallery/CapabilityCardGrid'
-import { HowWeWorkSummary } from '@/components/how-we-work/HowWeWorkSummary'
+import { redirect } from 'next/navigation'
 
-export const metadata: Metadata = {
-  title: 'AI Capability Demo Gallery | ideal',
-  description:
-    'AIで何ができるのかを、見て・触って・自社業務に置き換えて想像できるデモギャラリー。7つの業務変化パターンを体験できます。',
-  openGraph: {
-    title: 'AI Capability Demo Gallery | ideal',
-    description:
-      'AIで何ができるのかを、見て・触って・自社業務に置き換えて想像できるデモギャラリー。',
-  },
-}
-
-const navBtn =
-  'inline-flex flex-1 items-center justify-center rounded-lg px-3 py-3.5 text-center text-sm font-semibold transition-colors sm:min-w-[9.5rem] sm:px-6'
-
-export default function AiCapabilityGalleryPage() {
-  return (
-    <div className="min-h-screen bg-[var(--site-bg)]">
-      <GalleryHero />
-
-      <CapabilityCardGrid />
-
-      <section className="border-t border-[var(--site-border)] bg-[var(--site-bg)] py-10 md:py-12">
-        <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
-          <p className="mb-3 text-center text-xs font-medium uppercase tracking-[0.2em] text-brand/90">
-            Next
-          </p>
-          <h2 className="mb-4 text-center text-xl font-bold text-[var(--site-fg)] md:text-2xl">
-            次に進む
-          </h2>
-          <p className="mb-6 text-center text-sm leading-relaxed text-[var(--site-fg-muted)] md:text-base">
-            パターンを選んで体験したあとは、業種別の説明ページや概算・相談へ進めます。
-          </p>
-          <div className="flex gap-2 sm:gap-3">
-            <Link
-              href="/"
-              className={`${navBtn} bg-brand text-[var(--df-on-primary)] hover:bg-brand-hover`}
-            >
-              トップのデモ一覧へ
-            </Link>
-            <Link
-              href="/estimate"
-              className={`${navBtn} border border-[var(--site-border)] text-[var(--site-fg)] hover:border-brand/40 hover:bg-brand/5`}
-            >
-              概算見積もり
-            </Link>
-            <Link
-              href="/contact?service=ai-consulting&intent=gallery"
-              className={`${navBtn} border border-[var(--site-border)] text-[var(--site-fg)] hover:border-brand/40 hover:bg-brand/5`}
-            >
-              問い合わせ
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <HowWeWorkSummary showEstimateLink={false} showCasesLink={false} />
-    </div>
-  )
+/** 旧ギャラリー一覧 → 導入の流れへ統合（/:slug 詳細は残す） */
+export default function AiCapabilityGalleryIndexRedirect() {
+  redirect('/flow')
 }

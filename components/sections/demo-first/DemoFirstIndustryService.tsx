@@ -160,7 +160,7 @@ export function DemoFirstIndustryService({ cards }: Props) {
 
         <div className="mt-10 text-center">
           <Link
-            href="/cases"
+            href="/flow"
             className="text-sm font-bold text-[var(--df-primary)] hover:underline"
           >
             活用イメージ一覧を見る →

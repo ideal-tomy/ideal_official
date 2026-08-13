@@ -31,6 +31,7 @@ export function CaseHero({ caseStudy }: CaseHeroProps) {
 interface CasesIndexHeroProps {
   title?: string
   subtitle?: string
+  eyebrow?: string
   primaryCta?: {
     label: string
     href: string
@@ -43,7 +44,7 @@ const DEFAULT_SUBTITLE =
   '現場管理、報告、進捗確認。実際のツールに触れながら、業務の流れを具体的にイメージできます。'
 
 /**
- * /cases 一覧ページ用Hero
+ * /cases・/flow 用Hero
  *
  * 左側：HTMLの見出し・説明・CTA
  * 右側：完成済みビジュアル画像1枚
@@ -51,6 +52,7 @@ const DEFAULT_SUBTITLE =
 export function CasesIndexHero({
   title = DEFAULT_TITLE,
   subtitle = DEFAULT_SUBTITLE,
+  eyebrow = '活用イメージ',
   primaryCta = {
     label: '業種から探す',
     href: '#cases-browse',
@@ -94,7 +96,7 @@ export function CasesIndexHero({
               aria-hidden="true"
               className="h-px w-8 bg-blue-600"
             />
-            活用イメージ
+            {eyebrow}
           </p>
 
           <h1 className="text-[clamp(2.75rem,5.4vw,4.5rem)] font-black leading-[1.16] tracking-[-0.055em] text-slate-950">
@@ -168,10 +170,10 @@ export function CaseBackLink() {
   return (
     <div className="mx-auto max-w-3xl px-4 pt-5 sm:px-6 md:pt-8 lg:px-8">
       <Link
-        href="/cases"
+        href="/flow"
         className="text-sm text-[var(--site-fg-muted)] transition-colors hover:text-blue-600"
       >
-        ← 活用イメージ一覧
+        ← 導入の流れ
       </Link>
     </div>
   )

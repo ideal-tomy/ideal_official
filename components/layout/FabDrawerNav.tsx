@@ -15,9 +15,7 @@ type NavItem = {
 /** サービス以外の実ページ（サービスはドロップダウン／サブリスト） */
 const NAV_ITEMS: NavItem[] = [
   { href: '/', label: 'トップ' },
-  { href: '/ai-capability-gallery', label: 'デモ一覧' },
-  { href: '/cases', label: '活用イメージ' },
-  { href: '/estimate', label: '自動見積もり' },
+  { href: '/flow', label: '導入の流れ' },
   { href: '/lab', label: 'LAB' },
   { href: '/contact', label: 'お問い合わせ' },
 ]
@@ -117,19 +115,9 @@ export function FabDrawerNav() {
 
           <ul className="flex flex-1 items-center justify-end gap-5 lg:gap-6">
             <li>
-              <NavLink
-                href="/ai-capability-gallery"
-                label="デモ一覧"
-                pathname={pathname}
-              />
-            </li>
-            <li>
-              <NavLink href="/cases" label="活用イメージ" pathname={pathname} />
+              <NavLink href="/flow" label="導入の流れ" pathname={pathname} />
             </li>
             <FabServicesMenu pathname={pathname} />
-            <li>
-              <NavLink href="/estimate" label="自動見積もり" pathname={pathname} />
-            </li>
             <li>
               <NavLink href="/lab" label="LAB" pathname={pathname} />
             </li>
@@ -211,7 +199,7 @@ export function FabDrawerNav() {
         </h2>
         <nav className="mx-auto w-full max-w-md" aria-label="メインナビゲーション">
           {NAV_ITEMS.filter((item) =>
-            ['/', '/ai-capability-gallery', '/cases'].includes(item.href),
+            ['/', '/flow'].includes(item.href),
           ).map((item) => (
             <Link
               key={item.href}
@@ -252,7 +240,7 @@ export function FabDrawerNav() {
           </div>
 
           {NAV_ITEMS.filter((item) =>
-            ['/estimate', '/lab', '/contact'].includes(item.href),
+            ['/lab', '/contact'].includes(item.href),
           ).map((item) => (
             <Link
               key={item.href}

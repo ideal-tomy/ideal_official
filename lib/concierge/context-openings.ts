@@ -392,7 +392,7 @@ export function resolveOpeningLinkHref(
 ): string | null {
   if (!action.linkKind) return null
   if (action.linkKind === 'gallery') {
-    return '/ai-capability-gallery'
+    return '/flow'
   }
   if (action.linkKind === 'related_demo') {
     if (ctx.caseSlug) {
@@ -402,7 +402,7 @@ export function resolveOpeningLinkHref(
     if (ctx.demoId) {
       return `/ai-capability-gallery/${ctx.demoId}`
     }
-    return '/ai-capability-gallery'
+    return '/flow'
   }
   if (action.linkKind === 'related_case') {
     if (ctx.demoId === 'photo-to-classification') {
@@ -426,7 +426,7 @@ export function resolveOpeningLinkHref(
     if (ctx.demoId === 'knowledge-to-search') {
       return '/cases/industries/knowledge-internal-search'
     }
-    return '/cases'
+    return '/flow'
   }
   return null
 }
