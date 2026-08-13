@@ -22,6 +22,8 @@ export default function FlowPage() {
     embed: true,
     returnPath: '/flow',
     from: 'ideal-site',
+    industry: 'other',
+    cat: 'internal',
   })
 
   return (
