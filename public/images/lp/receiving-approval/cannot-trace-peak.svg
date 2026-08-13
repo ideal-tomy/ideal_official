@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 400" role="img" aria-labelledby="ctpTitle ctpDesc" preserveAspectRatio="xMidYMid meet" style="width:100%;height:auto;display:block">
+  <title id="ctpTitle">確認したはずなのに、あとから辿れない</title>
+  <desc id="ctpDesc">その場では確認したが、口頭やメモだけではあとから何を見て通したか辿れない。</desc>
+  <style>
+    svg{--ink:#1F2A33;--line:#3A4650;--muted:#6B7780;--soft:#F4F6F7;--edge:#C4CBD1;--loss:#A8574B;color-scheme:light only;font-family:"Noto Sans CJK JP","Noto Sans JP",system-ui,sans-serif}
+    .t{fill:var(--ink)}.t-mut{fill:var(--muted)}.t-loss{fill:var(--loss)}
+    .frame{fill:#FFFFFF;stroke:var(--line);stroke-width:1.6}
+    .ghost{fill:var(--soft);stroke:var(--edge);stroke-width:1.4;stroke-dasharray:6 5}
+  </style>
+  <defs>
+    <marker id="ctpAh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3A4650"/>
+    </marker>
+    <marker id="ctpAhL" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#A8574B"/>
+    </marker>
+  </defs>
+  <text class="t" x="160" y="48" text-anchor="middle" font-size="15" font-weight="700">① その場で確認</text>
+  <text class="t" x="440" y="48" text-anchor="middle" font-size="15" font-weight="700">② 記録の残り方</text>
+  <text class="t" x="720" y="48" text-anchor="middle" font-size="15" font-weight="700">③ あとから探すとき</text>
+  <rect class="frame" x="40" y="68" width="240" height="230" rx="4"/>
+  <text class="t" x="160" y="110" text-anchor="middle" font-size="14" font-weight="700">見たつもり</text>
+  <text class="t" x="160" y="150" text-anchor="middle" font-size="13">材質は同等で通した</text>
+  <text class="t" x="160" y="180" text-anchor="middle" font-size="13">ロットは口頭で確認</text>
+  <text class="t-mut" x="160" y="230" text-anchor="middle" font-size="12">その場では分かっている</text>
+  <rect class="frame" x="320" y="68" width="240" height="230" rx="4"/>
+  <text class="t" x="440" y="110" text-anchor="middle" font-size="14" font-weight="700">残っているもの</text>
+  <text class="t-mut" x="440" y="150" text-anchor="middle" font-size="13">チャットの一言</text>
+  <text class="t-mut" x="440" y="180" text-anchor="middle" font-size="13">付箋メモ</text>
+  <text class="t-loss" x="440" y="220" text-anchor="middle" font-size="13">承認欄は空</text>
+  <text class="t-mut" x="440" y="260" text-anchor="middle" font-size="12">何を見て通したか不明</text>
+  <rect class="ghost" x="600" y="68" width="240" height="230" rx="4"/>
+  <text class="t-loss" x="720" y="120" text-anchor="middle" font-size="14" font-weight="700">辿れない</text>
+  <text class="t-mut" x="720" y="165" text-anchor="middle" font-size="13">対象ロットは？</text>
+  <text class="t-mut" x="720" y="195" text-anchor="middle" font-size="13">誰が何を見た？</text>
+  <text class="t-loss" x="720" y="245" text-anchor="middle" font-size="13">同じ確認が再び発生</text>
+  <path d="M285 183 H315" stroke="#3A4650" stroke-width="1.8" marker-end="url(#ctpAh)"/>
+  <path d="M565 183 H595" stroke="#A8574B" stroke-width="1.8" marker-end="url(#ctpAhL)"/>
+  <text class="t-loss" x="440" y="360" text-anchor="middle" font-size="16" font-weight="700">確認したはずなのに、あとから辿れない</text>
+</svg>

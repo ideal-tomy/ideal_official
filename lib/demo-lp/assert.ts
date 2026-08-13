@@ -58,7 +58,12 @@ export function assertLpConfig(cfg: LpConfig): string[] {
     }
   }
 
-  if (cfg.delivery.kind === 'workflow' && !cfg.fit.scopeNote?.trim()) {
+  // prose フィットは1行表示のみ。scopeNote は cards レイアウト向け
+  if (
+    cfg.delivery.kind === 'workflow' &&
+    cfg.fit.layout !== 'prose' &&
+    !cfg.fit.scopeNote?.trim()
+  ) {
     errors.push('W型の B05 に scopeNote がありません')
   }
 

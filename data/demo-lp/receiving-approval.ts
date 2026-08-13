@@ -5,7 +5,7 @@ import {
   impactMainFigureValue,
   laborBasisNote,
 } from '@/lib/demo-lp/roi-factory'
-import { defaultFormFields, howWeWorkFooterCta, howWeWorkProcess } from '@/lib/demo-lp/shared-blocks'
+import { defaultFormFields, howWeWorkProcess } from '@/lib/demo-lp/shared-blocks'
 import { EXTERNAL_DEMO_URLS } from '@/data/demo-first/portfolio'
 
 /**
@@ -54,7 +54,7 @@ export const receivingApprovalLp: LpConfig = {
   hero: {
     headline: '届いた材料は、図面どおりか。',
     subline: '全部を人が見るのではなく、ずれだけを人に渡す。',
-    body: 'AIが「一致・要確認・記載なし」に分けます。人が確認した根拠は承認に残り、あとから対象を絞りやすくします。操作は「次へ」だけのサンプルデモで流れを確認できます。',
+    body: '「一致・要確認・記載なし」に分けます。人が確認した根拠は承認に残り、あとから対象を絞りやすくします。操作は「次へ」だけのサンプルデモで流れを確認できます。',
     ctas: [
       {
         label: '削減できる時間を試算する',
@@ -82,12 +82,6 @@ export const receivingApprovalLp: LpConfig = {
       trail: 'が、突合せと確認待ちに使われています。',
     },
     basis: laborBasisNote(labor),
-    metrics: [
-      { value: '40分', label: '1人・1日あたりの突合せ・確認（試算初期値）' },
-      { value: '¥0', label: 'サンプル体験は無償' },
-      { value: '次へだけ', label: '約1分で流れを確認' },
-      { value: '3〜6ヶ月', label: '投資回収の目安' },
-    ],
   },
   problem: {
     label: 'いま発生している作業',
@@ -133,20 +127,23 @@ export const receivingApprovalLp: LpConfig = {
   recurringProblems: {
     label: 'よく起きる問題',
     headline: '確認したはずなのに、あとから辿れない。',
+    variant: 'peak',
     diagram: {
-      src: '/images/lp/receiving-approval/human-then-record.svg',
-      alt: '要確認だけ人が見て、承認に根拠が残る',
+      src: '/images/lp/receiving-approval/cannot-trace-peak.svg',
+      alt: '口頭やメモだけの確認では、あとから何を見て通したか辿れない',
     },
     closing: {
-      line1: '口頭やメモだけの確認は、後から範囲を絞りにくくなります。',
+      line1: '確認したはずなのに、あとから辿れない。',
       line2:
         '「何を見て通したか」が承認に残っていないと、同じ確認が何度も発生します。',
     },
   },
   fit: {
+    layout: 'prose',
     label: 'どのような現場に向いているか',
-    headline: '図面と証明書の突き合わせがある受入に向いています。',
-    lead: '次のような業務がある場合に利用できます。',
+    headline:
+      '図面を見る人、証明書と突き合わせる人、通す前に確認する人が分かれている現場向けです。',
+    lead: '',
     scopeNote:
       'いまの帳票や承認フローを、いきなり全部捨てる必要はありません。確認項目から小さく始められます。',
     conditions: [
@@ -174,10 +171,13 @@ export const receivingApprovalLp: LpConfig = {
     exclude:
       '図面・証明書がデータとして揃っていない現場、人が確認せず自動確定だけしたい場合は向きません。',
   },
+  usecasesAfterResult: true,
+  partsCatalogAfterResult: true,
   usecases: {
-    label: '業務ごとの利用例',
-    headline: '受入のあとに続く工程でも、同じ考え方が使えます。',
-    lead: '「指定と実績を突き合わせ、ずれだけ人に渡す」場面に向きます。',
+    layout: 'names',
+    label: '確認業務',
+    headline: '突き合わせる中身は違っても、ずれだけ人に渡す手順は同じです。',
+    lead: '受入から次工程まで、指定と実績を揃える仕事に使います。',
     items: [
       {
         industry: '受入検査',
@@ -208,18 +208,21 @@ export const receivingApprovalLp: LpConfig = {
         body: '受入でそろった前提を、次工程がそのまま使えます。',
       },
     ],
-    more: '指定と実績の突き合わせがある検査・確認業務にも、同じ考え方を適用できます。',
   },
   partsCatalog: {
-    label: '必要な機能から導入できます',
-    headline: 'すべての機能を一度に導入する必要はありません。',
-    lead: 'いま時間がかかっている作業から始められます。',
+    label: '必要な機能から',
+    headline: '1つから始めて、つなぐ。',
+    align: 'center',
+    hideItems: true,
     diagram: {
       src: '/images/lp/receiving-approval/parts-to-flow.svg',
       alt: '仕分け・人の確認・承認記録を1つから入れて、受入から次工程までつなげる',
     },
-    closing: '1つから試し、効いたらつなぎます。',
-    footerCta: howWeWorkFooterCta,
+    footerCta: {
+      label: 'デモで体験する',
+      href: hubUrl,
+      variant: 'primary',
+    },
     items: [
       {
         no: '01',
@@ -248,7 +251,7 @@ export const receivingApprovalLp: LpConfig = {
   },
   resultTabs: {
     sectionLabel: '実際の利用イメージ',
-    headline: '仕分け → 人の確認 → 承認に残す。',
+    headline: 'ずれだけが、人の手元ではこう見えます。',
     note: '※掲載画面はイメージです。',
     tabs: [
       {
@@ -286,85 +289,50 @@ export const receivingApprovalLp: LpConfig = {
       },
     ],
   },
-  comparison: {
-    label: 'やり方を、全部変える必要はありません',
-    headline: '人が見る範囲を、ずれだけに絞ります。',
-    lead: '既存の承認フローを尊重し、効くところだけを足します。',
-    columns: {
-      common: '一般的なやり方',
-      ours: 'この仕組み',
-    },
-    rows: [
-      {
-        point: '見る範囲',
-        common: '毎回、全部を人が見る',
-        ours: 'ずれだけを人に渡す',
-      },
-      {
-        point: '表記ゆれ',
-        common: '違う／同じをその場の判断で決める',
-        ours: '要確認として渡し、根拠を残す',
-      },
-      {
-        point: '記録',
-        common: '口頭やメモで終わりがち',
-        ours: '確認内容を承認に残す',
-      },
-      {
-        point: '改善',
-        common: '同じ不足が次も起きる',
-        ours: '足りない項目を基準に戻せる',
-      },
-    ],
-    fairnessNote:
-      '材質判定や合否の自動化を約束するものではありません。人の確認を前提に設計します。',
-  },
-  growth: {
-    label: '使いながら、基準が揃っていきます',
-    headline: '見つかった不足を、次の入荷に活かせます。',
-    lead: '最初から全品目・全取引先を完璧にする前提にはしません。',
-    cycles: [
-      {
-        no: '1',
-        title: '確認結果を残す',
-        body: '同等材の扱いなど、人が決めた内容を次回に使いやすくします。',
-      },
-      {
-        no: '2',
-        title: '足りない項目を基準に足す',
-        body: 'ロット記載など、繰り返し不足する項目を必須にできます。',
-      },
-      {
-        no: '3',
-        title: '取引先への依頼を明確にする',
-        body: '何を書いてほしいかがはっきりし、次の入荷の止まりが減ります。',
-      },
-    ],
-    closing: '運用しながら、御社の検査基準に寄せて調整できます。',
-  },
   roi: {
     label: '削減できる時間を試算',
-    headline: 'いまの突合せ時間から、削減効果を確認できます。',
-    lead: '人数・1日あたりの時間・時間単価を動かして、近い数字を試せます。',
+    headline: 'いまの時間を入れて、近い数字を出す。',
+    lead: '品目や取引先によって、突合せにかかる時間は異なります。固定の数字ではなく、いまの状況を入れて試算します。',
+    hideCta: true,
     config: roiConfig,
   },
-  process: howWeWorkProcess(),
+  process: { ...howWeWorkProcess(), exitNote: undefined },
   faq: [
-    {
-      category: 'fit',
-      q: '図面や証明書の形式がバラバラでも使えますか？',
-      a: '対象項目と取り込み方を確認したうえで設計します。最初から全形式対応を前提にしません。',
-      defaultOpen: true,
-    },
     {
       category: 'price',
       q: '料金はいくらですか？',
       a: '対象業務・人数・連携範囲によって異なります。体験・初期の確認は無償で進められます。本導入時に範囲と費用をご案内します。',
+      featured: true,
+      defaultOpen: true,
     },
     {
-      category: 'running-cost',
-      q: '運用コストはどれくらいですか？',
-      a: '利用量と構成によります。想定利用量を伺ったうえで見積もります。',
+      category: 'coexistence',
+      q: '紙の証明書もまだあります。',
+      a: '併用を前提に始められます。効くところだけ置き換えます。',
+      featured: true,
+    },
+    {
+      category: 'accuracy',
+      q: 'AIの結果をそのまま合否にしてよいですか？',
+      a: 'いいえ。人の確認を前提にします。表記ゆれは自動で断定せず、要確認として渡します。',
+      featured: true,
+    },
+    {
+      category: 'small-start',
+      q: '一部の品目・取引先だけでもできますか？',
+      a: 'できます。小さな単位から始めて、効果を見て広げます。',
+      featured: true,
+    },
+    {
+      category: 'security',
+      q: '図面・証明書の扱いはどうなりますか？',
+      a: '現場のルールと契約に合わせて設計します。NDAの締結にも対応します。',
+      featured: true,
+    },
+    {
+      category: 'fit',
+      q: '図面や証明書の形式がバラバラでも使えますか？',
+      a: '対象項目と取り込み方を確認したうえで設計します。最初から全形式対応を前提にしません。',
     },
     {
       category: 'environment',
@@ -372,29 +340,14 @@ export const receivingApprovalLp: LpConfig = {
       a: '既存を残したまま、確認支援から始めることもできます。',
     },
     {
-      category: 'accuracy',
-      q: 'AIの結果をそのまま合否にしてよいですか？',
-      a: 'いいえ。人の確認を前提にします。表記ゆれは自動で断定せず、要確認として渡します。',
-    },
-    {
-      category: 'security',
-      q: '図面・証明書の扱いはどうなりますか？',
-      a: '現場のルールと契約に合わせて設計します。NDAの締結にも対応します。',
-    },
-    {
-      category: 'coexistence',
-      q: '紙の証明書もまだあります。',
-      a: '併用を前提に始められます。効くところだけ置き換えます。',
+      category: 'running-cost',
+      q: '運用コストはどれくらいですか？',
+      a: '利用量と構成によります。想定利用量を伺ったうえで見積もります。',
     },
     {
       category: 'preparation',
       q: '始める前にマスタを綺麗にする必要はありますか？',
       a: 'まずはデモと想定フローの確認からで構いません。本導入時に必要な整理項目を一緒に洗い出します。',
-    },
-    {
-      category: 'small-start',
-      q: '一部の品目・取引先だけでもできますか？',
-      a: 'できます。小さな単位から始めて、効果を見て広げます。',
     },
     {
       category: 'partial',
@@ -404,7 +357,7 @@ export const receivingApprovalLp: LpConfig = {
   ],
   finalCta: {
     headline: 'まずは、ずれだけが人に渡る流れを試せます。',
-    body: '無理な営業は行いません。NDAを結んでお話しすることもできます。課題が言葉になっていなくても構いません。',
+    body: 'サンプルデモで流れを確認できます。効果を確認したうえで、本導入するかどうかを判断してください。',
     assurances: [
       '無理な営業は行いません',
       'NDAを締結できます',
@@ -421,9 +374,15 @@ export const receivingApprovalLp: LpConfig = {
           }
         : f,
     ),
+    hideForm: true,
     tryCta: {
       label: 'デモを試す ↗',
       href: hubUrl,
+      variant: 'secondary',
+    },
+    contactCta: {
+      label: '問い合わせ',
+      href: '/contact?service=ai-consulting&intent=demo-lp&demo=receiving-approval',
       variant: 'secondary',
     },
   },

@@ -5,7 +5,7 @@ import {
   impactMainFigureValue,
   laborBasisNote,
 } from '@/lib/demo-lp/roi-factory'
-import { defaultFormFields, howWeWorkFooterCta, howWeWorkProcess } from '@/lib/demo-lp/shared-blocks'
+import { defaultFormFields, howWeWorkProcess } from '@/lib/demo-lp/shared-blocks'
 import { EXTERNAL_DEMO_URLS } from '@/data/demo-first/portfolio'
 import { GALLERY_BASE } from '@/data/ai-capability-gallery/capabilities'
 
@@ -58,7 +58,7 @@ export const manufacturingJudgmentLp: LpConfig = {
     headline: '規程を探し回らず、聞けば根拠が届く。',
     subline:
       '判断基準がベテランの頭の中にある。文書はあるのに、たどり着くまでが仕事になっている。',
-    body: '現場や部門からの質問に、回答だけでなく根拠の文書箇所まで添えて返せます。版ずれや窓口の違いで止まる時間を短くすることを目指します。',
+    body: '現場や部門からの質問に、回答だけでなく根拠の文書箇所まで添えて返します。版ずれや窓口の違いで止まる時間を短くすることを目指します。',
     ctas: [
       {
         label: '削減できる時間を試算する',
@@ -86,12 +86,6 @@ export const manufacturingJudgmentLp: LpConfig = {
       trail: 'が、資料探索と確認の待ちに使われています。',
     },
     basis: laborBasisNote(labor),
-    metrics: [
-      { value: '35分', label: '1人・1日あたりの探索・確認（試算初期値）' },
-      { value: '¥0', label: '実証トライアルは無償' },
-      { value: '根拠付き', label: '回答と出典をセット' },
-      { value: '3〜6ヶ月', label: '投資回収の目安' },
-    ],
   },
   problem: {
     label: 'いま発生している作業',
@@ -137,19 +131,22 @@ export const manufacturingJudgmentLp: LpConfig = {
   recurringProblems: {
     label: 'よく起きる問題',
     headline: '根拠が残らないと、同じ問い合わせが何度でも戻る。',
+    variant: 'peak',
     diagram: {
       src: '/images/lp/manufacturing/same-question-loop.svg',
       alt: '同じ質問が毎週戻る。根拠が残らないから',
     },
     closing: {
-      line1: '口頭だけで済ませると、組織に答えが残りません。',
+      line1: '根拠が残らないと、同じ問い合わせが何度でも戻る。',
       line2: '次の人がまた同じ探索を始め、同じ質問が毎週戻ってきます。',
     },
   },
   fit: {
+    layout: 'prose',
     label: 'どのような会社に向いているか',
-    headline: '文書はあるのに、探すことがボトルネックの現場に向いています。',
-    lead: '次のような状況に近いほど効きます。',
+    headline:
+      '聞く人、探す人、根拠を確認する人が分かれている現場向けです。',
+    lead: '',
     scopeNote:
       '全社文書の一括取り込みを最初から前提にしません。対象コーパスと権限を決めてから進めます。',
     conditions: [
@@ -177,10 +174,13 @@ export const manufacturingJudgmentLp: LpConfig = {
     exclude:
       '文書がほぼ無く口頭だけ、回答を無確認で最終決定に使う、権限設計なしで機密を広く検索させたい、といった場合は向きません。',
   },
+  usecasesAfterResult: true,
+  partsCatalogAfterResult: true,
   usecases: {
-    label: '業務ごとの利用例',
-    headline: '製造の判断を、文書に聞ける形にできます。',
-    lead: '手順改定・変更影響・日常の確認など、「探してから決める」場面に向きます。',
+    layout: 'names',
+    label: '判断業務',
+    headline: '聞く中身は違っても、回答と根拠をそろえる手順は同じです。',
+    lead: '生産現場から間接部門まで、探してから決める仕事に使います。',
     items: [
       {
         industry: '生産・現場',
@@ -190,7 +190,7 @@ export const manufacturingJudgmentLp: LpConfig = {
         body: '質問に対して、該当する手順と根拠箇所を返せます。',
       },
       {
-        industry: '品質・QC/QA',
+        industry: '品質・QC',
         icon: 'qc',
         scope: '窓口・判断の分岐',
         quote: '窓口がどこか分からず、現場が止まる',
@@ -211,19 +211,21 @@ export const manufacturingJudgmentLp: LpConfig = {
         body: '総務・人事寄りの社内ナレッジにも同じ型を適用できます。',
       },
     ],
-    more:
-      '製造ハブでは現場判断・手順改定・変更影響などの体験テーマにも触れられます。',
   },
   partsCatalog: {
-    label: '必要な機能から導入できます',
-    headline: 'まずは「聞いて答えが返る」体験から始められます。',
-    lead: '探索負担が大きい領域から試せます。',
+    label: '必要な機能から',
+    headline: '1つから始めて、つなぐ。',
+    align: 'center',
+    hideItems: true,
     diagram: {
       src: '/images/lp/manufacturing/ask-to-decide-flow.svg',
       alt: '聞いて根拠が返ると、判断が先に進む',
     },
-    closing: '効いた範囲だけを本番に広げられます。',
-    footerCta: howWeWorkFooterCta,
+    footerCta: {
+      label: 'デモで体験する',
+      href: hubUrl,
+      variant: 'primary',
+    },
     items: [
       {
         no: '01',
@@ -251,7 +253,7 @@ export const manufacturingJudgmentLp: LpConfig = {
   },
   resultTabs: {
     sectionLabel: '実際の利用イメージ',
-    headline: '質問 → 回答 → 根拠。止まらない判断。',
+    headline: '質問すると、回答と根拠がこう見えます。',
     note: '※掲載画面はイメージです。',
     tabs: [
       {
@@ -289,85 +291,50 @@ export const manufacturingJudgmentLp: LpConfig = {
       },
     ],
   },
-  comparison: {
-    label: '既存の文書管理を捨てる必要はありません',
-    headline: '探す負担が大きい領域から入れます。',
-    lead: '全文検索やフォルダ構成を否定せず、質問からの到着を早めます。',
-    columns: {
-      common: '一般的なやり方',
-      ours: 'この仕組み',
-    },
-    rows: [
-      {
-        point: 'たどり着き方',
-        common: 'フォルダ階層をたどる',
-        ours: '質問から候補と根拠へ',
-      },
-      {
-        point: '根拠',
-        common: '口頭で済ませがち',
-        ours: '出典をセットで返す',
-      },
-      {
-        point: '導入',
-        common: '全社文書を一度に投入',
-        ours: '対象コーパスから小さく',
-      },
-      {
-        point: '確定',
-        common: '回答をそのまま最終決定',
-        ours: '人が確認してから使う',
-      },
-    ],
-    fairnessNote:
-      '回答の法的・品質上の正しさを保証するものではありません。対象範囲と権限設計が前提です。',
-  },
-  growth: {
-    label: '使いながら、対象文書と語彙を育てます',
-    headline: '版更新と現場の言い方に合わせて調整します。',
-    lead: '一度入れたら終わりではなく、文書の更新と利用ログから改善します。',
-    cycles: [
-      {
-        no: '1',
-        title: 'よく聞かれる質問を見る',
-        body: '繰り返しの問い合わせを把握し、文書側の穴も見やすくします。',
-      },
-      {
-        no: '2',
-        title: '用語を揃える',
-        body: '現場の言い方と規程の語を橋渡しします。',
-      },
-      {
-        no: '3',
-        title: '対象を広げる',
-        body: '効いた領域から、他部門・他ラインへ広げます。',
-      },
-    ],
-    closing: '運用しながら、御社の文書と権限に合わせて育てます。',
-  },
   roi: {
     label: '削減できる時間を試算',
-    headline: '探索・確認の時間から、効果を試せます。',
-    lead: '人数と1日あたりの探索時間を動かして、近い数字を確認できます。',
+    headline: 'いまの時間を入れて、近い数字を出す。',
+    lead: 'ラインや部門によって、探索・確認にかかる時間は異なります。固定の数字ではなく、いまの状況を入れて試算します。',
+    hideCta: true,
     config: roiConfig,
   },
-  process: howWeWorkProcess(),
+  process: { ...howWeWorkProcess(), exitNote: undefined },
   faq: [
-    {
-      category: 'fit',
-      q: '文書が古いままでも始められますか？',
-      a: '始められます。ただし正しい版の整備とセットで進めるのが安全です。デモでは「探索の型」を先に確認できます。',
-      defaultOpen: true,
-    },
     {
       category: 'price',
       q: '料金はいくらですか？',
       a: '対象範囲・文書量・権限連携により異なります。初期確認は無償で進め、本導入時に見積もります。',
+      featured: true,
+      defaultOpen: true,
     },
     {
-      category: 'running-cost',
-      q: '問い合わせが増えたら費用はどうなりますか？',
-      a: '利用量や基盤によって変わります。想定利用を伺ったうえで設計します。',
+      category: 'coexistence',
+      q: '既存の文書管理システムは残しますか？',
+      a: '残したまま、検索・回答の層を足す形も取れます。',
+      featured: true,
+    },
+    {
+      category: 'accuracy',
+      q: '回答は必ず正しいですか？',
+      a: '保証しません。根拠を提示し、人が確認する運用を前提にします。',
+      featured: true,
+    },
+    {
+      category: 'small-start',
+      q: '1ライン・1部門だけからできますか？',
+      a: 'できます。小さく始め、効いたら広げます。',
+      featured: true,
+    },
+    {
+      category: 'security',
+      q: '機密文書を横断検索できますか？',
+      a: '権限設計なしでの横断は想定しません。アクセス制御を設計してから載せます。',
+      featured: true,
+    },
+    {
+      category: 'fit',
+      q: '文書が古いままでも始められますか？',
+      a: '始められます。ただし正しい版の整備とセットで進めるのが安全です。デモでは「探索の型」を先に確認できます。',
     },
     {
       category: 'environment',
@@ -375,29 +342,14 @@ export const manufacturingJudgmentLp: LpConfig = {
       a: '要件を伺い、配置方式を含めて検討します。',
     },
     {
-      category: 'accuracy',
-      q: '回答は必ず正しいですか？',
-      a: '保証しません。根拠を提示し、人が確認する運用を前提にします。',
-    },
-    {
-      category: 'security',
-      q: '機密文書を横断検索できますか？',
-      a: '権限設計なしでの横断は想定しません。アクセス制御を設計してから載せます。',
-    },
-    {
-      category: 'coexistence',
-      q: '既存の文書管理システムは残しますか？',
-      a: '残したまま、検索・回答の層を足す形も取れます。',
+      category: 'running-cost',
+      q: '問い合わせが増えたら費用はどうなりますか？',
+      a: '利用量や基盤によって変わります。想定利用を伺ったうえで設計します。',
     },
     {
       category: 'preparation',
       q: '全文書をOCRし直す必要がありますか？',
       a: '対象を絞れば、最初から全件は不要です。',
-    },
-    {
-      category: 'small-start',
-      q: '1ライン・1部門だけからできますか？',
-      a: 'できます。小さく始め、効いたら広げます。',
     },
     {
       category: 'partial',
@@ -407,7 +359,7 @@ export const manufacturingJudgmentLp: LpConfig = {
   ],
   finalCta: {
     headline: 'まずは、聞いて根拠が返る感覚を試せます。',
-    body: '製造の判断デモや社内ナレッジの体験から、探したい文書の種類を一緒に整理できます。',
+    body: '製造ハブで体験できます。探したい文書の種類を一緒に整理したうえで、本導入するかどうかを判断してください。',
     assurances: [
       '無理な営業は行いません',
       'NDAを締結できます',
@@ -424,9 +376,15 @@ export const manufacturingJudgmentLp: LpConfig = {
           }
         : f,
     ),
+    hideForm: true,
     tryCta: {
       label: 'デモを試す ↗',
       href: hubUrl,
+      variant: 'secondary',
+    },
+    contactCta: {
+      label: '問い合わせ',
+      href: '/contact?service=ai-consulting&intent=demo-lp&demo=manufacturing-judgment',
       variant: 'secondary',
     },
   },

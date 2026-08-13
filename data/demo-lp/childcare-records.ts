@@ -5,7 +5,7 @@ import {
   impactMainFigureValue,
   laborBasisNote,
 } from '@/lib/demo-lp/roi-factory'
-import { defaultFormFields, howWeWorkFooterCta, howWeWorkProcess } from '@/lib/demo-lp/shared-blocks'
+import { defaultFormFields, howWeWorkProcess } from '@/lib/demo-lp/shared-blocks'
 import { EXTERNAL_DEMO_URLS } from '@/data/demo-first/portfolio'
 
 /**
@@ -85,12 +85,6 @@ export const childcareRecordsLp: LpConfig = {
       trail: 'が、報告書と保護者連絡の作成に使われています。',
     },
     basis: laborBasisNote(labor),
-    metrics: [
-      { value: '35分', label: '1人・1日あたりの記録・報告（試算初期値）' },
-      { value: '¥0', label: 'デモシナリオ体験は無償' },
-      { value: 'シナリオ', label: '実マイク不要で体験' },
-      { value: '3〜5ヶ月', label: '投資回収の目安' },
-    ],
   },
   problem: {
     label: 'いま発生している作業',
@@ -136,19 +130,22 @@ export const childcareRecordsLp: LpConfig = {
   recurringProblems: {
     label: 'よく起きる問題',
     headline: 'あとから書くほど、根拠が薄くなる。',
+    variant: 'peak',
     diagram: {
       src: '/images/lp/childcare-records/evidence-fades.svg',
       alt: '時間が空くほど、詳細とルール引用が残らなくなる',
     },
     closing: {
-      line1: '時間が空くと、「転んだ。処置した。」だけが残ります。',
+      line1: 'あとから書くほど、根拠が薄くなる。',
       line2: 'どのルールに沿ったかは、その場で残さないと消えます。',
     },
   },
   fit: {
+    layout: 'prose',
     label: 'どのような園に向いているか',
-    headline: '事案の記録と保護者連絡がある園に向いています。',
-    lead: '次のような業務がある場合に利用できます。',
+    headline:
+      '対応する人、報告書を書く人、保護者へ出す前に確認する人が分かれている園向けです。',
+    lead: '',
     scopeNote:
       'いまの帳票や連絡手段を、いきなり全部捨てる必要はありません。報告書の下書きから小さく始められます。',
     conditions: [
@@ -176,10 +173,13 @@ export const childcareRecordsLp: LpConfig = {
     exclude:
       '介護施設のケア記録ニーズは別デモ（ケア記録）向けです。診断・処遇の自動化が主目的の場合も向きません。',
   },
+  usecasesAfterResult: true,
+  partsCatalogAfterResult: true,
   usecases: {
-    label: '業務ごとの利用例',
-    headline: '園の「残す・伝える」仕事に使えます。',
-    lead: '保育・こども園で、事案記録と保護者連絡に時間がかかっている業務に向きます。',
+    layout: 'names',
+    label: '記録業務',
+    headline: '残す中身は違っても、事案を残して報告書にする手順は同じです。',
+    lead: '保育園からクラス運営まで、対応のあとに書く仕事がある場面に使います。',
     items: [
       {
         industry: '保育園',
@@ -210,19 +210,21 @@ export const childcareRecordsLp: LpConfig = {
         body: '次の担当が読みやすい形に揃え、抜けを減らします。',
       },
     ],
-    more:
-      '記録項目が定まっている保育・教育周辺の報告業務にも、同じ考え方を適用できます。',
   },
   partsCatalog: {
-    label: '必要な機能から導入できます',
-    headline: 'すべての機能を一度に導入する必要はありません。',
-    lead: 'いま時間がかかっている作業から始められます。',
+    label: '必要な機能から',
+    headline: '1つから始めて、つなぐ。',
+    align: 'center',
+    hideItems: true,
     diagram: {
       src: '/images/lp/childcare-records/parts-to-flow.svg',
       alt: '事案記録・下書き・ルール引用を1つから入れて、対応から報告までつなげる',
     },
-    closing: '1つから試し、効いたらつなぎます。',
-    footerCta: howWeWorkFooterCta,
+    footerCta: {
+      label: 'デモで体験する',
+      href: hubUrl,
+      variant: 'primary',
+    },
     items: [
       {
         no: '01',
@@ -251,7 +253,7 @@ export const childcareRecordsLp: LpConfig = {
   },
   resultTabs: {
     sectionLabel: '実際の利用イメージ',
-    headline: '事案を残す → 下書き → 根拠付きで確認。',
+    headline: '事案を残すと、報告書ではこう見えます。',
     note: '※掲載画面はイメージです。',
     tabs: [
       {
@@ -289,85 +291,50 @@ export const childcareRecordsLp: LpConfig = {
       },
     ],
   },
-  comparison: {
-    label: 'やり方を、全部変える必要はありません',
-    headline: '書く負担が大きいところから、少しずつ導入します。',
-    lead: '既存の帳票や連絡手段を尊重し、効くところだけを足します。',
-    columns: {
-      common: '一般的なやり方',
-      ours: 'この仕組み',
-    },
-    rows: [
-      {
-        point: '書くタイミング',
-        common: '対応後にゼロから手入力',
-        ours: '事案を残す → 下書きを直す',
-      },
-      {
-        point: '根拠',
-        common: '記憶や口頭で「適切だった」とする',
-        ours: '園のルールを引用して残す',
-      },
-      {
-        point: '保護者連絡',
-        common: '文面を毎回ゼロから作る',
-        ours: '文案候補を報告書とセットで用意',
-      },
-      {
-        point: '導入範囲',
-        common: 'システムを全部入れ替え',
-        ours: '報告書の一部から小さく始める',
-      },
-    ],
-    fairnessNote:
-      '認識精度の保証や、対応そのものの自動化を約束するものではありません。人の確認を前提に設計します。',
-  },
-  growth: {
-    label: '使いながら、園の言い方に合わせます',
-    headline: '園ごとの用語や帳票に寄せていきます。',
-    lead: '最初から全クラス・全帳票を完璧に揃える前提にはしません。',
-    cycles: [
-      {
-        no: '1',
-        title: '確認結果を次回に活かす',
-        body: '人が直した表現や項目を、同じ種類の報告に反映しやすくします。',
-      },
-      {
-        no: '2',
-        title: '園のルールを登録する',
-        body: '引用したいマニュアルや連絡基準を、徐々に揃えられます。',
-      },
-      {
-        no: '3',
-        title: '抜けやすい項目を見る',
-        body: 'どの欄が抜けやすいかを見て、確認の仕方を見直せます。',
-      },
-    ],
-    closing: '運用しながら、御園のルールに寄せて調整できます。',
-  },
   roi: {
     label: '削減できる時間を試算',
-    headline: 'いまの記録・報告時間から、削減効果を確認できます。',
-    lead: '人数・1日あたりの時間・時間単価を動かして、近い数字を試せます。',
+    headline: 'いまの時間を入れて、近い数字を出す。',
+    lead: '園やクラスによって、記録・報告にかかる時間は異なります。固定の数字ではなく、いまの状況を入れて試算します。',
+    hideCta: true,
     config: roiConfig,
   },
-  process: howWeWorkProcess(),
+  process: { ...howWeWorkProcess(), exitNote: undefined },
   faq: [
-    {
-      category: 'fit',
-      q: '園ごとに帳票が違っても使えますか？',
-      a: '対象項目を確認したうえで設計します。最初から全帳票対応を前提にしません。',
-      defaultOpen: true,
-    },
     {
       category: 'price',
       q: '料金はいくらですか？',
       a: '対象業務・人数・連携範囲によって異なります。体験・初期の確認は無償で進められます。本導入時に範囲と費用をご案内します。',
+      featured: true,
+      defaultOpen: true,
     },
     {
-      category: 'running-cost',
-      q: '運用コストはどれくらいですか？',
-      a: '利用量と構成によります。想定利用量を伺ったうえで見積もります。',
+      category: 'coexistence',
+      q: '紙や既存ソフトをすぐやめられないです。',
+      a: '併用を前提に始められます。効くところだけ置き換えます。',
+      featured: true,
+    },
+    {
+      category: 'accuracy',
+      q: 'AIの結果をそのまま確定にしてよいですか？',
+      a: 'いいえ。人の確認を前提にします。不確かなところは推測で埋めず、要確認として扱える設計にします。',
+      featured: true,
+    },
+    {
+      category: 'small-start',
+      q: '一部のクラスだけでもできますか？',
+      a: 'できます。小さな単位から始めて、効果を見て広げます。',
+      featured: true,
+    },
+    {
+      category: 'security',
+      q: '子どもの情報の扱いはどうなりますか？',
+      a: '園のルールと契約に合わせて設計します。NDAの締結にも対応します。',
+      featured: true,
+    },
+    {
+      category: 'fit',
+      q: '園ごとに帳票が違っても使えますか？',
+      a: '対象項目を確認したうえで設計します。最初から全帳票対応を前提にしません。',
     },
     {
       category: 'environment',
@@ -375,29 +342,14 @@ export const childcareRecordsLp: LpConfig = {
       a: '既存を残したまま、下書きの作成から始めることもできます。',
     },
     {
-      category: 'accuracy',
-      q: 'AIの結果をそのまま確定にしてよいですか？',
-      a: 'いいえ。人の確認を前提にします。不確かなところは推測で埋めず、要確認として扱える設計にします。',
-    },
-    {
-      category: 'security',
-      q: '子どもの情報の扱いはどうなりますか？',
-      a: '園のルールと契約に合わせて設計します。NDAの締結にも対応します。',
-    },
-    {
-      category: 'coexistence',
-      q: '紙や既存ソフトをすぐやめられないです。',
-      a: '併用を前提に始められます。効くところだけ置き換えます。',
+      category: 'running-cost',
+      q: '運用コストはどれくらいですか？',
+      a: '利用量と構成によります。想定利用量を伺ったうえで見積もります。',
     },
     {
       category: 'preparation',
       q: '始める前にデータを綺麗にする必要はありますか？',
       a: 'まずはデモと想定フローの確認からで構いません。本導入時に必要な整理項目を一緒に洗い出します。',
-    },
-    {
-      category: 'small-start',
-      q: '一部のクラスだけでもできますか？',
-      a: 'できます。小さな単位から始めて、効果を見て広げます。',
     },
     {
       category: 'partial',
@@ -407,7 +359,7 @@ export const childcareRecordsLp: LpConfig = {
   ],
   finalCta: {
     headline: 'まずは、事案から下書きがそろう流れを試せます。',
-    body: '無理な営業は行いません。NDAを結んでお話しすることもできます。課題が言葉になっていなくても構いません。',
+    body: 'デモシナリオで体験できます。マイク実録音は不要です。効果を確認したうえで、本導入するかどうかを判断してください。',
     assurances: [
       '無理な営業は行いません',
       'NDAを締結できます',
@@ -424,9 +376,15 @@ export const childcareRecordsLp: LpConfig = {
           }
         : f,
     ),
+    hideForm: true,
     tryCta: {
       label: 'デモを試す ↗',
       href: hubUrl,
+      variant: 'secondary',
+    },
+    contactCta: {
+      label: '問い合わせ',
+      href: '/contact?service=ai-consulting&intent=demo-lp&demo=childcare-records',
       variant: 'secondary',
     },
   },
