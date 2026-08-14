@@ -50,3 +50,7 @@ next-env.d.ts
 
 # ローカル参照用（コミットしない）
 rinopro-site-ref/
+
+# 作業用スクラッチ（コミットしない）
+temp_*.txt
+tmp-qa/
