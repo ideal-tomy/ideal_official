@@ -1,5 +1,5 @@
 import type { FaqCategory, LpConfig } from './types'
-import { formatManYen } from './format'
+import { formatHours, formatManYen } from './format'
 
 /**
  * ビルド前チェック。品質ゲートのうち機械的に検証できるもの。
@@ -10,11 +10,26 @@ export function assertLpConfig(cfg: LpConfig): string[] {
   const defaults = Object.fromEntries(
     cfg.roi.config.sliders.map((s) => [s.key, s.defaultValue]),
   )
-  const derived = cfg.roi.config.computeAnnualLoss(defaults)
-  if (!cfg.impact.mainFigure.value.includes(formatManYen(derived))) {
-    errors.push(
-      'B02の主要数字がROI初期値と一致していません（設計原則P1: 単一ソース）',
-    )
+  if (cfg.impact.primaryMetric === 'hours') {
+    const minutes = defaults.minutesPerDay ?? 0
+    const days = defaults.workDays ?? 0
+    const hoursLabel = formatHours((minutes / 60) * days)
+    if (!cfg.impact.mainFigure.value.includes(hoursLabel)) {
+      errors.push(
+        'B02の主要数字（時間）がROI初期値と一致していません（設計原則P1: 単一ソース）',
+      )
+    }
+  } else {
+    const derived = cfg.roi.config.computeAnnualLoss(defaults)
+    if (!cfg.impact.mainFigure.value.includes(formatManYen(derived))) {
+      errors.push(
+        'B02の主要数字がROI初期値と一致していません（設計原則P1: 単一ソース）',
+      )
+    }
+  }
+
+  if (cfg.roleImpact && cfg.roleImpact.rows.length !== 3) {
+    errors.push('roleImpact の行は3つである必要があります')
   }
 
   if (!cfg.fit.exclude?.trim()) {

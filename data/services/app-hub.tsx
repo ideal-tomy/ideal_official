@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { HoodBody } from '@/components/services/HoodBody'
 
 export const appHubHero = {
   title: '業務を、動く仕組みに。',
@@ -18,14 +19,20 @@ export const whatWeBuild = [
   {
     title: '業務Web / 管理画面',
     description: 'Excel管理、紙の帳票、メールでのやり取りを、一つの画面に集約します。',
+    illustrationId: 'app-admin' as const,
+    imageAlt: 'KPIと一覧に集約された管理画面の構造',
   },
   {
     title: '会員・顧客サービス',
     description: '予約、会員管理、ポイント、履歴確認など、顧客向けの動く仕組み。',
+    illustrationId: 'app-member' as const,
+    imageAlt: 'スマホで予約・確認できる顧客向け画面の構造',
   },
   {
     title: 'LINE・現場入力',
     description: 'スマホから現場入力、LINE連携、通知まで。現場と事務所をつなぎます。',
+    illustrationId: 'app-field-line' as const,
+    imageAlt: '現場入力から通知、管理画面反映までの流れ',
   },
 ] as const
 
@@ -95,36 +102,6 @@ export interface AppHoodCard {
   siteUsage: string
   modalTitle: string
   modalBody: ReactNode
-}
-
-function HoodBody({
-  lead,
-  points,
-  siteUsage,
-}: {
-  lead: string
-  points: { title: string; text: string }[]
-  siteUsage: string
-}) {
-  return (
-    <div className="space-y-6">
-      <p className="text-gray-300 leading-relaxed">{lead}</p>
-      <div className="rounded-lg border border-brand/25 bg-brand/5 p-4">
-        <p className="text-xs uppercase tracking-wider text-brand/90 mb-1">
-          このサイトでの使用
-        </p>
-        <p className="text-sm text-gray-200 leading-relaxed">{siteUsage}</p>
-      </div>
-      <div className="space-y-4">
-        {points.map((p) => (
-          <div key={p.title}>
-            <h4 className="font-semibold text-brand mb-2">{p.title}</h4>
-            <p className="text-gray-300 text-sm leading-relaxed">{p.text}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  )
 }
 
 export const underTheHoodCards: AppHoodCard[] = [
@@ -262,14 +239,14 @@ export const appHubRelatedServices = [
     id: 'web-development',
     title: 'Webサイト制作',
     description: '見せ方・集客のためのWebサイト・LP',
-    href: '/services/web-development',
+    href: '/services#web',
     tags: ['Web', 'LP', 'コーポレート'],
   },
   {
     id: 'ai-consulting',
     title: 'AI',
     description: 'AIを使った業務自動化・プロトタイプ',
-    href: '/services/ai-consulting',
+    href: '/services#ai',
     tags: ['AI', '自動化', 'デモ'],
   },
 ] as const

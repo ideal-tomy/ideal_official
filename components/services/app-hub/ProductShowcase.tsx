@@ -319,12 +319,9 @@ function DashboardPanel() {
 export function ProductShowcase() {
   return (
     <ServiceSectionShell
-      id="product-showcase"
-      surface="elevated"
+      tone="interactive"
       title="ここで触ってみる"
       lead="言葉で説明する前に、動く仕組みの感触を確かめてください。入力・進捗・一覧の3つです。"
-      maxWidth="6xl"
-      className="scroll-mt-24"
     >
       <div className="grid gap-5 lg:grid-cols-3">
         <InputProcessPanel />

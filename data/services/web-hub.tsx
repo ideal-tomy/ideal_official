@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { HoodBody } from '@/components/services/HoodBody'
 
 export const webHubHero = {
   title: '見るだけではなく、触れたくなるWebを。',
@@ -18,14 +19,20 @@ export const whatWeBuild = [
   {
     title: 'コーポレート / ブランドサイト',
     description: '第一印象と信頼性を伝える、高速で一貫したサイト。',
+    illustrationId: 'web-corporate' as const,
+    imageAlt: '複数ページで構成され、共通ヘッダーを持つコーポレートサイトの構造',
   },
   {
     title: 'LP / キャンペーン',
     description: '伝えたい一点に絞った、コンバージョン設計のページ。',
+    illustrationId: 'web-lp' as const,
+    imageAlt: '縦長1枚と下部CTAを持つLPの画面構造',
   },
   {
     title: '業務Web / 会員サービス',
     description: '社内外の業務フローに合わせた、使えるWebアプリ。',
+    illustrationId: 'web-business' as const,
+    imageAlt: 'サイドバーと一覧・詳細を持つ業務Webの画面構造',
   },
 ] as const
 
@@ -56,36 +63,6 @@ export interface HoodCard {
   siteUsage: string
   modalTitle: string
   modalBody: ReactNode
-}
-
-function HoodBody({
-  lead,
-  points,
-  siteUsage,
-}: {
-  lead: string
-  points: { title: string; text: string }[]
-  siteUsage: string
-}) {
-  return (
-    <div className="space-y-6">
-      <p className="text-gray-300 leading-relaxed">{lead}</p>
-      <div className="rounded-lg border border-brand/25 bg-brand/5 p-4">
-        <p className="text-xs uppercase tracking-wider text-brand/90 mb-1">
-          このサイトでの使用
-        </p>
-        <p className="text-sm text-gray-200 leading-relaxed">{siteUsage}</p>
-      </div>
-      <div className="space-y-4">
-        {points.map((p) => (
-          <div key={p.title}>
-            <h4 className="font-semibold text-brand mb-2">{p.title}</h4>
-            <p className="text-gray-300 text-sm leading-relaxed">{p.text}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  )
 }
 
 export const underTheHoodCards: HoodCard[] = [

@@ -7,16 +7,13 @@ import {
 } from '@/lib/demo-lp/roi-factory'
 import { defaultFormFields, howWeWorkProcess } from '@/lib/demo-lp/shared-blocks'
 import { EXTERNAL_DEMO_URLS } from '@/data/demo-first/portfolio'
-import { GALLERY_BASE } from '@/data/ai-capability-gallery/capabilities'
 
 /**
  * ページの1文:
- * 規程や手順を探し回らず、質問すると回答と根拠がそろう。製造の判断を止めにくくする。
+ * 質問すると、答えと、それがどの手順書のどこに書いてあるかが一緒に出ます。
  */
 const slug = 'manufacturing-judgment'
 const hubUrl = EXTERNAL_DEMO_URLS.manufacturingIdeal
-const knowledgeUrl = EXTERNAL_DEMO_URLS.internalKnowledge
-const galleryUrl = `${GALLERY_BASE}/knowledge-to-search`
 
 const labor = {
   people: 40,
@@ -42,9 +39,9 @@ export const manufacturingJudgmentLp: LpConfig = {
     demoName: '製造の判断デモ',
     demoUrl: hubUrl,
     ogp: {
-      title: '製造の判断デモ｜聞いて、根拠付きで答えにたどり着く',
+      title: '製造の判断デモ｜聞くと、答えと手順書のページが出る',
       description:
-        '規程・手順・判断基準を探し回る時間を減らし、回答と出典をセットで返します。製造ハブで体験できます。',
+        '規程や手順書を探す時間を減らします。質問に対して、答えと、それがどこに書いてあるかを一緒に表示します。デモで体験できます。',
       image: {
         src: '/images/lp/manufacturing.png',
         alt: '製造の判断デモのイメージ',
@@ -55,10 +52,10 @@ export const manufacturingJudgmentLp: LpConfig = {
   },
   brand: idealBrand,
   hero: {
-    headline: '規程を探し回らず、聞けば根拠が届く。',
+    headline: '質問すると、答えと、手順書のページが出ます。',
     subline:
-      '判断基準がベテランの頭の中にある。文書はあるのに、たどり着くまでが仕事になっている。',
-    body: '現場や部門からの質問に、回答だけでなく根拠の文書箇所まで添えて返します。版ずれや窓口の違いで止まる時間を短くすることを目指します。',
+      '手順書はあるのに、どれが正しい版かを知っているのはベテランだけ、という状態になっていないか。',
+    body: '現場や他部門からの質問に、答えだけでなく、根拠になった規程・手順書の箇所も一緒に表示します。古い版を見てしまう、誰に聞けばいいか分からない、といった理由で止まる時間を短くします。',
     ctas: [
       {
         label: '削減できる時間を試算する',
@@ -81,16 +78,16 @@ export const manufacturingJudgmentLp: LpConfig = {
   },
   impact: {
     mainFigure: {
-      lead: '試算の初期値では、問い合わせ・探索に関わる40人で',
-      value: `年間 ${impactMainFigureValue(roiConfig)}`,
-      trail: 'が、資料探索と確認の待ちに使われています。',
+      lead: '試算の初期値では、問い合わせと資料探しに関わる40人で年間',
+      value: impactMainFigureValue(roiConfig),
+      trail: 'が、資料を探す時間と確認待ちに使われています。',
     },
     basis: laborBasisNote(labor),
   },
   problem: {
     label: 'いま発生している作業',
-    headline: '正解はあるのに、たどり着くまでが仕事になっていませんか。',
-    lead: 'フォルダを開き、詳しい人に聞き、根拠のページが共有されないまま同じ質問が繰り返されます。',
+    headline: '答えは手順書に書いてあるのに、探すのに時間がかかっていませんか。',
+    lead: '共有ドライブを開き、詳しい人に聞き、どこに書いてあったかは共有されないまま、同じ質問がまた来ます。',
     cardHiddenItemNos: ['01', '02', '03', '04'],
     spotDiagrams: [
       {
@@ -104,122 +101,145 @@ export const manufacturingJudgmentLp: LpConfig = {
     items: [
       {
         no: '01',
-        title: '質問が発生する',
-        body: '現場や他部門から、手順・優先・窓口についての問い合わせが来る。',
+        title: '質問が来る',
+        body: '現場や他部門から、手順・優先順位・窓口についての問い合わせが来ます。',
       },
       {
         no: '02',
         title: '資料を探す',
-        body: '共有ドライブや紙・チャット履歴を探し回る。',
+        body: '共有ドライブ、紙の手順書、チャットの履歴を順番に探します。',
       },
       {
         no: '03',
         title: '詳しい人に聞く',
-        body: 'ベテランに口頭で確認し、根拠ページは曖昧なまま残る。',
+        body: 'ベテランに口頭で確認します。どの手順書に書いてあったかは、その場では残りません。',
       },
       {
         no: '04',
-        title: 'その場しのぎで返す',
-        body: '同じ質問が再発し、判断のばらつきが残る。',
+        title: 'その場で返す',
+        body: '同じ質問がまた来ます。人によって答えが違うこともあります。',
       },
     ],
     summary: {
-      headline: '探す時間が、判断のリードタイムそのものです。',
-      body: '回答と出典を同時にそろえると、次の人が同じ探索をしにくくなります。',
+      headline: '答えが決まるまでの時間の大半は、探している時間です。',
+      body: '答えと一緒に、どこに書いてあったかが残っていれば、次の人は同じ資料を探さずに済みます。',
     },
   },
   recurringProblems: {
     label: 'よく起きる問題',
-    headline: '根拠が残らないと、同じ問い合わせが何度でも戻る。',
+    headline: 'どこに書いてあったかが残らないと、同じ質問がまた来ます。',
     variant: 'peak',
     diagram: {
       src: '/images/lp/manufacturing/same-question-loop.svg',
       alt: '同じ質問が毎週戻る。根拠が残らないから',
     },
     closing: {
-      line1: '根拠が残らないと、同じ問い合わせが何度でも戻る。',
-      line2: '次の人がまた同じ探索を始め、同じ質問が毎週戻ってきます。',
+      line1: 'どこに書いてあったかが残らないと、同じ質問がまた来ます。',
+      line2: '口頭で答えるたびに、次の人はまた最初から探し始めます。',
     },
+  },
+  roleImpact: {
+    label: '誰の仕事が変わるか',
+    headline: '同じ質問に、詳しい人が何度も答えなくてよくなります。',
+    lead: '答えられる人が限られていると、質問が来るたびにその人の手が止まります。',
+    closing:
+      '判断そのものを置き換えるものではありません。同じ質問を何度も受けなくてよくする仕組みです。',
+    rows: [
+      {
+        role: '聞く人（現場・他部門）',
+        before: '誰に聞けばよいか探し、返事を待つ',
+        after: '聞けば、答えと、どの手順書に書いてあるかが出る',
+      },
+      {
+        role: '聞かれる人（ベテラン・管理者）',
+        before: '同じ質問に、その都度自分の作業を止めて答える',
+        after: '一度確認した答えが残り、次の人はそれを読む',
+      },
+      {
+        role: '異動・中途で入った人',
+        before: '誰に何を聞けばよいか分からない',
+        after: '自分で調べて、根拠まで確認できる',
+      },
+    ],
   },
   fit: {
     layout: 'prose',
-    label: 'どのような会社に向いているか',
-    headline:
-      '聞く人、探す人、根拠を確認する人が分かれている現場向けです。',
+    label: 'どのような部署に向いているか',
+    headline: '同じ質問が毎週のように来る部署向けです。',
     lead: '',
     scopeNote:
-      '全社文書の一括取り込みを最初から前提にしません。対象コーパスと権限を決めてから進めます。',
+      '全社の文書をいきなり全部取り込む前提にはしません。対象にする文書の範囲と、誰が見られるかを決めてから進めます。',
     conditions: [
       {
         no: '1',
         roleLabel: '現場',
         title: '同じ問い合わせが繰り返される',
-        body: '手順・優先・連絡先など、似た質問が毎週のように発生する。',
+        body: '手順・優先順位・連絡先など、似た質問が毎週のように発生している。',
       },
       {
         no: '2',
         roleLabel: '文書',
-        title: '規程・マニュアルが文書として存在する',
-        body: '口頭だけの知識ではなく、参照できる文書がある（不十分でもよい）。',
+        title: '規程や手順書が文書として存在する',
+        body: '口頭だけの知識ではなく、参照できる文書がある（内容が古くても構いません）。',
       },
       {
         no: '3',
         roleLabel: '確認',
-        title: '根拠の提示まで揃えたい',
-        body: '「何を根拠にそう言ったか」を残したい運用である。',
+        title: '何を根拠に答えたかを残したい',
+        body: '答えだけでなく、その根拠まで残す運用にしたい。',
       },
     ],
     affirm:
-      '3つ当てはまるなら、探索時間と属人回答を減らす設計に乗せやすいです。',
+      'この3つに当てはまる場合、探す時間と、人によって答えが変わる状態を減らせます。',
     exclude:
-      '文書がほぼ無く口頭だけ、回答を無確認で最終決定に使う、権限設計なしで機密を広く検索させたい、といった場合は向きません。',
+      '文書がほとんどなく口頭だけで運用している場合、人が確認せずに回答を最終決定に使いたい場合、権限を決めずに機密文書まで横断検索したい場合は向きません。',
   },
   usecasesAfterResult: true,
   partsCatalogAfterResult: true,
   usecases: {
     layout: 'names',
     label: '判断業務',
-    headline: '聞く中身は違っても、回答と根拠をそろえる手順は同じです。',
+    headline: '生産でも品質でも、聞かれることは「どれが正しい手順か」です。',
     lead: '生産現場から間接部門まで、探してから決める仕事に使います。',
     items: [
       {
         industry: '生産・現場',
         icon: 'plant',
-        scope: '手順・優先ルール',
-        quote: 'どの手順が正なのか、探すだけで時間が終わる',
-        body: '質問に対して、該当する手順と根拠箇所を返せます。',
+        scope: '手順・優先順位',
+        quote: 'どれが正しい手順書か、探すだけで時間が終わる',
+        body: '質問に対して、該当する手順と、その箇所を表示します。',
       },
       {
         industry: '品質・QC',
         icon: 'qc',
-        scope: '窓口・判断の分岐',
-        quote: '窓口がどこか分からず、現場が止まる',
-        body: '連絡先や優先の手がかりを、文書ベースで示せます。',
+        scope: '窓口・判断の分かれ目',
+        quote: '誰に聞けばいいか分からず、ラインが止まる',
+        body: '連絡先や優先順位を、文書に基づいて示します。',
       },
       {
         industry: '技術・設計',
         icon: 'eng',
-        scope: '変更影響・規格',
-        quote: '影響範囲を思い出しながら調べている',
-        body: '関連文書への手がかりを短時間で揃えやすくします。',
+        scope: '変更の影響範囲・規格',
+        quote: '影響する範囲を、記憶をたどりながら調べている',
+        body: '関連する文書を、短時間で見つけられます。',
       },
       {
         industry: '間接部門',
         icon: 'office',
         scope: '社内規程の問い合わせ',
-        quote: '同じ規程の質問が何度も来る',
-        body: '総務・人事寄りの社内ナレッジにも同じ型を適用できます。',
+        quote: '同じ規程の質問が、何度も総務に来る',
+        body: '総務・人事の社内規程にも、同じ仕組みを使えます。',
       },
     ],
   },
   partsCatalog: {
     label: '必要な機能から',
-    headline: '1つから始めて、つなぐ。',
+    headline: '規程の検索だけでも使えます。',
     align: 'center',
     hideItems: true,
     diagram: {
       src: '/images/lp/manufacturing/ask-to-decide-flow.svg',
-      alt: '聞いて根拠が返ると、判断が先に進む',
+      alt: '答えと手順書のページが出て、その場で判断できる',
     },
     footerCta: {
       label: 'デモで体験する',
@@ -229,38 +249,37 @@ export const manufacturingJudgmentLp: LpConfig = {
     items: [
       {
         no: '01',
-        name: 'ナレッジ → 検索',
-        body: '質問から回答と根拠がセットで返る流れをサイト内で体験できます。',
+        name: '質問を受ける',
+        body: '現場や他部門からの質問を、普段の言葉のまま受け取ります。',
         standalone: true,
-        demoUrl: galleryUrl,
-        lpUrl: galleryUrl,
+        demoUrl: hubUrl,
       },
       {
         no: '02',
-        name: '製造の判断（3体験）',
-        body: '製造ハブで、現場判断・手順・変更影響をまとめて触れます。',
+        name: '根拠を示す',
+        body: '答えと一緒に、どの規程・手順書のどこに書いてあるかを示します。',
         standalone: true,
         demoUrl: hubUrl,
       },
       {
         no: '03',
-        name: '社内ナレッジAI',
-        body: '規程・マニュアルへの質問を、業務画面寄りに確認できます。',
+        name: '判断を残す',
+        body: '人が確認して確定した答えを残し、次の同じ質問に使います。',
         standalone: true,
-        demoUrl: knowledgeUrl,
+        demoUrl: hubUrl,
       },
     ],
   },
   resultTabs: {
     sectionLabel: '実際の利用イメージ',
-    headline: '質問すると、回答と根拠がこう見えます。',
+    headline: '質問すると、画面にはこう出ます。',
     note: '※掲載画面はイメージです。',
     tabs: [
       {
         id: 'field',
         label: '質問',
         surface: 'mobile',
-        caption: '現場や部門が、自然な言葉で聞きます。',
+        caption: '現場や他部門が、普段の言葉のまま聞きます。',
         image: {
           src: '/images/lp/knowledge.png',
           alt: '質問入力のイメージ',
@@ -271,7 +290,7 @@ export const manufacturingJudgmentLp: LpConfig = {
         id: 'office',
         label: '回答',
         surface: 'dashboard',
-        caption: '要点が整理され、次の行動に使えます。',
+        caption: '要点が整理され、次の作業に使える形で出ます。',
         image: {
           src: '/images/lp/manufacturing.png',
           alt: '回答表示のイメージ',
@@ -282,7 +301,7 @@ export const manufacturingJudgmentLp: LpConfig = {
         id: 'deliverable',
         label: '根拠',
         surface: 'document',
-        caption: '参照した規程・手順の箇所を添えます。',
+        caption: '参照した規程・手順書の箇所も一緒に表示されます。',
         image: {
           src: '/images/lp/document_workflow.png',
           alt: '根拠文書のイメージ',
@@ -293,8 +312,8 @@ export const manufacturingJudgmentLp: LpConfig = {
   },
   roi: {
     label: '削減できる時間を試算',
-    headline: 'いまの時間を入れて、近い数字を出す。',
-    lead: 'ラインや部門によって、探索・確認にかかる時間は異なります。固定の数字ではなく、いまの状況を入れて試算します。',
+    headline: '資料を探すのに使っている時間から計算します。',
+    lead: 'ラインや部門によって、探す時間や確認待ちの長さは異なります。固定の数字ではなく、いまの状況を入れて試算します。',
     hideCta: true,
     config: roiConfig,
   },
@@ -303,76 +322,81 @@ export const manufacturingJudgmentLp: LpConfig = {
     {
       category: 'price',
       q: '料金はいくらですか？',
-      a: '対象範囲・文書量・権限連携により異なります。初期確認は無償で進め、本導入時に見積もります。',
+      a: '対象にする文書の量、利用する人数、権限の連携範囲によって異なります。デモの体験と、最初の整理までは無償です。本導入時に範囲と費用をご案内します。',
       featured: true,
       defaultOpen: true,
     },
     {
       category: 'coexistence',
-      q: '既存の文書管理システムは残しますか？',
-      a: '残したまま、検索・回答の層を足す形も取れます。',
+      q: 'いまの文書管理システムは残せますか？',
+      a: '残せます。保存場所はそのままにして、検索と回答の部分だけを足す構成も取れます。',
       featured: true,
     },
     {
       category: 'accuracy',
       q: '回答は必ず正しいですか？',
-      a: '保証しません。根拠を提示し、人が確認する運用を前提にします。',
-      featured: true,
-    },
-    {
-      category: 'small-start',
-      q: '1ライン・1部門だけからできますか？',
-      a: 'できます。小さく始め、効いたら広げます。',
-      featured: true,
-    },
-    {
-      category: 'security',
-      q: '機密文書を横断検索できますか？',
-      a: '権限設計なしでの横断は想定しません。アクセス制御を設計してから載せます。',
+      a: '保証しません。根拠になった箇所を示したうえで、人が確認して確定する運用を前提にします。',
       featured: true,
     },
     {
       category: 'fit',
-      q: '文書が古いままでも始められますか？',
-      a: '始められます。ただし正しい版の整備とセットで進めるのが安全です。デモでは「探索の型」を先に確認できます。',
+      q: 'ベテランの判断を置き換えるものですか？',
+      a: 'いいえ。手順書に書いてあることを探す部分だけを引き受けます。書かれていないことの判断は、これまでどおり人が行います。',
+      featured: true,
+    },
+    {
+      category: 'small-start',
+      q: '1ライン・1部門だけから始められますか？',
+      a: 'できます。まず1部門で試し、効果を確認してから広げられます。',
+      featured: true,
+    },
+    {
+      category: 'security',
+      q: '機密文書も検索できますか？',
+      a: '誰がどの文書を見られるかを決めたうえで対象に含めます。権限を設計せずに全文書を横断させることはしません。',
+      featured: true,
+    },
+    {
+      category: 'fit',
+      q: '手順書が古いままでも始められますか？',
+      a: '始められます。ただし、どれが最新版かを決める作業とセットで進めるのが安全です。デモでは、探し方の仕組みだけ先に確認できます。',
     },
     {
       category: 'environment',
-      q: 'オンプレや閉域でもできますか？',
-      a: '要件を伺い、配置方式を含めて検討します。',
+      q: '社外に文書を出せません。',
+      a: '社内のサーバーや、外部とつながらない環境に置く構成も検討します。要件を伺ったうえで配置方法を決めます。',
     },
     {
       category: 'running-cost',
-      q: '問い合わせが増えたら費用はどうなりますか？',
-      a: '利用量や基盤によって変わります。想定利用を伺ったうえで設計します。',
+      q: '質問が増えると費用も増えますか？',
+      a: '利用量と基盤の構成によって変わります。想定する利用量を伺ったうえで設計します。',
     },
     {
       category: 'preparation',
-      q: '全文書をOCRし直す必要がありますか？',
-      a: '対象を絞れば、最初から全件は不要です。',
+      q: '紙の手順書を全部スキャンし直す必要がありますか？',
+      a: 'ありません。よく聞かれる範囲から対象を絞れば、最初から全件をデータ化する必要はありません。',
     },
     {
       category: 'partial',
-      q: 'ギャラリーのナレッジ検索だけ試したいです。',
-      a: '問題ありません。サイト内体験から始められます。',
+      q: 'サイト上の検索だけ試したいのですが。',
+      a: '問題ありません。まずサイト内で、質問して答えと根拠が返る形を確認できます。',
     },
   ],
   finalCta: {
-    headline: 'まずは、聞いて根拠が返る感覚を試せます。',
-    body: '製造ハブで体験できます。探したい文書の種類を一緒に整理したうえで、本導入するかどうかを判断してください。',
+    headline: 'まずは、聞いたら根拠が返ってくる形を試せます。',
+    body: 'デモで体験できます。どの文書を対象にするかを一緒に決めたうえで、本導入するかどうかを判断してください。',
     assurances: [
       '無理な営業は行いません',
       'NDAを締結できます',
-      '権限と対象文書から設計します',
+      '誰がどの文書を見られるかから設計します',
     ],
-    formTitle: '製造・ナレッジについて相談する',
+    formTitle: '製造・社内文書の検索について相談する',
     formNote: '入力は約1分です。1営業日以内にご連絡します。',
     fields: defaultFormFields.map((f) =>
       f.key === 'message'
         ? {
             ...f,
-            placeholder:
-              '例：製造ラインの手順問い合わせが負担。まず体験したい',
+            placeholder: '例：手順の問い合わせ対応が負担。まず体験したい',
           }
         : f,
     ),

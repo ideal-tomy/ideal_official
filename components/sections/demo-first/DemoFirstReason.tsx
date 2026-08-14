@@ -50,7 +50,7 @@ export function DemoFirstReason() {
       />
       <div className="relative mx-auto w-[min(100%-48px,1080px)]">
         <header className="mb-12 text-center md:mb-16">
-          <SectionKicker index="02" label="理由" className="text-center" />
+          <SectionKicker index="01" label="理由" className="text-center" />
           <h2 className="my-2 text-[clamp(28px,6.2vw,44px)] font-black leading-[1.35] text-[var(--df-text)]">
             提案書で終わらせず、
             <br />

@@ -5,7 +5,6 @@ import {
   useCallback,
   useContext,
   useEffect,
-  useState,
   type ReactNode,
 } from 'react'
 
@@ -19,45 +18,31 @@ type ThemeContextValue = {
 
 const ThemeContext = createContext<ThemeContextValue | null>(null)
 
-const STORAGE_KEY = 'ideal-theme'
-
-function applyThemeClass(mode: ThemeMode) {
+function applyLight() {
   const root = document.documentElement
-  root.classList.toggle('dark', mode === 'dark')
-  root.classList.toggle('light', mode === 'light')
-  root.style.colorScheme = mode
+  root.classList.remove('dark')
+  root.classList.add('light')
+  root.style.colorScheme = 'light'
 }
 
+/** 当面ライト固定。切替UIは出さない */
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setThemeState] = useState<ThemeMode>('dark')
-
   useEffect(() => {
-    const root = document.documentElement
-    const fromClass = root.classList.contains('dark')
-      ? 'dark'
-      : root.classList.contains('light')
-        ? 'light'
-        : null
-    const stored = window.localStorage.getItem(STORAGE_KEY) as ThemeMode | null
-    const initial: ThemeMode =
-      fromClass ??
-      (stored === 'light' || stored === 'dark' ? stored : 'dark')
-    setThemeState(initial)
-    applyThemeClass(initial)
+    applyLight()
   }, [])
 
-  const setTheme = useCallback((mode: ThemeMode) => {
-    setThemeState(mode)
-    window.localStorage.setItem(STORAGE_KEY, mode)
-    applyThemeClass(mode)
+  const setTheme = useCallback((_mode: ThemeMode) => {
+    applyLight()
   }, [])
 
   const toggleTheme = useCallback(() => {
-    setTheme(theme === 'dark' ? 'light' : 'dark')
-  }, [setTheme, theme])
+    applyLight()
+  }, [])
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme, toggleTheme }}>
+    <ThemeContext.Provider
+      value={{ theme: 'light', setTheme, toggleTheme }}
+    >
       {children}
     </ThemeContext.Provider>
   )

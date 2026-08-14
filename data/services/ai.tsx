@@ -9,14 +9,14 @@ export const aiServiceData = {
       id: 'web-development',
       title: 'Webサイト・LP制作',
       description: 'AI機能を統合したモダンなWebアプリケーションの開発',
-      href: '/services/web-development',
+      href: '/services#web',
       tags: ['React', 'Next.js', 'AI統合'],
     },
     {
       id: 'app-development',
       title: 'Webアプリ・業務ツール開発',
       description: 'AIを組み込んだ業務Web・管理画面の開発',
-      href: '/services/app-development',
+      href: '/services#app',
       tags: ['業務Web', 'AI', '自動化'],
     },
     {

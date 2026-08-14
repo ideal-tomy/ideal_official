@@ -5,6 +5,8 @@ type ServiceSectionHeaderProps = {
   align?: 'left' | 'center'
   onBand?: boolean
   className?: string
+  /** h3 = サービス内サブセクション見出し */
+  headingLevel?: 'h2' | 'h3'
 }
 
 /**
@@ -17,6 +19,7 @@ export function ServiceSectionHeader({
   align = 'center',
   onBand = false,
   className = '',
+  headingLevel = 'h2',
 }: ServiceSectionHeaderProps) {
   const alignClass = align === 'center' ? 'text-center' : 'text-left'
   const titleClass = onBand
@@ -37,11 +40,19 @@ export function ServiceSectionHeader({
         </p>
       ) : null}
       {title ? (
-        <h2
-          className={`text-3xl font-bold tracking-[0.02em] md:text-4xl ${titleClass}`}
-        >
-          {title}
-        </h2>
+        headingLevel === 'h3' ? (
+          <h3
+            className={`text-xl font-semibold tracking-[0.01em] md:text-2xl ${titleClass}`}
+          >
+            {title}
+          </h3>
+        ) : (
+          <h2
+            className={`text-3xl font-bold tracking-[0.02em] md:text-4xl ${titleClass}`}
+          >
+            {title}
+          </h2>
+        )
       ) : null}
       {lead ? (
         <p

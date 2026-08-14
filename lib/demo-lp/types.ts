@@ -46,6 +46,8 @@ export interface HeroBlock {
   headline: string
   subline: string
   body: string
+  /** 製品説明とデモ体験の都合を分ける注記（例: シナリオ体験・マイク不要） */
+  demoNote?: string
   highlight?: Highlight
   ctas: [Cta, Cta]
   badges?: string[]
@@ -58,6 +60,12 @@ export interface ImpactBlock {
     value: string
     trail: string
   }
+  /**
+   * インパクト主表示の単位。
+   * hours: 1人あたり年間時間など（金額は basis に落とす）
+   * 未指定・yen: 従来どおり年間金額
+   */
+  primaryMetric?: 'yen' | 'hours'
   basis: string
   metrics?: [MetricCard, MetricCard, MetricCard, MetricCard]
 }
@@ -114,6 +122,22 @@ export interface RecurringProblemsBlock {
   }
   /** peak: 全幅ダーク・1文。建設LPの「撮り直せない」用 */
   variant?: 'default' | 'peak'
+}
+
+/** W型: 立場ごとの「いま／あと」（誰の仕事が変わるか） */
+export interface RoleImpactRow {
+  role: string
+  before: string
+  after: string
+}
+
+export interface RoleImpactBlock {
+  label: string
+  headline: string
+  lead?: string
+  diagram?: Asset
+  closing?: string
+  rows: [RoleImpactRow, RoleImpactRow, RoleImpactRow]
 }
 
 export interface FitBlock {
@@ -397,6 +421,8 @@ export interface LpConfig {
   problem: ProblemBlock
   /** W型: 提出前のリスクなど、毎日の作業とは別のよく起きる問題 */
   recurringProblems?: RecurringProblemsBlock
+  /** W型: 立場ごとの仕事の変化（よく起きる問題の直後） */
+  roleImpact?: RoleImpactBlock
   fit: FitBlock
   usecases?: UseCasesBlock
   /** W-B07a 部品カタログ */

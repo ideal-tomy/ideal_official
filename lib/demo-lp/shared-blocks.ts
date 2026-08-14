@@ -11,6 +11,15 @@ export const howWeWorkFooterCta: Cta = {
   variant: 'secondary',
 }
 
+/** LP向けに口語へ寄せた要約（詳細ページの HOW_WE_WORK_STEPS 本体は変えない） */
+const LP_STEP_BODY: Partial<Record<(typeof HOW_WE_WORK_STEPS)[number]['id'], string>> =
+  {
+    requirements: '作る範囲をはっきりさせて、おおよその費用をお伝えします。',
+    production: '決めた範囲で、実際の業務で使える形に作り込みます。',
+    delivery:
+      '引き渡したあと、現場で使い始められる状態になるまで一緒に進めます。',
+  }
+
 /** TOP代表LPなど：導入方法を How we work 簡単版にする */
 export function howWeWorkProcess(): ProcessBlock {
   return {
@@ -21,7 +30,7 @@ export function howWeWorkProcess(): ProcessBlock {
     steps: HOW_WE_WORK_STEPS.map((step, index) => ({
       no: String(index + 1),
       title: step.title,
-      body: step.summary,
+      body: LP_STEP_BODY[step.id] ?? step.summary,
       stepId: step.id,
     })),
     exitNote: '相談だけで終えて構いません。試作のあとで止めることもできます。',

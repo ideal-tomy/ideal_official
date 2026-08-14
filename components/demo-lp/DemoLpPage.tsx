@@ -13,6 +13,7 @@ import { DemoLpProcess } from './DemoLpProcess'
 import { DemoLpResultTabs } from './DemoLpResultTabs'
 import { DemoLpIllustration } from './DemoLpIllustration'
 import { DemoLpRecurringProblems } from './DemoLpRecurringProblems'
+import { DemoLpRoleImpact } from './DemoLpRoleImpact'
 import {
   lpAffirm,
   lpBody,
@@ -161,6 +162,9 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
             <p className={`mb-6 ${lpHeroBody}`}>
               {config.hero.body}
             </p>
+            {config.hero.demoNote ? (
+              <p className={`-mt-3 mb-6 ${lpNote}`}>{config.hero.demoNote}</p>
+            ) : null}
             <div className="mb-6 flex flex-col gap-3 sm:flex-row">
               <DemoLpCtaLink cta={config.hero.ctas[0]} />
               <DemoLpCtaLink cta={config.hero.ctas[1]} />
@@ -299,25 +303,37 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
         </div>
       </section>
 
-      {config.fit.layout === 'prose' ? (
-        <section className="bg-white pb-14 md:pb-16">
-          <div className="mx-auto max-w-2xl px-4 sm:px-6">
-            <p className={lpBody}>{config.fit.headline}</p>
-            {config.fit.lead ? (
-              <p className={`mt-2 ${lpBody}`}>{config.fit.lead}</p>
-            ) : null}
-            {config.fit.scopeNote ? (
-              <p className={`mt-2 ${lpNote}`}>{config.fit.scopeNote}</p>
-            ) : null}
-          </div>
-        </section>
-      ) : null}
-
       {config.recurringProblems && (
         <DemoLpRecurringProblems block={config.recurringProblems} />
       )}
 
-      {config.fit.layout !== 'prose' && (
+      {config.roleImpact && <DemoLpRoleImpact block={config.roleImpact} />}
+
+      {config.fit.layout === 'prose' ? (
+        <section className="py-14 md:py-20">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6">
+            <SectionLabel>{config.fit.label}</SectionLabel>
+            <h2 className={lpH2}>{config.fit.headline}</h2>
+            {config.fit.scopeNote ? (
+              <p className={`mb-6 ${lpNote}`}>{config.fit.scopeNote}</p>
+            ) : null}
+            <div className="space-y-5">
+              {config.fit.conditions.map((c) => (
+                <div key={c.no} className="border-b border-[var(--lp-ink)]/10 pb-5">
+                  <p className={lpCardMeta}>
+                    {c.no}
+                    {c.roleLabel ? ` · ${c.roleLabel}` : ''}
+                  </p>
+                  <h3 className={`mt-1 ${lpCardTitle}`}>{c.title}</h3>
+                  <p className={`mt-2 ${lpBody}`}>{c.body}</p>
+                </div>
+              ))}
+            </div>
+            <p className={`mt-6 ${lpAffirm}`}>{config.fit.affirm}</p>
+            <p className={`mt-3 ${lpNote}`}>{config.fit.exclude}</p>
+          </div>
+        </section>
+      ) : (
       <section className="py-14 md:py-20">
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <SectionLabel>{config.fit.label}</SectionLabel>

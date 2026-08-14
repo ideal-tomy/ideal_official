@@ -30,14 +30,14 @@ export const webDevelopmentData = {
       title: 'AIプロトタイプ・自動化',
       description: 'AI導入・活用コンサルティングサービス',
       tags: ['機械学習', '深層学習', '自然言語処理'],
-      href: '/services/ai-consulting',
+      href: '/services#ai',
     },
     {
       id: 'app-development',
       title: 'Webアプリ・業務ツール開発',
       description: '業務Web・管理画面・現場入力ツールの開発',
       tags: ['業務Web', '管理画面', 'PWA'],
-      href: '/services/app-development',
+      href: '/services#app',
     },
     {
       id: 'blockchain-development',

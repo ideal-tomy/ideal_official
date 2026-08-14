@@ -8,7 +8,7 @@ export function DemoFirstContact() {
       className="border-t border-[var(--df-bg-blue-2)] bg-[var(--df-bg-card)] py-[clamp(56px,12vw,88px)] text-center text-[var(--df-text)] md:py-[clamp(72px,12vw,112px)]"
     >
       <div className="mx-auto w-[min(100%-48px,1080px)]">
-        <SectionKicker index="06" label="Contact" />
+        <SectionKicker index="04" label="Contact" />
         <h2 className="my-2 mb-6 text-[clamp(28px,6.2vw,44px)] font-black leading-[1.35] text-[var(--df-text)]">
           <span className="md:hidden">まだ言葉になっていなくても大丈夫です。</span>
           <span className="hidden md:inline">

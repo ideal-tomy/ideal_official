@@ -7,30 +7,18 @@ import {
 } from '@/data/services/app-hub'
 import { ServiceProcessSteps } from '@/components/services/ServiceProcessSteps'
 import { ServiceSectionShell } from '@/components/services/ServiceSectionShell'
+import { WhatWeBuildCards } from '@/components/services/WhatWeBuildCards'
 
 export function AppWhatWeBuild() {
   return (
     <ServiceSectionShell
       surface="default"
+      headingLevel="h3"
       title="こんなツールが作れます"
       lead="毎日の手作業を、触れる仕組みに。よくご依頼いただく型です。"
       maxWidth="5xl"
     >
-      <div className="grid gap-5 md:grid-cols-3">
-        {whatWeBuild.map((item) => (
-          <div
-            key={item.title}
-            className="flex h-full flex-col rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)] p-6 shadow-[var(--service-card-shadow)]"
-          >
-            <h3 className="mb-2 text-lg font-semibold text-[var(--site-fg)]">
-              {item.title}
-            </h3>
-            <p className="text-sm leading-relaxed text-[var(--site-fg-muted)]">
-              {item.description}
-            </p>
-          </div>
-        ))}
-      </div>
+      <WhatWeBuildCards items={whatWeBuild} />
     </ServiceSectionShell>
   )
 }

@@ -2,18 +2,20 @@ import type { FlowAnswer, IdealTrack } from '@/lib/concierge/ideal-flow'
 import { resolveEffectiveTrack } from '@/lib/concierge/ideal-flow'
 import { ServiceLinkData } from '@/types/service'
 
-/** サービスページ横断ナビ（ServiceNavigation 用）— 主力3本のみ */
+/** 製作サブ分類（コンシェルジュ・関連リンク用） */
 export const serviceNavLinks: ServiceLinkData[] = [
-  { id: 'web-development', name: 'Webサイト・LP制作', href: '/services/web-development' },
-  { id: 'app-development', name: 'Webアプリ・業務ツール開発', href: '/services/app-development' },
-  { id: 'ai-consulting', name: 'AIプロトタイプ・自動化', href: '/services/ai-consulting' },
+  { id: 'web-development', name: 'Webサイト・LP制作', href: '/services#web' },
+  { id: 'app-development', name: 'Webアプリ・業務ツール開発', href: '/services#app' },
+  { id: 'ai-consulting', name: 'AIプロトタイプ・自動化', href: '/services#ai' },
 ]
 
-/** Header / Footer ドロップダウン用（依頼の中心: Web / AI / アプリ） */
+/** Footer 用（相談・設計 / 製作 + 深リンク） */
 export const headerFooterServiceLinks: { href: string; label: string }[] = [
-  { href: '/services/web-development', label: 'Webサイト・LP制作' },
-  { href: '/services/ai-consulting', label: 'AIプロトタイプ・自動化' },
-  { href: '/services/app-development', label: 'Webアプリ・業務ツール開発' },
+  { href: '/services#overview-consult', label: '相談・設計' },
+  { href: '/services#build', label: '製作' },
+  { href: '/services#web', label: 'Webサイト・LP制作' },
+  { href: '/services#ai', label: 'AIプロトタイプ・自動化' },
+  { href: '/services#app', label: 'Webアプリ・業務ツール開発' },
 ]
 
 /** Footer LAB 欄など、研究・深掘り系リンク */
@@ -67,7 +69,7 @@ export function getServiceHrefForConciergeTrack(
     return '/lab/blockchain'
   }
   const row = serviceNavLinks.find((s) => s.id === id)
-  return row?.href ?? '/services/web-development'
+  return row?.href ?? '/services#web'
 }
 
 export function getServiceLabelForConciergeTrack(
@@ -106,7 +108,21 @@ export const getServiceLabel = (id: string): string => {
   return found?.name ?? id
 }
 
-export const getCurrentServiceId = (pathname: string): string => {
+const HASH_TO_SERVICE_ID: Record<string, string> = {
+  web: 'web-development',
+  app: 'app-development',
+  ai: 'ai-consulting',
+}
+
+export const getCurrentServiceId = (
+  pathname: string,
+  hash = '',
+): string | undefined => {
+  const normalizedHash = hash.replace(/^#/, '')
+  if (HASH_TO_SERVICE_ID[normalizedHash]) {
+    return HASH_TO_SERVICE_ID[normalizedHash]
+  }
+
   const pathSegments = pathname.split('/')
   const servicePath = pathSegments[pathSegments.length - 1]
 
@@ -123,7 +139,9 @@ export const getCurrentServiceId = (pathname: string): string => {
       return 'metaverse'
     case 'dao-design':
       return 'blockchain-development'
+    case 'services':
+      return undefined
     default:
-      return 'web-development'
+      return undefined
   }
 }

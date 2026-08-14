@@ -195,14 +195,7 @@ function InteractionPanel() {
 
 export function InteractionShowcase() {
   return (
-    <ServiceSectionShell
-      id="interaction-showcase"
-      surface="elevated"
-      title="ここで触ってみる"
-      lead="言葉で説明する前に、質感を確かめてください。詳しく見る・動き・切り替えの3つです。"
-      maxWidth="6xl"
-      className="scroll-mt-24"
-    >
+    <ServiceSectionShell tone="interactive" title="ここで触ってみる">
       <div className="grid gap-5 md:grid-cols-3">
         <ModalPanel />
         <MotionPanel />

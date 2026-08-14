@@ -3,7 +3,7 @@
   <title id="mtTitle">図面と証明書を突き合わせ、3つに分ける</title>
   <desc id="mtDesc">図面の指定と材料証明書を比べ、一致・要確認・記載なしに分ける。</desc>
   <style>
-    svg{--ink:#1F2A33;--line:#3A4650;--muted:#6B7780;--soft:#F4F6F7;--edge:#C4CBD1;--ok:#0E5C4C;--warn:#A67C2A;--miss:#A8574B;color-scheme:light only;font-family:"Noto Sans CJK JP","Noto Sans JP",system-ui,sans-serif}
+    svg{--ink:#1F2A33;--line:#3A4650;--muted:#6B7780;--soft:#F4F6F7;--edge:#C4CBD1;--ok:#2B6FE0;--warn:#A67C2A;--miss:#A8574B;color-scheme:light only;font-family:"Noto Sans CJK JP","Noto Sans JP",system-ui,sans-serif}
     .t{fill:var(--ink)}.t-mut{fill:var(--muted)}.t-w{fill:#FFFFFF}.box{fill:#FFFFFF;stroke:var(--line);stroke-width:1.6}
   </style>
   <rect class="box" x="48" y="80" width="200" height="120" rx="4"/>

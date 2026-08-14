@@ -23,8 +23,8 @@ export const labInsights: LabInsight[] = [
       '従来のシステム開発とAIソリューションの違いを、処理の考え方・スケール・変化への対応から整理します。',
     category: 'ai',
     publishedAt: '2026-07-10',
-    relatedHref: '/services/ai-consulting',
-    relatedLabel: 'AI Hub へ',
+    relatedHref: '/services#ai',
+    relatedLabel: 'AI 製作へ',
     sections: [
       {
         heading: '従来のシステム開発',
@@ -140,8 +140,8 @@ export const labInsights: LabInsight[] = [
       'AI導入を、単なるコスト削減ではなく、人が創造的な仕事に時間を使える環境づくりとして捉えます。',
     category: 'ai',
     publishedAt: '2026-07-10',
-    relatedHref: '/services/ai-consulting',
-    relatedLabel: 'AI Hub へ',
+    relatedHref: '/services#ai',
+    relatedLabel: 'AI 製作へ',
     sections: [
       {
         heading: '減らすべきは、創造ではない',

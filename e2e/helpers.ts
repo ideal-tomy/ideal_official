@@ -35,11 +35,17 @@ export async function expectMainNav(page: Page) {
  */
 export async function assertHomeServiceCardAndOpen(
   page: Page,
-  href: '/services/web-development' | '/services/ai-consulting' | '/services/app-development',
+  href:
+    | '/services/web-development'
+    | '/services/ai-consulting'
+    | '/services/app-development',
+  heading: string,
 ) {
   await page.goto('/')
-  await expect(page.getByRole('heading', { name: /触って試せるシステム開発/ })).toBeVisible()
-  // サービス詳細はドロワーまたは /services 経由。直接遷移で検証を安定させる
+  await expect(
+    page.getByRole('heading', { name: /触って試せるシステム開発/ }),
+  ).toBeVisible()
   await page.goto(href)
-  await expect(page).toHaveURL(new RegExp(href.replace(/\//g, '\\/')))
+  await expect(page).toHaveURL(/\/services/)
+  await expect(page.getByRole('heading', { name: heading })).toBeVisible()
 }

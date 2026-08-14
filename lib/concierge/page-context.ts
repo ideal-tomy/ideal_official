@@ -46,8 +46,12 @@ function normalizePathname(pathname: string): string {
 
 /**
  * pathname から PageContext を解決する（LLM 不使用）
+ * hash はクライアントの location.hash（#web 等）
  */
-export function resolvePageContext(pathname: string): ConciergePageContext {
+export function resolvePageContext(
+  pathname: string,
+  hash = '',
+): ConciergePageContext {
   const path = normalizePathname(pathname)
 
   if (path === '/') {
@@ -96,8 +100,8 @@ export function resolvePageContext(pathname: string): ConciergePageContext {
     }
   }
 
-  if (path.startsWith('/services/')) {
-    const serviceId = getCurrentServiceId(path)
+  if (path === '/services' || path.startsWith('/services/')) {
+    const serviceId = getCurrentServiceId(path, hash)
     const labels: Record<string, string> = {
       'web-development': 'Webサイト制作',
       'app-development': 'Webアプリ・業務ツール',
@@ -109,7 +113,7 @@ export function resolvePageContext(pathname: string): ConciergePageContext {
       pathname: path,
       pageType: 'service',
       serviceId,
-      label: labels[serviceId] ?? serviceId,
+      label: serviceId ? (labels[serviceId] ?? serviceId) : 'サービス',
     }
   }
 

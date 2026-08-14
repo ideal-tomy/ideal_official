@@ -60,6 +60,21 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/services/web-development',
+        destination: '/services#web',
+        permanent: true,
+      },
+      {
+        source: '/services/app-development',
+        destination: '/services#app',
+        permanent: true,
+      },
+      {
+        source: '/services/ai-consulting',
+        destination: '/services#ai',
+        permanent: true,
+      },
+      {
         source: '/services/dao-design',
         destination: '/lab/blockchain#dao-governance',
         permanent: true,

@@ -10,7 +10,7 @@ import { EXTERNAL_DEMO_URLS } from '@/data/demo-first/portfolio'
 
 /**
  * ページの1文:
- * 現場で撮った写真を、事務所で何度も入力し直さずに、日報や工事写真台帳までつなげる。
+ * 現場は撮って送るだけ。名前付けも、足りない写真の催促も、事務所側で起きなくなります。
  */
 const slug = 'construction-record'
 const hubUrl = EXTERNAL_DEMO_URLS.construction
@@ -43,9 +43,9 @@ export const constructionRecordLp: LpConfig = {
     demoName: '建設の記録デモ',
     demoUrl: hubUrl,
     ogp: {
-      title: '建設の記録デモ｜現場写真の整理から報告書の作成まで',
+      title: '建設の記録デモ｜現場は撮って送るだけ、事務所の催促をなくす',
       description:
-        '現場で撮った写真を、事務所で何度も入力し直さずに、日報や工事写真台帳までつなげます。1現場から無償で試せます。',
+        '撮影して送るだけで、ファイル名を付けて所定のフォルダへ整理します。写真が足りないときは現場へ撮り直しを依頼します。1現場分の写真から試せます。',
       image: {
         src: '/images/lp/construction.png',
         alt: '建設の記録デモのイメージ',
@@ -62,10 +62,10 @@ export const constructionRecordLp: LpConfig = {
     },
   },
   hero: {
-    headline: '現場写真の整理から、報告書の作成まで。',
+    headline: '現場は、撮って送るだけ。',
     subline:
-      '現場で撮影した写真を整理し、日報や工事写真台帳の作成につなげます。',
-    body: '写真を撮る方法や、現在の保存先を大きく変える必要はありません。まずは1現場から、実際の写真を使って試すことができます。',
+      '写真の名前付けも、足りない分の催促も、いまは事務所側で発生しています。',
+    body: '撮影して送るだけで、ファイル名を付けて所定のフォルダへ整理します。写真が足りないときは、現場へ撮り直しを依頼します。撮り方や保存先を大きく変える必要はありません。まずは1現場から、実際の写真を使って試せます。',
     ctas: [
       {
         label: '削減できる時間を試算する',
@@ -88,9 +88,9 @@ export const constructionRecordLp: LpConfig = {
   },
   impact: {
     mainFigure: {
-      lead: '試算の初期値では、5現場を抱える場合',
-      value: `年間 ${impactMainFigureValue(roiConfig)}`,
-      trail: 'の人件費が、写真の整理や入力作業に使われています。',
+      lead: '試算の初期値では、5現場を抱える会社で年間',
+      value: impactMainFigureValue(roiConfig),
+      trail: 'が、写真の整理と入力に使われています。',
     },
     basis: workflowSiteBasisNote(siteDefaults),
   },
@@ -131,8 +131,7 @@ export const constructionRecordLp: LpConfig = {
       },
     ],
     summary: {
-      headline:
-        '内容は同じでも、提出する書類が変わるたびに入力や整理をやり直しています。',
+      headline: '撮った写真は1枚なのに、同じ内容を3回入力しています。',
       body: '現在の試算では、こうした作業に1現場あたり1日約40分が使われています。',
     },
   },
@@ -148,6 +147,29 @@ export const constructionRecordLp: LpConfig = {
       line1: '工事が進んだ後では、もう撮り直せません。',
       line2: '不足に気づくのが提出直前だと、もう間に合いません。',
     },
+  },
+  roleImpact: {
+    label: '誰の仕事が変わるか',
+    headline: '現場に催促の連絡をしなくてよくなります。',
+    lead: '1枚の写真をめぐって、現場と事務所が何度もやりとりしています。',
+    closing: '現場と事務所のやりとりが、写真の催促ではなく工事の話になります。',
+    rows: [
+      {
+        role: '現場（現場監督・職長）',
+        before: '撮影して、名前を付けて、指定のフォルダへ入れる',
+        after: '撮影して送るだけ。足りない写真があれば、その場で撮り直しの依頼が届く',
+      },
+      {
+        role: '事務所（内勤）',
+        before: '写真を探し、名前を直し、足りない分を現場へ催促する',
+        after: '届いた時点で分類されている。催促の連絡をしなくてよい',
+      },
+      {
+        role: '所長・現場代理人',
+        before: '提出直前に不足が見つかる',
+        after: 'まだ撮り直せる時期に分かる',
+      },
+    ],
   },
   fit: {
     layout: 'prose',
@@ -185,7 +207,7 @@ export const constructionRecordLp: LpConfig = {
   usecases: {
     layout: 'names',
     label: '記録業務',
-    headline: '記録の中身は違っても、写真を選んで名前を付ける手順は同じです。',
+    headline: '工種が違っても、写真を選んで名前を付ける作業は同じです。',
     lead: '総合建設から維持修繕まで、現場の写真を事務所で揃える仕事に使います。',
     items: [
       {
@@ -221,12 +243,12 @@ export const constructionRecordLp: LpConfig = {
   },
   partsCatalog: {
     label: '必要な機能から',
-    headline: '1つから始めて、つなぐ。',
+    headline: '写真整理だけでも使えます。',
     align: 'center',
     hideItems: true,
     diagram: {
       src: '/images/lp/construction/parts-to-flow.svg',
-      alt: '写真整理・報告書作成・進捗管理を1つから入れて、現場から提出までつなげる',
+      alt: '写真整理・撮影漏れの確認・報告書作成を1つから入れて、現場から提出までつなげる',
     },
     footerCta: {
       label: 'デモで体験する',
@@ -237,22 +259,29 @@ export const constructionRecordLp: LpConfig = {
       {
         no: '01',
         name: '写真整理',
-        body: '現場から集まった写真を分類し、名前を付けて整理します。写真整理だけで利用することもできます。',
+        body: '現場から送られた写真を分類し、名前を付けて所定のフォルダへ整理します。写真整理だけで利用することもできます。',
         standalone: true,
         demoUrl: hubUrl,
       },
       {
         no: '02',
+        name: '撮影漏れの確認',
+        body: '必要な写真が届いていない場合に、現場へ撮り直しを依頼します。提出直前ではなく、まだ撮り直せる時期に知らせます。',
+        standalone: true,
+        demoUrl: hubUrl,
+      },
+      {
+        no: '03',
         name: '報告書作成',
-        body: '整理した写真から、日報・朝礼資料・工事写真台帳などの下書きを作成します。写真を貼り直したり、同じ内容を入力し直したりする作業を減らします。',
+        body: '整理した写真から、日報・朝礼資料・工事写真台帳などの下書きを作成します。同じ内容を入力し直す作業を減らします。',
         standalone: false,
         dependsOn: ['写真整理'],
         demoUrl: reportUrl,
       },
       {
-        no: '03',
+        no: '04',
         name: '進捗管理',
-        body: '現場ごとの提出状況と担当者を一覧で確認します。どの現場で確認や提出が止まっているかを確認できます。',
+        body: '現場ごとの提出状況と担当者を一覧で確認します。どの現場で確認や提出が止まっているかが分かります。',
         standalone: true,
         demoUrl: opsUrl,
       },
@@ -260,7 +289,7 @@ export const constructionRecordLp: LpConfig = {
   },
   resultTabs: {
     sectionLabel: '実際の利用イメージ',
-    headline: '撮った写真が、事務所ではこう見えています。',
+    headline: '現場で撮った写真が、事務所ではこう並びます。',
     note: '※掲載画面はイメージです。',
     tabs: [
       {
@@ -280,7 +309,7 @@ export const constructionRecordLp: LpConfig = {
         label: '内勤',
         surface: 'dashboard',
         caption:
-          '送られてきた情報を整理・確認します。写真の分類、必要な記録の確認、報告書の作成状況などを画面上で確認できます。',
+          '送られてきた情報を整理・確認します。写真の分類、足りない写真の有無、報告書の作成状況を画面上で確認できます。',
         image: {
           src: '/images/lp/construction/result-office.png',
           alt: '内勤：PC画面で写真と進捗を確認するイメージ',
@@ -303,7 +332,7 @@ export const constructionRecordLp: LpConfig = {
   },
   roi: {
     label: '削減できる時間を試算',
-    headline: 'いまの時間を入れて、近い数字を出す。',
+    headline: '1現場あたり、いま何分かかっていますか。',
     lead: '会社や現場によって、写真整理や報告書作成にかかる時間は異なります。固定の数字ではなく、いまの状況を入れて試算します。',
     hideCta: true,
     config: roiConfig,
@@ -313,7 +342,7 @@ export const constructionRecordLp: LpConfig = {
     {
       category: 'price',
       q: '料金はいくらですか？',
-      a: '導入する機能、対象となる現場数、既存システムとの連携内容によって異なります。実際の対象業務を確認したうえで、本導入に必要な範囲と費用をご案内します。',
+      a: '導入する機能、対象となる現場数、既存システムとの連携内容によって異なります。デモの体験と、最初の整理までは無償です。実際の対象業務を確認したうえで、本導入に必要な範囲と費用をご案内します。',
       featured: true,
       defaultOpen: true,
     },
@@ -331,6 +360,12 @@ export const constructionRecordLp: LpConfig = {
     },
     {
       category: 'accuracy',
+      q: '撮り直しの依頼は、どこまで自動で出ますか？',
+      a: '現場と工種ごとに「必要な写真」を決めておき、届いていないものを知らせます。写真の中身の判断まで自動で確定はしません。判断に迷うものは、事務所の担当者に確認をお願いする形で届きます。',
+      featured: true,
+    },
+    {
+      category: 'accuracy',
       q: 'AIの判断をそのまま報告書に使うのですか？',
       a: '確認できる元の写真と結びつけて扱います。必要な記録が確認できない場合は、内容を推測して補うのではなく、記録が不足していることを表示します。',
       featured: true,
@@ -343,7 +378,7 @@ export const constructionRecordLp: LpConfig = {
     },
     {
       category: 'fit',
-      q: '現場ごとに写真の撮り方や呼び方が違っても使えますか？',
+      q: '工区名や工種の呼び方が現場ごとに違っても使えますか？',
       a: '対応できます。会社や現場で使われている工区名・工種名・略称などを登録し、実際の確認結果を反映しながら調整します。',
     },
     {
@@ -369,7 +404,7 @@ export const constructionRecordLp: LpConfig = {
     {
       category: 'partial',
       q: '写真整理だけでも利用できますか？',
-      a: '利用できます。報告書作成や進捗管理まで導入する必要はありません。まず写真整理だけを試し、必要になった段階で機能を追加できます。',
+      a: '利用できます。まず写真整理だけを試し、必要になった段階で機能を追加できます。',
     },
   ],
   finalCta: {
@@ -382,7 +417,15 @@ export const constructionRecordLp: LpConfig = {
     ],
     formTitle: '無料トライアルについて相談する',
     formNote: '入力は約1分です。1営業日以内にご連絡します。',
-    fields: defaultFormFields,
+    fields: defaultFormFields.map((f) =>
+      f.key === 'message'
+        ? {
+            ...f,
+            placeholder:
+              '例：現場写真の整理と日報の作成に時間がかかる。1現場から試したい',
+          }
+        : f,
+    ),
     hideForm: true,
     tryCta: {
       label: 'デモを試す ↗',

@@ -3,7 +3,7 @@
   <title id="htrTitle">要確認だけ人が見て、承認に根拠が残る</title>
   <desc id="htrDesc">要確認と記載なしだけが人に渡り、確認内容が承認記録に残る。</desc>
   <style>
-    svg{--ink:#1F2A33;--line:#3A4650;--muted:#6B7780;--soft:#F4F6F7;--edge:#C4CBD1;--ok:#0E5C4C;--brand:#1F4B7A;color-scheme:light only;font-family:"Noto Sans CJK JP","Noto Sans JP",system-ui,sans-serif}
+    svg{--ink:#1F2A33;--line:#3A4650;--muted:#6B7780;--soft:#F4F6F7;--edge:#C4CBD1;--ok:#2B6FE0;--brand:#1F4B7A;color-scheme:light only;font-family:"Noto Sans CJK JP","Noto Sans JP",system-ui,sans-serif}
     .t{fill:var(--ink)}.t-mut{fill:var(--muted)}.t-w{fill:#FFFFFF}.box{fill:#FFFFFF;stroke:var(--line);stroke-width:1.6}
   </style>
   <rect class="box" x="40" y="100" width="180" height="70" rx="4"/>

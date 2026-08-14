@@ -55,7 +55,11 @@ export function ConciergeProvider({ children }: { children: ReactNode }) {
   const openConcierge = useCallback(
     (opts?: OpenConciergeBridgeOpts) => {
       const resolved =
-        opts?.pageContext ?? resolvePageContext(pathname)
+        opts?.pageContext ??
+        resolvePageContext(
+          pathname,
+          typeof window !== 'undefined' ? window.location.hash : '',
+        )
       const hint =
         opts?.serviceHint ??
         resolved.serviceId ??

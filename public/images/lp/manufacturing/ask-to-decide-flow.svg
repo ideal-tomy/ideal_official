@@ -5,7 +5,8 @@
     svg{
       --ink:#1F2A33; --line:#3A4650; --muted:#7A858E;
       --track:#D2D8DC; --flow:#2B3740;
-      --part:#0E5C4C;
+      --part:#0F172A; --part-soft:#D7E5E0;
+      --joint:#2B6FE0;
       --loss:#A8574B;
       color-scheme: light only;
       font-family:"Noto Sans CJK JP","Noto Sans JP",system-ui,sans-serif;
@@ -15,11 +16,11 @@
     .t-part{fill:var(--part)}
     .track{stroke:var(--track);stroke-width:9;stroke-linecap:butt}
     .flow{stroke:var(--flow);stroke-width:9;stroke-linecap:butt}
-    .bridge{stroke:var(--part);stroke-width:9;stroke-linecap:butt}
+    .bridge{stroke:var(--joint);stroke-width:16;stroke-linecap:butt}
 </style>
   <defs>
     <marker id="atdAh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.4" markerHeight="5.4" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#0E5C4C"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="#0F172A"/>
     </marker>
   </defs>
   <text class="t-mut" x="215" y="46" text-anchor="start" font-size="14">質問</text>

@@ -4,20 +4,102 @@ import {
   galleryDemoHref,
 } from '@/data/services/ai-hub'
 import type { Capability } from '@/data/ai-capability-gallery/capabilities'
+import type { ServiceJourneyStep } from '@/components/services/ServiceJourneyDiagram'
 
 export const servicesHubHero = {
-  title: 'アイデアを、最速でプロダクトに。',
+  title: '課題の整理から、作って定着まで。',
   subtitle:
-    'Webサイト・業務ツール・AIプロトタイプまで。触れるデモで方向を合わせ、小さく作って育てます。',
+    '同じチームが相談・設計と製作を一気通貫で伴走します。何から手を付けるか決まっていなくても、作りたいものが見えていても、どちらからでも入れます。',
   primaryCta: {
-    label: 'デモを触ってみる',
-    href: '/flow',
+    label: '相談・設計を見る',
+    href: '#overview-consult',
   },
   secondaryCta: {
-    label: 'サービスを選ぶ',
-    href: '#services',
+    label: '製作を見る',
+    href: '#build',
   },
   mockImage: '/images/sv_app.png',
+} as const
+
+export const servicesOverviewCopy = {
+  heading: '成功の大半は、作る前に決まる',
+  lead: '課題の抽出と設計を同じチームで行い、開発・定着まで一気通貫で伴走します。01〜02の相談だけで終えても、03から製作に入っても構いません。',
+  pillars: ['課題抽出', '設計・優先順位', '開発・定着'] as const,
+} as const
+
+export const overallJourneySteps: readonly ServiceJourneyStep[] = [
+  {
+    number: '01',
+    title: '課題の整理',
+    duration: '課題抽出',
+    description: '経営と現場の論点を整理し、どこから手を付けるかを可視化します。',
+  },
+  {
+    number: '02',
+    title: '設計',
+    duration: '設計・優先順位',
+    description: '何を作るか・何を検証するかを決め、過剰な要件膨張を抑えます。',
+  },
+  {
+    number: '03',
+    title: '試作・実装',
+    duration: '開発',
+    description: '小さく試してから本実装へ。同じチームがコードまで担います。',
+  },
+  {
+    number: '04',
+    title: '導入',
+    duration: '定着準備',
+    description: '現場に乗る運用設計と、関係者への共有まで整えます。',
+  },
+  {
+    number: '05',
+    title: '運用',
+    duration: '継続',
+    description: '監視と改善サイクルを回し、使われ続ける状態を維持します。',
+  },
+]
+
+export const servicesConsultCopy = {
+  heading: '相談・設計',
+  lead: '「何から着手すべきか」「どこまでを一期で終えるか」を、現場運用まで含めて設計します。相談だけで完了しても問題ありません。',
+  outcomes: [
+    '論点と優先順位が一枚にまとまる',
+    '検証単位と、作らない範囲が明文化される',
+    '次の試作・実装に渡せる粒度まで落ちる',
+  ],
+} as const
+
+export const consultJourneySteps: readonly ServiceJourneyStep[] = [
+  {
+    number: '01',
+    title: '現状把握',
+    duration: '1〜2週間',
+    description: '経営・現場・システムの実態をそろえ、課題の見取り図を作ります。',
+  },
+  {
+    number: '02',
+    title: '論点・ギャップ整理',
+    duration: '1〜2週間',
+    description: '理想像との差分を構造化し、先に解くべき論点を絞り込みます。',
+  },
+  {
+    number: '03',
+    title: '優先順位とロードマップ',
+    duration: '1週間',
+    description: '効果と実現性の両面で着手順を決め、投資判断の材料になる計画へ落とします。',
+  },
+  {
+    number: '04',
+    title: '実行・検証計画',
+    duration: '合意',
+    description: '次フェーズで迷わないよう、検証単位・体制・成果物を明文化します。',
+  },
+]
+
+export const servicesBuildCopy = {
+  heading: '製作',
+  lead: '小さく試してから本実装へ。Webサイト、業務ツール、AIプロトタイプまで、触れる形で方向を合わせます。',
 } as const
 
 export const hubProblemItems = [
@@ -41,7 +123,7 @@ export const hubServices = [
     description:
       '構成・UI・モーション・実装まで一貫。このサイト自体が制作デモです。',
     image: '/images/sv_web.png',
-    href: '/services/web-development',
+    href: '/services#web',
     tags: ['コーポレート', 'LP', '体験UI'],
   },
   {
@@ -50,7 +132,7 @@ export const hubServices = [
     description:
       'Excel、紙、LINEの手作業をWebツールに。入力から結果までデモで体験できます。',
     image: '/images/sv_app.png',
-    href: '/services/app-development',
+    href: '/services#app',
     tags: ['管理画面', '現場入力', 'LINE'],
   },
   {
@@ -59,7 +141,7 @@ export const hubServices = [
     description:
       '「AIでできないか」を、まず動くデモから検証。自社に近いパターンを選べます。',
     image: '/images/top_ai.png',
-    href: '/services/ai-consulting',
+    href: '/services#ai',
     tags: ['デモ', '自動化', 'PoC'],
   },
 ] as const

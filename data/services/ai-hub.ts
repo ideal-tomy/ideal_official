@@ -28,8 +28,21 @@ export const featuredDemoSlugs = [
   'voice-to-structured',
 ] as const
 
+/** /services 製作タブ「ここで触ってみる」用（入力種別が被らない順） */
+export const servicesFeaturedDemoSlugs = [
+  'voice-to-structured',
+  'knowledge-to-search',
+  'photo-to-classification',
+] as const
+
 export function getFeaturedCapabilities(): Capability[] {
   return featuredDemoSlugs
+    .map((slug) => capabilities.find((c) => c.slug === slug))
+    .filter((c): c is Capability => Boolean(c))
+}
+
+export function getServicesFeaturedCapabilities(): Capability[] {
+  return servicesFeaturedDemoSlugs
     .map((slug) => capabilities.find((c) => c.slug === slug))
     .filter((c): c is Capability => Boolean(c))
 }
@@ -138,41 +151,39 @@ export const processSteps = [
   },
 ] as const
 
-export const techDetailItems = [
-  {
-    id: 'automation',
-    title: '業務効率化・自動化',
-    summary:
-      '定型業務の代行、ヒューマンエラー削減、コア業務への時間シフト。デモの「業務 → 自動化」「音声 → 構造化」と直結します。',
-  },
-  {
-    id: 'marketing',
-    title: 'マーケティング・顧客分析',
-    summary:
-      '顧客データやトレンド分析、配信最適化。予測・ナレッジ検索のパターンと組み合わせて設計します。',
-  },
-  {
-    id: 'quality',
-    title: '品質管理・需要予測',
-    summary:
-      '画像認識や時系列予測によるリスク低減。デモの「写真 → 分類」「データ → 予測」が入口です。',
-  },
-  {
-    id: 'ml',
-    title: '機械学習・NLP・画像認識',
-    summary:
-      'モデル開発から LLM / 画像認識の実装まで。Hub では詳細を畳み、興味がある方だけ展開します。',
-  },
-  {
-    id: 'consulting',
-    title: '戦略・実装支援',
-    summary:
-      'AI戦略、データ分析、実装伴走。まずはデモで変化を共有し、その後にロードマップへ進みます。',
-  },
-] as const
+/** TOP デモ（建設・製造・承認・保育）で未使用の能力パターンショーケース */
+export type AiWhatWeBuildShowcaseSlug =
+  | 'document-to-extraction'
+  | 'workflow-to-automation'
+  | 'voice-to-structured'
 
-export const whatWeBuild = [
-  '業務自動化・社内ツールへのAI組み込み',
-  'ChatGPT / Gemini 等を活用したワークフロー設計',
-  'AI機能付き Web・アプリの開発支援',
+export type AiWhatWeBuildItem = {
+  title: string
+  description: string
+  showcaseSlug: AiWhatWeBuildShowcaseSlug
+  imageAlt: string
+}
+
+export const whatWeBuild: readonly AiWhatWeBuildItem[] = [
+  {
+    title: '業務自動化・社内ツールへのAI組み込み',
+    description:
+      '既存の管理画面や業務Webに、要約・分類・提案を載せる。現場の画面の延長として使えます。',
+    showcaseSlug: 'document-to-extraction',
+    imageAlt: '契約書から必要項目を抽出し業務ツールへ渡すデモ',
+  },
+  {
+    title: 'ChatGPT / Gemini 等を活用したワークフロー設計',
+    description:
+      'トリガーから処理・通知まで。メール、帳票、承認など、繰り返しの流れをAIでつなぎます。',
+    showcaseSlug: 'workflow-to-automation',
+    imageAlt: '申請から登録・通知まで自動化する業務フローのデモ',
+  },
+  {
+    title: 'AI機能付き Web・アプリの開発支援',
+    description:
+      'チャット、要約、分類などをWebサイトや業務アプリに組み込み。触れるデモから本開発へ。',
+    showcaseSlug: 'voice-to-structured',
+    imageAlt: '音声入力を構造化データに変換するアプリ内デモ',
+  },
 ] as const

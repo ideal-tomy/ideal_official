@@ -35,11 +35,9 @@ export const metadata: Metadata = {
 const themeInitScript = `
 (function(){
   try {
-    var k = 'ideal-theme';
-    var s = localStorage.getItem(k);
-    var m = s === 'light' || s === 'dark' ? s : 'dark';
-    document.documentElement.classList.add(m);
-    document.documentElement.style.colorScheme = m;
+    document.documentElement.classList.remove('dark');
+    document.documentElement.classList.add('light');
+    document.documentElement.style.colorScheme = 'light';
   } catch (e) {}
 })();
 `;
@@ -50,7 +48,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className={notoSansJP.variable} suppressHydrationWarning>
+    <html lang="ja" className={`light ${notoSansJP.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>

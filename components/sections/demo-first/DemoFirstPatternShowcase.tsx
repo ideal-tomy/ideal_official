@@ -5,7 +5,7 @@ import { contentLeadBare } from '@/lib/content-typography'
 import { SectionKicker } from './SectionKicker'
 import { TopFeaturedDemoShowcase } from './TopFeaturedDemoShowcase'
 
-/** TOP §03 — 代表デモ4枚（サンプル完走できるものだけ） */
+/** TOP §02 — 代表デモ4枚（サンプル完走できるものだけ） */
 export function DemoFirstPatternShowcase() {
   const demos = getTopFeaturedDemos()
 
@@ -15,7 +15,7 @@ export function DemoFirstPatternShowcase() {
       className="bg-[var(--df-bg-blue)] py-[clamp(40px,8vw,64px)] md:py-[var(--df-sec-pad)]"
     >
       <div className="mx-auto w-[min(100%-48px,1080px)]">
-        <SectionKicker index="03" label="体験・デモ" />
+        <SectionKicker index="02" label="デモ" />
         <h2 className="my-2 mb-4 text-[clamp(26px,5.6vw,40px)] font-black leading-[1.5] text-[var(--df-text)] md:mb-6">
           資料ではなく、
           <br className="hidden md:inline" />

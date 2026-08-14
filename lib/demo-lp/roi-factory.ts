@@ -1,5 +1,5 @@
 import type { Cta, RoiConfig } from './types'
-import { formatManYen } from './format'
+import { formatHours, formatManYen } from './format'
 
 export type LaborRoiDefaults = {
   people: number
@@ -205,11 +205,32 @@ export function impactMainFigureValue(roi: RoiConfig): string {
   return formatManYen(roi.computeAnnualLoss(defaults))
 }
 
+/** 1人あたりの年間時間（分/日 × 稼働日） */
+export function laborAnnualHoursPerPerson(d: LaborRoiDefaults): number {
+  return (d.minutesPerDay / 60) * d.workDays
+}
+
+export function impactMainHoursPerPersonValue(d: LaborRoiDefaults): string {
+  return formatHours(laborAnnualHoursPerPerson(d))
+}
+
 export function laborBasisNote(d: LaborRoiDefaults): string {
-  return `計算根拠（初期値）: 1人${d.minutesPerDay}分/日 × 時給${d.hourlyYen.toLocaleString('ja-JP')}円 × ${d.workDays}営業日 × ${d.people}人`
+  return `計算根拠（初期値）: 1人1日あたり${d.minutesPerDay}分 × ${d.people}人 × ${d.workDays}営業日 × 時間単価${d.hourlyYen.toLocaleString('ja-JP')}円`
+}
+
+/** 保育など: 主表示を時間にし、金額は注記へ */
+export function laborHoursBasisNote(
+  d: LaborRoiDefaults,
+  options?: { dayLabel?: string },
+): string {
+  const dayLabel = options?.dayLabel ?? '営業日'
+  const perPerson = laborAnnualHoursPerPerson(d)
+  const total = perPerson * d.people
+  const yen = d.people * (d.minutesPerDay / 60) * d.hourlyYen * d.workDays
+  return `計算根拠（初期値）: 1人1日あたり${d.minutesPerDay}分 × ${d.workDays}${dayLabel}。${d.people}人の園では合計${Math.round(total).toLocaleString('ja-JP')}時間、時間単価${d.hourlyYen.toLocaleString('ja-JP')}円で換算すると年間 ${formatManYen(yen)}にあたります。`
 }
 
 export function workflowSiteBasisNote(d: WorkflowSiteRoiDefaults): string {
   const days = d.workDays ?? 240
-  return `計算根拠（初期値）: 1現場・1日あたり整理や入力${d.minutesPerSiteDay}分 × ${d.sites}現場 × ${days}営業日 × 時間単価${d.hourlyYen.toLocaleString('ja-JP')}円（差し戻し${d.reworkRatePercent}%を加算）`
+  return `計算根拠（初期値）: 1現場・1日あたり整理と入力に${d.minutesPerSiteDay}分 × ${d.sites}現場 × ${days}営業日 × 時間単価${d.hourlyYen.toLocaleString('ja-JP')}円。差し戻しによる再作業を${d.reworkRatePercent}%として加算しています。`
 }
