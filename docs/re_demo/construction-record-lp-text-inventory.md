@@ -3,7 +3,7 @@
 > 対象 URL: `/demo/w/construction-record`  
 > 抽出日: 2026-08-11  
 > 正本 CONFIG: `data/demo-lp/construction-record.ts`  
-> コピー案 v2: `copy-construction-record-v2.md`
+> コピー案 v2: `../archive/copy-construction-record-v2.md`（v3 に統合済み。語彙ルールの出典として参照）
 
 ページに表示される日本語を、ブロック順に列挙しています。UI コンポーネント直書き・図解 SVG 内テキストも含みます。
 
@@ -425,7 +425,7 @@ v2 全面採用後も、まだ旧語彙や別軸の文言が残っています�
 
 ### 1. 正本を1つに決める
 
-- **軸（見出し・ヒーロー）:** `copy-construction-record-v2.md` の語彙ルールを正本にする
+- **軸（見出し・ヒーロー）:** `../archive/copy-construction-record-v2.md` の語彙ルールを正本にする
 - **実装:** `construction-record.ts` が表示の正本（この一覧はその写し）
 - **図解:** SVG は軸に直結するので、CONFIG より優先して揃える（transcribe-cost ↔ ヒーロー）
 
