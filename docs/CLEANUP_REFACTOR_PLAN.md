@@ -1,6 +1,7 @@
 # 不要ファイル・不要コード整理計画
 
 最終更新: 2026-08-15
+**実施状況: 全フェーズ完了(2026-08-15)。** コミット `26568b7`〜`1a19656`。実施結果と当初計画からの変更点は各フェーズ末尾の「実施結果」を参照。
 目的: `ideal_official` リポジトリに蓄積した一時ファイル・使われなくなったコンポーネント・未参照メディア・空/陳腐化ドキュメントを洗い出し、安全な順序で削除・整理する。
 調査方法: ディレクトリ構成の目視確認、`git ls-files` によるトラッキング状態確認、`npm run lint` のベースライン取得、全コンポーネント/データファイルに対する import・JSXタグの網羅的 grep（サブエージェントによる二重検証込み）。
 
@@ -48,6 +49,8 @@
 temp_*.txt
 tmp-qa/
 ```
+
+> **実施結果**: 計画通り実施。コミット `26568b7`。
 
 ---
 
@@ -98,6 +101,8 @@ tmp-qa/
 
 **アクション**: `git rm` で削除 → `npm run build` で型エラーが出ないことを確認 → コミット。念のため削除前に各ファイル名でもう一度 `grep -rn "ファイル名"` を実行し、ドキュメント内の言及やコメントアウトされた再利用予定コードがないか目視確認すること。
 
+> **実施結果**: 計画通り29ファイルすべて削除。加えて、削除対象だった `HeroReveal.tsx`/`HeroScrollHint.tsx` からしか使われていなかった `lib/motion-tokens.ts` の `getHeroRevealCompleteDelay()`・`heroRevealItemCounts` も連鎖的に不要と判明したため削除。コミット `2853929`。
+
 ---
 
 ## フェーズ3: 新旧重複コンポーネントの整理
@@ -131,6 +136,8 @@ tmp-qa/
 2. 特に `ai_para`〜`sv_DAO` 系はブロックチェーン/DAO/メタバース事業の絵だが、現行事業（AI/Web/App受託 + 業種別デモ）と方向性が異なる可能性が高いため、削除前に**ユーザーに一言確認**するのが安全（完全に廃止した事業なのか、将来使う可能性が残るのか）。
 3. `public/research/poc-instrument/` は未調査（今回の調査スコープ外）。中身を確認の上、要否判断すること。
 
+> **実施結果**: 全候補21ファイルとも最終grepで参照ゼロを確認し削除。`public/research/poc-instrument/index.html` は `app/research/poc-instrument/page.tsx` 等から実際に参照されていたため対象外・保持。コミット `2ab50c8`。
+
 ---
 
 ## フェーズ5: 一回限りの画像加工スクリプト整理
@@ -147,6 +154,8 @@ tmp-qa/
 | `scripts/theme-token-bulk.cjs` | **要確認**。Tailwindの直書きクラス（`bg-black`等）をCSS変数トークンへ一括置換するコードモッド。現状、生クラスが残るファイルはフェーズ2削除後は3件のみ（`components/ai-capability-gallery/CapabilityCard.tsx`, `components/sections/demo-first/TopFeaturedDemoShowcase.tsx`, `components/services/ai-hub/AiInteractionShowcase.tsx`）。移行がほぼ完了していることの傍証。残り3件を手動移行して役目を終えたと判断できればこのスクリプトも削除可 |
 
 **アクション**: フェーズ4の削除方針（保持 or 廃止）と合わせて、5本のPythonスクリプトを削除するか `scripts/archive/` に退避するかを決める。個人的には「一回限り処理・再実行の予定なし」なら削除、「同種の画像加工が今後も発生しうる」なら `scripts/archive/` に退避してREADMEに一行だけ用途を書き残す方が安全。
+
+> **実施結果**: 5本のPythonスクリプトと `theme-token-bulk.cjs` を削除（`scripts/`ディレクトリごと消滅）。`theme-token-bulk.cjs` は残存3ファイルの `bg-black/55` 等を調査した結果、置換リストの対象外(オパシティ値が異なる)であり、かつ画像上のバッジ用オーバーレイという性質上テーマトークン化すべきでない意匠判断と推測されたため、手動移行はせずスクリプトのみ削除。コミット `c170a7b`。
 
 ---
 
@@ -181,6 +190,15 @@ tmp-qa/
 ### おまけ: `README.md`
 プロジェクトルートの `README.md` は `create-next-app` のデフォルトテンプレートのままで、このプロジェクト固有の情報（何のサイトか、`docs/` の位置づけ、`.env.example` の使い方、`test:e2e` の実行方法など）が一切書かれていない。削除対象ではないが、このクリーンアップの一環で実プロジェクト向けに書き直すことを推奨。
 
+> **実施結果**:
+> - `docs/確認.md` → `docs/archive/確認.md` へ移動（内部リンクを相対パス修正）
+> - `docs/cursor-instructions-ideal-cases.md` → `docs/archive/` へ移動
+> - `docs/re_demo/copy-construction-record-v2.md` → `docs/archive/` へ移動。v3が「実装正本」を明言しv2からの変更点を記載しているため確定。ただし `docs/re_demo/construction-record-lp-text-inventory.md` がv2の語彙ルールを参照していたため、参照パスを `../archive/copy-construction-record-v2.md` に更新して整合性を維持
+> - **計画からの重要な修正**: `docs/philosophy.md` は実際に内容を読んだ結果、「DAO研究」という見出しにもかかわらず、現在稼働中の `/philosophy` ページ（`app/philosophy/page.tsx` → `components/philosophy/*`）のコンテンツ原本であることが判明。フェーズ1で削除した `temp_philosophy_section.txt` 等の一時ファイル名とも一致しており、事業方向性と無関係の廃止済みDAO事業計画ではなく現行LABページの設計思想ドキュメントだった。**削除・archive化せず保持**
+> - **計画からの重要な修正**: `AI_CONCIERGE_REDESIGN.md` / `AI_CONCIERGE_SALES_SCENARIO.md` / `SITE_EXPERIENCE_REDESIGN.md` / `UX_AUDIT.md` も内容を確認したところ、最新の `docs/SITE_IA_DIRECTION.md`（正本）や `e2e/README.md` から現在も相互参照されている生きたドキュメント群と判明。「古い設計文書だから重複/矛盾の可能性」という当初の推測は誤りだったため**すべて保持**
+> - `README.md` を実プロジェクト向けに書き直し
+> - コミット `1a19656`
+
 ---
 
 ## フェーズ7（付録・スコープ外寄り）: ESLintが検出する「未使用コード」
@@ -200,6 +218,8 @@ tmp-qa/
 （`components/sections/FAQSection.tsx`・`RelatedServicesSection.tsx` の同種警告はフェーズ2のファイル削除で解消する）
 
 **アクション**: 上記は機械的に安全に削除できる未使用importなので、フェーズ2〜6と合わせて一括修正して良い。
+
+> **実施結果**: 一覧の7件に加え、最初のベースライン確認で見落としていた `DemoLpRoiSection.tsx`(`lpBody`)・`lpTypography.ts`(`contentH2Centered`)の未使用importも発見・修正。`Accordion.tsx` の `allowMultiple` は propとして実際にコンポーネント外(`ServiceTechAccordion.tsx`)から渡されているが、コンポーネント内部でDisclosureごとの開閉制御に配線されていない — 単なる不要importではなく機能未実装のギャップと判断し、今回のスコープ外として手を付けず残した。ESLint警告は37件→14件に減少(残り: `react-hooks/set-state-in-effect` 11件[別スコープの品質課題]、`allowMultiple` 1件[機能ギャップ]、`prefer-const` 2件[未修正・別スコープ])。コミット `c8cf51f`。
 
 > **スコープ外の注記**: 同じ `npm run lint` で `react-hooks/set-state-in-effect`（useEffect内での同期的setState、17件）というエラーも検出されているが、これは「不要コード」ではなく描画パフォーマンスに関わるコード品質・バグ修正の話なので、本クリーンアップとは別タスクとして扱うことを推奨する。
 
