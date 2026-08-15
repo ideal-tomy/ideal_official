@@ -117,7 +117,6 @@ function InputProcessPanel() {
 }
 
 const STATUS_STEPS = ['未対応', '対応中', '確認待ち', '完了'] as const
-type StatusStep = (typeof STATUS_STEPS)[number]
 
 function StatusPanel() {
   const [currentIndex, setCurrentIndex] = useState(0)

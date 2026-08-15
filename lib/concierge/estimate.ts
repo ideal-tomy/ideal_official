@@ -31,7 +31,6 @@ function uniqueIds(ids: PricingLineId[]): PricingLineId[] {
 function selectBaseLineId(
   track: IdealTrack,
   answers: FlowAnswer[],
-  pageContext?: ConciergePageContext,
 ): PricingLineId {
   const effective = resolveEffectiveTrack(track, answers)
   const situation = answers.find((a) => a.stepId === 'situation')?.choiceId
@@ -134,7 +133,7 @@ export function buildConciergeEstimate(
   answers: FlowAnswer[],
   pageContext?: ConciergePageContext,
 ): ConciergeEstimate {
-  const baseId = selectBaseLineId(track, answers, pageContext)
+  const baseId = selectBaseLineId(track, answers)
   const addonIds = selectAddonIds(track, answers, pageContext, baseId)
   const lineIds = uniqueIds([baseId, ...addonIds])
   const lines = lineIds.map((id) => PRICING_LINES[id])

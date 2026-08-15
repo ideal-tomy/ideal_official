@@ -71,27 +71,6 @@ export const heroMotion = {
   itemDuration: 0.4,
 } as const
 
-/** トップ Hero の HeroReveal 子要素数（h1, p, CTA） */
-export const heroRevealItemCounts = {
-  top: 3,
-} as const
-
-/** ヒーロー reveal 完了までの秒数（ScrollHint 連動用） */
-export function getHeroRevealCompleteDelay(
-  itemCount: number,
-  contentDelay: number = heroMotion.contentDelay,
-): number {
-  if (itemCount <= 0) {
-    return contentDelay + heroMotion.itemDuration
-  }
-  const lastIndex = itemCount - 1
-  return (
-    contentDelay +
-    lastIndex * heroMotion.staggerDelay +
-    heroMotion.itemDuration
-  )
-}
-
 /** スクロール連動のセクション表示（opacity のみ） */
 export const scrollMotion = {
   duration: 0.6,

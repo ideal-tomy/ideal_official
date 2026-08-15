@@ -5,7 +5,7 @@ import type { RoiBlock } from '@/lib/demo-lp/types'
 import { formatManYen } from '@/lib/demo-lp/format'
 import { DemoLpCtaLink } from './DemoLpCtaLink'
 import { buildRoiSimulatorHrefForGalleryDemo } from '@/lib/roiSimulator'
-import { lpBody, lpH2, lpLead, lpNote, lpSectionLabel } from './lpTypography'
+import { lpH2, lpLead, lpNote, lpSectionLabel } from './lpTypography'
 
 export function DemoLpRoiSection({
   block,

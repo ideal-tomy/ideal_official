@@ -1,5 +1,5 @@
 import React from 'react'
-import { colors, typography, spacing } from '@/lib/design-tokens'
+import { colors } from '@/lib/design-tokens'
 
 /**
  * TwoColumnSection コンポーネント
@@ -38,7 +38,6 @@ export function TwoColumnSection({
   leftContent,
   rightContent,
   className = '',
-  variant = 'default',
   padding = 'lg',
   columnRatio = 'equal',
   reverseOnMobile = false,

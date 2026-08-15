@@ -13,7 +13,6 @@ import {
   contentCardTitleLg,
   contentH1,
   contentH2,
-  contentH2Centered,
   contentHeroBody,
   contentHeroSub,
   contentLead,
