@@ -3,6 +3,7 @@
 import { Fragment, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { usePrefersReducedMotion } from '@/lib/use-prefers-reduced-motion'
+import { AsymmetricFeatureGrid } from '@/components/services/AsymmetricFeatureGrid'
 import { ServiceSectionShell } from '@/components/services/ServiceSectionShell'
 
 type ProcessState = 'idle' | 'processing' | 'done'
@@ -32,18 +33,20 @@ function InputProcessPanel() {
   }
 
   return (
-    <div className="rounded-xl border border-[var(--site-border)] bg-[var(--site-bg)] p-6 h-full flex flex-col shadow-[var(--service-card-shadow)]">
-      <p className="mb-2 hidden text-xs tracking-[0.16em] text-brand/90 md:block">
-        <span className="rounded-full bg-brand/10 px-2 py-0.5">01 · 入力から結果</span>
+    <div className="flex h-full min-h-0 flex-col overflow-hidden rounded-2xl border-2 border-brand/20 bg-[var(--site-bg)]">
+      <div className="p-6 md:p-8">
+      <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-brand/90">
+        01 · 入力から結果
       </p>
-      <h3 className="mb-3 text-xl font-semibold text-[var(--site-fg)]">
+      <h3 className="mb-3 text-xl font-bold text-[var(--site-fg)] md:text-2xl">
         入力して、結果を得る
       </h3>
-      <p className="mb-4 text-sm leading-relaxed text-[var(--site-fg-muted)]">
+      <p className="text-sm leading-relaxed text-[var(--site-fg-muted)]">
         フォームに入力 → 処理中 → 結果表示。業務ツールの基本の流れです。
       </p>
+      </div>
 
-      <div className="flex-1 space-y-4">
+      <div className="flex flex-1 flex-col space-y-4 border-t border-[var(--site-border)] bg-[color-mix(in_srgb,var(--color-brand)_4%,var(--site-bg))] p-6 md:p-8">
         <input
           type="text"
           value={input}
@@ -73,7 +76,7 @@ function InputProcessPanel() {
           )}
         </div>
 
-        <div className="min-h-[100px] rounded-lg border border-[var(--site-border)] bg-[var(--site-bg)]/40 p-4 flex items-center justify-center">
+        <div className="flex min-h-[140px] flex-1 items-center justify-center rounded-lg bg-[var(--site-bg)]/60 p-4">
           <AnimatePresence mode="wait">
             {state === 'idle' && (
               <motion.p
@@ -128,9 +131,9 @@ function StatusPanel() {
   const reset = () => setCurrentIndex(0)
 
   return (
-    <div className="rounded-xl border border-[var(--site-border)] bg-[var(--site-bg)] p-6 h-full flex flex-col shadow-[var(--service-card-shadow)]">
-      <p className="mb-2 hidden text-xs tracking-[0.16em] text-brand/90 md:block">
-        <span className="rounded-full bg-brand/10 px-2 py-0.5">02 · 進捗</span>
+    <div className="flex h-full flex-col rounded-xl border border-[var(--site-border)] bg-[var(--site-bg)] p-6">
+      <p className="mb-2 hidden text-[10px] font-semibold uppercase tracking-[0.2em] text-brand/90 md:block">
+        02 · 進捗
       </p>
       <h3 className="mb-3 text-xl font-semibold text-[var(--site-fg)]">
         ステータスを進める
@@ -214,9 +217,9 @@ function DashboardPanel() {
   const total = filtered.reduce((sum, d) => sum + d.value, 0)
 
   return (
-    <div className="rounded-xl border border-[var(--site-border)] bg-[var(--site-bg)] p-6 h-full flex flex-col shadow-[var(--service-card-shadow)]">
-      <p className="mb-2 hidden text-xs tracking-[0.16em] text-brand/90 md:block">
-        <span className="rounded-full bg-brand/10 px-2 py-0.5">03 · 一覧</span>
+    <div className="flex h-full flex-col rounded-xl border border-[var(--site-border)] bg-[var(--site-bg)] p-6">
+      <p className="mb-2 hidden text-[10px] font-semibold uppercase tracking-[0.2em] text-brand/90 md:block">
+        03 · 一覧
       </p>
       <h3 className="mb-3 text-xl font-semibold text-[var(--site-fg)]">
         フィルターで変わる一覧
@@ -321,12 +324,14 @@ export function ProductShowcase() {
       tone="interactive"
       title="ここで触ってみる"
       lead="言葉で説明する前に、動く仕組みの感触を確かめてください。入力・進捗・一覧の3つです。"
+      align="left"
+      emphasis="feature"
+      contentBleed
     >
-      <div className="grid gap-5 lg:grid-cols-3">
-        <InputProcessPanel />
-        <StatusPanel />
-        <DashboardPanel />
-      </div>
+      <AsymmetricFeatureGrid
+        primary={<InputProcessPanel />}
+        secondary={[<StatusPanel key="status" />, <DashboardPanel key="dashboard" />]}
+      />
     </ServiceSectionShell>
   )
 }

@@ -34,7 +34,7 @@ export function AiHubTechDetails() {
 
       />
 
-      <p className="-mt-4 pb-10 text-center text-sm text-[var(--site-fg-muted)]">
+      <p className="-mt-4 pb-10 text-left text-sm text-[var(--site-fg-muted)]">
 
         比較・導入理由・働き方などの解説は{' '}
 

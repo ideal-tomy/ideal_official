@@ -47,9 +47,11 @@ export default function ServicesPage() {
         kicker="LAB"
         title="深い技術・研究は LAB へ"
         lead="Blockchain / DAO、Spatial / VR・AR、Insights など、依頼の主力サービスではなく研究・実験の領域としてまとめています。"
-        maxWidth="3xl"
+        align="left"
+        emphasis="feature"
+        maxWidth="5xl"
       >
-        <ul className="flex flex-wrap justify-center gap-3">
+        <ul className="flex flex-wrap gap-3">
           {labTeaserLinks.map((link) => (
             <li key={link.href}>
               <Link

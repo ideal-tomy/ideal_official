@@ -383,7 +383,7 @@ function FeaturedText({ demo }: { demo: TopFeaturedDemo }) {
       <p className="mb-3 line-clamp-2 text-sm leading-relaxed text-[var(--site-fg)]/85 md:mb-6 md:line-clamp-none md:text-lg">
         {demo.lead}
       </p>
-      <div className="mb-4 hidden space-y-2 text-sm md:mb-6 md:block">
+      <div className="hidden space-y-2 text-sm md:block">
         <div className="flex gap-3">
           <span className="w-14 shrink-0 text-[var(--site-fg-muted)]">Before</span>
           <span className="text-[var(--site-fg)]/80">{demo.before}</span>
@@ -394,32 +394,37 @@ function FeaturedText({ demo }: { demo: TopFeaturedDemo }) {
         </div>
       </div>
       {demo.sampleNote ? (
-        <p className="mb-4 hidden text-xs text-[var(--site-fg-muted)] md:mb-6 md:block">
+        <p className="mt-4 hidden text-xs text-[var(--site-fg-muted)] md:block">
           {demo.sampleNote}
         </p>
       ) : null}
-      <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row sm:flex-wrap">
-        {demo.detailHref ? (
-          <Link
-            href={demo.detailHref}
-            className="inline-flex w-full items-center justify-center rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-[var(--df-on-primary)] transition-colors hover:bg-brand-hover sm:w-auto md:px-5 md:py-3"
-          >
-            {demo.detailLabel ?? '詳しく見る →'}
-          </Link>
-        ) : null}
-        <a
-          href={demo.tryHref}
-          target={demo.tryExternal ? '_blank' : undefined}
-          rel={demo.tryExternal ? 'noopener noreferrer' : undefined}
-          className={`inline-flex w-full items-center justify-center rounded-lg px-4 py-2.5 text-sm font-semibold transition-colors sm:w-auto md:px-5 md:py-3 ${
-            demo.detailHref
-              ? 'border border-[var(--site-border)] bg-[var(--df-bg)] text-[var(--site-fg)] hover:border-brand/40 hover:text-brand-deep'
-              : 'bg-brand text-[var(--df-on-primary)] hover:bg-brand-hover'
-          }`}
+    </div>
+  )
+}
+
+function FeaturedActions({ demo }: { demo: TopFeaturedDemo }) {
+  return (
+    <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row sm:flex-wrap">
+      {demo.detailHref ? (
+        <Link
+          href={demo.detailHref}
+          className="inline-flex w-full items-center justify-center rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-[var(--df-on-primary)] transition-colors hover:bg-brand-hover sm:w-auto md:px-5 md:py-3"
         >
-          {demo.tryLabel}
-        </a>
-      </div>
+          {demo.detailLabel ?? '詳しく見る →'}
+        </Link>
+      ) : null}
+      <a
+        href={demo.tryHref}
+        target={demo.tryExternal ? '_blank' : undefined}
+        rel={demo.tryExternal ? 'noopener noreferrer' : undefined}
+        className={`inline-flex w-full items-center justify-center rounded-lg px-4 py-2.5 text-sm font-semibold transition-colors sm:w-auto md:px-5 md:py-3 ${
+          demo.detailHref
+            ? 'border border-[var(--site-border)] bg-[var(--df-bg)] text-[var(--site-fg)] hover:border-brand/40 hover:text-brand-deep'
+            : 'bg-brand text-[var(--df-on-primary)] hover:bg-brand-hover'
+        }`}
+      >
+        {demo.tryLabel}
+      </a>
     </div>
   )
 }
@@ -428,29 +433,25 @@ type Props = {
   demos: TopFeaturedDemo[]
 }
 
-/** TOP §03 — 代表デモ4枚（左コピー / 右サンプル自動再生） */
+/** TOP §02 — 代表デモ4枚（タイトル・説明 → 動くデモ） */
 export function TopFeaturedDemoShowcase({ demos }: Props) {
   return (
     <div className="mx-auto max-w-7xl space-y-4 px-4 py-2 sm:space-y-8 sm:px-6 md:space-y-10 lg:px-8">
-      {demos.map((demo, index) => {
-        const reverse = index % 2 === 1
-        return (
-          <article
-            key={demo.id}
-            id={`featured-${demo.id}`}
-            className="scroll-mt-[13.5rem] rounded-2xl border border-[var(--site-border)] bg-[var(--df-bg)] p-3 sm:rounded-[28px] sm:p-6 md:scroll-mt-[16rem] md:p-8 lg:scroll-mt-[18rem] lg:p-10"
-          >
-            <div className="grid items-center gap-4 sm:gap-8 lg:grid-cols-2 lg:gap-10">
-              <div className={reverse ? 'order-2 lg:order-2' : 'order-2 lg:order-1'}>
-                <FeaturedText demo={demo} />
-              </div>
-              <div className={reverse ? 'order-1 lg:order-1' : 'order-1 lg:order-2'}>
-                <ShowcaseWithTags demo={demo} />
-              </div>
-            </div>
-          </article>
-        )
-      })}
+      {demos.map((demo) => (
+        <article
+          key={demo.id}
+          id={`featured-${demo.id}`}
+          className="scroll-mt-[13.5rem] rounded-2xl border border-[var(--site-border)] bg-[var(--df-bg)] p-3 sm:rounded-[28px] sm:p-6 md:scroll-mt-[16rem] md:p-8 lg:scroll-mt-[18rem] lg:p-10"
+        >
+          <div className="grid items-center gap-4 sm:gap-8 lg:grid-cols-2 lg:gap-10">
+            <FeaturedText demo={demo} />
+            <ShowcaseWithTags demo={demo} />
+          </div>
+          <div className="mt-4 sm:mt-6 md:mt-8">
+            <FeaturedActions demo={demo} />
+          </div>
+        </article>
+      ))}
     </div>
   )
 }

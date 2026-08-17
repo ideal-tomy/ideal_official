@@ -58,28 +58,32 @@ export function DemoFirstReason() {
           </h2>
         </header>
 
-        <div className="space-y-14 md:space-y-20">
+        <div>
           {REASONS.map((reason, i) => {
             const reverse = i % 2 === 1
             return (
               <article
                 key={reason.index}
-                className={`flex flex-col gap-6 md:items-center md:gap-10 lg:gap-14 ${
+                className={`flex flex-col gap-5 border-b border-[var(--site-border)] py-10 first:pt-0 last:border-b-0 md:items-center md:gap-10 md:py-14 last:md:pb-0 lg:gap-14 ${
                   reverse ? 'md:flex-row-reverse' : 'md:flex-row'
                 }`}
               >
-                <div className={`w-full md:w-[52%] ${reason.diagramClassName}`}>
+                <div
+                  className={`order-2 w-full md:order-none md:w-[52%] ${reason.diagramClassName}`}
+                >
                   {reason.diagram}
                 </div>
 
-                <div className="w-full md:w-[48%]">
-                  <p className="mb-2 font-mono text-sm font-bold tabular-nums tracking-[0.08em] text-[var(--df-text-muted)]">
-                    {reason.index}
-                  </p>
-                  <h3 className="mb-4 text-[clamp(20px,3.2vw,28px)] font-black leading-[1.4] text-[var(--df-text)]">
-                    {reason.title}
-                  </h3>
-                  <p className="max-w-[34rem] text-[15px] leading-relaxed text-[var(--df-text)] md:text-base">
+                <div className="contents w-full md:block md:w-[48%]">
+                  <div className="order-1 md:order-none">
+                    <p className="mb-2 font-mono text-sm font-bold tabular-nums tracking-[0.08em] text-[var(--df-text-muted)]">
+                      {reason.index}
+                    </p>
+                    <h3 className="mb-4 text-[clamp(20px,3.2vw,28px)] font-black leading-[1.4] text-[var(--df-text)]">
+                      {reason.title}
+                    </h3>
+                  </div>
+                  <p className="order-3 max-w-[34rem] text-[15px] leading-relaxed text-[var(--df-text)] md:order-none md:text-base">
                     {reason.body}
                   </p>
                 </div>

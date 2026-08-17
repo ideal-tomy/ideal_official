@@ -39,7 +39,7 @@ export function ServicesPageToc() {
       aria-label="ページ内目次"
       className="sticky top-14 z-30 border-b border-[var(--site-border)] bg-[color-mix(in_srgb,var(--site-bg)_88%,transparent)] py-3 backdrop-blur-md"
     >
-      <ul className="mx-auto flex max-w-5xl gap-2 overflow-x-auto px-4 pb-0.5 scrollbar-hide sm:justify-center sm:px-6 lg:px-8">
+      <ul className="mx-auto flex max-w-6xl gap-2 overflow-x-auto px-4 pb-0.5 scrollbar-hide sm:px-6 lg:px-8">
         {NAV_ITEMS.map((item) => {
           const selected = activeId === item.id
           return (

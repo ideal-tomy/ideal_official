@@ -33,7 +33,7 @@ export interface AccordionProps {
   /** カスタムアイコン */
   customIcon?: React.ReactNode
   /** 見た目のバリアント */
-  variant?: 'default' | 'card'
+  variant?: 'default' | 'card' | 'plain'
 }
 
 /**
@@ -50,23 +50,32 @@ export function Accordion({
   variant = 'default',
 }: AccordionProps) {
   const isCard = variant === 'card'
+  const isPlain = variant === 'plain'
+
+  const listSpacing = isPlain ? 'divide-y divide-[var(--site-border)]' : isCard ? 'space-y-3' : 'space-y-2'
 
   return (
-    <div className={`w-full ${isCard ? 'space-y-3' : 'space-y-2'} ${className}`}>
+    <div className={`w-full ${listSpacing} ${className}`}>
       {items.map((item, index) => (
         <Disclosure 
           key={item.id || index} 
           as="div"
           defaultOpen={defaultOpenId === item.id}
-          className={isCard ? 'rounded-xl border border-[var(--site-border)]/50 bg-[var(--site-bg-elevated)]/40 overflow-hidden' : undefined}
+          className={
+            isCard
+              ? 'overflow-hidden rounded-xl border border-[var(--site-border)]/50 bg-[var(--site-bg-elevated)]/40'
+              : undefined
+          }
         >
           {({ open }) => (
             <>
               {/* アコーディオンのボタン部分 */}
               <Disclosure.Button 
                 className={`
-                  flex justify-between items-center w-full text-left
-                  ${isCard ? 'px-5 sm:px-6 py-4 sm:py-5 text-base sm:text-lg font-semibold' : `px-0 py-4 ${typography.h4}`}
+                  flex w-full items-center justify-between text-left
+                  ${isCard ? 'px-5 py-4 text-base font-semibold sm:px-6 sm:py-5 sm:text-lg' : ''}
+                  ${isPlain ? 'py-4 text-base font-semibold sm:text-lg' : ''}
+                  ${!isCard && !isPlain ? `px-0 py-4 ${typography.h4}` : ''}
                   text-[var(--site-fg)]
                   hover:text-[var(--site-fg)]
                   focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/50 focus-visible:ring-inset
@@ -117,8 +126,14 @@ export function Accordion({
               >
                 <Disclosure.Panel 
                   className={`
-                    ${isCard ? 'px-5 sm:px-6 pb-5 sm:pb-6 pt-0 border-t border-[var(--site-border)]/40' : 'px-0 pt-4 pb-6 mt-2'}
-                    text-base sm:text-lg leading-relaxed text-[var(--site-fg-muted)]
+                    ${
+                      isCard
+                        ? 'border-t border-[var(--site-border)]/40 px-5 pb-5 pt-0 sm:px-6 sm:pb-6'
+                        : isPlain
+                          ? 'pb-6 pt-0'
+                          : 'mt-2 px-0 pb-6 pt-4'
+                    }
+                    text-base leading-relaxed text-[var(--site-fg-muted)] sm:text-lg
                   `}
                 >
                   {item.content}

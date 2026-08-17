@@ -19,6 +19,9 @@ type ServiceSectionShellProps = {
   lead?: string
   align?: 'left' | 'center'
   headingLevel?: 'h2' | 'h3'
+  emphasis?: 'default' | 'feature'
+  /** interactive 帯のコンテンツをコンテナ幅いっぱいに */
+  contentBleed?: boolean
   /** false のとき上下 padding を付けない */
   padded?: boolean
 }
@@ -38,9 +41,6 @@ const maxWidthClass = {
   '7xl': 'max-w-7xl',
 } as const
 
-/**
- * サービス LP / 下層共通のセクション面シェル
- */
 const toneClass: Record<ServiceSectionTone, string> = {
   default: '',
   interactive:
@@ -52,7 +52,7 @@ const toneMaxWidth: Partial<
   Record<ServiceSectionTone, ServiceSectionShellProps['maxWidth']>
 > = {
   interactive: '7xl',
-  technical: '3xl',
+  technical: '5xl',
 }
 
 const tonePadding: Record<ServiceSectionTone, string> = {
@@ -61,6 +61,9 @@ const tonePadding: Record<ServiceSectionTone, string> = {
   technical: 'py-10 lg:py-12',
 }
 
+/**
+ * サービス LP / 下層共通のセクション面シェル
+ */
 export function ServiceSectionShell({
   children,
   surface = 'default',
@@ -73,34 +76,57 @@ export function ServiceSectionShell({
   lead,
   align = 'center',
   headingLevel,
+  emphasis = 'default',
+  contentBleed = false,
   padded = true,
 }: ServiceSectionShellProps) {
   const isBand = surface === 'band'
   const resolvedMaxWidth = maxWidth ?? toneMaxWidth[tone] ?? '6xl'
   const resolvedHeadingLevel =
     headingLevel ?? (tone === 'default' && title ? 'h2' : tone !== 'default' ? 'h3' : 'h2')
+  const bleed =
+    contentBleed || (tone === 'interactive' && emphasis === 'feature')
+
+  const headerBlock =
+    title || lead || kicker ? (
+      <ServiceSectionHeader
+        kicker={kicker}
+        title={title}
+        lead={lead}
+        align={align}
+        onBand={isBand}
+        headingLevel={resolvedHeadingLevel}
+        emphasis={emphasis}
+        className={tone === 'technical' ? 'mb-6 md:mb-8' : 'mb-8 md:mb-10'}
+      />
+    ) : null
 
   return (
     <section
       id={id}
       className={`${surfaceClass[surface]} ${toneClass[tone]} ${padded ? tonePadding[tone] : ''} ${id ? 'scroll-mt-28' : ''} ${className}`.trim()}
     >
-      <div
-        className={`mx-auto ${maxWidthClass[resolvedMaxWidth]} px-4 sm:px-6 lg:px-8`}
-      >
-        {(title || lead || kicker) && (
-          <ServiceSectionHeader
-            kicker={kicker}
-            title={title}
-            lead={lead}
-            align={align}
-            onBand={isBand}
-            headingLevel={resolvedHeadingLevel}
-            className={tone === 'technical' ? 'mb-6 md:mb-8' : 'mb-10 md:mb-12'}
-          />
-        )}
-        {children}
-      </div>
+      {bleed ? (
+        <>
+          {headerBlock ? (
+            <div
+              className={`mx-auto ${maxWidthClass[resolvedMaxWidth]} px-4 sm:px-6 lg:px-8`}
+            >
+              {headerBlock}
+            </div>
+          ) : null}
+          <div className="mx-auto w-full max-w-[min(100%,1440px)] px-4 sm:px-6 lg:px-10">
+            {children}
+          </div>
+        </>
+      ) : (
+        <div
+          className={`mx-auto ${maxWidthClass[resolvedMaxWidth]} px-4 sm:px-6 lg:px-8`}
+        >
+          {headerBlock}
+          {children}
+        </div>
+      )}
     </section>
   )
 }

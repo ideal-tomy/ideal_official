@@ -21,13 +21,12 @@ export default function LabHubPage() {
     <div className="min-h-screen bg-[var(--site-bg)]">
       <LabHubHero />
 
-      <section className="py-16 lg:py-20 border-b border-brand/40">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <header className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[var(--site-fg)] mb-3">領域を選ぶ</h2>
-            <p className="text-base text-[var(--site-fg-muted)]">
-              
-            </p>
+      <section className="border-b border-brand/40 py-16 lg:py-20">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-10">
+          <header className="mb-12">
+            <h2 className="mb-3 text-[clamp(1.5rem,3.5vw,2rem)] font-black text-[var(--site-fg)]">
+              領域を選ぶ
+            </h2>
           </header>
 
           <div className="grid sm:grid-cols-2 gap-4">
@@ -49,11 +48,13 @@ export default function LabHubPage() {
       </section>
 
       <section className="py-16 lg:py-20">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <header className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-10">
+          <header className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h2 className="text-3xl font-bold text-[var(--site-fg)] mb-2">Insights</h2>
-              <p className="text-base text-[var(--site-fg-muted)]">
+              <h2 className="mb-2 text-[clamp(1.5rem,3.5vw,2rem)] font-black text-[var(--site-fg)]">
+                Insights
+              </h2>
+              <p className="text-sm text-[var(--site-fg-muted)] md:text-base">
                 サービス長文から再配置した解説記事
               </p>
             </div>

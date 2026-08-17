@@ -37,12 +37,11 @@ export function ServicesOverviewSection() {
       kicker="APPROACH"
       title={servicesOverviewCopy.heading}
       lead={servicesOverviewCopy.lead}
+      align="left"
+      emphasis="feature"
       maxWidth="6xl"
     >
-      <div
-        className="mb-8 flex flex-wrap justify-center gap-2"
-        aria-label="サービスの3つの柱"
-      >
+      <div className="mb-8 flex flex-wrap gap-2" aria-label="サービスの3つの柱">
         {servicesOverviewCopy.pillars.map((pillar) => (
           <span
             key={pillar}
@@ -94,15 +93,15 @@ export function ServicesOverviewSection() {
             id="overview-consult-panel"
             className="mt-6 rounded-xl border border-[var(--site-border)] bg-[var(--site-bg)] p-5 md:p-8"
           >
-            <p className="mb-6 text-center text-sm text-[var(--site-fg-muted)] md:text-base">
+            <p className="mb-6 text-left text-sm text-[var(--site-fg-muted)] md:text-base">
               {servicesConsultCopy.lead}
             </p>
             <ServiceJourneyDiagram steps={consultJourneySteps} />
-            <ul className="mx-auto mt-8 max-w-xl list-none space-y-2">
+            <ul className="mt-8 max-w-2xl list-none space-y-2">
               {servicesConsultCopy.outcomes.map((line) => (
                 <li
                   key={line}
-                  className="rounded-lg border border-[var(--site-border)] bg-[var(--site-bg-elevated)] px-4 py-2.5 text-[14px] text-[var(--site-fg)]"
+                  className="border-l-2 border-brand/40 pl-4 text-[14px] leading-relaxed text-[var(--site-fg)]"
                 >
                   {line}
                 </li>

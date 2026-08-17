@@ -16,7 +16,10 @@ export function AppWhatWeBuild() {
       headingLevel="h3"
       title="こんなツールが作れます"
       lead="毎日の手作業を、触れる仕組みに。よくご依頼いただく型です。"
-      maxWidth="5xl"
+      align="left"
+      emphasis="feature"
+      maxWidth="7xl"
+      contentBleed
     >
       <WhatWeBuildCards items={whatWeBuild} />
     </ServiceSectionShell>

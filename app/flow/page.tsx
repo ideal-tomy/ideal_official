@@ -4,7 +4,7 @@ import { HowWeWorkSummary } from '@/components/how-we-work/HowWeWorkSummary'
 import { RoiSimulatorEmbed } from '@/components/estimate/RoiSimulatorEmbed'
 import { ESTIMATE_DISCLAIMER } from '@/lib/concierge/pricing-rules'
 import { buildRoiSimulatorHref } from '@/lib/roiSimulator'
-import { contentH2, contentLeadBare, contentNote } from '@/lib/content-typography'
+import { contentLeadBare, contentNote } from '@/lib/content-typography'
 
 export const metadata: Metadata = {
   title: '導入の流れ | ideal',
@@ -37,14 +37,16 @@ export default function FlowPage() {
 
       <section
         id="estimate"
-        className="scroll-mt-24 border-t border-[color-mix(in_srgb,var(--site-fg)_12%,transparent)] bg-[var(--site-bg)] py-14 md:scroll-mt-28 md:py-16"
+        className="scroll-mt-24 border-t border-[color-mix(in_srgb,var(--site-fg)_12%,transparent)] bg-[color-mix(in_srgb,var(--color-brand)_4%,var(--site-bg))] py-14 md:scroll-mt-28 md:py-20"
       >
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-brand/90">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
+          <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-brand/90">
             Estimate
           </p>
-          <h2 className={`mb-2 ${contentH2}`}>自動見積もり</h2>
-          <p className={`mb-3 max-w-2xl ${contentLeadBare}`}>
+          <h2 className="mb-3 text-[clamp(1.5rem,3.5vw,2rem)] font-black leading-tight text-[var(--site-fg)]">
+            自動見積もり
+          </h2>
+          <p className={`mb-3 max-w-2xl text-sm md:text-base ${contentLeadBare}`}>
             いくつかの質問に答えると、参考の価格レンジがわかります。
           </p>
           <p className={`mb-8 max-w-2xl ${contentNote}`}>{ESTIMATE_DISCLAIMER}</p>

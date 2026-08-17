@@ -112,7 +112,7 @@ function BuildTabNav({
 
       <nav
 
-        className="mt-10 flex flex-col items-center gap-3 border-t border-[var(--site-border)] pt-8"
+        className="mt-10 flex flex-col items-start gap-3 border-t border-[var(--site-border)] pt-8"
 
         aria-label="他の製作領域を見る"
 
@@ -124,7 +124,7 @@ function BuildTabNav({
 
         </p>
 
-        <div className="flex w-full gap-2 overflow-x-auto pb-1 scrollbar-hide sm:justify-center">
+        <div className="flex w-full gap-2 overflow-x-auto pb-1 scrollbar-hide">
 
           {buttons}
 
@@ -142,7 +142,7 @@ function BuildTabNav({
 
     <Tab.List
 
-      className="mb-8 flex gap-2 overflow-x-auto pb-1 scrollbar-hide sm:justify-center"
+      className="mb-8 flex gap-2 overflow-x-auto pb-1 scrollbar-hide"
 
       aria-label="製作の種類"
 
@@ -265,6 +265,10 @@ export function ServicesBuildTabs() {
       title={servicesBuildCopy.heading}
 
       lead={servicesBuildCopy.lead}
+
+      align="left"
+
+      emphasis="feature"
 
       maxWidth="6xl"
 

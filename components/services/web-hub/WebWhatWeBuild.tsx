@@ -10,7 +10,10 @@ export function WebWhatWeBuild() {
       headingLevel="h3"
       title="こんなサイトが作れます"
       lead="会社の顔になるサイトから、申込・会員まで。よくご依頼いただく型です。"
-      maxWidth="5xl"
+      align="left"
+      emphasis="feature"
+      maxWidth="7xl"
+      contentBleed
     >
       <WhatWeBuildCards items={whatWeBuild} />
     </ServiceSectionShell>

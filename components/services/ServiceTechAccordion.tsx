@@ -24,9 +24,9 @@ export function ServiceTechAccordion({
   items,
 }: ServiceTechAccordionProps) {
   return (
-    <ServiceSectionShell tone="technical" title={title} lead={lead}>
+    <ServiceSectionShell tone="technical" title={title} lead={lead} align="left" emphasis="feature">
       <Accordion
-        variant="card"
+        variant="plain"
         allowMultiple
         items={items.map((item) => ({
           id: item.id,

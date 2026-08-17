@@ -7,6 +7,8 @@ type ServiceSectionHeaderProps = {
   className?: string
   /** h3 = サービス内サブセクション見出し */
   headingLevel?: 'h2' | 'h3'
+  /** feature = 製作タブ内の主セクション（大きめ見出し） */
+  emphasis?: 'default' | 'feature'
 }
 
 /**
@@ -20,6 +22,7 @@ export function ServiceSectionHeader({
   onBand = false,
   className = '',
   headingLevel = 'h2',
+  emphasis = 'default',
 }: ServiceSectionHeaderProps) {
   const alignClass = align === 'center' ? 'text-center' : 'text-left'
   const titleClass = onBand
@@ -30,34 +33,40 @@ export function ServiceSectionHeader({
     : 'text-[var(--site-fg-muted)]'
   const kickerClass = onBand ? 'text-brand' : 'text-brand/90'
 
+  const h2Class =
+    emphasis === 'feature'
+      ? 'text-[clamp(1.75rem,5.6vw,2.75rem)] font-black leading-[1.2] tracking-[0.01em]'
+      : 'text-3xl font-bold tracking-[0.02em] md:text-4xl'
+
+  const h3Class =
+    emphasis === 'feature'
+      ? 'text-[clamp(1.5rem,3.8vw,2.125rem)] font-black leading-[1.25] tracking-[0.01em]'
+      : 'text-xl font-semibold tracking-[0.01em] md:text-2xl'
+
   return (
     <header className={`${alignClass} ${className}`.trim()}>
       {kicker ? (
         <p
-          className={`mb-3 text-xs font-medium uppercase tracking-[0.18em] ${kickerClass}`}
+          className={`mb-2 text-[10px] font-semibold uppercase tracking-[0.22em] ${kickerClass} md:mb-3 md:text-xs`}
         >
           {kicker}
         </p>
       ) : null}
       {title ? (
         headingLevel === 'h3' ? (
-          <h3
-            className={`text-xl font-semibold tracking-[0.01em] md:text-2xl ${titleClass}`}
-          >
-            {title}
-          </h3>
+          <h3 className={`${h3Class} ${titleClass}`}>{title}</h3>
         ) : (
-          <h2
-            className={`text-3xl font-bold tracking-[0.02em] md:text-4xl ${titleClass}`}
-          >
-            {title}
-          </h2>
+          <h2 className={`${h2Class} ${titleClass}`}>{title}</h2>
         )
       ) : null}
       {lead ? (
         <p
-          className={`mt-4 max-w-2xl text-base leading-relaxed md:text-lg ${leadClass} ${
+          className={`mt-3 max-w-2xl leading-relaxed md:mt-4 ${leadClass} ${
             align === 'center' ? 'mx-auto' : ''
+          } ${
+            emphasis === 'feature'
+              ? 'max-w-lg text-xs md:text-sm'
+              : 'text-sm md:text-base'
           }`}
         >
           {lead}

@@ -1,5 +1,12 @@
+'use client'
+
 import Link from 'next/link'
-import { ThemeImage } from '@/components/ui/ThemeImage'
+import {
+  CapabilityShowcaseDemo,
+  type CapabilityShowcaseSlug,
+} from '@/components/ai-capability-gallery/showcases/CapabilityShowcaseDemo'
+import { useInViewAutoPlay } from '@/components/ai-capability-gallery/hooks/useInViewAutoPlay'
+import { AsymmetricFeatureGrid } from '@/components/services/AsymmetricFeatureGrid'
 import { ServiceSectionShell } from '@/components/services/ServiceSectionShell'
 import {
   galleryDemoHref,
@@ -7,54 +14,68 @@ import {
 } from '@/data/services/ai-hub'
 import type { Capability } from '@/data/ai-capability-gallery/capabilities'
 
+function CompactShowcase({ slug }: { slug: CapabilityShowcaseSlug }) {
+  const { ref, isInView } = useInViewAutoPlay()
+
+  return (
+    <div
+      ref={ref as React.RefObject<HTMLDivElement>}
+      className="relative mb-4 aspect-[16/10] overflow-hidden rounded-lg bg-[#F4F5F7]"
+      aria-hidden
+    >
+      <div className="pointer-events-none absolute left-1/2 top-0 w-[640px] origin-top -translate-x-1/2 scale-[0.38]">
+        <CapabilityShowcaseDemo slug={slug} playWhen={isInView} />
+      </div>
+    </div>
+  )
+}
+
 function DemoPanel({
   capability,
   index,
+  featured = false,
 }: {
   capability: Capability
   index: number
+  featured?: boolean
 }) {
   const step = String(index + 1).padStart(2, '0')
+  const slug = capability.slug as CapabilityShowcaseSlug
 
   return (
-    <div className="flex h-full flex-col overflow-hidden rounded-xl border border-[var(--site-border)] bg-[var(--site-bg)] shadow-[var(--service-card-shadow)]">
-      <div className="relative aspect-[16/10] w-full shrink-0 border-b border-[var(--site-border)]">
-        <ThemeImage
-          src={capability.image}
-          alt=""
-          fill
-          className="object-cover object-center"
-          sizes="(max-width: 768px) 100vw, 33vw"
-          aria-hidden
-        />
-        <div className="absolute left-2 top-2 flex flex-wrap gap-1">
-          {capability.tags.slice(0, 2).map((tag) => (
-            <span
-              key={tag}
-              className="rounded-full bg-black/55 px-2 py-0.5 text-[10px] font-semibold text-white/90 backdrop-blur-sm"
-            >
-              {tag}
-            </span>
-          ))}
+    <div
+      className={`flex h-full min-h-0 flex-col ${
+        featured
+          ? 'overflow-hidden rounded-2xl border-2 border-brand/20 bg-[var(--site-bg)]'
+          : 'rounded-xl border border-[var(--site-border)] bg-[var(--site-bg)] p-6'
+      }`}
+    >
+      {featured ? (
+        <div className="min-h-[220px] flex-1 border-b border-[var(--site-border)] bg-[#F4F5F7] p-3 sm:p-4">
+          <CapabilityShowcaseDemo slug={slug} />
         </div>
-      </div>
+      ) : (
+        <CompactShowcase slug={slug} />
+      )}
 
-      <div className="flex flex-1 flex-col p-5 md:p-6">
-        <p className="mb-2 text-xs tracking-[0.16em] text-brand/90">
-          <span className="rounded-full bg-brand/10 px-2 py-0.5">
-            {step} · {capability.subtitle}
-          </span>
+      <div className={featured ? 'flex flex-col p-5 md:p-6' : 'flex flex-1 flex-col'}>
+        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-brand/90">
+          {step} · {capability.subtitle}
         </p>
-        <h3 className="mb-2 text-lg font-semibold text-[var(--site-fg)] md:text-xl">
+        <h3
+          className={`mb-2 font-bold text-[var(--site-fg)] ${
+            featured ? 'text-xl md:text-2xl' : 'text-lg'
+          }`}
+        >
           {capability.title}
         </h3>
         <p className="mb-3 flex-1 text-sm leading-relaxed text-[var(--site-fg-muted)]">
           {capability.showcaseLead}
         </p>
-        <p className="mb-4 text-xs leading-relaxed text-brand/90">
+        <p className="mb-4 text-xs leading-relaxed text-[var(--site-fg-muted)]">
           {capability.before}
-          <span className="mx-1.5 font-bold text-[var(--site-fg-muted)]">→</span>
-          {capability.after}
+          <span className="mx-1.5 font-bold">→</span>
+          <span className="font-medium text-[var(--site-fg)]">{capability.after}</span>
         </p>
         <Link
           href={galleryDemoHref(capability.slug)}
@@ -69,23 +90,36 @@ function DemoPanel({
 
 export function AiInteractionShowcase() {
   const demos = getServicesFeaturedCapabilities()
+  const primary = demos[0]
+  const secondaryA = demos[1]
+  const secondaryB = demos[2]
+
+  if (!primary || !secondaryA || !secondaryB) return null
 
   return (
-    <ServiceSectionShell tone="interactive" title="ここで触ってみる">
-      <div className="grid gap-5 md:grid-cols-3">
-        {demos.map((capability, index) => (
-          <DemoPanel key={capability.id} capability={capability} index={index} />
-        ))}
-      </div>
+    <ServiceSectionShell
+      tone="interactive"
+      title="ここで触ってみる"
+      align="left"
+      emphasis="feature"
+      contentBleed
+    >
+      <AsymmetricFeatureGrid
+        primary={<DemoPanel capability={primary} index={0} featured />}
+        secondary={[
+          <DemoPanel key={secondaryA.id} capability={secondaryA} index={1} />,
+          <DemoPanel key={secondaryB.id} capability={secondaryB} index={2} />,
+        ]}
+      />
 
-      <div className="mt-8 text-center">
+      <p className="mt-8 text-left text-sm">
         <Link
           href="/flow"
-          className="inline-flex items-center text-sm font-medium text-brand transition-colors hover:text-brand-hover"
+          className="inline-flex items-center font-medium text-brand transition-colors hover:text-brand-hover"
         >
           7パターンすべて見る →
         </Link>
-      </div>
+      </p>
     </ServiceSectionShell>
   )
 }

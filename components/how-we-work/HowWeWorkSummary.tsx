@@ -7,7 +7,7 @@ import {
   HOW_WE_WORK_TITLE,
 } from '@/data/how-we-work'
 import { HowWeWorkStepDialog } from '@/components/how-we-work/HowWeWorkStepDialog'
-import { contentBody, contentH2, contentLeadBare } from '@/lib/content-typography'
+import { contentBody, contentLeadBare } from '@/lib/content-typography'
 
 type HowWeWorkSummaryProps = {
   className?: string
@@ -24,12 +24,14 @@ export function HowWeWorkSummary({
       id="how-we-work"
       className={`scroll-mt-24 border-t border-[color-mix(in_srgb,var(--site-fg)_12%,transparent)] bg-[var(--site-bg)] py-14 md:scroll-mt-28 md:py-16 ${className}`}
     >
-      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-        <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-brand/90">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-10">
+        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-brand/90">
           How we work
         </p>
-        <h2 className={`mb-2 ${contentH2}`}>{HOW_WE_WORK_TITLE}</h2>
-        <p className={`mb-8 ${contentLeadBare}`}>{HOW_WE_WORK_LEAD}</p>
+        <h2 className="mb-3 text-[clamp(1.5rem,3.5vw,2rem)] font-black leading-tight text-[var(--site-fg)]">
+          {HOW_WE_WORK_TITLE}
+        </h2>
+        <p className={`mb-8 max-w-2xl text-sm md:text-base ${contentLeadBare}`}>{HOW_WE_WORK_LEAD}</p>
 
         <ol className="relative">
           {HOW_WE_WORK_STEPS.map((item, index) => {
