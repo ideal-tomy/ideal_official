@@ -35,6 +35,8 @@ html.light {
   --df-bg-blue: #eaf3fb;
   --df-bg-blue-2: #dcebfa;
   --df-bg-card: #f4f8fc;
+  --df-reason-node-bg: color-mix(in srgb, var(--df-primary) 7%, var(--df-bg-blue));
+  --df-reason-node-emphasis: color-mix(in srgb, var(--df-primary) 15%, var(--df-bg-blue));
   --df-text: #1a1a2e;
   --df-text-muted: #8a94a6;
   --df-on-primary: #ffffff;
@@ -87,6 +89,8 @@ html.dark {
   --df-bg-blue: #1c1916;
   --df-bg-blue-2: #2e2a26;
   --df-bg-card: #1c1916;
+  --df-reason-node-bg: color-mix(in srgb, var(--df-primary) 10%, var(--df-bg-blue));
+  --df-reason-node-emphasis: color-mix(in srgb, var(--df-primary) 22%, var(--df-bg-blue));
   /* Text / Muted — 本文はほぼ白、グレーは補助のみ */
   --df-text: #f2ede8;
   --df-text-muted: #a39e97;

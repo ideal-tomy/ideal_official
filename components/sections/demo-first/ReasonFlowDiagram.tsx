@@ -62,8 +62,8 @@ export function ReasonFlowDiagram() {
           <motion.div
             className={`flex min-h-[88px] min-w-0 flex-1 flex-col items-center justify-center rounded-[10px] border px-2 py-3 text-center sm:min-h-[96px] sm:px-3.5 ${
               'emphasis' in step && step.emphasis
-                ? 'border-[var(--df-primary)] bg-[color-mix(in_srgb,var(--df-primary)_12%,var(--df-bg-card))] shadow-[0_1px_0_color-mix(in_srgb,var(--df-primary)_18%,transparent)]'
-                : 'border-[var(--site-border)] bg-[var(--df-bg)]/50'
+                ? 'border-[color-mix(in_srgb,var(--df-primary)_55%,transparent)] bg-[var(--df-reason-node-emphasis)] shadow-[0_2px_12px_color-mix(in_srgb,var(--df-primary)_12%,transparent)]'
+                : 'border-[color-mix(in_srgb,var(--df-primary)_35%,transparent)] bg-[var(--df-reason-node-bg)]'
             }`}
             initial={animate ? { opacity: 0, y: 10 } : false}
             whileInView={{ opacity: 1, y: 0 }}

@@ -56,10 +56,10 @@
   font-weight: 700;
   line-height: 1.35;
   text-align: center;
-  background: var(--df-bg);
-  border: 1.5px solid color-mix(in srgb, var(--df-primary) 55%, transparent);
+  background: var(--df-reason-node-bg);
+  border: 1.5px solid color-mix(in srgb, var(--df-primary) 45%, transparent);
   border-radius: 20px;
-  box-shadow: 0 8px 20px color-mix(in srgb, var(--df-text) 6%, transparent);
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--df-primary) 8%, transparent);
   /* 円周上の点 = タブ中心 */
   transform: translate(-50%, -50%);
 }

@@ -34,9 +34,9 @@ function Pill({
         width={w}
         height={h}
         rx={10}
-        fill="var(--df-bg-card)"
+        fill="var(--df-reason-node-bg)"
         stroke="var(--df-primary)"
-        strokeOpacity={0.5}
+        strokeOpacity={0.45}
         strokeWidth={1.5}
       />
       <text
