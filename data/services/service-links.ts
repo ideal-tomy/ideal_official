@@ -4,18 +4,18 @@ import { ServiceLinkData } from '@/types/service'
 
 /** 製作サブ分類（コンシェルジュ・関連リンク用） */
 export const serviceNavLinks: ServiceLinkData[] = [
-  { id: 'web-development', name: 'Webサイト・LP制作', href: '/services#web' },
-  { id: 'app-development', name: 'Webアプリ・業務ツール開発', href: '/services#app' },
-  { id: 'ai-consulting', name: 'AIプロトタイプ・自動化', href: '/services#ai' },
+  { id: 'web-development', name: 'Webサイト・LP制作', href: '/services#build-web' },
+  { id: 'app-development', name: 'Webアプリ・業務ツール開発', href: '/services#build-app' },
+  { id: 'ai-consulting', name: 'AIプロトタイプ・自動化', href: '/services#build-ai' },
 ]
 
 /** Footer 用（相談・設計 / 製作 + 深リンク） */
 export const headerFooterServiceLinks: { href: string; label: string }[] = [
   { href: '/services#overview-consult', label: '相談・設計' },
   { href: '/services#build', label: '製作' },
-  { href: '/services#web', label: 'Webサイト・LP制作' },
-  { href: '/services#ai', label: 'AIプロトタイプ・自動化' },
-  { href: '/services#app', label: 'Webアプリ・業務ツール開発' },
+  { href: '/services#build-web', label: 'Webサイト・LP制作' },
+  { href: '/services#build-ai', label: 'AIプロトタイプ・自動化' },
+  { href: '/services#build-app', label: 'Webアプリ・業務ツール開発' },
 ]
 
 /** Footer LAB 欄など、研究・深掘り系リンク */
@@ -69,7 +69,7 @@ export function getServiceHrefForConciergeTrack(
     return '/lab/blockchain'
   }
   const row = serviceNavLinks.find((s) => s.id === id)
-  return row?.href ?? '/services#web'
+  return row?.href ?? '/services#build-web'
 }
 
 export function getServiceLabelForConciergeTrack(
@@ -112,6 +112,9 @@ const HASH_TO_SERVICE_ID: Record<string, string> = {
   web: 'web-development',
   app: 'app-development',
   ai: 'ai-consulting',
+  'build-web': 'web-development',
+  'build-app': 'app-development',
+  'build-ai': 'ai-consulting',
 }
 
 export const getCurrentServiceId = (

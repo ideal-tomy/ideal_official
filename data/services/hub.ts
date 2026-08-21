@@ -119,29 +119,33 @@ export const hubSolutionItems = [
 export const hubServices = [
   {
     id: 'web-development',
+    buildAnchor: 'build-web',
     title: 'Webサイト・LP制作',
     description:
-      '構成・UI・モーション・実装まで一貫。このサイト自体が制作デモです。',
-    image: '/images/sv_web.png',
-    href: '/services#web',
+      'コーポレートサイト、LP、体験型UIまで。構成・デザイン・実装を一貫して伴走します。',
+    /** 完成イメージ画像（未設定時はプレースホルダー） */
+    image: undefined as string | undefined,
+    contactHref: '/contact?service=web-development',
     tags: ['コーポレート', 'LP', '体験UI'],
   },
   {
     id: 'app-development',
+    buildAnchor: 'build-app',
     title: 'Webアプリ・業務ツール開発',
     description:
-      'Excel、紙、LINEの手作業をWebツールに。入力から結果までデモで体験できます。',
-    image: '/images/sv_app.png',
-    href: '/services#app',
+      'Excel、紙、LINEの手作業をWebツールに。入力から結果まで、現場で使える形に落とし込みます。',
+    image: undefined as string | undefined,
+    contactHref: '/contact?service=app-development',
     tags: ['管理画面', '現場入力', 'LINE'],
   },
   {
     id: 'ai-consulting',
+    buildAnchor: 'build-ai',
     title: 'AIプロトタイプ・自動化',
     description:
       '「AIでできないか」を、まず動くデモから検証。自社に近いパターンを選べます。',
-    image: '/images/top_ai.png',
-    href: '/services#ai',
+    image: undefined as string | undefined,
+    contactHref: '/contact?service=ai-consulting',
     tags: ['デモ', '自動化', 'PoC'],
   },
 ] as const

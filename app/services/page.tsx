@@ -9,7 +9,7 @@ import { ServiceHubHero } from '@/components/services/hub/ServiceHubHero'
 import { ServicesHashScroll } from '@/components/services/hub/ServicesHashScroll'
 import { ServicesPageToc } from '@/components/services/hub/ServicesPageToc'
 import { ServicesOverviewSection } from '@/components/services/hub/ServicesOverviewSection'
-import { ServicesBuildTabs } from '@/components/services/hub/ServicesBuildTabs'
+import { ServicesBuildSection } from '@/components/services/hub/ServicesBuildSection'
 import { ServiceSectionShell } from '@/components/services/ServiceSectionShell'
 import { labNavLinks } from '@/data/services/service-links'
 
@@ -36,7 +36,7 @@ export default function ServicesPage() {
       <ServiceHubHero />
       <ServicesPageToc />
       <ServicesOverviewSection />
-      <ServicesBuildTabs />
+      <ServicesBuildSection />
 
       <div className="bg-[var(--service-cta-tint)]">
         <CallToAction />
