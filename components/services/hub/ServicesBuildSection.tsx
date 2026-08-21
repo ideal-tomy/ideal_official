@@ -12,8 +12,8 @@ import { hubServices, servicesBuildCopy } from '@/data/services/hub'
 
 const BUILD_TABS = [
   { id: 'web', label: 'Webサイト・LP', hash: 'web' },
-  { id: 'app', label: '業務ツール', hash: 'app' },
-  { id: 'ai', label: 'AIプロトタイプ', hash: 'ai' },
+  { id: 'app', label: 'アプリ開発', hash: 'app' },
+  { id: 'ai', label: 'AI開発', hash: 'ai' },
 ] as const
 
 const SHOWCASE_LEADS: Record<(typeof BUILD_TABS)[number]['id'], string> = {

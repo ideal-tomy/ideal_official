@@ -44,10 +44,25 @@ a{ color:var(--green); }
 .brand{ font-family:var(--mono); font-weight:700; font-size:15px; letter-spacing:.14em; color:var(--green); text-decoration:none; }
 .crumb{ font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; color:var(--ink-3); }
 
-.hero{ background:var(--surface); border-bottom:1px solid var(--edge); padding:54px 0 44px; }
-.kicker{ font-family:var(--mono); font-size:10.5px; letter-spacing:.18em; color:var(--ink-3); margin:0 0 26px; }
-.hero h1{ font-size:33px; line-height:1.62; margin:0 0 26px; max-width:15em; }
-.hero p{ font-size:16px; color:var(--ink-2); max-width:32em; margin:0; }
+.hero{ background:var(--surface); border-bottom:1px solid var(--edge); padding:48px 0 40px; }
+.cover{
+  border-bottom:1px solid var(--edge); padding-bottom:16px; margin:0 0 26px;
+  display:flex; justify-content:space-between; align-items:baseline; gap:14px; flex-wrap:wrap;
+}
+.cover .title{ font-size:14px; letter-spacing:.08em; color:var(--green); font-weight:600; margin:0; }
+.meta{ font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; color:var(--ink-3); margin:0; display:flex; gap:14px; flex-wrap:wrap; }
+.hero h1{ font-size:33px; line-height:1.62; margin:0 0 20px; max-width:15em; }
+.hero__lead{ font-size:16px; color:var(--ink-2); max-width:32em; margin:0 0 24px; }
+.hero .docs{ margin:0; }
+.hero__cap{ font-size:12.5px; line-height:1.85; color:var(--ink-2); margin:10px 0 0; letter-spacing:.02em; }
+
+.cite{
+  display:inline-block; margin:0 0 1.2em;
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.1em;
+  color:var(--peach-d); border:1px solid var(--peach-d); padding:5px 10px 4px;
+  text-decoration:none;
+}
+.cite:hover{ background:rgba(168,101,79,.08); }
 
 .body{
   background:
@@ -58,6 +73,7 @@ a{ color:var(--green); }
 }
 .sec{ padding:44px 0 0; }
 .sec h2{ font-size:24px; line-height:1.66; margin:0 0 20px; max-width:18em; }
+.sec + .sec h2{ padding-top:16px; border-top:2px solid var(--green); }
 .sec h3{ font-size:15.5px; font-weight:700; letter-spacing:.03em; margin:30px 0 6px; }
 .lede{ font-size:17px; }
 
@@ -80,10 +96,10 @@ a{ color:var(--green); }
 .box p:last-child{ margin:0; }
 .box ul{ margin:0 0 .9em; padding-left:1.2em; font-size:14.5px; line-height:1.9; }
 
-.figure{ background:var(--surface); border:1px solid var(--edge); padding:22px 18px 16px; margin:0 0 2.5em; max-width:900px; width:min(900px, calc(100vw - 40px)); }
+.figure{ background:transparent; border:0; padding:0; margin:0 0 2.5em; max-width:900px; width:min(900px, calc(100vw - 40px)); }
 .figure svg{ display:block; width:100%; height:auto; }
-.figure__t{ font-family:var(--mono); font-size:10px; letter-spacing:.14em; color:var(--green); font-weight:700; margin:0 0 14px; }
-.figure figcaption{ font-size:12.5px; line-height:1.85; color:var(--ink-2); margin:13px 0 0; letter-spacing:.02em; }
+.figure__t{ font-family:var(--mono); font-size:10px; letter-spacing:.14em; color:var(--green); font-weight:700; margin:0 0 10px; }
+.figure figcaption{ font-size:12.5px; line-height:1.85; color:var(--ink-2); margin:12px 0 0; padding-top:10px; border-top:1px solid var(--line); letter-spacing:.02em; }
 
 .plain{ margin:0 0 1.6em; padding-left:1.2em; max-width:600px; }
 .plain li{ margin-bottom:8px; }
@@ -125,7 +141,7 @@ a{ color:var(--green); }
   .hero p{ font-size:15px; }
   .sec h2{ font-size:20px; }
   .box{ padding:18px 16px 16px; }
-  .figure{ padding:18px 12px 14px; }
+  .figure figcaption{ font-size:12px; }
   .figure figcaption{ font-size:12px; }
   .demo{ margin-top:46px; padding:34px 0 34px; }
   .demo__in{ padding:0 18px; }
@@ -149,11 +165,25 @@ a:focus-visible, .btn:focus-visible, .linkbtn:focus-visible{ outline:2px solid v
 <section class="hero">
   <div class="wrap">
     <div class="col">
-      <p class="kicker">医療・介護　記録と運営指導　／　2026.08　／　法令の確認 2026.08　／　読むのに 9分</p>
+      <div class="cover">
+        <p class="title">医療・介護　記録と運営指導</p>
+        <p class="meta">
+          <span>読むのに 9分</span>
+          <span>2026.08 ／ 法令の確認 2026.08</span>
+        </p>
+      </div>
       <h1>運営指導で見られるのは、<br>記録の量ではありません。</h1>
-      <p>
+      <p class="hero__lead">
         運営指導では、書類がそろっているかどうかだけを見ているわけではありません。ケアプラン、記録、勤務表、請求の内容が、互いに食い違っていないかを確認されます。ここでは、何が食い違いやすいのかと、その直し方をまとめました。
       </p>
+      <div class="docs">
+        <div><b>ケアプラン</b><span>何をする計画になっているか</span></div>
+        <div><b>介護記録</b><span>実際に何をしたか</span></div>
+        <div><b>勤務表</b><span>そのとき誰がいたか</span></div>
+        <div><b>加算の資料</b><span>算定の要件を満たしているか</span></div>
+        <div><b>請求内容</b><span>いくら請求したか</span></div>
+      </div>
+      <p class="hero__cap">この五つが、同じ出来事を別の角度から書いたものになっているかを見られます。</p>
     </div>
   </div>
 </section>
@@ -178,6 +208,9 @@ a:focus-visible, .btn:focus-visible, .linkbtn:focus-visible{ outline:2px solid v
         <p>
           確認する項目と文書については、厚生労働省が「標準確認項目」「標準確認文書」として公開しています。当日にどこを見るかは、事前に調べられる形になっています。
         </p>
+        <p>
+          <a class="cite" href="https://kaigo-sozai.com/unei-shido-hisshu-shorui-matome/" target="_blank" rel="noopener noreferrer">出典　厚労省　標準確認項目（解説）</a>
+        </p>
       </div>
     </section>
 
@@ -188,16 +221,8 @@ a:focus-visible, .btn:focus-visible, .linkbtn:focus-visible{ outline:2px solid v
           指摘につながるのは、書類が足りない場合だけではありません。そろっていても、書類どうしの内容が合っていないと、そこが指摘の対象になります。
         </p>
         <p>
-          突き合わせられるのは、この五つです。
+          突き合わせられるのは、上の五つです。
         </p>
-
-        <div class="docs">
-          <div><b>ケアプラン</b><span>何をする計画になっているか</span></div>
-          <div><b>介護記録</b><span>実際に何をしたか</span></div>
-          <div><b>勤務表</b><span>そのとき誰がいたか</span></div>
-          <div><b>加算の資料</b><span>算定の要件を満たしているか</span></div>
-          <div><b>請求内容</b><span>いくら請求したか</span></div>
-        </div>
 
         <p>
           この五つが、同じ一つの出来事を別の角度から書いたものになっているか。ここを見られます。どれか一つでもずれていると、サービスの実態や請求の根拠を説明できなくなります。

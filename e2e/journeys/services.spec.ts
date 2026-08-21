@@ -11,6 +11,7 @@ test.describe('サービス導線', () => {
       page,
       '/services/web-development',
       'Webサイト・LP制作',
+      'Webサイト・LP',
     )
     await openConciergeFromFab(page)
   })
@@ -19,7 +20,7 @@ test.describe('サービス導線', () => {
     await assertHomeServiceCardAndOpen(
       page,
       '/services/ai-consulting',
-      'AIプロトタイプ・自動化',
+      'AI開発',
     )
   })
 
@@ -27,7 +28,7 @@ test.describe('サービス導線', () => {
     await assertHomeServiceCardAndOpen(
       page,
       '/services/app-development',
-      'Webアプリ・業務ツール開発',
+      'アプリ開発',
     )
   })
 })

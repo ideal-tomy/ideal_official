@@ -46,9 +46,22 @@ a{ color:var(--blue); }
 .crumb{ font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; color:var(--ink-3); }
 
 .hero{ background:var(--surface); border-bottom:1px solid var(--line-2); padding:50px 0 42px; }
-.kicker{ font-family:var(--mono); font-size:10.5px; letter-spacing:.18em; color:var(--ink-3); margin:0 0 20px; }
-.hero h1{ font-size:34px; line-height:1.5; font-weight:700; margin:0 0 20px; max-width:16em; }
-.hero__lead{ font-size:16px; color:var(--ink-2); max-width:32em; margin:0 0 32px; }
+.cover{
+  border-bottom:1px solid var(--line-2); padding-bottom:14px; margin:0 0 22px;
+  display:flex; justify-content:space-between; align-items:baseline; gap:14px; flex-wrap:wrap;
+}
+.cover .title{ font-size:13px; letter-spacing:.08em; color:var(--blue); font-weight:700; margin:0; font-family:var(--mono); }
+.meta{ font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; color:var(--ink-3); margin:0; display:flex; gap:12px; flex-wrap:wrap; }
+.hero h1{ font-size:34px; line-height:1.5; font-weight:700; margin:0 0 18px; max-width:16em; }
+.hero__lead{ font-size:16px; color:var(--ink-2); max-width:32em; margin:0 0 28px; }
+
+.cite{
+  display:inline-block; margin:0 0 1.2em;
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.1em;
+  color:var(--alert); border:1px solid var(--alert); padding:5px 10px 4px;
+  text-decoration:none;
+}
+.cite:hover{ background:rgba(196,74,54,.08); }
 
 .inbox{ max-width:640px; border:1px solid var(--line-2); background:var(--surface); }
 .inbox__hd{
@@ -63,9 +76,9 @@ a{ color:var(--blue); }
 .row p{ margin:0; flex:1; }
 .tag{
   flex:none; font-size:10.5px; line-height:1.6; padding:1px 8px; border-radius:2px; white-space:nowrap;
-  background:#eef1f6; color:var(--ink-3); opacity:0; transition:opacity .45s ease;
+  background:#eef1f6; color:var(--ink-3);
 }
-.inbox.is-tagged .tag{ opacity:1; }
+.inbox.is-tagged .tag{ font-weight:700; }
 .tag.w{ background:#fbeae6; color:var(--alert); font-weight:700; }
 .tag.n{ background:var(--blue-l); color:var(--blue-d); font-weight:700; }
 .tag.f{ background:#eaf3ea; color:#3f6b54; font-weight:700; }
@@ -73,11 +86,12 @@ a{ color:var(--blue); }
 
 .body{ padding:50px 0 0; }
 .sec{ padding:0 0 6px; }
-.sec + .sec{ padding-top:44px; }
+.sec + .sec{ padding-top:56px; }
 .num{ display:flex; align-items:baseline; gap:10px; margin:0 0 8px; }
 .num b{ font-family:var(--mono); font-size:38px; line-height:1.1; font-weight:700; color:var(--blue); letter-spacing:-.02em; }
 .num span{ font-size:13px; color:var(--ink-2); }
 .sec h2{ font-size:25px; line-height:1.54; font-weight:700; margin:0 0 20px; max-width:20em; }
+.sec + .sec h2{ padding-top:16px; border-top:2px solid var(--blue); }
 .sec h3{ font-size:15.5px; font-weight:700; margin:28px 0 8px; }
 .lede{ font-size:17px; }
 
@@ -88,6 +102,8 @@ a{ color:var(--blue); }
 .why div:nth-child(2){ border-left-color:var(--blue); }
 .why div:nth-child(3){ border-left-color:#3f6b54; }
 .why div:nth-child(4){ border-left-color:var(--ink-3); }
+.why div.is-key{ padding:18px 17px 16px; border-left-width:6px; }
+.why div.is-key b{ font-size:18px; }
 .why b{ display:block; font-size:16px; }
 .why span{ font-size:14px; color:var(--ink-2); line-height:1.85; }
 
@@ -100,15 +116,15 @@ a{ color:var(--blue); }
 .plain{ margin:0 0 1.6em; padding-left:1.2em; max-width:610px; }
 .plain li{ margin-bottom:9px; }
 
-.figure{ background:var(--surface); border:1px solid var(--line-2); padding:20px 18px 15px; margin:0 0 2.5em; max-width:900px; width:min(900px, calc(100vw - 40px)); }
+.figure{ background:transparent; border:0; padding:0; margin:0 0 2.5em; max-width:900px; width:min(900px, calc(100vw - 40px)); }
 .figure svg{ display:block; width:100%; height:auto; }
-.figure__t{ font-family:var(--mono); font-size:10px; letter-spacing:.14em; color:var(--blue); font-weight:700; margin:0 0 14px; }
-.figure figcaption{ font-size:12.5px; line-height:1.85; color:var(--ink-2); margin:13px 0 0; }
+.figure__t{ font-family:var(--mono); font-size:10px; letter-spacing:.14em; color:var(--blue); font-weight:700; margin:0 0 10px; }
+.figure figcaption{ font-size:12.5px; line-height:1.85; color:var(--ink-2); margin:12px 0 0; padding-top:10px; border-top:1px solid var(--line); }
 
 .demo{ background:var(--ink); color:#fff; margin:60px 0; padding:48px 0 46px; }
 .demo__in{ max-width:900px; margin:0 auto; padding:0 22px; }
 .demo__box{ max-width:610px; }
-.demo .kicker{ color:#8fb6df; margin-bottom:14px; }
+.demo .kicker{ font-family:var(--mono); font-size:10.5px; letter-spacing:.18em; color:#8fb6df; margin:0 0 14px; }
 .demo h2{ font-size:26px; line-height:1.52; font-weight:700; margin:0 0 16px; color:#fff; }
 .demo p{ color:#c6cedb; font-size:15px; }
 .steps3{ margin:0 0 1.4em; padding:0; list-style:none; }
@@ -145,7 +161,6 @@ a{ color:var(--blue); }
   .num b{ font-size:30px; }
   .sec h2{ font-size:20px; }
   .law{ padding:17px 16px 15px; }
-  .figure{ padding:16px 12px 12px; }
   .figure figcaption{ font-size:12px; }
   .demo{ margin:46px 0; padding:36px 0 36px; }
   .demo__in{ padding:0 18px; }
@@ -169,7 +184,13 @@ a:focus-visible, .btn:focus-visible, .linkbtn:focus-visible{ outline:2px solid v
 <section class="hero">
   <div class="wrap">
     <div class="col">
-      <p class="kicker">小売・ネットショップ　問い合わせの減らし方　／　2026.08　／　法令の確認 2026.08　／　読むのに 9分</p>
+      <div class="cover">
+        <p class="title">小売・ネットショップ　問い合わせの減らし方</p>
+        <p class="meta">
+          <span>読むのに 9分</span>
+          <span>2026.08 ／ 法令の確認 2026.08</span>
+        </p>
+      </div>
       <h1>問い合わせは、なぜ来たのかで分けると減らせます。</h1>
       <p class="hero__lead">
         質問の内容で分けても、件数は減りません。分ける軸を変えると、そもそも来なくできるものと、人が対応するしかないものに分かれます。
@@ -220,9 +241,9 @@ a:focus-visible, .btn:focus-visible, .linkbtn:focus-visible{ outline:2px solid v
         <h2>なぜ来たのかで分けると、四つになります</h2>
 
         <div class="why">
-          <div>
+          <div class="is-key">
             <b>書いていないから来た</b>
-            <span>返品したい、送料はどちらが持つのか、いつまで交換できるのか。サイトに書いていないので聞くしかありません。</span>
+            <span>返品したい、送料はどちらが持つのか、いつまで交換できるのか。サイトに書いていないので聞くしかありません。いちばん多く、法令もここにあります。下で詳しく書きます。</span>
           </div>
           <div>
             <b>届いていないから来た</b>
@@ -267,6 +288,9 @@ a:focus-visible, .btn:focus-visible, .linkbtn:focus-visible{ outline:2px solid v
             置き場所にも注意が要ります。目立たない場所や、小さすぎる注記は、表示していない扱いになるおそれがあります。フッターだけ、という状態はよくありません。
           </p>
         </div>
+        <p>
+          <a class="cite" href="https://www.no-trouble.caa.go.jp/case/mailorder/case01.html" target="_blank" rel="noopener noreferrer">出典　消費者庁　特商法　返品ルール</a>
+        </p>
 
         <figure class="figure">
           <p class="figure__t">図1　同じ「返品したい」でも、結末が分かれます</p>
@@ -303,25 +327,12 @@ a:focus-visible, .btn:focus-visible, .linkbtn:focus-visible{ outline:2px solid v
       </section>
 
       <section class="sec">
-        <h2>届いていないから来る ― 注文状況</h2>
+        <h2>残りの二つは、手当てが抜けているだけです</h2>
         <p>
-          「いつ届きますか」は、情報がないから聞かれているのではありません。<b>こちらは知っているのに、お客さまに届いていない</b>から聞かれています。
+          「いつ届きますか」は、情報がないから聞かれているのではありません。<b>こちらは知っているのに、お客さまに届いていない</b>から聞かれています。発送した時点で通知を出す。追跡番号を載せる。おおよその到着日を注文時点で示しておく。この三つで、かなりの数が消えます。
         </p>
         <p>
-          発送した時点で通知を出す。追跡番号を載せる。おおよその到着日を注文時点で示しておく。この三つで、かなりの数が消えます。
-        </p>
-        <p>
-          ここは法令の話ではなく、単純に手当てが抜けていることが多い部分です。
-        </p>
-      </section>
-
-      <section class="sec">
-        <h2>見つからないから来る ― 置き場所の問題</h2>
-        <p>
-          在庫、再入荷、領収書。どれも書いてあることが多いのですが、お客さまがたどり着けていません。
-        </p>
-        <p>
-          直し方は、内容を増やすことではなく、置き場所を変えることです。よくある質問のページを充実させても、そのページに行かない人には届きません。<b>その情報が必要になる画面に置く</b>のが基本です。
+          在庫、再入荷、領収書は、書いてあることが多いのですが、お客さまがたどり着けていません。直し方は内容を増やすことではなく、置き場所を変えることです。<b>その情報が必要になる画面に置く</b>のが基本です。
         </p>
         <ul class="plain">
           <li>在庫と再入荷 … 商品ページの、サイズを選ぶすぐ横</li>

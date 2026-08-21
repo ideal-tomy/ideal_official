@@ -45,14 +45,26 @@ a{ color:var(--navy); }
 .crumb{ font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; color:#9db6c9; }
 
 .hero{ background:var(--surface); border-bottom:1px solid var(--line-2); padding:48px 0 40px; }
+.cover{
+  border-bottom:1px solid var(--line-2); padding-bottom:14px; margin:0 0 24px;
+  display:flex; justify-content:space-between; align-items:baseline; gap:14px; flex-wrap:wrap;
+}
 .stamp{
   display:inline-block; border:1px solid var(--amber); color:var(--amber);
-  font-family:var(--mono); font-size:10px; letter-spacing:.16em;
-  padding:4px 10px; margin:0 0 22px;
+  font-family:var(--mono); font-size:11px; letter-spacing:.12em;
+  padding:5px 11px; margin:0; font-weight:700;
 }
-.hero h1{ font-size:35px; line-height:1.46; font-weight:700; margin:0 0 22px; max-width:16em; }
-.hero__lead{ font-size:16px; color:var(--ink-2); max-width:33em; margin:0 0 26px; }
-.meta{ font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; color:var(--ink-3); }
+.meta{ font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; color:var(--ink-3); margin:0; display:flex; gap:12px; flex-wrap:wrap; }
+.hero h1{ font-size:35px; line-height:1.46; font-weight:700; margin:0 0 18px; max-width:16em; }
+.hero__lead{ font-size:16px; color:var(--ink-2); max-width:33em; margin:0 0 22px; }
+
+.cite{
+  display:inline-block; margin:0 0 1.2em;
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.1em;
+  color:var(--amber); border:1px solid var(--amber); padding:5px 10px 4px;
+  text-decoration:none;
+}
+.cite:hover{ background:rgba(196,98,28,.08); }
 
 /* 点検一覧 */
 .ledger{ max-width:640px; border:1px solid var(--line-2); background:var(--surface); }
@@ -69,8 +81,9 @@ a{ color:var(--navy); }
 
 .body{ padding:50px 0 0; }
 .sec{ padding:0 0 6px; }
-.sec + .sec{ padding-top:44px; }
-.sec h2{ font-size:25px; line-height:1.54; font-weight:700; margin:0 0 20px; max-width:20em; padding-left:16px; border-left:5px solid var(--navy); }
+.sec + .sec{ padding-top:56px; }
+.sec h2{ font-size:25px; line-height:1.54; font-weight:700; margin:0 0 20px; max-width:20em; }
+.sec + .sec h2{ padding-top:18px; border-top:2px solid var(--navy); }
 .sec h3{ font-size:16px; font-weight:700; margin:28px 0 8px; }
 .lede{ font-size:17px; }
 
@@ -101,10 +114,10 @@ a{ color:var(--navy); }
 .plain{ margin:0 0 1.6em; padding-left:1.2em; max-width:615px; }
 .plain li{ margin-bottom:9px; }
 
-.figure{ background:var(--surface); border:1px solid var(--line-2); padding:20px 18px 15px; margin:0 0 2.5em; max-width:900px; width:min(900px, calc(100vw - 40px)); }
+.figure{ background:transparent; border:0; padding:0; margin:0 0 2.5em; max-width:900px; width:min(900px, calc(100vw - 40px)); }
 .figure svg{ display:block; width:100%; height:auto; }
-.figure__t{ font-family:var(--mono); font-size:10px; letter-spacing:.14em; color:var(--amber); font-weight:700; margin:0 0 14px; }
-.figure figcaption{ font-size:12.5px; line-height:1.85; color:var(--ink-2); margin:13px 0 0; }
+.figure__t{ font-family:var(--mono); font-size:10px; letter-spacing:.14em; color:var(--amber); font-weight:700; margin:0 0 10px; }
+.figure figcaption{ font-size:12.5px; line-height:1.85; color:var(--ink-2); margin:12px 0 0; padding-top:10px; border-top:1px solid var(--line); }
 
 .demo{ background:var(--navy); color:#fff; margin:58px 0; padding:46px 0 44px; }
 .demo__in{ max-width:900px; margin:0 auto; padding:0 22px; }
@@ -138,10 +151,10 @@ a{ color:var(--navy); }
   .hero__lead{ font-size:15px; }
   .lrow{ font-size:12.5px; gap:8px; padding:9px 11px; flex-wrap:wrap; }
   .lrow .st{ width:auto; }
-  .sec h2{ font-size:20px; padding-left:12px; border-left-width:4px; }
+  .sec h2{ font-size:20px; }
   .law{ padding:17px 15px 15px; }
   .law table{ font-size:13px; }
-  .figure{ padding:16px 12px 12px; }
+  .figure figcaption{ font-size:12px; }
   .figure figcaption{ font-size:12px; }
   .demo{ margin:44px 0; padding:34px 0 34px; }
   .demo__in{ padding:0 18px; }
@@ -164,12 +177,17 @@ a:focus-visible, .btn:focus-visible, .linkbtn:focus-visible{ outline:2px solid v
 <section class="hero">
   <div class="wrap">
     <div class="col">
-      <p class="stamp">ビルメンテナンス　法定点検の管理</p>
+      <div class="cover">
+        <p class="stamp">ビルメンテナンス　法定点検の管理</p>
+        <p class="meta">
+          <span>読むのに 9分</span>
+          <span>2026.08 ／ 法令の確認 2026.08</span>
+        </p>
+      </div>
       <h1>法定点検が漏れるのは、周期ではなく起点が違うからです。</h1>
       <p class="hero__lead">
         点検の周期がバラバラなのは、どの会社でも同じです。漏れる会社と漏れない会社の差は、そこではありません。数え始める日をどう管理しているかです。
       </p>
-      <p class="meta">2026.08　／　法令の確認 2026.08　／　読むのに 9分</p>
     </div>
 
     <div class="ledger">
@@ -281,6 +299,9 @@ a:focus-visible, .btn:focus-visible, .linkbtn:focus-visible{ outline:2px solid v
           </table>
           <p>貯水槽の清掃では、清掃作業報告書を作成して保管することも定められています。作業行程や槽の内部の状況、簡易な水質検査の結果を記載します。</p>
         </div>
+        <p>
+          <a class="cite" href="https://www.mhlw.go.jp/stf/newpage_10747.html" target="_blank" rel="noopener noreferrer">出典　厚労省　建築物衛生法関連</a>
+        </p>
 
         <div class="law">
           <h3>消防法</h3>
@@ -340,7 +361,18 @@ a:focus-visible, .btn:focus-visible, .linkbtn:focus-visible{ outline:2px solid v
             <text x="166" y="23" font-family="ui-monospace,monospace" font-size="11" fill="var(--navy)">7</text>
 
             <text x="14" y="60" font-family="'Noto Sans CJK JP','Noto Sans JP',sans-serif" font-size="10.5" fill="var(--ink-2)">10棟</text>
-            <g fill="var(--amber)" opacity=".75" id="grid"></g>
+            <g fill="var(--amber)" opacity=".75">
+              <rect x="40" y="70" width="13" height="6" rx="1.5"/><rect x="57" y="70" width="13" height="6" rx="1.5"/><rect x="74" y="70" width="13" height="6" rx="1.5"/><rect x="91" y="70" width="13" height="6" rx="1.5"/><rect x="108" y="70" width="13" height="6" rx="1.5"/><rect x="125" y="70" width="13" height="6" rx="1.5"/><rect x="142" y="70" width="13" height="6" rx="1.5"/>
+              <rect x="40" y="78.5" width="13" height="6" rx="1.5"/><rect x="57" y="78.5" width="13" height="6" rx="1.5"/><rect x="74" y="78.5" width="13" height="6" rx="1.5"/><rect x="91" y="78.5" width="13" height="6" rx="1.5"/><rect x="108" y="78.5" width="13" height="6" rx="1.5"/><rect x="125" y="78.5" width="13" height="6" rx="1.5"/><rect x="142" y="78.5" width="13" height="6" rx="1.5"/>
+              <rect x="40" y="87" width="13" height="6" rx="1.5"/><rect x="57" y="87" width="13" height="6" rx="1.5"/><rect x="74" y="87" width="13" height="6" rx="1.5"/><rect x="91" y="87" width="13" height="6" rx="1.5"/><rect x="108" y="87" width="13" height="6" rx="1.5"/><rect x="125" y="87" width="13" height="6" rx="1.5"/><rect x="142" y="87" width="13" height="6" rx="1.5"/>
+              <rect x="40" y="95.5" width="13" height="6" rx="1.5"/><rect x="57" y="95.5" width="13" height="6" rx="1.5"/><rect x="74" y="95.5" width="13" height="6" rx="1.5"/><rect x="91" y="95.5" width="13" height="6" rx="1.5"/><rect x="108" y="95.5" width="13" height="6" rx="1.5"/><rect x="125" y="95.5" width="13" height="6" rx="1.5"/><rect x="142" y="95.5" width="13" height="6" rx="1.5"/>
+              <rect x="40" y="104" width="13" height="6" rx="1.5"/><rect x="57" y="104" width="13" height="6" rx="1.5"/><rect x="74" y="104" width="13" height="6" rx="1.5"/><rect x="91" y="104" width="13" height="6" rx="1.5"/><rect x="108" y="104" width="13" height="6" rx="1.5"/><rect x="125" y="104" width="13" height="6" rx="1.5"/><rect x="142" y="104" width="13" height="6" rx="1.5"/>
+              <rect x="40" y="112.5" width="13" height="6" rx="1.5"/><rect x="57" y="112.5" width="13" height="6" rx="1.5"/><rect x="74" y="112.5" width="13" height="6" rx="1.5"/><rect x="91" y="112.5" width="13" height="6" rx="1.5"/><rect x="108" y="112.5" width="13" height="6" rx="1.5"/><rect x="125" y="112.5" width="13" height="6" rx="1.5"/><rect x="142" y="112.5" width="13" height="6" rx="1.5"/>
+              <rect x="40" y="121" width="13" height="6" rx="1.5"/><rect x="57" y="121" width="13" height="6" rx="1.5"/><rect x="74" y="121" width="13" height="6" rx="1.5"/><rect x="91" y="121" width="13" height="6" rx="1.5"/><rect x="108" y="121" width="13" height="6" rx="1.5"/><rect x="125" y="121" width="13" height="6" rx="1.5"/><rect x="142" y="121" width="13" height="6" rx="1.5"/>
+              <rect x="40" y="129.5" width="13" height="6" rx="1.5"/><rect x="57" y="129.5" width="13" height="6" rx="1.5"/><rect x="74" y="129.5" width="13" height="6" rx="1.5"/><rect x="91" y="129.5" width="13" height="6" rx="1.5"/><rect x="108" y="129.5" width="13" height="6" rx="1.5"/><rect x="125" y="129.5" width="13" height="6" rx="1.5"/><rect x="142" y="129.5" width="13" height="6" rx="1.5"/>
+              <rect x="40" y="138" width="13" height="6" rx="1.5"/><rect x="57" y="138" width="13" height="6" rx="1.5"/><rect x="74" y="138" width="13" height="6" rx="1.5"/><rect x="91" y="138" width="13" height="6" rx="1.5"/><rect x="108" y="138" width="13" height="6" rx="1.5"/><rect x="125" y="138" width="13" height="6" rx="1.5"/><rect x="142" y="138" width="13" height="6" rx="1.5"/>
+              <rect x="40" y="146.5" width="13" height="6" rx="1.5"/><rect x="57" y="146.5" width="13" height="6" rx="1.5"/><rect x="74" y="146.5" width="13" height="6" rx="1.5"/><rect x="91" y="146.5" width="13" height="6" rx="1.5"/><rect x="108" y="146.5" width="13" height="6" rx="1.5"/><rect x="125" y="146.5" width="13" height="6" rx="1.5"/><rect x="142" y="146.5" width="13" height="6" rx="1.5"/>
+            </g>
             <text x="14" y="168" font-family="ui-monospace,monospace" font-size="13" fill="var(--amber)" font-weight="bold">70</text>
             <text x="42" y="168" font-family="'Noto Sans CJK JP','Noto Sans JP',sans-serif" font-size="10.5" fill="var(--ink-2)">の期限を、それぞれ別の日付で管理する</text>
           </svg>
@@ -451,24 +483,5 @@ a:focus-visible, .btn:focus-visible, .linkbtn:focus-visible{ outline:2px solid v
     </div>
   </div>
 </main>
-
-<script>
-(function(){
-  var g = document.getElementById('grid');
-  if(!g) return;
-  var svgns = 'http://www.w3.org/2000/svg';
-  for(var r=0; r<10; r++){
-    for(var c=0; c<7; c++){
-      var rect = document.createElementNS(svgns,'rect');
-      rect.setAttribute('x', 40 + c*17);
-      rect.setAttribute('y', 70 + r*8.5);
-      rect.setAttribute('width', 13);
-      rect.setAttribute('height', 6);
-      rect.setAttribute('rx', 1.5);
-      g.appendChild(rect);
-    }
-  }
-})();
-</script>
 </body>
 </html>

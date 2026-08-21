@@ -54,10 +54,22 @@ a{ color:var(--green); }
 .crumb{ font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; color:var(--ink-3); }
 
 .hero{ background:var(--surface); border-bottom:1px solid var(--line-2); padding:48px 0 40px; }
-.kicker{ font-family:var(--mono); font-size:10.5px; letter-spacing:.16em; color:var(--ink-3); margin:0 0 20px; }
-.hero h1{ font-size:35px; line-height:1.46; font-weight:800; letter-spacing:-.01em; margin:0 0 22px; max-width:16em; }
-.hero__lead{ font-size:16px; color:var(--ink-2); max-width:33em; margin:0 0 26px; }
-.meta{ font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; color:var(--ink-3); }
+.cover{
+  border-bottom:2px solid var(--green); padding-bottom:14px; margin:0 0 24px;
+  display:flex; justify-content:space-between; align-items:baseline; gap:14px; flex-wrap:wrap;
+}
+.cover .title{ font-size:13px; letter-spacing:.08em; color:var(--green); font-weight:700; margin:0; font-family:var(--mono); }
+.meta{ font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; color:var(--ink-3); margin:0; display:flex; gap:14px; flex-wrap:wrap; }
+.hero h1{ font-size:35px; line-height:1.46; font-weight:800; letter-spacing:-.01em; margin:0 0 18px; max-width:16em; }
+.hero__lead{ font-size:16px; color:var(--ink-2); max-width:33em; margin:0 0 22px; }
+
+.cite{
+  display:inline-block; margin:0 0 1.2em;
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.1em;
+  color:var(--red); border:1px solid var(--red); padding:5px 10px 4px;
+  text-decoration:none;
+}
+.cite:hover{ background:rgba(179,49,44,.06); }
 
 /* いつ分かるか一覧 */
 .when{ max-width:640px; border:1px solid var(--line-2); background:var(--surface); }
@@ -74,8 +86,9 @@ a{ color:var(--green); }
 
 .body{ padding:50px 0 0; }
 .sec{ padding:0 0 6px; }
-.sec + .sec{ padding-top:44px; }
+.sec + .sec{ padding-top:56px; }
 .sec h2{ font-size:25px; line-height:1.54; font-weight:800; letter-spacing:-.005em; margin:0 0 20px; max-width:20em; }
+.sec + .sec h2{ padding-top:16px; border-top:2px solid var(--green); }
 .sec h3{ font-size:16px; font-weight:700; margin:28px 0 8px; }
 .lede{ font-size:17px; }
 .hl{ background:linear-gradient(transparent 62%, rgba(30,107,60,.22) 62%); font-weight:700; }
@@ -96,10 +109,10 @@ a{ color:var(--green); }
 .plain{ margin:0 0 1.6em; padding-left:1.2em; max-width:615px; }
 .plain li{ margin-bottom:9px; }
 
-.figure{ background:var(--surface); border:1px solid var(--line-2); padding:20px 18px 15px; margin:0 0 2.5em; max-width:900px; width:min(900px, calc(100vw - 40px)); }
+.figure{ background:transparent; border:0; padding:0; margin:0 0 2.5em; max-width:900px; width:min(900px, calc(100vw - 40px)); }
 .figure svg{ display:block; width:100%; height:auto; }
-.figure__t{ font-family:var(--mono); font-size:10px; letter-spacing:.14em; color:var(--green); font-weight:700; margin:0 0 14px; }
-.figure figcaption{ font-size:12.5px; line-height:1.85; color:var(--ink-2); margin:13px 0 0; }
+.figure__t{ font-family:var(--mono); font-size:10px; letter-spacing:.14em; color:var(--green); font-weight:700; margin:0 0 10px; }
+.figure figcaption{ font-size:12.5px; line-height:1.85; color:var(--ink-2); margin:12px 0 0; padding-top:10px; border-top:1px solid var(--line); }
 
 .linkbtn{ display:inline-block; background:var(--green); color:#fff; text-decoration:none; font-weight:700; font-size:15px; padding:15px 30px; border-radius:2px; }
 .linkbtn:hover{ background:var(--green-d); }
@@ -125,7 +138,6 @@ a{ color:var(--green); }
   .sec h2{ font-size:20px; }
   .law{ padding:17px 15px 15px; }
   .law table{ font-size:13px; }
-  .figure{ padding:16px 12px 12px; }
   .figure figcaption{ font-size:12px; }
   .linkbtn{ display:block; text-align:center; padding:16px 18px; }
   .foot__in{ padding:0 18px; }
@@ -145,12 +157,17 @@ a:focus-visible, .linkbtn:focus-visible{ outline:2px solid var(--red); outline-o
 <section class="hero">
   <div class="wrap">
     <div class="col">
-      <p class="kicker">運送・物流　改善基準告示の管理</p>
+      <div class="cover">
+        <p class="title">運送・物流　改善基準告示の管理</p>
+        <p class="meta">
+          <span>読むのに 9分</span>
+          <span>2026.08 ／ 法令の確認 2026.08</span>
+        </p>
+      </div>
       <h1>守れているかが分かる時期は、基準ごとに違います。</h1>
       <p class="hero__lead">
         改善基準告示には、その場で分かるものと、月末になるまで分からないものが混ざっています。遅いものほど、気づいたときには手が打てません。
       </p>
-      <p class="meta">2026.08　／　法令の確認 2026.08　／　読むのに 9分</p>
     </div>
 
     <div class="when">
@@ -206,6 +223,9 @@ a:focus-visible, .linkbtn:focus-visible{ outline:2px solid var(--red); outline-o
           </table>
           <p>2022年12月に改正されましたが、自動車運転の業務には5年の猶予が置かれたため、適用は2024年4月1日からになりました。</p>
         </div>
+        <p>
+          <a class="cite" href="https://www.miyatokyo.or.jp/wp/wp-content/themes/blankslate/2024/pdf/2024_leaflet02.pdf" target="_blank" rel="noopener noreferrer">出典　改善基準告示　2024年4月適用</a>
+        </p>
 
         <p>
           休息期間が8時間から11時間を基本に変わったこと、1年の拘束時間が3,516時間から3,300時間になったこと。この二つが大きい変更です。

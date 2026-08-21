@@ -56,11 +56,23 @@ a{ color:var(--steel); }
 .hero{ background:var(--surface); border-bottom:3px solid var(--steel); padding:50px 0 40px; }
 .docline{
   display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;
-  font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; color:var(--ink-3);
-  border-bottom:1px solid var(--rail-2); padding-bottom:12px; margin-bottom:28px;
+  font-family:var(--mono); font-size:11px; letter-spacing:.1em; color:var(--ink-3);
+  border-bottom:2px solid var(--steel); padding-bottom:14px; margin-bottom:26px;
+  align-items:baseline;
 }
-.hero h1{ font-size:38px; line-height:1.38; font-weight:800; letter-spacing:-.01em; margin:0 0 22px; max-width:15em; }
-.hero p{ font-size:16px; color:var(--ink-2); max-width:33em; margin:0; }
+.docline .title{ font-size:13px; letter-spacing:.08em; color:var(--steel); font-weight:700; }
+.hero h1{ font-size:38px; line-height:1.38; font-weight:800; letter-spacing:-.01em; margin:0 0 18px; max-width:15em; }
+.hero__lead{ font-size:16px; color:var(--ink-2); max-width:33em; margin:0 0 24px; }
+.hero .layer{ margin:0; }
+.hero__cap{ font-size:12.5px; line-height:1.85; color:var(--ink-2); margin:12px 0 0; }
+
+.cite{
+  display:inline-block; margin:0 0 1.2em;
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.1em;
+  color:var(--amber); border:1px solid var(--amber); padding:5px 10px 4px;
+  text-decoration:none;
+}
+.cite:hover{ background:rgba(181,130,10,.08); }
 
 .body{ padding:0 0 10px; }
 .sec{ position:relative; padding:44px 0 0 76px; }
@@ -126,10 +138,10 @@ a{ color:var(--steel); }
 .demo__h3{ font-size:17px; font-weight:800; margin:34px 0 10px; }
 
 /* 図 */
-.figure{ background:var(--surface); border:1px solid var(--rail); padding:20px 18px 15px; margin:0 0 2.5em; max-width:900px; width:min(900px, calc(100vw - 40px)); }
+.figure{ background:transparent; border:0; padding:0; margin:0 0 2.5em; max-width:900px; width:min(900px, calc(100vw - 40px)); }
 .figure svg{ display:block; width:100%; height:auto; }
-.figure__t{ font-family:var(--mono); font-size:10px; letter-spacing:.14em; color:var(--amber); font-weight:700; margin:0 0 14px; }
-.figure figcaption{ font-size:12.5px; line-height:1.85; color:var(--ink-2); margin:13px 0 0; }
+.figure__t{ font-family:var(--mono); font-size:10px; letter-spacing:.14em; color:var(--amber); font-weight:700; margin:0 0 10px; }
+.figure figcaption{ font-size:12.5px; line-height:1.85; color:var(--ink-2); margin:12px 0 0; padding-top:10px; border-top:1px solid var(--rail-2); }
 
 /* デモ：機械の注意表示 */
 .demo{
@@ -174,7 +186,6 @@ a{ color:var(--steel); }
   .say p{ font-size:15px; }
   .split div{ padding:14px 14px 12px; }
   .demo__h3{ font-size:16px; }
-  .figure{ padding:16px 12px 12px; }
   .figure figcaption{ font-size:12px; }
   .warn{ padding:17px 16px 15px; }
   .demo{ margin:48px 0 8px; }
@@ -199,14 +210,32 @@ a:focus-visible, .btn:focus-visible, .linkbtn:focus-visible{ outline:2px solid v
 <section class="hero">
   <div class="wrap">
     <div class="docline">
-      <span>製造業　技能の伝え方</span>
+      <span class="title">製造業　技能の伝え方</span>
       <span>読むのに 9分</span>
       <span>2026.08</span>
     </div>
     <h1>ベテランの手順を、聞き取って書き残す方法。</h1>
-    <p>
+    <p class="hero__lead">
       手順書はある。それでも、読んだだけでは新人が作れない。足りないのは文章量ではありません。書かれていないものが決まっています。
     </p>
+    <div class="layer">
+      <div>
+        <span class="tag">紙にある</span>
+        <b>主なステップ</b>
+        <span>何をするか。「材料を治具にセットする」</span>
+      </div>
+      <div class="is-hidden">
+        <span class="tag">頭の中</span>
+        <b>急所</b>
+        <span>そのステップを成り立たせている勘やコツ。「奥まで押し込まず、指一本分あけて止める」</span>
+      </div>
+      <div class="is-hidden">
+        <span class="tag">頭の中</span>
+        <b>急所の理由</b>
+        <span>なぜそれが急所なのか。「奥まで入れると熱で膨らんだときに逃げ場がなくなる」</span>
+      </div>
+    </div>
+    <p class="hero__cap">紙にあるのは一番上だけです。下の二つが急所です。下で順に説明します。</p>
   </div>
 </section>
 
@@ -234,27 +263,11 @@ a:focus-visible, .btn:focus-visible, .linkbtn:focus-visible{ outline:2px solid v
       <div class="col">
         <h2>一行の下に、書かれていない二つの層がある</h2>
         <p>
-          作業を書き残すときは、三つに分けます。もともとは戦後から使われている作業分解のやり方で、いまも教育の現場で使われています。
+          作業を書き残すときは、上の三層に分けます。もともとは戦後から使われている作業分解のやり方で、いまも教育の現場で使われています。
         </p>
-
-        <div class="layer">
-          <div>
-            <span class="tag">紙にある</span>
-            <b>主なステップ</b>
-            <span>何をするか。「材料を治具にセットする」</span>
-          </div>
-          <div class="is-hidden">
-            <span class="tag">頭の中</span>
-            <b>急所</b>
-            <span>そのステップを成り立たせている勘やコツ。「奥まで押し込まず、指一本分あけて止める」</span>
-          </div>
-          <div class="is-hidden">
-            <span class="tag">頭の中</span>
-            <b>急所の理由</b>
-            <span>なぜそれが急所なのか。「奥まで入れると熱で膨らんだときに逃げ場がなくなる」</span>
-          </div>
-        </div>
-
+        <p>
+          <a class="cite" href="https://monozukuri-japan.seesaa.net/article/503875034.html" target="_blank" rel="noopener noreferrer">出典　TWI　作業分解と急所</a>
+        </p>
         <p>
           いまの手順書に書かれているのは、たいてい一番上だけです。下の二つは、人の頭の中にしかありません。だから読んでも作れない。
         </p>

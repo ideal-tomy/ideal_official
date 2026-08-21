@@ -45,9 +45,22 @@ a{ color:var(--enji); }
 .crumb{ font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; color:var(--ink-3); }
 
 .hero{ background:var(--surface); border-bottom:1px solid var(--line-2); padding:50px 0 42px; }
-.kicker{ font-family:var(--mono); font-size:10.5px; letter-spacing:.18em; color:var(--ink-3); margin:0 0 22px; }
-.hero h1{ font-size:36px; line-height:1.46; font-weight:800; letter-spacing:-.005em; margin:0 0 22px; max-width:15em; }
-.hero__lead{ font-size:16px; color:var(--ink-2); max-width:33em; margin:0 0 34px; }
+.cover{
+  border-bottom:2px solid var(--enji); padding-bottom:14px; margin:0 0 22px;
+  display:flex; justify-content:space-between; align-items:baseline; gap:14px; flex-wrap:wrap;
+}
+.cover .title{ font-size:13px; letter-spacing:.08em; color:var(--enji); font-weight:700; margin:0; font-family:var(--mono); }
+.meta{ font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; color:var(--ink-3); margin:0; display:flex; gap:12px; flex-wrap:wrap; }
+.hero h1{ font-size:36px; line-height:1.46; font-weight:800; letter-spacing:-.005em; margin:0 0 18px; max-width:15em; }
+.hero__lead{ font-size:16px; color:var(--ink-2); max-width:33em; margin:0 0 28px; }
+
+.cite{
+  display:inline-block; margin:0 0 1.2em;
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.1em;
+  color:var(--enji); border:1px solid var(--enji); padding:5px 10px 4px;
+  text-decoration:none;
+}
+.cite:hover{ background:rgba(140,47,57,.08); }
 
 /* シフト表 */
 .sheet{ max-width:610px; }
@@ -86,6 +99,11 @@ td.is-fix small{ color:var(--enji); }
   padding:15px 18px 13px; font-size:16px; line-height:1.85;
 }
 .case__v b{ display:block; font-family:var(--mono); font-size:9.5px; letter-spacing:.14em; color:var(--enji); margin-bottom:6px; }
+.map{ max-width:610px; margin:0 0 1.4em; }
+.map div{ background:var(--surface); border:1px solid var(--line); border-left:4px solid var(--ink-3); padding:13px 16px 11px; margin-bottom:8px; }
+.map div.is-key{ border-left-color:var(--enji); border-left-width:6px; padding:16px 16px 14px; }
+.map b{ display:block; font-size:15.5px; }
+.map span{ font-size:14px; color:var(--ink-2); line-height:1.8; }
 
 /* 決めておく四つ */
 .four{ max-width:610px; margin:0 0 1.7em; padding:0; list-style:none; counter-reset:n; }
@@ -108,15 +126,15 @@ td.is-fix small{ color:var(--enji); }
 .plain li{ margin-bottom:9px; }
 
 /* 図 */
-.figure{ background:var(--surface); border:1px solid var(--line-2); padding:20px 18px 15px; margin:0 0 2.5em; max-width:900px; width:min(900px, calc(100vw - 40px)); }
+.figure{ background:transparent; border:0; padding:0; margin:0 0 2.5em; max-width:900px; width:min(900px, calc(100vw - 40px)); }
 .figure svg{ display:block; width:100%; height:auto; }
-.figure__t{ font-family:var(--mono); font-size:10px; letter-spacing:.14em; color:var(--enji); font-weight:700; margin:0 0 14px; }
-.figure figcaption{ font-size:12.5px; line-height:1.85; color:var(--ink-2); margin:13px 0 0; }
+.figure__t{ font-family:var(--mono); font-size:10px; letter-spacing:.14em; color:var(--enji); font-weight:700; margin:0 0 10px; }
+.figure figcaption{ font-size:12.5px; line-height:1.85; color:var(--ink-2); margin:12px 0 0; padding-top:10px; border-top:1px solid var(--line); }
 
 .demo{ background:var(--enji); color:#fff; margin:60px 0; padding:48px 0 46px; }
 .demo__in{ max-width:880px; margin:0 auto; padding:0 22px; }
 .demo__box{ max-width:610px; }
-.demo .kicker{ color:#e9b9be; margin-bottom:14px; }
+.demo .kicker{ font-family:var(--mono); font-size:10.5px; letter-spacing:.18em; color:#e9b9be; margin:0 0 14px; }
 .demo h2{ font-size:26px; line-height:1.5; font-weight:800; margin:0 0 16px; color:#fff; border:0; padding:0; }
 .demo p{ color:#f0dcde; font-size:15px; }
 .btn{ display:inline-block; background:#fff; color:var(--enji-d); font-weight:700; font-size:15px; text-decoration:none; padding:15px 30px; border-radius:2px; }
@@ -152,7 +170,7 @@ td.is-fix small{ color:var(--enji); }
   .case__v{ font-size:15px; }
   .four b{ font-size:15.5px; }
   .law{ padding:17px 16px 15px; }
-  .figure{ padding:16px 12px 12px; }
+  .figure figcaption{ font-size:12px; }
   .figure figcaption{ font-size:12px; }
   .demo{ margin:46px 0; padding:36px 0 36px; }
   .demo__in{ padding:0 18px; }
@@ -177,7 +195,13 @@ a:focus-visible, .btn:focus-visible, .linkbtn:focus-visible{ outline:2px solid v
 <section class="hero">
   <div class="wrap">
     <div class="col">
-      <p class="kicker">飲食店　シフトの決め方　／　2026.08　／　法令の確認 2026.08　／　読むのに 8分</p>
+      <div class="cover">
+        <p class="title">飲食店　シフトの決め方</p>
+        <p class="meta">
+          <span>読むのに 8分</span>
+          <span>2026.08 ／ 法令の確認 2026.08</span>
+        </p>
+      </div>
       <h1>シフトでもめないために、先に決めておく四つのこと。</h1>
       <p class="hero__lead">
         シフトでもめるのは、組み方が下手だからではありません。決めていないことがあるからです。厚生労働省が出している留意事項をふまえて、先に決めておくことをまとめました。
@@ -236,31 +260,26 @@ a:focus-visible, .btn:focus-visible, .linkbtn:focus-visible{ outline:2px solid v
           シフトでもめたことのない店は、ほとんどないと思います。ただ、その原因はたいてい同じで、店長の組み方が下手だからではありません。
         </p>
         <p>
-          よくあるのは、この三つです。順に、何を決めていなかったせいで起きるのかを見ていきます。
+          よくあるのは、この三つです。どれも「決めていなかったこと」から起きます。いちばん件数が多いのは②で、法令の話もここにあります。
         </p>
-      </section>
-
-      <section class="sec">
-        <h2>もめごと①　シフトを減らされた</h2>
-        <div class="case">
-          <div class="case__v">
-            <b>スタッフの言い分</b>
-            「先月は週四日入っていたのに、今月は二日しかない。生活できません」
+        <div class="map">
+          <div>
+            <b>① シフトを減らされた</b>
+            <span>閑散期に日数を減らしただけでも、スタッフは前月と同じと見て生活を組んでいます。最低どれくらい入れるかの考え方を、先に伝えておく必要があります。会社の都合で労働日をほとんど設定しないとトラブルになりやすい、と厚労省の留意事項にもあります。</span>
+          </div>
+          <div class="is-key">
+            <b>② 聞いていた時間と違う</b>
+            <span>面接では夕方までと言われたのに、閉めまで入っている。労働条件通知書に「シフトによる」とだけ書いてある店で起きやすい。下で詳しく書きます。</span>
+          </div>
+          <div>
+            <b>③ 休みの希望が通らない</b>
+            <span>休めなかったことより、基準が分からないことに納得できません。先着か、前回落ちた人を優先するか。決まっていて、伝えてあることが大事です。</span>
           </div>
         </div>
-        <p>
-          店側からすると、暇な時期なので減らしただけです。悪意はありません。ただ、スタッフは前月と同じくらい入れると思って生活の計画を立てています。
-        </p>
-        <p>
-          厚生労働省の留意事項にも、<b>会社の都合で労働日をほとんど設定しない、あるいは本人の希望を超える日数を設定すると、トラブルになりやすい</b>と書かれています。
-        </p>
-        <p>
-          決めていなかったのは、<b>最低どれくらい入れるかの考え方</b>です。「月に何日以上」でなくても構いません。「繁忙期と閑散期で日数が変わること」を先に伝えているかどうかで、受け取り方が変わります。
-        </p>
       </section>
 
       <section class="sec">
-        <h2>もめごと②　聞いていた時間と違う</h2>
+        <h2>いちばん消えるのは「聞いていた時間と違う」です</h2>
         <div class="case">
           <div class="case__v">
             <b>スタッフの言い分</b>
@@ -284,28 +303,12 @@ a:focus-visible, .btn:focus-visible, .linkbtn:focus-visible{ outline:2px solid v
             実務としては後者が現実的です。「始業は6:00〜10:00、終業は20:00〜23:00の範囲」のように幅で書いておいて、具体的な時間はシフト表で伝える形になります。
           </p>
         </div>
+        <p>
+          <a class="cite" href="https://www.mhlw.go.jp/content/11200000/001713615.pdf" target="_blank" rel="noopener noreferrer">出典　厚労省　シフト制の留意事項</a>
+        </p>
 
         <p>
           幅で書いておけば、閉めまでの日があることは契約の時点で伝わっています。もめごとの半分は、これで消えます。
-        </p>
-      </section>
-
-      <section class="sec">
-        <h2>もめごと③　休みの希望が通らない</h2>
-        <div class="case">
-          <div class="case__v">
-            <b>スタッフの言い分</b>
-            「同じ日に希望を出したのに、あの人は通って自分は通らなかった」
-          </div>
-        </div>
-        <p>
-          これがいちばん根に残ります。休めなかったこと自体より、<b>基準が分からないこと</b>に納得できないからです。
-        </p>
-        <p>
-          留意事項では、具体的な曜日が決まっていない場合でも、<b>休日の決め方の考え方を示す必要がある</b>とされています。法令の話としてだけでなく、店の中でも効きます。
-        </p>
-        <p>
-          先着順なのか、前回通らなかった人を優先するのか、勤続の長さで決めるのか。どれでも構いません。決まっていて、伝えてあることが大事です。
         </p>
       </section>
 

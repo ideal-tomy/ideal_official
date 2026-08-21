@@ -54,14 +54,26 @@ a{ color:var(--brown); }
 .crumb{ font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; color:#d9c9b3; }
 
 .hero{ background:var(--surface); border-bottom:1px solid var(--line-2); padding:48px 0 40px; }
+.cover{
+  border-bottom:1px solid var(--line-2); padding-bottom:14px; margin:0 0 24px;
+  display:flex; justify-content:space-between; align-items:baseline; gap:14px; flex-wrap:wrap;
+}
 .tagcode{
   display:inline-block; background:var(--ink); color:#fff;
-  font-family:var(--mono); font-size:10px; letter-spacing:.14em;
-  padding:4px 10px; margin:0 0 22px;
+  font-family:var(--mono); font-size:11px; letter-spacing:.12em;
+  padding:5px 11px; margin:0; font-weight:700;
 }
-.hero h1{ font-size:36px; line-height:1.44; font-weight:800; letter-spacing:-.01em; margin:0 0 22px; max-width:16em; }
-.hero__lead{ font-size:16px; color:var(--ink-2); max-width:33em; margin:0 0 26px; }
-.meta{ font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; color:var(--ink-3); }
+.meta{ font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; color:var(--ink-3); margin:0; display:flex; gap:12px; flex-wrap:wrap; }
+.hero h1{ font-size:36px; line-height:1.44; font-weight:800; letter-spacing:-.01em; margin:0 0 18px; max-width:16em; }
+.hero__lead{ font-size:16px; color:var(--ink-2); max-width:33em; margin:0 0 22px; }
+
+.cite{
+  display:inline-block; margin:0 0 1.2em;
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.1em;
+  color:var(--red); border:1px solid var(--red); padding:5px 10px 4px;
+  text-decoration:none;
+}
+.cite:hover{ background:rgba(162,54,31,.08); }
 
 /* 差異の伝票 */
 .slip{ max-width:600px; border:1px solid var(--line-2); background:var(--surface); }
@@ -76,9 +88,10 @@ a{ color:var(--brown); }
 
 .body{ padding:50px 0 0; }
 .sec{ padding:0 0 6px; }
-.sec + .sec{ padding-top:44px; }
+.sec + .sec{ padding-top:56px; }
 .loc{ font-family:var(--mono); font-size:10px; letter-spacing:.14em; color:var(--red); margin:0 0 8px; font-weight:700; }
 .sec h2{ font-size:25px; line-height:1.54; font-weight:800; letter-spacing:-.005em; margin:0 0 20px; max-width:20em; }
+.sec + .sec h2{ padding-top:16px; border-top:2px solid var(--red); }
 .sec h3{ font-size:16px; font-weight:700; margin:28px 0 8px; }
 .lede{ font-size:17px; }
 .hl{ background:linear-gradient(transparent 62%, rgba(162,54,31,.2) 62%); font-weight:700; }
@@ -113,10 +126,10 @@ a{ color:var(--brown); }
 .plain{ margin:0 0 1.6em; padding-left:1.2em; max-width:615px; }
 .plain li{ margin-bottom:9px; }
 
-.figure{ background:var(--surface); border:1px solid var(--line-2); padding:20px 18px 15px; margin:0 0 2.5em; max-width:900px; width:min(900px, calc(100vw - 40px)); }
+.figure{ background:transparent; border:0; padding:0; margin:0 0 2.5em; max-width:900px; width:min(900px, calc(100vw - 40px)); }
 .figure svg{ display:block; width:100%; height:auto; }
-.figure__t{ font-family:var(--mono); font-size:10px; letter-spacing:.14em; color:var(--red); font-weight:700; margin:0 0 14px; }
-.figure figcaption{ font-size:12.5px; line-height:1.85; color:var(--ink-2); margin:13px 0 0; }
+.figure__t{ font-family:var(--mono); font-size:10px; letter-spacing:.14em; color:var(--red); font-weight:700; margin:0 0 10px; }
+.figure figcaption{ font-size:12.5px; line-height:1.85; color:var(--ink-2); margin:12px 0 0; padding-top:10px; border-top:1px solid var(--line); }
 
 .linkbtn{ display:inline-block; background:var(--ink); color:#fff; text-decoration:none; font-weight:700; font-size:15px; padding:15px 30px; border-radius:2px; }
 .linkbtn:hover{ background:#17130f; }
@@ -140,7 +153,6 @@ a{ color:var(--brown); }
   .slip__n{ font-size:32px; }
   .sec h2{ font-size:20px; }
   .law{ padding:17px 15px 15px; }
-  .figure{ padding:16px 12px 12px; }
   .figure figcaption{ font-size:12px; }
   .linkbtn{ display:block; text-align:center; padding:16px 18px; }
   .foot__in{ padding:0 18px; }
@@ -160,12 +172,17 @@ a:focus-visible, .linkbtn:focus-visible{ outline:2px solid var(--red); outline-o
 <section class="hero">
   <div class="wrap">
     <div class="col">
-      <p class="tagcode">倉庫　在庫差異の見方</p>
+      <div class="cover">
+        <p class="tagcode">倉庫　在庫差異の見方</p>
+        <p class="meta">
+          <span>読むのに 9分</span>
+          <span>2026.08 ／ 法令の確認 2026.08</span>
+        </p>
+      </div>
       <h1>数が合わないのは、数え間違いではありません。</h1>
       <p class="hero__lead">
         棚卸で差異が出たとき、たいてい「もう一度数えて」で終わります。ただ、差異には原因が四つあり、原因ごとに直し方が違います。分けないまま数を合わせると、同じ差異が来月も出ます。
       </p>
-      <p class="meta">2026.08　／　法令の確認 2026.08　／　読むのに 9分</p>
     </div>
 
     <div class="slip">
@@ -199,7 +216,7 @@ a:focus-visible, .linkbtn:focus-visible{ outline:2px solid var(--red); outline-o
       </section>
 
       <section class="sec">
-        <p class="loc">CAUSE</p>
+        <p class="loc">原因</p>
         <h2>差異の原因は、四つに分かれます</h2>
 
         <div class="cause">
@@ -261,7 +278,7 @@ a:focus-visible, .linkbtn:focus-visible{ outline:2px solid var(--red); outline-o
       </section>
 
       <section class="sec">
-        <p class="loc">METHOD</p>
+        <p class="loc">手順</p>
         <h2>差異を見つけたら、数を合わせる前にやること</h2>
         <p>
           原因を特定する手順は決まっています。難しくありません。
@@ -326,7 +343,7 @@ a:focus-visible, .linkbtn:focus-visible{ outline:2px solid var(--red); outline-o
       </section>
 
       <section class="sec">
-        <p class="loc">RULE</p>
+        <p class="loc">法令</p>
         <h2>在庫の管理は、誰の仕事として決まっているか</h2>
         <p>
           営業倉庫の場合は、法令で担当が決まっています。
@@ -348,6 +365,9 @@ a:focus-visible, .linkbtn:focus-visible{ outline:2px solid var(--red); outline-o
             選任の要件は、倉庫管理業務に3年以上、または指導監督の立場で2年以上の実務経験。実務経験がない場合は、国土交通大臣の定める講習を修了することで要件を満たせます。試験はありません。
           </p>
         </div>
+        <p>
+          <a class="cite" href="https://www.nissokyo.or.jp/seminar_info/" target="_blank" rel="noopener noreferrer">出典　倉庫業法　倉庫管理主任者</a>
+        </p>
 
         <p>
           法令で決まっているから、という話をしたいわけではありません。<b>差異の原因を追う仕事を、誰の職務として置いているか</b>が大事です。ここが決まっていないと、差異は「みんなの問題」になって、結局誰も追いません。
@@ -355,7 +375,7 @@ a:focus-visible, .linkbtn:focus-visible{ outline:2px solid var(--red); outline-o
       </section>
 
       <section class="sec">
-        <p class="loc">COST</p>
+        <p class="loc">費用</p>
         <h2>差異は、決算に出てきます</h2>
         <p>
           差異の話を管理コストとして考えると、優先順位が上がりません。ですが差異は、そもそも損失です。
@@ -384,7 +404,7 @@ a:focus-visible, .linkbtn:focus-visible{ outline:2px solid var(--red); outline-o
       </section>
 
       <section class="sec">
-        <p class="loc">FINAL</p>
+        <p class="loc">締め</p>
         <h2>差異を責めると、差異が見えなくなります</h2>
         <p>
           最後に、いちばん大事なことを書きます。

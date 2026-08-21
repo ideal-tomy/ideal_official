@@ -13,9 +13,9 @@ export const serviceNavLinks: ServiceLinkData[] = [
 export const headerFooterServiceLinks: { href: string; label: string }[] = [
   { href: '/services#overview-consult', label: '相談・設計' },
   { href: '/services#build', label: '製作' },
-  { href: '/services#web', label: 'Webサイト・LP制作' },
-  { href: '/services#ai', label: 'AIプロトタイプ・自動化' },
-  { href: '/services#app', label: 'Webアプリ・業務ツール開発' },
+  { href: '/services#web', label: 'Webサイト・LP' },
+  { href: '/services#ai', label: 'AI開発' },
+  { href: '/services#app', label: 'アプリ開発' },
 ]
 
 /** Footer LAB 欄など、研究・深掘り系リンク */

@@ -62,12 +62,43 @@ a{ color:var(--navy); }
     repeating-linear-gradient(to bottom, var(--rule-2) 0 1px, transparent 1px 40px),
     var(--surface);
   border-bottom:1px solid var(--rule);
-  padding:60px 0 48px;
+  padding:56px 0 44px;
 }
-.eyebrow{ font-family:var(--mono); font-size:11px; letter-spacing:.18em; color:var(--shu); margin:0 0 20px; }
-.hero h1{ font-family:var(--mincho); font-size:37px; line-height:1.46; font-weight:600; margin:0 0 24px; max-width:16em; }
+.cover{
+  border-bottom:1px solid var(--rule); padding-bottom:18px; margin:0 0 28px;
+  display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap;
+}
+.eyebrow{
+  font-family:var(--mincho); font-size:15px; letter-spacing:.12em; color:var(--shu);
+  font-weight:600; margin:0;
+}
+.meta{ font-family:var(--mono); font-size:11px; letter-spacing:.08em; color:var(--ink-3); display:flex; gap:16px; flex-wrap:wrap; margin:0; }
+.hero h1{ font-family:var(--mincho); font-size:37px; line-height:1.46; font-weight:600; margin:0 0 20px; max-width:16em; }
 .hero__lead{ font-size:16px; color:var(--ink-2); max-width:34em; margin:0 0 28px; }
-.meta{ font-family:var(--mono); font-size:11px; letter-spacing:.08em; color:var(--ink-3); display:flex; gap:18px; flex-wrap:wrap; }
+
+/* 着工前の撮影箇所一覧（紙一枚） */
+.shotlist{ max-width:620px; background:var(--surface); border:1px solid var(--rule); }
+.shotlist__hd{
+  display:flex; justify-content:space-between; align-items:baseline; gap:12px;
+  padding:10px 14px; border-bottom:1px solid var(--rule);
+  font-family:var(--mono); font-size:11px; letter-spacing:.1em; color:var(--ink-3);
+}
+.shotlist__hd b{ color:var(--navy); font-weight:700; letter-spacing:.06em; }
+.shotlist table{ width:100%; border-collapse:collapse; font-size:13.5px; }
+.shotlist th, .shotlist td{ padding:11px 14px; border-bottom:1px solid var(--rule-2); text-align:left; vertical-align:top; line-height:1.55; }
+.shotlist th{ font-family:var(--mono); font-size:10.5px; letter-spacing:.08em; color:var(--ink-3); font-weight:700; background:#f7f8f7; }
+.shotlist tr:last-child td{ border-bottom:0; }
+.shotlist td.freq{ font-family:var(--mono); font-size:12.5px; white-space:nowrap; color:var(--ink-2); }
+.shotlist tr.is-open td.freq{ color:var(--shu); font-weight:700; }
+.shotlist__cap{ font-size:12.5px; line-height:1.85; color:var(--ink-2); margin:12px 0 0; }
+
+.cite{
+  display:inline-block; margin:0 0 1.2em;
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.1em;
+  color:var(--shu); border:1px solid var(--shu); padding:5px 10px 4px;
+  text-decoration:none;
+}
+.cite:hover{ background:rgba(191,59,38,.06); }
 
 .body{ padding:52px 0 0; }
 .sec{ padding:0 0 8px; }
@@ -95,10 +126,10 @@ a{ color:var(--navy); }
 .warn p{ font-size:14.5px; line-height:1.85; margin:0 0 .9em; }
 .warn p:last-child{ margin:0; }
 
-.figure{ background:var(--surface); border:1px solid var(--rule); padding:20px 18px 15px; margin:0 0 2.5em; max-width:900px; width:min(900px, calc(100vw - 40px)); }
+.figure{ background:transparent; border:0; padding:0; margin:0 0 2.5em; max-width:900px; width:min(900px, calc(100vw - 40px)); }
 .figure svg{ display:block; width:100%; height:auto; }
-.figure__t{ font-family:var(--mono); font-size:10px; letter-spacing:.14em; color:var(--shu); font-weight:700; margin:0 0 14px; }
-.figure figcaption{ font-size:12.5px; line-height:1.85; color:var(--ink-2); margin:13px 0 0; }
+.figure__t{ font-family:var(--mono); font-size:10px; letter-spacing:.14em; color:var(--shu); font-weight:700; margin:0 0 10px; }
+.figure figcaption{ font-size:12.5px; line-height:1.85; color:var(--ink-2); margin:12px 0 0; padding-top:10px; border-top:1px solid var(--rule-2); }
 
 .effect div.is-key{ border-top:2px solid var(--shu); padding-top:17px; }
 .effect div.is-key b{ color:var(--shu); font-weight:700; }
@@ -110,7 +141,10 @@ a{ color:var(--navy); }
 .band{ background:var(--navy); color:#fff; margin:56px 0; padding:48px 0 46px; }
 .band__in{ max-width:940px; margin:0 auto; padding:0 22px; }
 .band__box{ max-width:620px; }
-.band .eyebrow{ color:#8fb3e6; }
+.band .eyebrow{
+  font-family:var(--mono); font-size:11px; letter-spacing:.18em; color:#8fb3e6;
+  font-weight:400; margin:0 0 20px;
+}
 .band h2{ font-family:var(--mincho); font-size:27px; line-height:1.5; font-weight:600; margin:0 0 18px; color:#fff; }
 .band p{ color:#d3ddec; font-size:15px; }
 .btn{ display:inline-block; background:#fff; color:var(--navy-ink); font-weight:700; font-size:15px; text-decoration:none; padding:15px 30px; border-radius:2px; }
@@ -160,7 +194,9 @@ a{ color:var(--navy); }
   .band__in{ padding:0 18px; }
   .band h2{ font-size:21px; }
   .warn{ padding:17px 16px 15px; }
-  .figure{ padding:16px 12px 12px; }
+  .cover{ margin-bottom:22px; padding-bottom:14px; }
+  .eyebrow{ font-size:13.5px; }
+  .shotlist th, .shotlist td{ padding:9px 10px; }
   .figure figcaption{ font-size:12px; }
   .effect div{ display:block; }
   .effect div.is-key span{ font-size:16px; }
@@ -188,14 +224,35 @@ a:focus-visible, .btn:focus-visible, .linkbtn:focus-visible{ outline:2px solid v
 <section class="hero">
   <div class="wrap">
     <div class="col">
-      <p class="eyebrow">建設業　工事写真の実務</p>
+      <div class="cover">
+        <p class="eyebrow">建設業　工事写真の実務</p>
+        <p class="meta">
+          <span>読むのに 10分</span>
+          <span>2026.08 ／ 法令の確認 2026.08</span>
+        </p>
+      </div>
       <h1>工事写真の整理が終わらない理由と、その直し方。</h1>
       <p class="hero__lead">
         事務所に戻ってから写真を整理する。この順番のままだと、何を入れても終わりません。撮る前・撮るとき・撮ったあとに分けて、実際のやり方をまとめました。
       </p>
-      <p class="meta">
-        <span>読むのに 10分</span>
-        <span>2026.08 ／ 法令の確認 2026.08</span>
+      <div class="shotlist">
+        <div class="shotlist__hd">
+          <b>撮影箇所一覧（着工前）</b>
+          <span>紙一枚で配る</span>
+        </div>
+        <table>
+          <thead>
+            <tr><th>工種</th><th>頻度</th><th>誰が撮るか</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>鉄筋の組立て</td><td class="freq">各工種ごと</td><td>自社</td></tr>
+            <tr><td>コンクリート打設</td><td class="freq">各工種ごと</td><td>自社</td></tr>
+            <tr class="is-open"><td>出来形（隠れる部分）</td><td class="freq">適宜</td><td>未定</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="shotlist__cap">
+        頻度が「適宜」の行は、会社として決めておかないと現場ごとにぶれます。下で順に説明します。
       </p>
     </div>
   </div>
@@ -257,39 +314,19 @@ a:focus-visible, .btn:focus-visible, .linkbtn:focus-visible{ outline:2px solid v
       <div class="item">
         <h3>撮影箇所と頻度を、着工前に一覧にする</h3>
         <p>
-          写真管理基準には撮影箇所の一覧表があり、工種ごとに撮影の頻度が決まっています。ただ、頻度の欄に「適宜」と書かれている項目があります。
+          上の一覧のような紙です。写真管理基準には撮影箇所の一覧表があり、工種ごとに撮影の頻度が決まっています。ただ、頻度の欄に「適宜」と書かれている項目があります。
         </p>
         <p>
-          この「適宜」は、設計図書の仕様が写真で確認できる必要最小限の箇所と枚数、という意味です。<b>ここを会社として決めておかないと、現場ごと担当者ごとに判断がぶれます。</b>結果として、撮りすぎる現場と、足りずに撮り直す現場が出ます。
+          この「適宜」は、設計図書の仕様が写真で確認できる必要最小限の箇所と枚数、という意味です。<b>ここを会社として決めておかないと、現場ごと担当者ごとに判断がぶれます。</b>結果として、撮りすぎる現場と、足りずに撮り直す現場が出ます。着工前に一覧を作って、現場に配ってください。紙一枚で構いません。
         </p>
         <p>
-          着工前に一覧を作って、現場に配ってください。紙一枚で構いません。
-        </p>
-      </div>
-
-      <div class="item">
-        <h3>誰が撮るかを決める</h3>
-        <p>
-          自社で撮る分と、協力会社に撮ってもらう分を分けます。ここが曖昧なままだと、後から「撮っていると思っていた」が起きます。
-        </p>
-        <p>
-          協力会社に頼む分は、撮り方の見本を一枚渡すだけで精度が変わります。言葉で説明するより早いです。
+          同じ紙で、あと二つだけ決めておきます。<b>誰が撮るか</b>（自社か協力会社か。曖昧だと「撮っていると思っていた」が起きます。協力会社には撮り方の見本を一枚渡す）。<b>納品用と社内用を分ける</b>（公共工事の台帳には改ざん検知がかかり、社内の報告にはかかりません）。
         </p>
         <div class="note">
           <b>よく伺うお話</b>
           「撮ってあると思っていたら、誰も撮っていなかった」<br>
           この確認のために現場へ戻る移動が、いちばん高くつきます。
         </div>
-      </div>
-
-      <div class="item">
-        <h3>納品用と社内用を、最初に分けておく</h3>
-        <p>
-          公共工事の納品に出す写真台帳と、社内の報告や施主への報告に使う写真は、扱いが違います。同じ写真を使っていても、求められる要件が別です。
-        </p>
-        <p>
-          納品用のほうには、あとで述べる改ざん検知の要件がかかります。社内用にはかかりません。ここを最初に分けておくと、あとの作業がずいぶん楽になります。
-        </p>
       </div>
 
       <div class="phase">
@@ -301,6 +338,9 @@ a:focus-visible, .btn:focus-visible, .linkbtn:focus-visible{ outline:2px solid v
         <h3>黒板の情報を、写真そのものに入れる</h3>
         <p>
           電子小黒板のことです。撮影と同時に、工種や寸法、立会者といった情報を画面上で写真に入れる仕組みで、国土交通省が平成29年に利用を認めています。現在はほぼすべての公共機関で使えます。
+        </p>
+        <p>
+          <a class="cite" href="https://www.mlit.go.jp/gobuild/content/001589799.pdf" target="_blank" rel="noopener noreferrer">出典　国交省　営繕　平成29年</a>
         </p>
         <p>
           <b>いちばん大きいのは、撮影が一人でできるようになることです。</b>黒板を持つ人が要らなくなります。二人でやっていた作業が一人になるので、人工がそのまま浮きます。

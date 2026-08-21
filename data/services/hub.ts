@@ -94,7 +94,7 @@ export const consultJourneySteps: readonly ServiceJourneyStep[] = [
 
 export const servicesBuildCopy = {
   heading: '製作',
-  lead: '小さく試してから本実装へ。Webサイト、業務ツール、AIプロトタイプまで、触れる形で方向を合わせます。',
+  lead: '小さく試してから本実装へ。Webサイト・LP、アプリ、AIまで、触れる形で方向を合わせます。',
 } as const
 
 export const hubProblemItems = [
@@ -115,29 +115,28 @@ export const hubServices = [
   {
     id: 'web-development',
     buildAnchor: 'build-web',
-    title: 'Webサイト・LP制作',
+    title: 'Webサイト・LP',
     description:
       'コーポレートサイト、LP、体験型UIまで。構成・デザイン・実装を一貫して伴走します。',
-    /** 完成イメージ画像（未設定時はプレースホルダー） */
-    image: undefined as string | undefined,
+    image: '/images/services/01.png',
     contactHref: '/contact?service=web-development',
   },
   {
     id: 'app-development',
     buildAnchor: 'build-app',
-    title: 'Webアプリ・業務ツール開発',
+    title: 'アプリ開発',
     description:
       'Excel、紙、LINEの手作業をWebツールに。入力から結果まで、現場で使える形に落とし込みます。',
-    image: undefined as string | undefined,
+    image: '/images/services/02.png',
     contactHref: '/contact?service=app-development',
   },
   {
     id: 'ai-consulting',
     buildAnchor: 'build-ai',
-    title: 'AIプロトタイプ・自動化',
+    title: 'AI開発',
     description:
       '「AIでできないか」を、まず動くデモから検証。自社に近いパターンを選べます。',
-    image: undefined as string | undefined,
+    image: '/images/services/03.png',
     contactHref: '/contact?service=ai-consulting',
   },
 ] as const

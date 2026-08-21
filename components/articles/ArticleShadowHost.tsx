@@ -58,6 +58,30 @@ const RHYTHM_CSS = `
 `
 
 /**
+ * innerHTML では <script> が動かない。Shadow 内の要素を document として渡して実行する。
+ * （図の描画・受信箱のタグ表示・シフト表の欠勤コマなど）
+ */
+function runShadowScripts(shadow: ShadowRoot) {
+  const scope = {
+    getElementById: (id: string) => shadow.querySelector(`#${CSS.escape(id)}`),
+    querySelector: (sel: string) => shadow.querySelector(sel),
+    querySelectorAll: (sel: string) => shadow.querySelectorAll(sel),
+    createElementNS: (ns: string, name: string) => document.createElementNS(ns, name),
+  }
+  shadow.querySelectorAll('script').forEach((el) => {
+    const code = el.textContent ?? ''
+    el.remove()
+    if (!code.trim()) return
+    try {
+      const run = new Function('document', 'window', code)
+      run(scope, window)
+    } catch (err) {
+      console.warn('article script failed', err)
+    }
+  })
+}
+
+/**
  * 業界記事HTMLを Shadow DOM に隔離して描画する。
  * 記事固有の .hero / .wrap / .btn 等がサイトCSSと衝突しないようにする。
  */
@@ -91,6 +115,8 @@ export function ArticleShadowHost({ html }: Props) {
 ${style}
 ${RHYTHM_CSS}
 </style>${body}`
+
+    runShadowScripts(shadow)
   }, [html])
 
   return <div ref={hostRef} className="article-shadow-host w-full" />
