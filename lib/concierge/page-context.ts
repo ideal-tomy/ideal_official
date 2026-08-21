@@ -3,6 +3,7 @@
  */
 
 import { getCapabilityBySlug } from '@/data/ai-capability-gallery/capabilities'
+import { getArticleBySlug } from '@/data/articles'
 import { getCaseBySlug } from '@/data/cases'
 import { getInsightBySlug } from '@/data/lab/insights'
 import { getCurrentServiceId } from '@/data/services/service-links'
@@ -15,6 +16,7 @@ export type ConciergePageType =
   | 'case'
   | 'lab'
   | 'insight'
+  | 'article'
   | 'contact'
   | 'other'
 
@@ -27,8 +29,9 @@ export type ConciergePageContext = {
   caseSlug?: string
   /** サービスID（例: ai-consulting）— 現行 serviceHint と互換 */
   serviceId?: string
-  /** Insights slug 等 */
+  /** Insights / 現場の記事 slug 等 */
   insightSlug?: string
+  articleSlug?: string
   /** 業界キー（construction 等） */
   industry?: string
   /** UI表示用の短いラベル */
@@ -131,6 +134,29 @@ export function resolvePageContext(
     }
   }
 
+  if (path === '/articles') {
+    return {
+      pathname: path,
+      pageType: 'article',
+      label: '現場の記事',
+      serviceId: 'ai-consulting',
+    }
+  }
+
+  const articleMatch = path.match(/^\/articles\/([^/]+)$/)
+  if (articleMatch) {
+    const articleSlug = articleMatch[1]
+    const article = getArticleBySlug(articleSlug)
+    return {
+      pathname: path,
+      pageType: 'article',
+      articleSlug,
+      label: article?.title ?? '現場の記事',
+      industry: article?.industry,
+      serviceId: 'ai-consulting',
+    }
+  }
+
   if (
     path === '/lab' ||
     path === '/lab/insights' ||
@@ -166,6 +192,7 @@ export function shouldShowContextOpening(
     ctx.pageType === 'service' ||
     ctx.pageType === 'case' ||
     ctx.pageType === 'lab' ||
-    ctx.pageType === 'insight'
+    ctx.pageType === 'insight' ||
+    ctx.pageType === 'article'
   )
 }

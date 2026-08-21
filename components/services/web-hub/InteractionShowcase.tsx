@@ -9,85 +9,129 @@ import { usePrefersReducedMotion } from '@/lib/use-prefers-reduced-motion'
 import { AsymmetricFeatureGrid } from '@/components/services/AsymmetricFeatureGrid'
 import { ServiceSectionShell } from '@/components/services/ServiceSectionShell'
 
-function ModalPanel() {
-  return (
-    <div className="flex h-full min-h-0 flex-col overflow-hidden rounded-2xl border-2 border-brand/20 bg-[var(--site-bg)]">
-      <div className="p-6 md:p-8">
-        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-brand/90">
-          01 · 詳しく見る
-        </p>
-        <h3 className="mb-3 text-xl font-bold text-[var(--site-fg)] md:text-2xl">
-          開いて、閉じる体験
-        </h3>
-        <p className="text-sm leading-relaxed text-[var(--site-fg-muted)] md:text-base">
-          別ページへ飛ばさず、その場で詳細を開けます。探したい情報にすぐ戻れる体験です。
-        </p>
-      </div>
+function ModalPanel({ featured = true }: { featured?: boolean }) {
+  const content = (
+    <>
+      <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-brand/90">
+        01 · 詳しく見る
+      </p>
+      <h3
+        className={`mb-3 font-bold text-[var(--site-fg)] ${
+          featured ? 'text-xl md:text-2xl' : 'text-xl font-semibold'
+        }`}
+      >
+        開いて、閉じる体験
+      </h3>
+      <p
+        className={`leading-relaxed text-[var(--site-fg-muted)] ${
+          featured ? 'text-sm md:text-base' : 'text-sm'
+        }`}
+      >
+        別ページへ飛ばさず、その場で詳細を開けます。探したい情報にすぐ戻れる体験です。
+      </p>
+    </>
+  )
 
-      <div className="flex min-h-[220px] flex-1 flex-col justify-between gap-6 border-t border-[var(--site-border)] bg-[color-mix(in_srgb,var(--color-brand)_4%,var(--site-bg))] p-6 md:p-8">
-        <div
-          className="relative min-h-[160px] flex-1 overflow-hidden rounded-lg bg-[var(--site-bg-elevated)] p-4"
-          aria-hidden
-        >
-          <div className="mb-3 h-2 w-24 rounded-full bg-[var(--site-border)]" />
-          <div className="space-y-2">
-            <div className="h-2 w-full rounded bg-[var(--site-border)]/60" />
-            <div className="h-2 w-4/5 rounded bg-[var(--site-border)]/40" />
-          </div>
-          <div className="absolute inset-0 flex items-center justify-center bg-black/35">
-            <div className="w-[min(88%,280px)] rounded-lg border border-[var(--site-border)] bg-[var(--site-bg)] p-4 shadow-lg">
-              <div className="mb-2 h-2 w-20 rounded bg-brand/30" />
-              <div className="space-y-1.5">
-                <div className="h-1.5 w-full rounded bg-[var(--site-border)]" />
-                <div className="h-1.5 w-5/6 rounded bg-[var(--site-border)]" />
-              </div>
+  const demoArea = (
+    <>
+      <div
+        className={`relative overflow-hidden rounded-lg bg-[var(--site-bg-elevated)] p-4 ${
+          featured ? 'min-h-[160px] flex-1' : 'mb-4 min-h-[120px]'
+        }`}
+        aria-hidden
+      >
+        <div className="mb-3 h-2 w-24 rounded-full bg-[var(--site-border)]" />
+        <div className="space-y-2">
+          <div className="h-2 w-full rounded bg-[var(--site-border)]/60" />
+          <div className="h-2 w-4/5 rounded bg-[var(--site-border)]/40" />
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center bg-black/35">
+          <div className="w-[min(88%,280px)] rounded-lg border border-[var(--site-border)] bg-[var(--site-bg)] p-4 shadow-lg">
+            <div className="mb-2 h-2 w-20 rounded bg-brand/30" />
+            <div className="space-y-1.5">
+              <div className="h-1.5 w-full rounded bg-[var(--site-border)]" />
+              <div className="h-1.5 w-5/6 rounded bg-[var(--site-border)]" />
             </div>
           </div>
         </div>
+      </div>
 
-        <Modal buttonText="モーダルを開く" title="詳しく見る" size="md">
-          <div className="space-y-4">
-            <p className="leading-relaxed text-[var(--site-fg-muted)]">
-              重要な説明を、ページ遷移なしでその場に重ねて表示できます。閉じれば元の位置に戻れます。
-            </p>
-            <ul className="space-y-2 text-sm text-[var(--site-fg-muted)]">
-              <li className="flex items-start gap-2">
-                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--df-text-muted)]" />
-                背景がやわらかく暗くなる
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--df-text-muted)]" />
-                パネルがスムーズに現れる
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--df-text-muted)]" />
-                Esc や外側クリックで閉じる
-              </li>
-            </ul>
-          </div>
-        </Modal>
+      <Modal buttonText="モーダルを開く" title="詳しく見る" size="md">
+        <div className="space-y-4">
+          <p className="leading-relaxed text-[var(--site-fg-muted)]">
+            重要な説明を、ページ遷移なしでその場に重ねて表示できます。閉じれば元の位置に戻れます。
+          </p>
+          <ul className="space-y-2 text-sm text-[var(--site-fg-muted)]">
+            <li className="flex items-start gap-2">
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--df-text-muted)]" />
+              背景がやわらかく暗くなる
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--df-text-muted)]" />
+              パネルがスムーズに現れる
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--df-text-muted)]" />
+              Esc や外側クリックで閉じる
+            </li>
+          </ul>
+        </div>
+      </Modal>
+    </>
+  )
+
+  if (!featured) {
+    return (
+      <div className="flex h-full flex-col rounded-xl border border-[var(--site-border)] bg-[var(--site-bg)] p-6">
+        {content}
+        <div className="mt-4 flex flex-1 flex-col">{demoArea}</div>
+      </div>
+    )
+  }
+
+  return (
+    <div className="flex h-full min-h-0 flex-col overflow-hidden rounded-2xl border-2 border-brand/20 bg-[var(--site-bg)]">
+      <div className="p-6 md:p-8">{content}</div>
+      <div className="flex min-h-[220px] flex-1 flex-col justify-between gap-6 border-t border-[var(--site-border)] bg-[color-mix(in_srgb,var(--color-brand)_4%,var(--site-bg))] p-6 md:p-8">
+        {demoArea}
       </div>
     </div>
   )
 }
 
-function MotionPanel() {
+function MotionPanel({ featured = false }: { featured?: boolean }) {
   const prefersReduced = usePrefersReducedMotion()
   const [key, setKey] = useState(0)
 
-  return (
-    <div className="flex h-full flex-col rounded-xl border border-[var(--site-border)] bg-[var(--site-bg)] p-6">
-      <p className="mb-2 hidden text-[10px] font-semibold uppercase tracking-[0.2em] text-brand/90 md:block">
+  const content = (
+    <>
+      <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-brand/90">
         02 · 動き
       </p>
-      <h3 className="mb-3 text-xl font-semibold text-[var(--site-fg)]">
+      <h3
+        className={`mb-3 font-bold text-[var(--site-fg)] ${
+          featured ? 'text-xl md:text-2xl' : 'text-xl font-semibold'
+        }`}
+      >
         意図のある動き
       </h3>
-      <p className="mb-6 text-sm leading-relaxed text-[var(--site-fg-muted)]">
+      <p
+        className={`leading-relaxed text-[var(--site-fg-muted)] ${
+          featured ? 'mb-0 text-sm md:text-base' : 'mb-6 text-sm'
+        }`}
+      >
         常に動かし続けず、必要なときにだけ印象づける。見ていて疲れにくい動き方です。
       </p>
+    </>
+  )
 
-      <div className="relative mb-4 flex min-h-[140px] flex-1 items-center justify-center overflow-hidden rounded-lg bg-[var(--site-bg-elevated)]">
+  const demoArea = (
+    <>
+      <div
+        className={`relative flex items-center justify-center overflow-hidden rounded-lg bg-[var(--site-bg-elevated)] ${
+          featured ? 'mb-6 min-h-[220px] flex-1' : 'mb-4 min-h-[140px] flex-1'
+        }`}
+      >
         <AnimatePresence mode="wait">
           <motion.div
             key={key}
@@ -101,9 +145,7 @@ function MotionPanel() {
             className="rounded-lg border border-brand/30 bg-brand/10 px-6 py-4 text-center"
           >
             <p className="text-sm font-medium text-[var(--site-fg)]">やわらかく現れる</p>
-            <p className="mt-1 text-xs text-[var(--site-fg-muted)]">
-              再生 #{key + 1}
-            </p>
+            <p className="mt-1 text-xs text-[var(--site-fg-muted)]">再生 #{key + 1}</p>
           </motion.div>
         </AnimatePresence>
       </div>
@@ -115,6 +157,24 @@ function MotionPanel() {
       >
         モーションを再生
       </button>
+    </>
+  )
+
+  if (featured) {
+    return (
+      <div className="flex h-full min-h-0 flex-col overflow-hidden rounded-2xl border-2 border-brand/20 bg-[var(--site-bg)]">
+        <div className="p-6 md:p-8">{content}</div>
+        <div className="flex min-h-[220px] flex-1 flex-col border-t border-[var(--site-border)] bg-[color-mix(in_srgb,var(--color-brand)_4%,var(--site-bg))] p-6 md:p-8">
+          {demoArea}
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div className="flex h-full flex-col rounded-xl border border-[var(--site-border)] bg-[var(--site-bg)] p-6">
+      {content}
+      {demoArea}
     </div>
   )
 }
@@ -218,6 +278,18 @@ function InteractionPanel() {
   )
 }
 
+export function InteractionShowcaseContent() {
+  return (
+    <AsymmetricFeatureGrid
+      primary={<MotionPanel featured />}
+      secondary={[
+        <ModalPanel key="modal" featured={false} />,
+        <InteractionPanel key="interaction" />,
+      ]}
+    />
+  )
+}
+
 export function InteractionShowcase() {
   return (
     <ServiceSectionShell
@@ -227,10 +299,7 @@ export function InteractionShowcase() {
       emphasis="feature"
       contentBleed
     >
-      <AsymmetricFeatureGrid
-        primary={<ModalPanel />}
-        secondary={[<MotionPanel key="motion" />, <InteractionPanel key="interaction" />]}
-      />
+      <InteractionShowcaseContent />
     </ServiceSectionShell>
   )
 }

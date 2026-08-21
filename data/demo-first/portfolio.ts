@@ -41,6 +41,12 @@ export const EXTERNAL_DEMO_URLS = {
   approvalDiagram: 'https://approvaldiagram.vercel.app/',
   /** 保育支援・報告 */
   childcare: 'https://childcaredemo.vercel.app/',
+  /**
+   * 飲食シフト / ビルメン — 公開URLが決まり次第ここに追加し、
+   * scripts/prepare-article-html.mjs の DEMO_URLS も更新して再生成する。
+   * shift: null
+   * building: null
+   */
 } as const
 
 /** 建設ハブ（外部）。サイト内 `/construction` はここへリダイレクト */

@@ -8,7 +8,7 @@ import { ServiceSectionShell } from '@/components/services/ServiceSectionShell'
 
 type ProcessState = 'idle' | 'processing' | 'done'
 
-function InputProcessPanel() {
+function InputProcessPanel({ featured = true }: { featured?: boolean }) {
   const prefersReduced = usePrefersReducedMotion()
   const [input, setInput] = useState('')
   const [state, setState] = useState<ProcessState>('idle')
@@ -32,88 +32,114 @@ function InputProcessPanel() {
     setResult(null)
   }
 
-  return (
-    <div className="flex h-full min-h-0 flex-col overflow-hidden rounded-2xl border-2 border-brand/20 bg-[var(--site-bg)]">
-      <div className="p-6 md:p-8">
+  const header = (
+    <>
       <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-brand/90">
         01 · 入力から結果
       </p>
-      <h3 className="mb-3 text-xl font-bold text-[var(--site-fg)] md:text-2xl">
+      <h3
+        className={`mb-3 font-bold text-[var(--site-fg)] ${
+          featured ? 'text-xl md:text-2xl' : 'text-xl font-semibold'
+        }`}
+      >
         入力して、結果を得る
       </h3>
       <p className="text-sm leading-relaxed text-[var(--site-fg-muted)]">
         フォームに入力 → 処理中 → 結果表示。業務ツールの基本の流れです。
       </p>
-      </div>
+    </>
+  )
 
-      <div className="flex flex-1 flex-col space-y-4 border-t border-[var(--site-border)] bg-[color-mix(in_srgb,var(--color-brand)_4%,var(--site-bg))] p-6 md:p-8">
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="例: 見積依頼を送る"
-          disabled={state === 'processing'}
-          className="w-full rounded-lg border border-[var(--site-border)] bg-[var(--site-bg)]/60 px-4 py-2.5 text-sm text-[var(--site-fg)] placeholder:text-[var(--site-fg-muted)] focus:outline-none focus:border-brand/50 disabled:opacity-50"
-        />
+  const controls = (
+    <div className={`flex flex-col space-y-4 ${featured ? '' : 'mt-4 flex-1'}`}>
+      <input
+        type="text"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        placeholder="例: 見積依頼を送る"
+        disabled={state === 'processing'}
+        className="w-full rounded-lg border border-[var(--site-border)] bg-[var(--site-bg)]/60 px-4 py-2.5 text-sm text-[var(--site-fg)] placeholder:text-[var(--site-fg-muted)] focus:outline-none focus:border-brand/50 disabled:opacity-50"
+      />
 
-        <div className="flex gap-2">
+      <div className="flex gap-2">
+        <button
+          type="button"
+          onClick={handleSubmit}
+          disabled={!input.trim() || state === 'processing'}
+          className="flex-1 rounded-lg bg-brand px-4 py-2.5 text-sm font-bold text-black hover:bg-brand-hover transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+        >
+          {state === 'processing' ? '処理中...' : '処理する'}
+        </button>
+        {state === 'done' && (
           <button
             type="button"
-            onClick={handleSubmit}
-            disabled={!input.trim() || state === 'processing'}
-            className="flex-1 rounded-lg bg-brand px-4 py-2.5 text-sm font-bold text-black hover:bg-brand-hover transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+            onClick={handleReset}
+            className="rounded-lg border border-[var(--site-border)] px-4 py-2.5 text-sm text-[var(--site-fg-muted)] hover:border-gray-500 transition-colors"
           >
-            {state === 'processing' ? '処理中...' : '処理する'}
+            リセット
           </button>
-          {state === 'done' && (
-            <button
-              type="button"
-              onClick={handleReset}
-              className="rounded-lg border border-[var(--site-border)] px-4 py-2.5 text-sm text-[var(--site-fg-muted)] hover:border-gray-500 transition-colors"
-            >
-              リセット
-            </button>
-          )}
-        </div>
+        )}
+      </div>
 
-        <div className="flex min-h-[140px] flex-1 items-center justify-center rounded-lg bg-[var(--site-bg)]/60 p-4">
-          <AnimatePresence mode="wait">
-            {state === 'idle' && (
-              <motion.p
-                key="idle"
-                initial={prefersReduced ? false : { opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={prefersReduced ? undefined : { opacity: 0 }}
-                className="text-sm text-[var(--site-fg-muted)]"
-              >
-                入力して「処理する」を押してください
-              </motion.p>
-            )}
-            {state === 'processing' && (
-              <motion.div
-                key="processing"
-                initial={prefersReduced ? false : { opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={prefersReduced ? undefined : { opacity: 0 }}
-                className="flex items-center gap-3"
-              >
-                <div className="h-5 w-5 rounded-full border-2 border-brand border-t-transparent animate-spin" />
-                <p className="text-sm text-brand">処理中...</p>
-              </motion.div>
-            )}
-            {state === 'done' && result && (
-              <motion.div
-                key="done"
-                initial={prefersReduced ? false : { opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="w-full"
-              >
-                <p className="text-xs text-brand/80 mb-2">結果</p>
-                <p className="text-sm text-[var(--site-fg)] leading-relaxed">{result}</p>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+      <div
+        className={`flex items-center justify-center rounded-lg bg-[var(--site-bg)]/60 p-4 ${
+          featured ? 'min-h-[140px] flex-1' : 'min-h-[120px]'
+        }`}
+      >
+        <AnimatePresence mode="wait">
+          {state === 'idle' && (
+            <motion.p
+              key="idle"
+              initial={prefersReduced ? false : { opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={prefersReduced ? undefined : { opacity: 0 }}
+              className="text-sm text-[var(--site-fg-muted)]"
+            >
+              入力して「処理する」を押してください
+            </motion.p>
+          )}
+          {state === 'processing' && (
+            <motion.div
+              key="processing"
+              initial={prefersReduced ? false : { opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={prefersReduced ? undefined : { opacity: 0 }}
+              className="flex items-center gap-3"
+            >
+              <div className="h-5 w-5 rounded-full border-2 border-brand border-t-transparent animate-spin" />
+              <p className="text-sm text-brand">処理中...</p>
+            </motion.div>
+          )}
+          {state === 'done' && result && (
+            <motion.div
+              key="done"
+              initial={prefersReduced ? false : { opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="w-full"
+            >
+              <p className="mb-2 text-xs text-brand/80">結果</p>
+              <p className="text-sm leading-relaxed text-[var(--site-fg)]">{result}</p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </div>
+  )
+
+  if (!featured) {
+    return (
+      <div className="flex h-full flex-col rounded-xl border border-[var(--site-border)] bg-[var(--site-bg)] p-6">
+        {header}
+        {controls}
+      </div>
+    )
+  }
+
+  return (
+    <div className="flex h-full min-h-0 flex-col overflow-hidden rounded-2xl border-2 border-brand/20 bg-[var(--site-bg)]">
+      <div className="p-6 md:p-8">{header}</div>
+      <div className="flex flex-1 flex-col space-y-4 border-t border-[var(--site-border)] bg-[color-mix(in_srgb,var(--color-brand)_4%,var(--site-bg))] p-6 md:p-8">
+        {controls}
       </div>
     </div>
   )
@@ -205,7 +231,7 @@ const DASHBOARD_DATA = [
   { id: 4, label: '完了案件', status: 'done' as const, value: 156 },
 ]
 
-function DashboardPanel() {
+function DashboardPanel({ featured = false }: { featured?: boolean }) {
   const [filter, setFilter] = useState<FilterKey>('all')
   const [mobileView, setMobileView] = useState<'list' | 'detail'>('list')
 
@@ -216,19 +242,31 @@ function DashboardPanel() {
 
   const total = filtered.reduce((sum, d) => sum + d.value, 0)
 
-  return (
-    <div className="flex h-full flex-col rounded-xl border border-[var(--site-border)] bg-[var(--site-bg)] p-6">
-      <p className="mb-2 hidden text-[10px] font-semibold uppercase tracking-[0.2em] text-brand/90 md:block">
+  const header = (
+    <>
+      <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-brand/90">
         03 · 一覧
       </p>
-      <h3 className="mb-3 text-xl font-semibold text-[var(--site-fg)]">
+      <h3
+        className={`mb-3 font-bold text-[var(--site-fg)] ${
+          featured ? 'text-xl md:text-2xl' : 'text-xl font-semibold'
+        }`}
+      >
         フィルターで変わる一覧
       </h3>
-      <p className="mb-4 text-sm leading-relaxed text-[var(--site-fg-muted)]">
+      <p
+        className={`leading-relaxed text-[var(--site-fg-muted)] ${
+          featured ? 'text-sm md:text-base' : 'mb-4 text-sm'
+        }`}
+      >
         条件を変えると一覧とグラフが変わります。スマホでの操作感も試せます。
       </p>
+    </>
+  )
 
-      <div className="flex gap-2 mb-4">
+  const body = (
+    <>
+      <div className={`flex gap-2 ${featured ? 'mb-4' : 'mb-4'}`}>
         {(
           [
             { key: 'all' as const, label: 'すべて' },
@@ -242,7 +280,7 @@ function DashboardPanel() {
             onClick={() => setFilter(f.key)}
             className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
               filter === f.key
-                ? 'bg-brand/20 border border-brand/40 text-brand-hover'
+                ? 'border border-brand/40 bg-brand/20 text-brand-hover'
                 : 'border border-[var(--site-border)] text-[var(--site-fg-muted)] hover:text-[var(--site-fg)]'
             }`}
           >
@@ -251,9 +289,11 @@ function DashboardPanel() {
         ))}
       </div>
 
-      <div className="flex-1 grid sm:grid-cols-2 gap-4">
+      <div className={`grid flex-1 gap-4 ${featured ? 'sm:grid-cols-2' : 'sm:grid-cols-2'}`}>
         <div className="space-y-2">
-          <p className="text-xs text-[var(--site-fg-muted)]">件数: {filtered.length} / 合計: {total}</p>
+          <p className="text-xs text-[var(--site-fg-muted)]">
+            件数: {filtered.length} / 合計: {total}
+          </p>
           <div className="space-y-1.5">
             {filtered.map((item) => (
               <div
@@ -265,11 +305,11 @@ function DashboardPanel() {
               </div>
             ))}
           </div>
-          <div className="flex items-end gap-1 h-16 pt-2">
+          <div className="flex h-16 items-end gap-1 pt-2">
             {filtered.map((item) => (
               <div
                 key={item.id}
-                className="flex-1 bg-brand/40 rounded-t"
+                className="flex-1 rounded-t bg-brand/40"
                 style={{ height: `${(item.value / 160) * 100}%` }}
                 title={item.label}
               />
@@ -278,12 +318,12 @@ function DashboardPanel() {
         </div>
 
         <div className="flex flex-col items-center">
-          <p className="text-xs text-[var(--site-fg-muted)] mb-2 self-start">モバイル操作</p>
-          <div className="w-[140px] rounded-2xl border-4 border-[var(--site-border)] bg-[var(--site-bg)] overflow-hidden">
-            <div className="h-6 bg-[var(--site-bg-elevated)] flex items-center justify-center">
-              <div className="w-12 h-1 rounded-full bg-gray-600" />
+          <p className="mb-2 self-start text-xs text-[var(--site-fg-muted)]">モバイル操作</p>
+          <div className="w-[140px] overflow-hidden rounded-2xl border-4 border-[var(--site-border)] bg-[var(--site-bg)]">
+            <div className="flex h-6 items-center justify-center bg-[var(--site-bg-elevated)]">
+              <div className="h-1 w-12 rounded-full bg-gray-600" />
             </div>
-            <div className="p-3 min-h-[160px]">
+            <div className="min-h-[160px] p-3">
               {mobileView === 'list' ? (
                 <div className="space-y-2">
                   {filtered.slice(0, 3).map((item) => (
@@ -291,7 +331,7 @@ function DashboardPanel() {
                       key={item.id}
                       type="button"
                       onClick={() => setMobileView('detail')}
-                      className="w-full text-left rounded border border-[var(--site-border)] px-2 py-1.5 text-xs text-[var(--site-fg)] hover:border-brand/40"
+                      className="w-full rounded border border-[var(--site-border)] px-2 py-1.5 text-left text-xs text-[var(--site-fg)] hover:border-brand/40"
                     >
                       {item.label}
                     </button>
@@ -302,19 +342,49 @@ function DashboardPanel() {
                   <button
                     type="button"
                     onClick={() => setMobileView('list')}
-                    className="text-xs text-brand mb-2"
+                    className="mb-2 text-xs text-brand"
                   >
                     ← 戻る
                   </button>
-                  <p className="text-sm text-[var(--site-fg)] font-medium">詳細</p>
-                  <p className="text-xs text-[var(--site-fg-muted)] mt-1">タップで詳細表示</p>
+                  <p className="text-sm font-medium text-[var(--site-fg)]">詳細</p>
+                  <p className="mt-1 text-xs text-[var(--site-fg-muted)]">タップで詳細表示</p>
                 </div>
               )}
             </div>
           </div>
         </div>
       </div>
+    </>
+  )
+
+  if (featured) {
+    return (
+      <div className="flex h-full min-h-0 flex-col overflow-hidden rounded-2xl border-2 border-brand/20 bg-[var(--site-bg)]">
+        <div className="p-6 md:p-8">{header}</div>
+        <div className="flex min-h-[220px] flex-1 flex-col border-t border-[var(--site-border)] bg-[color-mix(in_srgb,var(--color-brand)_4%,var(--site-bg))] p-6 md:p-8">
+          {body}
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div className="flex h-full flex-col rounded-xl border border-[var(--site-border)] bg-[var(--site-bg)] p-6">
+      {header}
+      <div className="flex flex-1 flex-col">{body}</div>
     </div>
+  )
+}
+
+export function ProductShowcaseContent() {
+  return (
+    <AsymmetricFeatureGrid
+      primary={<DashboardPanel featured />}
+      secondary={[
+        <StatusPanel key="status" />,
+        <InputProcessPanel key="input" featured={false} />,
+      ]}
+    />
   )
 }
 
@@ -328,10 +398,7 @@ export function ProductShowcase() {
       emphasis="feature"
       contentBleed
     >
-      <AsymmetricFeatureGrid
-        primary={<InputProcessPanel />}
-        secondary={[<StatusPanel key="status" />, <DashboardPanel key="dashboard" />]}
-      />
+      <ProductShowcaseContent />
     </ServiceSectionShell>
   )
 }

@@ -8,6 +8,7 @@ import { DemoLpHeroVisual } from './DemoLpHeroVisual'
 import { DemoLpRoiSection } from './DemoLpRoiSection'
 import { DemoLpFaq } from './DemoLpFaq'
 import { DemoLpFinalForm } from './DemoLpFinalForm'
+import { DemoLpRelatedArticle } from './DemoLpRelatedArticle'
 import { DemoLpPartsCatalog } from './DemoLpPartsCatalog'
 import { DemoLpProcess } from './DemoLpProcess'
 import { DemoLpResultTabs } from './DemoLpResultTabs'
@@ -536,6 +537,9 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
 
       {/* B12 process */}
       <DemoLpProcess block={config.process} />
+
+      {/* 現場の記事（業種実務）への関連導線 */}
+      <DemoLpRelatedArticle lpPath={publicPath} />
 
       {/* B13 FAQ */}
       <DemoLpFaq items={config.faq} />

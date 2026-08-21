@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { capabilities } from '@/data/ai-capability-gallery/capabilities'
 import { getPublishedCases, getCaseHref } from '@/data/cases'
+import { industryArticles } from '@/data/articles'
 import { labInsights } from '@/data/lab/insights'
 
 const baseUrl =
@@ -17,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/lab/insights`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${baseUrl}/lab/blockchain`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${baseUrl}/lab/metaverse`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${baseUrl}/articles`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${baseUrl}/philosophy`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
     { url: `${baseUrl}/research`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
     { url: `${baseUrl}/contact`, lastModified: now, changeFrequency: 'yearly', priority: 0.7 },
@@ -45,5 +47,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.5,
   }))
 
-  return [...staticRoutes, ...demoRoutes, ...caseRoutes, ...insightRoutes]
+  const articleRoutes: MetadataRoute.Sitemap = industryArticles.map((article) => ({
+    url: `${baseUrl}/articles/${article.slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+    priority: 0.75,
+  }))
+
+  return [
+    ...staticRoutes,
+    ...demoRoutes,
+    ...caseRoutes,
+    ...insightRoutes,
+    ...articleRoutes,
+  ]
 }

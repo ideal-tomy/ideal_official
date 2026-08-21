@@ -3,6 +3,7 @@
  */
 
 import { getCapabilityBySlug } from '@/data/ai-capability-gallery/capabilities'
+import { getArticleBySlug } from '@/data/articles'
 import { getCaseBySlug } from '@/data/cases'
 import { getInsightBySlug } from '@/data/lab/insights'
 import type { IdealTrack } from './ideal-flow'
@@ -360,6 +361,46 @@ function labOpening(ctx: ConciergePageContext): ContextOpening {
   }
 }
 
+function articleOpening(ctx: ConciergePageContext): ContextOpening {
+  const article = ctx.articleSlug
+    ? getArticleBySlug(ctx.articleSlug)
+    : undefined
+
+  if (article) {
+    return {
+      headline: `「${article.title.replace(/。$/, '')}」の内容から、相談へ進めますか？`,
+      body: `${article.industry}の実務記事です。読んで分かったことを、デモ体験や要件整理につなげられます。`,
+      actions: [
+        { id: 'start_ai', label: 'この業界の相談を始める', track: 'ai' },
+        {
+          id: 'see_related',
+          label: article.relatedDemoLp
+            ? '関連するデモ説明を見る'
+            : 'デモ一覧を見る',
+          track: null,
+          linkKind: article.relatedDemoLp ? 'related_demo' : 'gallery',
+        },
+        { id: 'pick_root', label: '別の相談目的を選ぶ', track: null },
+      ],
+    }
+  }
+
+  return {
+    headline: '現場の記事から、実務の相談へ進めますか？',
+    body: '業界ごとの読み物を起点に、デモ体験や要件整理へつなげられます。',
+    actions: [
+      { id: 'start_ai', label: 'AI活用の相談を始める', track: 'ai' },
+      {
+        id: 'see_related',
+        label: 'デモ一覧を見る',
+        track: null,
+        linkKind: 'gallery',
+      },
+      { id: 'pick_root', label: '相談目的を一覧から選ぶ', track: null },
+    ],
+  }
+}
+
 /** PageContext からオープニング文面を取得 */
 export function getContextOpening(
   ctx: ConciergePageContext,
@@ -376,6 +417,8 @@ export function getContextOpening(
     case 'lab':
     case 'insight':
       return labOpening(ctx)
+    case 'article':
+      return articleOpening(ctx)
     default:
       return {
         headline: 'ご相談の目的に近いものを選んでください。',
@@ -395,6 +438,10 @@ export function resolveOpeningLinkHref(
     return '/flow'
   }
   if (action.linkKind === 'related_demo') {
+    if (ctx.articleSlug) {
+      const article = getArticleBySlug(ctx.articleSlug)
+      if (article?.relatedDemoLp) return article.relatedDemoLp
+    }
     if (ctx.caseSlug) {
       const study = getCaseBySlug(ctx.caseSlug)
       if (study) return study.relatedDemo.href

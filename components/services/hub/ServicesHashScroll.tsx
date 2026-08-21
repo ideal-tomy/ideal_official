@@ -2,21 +2,27 @@
 
 import { useEffect } from 'react'
 
-const LEGACY_BUILD_HASHES: Record<string, string> = {
-  web: 'build-web',
-  app: 'build-app',
-  ai: 'build-ai',
-}
+const LEGACY_BUILD_HASHES = new Set([
+  'web',
+  'app',
+  'ai',
+  'build-web',
+  'build-app',
+  'build-ai',
+])
 const CONSULT_HASHES = new Set(['consult', 'overview-consult'])
 
-/** ハッシュに応じて該当セクションへスクロール（相談展開は Overview 側） */
+/** ハッシュに応じて該当セクションへスクロール（タブ選択は BuildSection 側） */
 export function ServicesHashScroll() {
   useEffect(() => {
     const hash = window.location.hash.replace(/^#/, '')
     if (!hash) return
 
-    const targetId = LEGACY_BUILD_HASHES[hash]
-      ?? (hash === 'build' ? 'build' : CONSULT_HASHES.has(hash) ? 'overview-consult' : hash)
+    const targetId = LEGACY_BUILD_HASHES.has(hash)
+      ? 'build'
+      : CONSULT_HASHES.has(hash)
+        ? 'overview-consult'
+        : hash
 
     const el = document.getElementById(targetId)
     if (!el) return

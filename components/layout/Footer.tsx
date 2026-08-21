@@ -18,6 +18,7 @@ export function Footer() {
   const exploreLinks = [
     { href: '/', label: 'トップ' },
     { href: '/flow', label: '導入の流れ' },
+    { href: '/articles', label: '現場の記事' },
     { href: '/contact', label: '問い合わせ' },
   ]
 
