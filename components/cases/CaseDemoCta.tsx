@@ -20,9 +20,6 @@ export function CaseDemoCta({ caseStudy }: CaseDemoCtaProps) {
   return (
     <section className="border-b border-brand/40 bg-[var(--site-bg)] py-10 md:py-16 lg:py-20">
       <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-        <p className="mb-2 text-xs font-medium uppercase tracking-[0.2em] text-brand/90 md:mb-3">
-          Next
-        </p>
         <h2 className="mb-2 text-balance text-2xl font-bold text-[var(--site-fg)] md:mb-3 md:text-3xl">
           次に進む
         </h2>

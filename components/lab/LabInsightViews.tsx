@@ -1,14 +1,20 @@
 import Link from 'next/link'
 import type { LabInsight } from '@/data/lab/insights'
 
+const CATEGORY_LABEL: Record<LabInsight['category'], string> = {
+  ai: 'AI',
+  web: 'Web',
+  org: '組織',
+}
+
 export function LabInsightCard({ insight }: { insight: LabInsight }) {
   return (
     <Link
       href={`/lab/insights/${insight.slug}`}
       className="block rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)]/40 p-6 hover:border-brand/30 hover:bg-[var(--site-bg-elevated)]/60 transition-colors"
     >
-      <p className="text-xs tracking-[0.16em] uppercase text-brand/90 mb-2">
-        {insight.category}
+      <p className="mb-2 text-xs font-medium text-brand/90">
+        {CATEGORY_LABEL[insight.category]}
       </p>
       <h2 className="text-xl font-semibold text-[var(--site-fg)] mb-2">{insight.title}</h2>
       <p className="text-sm text-[var(--site-fg-muted)] leading-relaxed mb-4">{insight.description}</p>
@@ -21,8 +27,8 @@ export function LabInsightArticle({ insight }: { insight: LabInsight }) {
   return (
     <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
       <header className="mb-12">
-        <p className="text-xs tracking-[0.2em] uppercase text-brand/90 mb-3">
-          Insights · {insight.category}
+        <p className="mb-3 text-xs font-medium text-brand/90">
+          {CATEGORY_LABEL[insight.category]}
         </p>
         <h1 className="text-3xl md:text-4xl font-bold text-[var(--site-fg)] mb-4 leading-tight">
           {insight.title}

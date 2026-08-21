@@ -29,23 +29,19 @@ function EmbeddedAiDemo({ slug }: { slug: ServicesDemoSlug }) {
 
 function DemoPickerCard({
   capability,
-  index,
   onSelect,
 }: {
   capability: Capability
-  index: number
   onSelect: () => void
 }) {
-  const step = String(index + 1).padStart(2, '0')
-
   return (
     <button
       type="button"
       onClick={onSelect}
       className="flex h-full flex-col rounded-xl border border-[var(--site-border)] bg-[var(--site-bg)] p-6 text-left transition-colors hover:border-brand/35 hover:shadow-[var(--service-card-shadow)]"
     >
-      <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-brand/90">
-        {step} · {capability.subtitle}
+      <p className="text-xs font-medium text-brand/90">
+        {capability.subtitle}
       </p>
       <h3 className="mt-2 text-lg font-semibold leading-snug text-[var(--site-fg)]">
         {capability.title}
@@ -60,14 +56,12 @@ function DemoPickerCard({
 
 function EmbeddedDemoPanel({ slug }: { slug: ServicesDemoSlug }) {
   const capability = getServicesFeaturedCapabilities().find((c) => c.slug === slug)
-  const stepIndex = servicesFeaturedDemoSlugs.indexOf(slug)
-  const step = stepIndex >= 0 ? String(stepIndex + 1).padStart(2, '0') : '01'
 
   return (
     <div className="flex h-full min-h-0 flex-col overflow-hidden rounded-2xl border-2 border-brand/20 bg-[var(--site-bg)]">
       <div className="border-b border-[var(--site-border)] p-5 md:p-6">
-        <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-brand/90">
-          {step} · {capability?.subtitle}
+        <p className="text-xs font-medium text-brand/90">
+          {capability?.subtitle}
         </p>
         <h3 className="mt-2 text-xl font-bold text-[var(--site-fg)] md:text-2xl">
           {capability?.title}
@@ -94,14 +88,7 @@ export function AiServicesShowcaseContent() {
     [demos, selectedSlug],
   )
 
-  const pickerEntries = pickers.map((capability) => ({
-    capability,
-    index: servicesFeaturedDemoSlugs.indexOf(
-      capability.slug as ServicesDemoSlug,
-    ),
-  }))
-
-  const [pickerA, pickerB] = pickerEntries
+  const [pickerA, pickerB] = pickers
 
   if (!pickerA || !pickerB) {
     return (
@@ -115,19 +102,17 @@ export function AiServicesShowcaseContent() {
         primary={<EmbeddedDemoPanel slug={selectedSlug} />}
         secondary={[
           <DemoPickerCard
-            key={pickerA.capability.id}
-            capability={pickerA.capability}
-            index={pickerA.index}
+            key={pickerA.id}
+            capability={pickerA}
             onSelect={() =>
-              setSelectedSlug(pickerA.capability.slug as ServicesDemoSlug)
+              setSelectedSlug(pickerA.slug as ServicesDemoSlug)
             }
           />,
           <DemoPickerCard
-            key={pickerB.capability.id}
-            capability={pickerB.capability}
-            index={pickerB.index}
+            key={pickerB.id}
+            capability={pickerB}
             onSelect={() =>
-              setSelectedSlug(pickerB.capability.slug as ServicesDemoSlug)
+              setSelectedSlug(pickerB.slug as ServicesDemoSlug)
             }
           />,
         ]}

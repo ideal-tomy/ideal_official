@@ -21,10 +21,10 @@ export const headerFooterServiceLinks: { href: string; label: string }[] = [
 /** Footer LAB 欄など、研究・深掘り系リンク */
 export const labNavLinks: { href: string; label: string }[] = [
   { href: '/lab', label: 'LAB トップ' },
-  { href: '/lab/insights', label: 'Insights' },
+  { href: '/lab/insights', label: '解説記事' },
   { href: '/#articles', label: '現場の記事' },
-  { href: '/philosophy', label: 'Philosophy（DAO思想）' },
-  { href: '/research', label: 'Research' },
+  { href: '/philosophy', label: 'DAO思想' },
+  { href: '/research', label: '技術提案デモ' },
   { href: '/lab/blockchain', label: 'Blockchain（DAO研究）' },
   { href: '/lab/metaverse', label: 'Spatial / VR・AR' },
 ]

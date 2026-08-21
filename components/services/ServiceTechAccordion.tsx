@@ -39,18 +39,6 @@ export function ServiceTechAccordion({
                   使用: {item.siteUsage}
                 </p>
               ) : null}
-              {item.tags?.length ? (
-                <div className="flex flex-wrap gap-1.5">
-                  {item.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-[var(--site-border)] px-2 py-0.5 text-[11px] text-[var(--site-fg-muted)]"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              ) : null}
             </div>
           ),
         }))}

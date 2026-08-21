@@ -47,7 +47,7 @@ export function ServiceSectionHeader({
     <header className={`${alignClass} ${className}`.trim()}>
       {kicker ? (
         <p
-          className={`mb-2 text-[10px] font-semibold uppercase tracking-[0.22em] ${kickerClass} md:mb-3 md:text-xs`}
+          className={`mb-2 text-xs font-medium ${kickerClass} md:mb-3`}
         >
           {kicker}
         </p>
@@ -61,12 +61,14 @@ export function ServiceSectionHeader({
       ) : null}
       {lead ? (
         <p
-          className={`mt-3 max-w-2xl leading-relaxed md:mt-4 ${leadClass} ${
+          className={`mt-3 max-w-2xl md:mt-4 ${
             align === 'center' ? 'mx-auto' : ''
           } ${
             emphasis === 'feature'
-              ? 'max-w-lg text-xs md:text-sm'
-              : 'text-sm md:text-base'
+              ? `max-w-[40rem] whitespace-pre-line text-[15px] font-medium leading-[1.9] md:mt-5 md:text-base ${
+                  onBand ? leadClass : 'text-[var(--site-fg)]/80'
+                }`
+              : `text-sm leading-relaxed md:text-base ${leadClass}`
           }`}
         >
           {lead}

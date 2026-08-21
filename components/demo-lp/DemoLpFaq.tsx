@@ -59,7 +59,7 @@ export function DemoLpFaq({ items }: { items: FaqItem[] }) {
   return (
     <section className="py-14 md:py-20">
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
-        <p className={lpSectionLabel}>FAQ</p>
+        <p className={lpSectionLabel}>よくある質問</p>
         <h2 className={`mb-8 ${lpH2}`}>よくある質問</h2>
         <FaqList items={primary} open={open} setOpen={setOpen} />
         {useSplit && (

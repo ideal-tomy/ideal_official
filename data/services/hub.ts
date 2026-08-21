@@ -23,39 +23,33 @@ export const servicesHubHero = {
 
 export const servicesOverviewCopy = {
   heading: '成功の大半は、作る前に決まる',
-  lead: '課題の抽出と設計を同じチームで行い、開発・定着まで一気通貫で伴走します。01〜02の相談だけで終えても、03から製作に入っても構いません。',
-  pillars: ['課題抽出', '設計・優先順位', '開発・定着'] as const,
+  lead: '課題の抽出と設計を同じチームで行い、開発・定着まで一気通貫で伴走します。\n相談だけで終えても、製作に入っても構いません。',
 } as const
 
 export const overallJourneySteps: readonly ServiceJourneyStep[] = [
   {
     number: '01',
     title: '課題の整理',
-    duration: '課題抽出',
     description: '経営と現場の論点を整理し、どこから手を付けるかを可視化します。',
   },
   {
     number: '02',
     title: '設計',
-    duration: '設計・優先順位',
     description: '何を作るか・何を検証するかを決め、過剰な要件膨張を抑えます。',
   },
   {
     number: '03',
     title: '試作・実装',
-    duration: '開発',
     description: '小さく試してから本実装へ。同じチームがコードまで担います。',
   },
   {
     number: '04',
     title: '導入',
-    duration: '定着準備',
     description: '現場に乗る運用設計と、関係者への共有まで整えます。',
   },
   {
     number: '05',
     title: '運用',
-    duration: '継続',
     description: '監視と改善サイクルを回し、使われ続ける状態を維持します。',
   },
 ]
@@ -86,6 +80,7 @@ export const consultJourneySteps: readonly ServiceJourneyStep[] = [
   {
     number: '03',
     title: '優先順位とロードマップ',
+    compactTitle: true,
     duration: '1週間',
     description: '効果と実現性の両面で着手順を決め、投資判断の材料になる計画へ落とします。',
   },
@@ -126,7 +121,6 @@ export const hubServices = [
     /** 完成イメージ画像（未設定時はプレースホルダー） */
     image: undefined as string | undefined,
     contactHref: '/contact?service=web-development',
-    tags: ['コーポレート', 'LP', '体験UI'],
   },
   {
     id: 'app-development',
@@ -136,7 +130,6 @@ export const hubServices = [
       'Excel、紙、LINEの手作業をWebツールに。入力から結果まで、現場で使える形に落とし込みます。',
     image: undefined as string | undefined,
     contactHref: '/contact?service=app-development',
-    tags: ['管理画面', '現場入力', 'LINE'],
   },
   {
     id: 'ai-consulting',
@@ -146,7 +139,6 @@ export const hubServices = [
       '「AIでできないか」を、まず動くデモから検証。自社に近いパターンを選べます。',
     image: undefined as string | undefined,
     contactHref: '/contact?service=ai-consulting',
-    tags: ['デモ', '自動化', 'PoC'],
   },
 ] as const
 

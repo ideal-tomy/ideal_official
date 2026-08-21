@@ -22,7 +22,7 @@ export function CaseHowWeWorkSection({
   const lead = guide?.lead ?? HOW_WE_WORK_LEAD
 
   return (
-    <CaseFoldSection eyebrow="How we work" title={HOW_WE_WORK_TITLE}>
+    <CaseFoldSection title={HOW_WE_WORK_TITLE}>
       <p className="mb-6 text-sm leading-relaxed text-[var(--site-fg)]/85 md:mb-10 md:text-base">
         {lead}
       </p>

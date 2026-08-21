@@ -32,14 +32,11 @@ function CompactShowcase({ slug }: { slug: CapabilityShowcaseSlug }) {
 
 function DemoPanel({
   capability,
-  index,
   featured = false,
 }: {
   capability: Capability
-  index: number
   featured?: boolean
 }) {
-  const step = String(index + 1).padStart(2, '0')
   const slug = capability.slug as CapabilityShowcaseSlug
 
   return (
@@ -59,8 +56,8 @@ function DemoPanel({
       )}
 
       <div className={featured ? 'flex flex-col p-5 md:p-6' : 'flex flex-1 flex-col'}>
-        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-brand/90">
-          {step} · {capability.subtitle}
+        <p className="mb-2 text-xs font-medium text-brand/90">
+          {capability.subtitle}
         </p>
         <h3
           className={`mb-2 font-bold text-[var(--site-fg)] ${
@@ -105,10 +102,10 @@ export function AiInteractionShowcase() {
       contentBleed
     >
       <AsymmetricFeatureGrid
-        primary={<DemoPanel capability={primary} index={0} featured />}
+        primary={<DemoPanel capability={primary} featured />}
         secondary={[
-          <DemoPanel key={secondaryA.id} capability={secondaryA} index={1} />,
-          <DemoPanel key={secondaryB.id} capability={secondaryB} index={2} />,
+          <DemoPanel key={secondaryA.id} capability={secondaryA} />,
+          <DemoPanel key={secondaryB.id} capability={secondaryB} />,
         ]}
       />
 

@@ -36,6 +36,7 @@ import {
 } from './lpTypography'
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
+  if (!children) return null
   return <p className={lpSectionLabel}>{children}</p>
 }
 
@@ -170,18 +171,6 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
               <DemoLpCtaLink cta={config.hero.ctas[0]} />
               <DemoLpCtaLink cta={config.hero.ctas[1]} />
             </div>
-            {config.hero.badges && config.hero.badges.length > 0 ? (
-              <ul className="flex flex-wrap gap-2 text-xs text-[var(--lp-ink)]/65">
-                {config.hero.badges.map((b) => (
-                  <li
-                    key={b}
-                    className="rounded-full border border-[var(--lp-ink)]/15 px-2.5 py-1"
-                  >
-                    {b}
-                  </li>
-                ))}
-              </ul>
-            ) : null}
           </div>
           <DemoLpHeroVisual visual={config.hero.visual} />
         </div>

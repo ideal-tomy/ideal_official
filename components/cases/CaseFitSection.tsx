@@ -7,7 +7,7 @@ type CaseFitSectionProps = {
 
 export function CaseFitSection({ fit }: CaseFitSectionProps) {
   return (
-    <CaseFoldSection eyebrow="Fit" title="向いている／向いていない">
+    <CaseFoldSection title="向いている／向いていない">
       <p className="mb-5 text-sm leading-relaxed text-[var(--site-fg)]/85 md:mb-8 md:text-base">
         無理に当てはめないための目安です。迷ったら相談で一緒に切り分けできます。
       </p>

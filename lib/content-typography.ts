@@ -10,7 +10,7 @@
 
 /** セクションラベル（小ラベル） */
 export const contentSectionLabel =
-  'mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand'
+  'mb-2 text-xs font-medium text-brand'
 
 export const contentH1 =
   'text-3xl font-bold leading-tight tracking-tight text-[var(--site-fg)] md:text-4xl lg:text-[2.75rem] [text-wrap:balance] [word-break:auto-phrase]'

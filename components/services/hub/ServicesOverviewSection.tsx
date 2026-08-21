@@ -34,23 +34,12 @@ export function ServicesOverviewSection() {
     <ServiceSectionShell
       id="overview"
       surface="elevated"
-      kicker="APPROACH"
       title={servicesOverviewCopy.heading}
       lead={servicesOverviewCopy.lead}
       align="left"
       emphasis="feature"
       maxWidth="6xl"
     >
-      <div className="mb-8 flex flex-wrap gap-2" aria-label="サービスの3つの柱">
-        {servicesOverviewCopy.pillars.map((pillar) => (
-          <span
-            key={pillar}
-            className="rounded-full border border-[var(--site-border)] bg-[var(--site-bg)] px-3 py-1 text-[13px] font-medium text-[var(--site-fg-muted)] md:text-[14px]"
-          >
-            {pillar}
-          </span>
-        ))}
-      </div>
       <ServiceJourneyDiagram steps={overallJourneySteps} />
 
       <div id="overview-consult" className="mt-10 scroll-mt-28 md:mt-12">
@@ -62,10 +51,7 @@ export function ServicesOverviewSection() {
           className="flex w-full items-center justify-between gap-4 rounded-xl border border-brand/25 bg-[color-mix(in_srgb,var(--color-brand)_6%,var(--site-bg))] px-5 py-4 text-left transition-colors hover:border-brand/40 md:px-6"
         >
           <div>
-            <p className="text-xs font-medium uppercase tracking-[0.16em] text-brand">
-              ステップ02の詳細
-            </p>
-            <p className="mt-1 text-base font-semibold text-[var(--site-fg)] md:text-lg">
+            <p className="text-base font-semibold text-[var(--site-fg)] md:text-lg">
               {servicesConsultCopy.heading} — 設計から実行計画まで
             </p>
             <p className="mt-1 text-sm text-[var(--site-fg-muted)]">

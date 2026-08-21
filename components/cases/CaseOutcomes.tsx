@@ -8,9 +8,6 @@ export function CaseOutcomes({ outcomes }: CaseOutcomesProps) {
   return (
     <section className="border-b border-[var(--site-border)] py-8 md:py-14">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-        <p className="mb-2 text-xs font-medium uppercase tracking-[0.2em] text-brand/90 md:mb-3">
-          Outcomes
-        </p>
         <h2 className="mb-5 text-balance text-xl font-bold text-[var(--site-fg)] md:mb-8 md:text-3xl">
           何が変わるか
         </h2>

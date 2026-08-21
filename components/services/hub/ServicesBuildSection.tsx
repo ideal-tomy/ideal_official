@@ -23,10 +23,10 @@ const SHOWCASE_LEADS: Record<(typeof BUILD_TABS)[number]['id'], string> = {
 }
 
 const tabButtonClass = (selected: boolean) =>
-  `shrink-0 rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
+  `shrink-0 border-b-2 px-1 pb-2.5 text-base transition-colors ${
     selected
-      ? 'border-brand/50 bg-brand/15 text-brand-hover'
-      : 'border-[var(--site-border)] bg-[var(--site-bg-elevated)] text-[var(--site-fg-muted)] hover:border-brand/30 hover:text-[var(--site-fg)]'
+      ? 'border-brand font-bold text-[var(--site-fg)]'
+      : 'border-transparent font-medium text-[var(--site-fg-muted)] hover:text-[var(--site-fg)]'
   }`
 
 function tabIndexFromHash(hash: string): number {
@@ -99,18 +99,6 @@ function BuildPreviewCard({
         <p className="mt-2 text-sm leading-relaxed text-[var(--site-fg-muted)] md:text-base">
           {service.description}
         </p>
-        {service.tags.length > 0 ? (
-          <ul className="mt-4 flex flex-wrap gap-1.5">
-            {service.tags.map((tag) => (
-              <li
-                key={tag}
-                className="rounded-full border border-[var(--site-border)] px-2.5 py-0.5 text-[11px] text-[var(--site-fg-muted)]"
-              >
-                {tag}
-              </li>
-            ))}
-          </ul>
-        ) : null}
         <Link
           href={service.contactHref}
           className="mt-5 inline-flex items-center justify-center rounded-lg bg-brand px-5 py-2.5 text-sm font-bold text-[var(--df-on-primary)] transition-colors hover:bg-brand-hover"
@@ -125,7 +113,7 @@ function BuildPreviewCard({
 function BuildTabNav() {
   return (
     <Tab.List
-      className="mb-8 flex gap-2 overflow-x-auto pb-1 scrollbar-hide"
+      className="mb-8 flex gap-6 overflow-x-auto border-b border-[var(--site-border)] scrollbar-hide"
       aria-label="製作の種類"
     >
       {BUILD_TABS.map((tab) => (
@@ -187,7 +175,6 @@ export function ServicesBuildSection() {
       <ServiceSectionShell
         id="build"
         surface="default"
-        kicker="BUILD"
         title={servicesBuildCopy.heading}
         lead={servicesBuildCopy.lead}
         align="left"

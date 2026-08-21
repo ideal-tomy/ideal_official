@@ -25,9 +25,6 @@ export function HowWeWorkSummary({
       className={`scroll-mt-24 border-t border-[color-mix(in_srgb,var(--site-fg)_12%,transparent)] bg-[var(--site-bg)] py-14 md:scroll-mt-28 md:py-16 ${className}`}
     >
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-10">
-        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-brand/90">
-          How we work
-        </p>
         <h2 className="mb-3 text-[clamp(1.5rem,3.5vw,2rem)] font-black leading-tight text-[var(--site-fg)]">
           {HOW_WE_WORK_TITLE}
         </h2>

@@ -36,9 +36,6 @@ export default function LabHubPage() {
                 href={area.href}
                 className="rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)]/40 p-6 hover:border-brand/30 hover:bg-[var(--site-bg-elevated)]/60 transition-colors"
               >
-                <p className="mb-2 hidden text-xs uppercase tracking-[0.16em] text-brand/90 md:block">
-                  {area.eyebrow}
-                </p>
                 <h3 className="text-lg font-semibold text-[var(--site-fg)] mb-2">{area.title}</h3>
                 <p className="text-sm text-[var(--site-fg-muted)] leading-relaxed">{area.description}</p>
               </Link>
@@ -52,7 +49,7 @@ export default function LabHubPage() {
           <header className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <h2 className="mb-2 text-[clamp(1.5rem,3.5vw,2rem)] font-black text-[var(--site-fg)]">
-                Insights
+                解説記事
               </h2>
               <p className="text-sm text-[var(--site-fg-muted)] md:text-base">
                 サービス長文から再配置した解説記事

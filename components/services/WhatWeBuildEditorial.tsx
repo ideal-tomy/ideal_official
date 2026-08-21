@@ -23,7 +23,7 @@ function BuildBlock({
 
   return (
     <article>
-      <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-brand/90">
+      <p className="text-xs font-medium tabular-nums text-brand/90">
         {step}
       </p>
       <h3

@@ -39,16 +39,16 @@ export function ServicesPageToc() {
       aria-label="ページ内目次"
       className="sticky top-14 z-30 border-b border-[var(--site-border)] bg-[color-mix(in_srgb,var(--site-bg)_88%,transparent)] py-3 backdrop-blur-md"
     >
-      <ul className="mx-auto flex max-w-6xl gap-2 overflow-x-auto px-4 pb-0.5 scrollbar-hide sm:px-6 lg:px-8">
+      <ul className="mx-auto flex max-w-6xl gap-5 overflow-x-auto px-4 scrollbar-hide sm:px-6 lg:px-8">
         {NAV_ITEMS.map((item) => {
           const selected = activeId === item.id
           return (
             <li key={item.id} className="shrink-0">
               <a
                 href={`#${item.id}`}
-                className={`inline-block rounded-full border px-3.5 py-1.5 text-xs font-medium whitespace-nowrap transition-colors ${
+                className={`inline-flex items-center border-b-2 py-1 text-sm whitespace-nowrap transition-colors ${
                   selected
-                    ? 'border-brand/40 bg-brand/20 text-brand-hover'
+                    ? 'border-brand font-semibold text-[var(--site-fg)]'
                     : 'border-transparent text-[var(--site-fg-muted)] hover:text-[var(--site-fg)]'
                 }`}
               >

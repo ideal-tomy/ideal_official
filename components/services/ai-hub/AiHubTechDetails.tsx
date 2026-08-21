@@ -46,7 +46,7 @@ export function AiHubTechDetails() {
 
         >
 
-          LAB Insights
+          LAB の解説記事
 
         </Link>
 

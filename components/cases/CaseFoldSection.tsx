@@ -3,7 +3,7 @@
 import { useEffect, useRef, type ReactNode } from 'react'
 
 type CaseFoldSectionProps = {
-  eyebrow: string
+  eyebrow?: string
   title: string
   children: ReactNode
 }
@@ -40,9 +40,9 @@ export function CaseFoldSection({
         <details ref={ref} className="group" open>
           <summary className="flex cursor-pointer list-none items-center justify-between gap-3 md:pointer-events-none md:cursor-default [&::-webkit-details-marker]:hidden">
             <div className="min-w-0">
-              <p className="mb-2 text-xs font-medium uppercase tracking-[0.2em] text-brand/90">
-                {eyebrow}
-              </p>
+              {eyebrow ? (
+                <p className="mb-2 text-xs font-medium text-brand/90">{eyebrow}</p>
+              ) : null}
               <h2 className="text-balance text-xl font-bold leading-snug text-[var(--site-fg)] md:text-3xl">
                 {title}
               </h2>

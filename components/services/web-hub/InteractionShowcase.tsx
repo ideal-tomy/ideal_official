@@ -12,9 +12,6 @@ import { ServiceSectionShell } from '@/components/services/ServiceSectionShell'
 function ModalPanel({ featured = true }: { featured?: boolean }) {
   const content = (
     <>
-      <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-brand/90">
-        01 · 詳しく見る
-      </p>
       <h3
         className={`mb-3 font-bold text-[var(--site-fg)] ${
           featured ? 'text-xl md:text-2xl' : 'text-xl font-semibold'
@@ -105,9 +102,6 @@ function MotionPanel({ featured = false }: { featured?: boolean }) {
 
   const content = (
     <>
-      <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-brand/90">
-        02 · 動き
-      </p>
       <h3
         className={`mb-3 font-bold text-[var(--site-fg)] ${
           featured ? 'text-xl md:text-2xl' : 'text-xl font-semibold'
@@ -206,9 +200,6 @@ function InteractionPanel() {
 
   return (
     <div className="flex h-full flex-col rounded-xl border border-[var(--site-border)] bg-[var(--site-bg)] p-6">
-      <p className="mb-2 hidden text-[10px] font-semibold uppercase tracking-[0.2em] text-brand/90 md:block">
-        03 · 切り替え
-      </p>
       <h3 className="mb-3 text-xl font-semibold text-[var(--site-fg)]">
         切り替えて理解する
       </h3>
@@ -217,16 +208,16 @@ function InteractionPanel() {
       </p>
 
       <Tab.Group selectedIndex={tabIndex} onChange={setTabIndex}>
-        <Tab.List className="mb-4 flex gap-4 border-b border-[var(--site-border)]">
+        <Tab.List className="mb-4 flex gap-1 border-b border-[var(--site-border)]">
           {panels.map((panel) => (
             <Tab as={Fragment} key={panel.name}>
               {({ selected }) => (
                 <button
                   type="button"
-                  className={`relative pb-2 text-sm font-semibold focus:outline-none ${
+                  className={`relative min-h-11 min-w-[4.5rem] px-3 pb-2 text-[15px] focus:outline-none ${
                     selected
-                      ? '-mb-px border-b-2 border-brand text-[var(--site-fg)]'
-                      : 'text-[var(--site-fg-muted)] hover:text-[var(--site-fg)]'
+                      ? '-mb-px border-b-[3px] border-brand font-bold text-[var(--site-fg)]'
+                      : 'border-b-[3px] border-transparent font-semibold text-[var(--site-fg)]/70 hover:text-[var(--site-fg)]'
                   }`}
                 >
                   {panel.name}

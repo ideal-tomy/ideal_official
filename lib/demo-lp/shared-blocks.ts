@@ -20,10 +20,10 @@ const LP_STEP_BODY: Partial<Record<(typeof HOW_WE_WORK_STEPS)[number]['id'], str
       '引き渡したあと、現場で使い始められる状態になるまで一緒に進めます。',
   }
 
-/** TOP代表LPなど：導入方法を How we work 簡単版にする */
+/** TOP代表LPなど：導入方法をタイムライン版にする */
 export function howWeWorkProcess(): ProcessBlock {
   return {
-    label: 'How we work',
+    label: '',
     headline: HOW_WE_WORK_TITLE,
     lead: HOW_WE_WORK_LEAD,
     layout: 'timeline',

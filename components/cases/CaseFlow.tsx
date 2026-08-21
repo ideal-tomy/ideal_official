@@ -19,8 +19,8 @@ export function CaseFlow({ title, summary, steps, variant }: CaseFlowProps) {
 
   return (
     <div className={`rounded-xl border p-4 sm:p-6 md:p-8 ${accent}`}>
-      <p className={`mb-1.5 text-xs uppercase tracking-wider ${labelColor}`}>
-        {isAfter ? 'After' : 'Before'}
+      <p className={`mb-1.5 text-xs font-medium ${labelColor}`}>
+        {isAfter ? '導入後' : 'いま'}
       </p>
       <h3 className="mb-1.5 text-lg font-semibold text-[var(--site-fg)] md:mb-2 md:text-xl">
         {title}

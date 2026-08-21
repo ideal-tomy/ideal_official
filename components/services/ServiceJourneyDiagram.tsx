@@ -3,8 +3,11 @@ import type { CSSProperties } from 'react'
 export type ServiceJourneyStep = {
   number: string
   title: string
-  duration: string
+  /** 期間など、矢印の外に出す補足。全体フローでは使わない */
+  duration?: string
   description: string
+  /** 長い見出しを1行に収める */
+  compactTitle?: boolean
 }
 
 type ServiceJourneyDiagramProps = {
@@ -34,14 +37,20 @@ export function ServiceJourneyDiagram({ steps }: ServiceJourneyDiagramProps) {
             return (
               <div
                 key={`arrow-${step.number}`}
-                className={`relative overflow-hidden border border-brand/45 bg-brand text-[var(--df-on-primary)]${round}`}
+                className={`relative flex items-center justify-center overflow-hidden border border-brand/45 bg-brand py-2.5 text-[var(--df-on-primary)] lg:py-3${round}`}
                 style={{ clipPath: chevronClipPath } as CSSProperties}
               >
-                <div className="px-4 py-3 text-center">
-                  <p className="text-[11px] font-semibold tracking-[0.12em] text-[var(--df-on-primary)]/85">
-                    {step.duration}
+                <div className="flex items-center justify-center gap-1.5 px-3 pr-6 lg:gap-2 lg:px-4 lg:pr-7">
+                  <p className="shrink-0 text-[1.2rem] font-black tabular-nums leading-none tracking-tight text-[var(--df-on-primary)] lg:text-[1.35rem]">
+                    {step.number}
                   </p>
-                  <p className="mt-1 text-[15px] font-bold leading-tight">
+                  <p
+                    className={`whitespace-nowrap font-bold leading-none ${
+                      step.compactTitle
+                        ? 'text-[11px] tracking-tight lg:text-[12px]'
+                        : 'text-[14px] lg:text-[15px]'
+                    }`}
+                  >
                     {step.title}
                   </p>
                 </div>
@@ -51,30 +60,21 @@ export function ServiceJourneyDiagram({ steps }: ServiceJourneyDiagramProps) {
         </div>
 
         <div
-          className="mt-7 grid gap-4 lg:gap-6"
+          className="mt-5 grid gap-4 lg:gap-6"
           style={{
             gridTemplateColumns: `repeat(${steps.length}, minmax(0, 1fr))`,
           }}
         >
           {steps.map((step) => (
-            <div
-              key={`card-${step.number}`}
-              className="flex h-full flex-col items-center"
-            >
-              <div className="flex size-12 items-center justify-center rounded-full border-2 border-brand bg-[var(--site-bg)] text-[14px] font-bold text-brand">
-                {step.number}
-              </div>
-              <div className="mt-3 flex h-full w-full flex-col rounded-xl border border-[var(--site-border)] bg-[var(--site-bg)] px-4 py-4 text-center shadow-[var(--service-card-shadow)]">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-brand">
+            <div key={`desc-${step.number}`}>
+              {step.duration ? (
+                <p className="mb-1.5 text-[12px] font-medium tabular-nums text-[var(--site-fg)]/70">
                   {step.duration}
                 </p>
-                <p className="mt-1 text-[17px] font-bold leading-snug text-[var(--site-fg)]">
-                  {step.title}
-                </p>
-                <p className="mx-auto mt-2 max-w-[26ch] text-[14px] leading-[1.65] text-[var(--site-fg-muted)]">
-                  {step.description}
-                </p>
-              </div>
+              ) : null}
+              <p className="text-[12.5px] leading-[1.65] text-[var(--site-fg-muted)]">
+                {step.description}
+              </p>
             </div>
           ))}
         </div>
@@ -89,13 +89,15 @@ export function ServiceJourneyDiagram({ steps }: ServiceJourneyDiagramProps) {
             >
               {step.number}
             </span>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-brand">
-              {step.duration}
-            </p>
-            <p className="mt-1 text-[17px] font-bold text-[var(--site-fg)]">
+            <p className="text-[17px] font-bold text-[var(--site-fg)]">
               {step.title}
             </p>
-            <p className="mt-2 text-[14px] leading-[1.65] text-[var(--site-fg-muted)]">
+            {step.duration ? (
+              <p className="mt-1 text-[12px] font-medium text-[var(--site-fg)]/70">
+                {step.duration}
+              </p>
+            ) : null}
+            <p className="mt-2 text-[13px] leading-[1.65] text-[var(--site-fg-muted)]">
               {step.description}
             </p>
           </div>

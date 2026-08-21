@@ -11,14 +11,14 @@ export function CaseDemoScope({
   hasExternalDemo,
 }: CaseDemoScopeProps) {
   return (
-    <CaseFoldSection eyebrow="Demo scope" title="デモで分かること">
+    <CaseFoldSection title="デモで分かること">
       <p className="mb-5 text-sm leading-relaxed text-[var(--site-fg)]/85 md:mb-8 md:text-base">
         触れる範囲と、まだ触れない範囲を分けて書いています。期待値を揃えるためのメモです。
       </p>
 
       <div className="grid gap-3 md:grid-cols-2 md:gap-5">
         <div className="rounded-xl border border-brand/25 bg-brand/5 p-4 md:rounded-2xl md:p-6">
-          <p className="mb-1.5 text-xs font-medium uppercase tracking-wider text-brand/90">
+          <p className="mb-1.5 text-xs font-medium text-brand/90">
             簡易デモ
           </p>
           <p className="mb-3 text-sm font-semibold text-[var(--site-fg)]">
@@ -38,7 +38,7 @@ export function CaseDemoScope({
         </div>
 
         <div className="rounded-xl border border-[var(--site-border)] bg-[color-mix(in_srgb,var(--site-fg)_3%,transparent)] p-4 md:rounded-2xl md:p-6">
-          <p className="mb-1.5 text-xs font-medium uppercase tracking-wider text-[var(--site-fg-muted)]">
+          <p className="mb-1.5 text-xs font-medium text-[var(--site-fg-muted)]">
             業務デモ
           </p>
           <p className="mb-3 text-sm font-semibold text-[var(--site-fg)]">

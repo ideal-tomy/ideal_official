@@ -39,20 +39,13 @@ export function Footer() {
               ideal
             </h3>
             <p className={`${colors.text.muted} text-sm leading-relaxed`}>
-              <span className="md:hidden">
-                Web・業務アプリ・AIを、動くデモから。
-              </span>
-              <span className="hidden md:inline">
-                DEMO-FIRST DEVELOPMENT
-                <br />
-                Web・業務アプリ・AIを、動くデモから一緒に設計します。
-              </span>
+              Web・業務アプリ・AIを、動くデモから一緒に設計します。
             </p>
           </div>
 
           <div>
             <h4 className={`${colors.text.primary} text-lg font-bold mb-4`}>
-              体験する
+              見る
             </h4>
             <ul className="space-y-2">
               {exploreLinks.map((link) => (
@@ -112,7 +105,7 @@ export function Footer() {
                     focus:outline-none focus:ring-2 focus:ring-brand
                   `}
                 >
-                  一覧
+                  サービス一覧
                 </Link>
               </li>
             </ul>

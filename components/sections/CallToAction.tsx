@@ -29,8 +29,8 @@ export function CallToAction() {
             className="
               inline-flex items-center justify-center rounded-lg
               bg-brand px-8 py-4 text-lg font-bold text-[var(--df-on-primary)]
-              transition-all duration-300 ease-in-out
-              hover:scale-105 hover:bg-brand-hover active:scale-95
+              transition-colors duration-200
+              hover:bg-brand-hover
               focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 focus:ring-offset-[var(--site-bg)]
             "
           >
@@ -46,14 +46,6 @@ export function CallToAction() {
             概算の感触を先に見る →
           </Link>
         </p>
-
-        <div className="mt-16 flex flex-wrap justify-center gap-6 text-[var(--site-fg-muted)] text-sm">
-          <span>Next.js</span>
-          <span>React Native</span>
-          <span>Unity</span>
-          <span>AI / LLM</span>
-          <span>ブロックチェーン</span>
-        </div>
       </ScrollReveal>
     </Section>
   )

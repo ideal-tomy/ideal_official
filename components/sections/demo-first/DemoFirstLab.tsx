@@ -27,9 +27,6 @@ export function DemoFirstLab() {
               href={area.href}
               className="group rounded-[var(--df-radius-card)] border border-[var(--site-border)] bg-[var(--df-bg-card)] p-5 transition-colors hover:border-[var(--df-primary)]/45"
             >
-              <p className="mb-2 text-xs font-bold uppercase tracking-[0.14em] text-[var(--df-text-muted)]">
-                {area.eyebrow}
-              </p>
               <h3 className="mb-2 text-base font-black text-[var(--df-text)] md:text-lg">
                 {area.title}
               </h3>

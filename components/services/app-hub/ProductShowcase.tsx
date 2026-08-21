@@ -34,9 +34,6 @@ function InputProcessPanel({ featured = true }: { featured?: boolean }) {
 
   const header = (
     <>
-      <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-brand/90">
-        01 · 入力から結果
-      </p>
       <h3
         className={`mb-3 font-bold text-[var(--site-fg)] ${
           featured ? 'text-xl md:text-2xl' : 'text-xl font-semibold'
@@ -158,9 +155,6 @@ function StatusPanel() {
 
   return (
     <div className="flex h-full flex-col rounded-xl border border-[var(--site-border)] bg-[var(--site-bg)] p-6">
-      <p className="mb-2 hidden text-[10px] font-semibold uppercase tracking-[0.2em] text-brand/90 md:block">
-        02 · 進捗
-      </p>
       <h3 className="mb-3 text-xl font-semibold text-[var(--site-fg)]">
         ステータスを進める
       </h3>
@@ -244,9 +238,6 @@ function DashboardPanel({ featured = false }: { featured?: boolean }) {
 
   const header = (
     <>
-      <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-brand/90">
-        03 · 一覧
-      </p>
       <h3
         className={`mb-3 font-bold text-[var(--site-fg)] ${
           featured ? 'text-xl md:text-2xl' : 'text-xl font-semibold'
