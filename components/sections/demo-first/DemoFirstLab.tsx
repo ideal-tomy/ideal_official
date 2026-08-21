@@ -1,8 +1,7 @@
 import Link from 'next/link'
 import { labHubAreas } from '@/data/lab/hub'
-import { SectionKicker } from './SectionKicker'
 
-/** TOP §03 — LAB への入口 */
+/** TOP — LAB への入口 */
 export function DemoFirstLab() {
   const featured = labHubAreas.slice(0, 4)
 
@@ -12,8 +11,7 @@ export function DemoFirstLab() {
       className="bg-[var(--df-bg)] py-[clamp(40px,8vw,64px)] md:py-[var(--df-sec-pad)]"
     >
       <div className="mx-auto w-[min(100%-48px,1080px)]">
-        <SectionKicker index="03" label="LAB" />
-        <h2 className="my-2 mb-4 text-[clamp(26px,5.6vw,40px)] font-black leading-[1.5] text-[var(--df-text)] md:mb-6">
+        <h2 className="mb-4 text-[clamp(26px,5.6vw,40px)] font-black leading-[1.5] text-[var(--df-text)] md:mb-6">
           思想・研究・
           <br className="hidden md:inline" />
           深い解説へ。

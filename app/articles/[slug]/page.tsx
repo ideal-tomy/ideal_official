@@ -40,42 +40,42 @@ export default async function ArticlePage({ params }: PageProps) {
     notFound()
   }
 
-  const others = industryArticles.filter((a) => a.slug !== slug).slice(0, 4)
+  const others = industryArticles.filter((a) => a.slug !== slug)
 
   return (
-    <div className="min-h-screen bg-[var(--site-bg)]">
-      <div className="border-b border-[var(--site-border)] bg-[var(--site-bg-elevated)]/30">
-        <div className="mx-auto flex w-[min(100%-40px,940px)] flex-wrap items-center gap-x-3 gap-y-1 py-3 text-sm text-[var(--site-fg-muted)]">
-          <Link href="/articles" className="hover:text-brand">
+    <div className="min-h-screen">
+      <div className="border-b border-[var(--site-border)]/70">
+        <div className="mx-auto flex w-[min(100%-40px,940px)] flex-wrap items-center gap-x-2 py-1.5 text-xs text-[var(--site-fg-muted)]">
+          <Link href="/#articles" className="no-underline hover:text-brand hover:no-underline">
             現場の記事
           </Link>
           <span aria-hidden>/</span>
-          <span className="text-[var(--site-fg)]">{article.industry}</span>
+          <span className="text-[var(--site-fg)]">{article.hubIndustry}</span>
         </div>
       </div>
 
       <ArticleShadowHost html={html} />
 
       {others.length > 0 && (
-        <section className="border-t border-[var(--site-border)] py-14">
+        <section className="border-t border-[var(--site-border)]/70 py-8">
           <div className="mx-auto w-[min(100%-40px,620px)]">
-            <h2 className="mb-5 text-sm font-medium tracking-wider text-[var(--site-fg-muted)] uppercase">
+            <h2 className="mb-3 text-xs tracking-[0.08em] text-[var(--site-fg-muted)]">
               ほかの記事
             </h2>
-            <ul className="space-y-3">
+            <ul className="flex flex-wrap gap-x-5 gap-y-2">
               {others.map((item) => (
                 <li key={item.slug}>
                   <Link
                     href={`/articles/${item.slug}`}
-                    className="text-sm font-medium text-brand hover:text-brand-hover"
+                    className="text-sm text-[var(--site-fg-muted)] hover:text-brand"
                   >
-                    {item.title} →
+                    {item.hubIndustry}
                   </Link>
                 </li>
               ))}
             </ul>
-            <p className="mt-8">
-              <Link href="/articles" className="text-sm text-[var(--site-fg-muted)] hover:text-brand">
+            <p className="mt-5">
+              <Link href="/#articles" className="text-xs text-[var(--site-fg-muted)] no-underline hover:text-brand hover:no-underline">
                 目次に戻る
               </Link>
             </p>

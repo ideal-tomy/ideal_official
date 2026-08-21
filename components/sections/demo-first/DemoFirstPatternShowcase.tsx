@@ -2,10 +2,9 @@ import Link from 'next/link'
 import { GALLERY_BASE } from '@/data/ai-capability-gallery/capabilities'
 import { getTopFeaturedDemos } from '@/data/demo-first/top-featured-demos'
 import { contentLeadBare } from '@/lib/content-typography'
-import { SectionKicker } from './SectionKicker'
 import { TopFeaturedDemoShowcase } from './TopFeaturedDemoShowcase'
 
-/** TOP §02 — 代表デモ4枚（サンプル完走できるものだけ） */
+/** TOP — 代表デモ4枚（サンプル完走できるものだけ） */
 export function DemoFirstPatternShowcase() {
   const demos = getTopFeaturedDemos()
 
@@ -15,8 +14,7 @@ export function DemoFirstPatternShowcase() {
       className="bg-[var(--df-bg-blue)] py-[clamp(40px,8vw,64px)] md:py-[var(--df-sec-pad)]"
     >
       <div className="mx-auto w-[min(100%-48px,1080px)]">
-        <SectionKicker index="02" label="デモ" />
-        <h2 className="my-2 mb-4 text-[clamp(26px,5.6vw,40px)] font-black leading-[1.5] text-[var(--df-text)] md:mb-6">
+        <h2 className="mb-4 text-[clamp(26px,5.6vw,40px)] font-black leading-[1.5] text-[var(--df-text)] md:mb-6">
           資料ではなく、
           <br className="hidden md:inline" />
           動くデモで確かめる。

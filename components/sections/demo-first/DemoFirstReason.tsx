@@ -3,7 +3,6 @@ import type { ReactNode } from 'react'
 import { ReasonEngineDiagram } from './ReasonEngineDiagram'
 import { ReasonFlowDiagram } from './ReasonFlowDiagram'
 import { ReasonLoopDiagram } from './ReasonLoopDiagram'
-import { SectionKicker } from './SectionKicker'
 
 const REASONS: {
   index: string
@@ -47,8 +46,7 @@ export function DemoFirstReason() {
       />
       <div className="relative mx-auto w-[min(100%-48px,1080px)]">
         <header className="mb-12 text-center md:mb-16">
-          <SectionKicker index="01" label="理由" className="text-center" />
-          <h2 className="my-2 text-[clamp(28px,6.2vw,44px)] font-black leading-[1.35] text-[var(--df-text)]">
+          <h2 className="text-[clamp(28px,6.2vw,44px)] font-black leading-[1.35] text-[var(--df-text)]">
             触れるものから始める理由。
           </h2>
         </header>

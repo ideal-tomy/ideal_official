@@ -44,6 +44,7 @@ function buildDefaultMessage(
   serviceId: string | null,
   caseSlug: string | null,
   demoSlug: string | null,
+  articleSlug: string | null,
 ): string {
   const lines: string[] = []
   if (intent === 'ai-chat') {
@@ -64,6 +65,12 @@ function buildDefaultMessage(
       lines.push(`【活用イメージ】${caseSlug}`)
     }
   }
+  if (intent === 'article') {
+    lines.push('【現場の記事経由のご相談】')
+    if (articleSlug) {
+      lines.push(`【記事】${articleSlug}`)
+    }
+  }
   if (serviceId) {
     lines.push(`【相談種別】${getServiceLabel(serviceId)}`)
   }
@@ -81,11 +88,12 @@ export function ContactForm() {
   const serviceId = searchParams.get('service')
   const caseSlug = searchParams.get('case')
   const demoSlug = searchParams.get('demo')
+  const articleSlug = searchParams.get('article')
   const prefillParam = searchParams.get('prefill')
 
   const defaultMessage = useMemo(
-    () => buildDefaultMessage(intent, serviceId, caseSlug, demoSlug),
-    [intent, serviceId, caseSlug, demoSlug],
+    () => buildDefaultMessage(intent, serviceId, caseSlug, demoSlug, articleSlug),
+    [intent, serviceId, caseSlug, demoSlug, articleSlug],
   )
 
   const [isSubmitting, setIsSubmitting] = useState(false)

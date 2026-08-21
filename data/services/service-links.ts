@@ -22,7 +22,7 @@ export const headerFooterServiceLinks: { href: string; label: string }[] = [
 export const labNavLinks: { href: string; label: string }[] = [
   { href: '/lab', label: 'LAB トップ' },
   { href: '/lab/insights', label: 'Insights' },
-  { href: '/articles', label: '現場の記事' },
+  { href: '/#articles', label: '現場の記事' },
   { href: '/philosophy', label: 'Philosophy（DAO思想）' },
   { href: '/research', label: 'Research' },
   { href: '/lab/blockchain', label: 'Blockchain（DAO研究）' },

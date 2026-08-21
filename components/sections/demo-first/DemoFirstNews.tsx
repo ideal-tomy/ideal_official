@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import type { NewsItem } from '@/data/news/items'
 import { GALLERY_BASE } from '@/data/ai-capability-gallery/capabilities'
-import { SectionKicker } from './SectionKicker'
 
 type Props = {
   items: NewsItem[]
@@ -16,8 +15,7 @@ export function DemoFirstNews({ items }: Props) {
       className="bg-[var(--df-bg-blue)] py-[clamp(32px,6vw,48px)] md:py-16"
     >
       <div className="mx-auto w-[min(100%-48px,1080px)]">
-        <SectionKicker index="04" label="News" />
-        <h2 className="my-2 mb-8 text-[clamp(22px,4.8vw,32px)] font-black leading-[1.5] text-[var(--df-text)]">
+        <h2 className="mb-8 text-[clamp(22px,4.8vw,32px)] font-black leading-[1.5] text-[var(--df-text)]">
           お知らせ
         </h2>
         <ul>

@@ -38,14 +38,6 @@ export function DemoLpRelatedArticle({ lpPath }: Props) {
             </li>
           ))}
         </ul>
-        <p className="mt-4">
-          <Link
-            href="/articles"
-            className="text-sm font-medium text-[var(--lp-primary)] hover:underline"
-          >
-            現場の記事一覧 →
-          </Link>
-        </p>
       </div>
     </section>
   )
