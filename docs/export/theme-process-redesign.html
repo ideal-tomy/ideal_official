@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<!--
+  テーマページ / 業務プロセス再設計　ideal
+  ------------------------------------------------------------------
+  差し替え箇所
+    /articles/... … 業界記事へのリンク（相対パス）
+    data-cta="contact" … 問い合わせ
+  ------------------------------------------------------------------
+-->
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>業務プロセス再設計 ｜ テーマ ｜ ideal</title>
+<meta name="description" content="何を作るか決める前に、動くものを見る。言葉だけの合意で止まっている業務の見直しを、たたき台を先に出す形で進めます。">
+<style>
+:root{
+  color-scheme: light only;
+  --ink:#0f1620; --ink-2:#4a5560; --ink-3:#8b95a1;
+  --bg:#ffffff; --soft:#f4f6f9; --line:#e2e7ed; --line-2:#c8d1da;
+  --blue:#1f4fd8; --blue-d:#173aa0; --blue-l:#eef2fe;
+  --sans:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP","Noto Sans CJK JP","Yu Gothic Medium","Yu Gothic",Meiryo,system-ui,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    color-scheme: light only;
+    --ink:#0f1620; --ink-2:#4a5560; --ink-3:#8b95a1;
+    --bg:#ffffff; --soft:#f4f6f9; --line:#e2e7ed; --line-2:#c8d1da;
+    --blue:#1f4fd8; --blue-d:#173aa0; --blue-l:#eef2fe;
+  }
+  html, body{ background:#ffffff !important; color:#0f1620 !important; }
+}
+*{ box-sizing:border-box; }
+html{ -webkit-text-size-adjust:100%; }
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:var(--sans); font-size:16px; line-height:1.92;
+  font-feature-settings:"palt" 1;
+}
+h1,h2,h3{ word-break:auto-phrase; line-break:strict; text-wrap:balance; margin:0; }
+p{ margin:0 0 1.5em; }
+a{ color:var(--blue); }
+
+.wrap{ max-width:980px; margin:0 auto; padding:0 24px; }
+.col{ max-width:640px; }
+
+/* ヘッダー */
+.top{ border-bottom:1px solid var(--line); }
+.top__in{ max-width:980px; margin:0 auto; padding:16px 24px; display:flex; align-items:baseline; gap:16px; }
+.brand{ font-weight:800; font-size:18px; letter-spacing:.02em; color:var(--ink); text-decoration:none; }
+.crumb{ font-size:12px; color:var(--ink-3); }
+
+/* 冒頭 */
+.hero{ padding:64px 0 8px; }
+.eyebrow{ font-family:var(--mono); font-size:11px; letter-spacing:.18em; color:var(--blue); margin:0 0 20px; }
+.hero h1{ font-size:44px; line-height:1.36; font-weight:800; letter-spacing:-.015em; margin:0 0 26px; max-width:14em; }
+.hero__lead{ font-size:18px; color:var(--ink-2); max-width:31em; margin:0 0 34px; }
+
+/* 三つの止まり方 */
+.stops{ display:flex; gap:14px; flex-wrap:wrap; max-width:900px; margin:0 0 8px; }
+.stops div{ flex:1 1 240px; border-top:3px solid var(--ink); padding:16px 0 0; }
+.stops b{ display:block; font-size:17px; margin-bottom:6px; }
+.stops span{ font-size:14px; color:var(--ink-2); line-height:1.85; }
+
+/* セクション */
+.sec{ padding:64px 0 0; }
+.sec h2{ font-size:30px; line-height:1.48; font-weight:800; letter-spacing:-.01em; margin:0 0 24px; max-width:18em; }
+.sec h3{ font-size:17px; font-weight:700; margin:32px 0 10px; }
+.lede{ font-size:18px; }
+.hl{ background:linear-gradient(transparent 60%, rgba(31,79,216,.16) 60%); font-weight:700; }
+
+/* 提供する四つ */
+.offer{ max-width:900px; margin:0 0 8px; }
+.offer div{
+  display:flex; gap:20px; align-items:flex-start;
+  border-top:1px solid var(--line); padding:24px 0 22px;
+}
+.offer div:last-child{ border-bottom:1px solid var(--line); }
+.offer .n{ font-family:var(--mono); font-size:12px; color:var(--blue); padding-top:6px; width:26px; flex:none; font-weight:700; }
+.offer .t{ flex:1; max-width:620px; }
+.offer b{ display:block; font-size:19px; margin-bottom:6px; }
+.offer span{ font-size:15px; color:var(--ink-2); line-height:1.9; }
+.offer .t em{ display:block; font-style:normal; font-size:13.5px; color:var(--ink-3); margin-top:8px; font-family:var(--mono); letter-spacing:.02em; }
+
+/* 効く・効かない */
+.fit{ display:flex; gap:16px; flex-wrap:wrap; max-width:900px; margin:0 0 1.7em; }
+.fit div{ flex:1 1 300px; padding:22px 24px 20px; border-radius:4px; }
+.fit .yes{ background:var(--blue-l); }
+.fit .no{ background:var(--soft); }
+.fit h3{ margin:0 0 12px; font-size:16px; }
+.fit .yes h3{ color:var(--blue-d); }
+.fit .no h3{ color:var(--ink-2); }
+.fit ul{ margin:0; padding-left:1.2em; font-size:14.5px; line-height:1.9; }
+.fit li{ margin-bottom:7px; }
+
+/* 図 */
+.figure{ background:var(--soft); border-radius:4px; padding:28px 24px 20px; margin:0 0 1.9em; max-width:640px; }
+.figure svg{ display:block; width:100%; height:auto; }
+.figure__t{ font-family:var(--mono); font-size:10px; letter-spacing:.14em; color:var(--blue); font-weight:700; margin:0 0 18px; }
+.figure figcaption{ font-size:13px; line-height:1.85; color:var(--ink-2); margin:16px 0 0; }
+
+/* 進め方 */
+.flow{ max-width:900px; margin:0 0 1.7em; }
+.flow div{ border-left:2px solid var(--line-2); padding:0 0 26px 24px; position:relative; }
+.flow div:last-child{ padding-bottom:0; }
+.flow div::before{
+  content:""; position:absolute; left:-6px; top:8px; width:10px; height:10px;
+  border-radius:50%; background:var(--blue);
+}
+.flow b{ display:block; font-size:18px; margin-bottom:4px; }
+.flow .w{ font-family:var(--mono); font-size:11px; color:var(--ink-3); letter-spacing:.06em; margin-bottom:6px; }
+.flow span{ font-size:15px; color:var(--ink-2); line-height:1.9; }
+
+/* 記事へのリンク */
+.arts{ display:flex; flex-wrap:wrap; gap:10px; max-width:900px; margin:0 0 1.6em; }
+.arts a{
+  display:block; border:1px solid var(--line-2); border-radius:3px;
+  padding:14px 16px 12px; text-decoration:none; color:var(--ink);
+  flex:1 1 280px;
+}
+.arts a:hover{ border-color:var(--blue); }
+.arts b{ display:block; font-size:15.5px; font-weight:700; }
+.arts span{ font-size:13px; color:var(--ink-2); }
+
+/* FAQ */
+.faq{ max-width:900px; margin:0 0 1.6em; }
+.faq details{ border-top:1px solid var(--line); }
+.faq details:last-of-type{ border-bottom:1px solid var(--line); }
+.faq summary{
+  cursor:pointer; padding:18px 0 16px; font-size:17px; font-weight:700;
+  list-style:none; position:relative; padding-right:32px;
+}
+.faq summary::-webkit-details-marker{ display:none; }
+.faq summary::after{
+  content:"＋"; position:absolute; right:4px; top:17px; color:var(--blue); font-weight:400;
+}
+.faq details[open] summary::after{ content:"−"; }
+.faq p{ font-size:15px; color:var(--ink-2); line-height:1.95; margin:0 0 18px; max-width:620px; }
+
+/* 締め */
+.close{ background:var(--soft); margin-top:72px; padding:56px 0 54px; }
+.close h2{ font-size:30px; line-height:1.46; font-weight:800; margin:0 0 20px; }
+.close p{ font-size:16px; color:var(--ink-2); max-width:32em; }
+.btn{
+  display:inline-block; background:var(--blue); color:#fff; font-weight:700; font-size:16px;
+  text-decoration:none; padding:17px 36px; border-radius:3px;
+}
+.btn:hover{ background:var(--blue-d); }
+
+.foot{ border-top:1px solid var(--line); padding:24px 0 46px; }
+.foot__in{ max-width:980px; margin:0 auto; padding:0 24px; font-size:12px; color:var(--ink-3); }
+
+@media (max-width:640px){
+  body{ font-size:15.5px; line-height:1.9; }
+  .wrap{ padding:0 20px; }
+  .top__in{ padding:14px 20px; }
+  .hero{ padding:44px 0 4px; }
+  .hero h1{ font-size:29px; line-height:1.44; }
+  .hero__lead{ font-size:16px; }
+  .stops div{ flex:1 1 100%; }
+  .sec{ padding:48px 0 0; }
+  .sec h2{ font-size:23px; }
+  .offer div{ gap:12px; padding:20px 0 18px; }
+  .offer b{ font-size:17px; }
+  .figure{ padding:22px 16px 16px; }
+  .flow b{ font-size:17px; }
+  .faq summary{ font-size:16px; }
+  .close{ margin-top:56px; padding:42px 0 42px; }
+  .close h2{ font-size:23px; }
+  .btn{ display:block; text-align:center; padding:17px 20px; }
+  .foot__in{ padding:0 20px; }
+}
+a:focus-visible, .btn:focus-visible, summary:focus-visible{ outline:2px solid var(--blue); outline-offset:3px; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top__in">
+    <a class="brand" href="/">ideal</a>
+    <span class="crumb">テーマ ／ 業務プロセス再設計</span>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="col">
+      <p class="eyebrow">業務プロセス再設計</p>
+      <h1>何を作るか決める前に、動くものを見ます。</h1>
+      <p class="hero__lead">
+        業務の見直しは、たいてい決まらないところで止まります。会議を重ねても決まらない。決めても、できたものが想像と違う。原因は一つです。
+      </p>
+    </div>
+
+    <div class="stops">
+      <div>
+        <b>決まらない</b>
+        <span>要件を決める会議を何度やっても、次回に持ち越しになる。</span>
+      </div>
+      <div>
+        <b>違うものができる</b>
+        <span>仕様書どおりに作ったのに、出てきた画面が想像と違う。</span>
+      </div>
+      <div>
+        <b>使われない</b>
+        <span>入れたものが三か月で放置される。現場が前のやり方に戻る。</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main>
+  <div class="wrap">
+
+    <section class="sec">
+      <div class="col">
+        <h2>三つとも、言葉だけで合意していることから起きます</h2>
+        <p class="lede">
+          仕様書を五人で読むと、五人の頭の中に別々の画面が浮かびます。
+        </p>
+        <p>
+          「一覧から選んで登録する」という一行でも、その一覧が何行あって、どこに何が出て、選んだあとどうなるのか。書いていないところは、それぞれが自分の経験で埋めます。
+        </p>
+        <p>
+          <span class="hl">そしてズレていることに、動くものを見るまで誰も気づけません。</span>会議では全員がうなずいています。ズレは、できあがった画面を見た日に一度に噴き出します。
+        </p>
+      </div>
+
+      <figure class="figure">
+        <p class="figure__t">同じ一行から、別の画面が浮かんでいる</p>
+        <svg viewBox="0 0 600 250" role="img" aria-labelledby="p1t p1d">
+          <title id="p1t">同じ仕様書から三人が別の画面を思い浮かべている図</title>
+          <desc id="p1d">同じ一行の仕様書を読んでも、読む人ごとに違う画面が頭に浮かんでいる</desc>
+
+          <rect x="200" y="14" width="200" height="42" rx="3" fill="#fff" stroke="var(--ink)" stroke-width="1.4"/>
+          <text x="300" y="34" font-family="'Noto Sans CJK JP','Noto Sans JP',sans-serif" font-size="12" fill="var(--ink)" text-anchor="middle">仕様書</text>
+          <text x="300" y="49" font-family="'Noto Sans CJK JP','Noto Sans JP',sans-serif" font-size="11" fill="var(--ink-2)" text-anchor="middle">「一覧から選んで登録する」</text>
+
+          <path d="M240 60 C180 78 130 92 96 108" fill="none" stroke="var(--line-2)" stroke-width="1.4"/>
+          <path d="M300 60 L300 108" fill="none" stroke="var(--line-2)" stroke-width="1.4"/>
+          <path d="M360 60 C420 78 470 92 504 108" fill="none" stroke="var(--line-2)" stroke-width="1.4"/>
+
+          <!-- 画面1：表 -->
+          <rect x="26" y="112" width="140" height="94" rx="3" fill="#fff" stroke="var(--line-2)" stroke-width="1.2"/>
+          <rect x="34" y="120" width="124" height="12" rx="1.5" fill="#dfe5ec"/>
+          <g stroke="#dfe5ec" stroke-width="1">
+            <line x1="34" y1="144" x2="158" y2="144"/><line x1="34" y1="158" x2="158" y2="158"/>
+            <line x1="34" y1="172" x2="158" y2="172"/><line x1="34" y1="186" x2="158" y2="186"/>
+          </g>
+          <line x1="76" y1="136" x2="76" y2="196" stroke="#dfe5ec" stroke-width="1"/>
+          <line x1="118" y1="136" x2="118" y2="196" stroke="#dfe5ec" stroke-width="1"/>
+          <text x="96" y="224" font-family="'Noto Sans CJK JP','Noto Sans JP',sans-serif" font-size="11" fill="var(--ink-2)" text-anchor="middle">営業部長の頭の中</text>
+
+          <!-- 画面2：検索して選ぶ -->
+          <rect x="230" y="112" width="140" height="94" rx="3" fill="#fff" stroke="var(--line-2)" stroke-width="1.2"/>
+          <rect x="240" y="122" width="90" height="16" rx="8" fill="#fff" stroke="#dfe5ec" stroke-width="1.2"/>
+          <circle cx="345" cy="130" r="7" fill="var(--blue)" opacity=".5"/>
+          <rect x="240" y="150" width="120" height="11" rx="2" fill="#dfe5ec"/>
+          <rect x="240" y="167" width="96" height="11" rx="2" fill="#dfe5ec"/>
+          <rect x="240" y="184" width="110" height="11" rx="2" fill="#dfe5ec"/>
+          <text x="300" y="224" font-family="'Noto Sans CJK JP','Noto Sans JP',sans-serif" font-size="11" fill="var(--ink-2)" text-anchor="middle">情シスの頭の中</text>
+
+          <!-- 画面3：スマホでカード -->
+          <rect x="474" y="112" width="60" height="94" rx="6" fill="#fff" stroke="var(--line-2)" stroke-width="1.2"/>
+          <rect x="482" y="122" width="44" height="22" rx="3" fill="#dfe5ec"/>
+          <rect x="482" y="150" width="44" height="22" rx="3" fill="#dfe5ec"/>
+          <rect x="482" y="178" width="44" height="20" rx="3" fill="var(--blue)" opacity=".45"/>
+          <text x="504" y="224" font-family="'Noto Sans CJK JP','Noto Sans JP',sans-serif" font-size="11" fill="var(--ink-2)" text-anchor="middle">現場担当の頭の中</text>
+        </svg>
+        <figcaption>
+          全員が同じ文を読んで、全員がうなずいています。それでも、思い浮かべている画面は違います。この差は、動くものが出てくるまで表に出てきません。
+        </figcaption>
+      </figure>
+
+      <div class="col">
+        <p>
+          仕様書を厚くしても解決しません。書けば書くほど読まれなくなり、読まれないぶん、また各自の想像で埋まります。
+        </p>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="col">
+        <h2>だから、決める前に動くものを出します</h2>
+        <p>
+          要件が固まる前に、画面が動くものを作ってお見せします。完成品ではありません。<b>意見をもらうための、たたき台です。</b>
+        </p>
+        <p>
+          これを見た瞬間、それまで一致していたはずの話が割れます。「そこは違う」「うちはこの順番でやっている」。この会話が、言葉だけの会議では出てきません。
+        </p>
+        <p>
+          割れたほうがいいです。作ってから割れると、作り直しになります。
+        </p>
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2 style="max-width:640px;">提供すること</h2>
+
+      <div class="offer">
+        <div>
+          <span class="n">01</span>
+          <div class="t">
+            <b>いまの仕事を、数えて出す</b>
+            <span>誰が、何を、一日に何回やっているか。どこで待ちが発生しているか。ここは聞き取りと、実際の帳票を見せてもらう作業です。感覚ではなく回数で出します。数えると、いちばん時間を取っている作業が想像と違うことがよくあります。</span>
+            <em>2〜3週間</em>
+          </div>
+        </div>
+        <div>
+          <span class="n">02</span>
+          <div class="t">
+            <b>動くたたき台を作る</b>
+            <span>いちばん回数の多い作業について、画面が動くものを作ります。データは仮のもので構いません。これを現場の方に触ってもらい、違うところを言ってもらいます。ここで出た指摘が、そのまま要件になります。</span>
+            <em>1〜2週間</em>
+          </div>
+        </div>
+        <div>
+          <span class="n">03</span>
+          <div class="t">
+            <b>そろえる範囲と、そろえない範囲を決める</b>
+            <span>標準化でいちばん大事なのは、どこをそろえないか決めることです。現場ごとの違いを全部つぶそうとすると、必ず使われなくなります。そろえるのは、誰がやっても同じになる部分だけ。判断が要る部分は、人が判断できる形のまま残します。</span>
+            <em>たたき台を触りながら</em>
+          </div>
+        </div>
+        <div>
+          <span class="n">04</span>
+          <div class="t">
+            <b>ひとつの業務だけ、実際に動かす</b>
+            <span>全社ではなく、一部署の一業務から実装します。数か月使ってもらって、続くかどうかを見ます。続けば次に広げ、続かなければ理由を確かめます。この段階で全社に広げないのは、広げてから合わないと分かると戻せないからです。</span>
+            <em>1〜3か月</em>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2 style="max-width:640px;">この進め方が効く会社と、効かない会社</h2>
+      <div class="col">
+        <p>
+          先に書いておきます。合わない場合があります。
+        </p>
+      </div>
+
+      <div class="fit">
+        <div class="yes">
+          <h3>効きます</h3>
+          <ul>
+            <li>毎日、同じ手順を繰り返している業務がある</li>
+            <li>その業務を、複数の人が別々のやり方でやっている</li>
+            <li>要件を決める会議が、何度も持ち越しになっている</li>
+            <li>過去に一度入れて、使われなかった経験がある</li>
+          </ul>
+        </div>
+        <div class="no">
+          <h3>効きません</h3>
+          <ul>
+            <li>案件ごとに判断が変わる業務（無理にそろえると使われなくなります）</li>
+            <li>すでに要件が固まっていて、あとは作るだけの状態</li>
+            <li>基幹システムそのものの入れ替え（規模が違います）</li>
+            <li>現場に一切ヒアリングできない状態</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col">
+        <p>
+          二つ目については、はっきり申し上げます。要件がすでに固まっているなら、たたき台を作る工程は無駄です。そのまま作れる会社に頼んだほうが早く、安く済みます。私たちが役に立つのは、<b>何を作るかが決まっていない段階</b>です。
+        </p>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="col">
+        <h2>費用の考え方</h2>
+        <p>
+          この進め方は、初めにまとまった費用がかかります。数えて、たたき台を作って、触ってもらう工程は、そのまま人の時間だからです。
+        </p>
+        <p>
+          比べていただきたいのは、<b>作り直しの費用</b>です。要件が固まらないまま作り始めて、できたものが違って、もう一度作る。この形がいちばん高くつきます。しかも二度目は、現場の期待が下がった状態から始まります。
+        </p>
+        <p>
+          もう一つは、人を増やす費用です。仕事が回らないときに人を増やすと、人件費は毎月かかり続けて減りません。仕組みは初めにかかって、そのあとは下がります。<span class="hl">初めにかけて、毎月を下げる。</span>これが、この仕事の向きです。
+        </p>
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2 style="max-width:640px;">私たちがどう調べるかは、記事を読むのが早いです</h2>
+      <div class="col">
+        <p>
+          業界ごとの実務について、記事を書いています。法令や公的な基準を調べて、その業界の言葉で手順を組み直したものです。
+        </p>
+        <p>
+          <b>これが、01と03でやっている作業そのものです。</b>提案書を読んでいただくより、こちらのほうが実際の仕事の粒度が伝わると思います。
+        </p>
+      </div>
+
+      <div class="arts">
+        <a href="/articles/construction">
+          <b>建設 ― 工事写真の整理</b>
+          <span>撮る前・撮るとき・撮ったあとに分けて、手順を組み直しています。</span>
+        </a>
+        <a href="/articles/manufacturing">
+          <b>製造 ― ベテランの手順の聞き取り</b>
+          <span>何を聞くか、どう整理するかを具体的に書いています。</span>
+        </a>
+        <a href="/articles/warehouse">
+          <b>倉庫 ― 在庫差異の原因分け</b>
+          <span>結果から原因を四つに遡る方法を書いています。</span>
+        </a>
+        <a href="/articles/care">
+          <b>医療・介護 ― 記録と運営指導</b>
+          <span>五つの書類を突き合わせる見方を書いています。</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2 style="max-width:640px;">よくいただく質問</h2>
+      <div class="faq">
+        <details>
+          <summary>たたき台は、そのまま本番で使えますか</summary>
+          <p>使えません。触ってもらうために作るもので、データの保存も権限もセキュリティも入っていません。ここは正直に申し上げます。たたき台の役割は、意見を引き出すことだけです。本番は04で改めて作ります。</p>
+        </details>
+        <details>
+          <summary>現場が協力してくれるか、自信がありません</summary>
+          <p>触ってもらうものがあると、協力の度合いが変わります。「意見をください」と言われても何を言えばいいか分かりませんが、動く画面を見せられると「そこは違う」と言えるからです。それでも協力が得られない場合は、原因が業務の外にあることが多いので、そこは正直にお伝えします。</p>
+        </details>
+        <details>
+          <summary>いまのシステムは、入れ替えになりますか</summary>
+          <p>ほとんどの場合、なりません。基幹システムの入れ替えは規模も費用も別物です。私たちが扱うのは、その周りで人が手作業でやっている部分です。既存のシステムはそのまま残して、その前後をつなぐ形にすることが多いです。</p>
+        </details>
+        <details>
+          <summary>どれくらいの規模から相談できますか</summary>
+          <p>一つの部署の、一つの業務からで構いません。むしろ、そこから始めるようにお願いしています。全社から始めると決めることが増えて、また止まります。</p>
+        </details>
+        <details>
+          <summary>AIを使うことが前提ですか</summary>
+          <p>違います。01で数えた結果、決まったルールで計算すれば足りる業務であれば、そのほうが確実です。同じ条件なら毎回同じ結果になりますし、説明もできます。AIを使うのは、文章や画像を扱う部分だけです。</p>
+        </details>
+        <details>
+          <summary>途中でやめられますか</summary>
+          <p>やめられます。01が終わった時点、02が終わった時点で、それぞれ判断していただけます。数えた結果、そもそも仕組みが要らないという結論になることもあります。そのときは、そうお伝えします。</p>
+        </details>
+      </div>
+    </section>
+
+  </div>
+
+  <section class="close">
+    <div class="wrap">
+      <div class="col">
+        <h2>まず、いちばん時間を取られている業務を教えてください</h2>
+        <p style="margin-bottom:30px;">
+          それが何回発生していて、誰がやっているか。分かる範囲で構いません。数えるところから一緒にやります。要件が決まっていなくても、むしろそのほうが向いています。
+        </p>
+        <p>
+          <a class="btn" href="#" data-cta="contact">相談する</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="foot__in">© ideal</div>
+</footer>
+
+</body>
+</html>

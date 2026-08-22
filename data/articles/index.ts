@@ -50,7 +50,7 @@ export const industryArticles: IndustryArticle[] = [
     slug: 'manufacturing',
     title: 'ベテランの手順を、聞き取って書き残す方法。',
     description:
-      '手順書はあるのに、読んでも新人が作れない。書かれていないのは急所です。作業の分け方と、ベテランからの聞き出し方をまとめました。',
+      '工程を一つ決め、ベテランに話してもらい、聞き取った内容を書き残す。聞き取りの順番と、録音・撮影の前に決めることをまとめました。',
     industry: '製造',
     hubIndustry: '製造',
     jamLabel: '手順が残らない',
@@ -63,9 +63,9 @@ export const industryArticles: IndustryArticle[] = [
   },
   {
     slug: 'care',
-    title: '運営指導で見られるのは、記録の量ではありません。',
+    title: '記録がずれる理由と、その残し方。',
     description:
-      '見られるのは書類の量ではなく、書類どうしの食い違いです。何を見られるかは公開されています。記録の残し方をまとめました。',
+      '書類どうしが食い違うのは、その日のうちに書けていないからです。その場で残す、五つを突き合わせる、運営指導の前に揃える、の順でまとめました。',
     industry: '医療・介護',
     hubIndustry: '医療・介護',
     jamLabel: '記録がずれる',
@@ -78,9 +78,9 @@ export const industryArticles: IndustryArticle[] = [
   },
   {
     slug: 'childcare',
-    title: '保育の記録は、何かあった日のためにあります。',
+    title: '保育の記録がずれる理由と、残し方。',
     description:
-      'いちばん重い役目は、何かあった日に説明できることです。ガイドラインの三つの場面から、記録の残し方をまとめました。',
+      '午睡中に決まった回数を見る、見る時間より書く時間を長くしない、何かあった日に出せる形にしておく。ガイドラインの三つの場面から、記録の残し方をまとめました。',
     industry: '保育',
     hubIndustry: '保育',
     jamLabel: '何かあった日の記録',
@@ -93,9 +93,9 @@ export const industryArticles: IndustryArticle[] = [
   },
   {
     slug: 'retail',
-    title: '問い合わせは、なぜ来たのかで分けると減らせます。',
+    title: '問い合わせが減らない理由と、その直し方。',
     description:
-      '内容で分けても件数は減りません。なぜ来たのかで分けると、表示を足せば来なくなるものが見えてきます。',
+      '届く問い合わせの多くは、書いていない・届いていない・見つからない、から来ています。返品の表示、発送の通知、置き場所。直す順番をまとめました。',
     industry: '小売',
     hubIndustry: '小売',
     jamLabel: '問い合わせが減らない',
@@ -108,9 +108,9 @@ export const industryArticles: IndustryArticle[] = [
   },
   {
     slug: 'restaurant',
-    title: 'シフトでもめないために、先に決めておく四つのこと。',
+    title: 'シフトでもめる理由と、先に決めること。',
     description:
-      'シフトでもめるのは、組み方が下手だからではありません。決めていないことがあるからです。先に決めておくことをまとめました。',
+      '雇うときに働く時間の幅を書いて渡す、希望を集めてから組んで表で伝える、一日八時間を超える組み方と当日欠勤の直し方。厚労省の留意事項をふまえてまとめました。',
     industry: '飲食',
     hubIndustry: '飲食',
     jamLabel: 'シフトでもめる',
@@ -122,9 +122,9 @@ export const industryArticles: IndustryArticle[] = [
   },
   {
     slug: 'building',
-    title: '法定点検が漏れるのは、周期ではなく起点が違うからです。',
+    title: '法定点検が漏れる理由と、台帳の作り方。',
     description:
-      '周期が違うだけならまだ管理できます。本当の問題は起点が違うことです。台帳に必要な列をまとめました。',
+      '一棟の台帳に起点の列を入れる、実施した日に次回期限を書き直す、棟が増えたら件数が掛け算になる前提で見る。台帳の作り方をまとめました。',
     industry: 'ビルメンテナンス',
     hubIndustry: 'ビルメン',
     jamLabel: '点検が漏れる',
@@ -136,9 +136,9 @@ export const industryArticles: IndustryArticle[] = [
   },
   {
     slug: 'logistics',
-    title: '守れているかが分かる時期は、基準ごとに違います。',
+    title: '日報を残し、途中で見て、配車を変える。',
     description:
-      '改善基準告示は、その場で分かるものから年度末まで分からないものまであります。判定できる時期の違いをまとめました。',
+      '改善基準告示は、その場で分かるものから年度末まで分からないものまであります。日報と点呼を残し、月の途中で見て、配車を変える順でまとめました。',
     industry: '運送・物流',
     hubIndustry: '運送',
     jamLabel: '守れているか分からない',
@@ -150,9 +150,9 @@ export const industryArticles: IndustryArticle[] = [
   },
   {
     slug: 'warehouse',
-    title: '数が合わないのは、数え間違いではありません。',
+    title: '数が合わないとき、範囲を絞り、原因を書く。',
     description:
-      '棚卸の差異には四つの原因があり、原因ごとに直し方が違います。数を合わせる前にやることをまとめました。',
+      '棚卸の差異には四つの原因があり、原因ごとに直し方が違います。範囲を絞り、原因を一つ書き、担当を決める順でまとめました。',
     industry: '倉庫',
     hubIndustry: '倉庫',
     jamLabel: '数が合わない',

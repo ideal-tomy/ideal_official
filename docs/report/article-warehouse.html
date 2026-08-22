@@ -12,8 +12,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
-<title>数が合わないのは、数え間違いではありません ｜ 倉庫 ｜ AXEON</title>
-<meta name="description" content="棚卸の差異には四つの原因があり、原因ごとに直し方が違います。数を合わせる前にやることと、差異の扱い方をまとめました。">
+<title>数が合わないとき、範囲を絞り、原因を書く ｜ 倉庫 ｜ AXEON</title>
+<meta name="description" content="棚卸の差異には四つの原因があり、原因ごとに直し方が違います。範囲を絞り、原因を一つ書き、担当を決める順でまとめました。">
 <style>
 :root{
   color-scheme: light only;
@@ -179,9 +179,9 @@ a:focus-visible, .linkbtn:focus-visible{ outline:2px solid var(--red); outline-o
           <span>2026.08 ／ 法令の確認 2026.08</span>
         </p>
       </div>
-      <h1>数が合わないのは、数え間違いではありません。</h1>
+      <h1>数が合わないとき、範囲を絞り、原因を書く。</h1>
       <p class="hero__lead">
-        棚卸で差異が出たとき、たいてい「もう一度数えて」で終わります。ただ、差異には原因が四つあり、原因ごとに直し方が違います。分けないまま数を合わせると、同じ差異が来月も出ます。
+        棚卸で差異が出たとき、たいてい「もう一度数えて」で終わります。差異には原因が四つあり、原因ごとに直し方が違います。範囲を絞り、原因を一つ書き、担当を決める順でまとめました。
       </p>
     </div>
 
@@ -211,75 +211,12 @@ a:focus-visible, .linkbtn:focus-visible{ outline:2px solid var(--red); outline-o
           それなのに、多くの現場では<span class="hl">原因を特定する前に数を合わせます。</span>帳簿を現物に合わせて、棚卸を終える。その瞬間、原因を辿る手がかりが消えます。
         </p>
         <p>
-          だから翌月も、その翌月も、同じ差異が出ます。
+          その結果、翌月も、その翌月も、同じ差異が出ます。直し方は三つです。範囲を絞る、原因を一つ書く、担当を決める。順番に書きます。
         </p>
       </section>
 
       <section class="sec">
-        <p class="loc">原因</p>
-        <h2>差異の原因は、四つに分かれます</h2>
-
-        <div class="cause">
-          <div>
-            <b>入荷でズレた<small>受入</small></b>
-            <span>納品書どおりに登録して、実際には数えていない。相手の出荷ミスが、そのまま自社の在庫差異になります。入荷の時点で数えていれば、その場で相手に言えます。</span>
-          </div>
-          <div>
-            <b>出荷でズレた<small>ピッキング</small></b>
-            <span>似た品番を取り違えた、数を多く入れた。この場合、どこかのお客さまには多く届いています。差異が二か所で出ているはずです。</span>
-          </div>
-          <div>
-            <b>移動でズレた<small>ロケーション</small></b>
-            <span>棚を移したが記録していない。在庫はあるので、探せば出てきます。別のロケーションで逆に増えていることが多いです。</span>
-          </div>
-          <div>
-            <b>まだ記録が追いついていない<small>時差</small></b>
-            <span>現物は動いたが、システムへの反映が翌日になっている。これは差異ではなく、数えた時点が違うだけです。</span>
-          </div>
-        </div>
-
-        <p>
-          <b>四つ目がいちばん多く、いちばん見落とされます。</b>そして厄介なことに、これを知っていると「たぶん時差でしょう」で全部片づけたくなります。そうなると、本当の誤出荷まで埋もれます。
-        </p>
-
-        <figure class="figure">
-          <p class="figure__t">図1　結果は一つ、原因は四つ</p>
-          <svg viewBox="0 0 360 200" role="img" aria-labelledby="w1t w1d">
-            <title id="w1t">一つの差異から四つの原因へ遡る図</title>
-            <desc id="w1d">10個足りないという同じ結果から、入荷・出荷・移動・時差という四つの異なる原因に遡る</desc>
-
-            <rect x="252" y="80" width="94" height="40" rx="3" fill="var(--red)"/>
-            <text x="299" y="97" font-family="ui-monospace,monospace" font-size="17" fill="#fff" text-anchor="middle" font-weight="bold">−10</text>
-            <text x="299" y="112" font-family="'Noto Sans CJK JP','Noto Sans JP',sans-serif" font-size="10" fill="#f3ccc4" text-anchor="middle">棚卸の結果</text>
-
-            <path d="M248 100 C210 100 200 30 156 30" fill="none" stroke="var(--brown)" stroke-width="1.5"/>
-            <path d="M248 100 C210 100 200 74 156 74" fill="none" stroke="var(--brown)" stroke-width="1.5"/>
-            <path d="M248 100 C210 100 200 122 156 122" fill="none" stroke="var(--brown)" stroke-width="1.5"/>
-            <path d="M248 100 C210 100 200 168 156 168" fill="none" stroke="var(--red)" stroke-width="2"/>
-
-            <rect x="14" y="18" width="140" height="24" rx="3" fill="var(--surface)" stroke="var(--brown)" stroke-width="1.2"/>
-            <text x="84" y="34" font-family="'Noto Sans CJK JP','Noto Sans JP',sans-serif" font-size="11.5" fill="var(--ink)" text-anchor="middle">入荷で数えていない</text>
-
-            <rect x="14" y="62" width="140" height="24" rx="3" fill="var(--surface)" stroke="var(--brown)" stroke-width="1.2"/>
-            <text x="84" y="78" font-family="'Noto Sans CJK JP','Noto Sans JP',sans-serif" font-size="11.5" fill="var(--ink)" text-anchor="middle">出荷で取り違えた</text>
-
-            <rect x="14" y="110" width="140" height="24" rx="3" fill="var(--surface)" stroke="var(--brown)" stroke-width="1.2"/>
-            <text x="84" y="126" font-family="'Noto Sans CJK JP','Noto Sans JP',sans-serif" font-size="11.5" fill="var(--ink)" text-anchor="middle">棚を移して記録なし</text>
-
-            <rect x="14" y="156" width="140" height="24" rx="3" fill="#fbeee9" stroke="var(--red)" stroke-width="1.6"/>
-            <text x="84" y="172" font-family="'Noto Sans CJK JP','Noto Sans JP',sans-serif" font-size="11.5" fill="var(--red)" text-anchor="middle" font-weight="bold">記録が追いつく前</text>
-
-            <text x="84" y="196" font-family="'Noto Sans CJK JP','Noto Sans JP',sans-serif" font-size="9.5" fill="var(--ink-3)" text-anchor="middle">直し方は、四つとも違います</text>
-          </svg>
-          <figcaption>
-            右から左へ遡ります。同じ「10個足りない」でも、入荷の運用を直すのか、ピッキングの照合を増やすのか、数える時点をそろえるのかで、やることがまったく違います。原因を分けずに「気をつけよう」と言っても、何も変わりません。
-          </figcaption>
-        </figure>
-      </section>
-
-      <section class="sec">
-        <p class="loc">手順</p>
-        <h2>差異を見つけたら、数を合わせる前にやること</h2>
+        <h2>差異が出たら、数を合わせる前に範囲を絞る</h2>
         <p>
           原因を特定する手順は決まっています。難しくありません。
         </p>
@@ -343,8 +280,91 @@ a:focus-visible, .linkbtn:focus-visible{ outline:2px solid var(--red); outline-o
       </section>
 
       <section class="sec">
-        <p class="loc">法令</p>
-        <h2>在庫の管理は、誰の仕事として決まっているか</h2>
+        <h2>原因を一つ書く。分からなければ「不明」と書いてよい</h2>
+
+        <div class="cause">
+          <div>
+            <b>入荷でズレた<small>受入</small></b>
+            <span>納品書どおりに登録して、実際には数えていない。相手の出荷ミスが、そのまま自社の在庫差異になります。入荷の時点で数えていれば、その場で相手に言えます。</span>
+          </div>
+          <div>
+            <b>出荷でズレた<small>ピッキング</small></b>
+            <span>似た品番を取り違えた、数を多く入れた。この場合、どこかのお客さまには多く届いています。差異が二か所で出ているはずです。</span>
+          </div>
+          <div>
+            <b>移動でズレた<small>ロケーション</small></b>
+            <span>棚を移したが記録していない。在庫はあるので、探せば出てきます。別のロケーションで逆に増えていることが多いです。</span>
+          </div>
+          <div>
+            <b>まだ記録が追いついていない<small>時差</small></b>
+            <span>現物は動いたが、システムへの反映が翌日になっている。これは差異ではなく、数えた時点が違うだけです。</span>
+          </div>
+        </div>
+
+        <p>
+          <b>四つ目が多く、見落とされやすいものです。</b>そして厄介なことに、これを知っていると「たぶん時差でしょう」で全部片づけたくなります。そうなると、本当の誤出荷まで埋もれます。
+        </p>
+
+        <figure class="figure">
+          <p class="figure__t">図1　結果は一つ、原因は四つ</p>
+          <svg viewBox="0 0 360 200" role="img" aria-labelledby="w1t w1d">
+            <title id="w1t">一つの差異から四つの原因へ遡る図</title>
+            <desc id="w1d">10個足りないという同じ結果から、入荷・出荷・移動・時差という四つの異なる原因に遡る</desc>
+
+            <rect x="252" y="80" width="94" height="40" rx="3" fill="var(--red)"/>
+            <text x="299" y="97" font-family="ui-monospace,monospace" font-size="17" fill="#fff" text-anchor="middle" font-weight="bold">−10</text>
+            <text x="299" y="112" font-family="'Noto Sans CJK JP','Noto Sans JP',sans-serif" font-size="10" fill="#f3ccc4" text-anchor="middle">棚卸の結果</text>
+
+            <path d="M248 100 C210 100 200 30 156 30" fill="none" stroke="var(--brown)" stroke-width="1.5"/>
+            <path d="M248 100 C210 100 200 74 156 74" fill="none" stroke="var(--brown)" stroke-width="1.5"/>
+            <path d="M248 100 C210 100 200 122 156 122" fill="none" stroke="var(--brown)" stroke-width="1.5"/>
+            <path d="M248 100 C210 100 200 168 156 168" fill="none" stroke="var(--red)" stroke-width="2"/>
+
+            <rect x="14" y="18" width="140" height="24" rx="3" fill="var(--surface)" stroke="var(--brown)" stroke-width="1.2"/>
+            <text x="84" y="34" font-family="'Noto Sans CJK JP','Noto Sans JP',sans-serif" font-size="11.5" fill="var(--ink)" text-anchor="middle">入荷で数えていない</text>
+
+            <rect x="14" y="62" width="140" height="24" rx="3" fill="var(--surface)" stroke="var(--brown)" stroke-width="1.2"/>
+            <text x="84" y="78" font-family="'Noto Sans CJK JP','Noto Sans JP',sans-serif" font-size="11.5" fill="var(--ink)" text-anchor="middle">出荷で取り違えた</text>
+
+            <rect x="14" y="110" width="140" height="24" rx="3" fill="var(--surface)" stroke="var(--brown)" stroke-width="1.2"/>
+            <text x="84" y="126" font-family="'Noto Sans CJK JP','Noto Sans JP',sans-serif" font-size="11.5" fill="var(--ink)" text-anchor="middle">棚を移して記録なし</text>
+
+            <rect x="14" y="156" width="140" height="24" rx="3" fill="#fbeee9" stroke="var(--red)" stroke-width="1.6"/>
+            <text x="84" y="172" font-family="'Noto Sans CJK JP','Noto Sans JP',sans-serif" font-size="11.5" fill="var(--red)" text-anchor="middle" font-weight="bold">記録が追いつく前</text>
+
+            <text x="84" y="196" font-family="'Noto Sans CJK JP','Noto Sans JP',sans-serif" font-size="9.5" fill="var(--ink-3)" text-anchor="middle">直し方は、四つとも違います</text>
+          </svg>
+          <figcaption>
+            右から左へ遡ります。同じ「10個足りない」でも、入荷の運用を直すのか、ピッキングの照合を増やすのか、数える時点をそろえるのかで、やることがまったく違います。原因を分けずに「気をつけよう」と言っても、何も変わりません。
+          </figcaption>
+        </figure>
+
+        <p>
+          差異が出るたびに現場を責めると、差異は減りません。<b>報告されなくなるだけです。</b>数が合わないと分かった時点で、こっそり帳簿を合わせる。誰にも言わない。そうすれば怒られないからです。そして、その瞬間に原因を追う手がかりが消えます。
+        </p>
+        <p>
+          差異が出たときに聞くべきなのは「誰がやったか」ではなく「どこで起きたか」です。原因の欄に「不明」と書いていい、と決めておくのも同じ理由です。埋めさせようとすると、それらしい原因が書かれるようになって、また分からなくなります。
+        </p>
+        <h3>差異は、決算に出てきます</h3>
+        <p>
+          帳簿より現物が少なければ、その分は棚卸減耗として費用になります。金額の大きい品番であれば、決算の数字にそのまま出ます。誤出荷であれば、再送の費用と、お客さまの信用も一緒に減ります。管理にかける費用と比べる相手は、この損失のほうです。
+        </p>
+        <p>
+          とはいえ、原因を追う時間を人でまかなうと、毎月かかり続ける固定費が増えます。差異は毎月出るので、人を増やせばその人はずっと必要になります。仕組みは、入れるときにまとまった費用がかかりますが、<b>追う時間そのものを短くします。</b>
+        </p>
+        <h3>入れる前に、三か月ぶんの内訳を出してください</h3>
+        <ul class="plain">
+          <li>棚卸の差異表に「原因」の列を足す。四つのどれかを書くだけ</li>
+          <li>分からないものは「不明」と書く。埋めなくていい</li>
+          <li>三か月たまったら、どれが多いかを見る</li>
+        </ul>
+        <p>
+          入荷が多いのか、時差が多いのかで、入れるものが変わります。<b>内訳を知らないまま入れると、多い原因に効かないものを買うことになります。</b>
+        </p>
+      </section>
+
+      <section class="sec">
+        <h2>誰の職務として置くか決める</h2>
         <p>
           営業倉庫の場合は、法令で担当が決まっています。
         </p>
@@ -375,61 +395,9 @@ a:focus-visible, .linkbtn:focus-visible{ outline:2px solid var(--red); outline-o
       </section>
 
       <section class="sec">
-        <p class="loc">費用</p>
-        <h2>差異は、決算に出てきます</h2>
+        <h2>いまの差異表に、原因を書く欄があるか</h2>
         <p>
-          差異の話を管理コストとして考えると、優先順位が上がりません。ですが差異は、そもそも損失です。
-        </p>
-        <p>
-          帳簿より現物が少なければ、その分は棚卸減耗として費用になります。金額の大きい品番であれば、決算の数字にそのまま出ます。誤出荷であれば、再送の費用と、お客さまの信用も一緒に減ります。
-        </p>
-        <p class="lede">
-          管理にかける費用と比べる相手は、この損失のほうです。
-        </p>
-        <p>
-          とはいえ、原因を追う時間を人でまかなうと、毎月かかり続ける固定費が増えます。差異は毎月出るので、人を増やせばその人はずっと必要になります。
-        </p>
-        <p>
-          仕組みは、入れるときにまとまった費用がかかりますが、<b>追う時間そのものを短くします。</b>入荷の時点で数えていれば、あとから遡る作業が発生しません。移動を記録していれば、探す時間が消えます。毎月の作業が減れば、そのぶん固定費が下がります。
-        </p>
-        <h3>入れる前に、三か月ぶんの内訳を出してください</h3>
-        <ul class="plain">
-          <li>棚卸の差異表に「原因」の列を足す。四つのどれかを書くだけ</li>
-          <li>分からないものは「不明」と書く。埋めなくていい</li>
-          <li>三か月たまったら、どれが多いかを見る</li>
-        </ul>
-        <p>
-          入荷が多いのか、時差が多いのかで、入れるものが変わります。<b>内訳を知らないまま入れると、いちばん多い原因に効かないものを買うことになります。</b>
-        </p>
-      </section>
-
-      <section class="sec">
-        <p class="loc">締め</p>
-        <h2>差異を責めると、差異が見えなくなります</h2>
-        <p>
-          最後に、いちばん大事なことを書きます。
-        </p>
-        <p>
-          差異が出るたびに現場を責めると、差異は減りません。<b>報告されなくなるだけです。</b>
-        </p>
-        <p>
-          数が合わないと分かった時点で、こっそり帳簿を合わせる。誰にも言わない。そうすれば怒られないからです。そして、その瞬間に原因を追う手がかりが消えます。本当の誤出荷も、盗難も、同じように埋もれます。
-        </p>
-        <p class="lede">
-          差異は、仕組みの不具合を教えてくれる信号です。
-        </p>
-        <p>
-          信号を消しても、不具合は消えません。むしろ、見えないまま大きくなります。差異が出たときに聞くべきなのは「誰がやったか」ではなく「どこで起きたか」です。
-        </p>
-        <p>
-          原因の欄に「不明」と書いていい、と決めておくのも同じ理由です。埋めさせようとすると、それらしい原因が書かれるようになって、また分からなくなります。
-        </p>
-      </section>
-
-      <section class="sec">
-        <h2>差異表に、原因の欄を足してみてください</h2>
-        <p>
-          いまの棚卸の差異表に、原因を書く欄があるか。差異が出たあと、数を合わせる前に何かしているか。この二つが分かれば、どこから手をつけられるかは見当がつきます。決まっていないことがあっても構いません。
+          差異が出たあと、数を合わせる前に何かしているか。この二つが分かれば、どこから手をつけられるかは見当がつきます。決まっていないことがあっても構いません。
         </p>
         <p>
           <a class="linkbtn" href="#" data-cta="contact">相談する</a>
