@@ -1,5 +1,7 @@
 # ideal 記事・デモ完成までの実装PLAN
 
+> **2026-08-23:** 歴史資料。テーマ本数・ハブの定義は現状と違う。記事を書くときは [記事の読み順.md](./記事の読み順.md) を正本にする。このPLANの手順で新規記事の構成を決めない。
+
 更新日: 2026-08-21  
 対象: [ideal_official](../)  
 先にこちらを完成させる。AXEON側は [rinopro-site/docs/axeon-themes-industries-plan.md](../../../rinopro-site/docs/axeon-themes-industries-plan.md)。

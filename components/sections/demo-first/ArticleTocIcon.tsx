@@ -91,6 +91,59 @@ function IconPaths({ slug }: { slug: string }) {
           <path d="M14 16h-1" />
         </>
       )
+    case 'invoice-fields':
+      return (
+        <>
+          <path d="M6 3h12v18H6z" />
+          <path d="M9 8h6" />
+          <path d="M9 12h3" />
+          <path d="M9 16h6" />
+        </>
+      )
+    case 'minutes-names':
+      return (
+        <>
+          <path d="M6 4h12v16H6z" />
+          <path d="M9 8h6" />
+          <path d="M9 12h4" />
+          <path d="M15 16l1.5-1.5 1 1" />
+        </>
+      )
+    case 'mail-paste':
+      return (
+        <>
+          <path d="M4 6h16v12H4z" />
+          <path d="M4 6l8 7 8-7" />
+        </>
+      )
+    case 'folder-rights':
+      return (
+        <>
+          <path d="M3 7h6l2 2h10v10H3z" />
+          <path d="M8 13h3" />
+          <path d="M8 16h6" />
+        </>
+      )
+    case 'quote-price':
+      return (
+        <>
+          <path d="M5 4h14v16H5z" />
+          <path d="M8 9h8" />
+          <path d="M8 13h4" />
+          <path d="M14 13h2" />
+        </>
+      )
+    case 'time-stamp':
+      return (
+        <>
+          <rect x="4" y="5" width="16" height="14" rx="1" />
+          <path d="M8 5V3" />
+          <path d="M16 5V3" />
+          <path d="M4 9h16" />
+          <path d="M9 13h2" />
+          <path d="M13 13h2" />
+        </>
+      )
     default:
       return (
         <>

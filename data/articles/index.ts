@@ -253,6 +253,83 @@ export const themeArticles: ThemeArticle[] = [
     publishedAt: '2026-08',
     lawCheckedAt: '2026-08',
   },
+  {
+    slug: 'invoice-fields',
+    title: '請求書を自動で作っても、適格の欄が空だと出せない。',
+    description:
+      '品目と金額までは出る。登録番号と税率の欄が空だと、相手が適格として使えない。ひな形に書く二欄をまとめました。',
+    hub: '請求の欄が空',
+    workplace: '経理',
+    readingMinutes: 7,
+    hasDemo: false,
+    demoLabel: '知識のみ',
+    publishedAt: '2026-08',
+    lawCheckedAt: '2026-08',
+  },
+  {
+    slug: 'minutes-names',
+    title: '会議の録音を、そのまま文字にできない。',
+    description:
+      '残したいのは決定事項。文字にすると顧客名と個人名が並ぶ。残してよい名前を会議の前に紙一枚にする話です。',
+    hub: '議事に名前が残る',
+    workplace: '事務所',
+    readingMinutes: 7,
+    hasDemo: false,
+    demoLabel: '知識のみ',
+    publishedAt: '2026-08',
+    lawCheckedAt: '2026-08',
+  },
+  {
+    slug: 'mail-paste',
+    title: '返信の下書きは欲しい。本文はそのまま貼れない。',
+    description:
+      '金額・条件・個人が入った受信メールは、そのまま貼れない。伏せてから下書きの骨格を作る順をまとめました。',
+    hub: 'メールを貼れない',
+    workplace: '営業',
+    readingMinutes: 7,
+    hasDemo: false,
+    demoLabel: '知識のみ',
+    publishedAt: '2026-08',
+    lawCheckedAt: '2026-08',
+  },
+  {
+    slug: 'folder-rights',
+    title: '社内の文書を全部入れると、見えないはずのものまで出る。',
+    description:
+      'フォルダの閲覧範囲は検索に残らない。全員が見てよいフォルダを一つ決めてから対象を渡す話です。',
+    hub: '見えない文書まで出る',
+    workplace: '事務所',
+    readingMinutes: 6,
+    hasDemo: false,
+    demoLabel: '知識のみ',
+    publishedAt: '2026-08',
+  },
+  {
+    slug: 'quote-price',
+    title: '見積を早く出しても、根拠が残らない。',
+    description:
+      '金額は出ている。単価の出どころが頭にしかない。一品目だけ余白に書く話です。',
+    hub: '見積の根拠が残らない',
+    workplace: '営業・施工',
+    readingMinutes: 8,
+    hasDemo: false,
+    demoLabel: '知識のみ',
+    publishedAt: '2026-08',
+    lawCheckedAt: '2026-08',
+  },
+  {
+    slug: 'time-stamp',
+    title: '勤怠を自動にしても、打刻のない日は埋まらない。',
+    description:
+      '空欄をいつもの時間で埋めると表は揃う。働いた時間の記録にはならない。本人確認の欄を残す話です。',
+    hub: '打刻のない日が埋まる',
+    workplace: '店舗',
+    readingMinutes: 7,
+    hasDemo: false,
+    demoLabel: '画面準備中',
+    publishedAt: '2026-08',
+    lawCheckedAt: '2026-08',
+  },
 ]
 
 export function getThemeArticleBySlug(slug: string): ThemeArticle | undefined {
