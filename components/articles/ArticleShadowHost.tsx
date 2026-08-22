@@ -15,7 +15,7 @@ const RHYTHM_CSS = `
   color:var(--ink, inherit);
   overflow-x:clip;
 }
-.wrap{
+.wrap:not(.is-theme){
   max-width:940px !important;
   overflow:visible;
 }

@@ -2,12 +2,12 @@
 
 import { useCallback, useRef, useState } from 'react'
 import Link from 'next/link'
-import { industryArticles, type IndustryArticle } from '@/data/articles'
+import { industryArticles, themeArticles } from '@/data/articles'
 import { ArticleTocIcon } from './ArticleTocIcon'
 
 const PANELS = [
   { id: 'industry', title: '業界から' },
-  { id: 'jam', title: '詰まりから' },
+  { id: 'jam', title: 'よくある悩み' },
 ] as const
 
 function TocRow({
@@ -42,18 +42,20 @@ function TocRow({
   )
 }
 
-function TocGrid({
+function TocGrid<T extends { slug: string }>({
   articles,
   labelOf,
   showIcon,
   columns,
   tone,
+  hrefPrefix = '/articles/',
 }: {
-  articles: IndustryArticle[]
-  labelOf: (article: IndustryArticle) => string
+  articles: T[]
+  labelOf: (article: T) => string
   showIcon?: boolean
   columns: 'two' | 'twoFromMd'
   tone?: 'industry' | 'jam'
+  hrefPrefix?: string
 }) {
   return (
     <ul
@@ -66,7 +68,7 @@ function TocGrid({
       {articles.map((article) => (
         <li key={article.slug}>
           <TocRow
-            href={`/articles/${article.slug}`}
+            href={`${hrefPrefix}${article.slug}`}
             label={labelOf(article)}
             slug={article.slug}
             showIcon={showIcon}
@@ -78,7 +80,7 @@ function TocGrid({
   )
 }
 
-/** PCは2列グリッド。スマホは業界／詰まりをフリックで表裏切り替え */
+/** PCは2列グリッド。スマホは業界／悩みをフリックで表裏切り替え */
 export function ArticleTocDirectory() {
   const [page, setPage] = useState<0 | 1>(0)
   const touchX = useRef<number | null>(null)
@@ -165,14 +167,15 @@ export function ArticleTocDirectory() {
               id="top-articles-jam"
               className="mb-3 hidden text-lg font-black text-[var(--df-text)] md:mb-4 md:block"
             >
-              詰まりから
+              よくある悩み
             </h3>
             <TocGrid
-              articles={industryArticles}
-              labelOf={(a) => a.jamLabel}
+              articles={themeArticles}
+              labelOf={(a) => a.hub}
               showIcon
               tone="jam"
               columns="twoFromMd"
+              hrefPrefix="/articles/t/"
             />
           </section>
         </div>

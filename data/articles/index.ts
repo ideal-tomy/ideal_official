@@ -16,7 +16,7 @@ export type IndustryArticle = {
   industry: ArticleIndustry
   /** ハブ「業界から」に出す短い名 */
   hubIndustry: string
-  /** ハブ「詰まりから」に出す短い名 */
+  /** ハブ「よくある悩み」に出す短い名 */
   jamLabel: string
   /** 読む目安（分） */
   readingMinutes: number
@@ -177,5 +177,96 @@ export function getArticleHref(slug: string): string {
 }
 
 export function getArticleContactHref(slug: string): string {
+  return `/contact?service=ai-consulting&intent=article&article=${encodeURIComponent(slug)}`
+}
+
+/** 横断記事（よくある悩み）。/articles/t/{slug} */
+export type ThemeArticle = {
+  slug: string
+  title: string
+  description: string
+  /** ハブ「よくある悩み」に出す短い名 */
+  hub: string
+  /** 表紙の職場ラベル */
+  workplace: string
+  readingMinutes: number
+  hasDemo: boolean
+  demoLabel: '画面あり' | '知識のみ' | '画面準備中'
+  publishedAt: string
+  lawCheckedAt?: string
+  /** 原型の業界記事 slug（横断のみの記事は省略可） */
+  prototypeSlug?: 'retail' | 'manufacturing' | 'restaurant'
+}
+
+export const themeArticles: ThemeArticle[] = [
+  {
+    slug: 'night-inquiry',
+    title: '夜間の問い合わせが、間違った答えになる。',
+    description:
+      '夜10時を過ぎて届いた4件。翌朝には返信が出ていたが、その答えが店の決まりと合っていなかった。返品の表示と、人に残す範囲の決め方をまとめました。',
+    hub: '夜間に間違えると怖い',
+    workplace: 'ネットショップ',
+    readingMinutes: 9,
+    hasDemo: true,
+    demoLabel: '画面あり',
+    publishedAt: '2026-08',
+    lawCheckedAt: '2026-08',
+    prototypeSlug: 'retail',
+  },
+  {
+    slug: 'shop-voice',
+    title: '現場の音声を、そのまま入れられない。',
+    description:
+      'ベテランの話を録音して整理したい。でも図面番号や取引先名が入る。録音前に決める四つと、外に出せる線をまとめました。',
+    hub: '現場の話を出せない',
+    workplace: '製造業',
+    readingMinutes: 9,
+    hasDemo: true,
+    demoLabel: '画面あり',
+    publishedAt: '2026-08',
+    prototypeSlug: 'manufacturing',
+  },
+  {
+    slug: 'shift-notice',
+    title: '「シフトによる」だけでは、もめは消えない。',
+    description:
+      '労働条件通知書に「シフトによる」とだけ書いてある。今週の表と、雇ったときの説明が噛み合っていない線をまとめました。',
+    hub: '聞いていた時間と違う',
+    workplace: '飲食店',
+    readingMinutes: 9,
+    hasDemo: false,
+    demoLabel: '画面準備中',
+    publishedAt: '2026-08',
+    lawCheckedAt: '2026-08',
+    prototypeSlug: 'restaurant',
+  },
+  {
+    slug: 'receipt-search',
+    title: 'PDFをフォルダに入れても、保存したことにはならない。',
+    description:
+      'scan001.pdf のままフォルダに入れても、日付・金額・取引先で探せない。電帳法が求める検索要件と、ファイル名の一手をまとめました。',
+    hub: '領収書が探せない',
+    workplace: '経理',
+    readingMinutes: 8,
+    hasDemo: false,
+    demoLabel: '知識のみ',
+    publishedAt: '2026-08',
+    lawCheckedAt: '2026-08',
+  },
+]
+
+export function getThemeArticleBySlug(slug: string): ThemeArticle | undefined {
+  return themeArticles.find((a) => a.slug === slug)
+}
+
+export function getAllThemeArticleSlugs(): string[] {
+  return themeArticles.map((a) => a.slug)
+}
+
+export function getThemeArticleHref(slug: string): string {
+  return `/articles/t/${slug}`
+}
+
+export function getThemeArticleContactHref(slug: string): string {
   return `/contact?service=ai-consulting&intent=article&article=${encodeURIComponent(slug)}`
 }

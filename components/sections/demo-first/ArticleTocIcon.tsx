@@ -56,6 +56,41 @@ function IconPaths({ slug }: { slug: string }) {
           <path d="M8 20v-6h8v6" />
         </>
       )
+    case 'night-inquiry':
+      return (
+        <>
+          <rect x="4" y="6" width="16" height="12" rx="1" />
+          <path d="M4 10h16" />
+          <path d="M7 14h6" />
+        </>
+      )
+    case 'shop-voice':
+      return (
+        <>
+          <rect x="9" y="4" width="6" height="10" rx="3" />
+          <path d="M12 14v3" />
+          <path d="M8 20h8" />
+        </>
+      )
+    case 'shift-notice':
+      return (
+        <>
+          <path d="M6 4h12v16H6z" />
+          <path d="M9 8h6" />
+          <path d="M9 12h6" />
+          <path d="M9 16h4" />
+        </>
+      )
+    case 'receipt-search':
+      return (
+        <>
+          <path d="M7 4h10v16H7z" />
+          <path d="M10 8h4" />
+          <path d="M10 12h4" />
+          <path d="M10 16h2" />
+          <path d="M14 16h-1" />
+        </>
+      )
     default:
       return (
         <>

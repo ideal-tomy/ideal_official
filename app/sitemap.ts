@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { capabilities } from '@/data/ai-capability-gallery/capabilities'
 import { getPublishedCases, getCaseHref } from '@/data/cases'
-import { industryArticles } from '@/data/articles'
+import { industryArticles, themeArticles } from '@/data/articles'
 import { labInsights } from '@/data/lab/insights'
 
 const baseUrl =
@@ -53,11 +53,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }))
 
+  const themeArticleRoutes: MetadataRoute.Sitemap = themeArticles.map((article) => ({
+    url: `${baseUrl}/articles/t/${article.slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+    priority: 0.72,
+  }))
+
   return [
     ...staticRoutes,
     ...demoRoutes,
     ...caseRoutes,
     ...insightRoutes,
     ...articleRoutes,
+    ...themeArticleRoutes,
   ]
 }

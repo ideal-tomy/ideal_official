@@ -1,7 +1,7 @@
 import { contentLeadBare } from '@/lib/content-typography'
 import { ArticleTocDirectory } from './ArticleTocDirectory'
 
-/** TOP — 業界／詰まりの短い目次。各行は記事へ直リンク */
+/** TOP — 業界／よくある悩みの短い目次。各行は記事へ直リンク */
 export function DemoFirstArticleToc() {
   return (
     <section

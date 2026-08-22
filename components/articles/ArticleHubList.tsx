@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import type { IndustryArticle } from '@/data/articles'
+import { themeArticles } from '@/data/articles'
 
 export function ArticleHubList({ articles }: { articles: IndustryArticle[] }) {
   return (
@@ -30,16 +31,16 @@ export function ArticleHubList({ articles }: { articles: IndustryArticle[] }) {
           id="articles-by-jam"
           className="mb-5 text-sm font-medium tracking-[0.08em] text-[var(--site-fg-muted)]"
         >
-          詰まりから
+          よくある悩み
         </h2>
         <ul className="space-y-2.5">
-          {articles.map((article) => (
+          {themeArticles.map((article) => (
             <li key={article.slug}>
               <Link
-                href={`/articles/${article.slug}`}
+                href={`/articles/t/${article.slug}`}
                 className="text-[0.95rem] leading-snug text-[var(--site-fg-muted)] hover:text-brand md:text-base"
               >
-                {article.jamLabel}
+                {article.hub}
               </Link>
             </li>
           ))}
