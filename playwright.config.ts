@@ -5,7 +5,6 @@ const baseURL = process.env.PLAYWRIGHT_BASE_URL ?? `http://127.0.0.1:${PORT}`
 
 /**
  * ideal サイト導線 E2E
- * @see docs/UX_AUDIT.md
  */
 export default defineConfig({
   testDir: './e2e',

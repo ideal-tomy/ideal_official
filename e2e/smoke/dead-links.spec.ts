@@ -17,7 +17,6 @@ const PAGES_TO_CHECK = [
 
 /**
  * 公開導線から死リンク URL への href が消えていること
- * @see docs/UX_AUDIT.md §2.1 H6
  */
 test.describe('死リンク監視', () => {
   for (const path of PAGES_TO_CHECK) {

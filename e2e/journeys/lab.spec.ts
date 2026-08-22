@@ -2,7 +2,6 @@ import { test, expect } from '@playwright/test'
 
 /**
  * LAB 領域が見つかること（主力から外しても孤立しない）
- * @see docs/UX_AUDIT.md §4 シナリオ D
  */
 test.describe('LAB 導線', () => {
   test('ヘッダーから LAB → Blockchain へ進める', async ({ page }) => {

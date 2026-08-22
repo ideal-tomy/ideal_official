@@ -24,19 +24,35 @@ npm run test:e2e:ui      # Playwright UIモード
 npm run test:e2e:visual  # ビジュアル回帰テスト
 ```
 
-e2e の詳細は [`e2e/README.md`](./e2e/README.md) を参照。
-
 ## ドキュメント
 
-`docs/` 配下に設計・運用ドキュメントをまとめている。まず読むべきもの:
+- [`AGENTS.md`](./AGENTS.md) — AIによる作業のルール
+- [`docs/PRODUCT_SPEC.md`](./docs/PRODUCT_SPEC.md) — 現在のサイト仕様
+- [`docs/ARTICLE_RULES.md`](./docs/ARTICLE_RULES.md) — 記事を作成・更新するときだけ使うルール
 
-- [`docs/SITE_IA_DIRECTION.md`](./docs/SITE_IA_DIRECTION.md) — サイト情報設計の正本（実装前の合意文書）
-- [`docs/SITE_MAP_v2.md`](./docs/SITE_MAP_v2.md) — URLツリー
-- [`docs/REDIRECT_MAP.md`](./docs/REDIRECT_MAP.md) — リダイレクト定義の正本
-- [`docs/UX_AUDIT.md`](./docs/UX_AUDIT.md) — サイト全体の導線監査
-- [`docs/DEVELOPMENT_GUIDE.md`](./docs/DEVELOPMENT_GUIDE.md) — 開発ガイド
+上記以外の設計・計画文書は残さず、過去の内容はGit履歴から確認する。
 
-完了済みの計画・調査ドキュメントは [`docs/archive/`](./docs/archive/) に格納している。
+## E2E
+
+初回のみPlaywrightのブラウザを準備する。
+
+```bash
+npx playwright install chromium
+```
+
+既存の開発サーバーを使う場合は`PLAYWRIGHT_BASE_URL`を指定する。未指定の場合はPlaywrightが開発サーバーを起動する。
+
+```powershell
+$env:PLAYWRIGHT_BASE_URL='http://127.0.0.1:3000'; npm run test:e2e
+```
+
+ビジュアルテストの基準画像を意図して更新する場合だけ、次を実行する。
+
+```bash
+npx playwright test e2e/visual --update-snapshots
+```
+
+コピーやナビゲーションを変更した場合は、関連する`e2e/`のテストも確認する。
 
 ## 環境変数
 

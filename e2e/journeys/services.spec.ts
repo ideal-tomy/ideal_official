@@ -3,7 +3,6 @@ import { assertHomeServiceCardAndOpen, openConciergeFromFab } from '../helpers'
 
 /**
  * 主力サービスへの到達（旧 URL は /services アンカーへ集約）
- * @see docs/UX_AUDIT.md §4 シナリオ A / §7
  */
 test.describe('サービス導線', () => {
   test('トップから Web サービスへ進める', async ({ page }) => {

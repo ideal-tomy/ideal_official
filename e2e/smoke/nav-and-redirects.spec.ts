@@ -3,7 +3,7 @@ import { expectMainNav } from '../helpers'
 
 /**
  * ナビ健全性 + 旧 URL redirect
- * @see docs/UX_AUDIT.md §2 / next.config.ts
+ * リダイレクトの正本は next.config.ts
  */
 test.describe('スモーク: ナビと redirect', () => {
   test('主要ナビが表示される', async ({ page }) => {

@@ -3,7 +3,6 @@ import { openConciergeFromFab } from '../helpers'
 
 /**
  * シナリオ骨格: トップ → デモ一覧 → 個別デモ（カード直リンク）→ AIコンシェルジュ
- * @see docs/UX_AUDIT.md §4 シナリオ B / §7
  */
 test.describe('デモ体験から相談まで', () => {
   test('トップからデモを見てコンシェルジュを開ける', async ({ page }) => {
