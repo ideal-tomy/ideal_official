@@ -28,7 +28,6 @@ npm run test:e2e:visual  # ビジュアル回帰テスト
 
 - [`AGENTS.md`](./AGENTS.md) — AIによる作業のルール
 - [`docs/PRODUCT_SPEC.md`](./docs/PRODUCT_SPEC.md) — 現在のサイト仕様
-- [`docs/ARTICLE_RULES.md`](./docs/ARTICLE_RULES.md) — 記事を作成・更新するときだけ使うルール
 
 上記以外の設計・計画文書は残さず、過去の内容はGit履歴から確認する。
 
