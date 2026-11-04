@@ -1,15 +1,13 @@
 /**
  * サービス一覧（相談・設計 / 製作を1ページに集約）
+ * ヒーローより下は、相談・設計から製作、効果の試算、相談までを LP の並びで見せる。
  */
 
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { CallToAction } from '@/components/sections/CallToAction'
 import { ServiceHubHero } from '@/components/services/hub/ServiceHubHero'
 import { ServicesHashScroll } from '@/components/services/hub/ServicesHashScroll'
-import { ServicesPageToc } from '@/components/services/hub/ServicesPageToc'
-import { ServicesOverviewSection } from '@/components/services/hub/ServicesOverviewSection'
-import { ServicesBuildSection } from '@/components/services/hub/ServicesBuildSection'
+import { ServicesLp } from '@/components/services/hub/lp/ServicesLp'
 import { ServiceSectionShell } from '@/components/services/ServiceSectionShell'
 
 const servicesDescription =
@@ -35,13 +33,7 @@ export default function ServicesPage() {
     <div className="min-h-screen bg-[var(--site-bg)]">
       <ServicesHashScroll />
       <ServiceHubHero />
-      <ServicesPageToc />
-      <ServicesOverviewSection />
-      <ServicesBuildSection />
-
-      <div className="bg-[var(--service-cta-tint)]">
-        <CallToAction />
-      </div>
+      <ServicesLp />
 
       <ServiceSectionShell
         surface="default"

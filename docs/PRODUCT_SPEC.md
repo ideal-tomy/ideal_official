@@ -47,6 +47,7 @@ idealのWebサイト・LP、業務ツール、AI開発を紹介し、動くデ�
 ### サービスとLAB
 
 - サービスの表示内容は `app/services/page.tsx`、`components/services/`、`data/services/`を正本とする。
+- `/services` のヒーローより下は LP の並び（できること、相談から運用保守までの5ステップ、開発ごとの進め方、効果の試算、相談）で、効果の試算に自動見積もりの埋め込みを含む。
 - LABの表示内容は `app/lab/`、`components/lab/`、`data/lab/`を正本とする。
 - Blockchain、DAO、VR・ARなどは主力サービスと分け、LABの研究・実験領域として扱う。
 
