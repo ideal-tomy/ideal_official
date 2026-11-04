@@ -5,7 +5,6 @@
 import { getCapabilityBySlug } from '@/data/ai-capability-gallery/capabilities'
 import { getArticleBySlug } from '@/data/articles'
 import { getCaseBySlug } from '@/data/cases'
-import { getInsightBySlug } from '@/data/lab/insights'
 import { getCurrentServiceId } from '@/data/services/service-links'
 
 export type ConciergePageType =
@@ -15,7 +14,6 @@ export type ConciergePageType =
   | 'service'
   | 'case'
   | 'lab'
-  | 'insight'
   | 'article'
   | 'contact'
   | 'other'
@@ -29,8 +27,7 @@ export type ConciergePageContext = {
   caseSlug?: string
   /** サービスID（例: ai-consulting）— 現行 serviceHint と互換 */
   serviceId?: string
-  /** Insights / 現場の記事 slug 等 */
-  insightSlug?: string
+  /** 現場の記事 slug */
   articleSlug?: string
   /** 業界キー（construction 等） */
   industry?: string
@@ -120,20 +117,6 @@ export function resolvePageContext(
     }
   }
 
-  const insightMatch = path.match(/^\/lab\/insights\/([^/]+)$/)
-  if (insightMatch) {
-    const insightSlug = insightMatch[1]
-    const insight = getInsightBySlug(insightSlug)
-    return {
-      pathname: path,
-      pageType: 'insight',
-      insightSlug,
-      label: insight?.title ?? 'LAB Insights',
-      serviceId:
-        insight?.category === 'web' ? 'web-development' : 'ai-consulting',
-    }
-  }
-
   if (path === '/articles') {
     return {
       pathname: path,
@@ -157,24 +140,11 @@ export function resolvePageContext(
     }
   }
 
-  if (
-    path === '/lab' ||
-    path === '/lab/insights' ||
-    path === '/lab/blockchain' ||
-    path === '/lab/metaverse' ||
-    path === '/philosophy' ||
-    path === '/research'
-  ) {
+  if (path === '/lab') {
     return {
       pathname: path,
       pageType: 'lab',
       label: 'LAB',
-      serviceId:
-        path.includes('blockchain') || path === '/philosophy'
-          ? 'blockchain-development'
-          : path.includes('metaverse')
-            ? 'metaverse'
-            : undefined,
     }
   }
 
@@ -192,7 +162,6 @@ export function shouldShowContextOpening(
     ctx.pageType === 'service' ||
     ctx.pageType === 'case' ||
     ctx.pageType === 'lab' ||
-    ctx.pageType === 'insight' ||
     ctx.pageType === 'article'
   )
 }

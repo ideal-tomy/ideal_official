@@ -36,7 +36,7 @@ function chipsFor(
   switch (pageType) {
     case 'home':
       return [
-        { label: '導入の流れ', href: '/flow' },
+        { label: 'サービス', href: '/services#steps' },
         { label: 'お問い合わせ', href: '/contact' },
       ]
     case 'demo_hub':
@@ -44,20 +44,19 @@ function chipsFor(
     case 'case':
     case 'service':
       return [
-        { label: '導入の流れ', href: '/flow' },
+        { label: 'サービス', href: '/services#steps' },
         { label: 'お問い合わせ', href: '/contact' },
       ]
     case 'lab':
-    case 'insight':
       return [
-        { label: '導入の流れ', href: '/flow' },
+        { label: 'サービス', href: '/services#steps' },
         { label: 'お問い合わせ', href: '/contact' },
       ]
     case 'contact':
       return []
     default:
       return [
-        { label: '導入の流れ', href: '/flow' },
+        { label: 'サービス', href: '/services#steps' },
         { label: 'お問い合わせ', href: '/contact' },
       ]
   }

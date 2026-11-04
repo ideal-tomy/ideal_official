@@ -99,7 +99,7 @@ const roadmapItems: AccordionItem[] = [
 
 const RoadmapSection = React.memo(() => {
   return (
-    <PhilosophySectionShell id="path" label="5. The Path" title="ロードマップ">
+    <PhilosophySectionShell id="path" label="ロードマップ" title="ロードマップ">
       <PhilosophySubheading className="mt-0">思想の具現化：100年続くインフラへの道筋</PhilosophySubheading>
 
       <PhilosophyProse className="mb-8">

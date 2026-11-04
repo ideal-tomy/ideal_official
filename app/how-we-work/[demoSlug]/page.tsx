@@ -41,5 +41,5 @@ export default async function HowWeWorkDemoRedirectPage({ params }: PageProps) {
   if (relatedCase) {
     redirect(getCaseHref(relatedCase.slug))
   }
-  redirect('/flow')
+  redirect('/services#steps')
 }

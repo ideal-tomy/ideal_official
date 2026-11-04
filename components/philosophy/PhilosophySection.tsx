@@ -56,7 +56,7 @@ const philosophyItems: AccordionItem[] = [
 
 const PhilosophySection = React.memo(() => {
   return (
-    <PhilosophySectionShell id="philosophy" label="2. The Philosophy" title="歪められた価値の再定義">
+    <PhilosophySectionShell id="value" label="価値の再定義" title="歪められた価値の再定義">
       <PhilosophyProse>
         <p>
           なぜこのような矛盾が社会の当然として受け入れられているのか。

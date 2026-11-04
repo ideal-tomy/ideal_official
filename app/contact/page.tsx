@@ -35,7 +35,7 @@ export default function ContactPage() {
         <p className={`mb-8 text-center ${typography.body} ${colors.text.muted}`}>
           金額感を先に知りたい方は、
           <Link
-            href="/flow#estimate"
+            href="/services#roi"
             className="font-medium text-brand hover:text-brand-hover transition-colors"
           >
             自動見積もり

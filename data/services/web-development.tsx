@@ -44,7 +44,7 @@ export const webDevelopmentData = {
       title: 'Blockchain / DAO Lab',
       description: '分散型技術の思想・研究・実験',
       tags: ['DAO', 'スマートコントラクト', 'Research'],
-      href: '/lab/blockchain',
+      href: '/lab#philosophy',
     },
   ],
 }

@@ -1,188 +1,85 @@
 import Link from 'next/link'
-import { typography, colors } from '@/lib/design-tokens'
-import { LabBreadcrumb } from '@/components/lab/LabChrome'
-import { PageHero } from '@/components/sections/PageHero'
-import { Button } from '@/components/ui/Button'
+import { LabSectionHead } from '@/components/lab/LabChrome'
+import {
+  DeclarationSection,
+  MechanismSection,
+  PhilosophyNav,
+  PhilosophySection,
+  RoadmapSection,
+  StructureSection,
+  ValueClogSection,
+  VisionSection,
+} from '@/components/philosophy'
+import { labContact, labInstrument, labPhilosophyHead } from '@/data/lab/hub'
 
-export function LabAreaHero({
-  title,
-  subtitle,
-  breadcrumbLabel,
-}: {
-  eyebrow?: string
-  title: string
-  subtitle: string
-  breadcrumbLabel: string
-}) {
+const sectionClass = 'scroll-mt-16 py-16 md:py-24'
+const innerClass = 'mx-auto max-w-6xl px-4 sm:px-6 lg:px-8'
+
+export function LabPhilosophy() {
   return (
-    <>
-      <LabBreadcrumb items={[{ label: breadcrumbLabel }]} />
-      <PageHero
-        title={title}
-        description={subtitle}
-        overlapHeader={false}
-      />
-    </>
-  )
-}
-
-export function LabCardGrid({
-  title,
-  description,
-  items,
-}: {
-  title: string
-  description?: string
-  items: { id: string; title: string; description: string; href?: string; status?: string; category?: string }[]
-}) {
-  return (
-    <section className="py-16 lg:py-20 border-b border-brand/40">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <header className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-[var(--site-fg)] mb-3">{title}</h2>
-          {description && (
-            <p className="text-base text-[var(--site-fg-muted)] max-w-xl mx-auto">{description}</p>
-          )}
-        </header>
-
-        <div className="grid sm:grid-cols-2 gap-4">
-          {items.map((item) => {
-            const inner = (
-              <>
-                {item.category && (
-                  <p className="text-xs text-brand/80 mb-1">{item.category}</p>
-                )}
-                <h3 className="text-lg font-semibold text-[var(--site-fg)] mb-2">{item.title}</h3>
-                <p className="text-sm text-[var(--site-fg-muted)] leading-relaxed">{item.description}</p>
-                {item.status === 'ready' && item.href && (
-                  <p className="text-xs text-brand mt-3">体験する →</p>
-                )}
-              </>
-            )
-
-            if (item.href) {
-              return (
-                <Link
-                  key={item.id}
-                  href={item.href}
-                  className="rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)]/40 p-6 hover:border-brand/30 hover:bg-[var(--site-bg-elevated)]/60 transition-colors"
-                >
-                  {inner}
-                </Link>
-              )
-            }
-
-            return (
-              <div
-                key={item.id}
-                className="rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)]/40 p-6"
-              >
-                {inner}
-              </div>
-            )
-          })}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-export function LabPhilosophyGrid({
-  title,
-  description,
-  points,
-  deepLink,
-  deepLinkLabel,
-}: {
-  title: string
-  description: string
-  points: readonly { title: string; description: string }[]
-  deepLink?: string
-  deepLinkLabel?: string
-}) {
-  return (
-    <section className="py-16 lg:py-20 border-b border-brand/40">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <header className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-[var(--site-fg)] mb-3">{title}</h2>
-          <p className="text-base text-[var(--site-fg-muted)] max-w-xl mx-auto">{description}</p>
-        </header>
-
-        <div className="grid sm:grid-cols-2 gap-4 mb-8">
-          {points.map((point) => (
-            <div
-              key={point.title}
-              className="rounded-xl border border-[var(--site-border)] bg-[var(--site-bg-elevated)]/40 p-5"
-            >
-              <h3 className="text-lg font-semibold text-[var(--site-fg)] mb-2">{point.title}</h3>
-              <p className="text-sm text-[var(--site-fg-muted)] leading-relaxed">{point.description}</p>
-            </div>
-          ))}
-        </div>
-
-        {deepLink && deepLinkLabel && (
-          <div className="text-center">
-            <Link
-              href={deepLink}
-              className="text-sm font-medium text-brand hover:text-brand-hover transition-colors"
-            >
-              {deepLinkLabel} →
-            </Link>
+    <section id="philosophy" className={`${sectionClass} bg-[var(--site-bg)]`}>
+      <div className={innerClass}>
+        <LabSectionHead
+          eyebrow={labPhilosophyHead.eyebrow}
+          lines={labPhilosophyHead.lines}
+          lead={labPhilosophyHead.lead}
+        />
+        <div className="mt-10 lg:mt-14 lg:grid lg:grid-cols-[11rem_1fr] lg:gap-10 xl:grid-cols-[13rem_1fr] xl:gap-16">
+          <PhilosophyNav />
+          <div className="min-w-0">
+            <VisionSection />
+            <ValueClogSection />
+            <PhilosophySection />
+            <MechanismSection />
+            <StructureSection />
+            <RoadmapSection />
+            <DeclarationSection />
           </div>
-        )}
-      </div>
-    </section>
-  )
-}
-
-export function LabTechList({
-  title,
-  technologies,
-}: {
-  title: string
-  technologies: readonly { name: string; description: string }[]
-}) {
-  return (
-    <section className="py-16 lg:py-20 border-b border-brand/40">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <header className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-[var(--site-fg)] mb-3">{title}</h2>
-        </header>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          {technologies.map((tech) => (
-            <div
-              key={tech.name}
-              className="rounded-lg border border-[var(--site-border)] bg-[var(--site-bg-elevated)]/40 px-4 py-4"
-            >
-              <p className="text-[var(--site-fg)] font-semibold mb-1">{tech.name}</p>
-              <p className="text-sm text-[var(--site-fg-muted)]">{tech.description}</p>
-            </div>
-          ))}
         </div>
       </div>
     </section>
   )
 }
 
-export function LabSoftCta({
-  title,
-  description,
-  href,
-}: {
-  title: string
-  description: string
-  href: string
-}) {
+export function LabInstrument() {
   return (
-    <section className="py-16 lg:py-20">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-2xl font-bold text-[var(--site-fg)] mb-4">{title}</h2>
-        <p className="text-base text-[var(--site-fg-muted)] leading-relaxed mb-8">{description}</p>
-        <Link href={href}>
-          <Button variant="secondary" size="lg">
-            相談する
-          </Button>
+    <section id="instrument" className={`${sectionClass} bg-[var(--site-bg-elevated)]`}>
+      <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+        <LabSectionHead
+          eyebrow={labInstrument.eyebrow}
+          lines={labInstrument.lines}
+          lead={labInstrument.lead}
+        />
+        <a
+          href={labInstrument.href}
+          className="mt-8 inline-flex items-center justify-center rounded-lg bg-brand px-7 py-3.5 text-sm font-bold text-[var(--df-on-primary)] transition-all hover:scale-[1.02] hover:bg-brand-hover active:scale-[0.98]"
+        >
+          {labInstrument.cta}
+        </a>
+      </div>
+    </section>
+  )
+}
+
+export function LabContact() {
+  return (
+    <section className={`${sectionClass} bg-[var(--site-bg)]`}>
+      <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+        <h2 className="text-[clamp(22px,6vw,30px)] font-extrabold leading-[1.5] text-[var(--site-fg)] [word-break:keep-all] [overflow-wrap:anywhere]">
+          {labContact.lines.map((line) => (
+            <span key={line} className="block">
+              {line}
+            </span>
+          ))}
+        </h2>
+        <p className="mt-4 text-[0.9375rem] leading-[1.9] text-[var(--site-fg-muted)] md:text-base">
+          {labContact.body}
+        </p>
+        <Link
+          href={labContact.href}
+          className="mt-8 inline-flex items-center justify-center rounded-lg border border-[var(--site-border)] bg-[var(--site-bg)] px-7 py-3.5 text-sm font-bold text-[var(--site-fg)] transition-colors hover:border-brand/40"
+        >
+          {labContact.cta}
         </Link>
       </div>
     </section>

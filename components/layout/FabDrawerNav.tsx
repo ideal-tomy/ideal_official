@@ -11,7 +11,6 @@ type NavItem = {
 
 const NAV_ITEMS: NavItem[] = [
   { href: '/', label: 'トップ' },
-  { href: '/flow', label: '導入の流れ' },
   { href: '/services', label: 'サービス' },
   { href: '/lab', label: 'LAB' },
   { href: '/contact', label: 'お問い合わせ' },
@@ -79,9 +78,6 @@ export function FabDrawerNav() {
           </Link>
 
           <ul className="flex flex-1 items-center justify-end gap-5 lg:gap-6">
-            <li>
-              <NavLink href="/flow" label="導入の流れ" pathname={pathname} />
-            </li>
             <li>
               <NavLink href="/services" label="サービス" pathname={pathname} />
             </li>

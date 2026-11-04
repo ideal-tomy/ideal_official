@@ -5,7 +5,6 @@
 import { getCapabilityBySlug } from '@/data/ai-capability-gallery/capabilities'
 import { getArticleBySlug } from '@/data/articles'
 import { getCaseBySlug } from '@/data/cases'
-import { getInsightBySlug } from '@/data/lab/insights'
 import type { IdealTrack } from './ideal-flow'
 import type { ConciergePageContext } from './page-context'
 
@@ -308,42 +307,7 @@ function caseOpening(ctx: ConciergePageContext): ContextOpening {
   }
 }
 
-function labOpening(ctx: ConciergePageContext): ContextOpening {
-  const isInsight = ctx.pageType === 'insight'
-  const insight = ctx.insightSlug
-    ? getInsightBySlug(ctx.insightSlug)
-    : undefined
-
-  if (isInsight && insight) {
-    const trackHint: IdealTrack =
-      insight.category === 'web' ? 'web' : 'ai'
-    return {
-      headline: `「${insight.title}」の内容から、実務の相談へ進めますか？`,
-      body: `${insight.subtitle}。記事の論点を、デモ体験や要件整理・概算（参考）につなげられます。`,
-      actions: [
-        {
-          id: trackHint === 'web' ? 'start_web' : 'start_ai',
-          label:
-            trackHint === 'web'
-              ? 'Web制作の相談を始める'
-              : 'AI活用の相談を始める',
-          track: trackHint,
-        },
-        {
-          id: 'see_related',
-          label: '関連デモを体験',
-          track: null,
-          linkKind: 'gallery',
-        },
-        {
-          id: 'pick_root',
-          label: '相談目的を一覧から選ぶ',
-          track: null,
-        },
-      ],
-    }
-  }
-
+function labOpening(): ContextOpening {
   return {
     headline: 'LABの内容を、依頼やデモ体験につなげられます。',
     body: '技術の深掘りから、関連デモ・サービス相談・要件整理へ戻れます。',
@@ -415,8 +379,7 @@ export function getContextOpening(
     case 'case':
       return caseOpening(ctx)
     case 'lab':
-    case 'insight':
-      return labOpening(ctx)
+      return labOpening()
     case 'article':
       return articleOpening(ctx)
     default:
@@ -435,7 +398,7 @@ export function resolveOpeningLinkHref(
 ): string | null {
   if (!action.linkKind) return null
   if (action.linkKind === 'gallery') {
-    return '/flow'
+    return '/services#steps'
   }
   if (action.linkKind === 'related_demo') {
     if (ctx.articleSlug) {
@@ -449,7 +412,7 @@ export function resolveOpeningLinkHref(
     if (ctx.demoId) {
       return `/ai-capability-gallery/${ctx.demoId}`
     }
-    return '/flow'
+    return '/services#steps'
   }
   if (action.linkKind === 'related_case') {
     if (ctx.demoId === 'photo-to-classification') {
@@ -473,7 +436,7 @@ export function resolveOpeningLinkHref(
     if (ctx.demoId === 'knowledge-to-search') {
       return '/cases/industries/knowledge-internal-search'
     }
-    return '/flow'
+    return '/services#steps'
   }
   return null
 }

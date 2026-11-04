@@ -214,7 +214,7 @@ const processSteps: AccordionItem[] = [
 
 const MechanismSection = React.memo(() => {
   return (
-    <PhilosophySectionShell id="mechanism" label="3. The Mechanism" title="基本設計">
+    <PhilosophySectionShell id="mechanism" label="基本設計" title="基本設計">
       <PhilosophyProse>
         <p>
           設計思想の中心は「貢献度測定（Proof of Contribution）」に集約されます。

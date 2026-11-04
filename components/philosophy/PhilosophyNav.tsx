@@ -1,12 +1,11 @@
 'use client'
 
-import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 const NAV_ITEMS = [
   { id: 'vision', label: 'はじめに' },
   { id: 'conflict', label: '問題と課題' },
-  { id: 'philosophy', label: '価値の再定義' },
+  { id: 'value', label: '価値の再定義' },
   { id: 'mechanism', label: '基本設計' },
   { id: 'structure', label: '組織構造' },
   { id: 'path', label: 'ロードマップ' },
@@ -14,7 +13,7 @@ const NAV_ITEMS = [
 ] as const
 
 /**
- * Philosophy ページ目次 — デスクトップは sticky、モバイルは横スクロール
+ * 思想の目次 — デスクトップは sticky、モバイルは横スクロール
  */
 export function PhilosophyNav() {
   const [activeId, setActiveId] = useState<string>(NAV_ITEMS[0].id)
@@ -47,7 +46,7 @@ export function PhilosophyNav() {
     <>
       {/* モバイル: 横スクロール目次 */}
       <nav
-        aria-label="ページ内目次"
+        aria-label="思想の目次"
         className="lg:hidden sticky top-16 z-20 -mx-4 sm:-mx-6 px-4 sm:px-6 py-3 mb-6 bg-[var(--site-bg)]/90 backdrop-blur-md border-b border-[var(--site-border)]/60"
       >
         <ul className="flex gap-2 overflow-x-auto scrollbar-hide pb-1">
@@ -57,7 +56,7 @@ export function PhilosophyNav() {
                 href={`#${item.id}`}
                 className={`inline-block px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-colors duration-200 ${
                   activeId === item.id
-                    ? 'bg-brand/20 text-brand-hover border border-brand/40'
+                    ? 'bg-brand/10 text-brand-hover border border-brand/40'
                     : 'text-[var(--site-fg-muted)] hover:text-[var(--site-fg)] border border-transparent'
                 }`}
               >
@@ -70,11 +69,11 @@ export function PhilosophyNav() {
 
       {/* デスクトップ: サイドバー目次 */}
       <nav
-        aria-label="ページ内目次"
+        aria-label="思想の目次"
         className="hidden lg:block sticky top-28 self-start pt-4"
       >
-        <p className="text-xs font-medium tracking-[0.15em] uppercase text-[var(--site-fg-muted)] mb-4">
-          Contents
+        <p className="text-xs font-bold tracking-[0.12em] text-[var(--site-fg-muted)] mb-4">
+          目次
         </p>
         <ul className="space-y-1 border-l border-[var(--site-border)]">
           {NAV_ITEMS.map((item) => (
@@ -84,7 +83,7 @@ export function PhilosophyNav() {
                 className={`block pl-4 py-2 text-sm leading-snug border-l-2 -ml-px transition-colors duration-200 ${
                   activeId === item.id
                     ? 'border-brand text-brand-hover font-medium'
-                    : 'border-transparent text-[var(--site-fg-muted)] hover:text-[var(--site-fg-muted)] hover:border-[var(--site-border)]'
+                    : 'border-transparent text-[var(--site-fg-muted)] hover:text-[var(--site-fg)] hover:border-[var(--site-border)]'
                 }`}
               >
                 {item.label}
@@ -93,12 +92,12 @@ export function PhilosophyNav() {
           ))}
         </ul>
         <div className="mt-8 pt-6 border-t border-[var(--site-border)]">
-          <Link
-            href="/research"
+          <a
+            href="/research/poc-instrument"
             className="block pl-4 text-sm text-[var(--site-fg-muted)] hover:text-brand transition-colors duration-200"
           >
-            Research Demos →
-          </Link>
+            技術提案を見る →
+          </a>
         </div>
       </nav>
     </>

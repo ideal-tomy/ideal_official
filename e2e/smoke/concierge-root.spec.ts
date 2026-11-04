@@ -57,7 +57,7 @@ test.describe('サイト案内コンシェルジュ', () => {
     ).toBeVisible()
     await expect(page.getByRole('link', { name: '概算見積もりへ' })).toHaveAttribute(
       'href',
-      '/flow#estimate',
+      '/services#roi',
     )
   })
 
@@ -97,12 +97,13 @@ test.describe('サイト案内コンシェルジュ', () => {
       page.getByText('読んでくれてありがとうございます'),
     ).toBeVisible()
     // クロスフェード後にボタンのみ吹き出し
-    await expect(page.getByRole('link', { name: '導入の流れ' })).toBeVisible({
+    const message = page.getByRole('dialog', { name: 'コンシェルジュからのメッセージ' })
+    await expect(message.getByRole('link', { name: 'サービス' })).toBeVisible({
       timeout: 10_000,
     })
-    await expect(page.getByRole('link', { name: '導入の流れ' })).toHaveAttribute(
+    await expect(message.getByRole('link', { name: 'サービス' })).toHaveAttribute(
       'href',
-      '/flow',
+      '/services#steps',
     )
     await expect(page.getByRole('link', { name: 'お問い合わせ' })).toHaveAttribute(
       'href',
@@ -114,16 +115,16 @@ test.describe('サイト案内コンシェルジュ', () => {
     ).toBeHidden({ timeout: 5_000 })
   })
 
-  test('導入の流れのフッターはお問い合わせ導線', async ({ page }) => {
+  test('サービスのフッターはお問い合わせ導線', async ({ page }) => {
     await page.addInitScript(() => {
       try {
         sessionStorage.setItem('ideal_welcome_greeted', '1')
-        sessionStorage.removeItem('ideal_footer_greeted:/flow')
+        sessionStorage.removeItem('ideal_footer_greeted:/services')
       } catch {
         /* ignore */
       }
     })
-    await page.goto('/flow')
+    await page.goto('/services')
     await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight))
     await expect(
       page.getByRole('dialog', { name: 'コンシェルジュからのメッセージ' }),

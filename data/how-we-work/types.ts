@@ -18,9 +18,8 @@ export type HowWeWorkDemoGuide = {
   estimateKit?: string
 }
 
-export const HOW_WE_WORK_BASE = '/flow'
+export const HOW_WE_WORK_BASE = '/services#steps'
 
-export function getHowWeWorkHref(demoSlug?: string): string {
-  if (!demoSlug) return HOW_WE_WORK_BASE
-  return `${HOW_WE_WORK_BASE}#how-we-work`
+export function getHowWeWorkHref(_demoSlug?: string): string {
+  return HOW_WE_WORK_BASE
 }

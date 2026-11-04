@@ -69,7 +69,7 @@ export function HowWeWorkSummary({
         {showFooterLinks ? (
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Link
-              href="/flow#estimate"
+              href="/services#roi"
               className="inline-flex items-center justify-center rounded-lg border border-[var(--site-border)] bg-transparent px-6 py-3 text-sm font-bold text-[var(--site-fg)] transition-all hover:scale-[1.02] hover:border-brand/60 hover:text-brand-hover active:scale-[0.98] sm:text-base"
             >
               概算見積もり →

@@ -84,7 +84,7 @@ const valueClogCards: CardData[] = [
 
 const ValueClogSection = React.memo(() => {
   return (
-    <PhilosophySectionShell id="conflict" label="1. The Conflict" title="問題と課題">
+    <PhilosophySectionShell id="conflict" label="問題と課題" title="問題と課題">
       <PhilosophySubheading className="mt-0">高すぎる「信用のコスト」</PhilosophySubheading>
 
       <PhilosophyWideContent>

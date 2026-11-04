@@ -158,7 +158,7 @@ export function DemoFirstIndustryService({ cards }: Props) {
 
         <div className="mt-10 text-center">
           <Link
-            href="/flow"
+            href="/services#steps"
             className="text-sm font-bold text-[var(--df-primary)] hover:underline"
           >
             活用イメージ一覧を見る →

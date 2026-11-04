@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { RoiSimulatorEmbed } from '@/components/estimate/RoiSimulatorEmbed'
 import {
   servicesLpAbout,
   servicesLpBuilds,
@@ -10,13 +9,12 @@ import {
   servicesLpThinking,
   servicesLpTopics,
 } from '@/data/services/hub'
-import { ESTIMATE_DISCLAIMER } from '@/lib/concierge/pricing-rules'
-import { buildRoiSimulatorHref } from '@/lib/roiSimulator'
 import { ServicesLpCarousel } from './ServicesLpCarousel'
 import { ServicesLpContact } from './ServicesLpContact'
 import { ServicesLpExamples } from './ServicesLpExamples'
 import { ServicesLpMotion } from './ServicesLpMotion'
 import { BrandRibbon, Eyebrow, LpHeading, Ribbon } from './ServicesLpParts'
+import { ServicesLpRoiCalc } from './ServicesLpRoiCalc'
 import { ServicesLpSteps } from './ServicesLpSteps'
 import { ServicesLpToc } from './ServicesLpToc'
 
@@ -24,14 +22,6 @@ const ROOT_ID = 'services-lp'
 
 /** サービスページのヒーローより下。AXEON LP と同じ並びで、ideal のサービスを見せる */
 export function ServicesLp() {
-  const roiSrc = buildRoiSimulatorHref({
-    embed: true,
-    returnPath: '/services',
-    from: 'ideal-site',
-    industry: 'other',
-    cat: 'internal',
-  })
-
   return (
     <div id={ROOT_ID} className="svc-lp">
       <ServicesLpMotion rootId={ROOT_ID} />
@@ -108,14 +98,9 @@ export function ServicesLp() {
                 <Eyebrow>{servicesLpRoi.eyebrow}</Eyebrow>
                 <LpHeading lines={servicesLpRoi.heading} reveal={false} />
               </div>
-              <div>
-                <p>{servicesLpRoi.body}</p>
-                <p className="svc-roi-note">{ESTIMATE_DISCLAIMER}</p>
-              </div>
+              <p>{servicesLpRoi.body}</p>
             </div>
-            <div className="svc-roi-embed">
-              <RoiSimulatorEmbed src={roiSrc} />
-            </div>
+            <ServicesLpRoiCalc />
           </div>
         </section>
 

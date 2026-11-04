@@ -21,12 +21,9 @@ export const headerFooterServiceLinks: { href: string; label: string }[] = [
 /** Footer LAB 欄など、研究・深掘り系リンク */
 export const labNavLinks: { href: string; label: string }[] = [
   { href: '/lab', label: 'LAB トップ' },
-  { href: '/lab/insights', label: '解説記事' },
+  { href: '/lab#philosophy', label: '思想' },
+  { href: '/research/poc-instrument', label: '技術提案' },
   { href: '/#articles', label: '現場の記事' },
-  { href: '/philosophy', label: 'DAO思想' },
-  { href: '/research', label: '技術提案デモ' },
-  { href: '/lab/blockchain', label: 'Blockchain（DAO研究）' },
-  { href: '/lab/metaverse', label: 'Spatial / VR・AR' },
 ]
 
 /** RelatedServicesSection 等で使う共通リンク（旧 serviceLinks 互換） */
@@ -67,7 +64,7 @@ export function getServiceHrefForConciergeTrack(
 ): string {
   const id = getServiceIdForConciergeTrack(track, answers)
   if (id === SERVICE_IDS.blockchain) {
-    return '/lab/blockchain'
+    return '/lab#philosophy'
   }
   const row = serviceNavLinks.find((s) => s.id === id)
   return row?.href ?? '/services#web'

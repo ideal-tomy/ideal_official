@@ -147,7 +147,7 @@ export function AiCapabilityDetailShell({
                 </a>
               ) : (
                 <Link
-                  href="/flow#estimate"
+                  href="/services#roi"
                   className={`${btnBase} border border-[var(--site-border)] text-[var(--site-fg)] hover:border-brand/40 hover:bg-brand/5`}
                 >
                   見積もり

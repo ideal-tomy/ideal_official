@@ -7,7 +7,7 @@ import type { Cta, FaqItem, FinalCtaBlock, FormField, ProcessBlock } from './typ
 
 export const howWeWorkFooterCta: Cta = {
   label: '導入の流れを見る →',
-  href: '/flow#how-we-work',
+  href: '/services#steps',
   variant: 'secondary',
 }
 
@@ -34,7 +34,7 @@ export function howWeWorkProcess(): ProcessBlock {
       stepId: step.id,
     })),
     exitNote: '相談だけで終えて構いません。試作のあとで止めることもできます。',
-    detailHref: '/flow#how-we-work',
+    detailHref: '/services#steps',
     detailLabel: '導入の流れを見る →',
   }
 }

@@ -12,7 +12,7 @@ import { PhilosophySolutionLink } from './PhilosophySolutionLink'
 
 const StructureSection = React.memo(() => {
   return (
-    <PhilosophySectionShell id="structure" label="4. The Structure" title="価値観で進化する組織構造">
+    <PhilosophySectionShell id="structure" label="組織構造" title="価値観で進化する組織構造">
       <PhilosophySubheading className="mt-0">「価値観による分岐の自由」へ</PhilosophySubheading>
 
       <PhilosophyProse>

@@ -21,10 +21,12 @@ export function PhilosophySectionShell({
       id={id}
       className={`scroll-mt-24 lg:scroll-mt-28 py-14 md:py-20 lg:py-24 border-b border-[var(--site-border)]/50 ${className}`}
     >
-      <p className="text-xs sm:text-sm font-medium tracking-[0.2em] uppercase text-brand/90 mb-3">
-        {label}
-      </p>
-      <h2 className="text-2xl sm:text-3xl lg:text-[2.5rem] font-bold text-[var(--site-fg)] mb-8 lg:mb-12 tracking-tight leading-tight">
+      {label !== title && (
+        <p className="text-xs sm:text-sm font-medium tracking-[0.2em] uppercase text-brand/90 mb-3">
+          {label}
+        </p>
+      )}
+      <h2 className="text-2xl sm:text-3xl lg:text-[2.5rem] font-bold text-[var(--site-fg)] mb-8 lg:mb-12 tracking-tight leading-tight [word-break:keep-all] [overflow-wrap:anywhere]">
         {title}
       </h2>
       {children}
@@ -41,7 +43,7 @@ interface PhilosophySubheadingProps {
 export function PhilosophySubheading({ children, className = '' }: PhilosophySubheadingProps) {
   return (
     <h3
-      className={`text-lg sm:text-xl lg:text-2xl font-semibold text-[var(--site-fg)] mb-5 mt-10 lg:mt-14 pl-4 sm:pl-5 border-l-2 border-brand/70 leading-snug ${className}`}
+      className={`text-lg sm:text-xl lg:text-2xl font-semibold text-[var(--site-fg)] mb-5 mt-10 lg:mt-14 pl-4 sm:pl-5 border-l-2 border-brand/70 leading-snug [word-break:keep-all] [overflow-wrap:anywhere] ${className}`}
     >
       {children}
     </h3>
@@ -76,7 +78,7 @@ interface PhilosophyLeadProps {
 /** リード文 — セクション内のキーメッセージ */
 export function PhilosophyLead({ children }: PhilosophyLeadProps) {
   return (
-    <p className="max-w-3xl text-xl sm:text-2xl font-semibold text-[var(--site-fg)] leading-relaxed tracking-tight">
+    <p className="max-w-3xl text-xl sm:text-2xl font-semibold text-[var(--site-fg)] leading-relaxed tracking-tight [word-break:keep-all] [overflow-wrap:anywhere]">
       {children}
     </p>
   )
@@ -91,7 +93,7 @@ interface PhilosophyCalloutProps {
 export function PhilosophyCallout({ children, className = '' }: PhilosophyCalloutProps) {
   return (
     <div
-      className={`max-w-3xl rounded-xl border border-brand/20 bg-gradient-to-br from-gray-900/90 to-gray-900/50 p-6 sm:p-8 space-y-5 ${className}`}
+      className={`max-w-3xl rounded-xl border border-brand/20 bg-[var(--site-bg-elevated)] p-6 sm:p-8 space-y-5 ${className}`}
     >
       {children}
     </div>

@@ -11,13 +11,13 @@ test.describe('スモーク: ナビと redirect', () => {
     await expectMainNav(page)
   })
 
-  test('旧 blockchain サービス URL は LAB へ redirect', async ({ page }) => {
+  test('旧 blockchain サービス URL は LAB の思想へ redirect', async ({ page }) => {
     await page.goto('/services/blockchain-development')
-    await expect(page).toHaveURL(/lab\/blockchain/)
+    await expect(page).toHaveURL(/\/lab#philosophy$/)
   })
 
   test('旧 metaverse サービス URL は LAB へ redirect', async ({ page }) => {
     await page.goto('/services/metaverse')
-    await expect(page).toHaveURL(/lab\/metaverse/)
+    await expect(page).toHaveURL(/\/lab\/?$/)
   })
 })

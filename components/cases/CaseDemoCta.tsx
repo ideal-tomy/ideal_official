@@ -68,7 +68,7 @@ export function CaseDemoCta({ caseStudy }: CaseDemoCtaProps) {
               </Button>
             </a>
           ) : (
-            <Link href="/flow#estimate" className="sm:min-w-[10rem] sm:flex-1">
+            <Link href="/services#roi" className="sm:min-w-[10rem] sm:flex-1">
               <Button variant="outline" size="lg" fullWidth>
                 概算見積もりへ
               </Button>

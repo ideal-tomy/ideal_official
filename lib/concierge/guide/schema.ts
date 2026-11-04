@@ -12,7 +12,6 @@ const pageContextSchema = z
     demoId: z.string().optional(),
     caseSlug: z.string().optional(),
     serviceId: z.string().optional(),
-    insightSlug: z.string().optional(),
     industry: z.string().optional(),
     label: z.string().optional(),
   })

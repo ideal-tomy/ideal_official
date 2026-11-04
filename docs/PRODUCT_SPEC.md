@@ -16,8 +16,7 @@ idealのWebサイト・LP、業務ツール、AI開発を紹介し、動くデ�
 共通ヘッダーの主な導線は次のとおり。
 
 - `/` — トップ。代表デモ、現場の記事、LAB、問い合わせへの入口
-- `/flow` — 導入の流れと自動見積もり
-- `/services` — 相談・設計、Webサイト・LP、AI、アプリ開発
+- `/services` — 相談・設計、Webサイト・LP、AI、アプリ開発。進め方と効果の試算を含む
 - `/lab` — 研究・実験領域
 - `/contact` — 問い合わせ
 
@@ -47,9 +46,12 @@ idealのWebサイト・LP、業務ツール、AI開発を紹介し、動くデ�
 ### サービスとLAB
 
 - サービスの表示内容は `app/services/page.tsx`、`components/services/`、`data/services/`を正本とする。
-- `/services` のヒーローより下は LP の並び（できること、相談から運用保守までの5ステップ、開発ごとの進め方、効果の試算、相談）で、効果の試算に自動見積もりの埋め込みを含む。
+- `/services` のヒーローより下は LP の並び（できること、相談から運用保守までの5ステップ、開発ごとの進め方、効果の試算、相談）で、効果の試算はページ内の時間と費用の計算です。
 - LABの表示内容は `app/lab/`、`components/lab/`、`data/lab/`を正本とする。
-- Blockchain、DAO、VR・ARなどは主力サービスと分け、LABの研究・実験領域として扱う。
+- `/lab` は思想を読む1ページです。節は `#vision` から `#declaration` までで、末尾から計器へ進みます。
+- 計器は `/research/poc-instrument` の1ページです。旧詳細URL（`environment` `xi-instrument` `fork` `loop` `zkp` `gaps`）はそのページの該当箇所へ移ります。
+- 旧 `/philosophy`、`/lab/blockchain`、`/lab/insights` は `/lab` へ、旧 `/research` は計器へ、旧 `/lab/metaverse` と `/services/metaverse` は `/lab` へ移ります。
+- Blockchain と DAO は主力サービスと分け、LABの思想と、別ページの計器として扱います。
 
 ## URLとリダイレクト
 
@@ -57,8 +59,9 @@ URLの書き換えとリダイレクトは `next.config.ts` を唯一の正本�
 
 現在の主要な統合先は次のとおり。
 
-- `/cases`、`/estimate`、`/ai-capability-gallery`、`/how-we-work` → `/flow`
-- 旧サービス詳細URL → `/services`内の対応セクション、またはLAB
+- `/flow`、`/cases`、`/estimate`、`/ai-capability-gallery`、`/how-we-work` → `/services`
+- 旧サービス詳細URL → `/services`内の対応セクション、または `/lab` の該当箇所
+- 旧LABの下層URL → `/lab` の該当箇所
 - 一部の旧業種事例URL → 対応する `/demo/w/[slug]`
 
 リダイレクト一覧を別のMarkdownへ複製しない。

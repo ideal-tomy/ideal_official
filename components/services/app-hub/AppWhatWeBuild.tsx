@@ -79,13 +79,13 @@ export function AppRelatedDemos() {
 
       <div className="mt-8 flex flex-col justify-center gap-4 text-center sm:flex-row">
         <Link
-          href="/flow"
+          href="/services#steps"
           className="text-sm font-medium text-brand transition-colors hover:text-brand-hover"
         >
           AIデモギャラリー →
         </Link>
         <Link
-          href="/flow"
+          href="/services#steps"
           className="text-sm font-medium text-brand transition-colors hover:text-brand-hover"
         >
           活用イメージ一覧 →

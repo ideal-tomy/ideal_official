@@ -40,23 +40,28 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/flow',
+        destination: '/services',
+        permanent: true,
+      },
+      {
         source: '/cases',
-        destination: '/flow',
+        destination: '/services',
         permanent: true,
       },
       {
         source: '/estimate',
-        destination: '/flow',
+        destination: '/services',
         permanent: true,
       },
       {
         source: '/ai-capability-gallery',
-        destination: '/flow',
+        destination: '/services',
         permanent: true,
       },
       {
         source: '/how-we-work',
-        destination: '/flow',
+        destination: '/services',
         permanent: true,
       },
       {
@@ -76,17 +81,72 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/services/dao-design',
-        destination: '/lab/blockchain#dao-governance',
+        destination: '/lab#philosophy',
         permanent: true,
       },
       {
         source: '/services/blockchain-development',
-        destination: '/lab/blockchain',
+        destination: '/lab#philosophy',
         permanent: true,
       },
       {
         source: '/services/metaverse',
-        destination: '/lab/metaverse',
+        destination: '/lab',
+        permanent: true,
+      },
+      {
+        source: '/philosophy',
+        destination: '/lab#philosophy',
+        permanent: true,
+      },
+      {
+        source: '/research',
+        destination: '/research/poc-instrument',
+        permanent: true,
+      },
+      {
+        source: '/lab/blockchain',
+        destination: '/lab#philosophy',
+        permanent: true,
+      },
+      {
+        source: '/lab/metaverse',
+        destination: '/lab',
+        permanent: true,
+      },
+      {
+        source: '/lab/insights/:slug*',
+        destination: '/lab',
+        permanent: true,
+      },
+      {
+        source: '/research/poc-instrument/environment',
+        destination: '/research/poc-instrument#environment',
+        permanent: true,
+      },
+      {
+        source: '/research/poc-instrument/xi-instrument',
+        destination: '/research/poc-instrument#instrument',
+        permanent: true,
+      },
+      {
+        source: '/research/poc-instrument/fork',
+        destination: '/research/poc-instrument#fork',
+        permanent: true,
+      },
+      {
+        source: '/research/poc-instrument/loop',
+        destination: '/research/poc-instrument#loop',
+        permanent: true,
+      },
+      {
+        source: '/research/poc-instrument/zkp',
+        destination: '/research/poc-instrument#zkp',
+        permanent: true,
+      },
+      {
+        source: '/research/poc-instrument/gaps',
+        destination: '/research/poc-instrument#gaps',
         permanent: true,
       },
     ]

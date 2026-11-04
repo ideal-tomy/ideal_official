@@ -13,7 +13,7 @@ import { PhilosophySolutionLink } from './PhilosophySolutionLink'
 
 const VisionSection = React.memo(() => {
   return (
-    <PhilosophySectionShell id="vision" label="0. The Vision" title="はじめに">
+    <PhilosophySectionShell id="vision" label="はじめに" title="はじめに">
       <PhilosophyProse>
         <p>
           目指すのは単一の理想郷ではなく、無数の理想郷が共存・進化できる『メタシステム』設計。

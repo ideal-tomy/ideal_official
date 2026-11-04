@@ -609,7 +609,7 @@ export const servicesLpBuilds = {
 export const servicesLpRoi = {
   eyebrow: '時間と費用を比べる',
   heading: ['削減時間と費用を、', 'この場で試せます。'],
-  body: '業務と作るものを選ぶと、参考の価格と、減る時間の目安が出ます。',
+  body: '人数、件数、時間、費用を動かすと、減る時間と回収までの月数が出ます。',
 } as const
 
 export const servicesLpContact = {

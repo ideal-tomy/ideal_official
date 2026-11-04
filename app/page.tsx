@@ -1,5 +1,4 @@
 import {
-  DemoFirstArticleToc,
   DemoFirstContact,
   DemoFirstHero,
   DemoFirstLab,
@@ -14,7 +13,6 @@ export default function Home() {
       <DemoFirstHero />
       <DemoFirstMarquee />
       <DemoFirstReason />
-      <DemoFirstArticleToc />
       <DemoFirstPatternShowcase />
       <DemoFirstLab />
       <DemoFirstContact />

@@ -23,7 +23,7 @@ export const aiServiceData = {
       id: 'blockchain-lab',
       title: 'Blockchain / DAO Lab',
       description: '分散型技術の思想・研究・実験',
-      href: '/lab/blockchain',
+      href: '/lab#philosophy',
       tags: ['DAO', 'Research', 'LAB'],
     },
   ],

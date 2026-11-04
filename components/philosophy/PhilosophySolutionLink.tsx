@@ -26,10 +26,10 @@ export function PhilosophySolutionLink({
       {links.map((link) => (
         <div
           key={`${link.philosophySectionId}-${link.detailSlug}`}
-          className="rounded-xl border border-brand/20 bg-gradient-to-br from-gray-900/80 to-gray-900/40 p-5 sm:p-6"
+          className="rounded-xl border border-brand/20 bg-[var(--site-bg-elevated)] p-5 sm:p-6"
         >
           <p className="text-xs font-medium tracking-[0.15em] uppercase text-brand/80 mb-2">
-            解決案 · Proposal Demo
+            解決案のデモ
           </p>
           <h4 className="text-lg font-semibold text-[var(--site-fg)] mb-2">{link.title}</h4>
           <p className="text-base text-[var(--site-fg-muted)] leading-relaxed mb-4">

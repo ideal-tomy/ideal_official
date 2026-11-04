@@ -120,7 +120,7 @@ export function AiServicesShowcaseContent() {
 
       <p className="mt-8 text-left text-sm">
         <Link
-          href="/flow"
+          href="/services#steps"
           className="inline-flex items-center font-medium text-brand transition-colors hover:text-brand-hover"
         >
           7パターンすべて見る →

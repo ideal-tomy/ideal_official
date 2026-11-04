@@ -46,7 +46,7 @@ const DeclarationSection = React.memo(() => {
   return (
     <PhilosophySectionShell
       id="declaration"
-      label="6. The Genesis"
+      label="新しい最適化"
       title="技術の進化がもたらす新しい『最適化』"
       className="border-b-0"
     >
