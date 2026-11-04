@@ -7,6 +7,7 @@ import {
   demoIntroHref,
   type TopFeaturedDemo,
 } from '@/data/demo-first/top-featured-demos'
+import { DemoCardMiniMotion } from './DemoCardMiniMotion'
 import { DemoCardMotion } from './DemoCardMotion'
 
 /** 重なったときに前のカードの上端が残るよう、隣り合うカードの青を変える */
@@ -152,14 +153,15 @@ export function TopFeaturedDemoShowcase({ demos }: Props) {
               className="absolute top-3.5 right-1 z-[2] w-[150px] opacity-0 transition-[opacity,transform] duration-700 ease-[cubic-bezier(.18,.85,.24,1)] [transform:translate3d(-40px,32px,0)_scale(.9)] group-data-[in=true]:opacity-100 group-data-[in=true]:[transform:rotate(-9deg)] motion-reduce:opacity-100 motion-reduce:transition-none motion-reduce:[transform:rotate(-9deg)] md:-top-6 md:right-10 md:w-[200px]"
             >
               <span className="block h-[236px] rounded-[20px] border border-white/25 bg-white p-1.5 shadow-[0_18px_40px_rgba(11,31,74,0.35)] md:h-[300px]">
-                <span className="relative block h-full overflow-hidden rounded-[14px] bg-[#e8eef8]">
+                <span className="relative block h-full overflow-hidden rounded-[14px] bg-white">
                   <Image
                     src={demo.cardImage}
                     alt=""
                     fill
-                    sizes="(min-width: 768px) 200px, 150px"
-                    className="object-cover object-top"
+                    sizes="(min-width: 1024px) 200px, 1px"
+                    className="hidden object-cover object-top lg:block"
                   />
+                  <DemoCardMiniMotion id={demo.id} />
                 </span>
               </span>
             </span>
