@@ -29,6 +29,7 @@ idealのWebサイト・LP、業務ツール、AI開発を紹介し、動くデ�
 ### デモ
 
 - トップの代表デモは `data/demo-first/top-featured-demos.ts` を正本とする。
+- `/demo/intro/[id]` は代表デモの紹介ページを表示する。原稿は `data/demo-intro/stories.ts` を正本とする。
 - デモLPの登録内容は `data/demo-lp/index.ts` と各設定ファイルを正本とする。
 - `/demo/w/[slug]` は業務・業種別のデモLPを表示する。
 - `/demo/[slug]` は能力別のデモLPを表示する。

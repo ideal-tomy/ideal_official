@@ -16,7 +16,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/construction',
-        destination: 'https://construction-demo-two.vercel.app',
+        destination: 'https://construction-demo-six.vercel.app/?brand=ideal',
         permanent: false,
       },
       {

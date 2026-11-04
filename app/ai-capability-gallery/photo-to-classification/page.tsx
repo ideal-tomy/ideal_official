@@ -73,7 +73,7 @@ export default function PhotoToClassificationPage() {
           </div>
           <div className="flex shrink-0 flex-col gap-2 sm:items-end">
             <a
-              href="https://construction-demo-two.vercel.app"
+              href="https://construction-demo-six.vercel.app/?brand=ideal"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-lg bg-brand px-5 py-2.5 text-sm font-medium text-[var(--df-on-primary)] transition-colors hover:bg-brand-hover"

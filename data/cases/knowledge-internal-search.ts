@@ -70,7 +70,7 @@ export const knowledgeInternalSearch: CaseStudy = {
   },
   externalDemo: {
     label: '社内ナレッジAI',
-    href: 'https://internal-knowledge-demo.vercel.app/',
+    href: 'https://internal-knowledge-demo.vercel.app/?brand=ideal',
   },
   contactHref:
     '/contact?service=ai-consulting&intent=cases&case=knowledge-internal-search',

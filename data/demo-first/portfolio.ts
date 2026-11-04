@@ -21,26 +21,26 @@ export type PortfolioDemo = {
 /** 外部デモ URL（業界カード・ポートフォリオで共有） */
 export const EXTERNAL_DEMO_URLS = {
   /** 建設ハブ（construction_demo `/` · 製造 /manufacturing と同型） */
-  construction: 'https://construction-demo-two.vercel.app',
+  construction: 'https://construction-demo-six.vercel.app/?brand=ideal',
   /** 建設③ 現場オペ（kanri） */
   constructionOps: 'https://kanri-kensetsu.vercel.app/login',
   /** 建設② 直リンク（ハブ内 /report と同アプリ） */
-  ocrConstruction: 'https://construction-demo-two.vercel.app/report',
+  ocrConstruction: 'https://construction-demo-six.vercel.app/report?brand=ideal',
   care: 'https://kaigo-operation-demo.vercel.app/',
   retail: 'https://customer-support-demo-lime.vercel.app/',
   manufacturing: 'https://product-flow-jet.vercel.app/manufacturing',
   /** TOP §03 製造カード用（ideal ブランディング版） */
   manufacturingIdeal: 'https://product-flowideal.vercel.app/manufacturing',
-  internalKnowledge: 'https://internal-knowledge-demo.vercel.app/',
+  internalKnowledge: 'https://internal-knowledge-demo.vercel.app/?brand=ideal',
   roiSimulator: 'https://roi-simulator-eta.vercel.app/',
   ddDemo: 'https://dd-demo-red.vercel.app/',
   matching: 'https://hookapp-demo.vercel.app/',
   fieldDandori: 'https://rainbow-tarsier-5ce845.netlify.app/',
   voiceKarte: 'https://lambent-smakager-7bcf0a.netlify.app/',
   /** 受入検査 承認フロー（AI×人） */
-  approvalDiagram: 'https://approvaldiagram.vercel.app/',
+  approvalDiagram: 'https://approval-diagram.vercel.app/',
   /** 保育支援・報告 */
-  childcare: 'https://childcaredemo.vercel.app/',
+  childcare: 'https://childcare-demo.vercel.app/',
   /**
    * 飲食シフト / ビルメン — 公開URLが決まり次第ここに追加し、
    * scripts/prepare-article-html.mjs の DEMO_URLS も更新して再生成する。

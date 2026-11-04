@@ -12,8 +12,8 @@ const srcDir = path.join(root, 'docs', 'report')
 const outDir = path.join(root, 'content', 'articles')
 
 const DEMO_URLS = {
-  ocr: 'https://construction-demo-two.vercel.app/report',
-  construction: 'https://construction-demo-two.vercel.app',
+  ocr: 'https://construction-demo-six.vercel.app/report?brand=ideal',
+  construction: 'https://construction-demo-six.vercel.app/?brand=ideal',
   genpo: 'https://kanri-kensetsu.vercel.app/login',
   knowledge: 'https://product-flowideal.vercel.app/manufacturing',
   care: 'https://kaigo-operation-demo.vercel.app/',

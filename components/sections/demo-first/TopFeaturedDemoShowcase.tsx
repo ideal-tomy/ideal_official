@@ -1,457 +1,185 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect } from 'react'
-import { DemoFrame } from '@/components/ai-capability-gallery/demos/DemoFrame'
-import { useDemoProcess } from '@/components/ai-capability-gallery/hooks/useDemoProcess'
-import { useInViewAutoPlay } from '@/components/ai-capability-gallery/hooks/useInViewAutoPlay'
+import { useEffect, useRef, type CSSProperties, type RefObject } from 'react'
 import {
-  photoSampleSets,
-  processingSteps as photoProcessingSteps,
-} from '@/data/ai-capability-gallery/photo-to-classification'
-import { knowledgeProcessingSteps } from '@/data/ai-capability-gallery/knowledge-to-search'
-import type { TopFeaturedDemo } from '@/data/demo-first/top-featured-demos'
+  demoIntroHref,
+  type TopFeaturedDemo,
+} from '@/data/demo-first/top-featured-demos'
+import { DemoCardMotion } from './DemoCardMotion'
 
-const approvalSteps = [
-  '図面指定を読み取り',
-  '証明書と突合せ',
-  '一致 / 要確認 / 記載なし',
-  '人の判断待ちへ',
+/** 重なったときに前のカードの上端が残るよう、隣り合うカードの青を変える */
+const CARD_TONES = [
+  'linear-gradient(150deg, #1f5ac4 0%, #2b6fe0 55%, #5b8fe8 100%)',
+  'linear-gradient(150deg, #173f8f 0%, #2a5bc8 55%, #4f7fe0 100%)',
+  'linear-gradient(150deg, #1d6fa8 0%, #2e8fcb 55%, #5fb0dd 100%)',
+  'linear-gradient(150deg, #23346f 0%, #3a4fa8 55%, #5d6fcf 100%)',
+  'linear-gradient(150deg, #155f99 0%, #1f7abf 55%, #3399cc 100%)',
+  'linear-gradient(150deg, #2f3f86 0%, #5d5f97 55%, #7f84c4 100%)',
+  'linear-gradient(150deg, #143a73 0%, #1f5ac4 55%, #2e8fcb 100%)',
+  'linear-gradient(150deg, #1a4c9e 0%, #3a74d6 55%, #7fb2e8 100%)',
 ]
 
-const childcareSteps = [
-  '事案メモを受領',
-  '園ルールと照合',
-  '妥当性チェック',
-  '報告書下書き生成',
-]
+const STACK_STEP = 9
+const STACK_GAP_BELOW_HEADER = 12
 
-function ConstructionShowcase() {
-  const sample = photoSampleSets[0]
-  const { logs, isComplete, start, reset } = useDemoProcess(380)
-  const { ref, isInView } = useInViewAutoPlay()
-
-  useEffect(() => {
-    if (isInView) start(photoProcessingSteps)
-    else reset()
-  }, [isInView, reset, start])
-
-  return (
-    <section ref={ref as React.RefObject<HTMLElement>}>
-      <DemoFrame title="写真 → 報告">
-        <div className="grid items-start gap-4 lg:grid-cols-[0.8fr_0.3fr_1fr]">
-          <div className="rounded-xl border border-[#D9DDE3] bg-white p-4">
-            <p className="mb-3 text-xs font-medium uppercase tracking-wider text-[var(--site-fg-muted)]">
-              現場写真
-            </p>
-            <ul className="space-y-2">
-              {sample.photos.map((photo) => (
-                <li key={photo.id} className="font-mono text-sm text-gray-700">
-                  {photo.originalName}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="hidden flex-col gap-2 pt-6 lg:flex">
-            {logs.map((log) => (
-              <span key={log} className="text-xs text-brand">
-                {log}
-              </span>
-            ))}
-          </div>
-          <div className="rounded-xl border border-[#D9DDE3] bg-white p-4">
-            <p className="mb-3 text-xs font-medium uppercase tracking-wider text-[var(--site-fg-muted)]">
-              整理結果 → 報告
-            </p>
-            <ul className="space-y-2 text-sm">
-              {sample.results.map((result, index) => (
-                <li
-                  key={result.id}
-                  className={`transition-all duration-500 ${
-                    isComplete || index < logs.length
-                      ? 'translate-y-0 opacity-100'
-                      : 'translate-y-1 opacity-20'
-                  }`}
-                >
-                  <span className="block text-xs text-[var(--site-fg-muted)]">
-                    {result.folder}/
-                  </span>
-                  <span className="font-mono text-gray-800">{result.newName}</span>
-                </li>
-              ))}
-            </ul>
-            <p
-              className={`mt-3 rounded-lg border px-3 py-2 text-xs ${
-                isComplete
-                  ? 'border-brand/30 bg-brand/10 text-brand-deep'
-                  : 'border-[#D9DDE3] bg-gray-50 text-[var(--site-fg-muted)]'
-              }`}
-            >
-              {isComplete ? '報告書下書きの素材が揃いました' : '分類処理中…'}
-            </p>
-          </div>
-        </div>
-      </DemoFrame>
-    </section>
-  )
-}
-
-function ManufacturingShowcase() {
-  const question = '図面S-204の材質指定と、証明書のSUSXM7は同等として通してよいか？'
-  const answer =
-    '同等材の可能性があるため自動確定はしません。受入検査で「要確認」とし、人が同等判定と根拠を承認に残してください。'
-  const sourceTitle = '受入検査基準（材質確認）'
-  const sourceExcerpt =
-    '表記が異なる場合は「違う」と断定せず、要確認として人に渡し、確認内容を承認記録に紐づける。'
-  const { logs, isComplete, start, reset } = useDemoProcess(420)
-  const { ref, isInView } = useInViewAutoPlay()
-
-  useEffect(() => {
-    if (isInView) start(knowledgeProcessingSteps)
-    else reset()
-  }, [isInView, reset, start])
-
-  return (
-    <section ref={ref as React.RefObject<HTMLElement>}>
-      <DemoFrame title="質問 → 根拠付き回答">
-        <div className="grid gap-4 lg:grid-cols-[0.9fr_1fr_0.9fr]">
-          <div className="rounded-xl border border-[#D9DDE3] bg-white p-4">
-            <p className="mb-2 text-xs font-medium uppercase tracking-wider text-[var(--site-fg-muted)]">
-              現場の質問
-            </p>
-            <p className="text-sm text-gray-800">{question}</p>
-          </div>
-          <div className="rounded-xl border border-[#D9DDE3] bg-white p-4">
-            <p className="mb-2 text-xs font-medium uppercase tracking-wider text-[var(--site-fg-muted)]">
-              回答
-            </p>
-            <p
-              className={`text-sm leading-relaxed text-gray-800 transition-opacity duration-500 ${
-                isComplete || logs.length > 1 ? 'opacity-100' : 'opacity-25'
-              }`}
-            >
-              {answer}
-            </p>
-          </div>
-          <div className="rounded-xl border border-[#D9DDE3] bg-white p-4">
-            <p className="mb-2 text-xs font-medium uppercase tracking-wider text-[var(--site-fg-muted)]">
-              出典
-            </p>
-            <p
-              className={`text-sm text-gray-800 transition-opacity duration-500 ${
-                isComplete ? 'opacity-100' : 'opacity-25'
-              }`}
-            >
-              {sourceTitle}
-            </p>
-            <p
-              className={`mt-2 text-xs leading-relaxed text-[var(--site-fg-muted)] transition-opacity duration-500 ${
-                isComplete ? 'opacity-100' : 'opacity-25'
-              }`}
-            >
-              {sourceExcerpt}
-            </p>
-          </div>
-        </div>
-      </DemoFrame>
-    </section>
-  )
-}
-
-function ApprovalShowcase() {
-  const { logs, isComplete, start, reset } = useDemoProcess(400)
-  const { ref, isInView } = useInViewAutoPlay()
-
-  useEffect(() => {
-    if (isInView) start(approvalSteps)
-    else reset()
-  }, [isInView, reset, start])
-
-  const rows = [
-    { label: '材質記号', drawing: 'SUS304', cert: 'SUSXM7', status: '要確認' },
-    { label: '規格', drawing: 'JIS G4304', cert: 'JIS G4304', status: '一致' },
-    { label: '板厚', drawing: '10.0', cert: '10.0', status: '一致' },
-    { label: 'ロット番号', drawing: '記録必須', cert: '記載なし', status: '記載なし' },
-  ] as const
-
-  return (
-    <section ref={ref as React.RefObject<HTMLElement>}>
-      <DemoFrame title="図面 × 証明書 → 承認">
-        <div className="grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
-          <div className="overflow-hidden rounded-xl border border-[#D9DDE3] bg-white">
-            <div className="grid grid-cols-[1fr_1fr_1fr_0.9fr] gap-2 border-b border-[#D9DDE3] bg-gray-50 px-3 py-2 text-[10px] font-medium uppercase tracking-wider text-[var(--site-fg-muted)]">
-              <span>項目</span>
-              <span>図面</span>
-              <span>証明書</span>
-              <span>判定</span>
-            </div>
-            <div className="divide-y divide-[#D9DDE3]">
-              {rows.map((row, index) => {
-                const visible = isComplete || index < logs.length
-                const statusClass =
-                  row.status === '一致'
-                    ? 'bg-emerald-50 text-emerald-800'
-                    : row.status === '要確認'
-                      ? 'bg-amber-50 text-amber-800'
-                      : 'bg-rose-50 text-rose-800'
-                return (
-                  <div
-                    key={row.label}
-                    className={`grid grid-cols-[1fr_1fr_1fr_0.9fr] gap-2 px-3 py-2.5 text-xs transition-all duration-500 sm:text-sm ${
-                      visible
-                        ? 'translate-y-0 opacity-100'
-                        : 'translate-y-1 opacity-20'
-                    }`}
-                  >
-                    <span className="font-medium text-gray-800">{row.label}</span>
-                    <span className="text-gray-700">{row.drawing}</span>
-                    <span className="text-gray-700">{row.cert}</span>
-                    <span
-                      className={`inline-flex w-fit items-center rounded-full px-2 py-0.5 text-[10px] font-semibold ${statusClass}`}
-                    >
-                      {row.status}
-                    </span>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-          <div className="rounded-xl border border-[#D9DDE3] bg-white p-4">
-            <p className="mb-3 text-xs font-medium uppercase tracking-wider text-[var(--site-fg-muted)]">
-              人の判断待ち
-            </p>
-            <ul className="space-y-2 text-sm">
-              <li
-                className={`rounded-lg border p-3 transition-opacity duration-500 ${
-                  isComplete || logs.length >= 3
-                    ? 'border-amber-200 bg-amber-50 opacity-100'
-                    : 'border-[#D9DDE3] bg-gray-50 opacity-25'
-                }`}
-              >
-                材質記号は同等材か確認
-              </li>
-              <li
-                className={`rounded-lg border p-3 transition-opacity duration-500 ${
-                  isComplete
-                    ? 'border-rose-200 bg-rose-50 opacity-100'
-                    : 'border-[#D9DDE3] bg-gray-50 opacity-25'
-                }`}
-              >
-                ロット番号を別書類で特定し承認に残す
-              </li>
-            </ul>
-            <p
-              className={`mt-3 text-xs ${
-                isComplete ? 'text-brand-deep' : 'text-[var(--site-fg-muted)]'
-              }`}
-            >
-              {isComplete
-                ? '確認した根拠が承認に残ります'
-                : logs[logs.length - 1] ?? '突合せ準備中…'}
-            </p>
-          </div>
-        </div>
-      </DemoFrame>
-    </section>
-  )
-}
-
-function ChildcareShowcase() {
-  const { logs, isComplete, start, reset } = useDemoProcess(400)
-  const { ref, isInView } = useInViewAutoPlay()
-
-  useEffect(() => {
-    if (isInView) start(childcareSteps)
-    else reset()
-  }, [isInView, reset, start])
-
-  const fields = [
-    { key: '児童', value: 'A君（4歳）' },
-    { key: '事象', value: '園庭転倒・擦り傷' },
-    { key: '対応', value: '流水洗浄・絆創膏' },
-    { key: '根拠', value: '安全管理マニュアル 3-2' },
-  ]
-
-  return (
-    <section ref={ref as React.RefObject<HTMLElement>}>
-      <DemoFrame title="事案メモ → 報告書">
-        <div className="grid items-center gap-4 lg:grid-cols-[0.95fr_0.2fr_1fr]">
-          <div className="rounded-xl border border-[#D9DDE3] bg-white p-4">
-            <p className="mb-2 text-xs font-medium uppercase tracking-wider text-[var(--site-fg-muted)]">
-              デモシナリオ
-            </p>
-            <p className="text-sm leading-relaxed text-gray-700">
-              10時15分頃、A君が園庭でかけっこ中に転倒し、右膝に擦り傷。水道で洗浄し絆創膏を貼付。その後元気に活動。
-            </p>
-            <div className="mt-3 flex flex-wrap gap-1.5">
-              {childcareSteps.map((step, index) => (
-                <span
-                  key={step}
-                  className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${
-                    isComplete || index < logs.length
-                      ? 'bg-brand/15 text-brand-deep'
-                      : 'bg-gray-100 text-[var(--site-fg-muted)]'
-                  }`}
-                >
-                  {step}
-                </span>
-              ))}
-            </div>
-          </div>
-          <div className="hidden items-center justify-center text-2xl text-brand lg:flex">
-            ↓ AI
-          </div>
-          <div className="rounded-xl border border-[#D9DDE3] bg-white p-4">
-            <p className="mb-3 text-xs font-medium uppercase tracking-wider text-[var(--site-fg-muted)]">
-              報告書下書き
-            </p>
-            <div className="space-y-2 text-sm">
-              {fields.map((field, index) => (
-                <div
-                  key={field.key}
-                  className={`grid grid-cols-[52px_1fr] gap-3 transition-all duration-500 ${
-                    isComplete || index < logs.length
-                      ? 'translate-y-0 opacity-100'
-                      : 'translate-y-1 opacity-20'
-                  }`}
-                >
-                  <span className="text-[var(--site-fg-muted)]">{field.key}</span>
-                  <span className="text-gray-800">{field.value}</span>
-                </div>
-              ))}
-            </div>
-            <p
-              className={`mt-3 rounded-lg border px-3 py-2 text-xs ${
-                isComplete
-                  ? 'border-emerald-200 bg-emerald-50 text-emerald-800'
-                  : 'border-[#D9DDE3] bg-gray-50 text-[var(--site-fg-muted)]'
-              }`}
-            >
-              {isComplete
-                ? '根拠ルール照合済・保護者連絡文案まで生成'
-                : '生成中…'}
-            </p>
-          </div>
-        </div>
-      </DemoFrame>
-    </section>
-  )
-}
-
-function FeaturedShowcase({ demo }: { demo: TopFeaturedDemo }) {
-  switch (demo.showcase) {
-    case 'construction-record':
-      return <ConstructionShowcase />
-    case 'manufacturing-judgment':
-      return <ManufacturingShowcase />
-    case 'approval-double-check':
-      return <ApprovalShowcase />
-    case 'childcare-support':
-      return <ChildcareShowcase />
-    default:
-      return null
+function stickyHeaderHeight(): number {
+  for (const header of Array.from(document.querySelectorAll('header'))) {
+    const { position, display } = window.getComputedStyle(header)
+    if (display !== 'none' && (position === 'sticky' || position === 'fixed')) {
+      return header.getBoundingClientRect().height
+    }
   }
+  return 0
 }
 
-function ShowcaseWithTags({ demo }: { demo: TopFeaturedDemo }) {
-  return (
-    <div className="relative">
-      <div className="absolute left-2.5 top-[2.85rem] z-10 flex max-w-[calc(100%-1.25rem)] flex-wrap gap-1 sm:left-3.5 sm:top-[3.1rem] sm:gap-1.5">
-        {demo.tags.map((tag) => (
-          <span
-            key={tag}
-            className="rounded-full bg-black/55 px-2 py-0.5 text-[10px] font-semibold text-white/90 shadow-sm backdrop-blur-sm sm:px-2.5 sm:text-[11px]"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
-      <FeaturedShowcase demo={demo} />
-    </div>
-  )
-}
+function useStackedCards(listRef: RefObject<HTMLOListElement | null>) {
+  useEffect(() => {
+    const list = listRef.current
+    if (!list) return
 
-function FeaturedText({ demo }: { demo: TopFeaturedDemo }) {
-  return (
-    <div className="max-w-xl">
-      <h2
-        title={demo.title}
-        className="mb-2 truncate text-lg font-bold leading-tight text-[var(--site-fg)] sm:mb-3 sm:text-2xl md:mb-6 md:whitespace-normal md:text-5xl md:leading-tight"
-      >
-        {demo.title}
-      </h2>
-      <p className="mb-3 line-clamp-2 text-sm leading-relaxed text-[var(--site-fg)]/85 md:mb-6 md:line-clamp-none md:text-lg">
-        {demo.lead}
-      </p>
-      <div className="hidden space-y-2 text-sm md:block">
-        <div className="flex gap-3">
-          <span className="w-14 shrink-0 text-[var(--site-fg-muted)]">Before</span>
-          <span className="text-[var(--site-fg)]/80">{demo.before}</span>
-        </div>
-        <div className="flex gap-3">
-          <span className="w-14 shrink-0 font-semibold text-brand-deep">After</span>
-          <span className="text-[var(--site-fg)]">{demo.after}</span>
-        </div>
-      </div>
-      {demo.sampleNote ? (
-        <p className="mt-4 hidden text-xs text-[var(--site-fg-muted)] md:block">
-          {demo.sampleNote}
-        </p>
-      ) : null}
-    </div>
-  )
-}
+    const mobile = window.matchMedia('(max-width: 767px)')
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const cards = Array.from(list.querySelectorAll<HTMLElement>('[data-stack-card]'))
+    let frame = 0
 
-function FeaturedActions({ demo }: { demo: TopFeaturedDemo }) {
-  return (
-    <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row sm:flex-wrap">
-      {demo.detailHref ? (
-        <Link
-          href={demo.detailHref}
-          className="inline-flex w-full items-center justify-center rounded-lg bg-brand px-4 py-2.5 text-sm font-semibold text-[var(--df-on-primary)] transition-colors hover:bg-brand-hover sm:w-auto md:px-5 md:py-3"
-        >
-          {demo.detailLabel ?? '詳しく見る →'}
-        </Link>
-      ) : null}
-      <a
-        href={demo.tryHref}
-        target={demo.tryExternal ? '_blank' : undefined}
-        rel={demo.tryExternal ? 'noopener noreferrer' : undefined}
-        className={`inline-flex w-full items-center justify-center rounded-lg px-4 py-2.5 text-sm font-semibold transition-colors sm:w-auto md:px-5 md:py-3 ${
-          demo.detailHref
-            ? 'border border-[var(--site-border)] bg-[var(--df-bg)] text-[var(--site-fg)] hover:border-brand/40 hover:text-brand-deep'
-            : 'bg-brand text-[var(--df-on-primary)] hover:bg-brand-hover'
-        }`}
-      >
-        {demo.tryLabel}
-      </a>
-    </div>
-  )
+    const paint = (card: HTMLElement, progress: number) => {
+      card.style.transform =
+        progress > 0
+          ? `translate3d(0, ${(-7 * progress).toFixed(1)}px, 0) scale(${(1 - 0.07 * progress).toFixed(3)})`
+          : ''
+      const dim = card.querySelector<HTMLElement>('[data-stack-dim]')
+      if (dim) dim.style.opacity = progress > 0 ? (0.45 * progress).toFixed(3) : ''
+    }
+
+    const update = () => {
+      frame = 0
+      const top = Math.round(stickyHeaderHeight() + STACK_GAP_BELOW_HEADER)
+      list.style.setProperty('--df-stack-top', `${top}px`)
+      const animate = mobile.matches && !reduce.matches
+
+      cards.forEach((card, index) => {
+        const next = cards[index + 1]
+        if (!animate || !next) {
+          paint(card, 0)
+          return
+        }
+        const pin = top + index * STACK_STEP
+        const start = pin + card.offsetHeight
+        const end = pin + 30
+        const progress = (start - next.getBoundingClientRect().top) / (start - end)
+        paint(card, Math.min(1, Math.max(0, progress)))
+      })
+    }
+
+    const schedule = () => {
+      if (!frame) frame = window.requestAnimationFrame(update)
+    }
+
+    const reveal = (card: Element) => {
+      if (card instanceof HTMLElement) card.dataset.in = 'true'
+    }
+    let observer: IntersectionObserver | null = null
+    if (reduce.matches || !('IntersectionObserver' in window)) {
+      cards.forEach(reveal)
+    } else {
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return
+            reveal(entry.target)
+            observer?.unobserve(entry.target)
+          })
+        },
+        { rootMargin: '0px 0px -8% 0px', threshold: 0.01 },
+      )
+      cards.forEach((card) => observer?.observe(card))
+    }
+
+    update()
+    window.addEventListener('scroll', schedule, { passive: true })
+    window.addEventListener('resize', schedule)
+    mobile.addEventListener('change', schedule)
+    reduce.addEventListener('change', schedule)
+
+    return () => {
+      if (frame) window.cancelAnimationFrame(frame)
+      observer?.disconnect()
+      window.removeEventListener('scroll', schedule)
+      window.removeEventListener('resize', schedule)
+      mobile.removeEventListener('change', schedule)
+      reduce.removeEventListener('change', schedule)
+      cards.forEach((card) => paint(card, 0))
+    }
+  }, [listRef])
 }
 
 type Props = {
   demos: TopFeaturedDemo[]
 }
 
-/** TOP §02 — 代表デモ4枚（タイトル・説明 → 動くデモ） */
+/** TOP §03 — 代表デモ8枚。スマホ幅ではスクロールでカードが重なる */
 export function TopFeaturedDemoShowcase({ demos }: Props) {
+  const listRef = useRef<HTMLOListElement>(null)
+  useStackedCards(listRef)
+
   return (
-    <div className="mx-auto max-w-7xl space-y-4 px-4 py-2 sm:space-y-8 sm:px-6 md:space-y-10 lg:px-8">
-      {demos.map((demo) => (
-        <article
+    <ol
+      ref={listRef}
+      className="mx-auto w-[min(100%-32px,1080px)] pb-3 md:w-[min(100%-48px,1080px)] md:space-y-6 md:pb-0"
+      style={{ '--df-stack-top': '69px' } as CSSProperties}
+    >
+      {demos.map((demo, index) => (
+        <li
           key={demo.id}
-          id={`featured-${demo.id}`}
-          className="scroll-mt-[13.5rem] rounded-2xl border border-[var(--site-border)] bg-[var(--df-bg)] p-3 sm:rounded-[28px] sm:p-6 md:scroll-mt-[16rem] md:p-8 lg:scroll-mt-[18rem] lg:p-10"
+          data-stack-card
+          className="group sticky mt-4 origin-top will-change-transform first:mt-0 md:static md:mt-0"
+          style={{ top: `calc(var(--df-stack-top) + ${index * STACK_STEP}px)` }}
         >
-          <div className="grid items-center gap-4 sm:gap-8 lg:grid-cols-2 lg:gap-10">
-            <FeaturedText demo={demo} />
-            <ShowcaseWithTags demo={demo} />
-          </div>
-          <div className="mt-4 sm:mt-6 md:mt-8">
-            <FeaturedActions demo={demo} />
-          </div>
-        </article>
+          <Link
+            href={demoIntroHref(demo.id)}
+            className="relative flex min-h-[300px] flex-col rounded-[26px] px-5 pt-9 pb-8 text-white shadow-[0_10px_28px_rgba(26,58,140,0.18)] ring-1 ring-white/15 ring-inset focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[var(--df-primary)] md:min-h-[320px] md:px-10 md:pt-12 md:pb-10"
+            style={{ background: CARD_TONES[index % CARD_TONES.length] }}
+          >
+            <span
+              data-stack-dim
+              aria-hidden
+              className="pointer-events-none absolute inset-0 z-[4] rounded-[26px] bg-[#0b1f4a] opacity-0"
+            />
+            <span
+              aria-hidden
+              className="absolute top-3.5 right-1 z-[2] w-[150px] opacity-0 transition-[opacity,transform] duration-700 ease-[cubic-bezier(.18,.85,.24,1)] [transform:translate3d(-40px,32px,0)_scale(.9)] group-data-[in=true]:opacity-100 group-data-[in=true]:[transform:rotate(-9deg)] motion-reduce:opacity-100 motion-reduce:transition-none motion-reduce:[transform:rotate(-9deg)] md:-top-6 md:right-10 md:w-[200px]"
+            >
+              <span className="block h-[236px] rounded-[20px] border border-white/25 bg-white p-1.5 shadow-[0_18px_40px_rgba(11,31,74,0.35)] md:h-[300px]">
+                <span className="relative block h-full overflow-hidden rounded-[14px] bg-[#e8eef8]">
+                  <Image
+                    src={demo.cardImage}
+                    alt=""
+                    fill
+                    sizes="(min-width: 768px) 200px, 150px"
+                    className="object-cover object-top"
+                  />
+                </span>
+              </span>
+            </span>
+            <DemoCardMotion id={demo.id} />
+            <span className="relative z-[3] text-xs font-bold tracking-wide text-white/90">
+              {demo.category}
+            </span>
+            <h3 className="relative z-[3] mt-5 text-[26px] leading-[1.32] font-black tracking-[-0.02em] [text-shadow:0_2px_14px_rgba(11,31,74,0.35)] md:mt-6 md:text-[34px]">
+              {demo.cardTitle.map((line) => (
+                <span key={line} className="block whitespace-nowrap">
+                  {line}
+                </span>
+              ))}
+            </h3>
+            <span className="relative z-[3] mt-auto self-start rounded-full bg-white px-7 py-3.5 text-[15px] font-bold text-[var(--df-primary-hover)] shadow-[0_8px_22px_rgba(11,31,74,0.3)] transition-transform group-active:scale-[.97]">
+              くわしく見る
+            </span>
+          </Link>
+        </li>
       ))}
-    </div>
+    </ol>
   )
 }

@@ -72,7 +72,7 @@ export const constructionPhotoSorting: CaseStudy = {
   },
   externalDemo: {
     label: '建設ハブ（3体験）',
-    href: 'https://construction-demo-two.vercel.app',
+    href: 'https://construction-demo-six.vercel.app/?brand=ideal',
     note: '①写真・②報告書・③現場オペ。③はログイン画面の「デモアカウント」から体験できます。',
   },
   contactHref:

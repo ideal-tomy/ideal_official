@@ -1,99 +1,109 @@
 import { EXTERNAL_DEMO_URLS } from '@/data/demo-first/portfolio'
 
 /**
- * TOP §03 代表デモ（4枚）
- * ルール: タイトルが約束する体験 ⊂ サンプル操作だけで今日渡せる体験
+ * TOP §03 代表デモ（8枚）
+ * 掲載内容は axeon_demo_selection の厳選版から、DD と電気工事を除いたもの。
  */
 
 export type TopFeaturedDemoId =
   | 'construction-record'
-  | 'manufacturing-judgment'
-  | 'approval-double-check'
-  | 'childcare-support'
+  | 'internal-knowledge'
+  | 'quality-incident'
+  | 'logistics-dispatch'
+  | 'approval-inspection'
+  | 'kaigo-handoff'
+  | 'gym-facility'
+  | 'wholesale-quote'
 
 export type TopFeaturedDemo = {
   id: TopFeaturedDemoId
-  title: string
-  lead: string
-  before: string
-  after: string
-  tags: string[]
-  /** 右カラムプレビュー種別 */
-  showcase: TopFeaturedDemoId
-  /** W型LPなど説明の正本（任意） */
-  detailHref?: string
-  detailLabel?: string
+  /** カード上部の業種ラベル */
+  category: string
+  /** カード見出し。行ごとに改行する */
+  cardTitle: string[]
+  /** 関連デモなど、1行で出すときの名前 */
+  plain: string
+  /** カード右に出す画面 */
+  cardImage: string
   /** サンプルで完走できる外部デモ */
   tryHref: string
-  tryLabel: string
-  tryExternal?: boolean
-  /** 実マイク等ではないことの注記 */
-  sampleNote?: string
 }
 
 export const TOP_FEATURED_DEMOS: TopFeaturedDemo[] = [
   {
     id: 'construction-record',
-    title: '現場写真が、報告までつながる。',
-    lead: 'サンプル写真で、分類から報告書の下書きまで流れを辿れます。',
-    before: 'IMGのまま散在し、退勤後に手作業で報告',
-    after: '意味のある名前に整理され、報告までつながる',
-    tags: ['建設', '写真', '報告書'],
-    showcase: 'construction-record',
-    detailHref: '/demo/w/construction-record',
-    detailLabel: '詳しく見る →',
+    category: '建設・現場',
+    cardTitle: ['現場写真から', '報告書まで'],
+    plain: '現場写真の整理から、報告書と確認業務まで',
+    cardImage: '/images/demos/construction-record/01.png',
     tryHref: EXTERNAL_DEMO_URLS.construction,
-    tryLabel: 'サンプルで体験 ↗',
-    tryExternal: true,
-    sampleNote: '実ファイルのアップロードは不要です（サンプルで体験できます）',
   },
   {
-    id: 'manufacturing-judgment',
-    title: '現場の判断が、根拠付きで揃う。',
-    lead: 'サンプルの質問から、回答と出典がセットで返る流れを体験できます。',
-    before: '資料を探し回り、判断が属人化する',
-    after: '回答と根拠が同時に得られ、次の手が揃う',
-    tags: ['製造', 'ナレッジ', '判断'],
-    showcase: 'manufacturing-judgment',
-    detailHref: '/demo/w/manufacturing-judgment',
-    detailLabel: '詳しく見る →',
-    tryHref: EXTERNAL_DEMO_URLS.manufacturingIdeal,
-    tryLabel: 'サンプルで体験 ↗',
-    tryExternal: true,
-    sampleNote: 'サンプル質問で完走できます（実データ不要）',
+    id: 'internal-knowledge',
+    category: '業種を選ばない',
+    cardTitle: ['規程マニュアル', 'に聞く'],
+    plain: '規程・マニュアルに聞いてみる',
+    cardImage: '/images/demos/internal-knowledge/01.jpg',
+    tryHref: EXTERNAL_DEMO_URLS.internalKnowledge,
   },
   {
-    id: 'approval-double-check',
-    title: 'ダブルチェックは、AI×人で早く確実に。',
-    lead: '図面と証明書の突合せが、承認に残る。',
-    before: '突合せが属人化し、後から範囲を絞れない',
-    after: '一致・要確認・記載なしが分かれ、根拠が承認に残る',
-    tags: ['製造', '品質', '承認'],
-    showcase: 'approval-double-check',
-    detailHref: '/demo/w/receiving-approval',
-    detailLabel: '詳しく見る →',
-    tryHref: EXTERNAL_DEMO_URLS.approvalDiagram,
-    tryLabel: 'サンプルで体験 ↗',
-    tryExternal: true,
-    sampleNote: '操作は「次へ」だけです（約1分・サンプル）',
+    id: 'quality-incident',
+    category: '製造・設備',
+    cardTitle: ['品質トラブルの', '原因是正'],
+    plain: '品質インシデントの原因と是正を確認する',
+    cardImage: '/images/demos/quality-incident/01.jpg',
+    tryHref: 'https://axeonmanufacturing02.vercel.app/',
   },
   {
-    id: 'childcare-support',
-    title: '子どものために働く、裏方AI。',
-    lead: '園の出来事が、根拠付きの報告になる。',
-    before: '事案記録と保護者連絡が後回しになる',
-    after: 'ルール引用付きの報告書下書きまで一気に揃う',
-    tags: ['保育', '報告', 'ナレッジ'],
-    showcase: 'childcare-support',
-    detailHref: '/demo/w/childcare-records',
-    detailLabel: '詳しく見る →',
-    tryHref: EXTERNAL_DEMO_URLS.childcare,
-    tryLabel: 'デモシナリオで体験 ↗',
-    tryExternal: true,
-    sampleNote: 'マイク実録音は不要です（デモシナリオで体験できます）',
+    id: 'logistics-dispatch',
+    category: '業種を選ばない',
+    cardTitle: ['帰り荷の', '候補を探す'],
+    plain: '空で戻る車に積める荷物を探す',
+    cardImage: '/images/demos/logistics-dispatch/01.jpg',
+    tryHref: 'https://driver-dash-demo.vercel.app/',
+  },
+  {
+    id: 'approval-inspection',
+    category: '製造・設備',
+    cardTitle: ['受入検査の', '照合承認'],
+    plain: '受入検査の照合と承認を見る',
+    cardImage: '/images/demos/approval-inspection/01.jpg',
+    tryHref: 'https://approval-diagram.vercel.app/',
+  },
+  {
+    id: 'kaigo-handoff',
+    category: '医療・介護・保育・薬局',
+    cardTitle: ['申し送りと', '日々の記録'],
+    plain: '申し送り・面談・日報をまとめる',
+    cardImage: '/images/demos/kaigo-handoff/01.jpg',
+    tryHref: 'https://kaigo-handoff-demo.vercel.app/',
+  },
+  {
+    id: 'gym-facility',
+    category: '自治体・地域',
+    cardTitle: ['体育館の', '施設管理'],
+    plain: '総合体育館の施設管理を見る',
+    cardImage: '/images/demos/gym-facility/01.jpg',
+    tryHref: 'https://disaster-prevention-demo02.vercel.app/',
+  },
+  {
+    id: 'wholesale-quote',
+    category: '業種を選ばない',
+    cardTitle: ['型番問い合わせ', 'と返信下書き'],
+    plain: '型番の問い合わせから見積下書き',
+    cardImage: '/images/demos/wholesale-quote/01.jpg',
+    tryHref: 'https://wholesale-quote-demo-lovat.vercel.app/',
   },
 ]
 
 export function getTopFeaturedDemos(): TopFeaturedDemo[] {
   return TOP_FEATURED_DEMOS
+}
+
+export function getTopFeaturedDemo(id: string): TopFeaturedDemo | undefined {
+  return TOP_FEATURED_DEMOS.find((demo) => demo.id === id)
+}
+
+export function demoIntroHref(id: TopFeaturedDemoId): string {
+  return `/demo/intro/${id}`
 }

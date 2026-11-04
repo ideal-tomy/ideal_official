@@ -14,7 +14,7 @@ import { GALLERY_BASE } from '@/data/ai-capability-gallery/capabilities'
 
 const slug = 'knowledge-to-search'
 const galleryUrl = `${GALLERY_BASE}/${slug}`
-const tryUrl = 'https://internal-knowledge-demo.vercel.app/'
+const tryUrl = 'https://internal-knowledge-demo.vercel.app/?brand=ideal'
 
 const labor = {
   people: 50,
