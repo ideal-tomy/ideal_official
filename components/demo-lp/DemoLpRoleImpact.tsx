@@ -16,7 +16,7 @@ export function DemoLpRoleImpact({ block }: { block: RoleImpactBlock }) {
         <p className={lpSectionLabel}>{block.label}</p>
         <h2 className={lpH2}>{block.headline}</h2>
         {block.lead ? (
-          <p className={`${lpLead} max-w-2xl`}>{block.lead}</p>
+          <p className={lpLead}>{block.lead}</p>
         ) : null}
 
         {block.diagram ? (

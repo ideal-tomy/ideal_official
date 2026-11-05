@@ -18,10 +18,9 @@ export function DemoFirstPatternShowcase() {
       <div className="mx-auto w-[min(100%-48px,1080px)]">
         <h2 className="mb-4 text-[clamp(26px,5.6vw,40px)] font-black leading-[1.5] text-[var(--df-text)] md:mb-6">
           資料ではなく、
-          <br className="hidden md:inline" />
           動くデモで確かめる。
         </h2>
-        <p className={`mb-6 max-w-[640px] md:mb-8 ${contentLeadBare}`}>
+        <p className={`mb-6 max-w-[640px] md:mb-8 md:max-w-none ${contentLeadBare}`}>
           サンプルデータで操作できるデモです。カードを開くと、画面の流れと体験の条件を確認できます。
         </p>
       </div>

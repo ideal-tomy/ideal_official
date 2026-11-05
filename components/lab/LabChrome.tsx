@@ -11,7 +11,7 @@ export function LabHubHero() {
           <h1 className="mt-3 text-[clamp(1.75rem,5vw,3rem)] font-black leading-tight tracking-[0.02em] text-[var(--site-fg)]">
             {labHero.title}
           </h1>
-          <p className="mt-4 max-w-xl text-[0.9375rem] leading-relaxed text-[var(--site-fg-muted)] md:text-base">
+          <p className="mt-4 max-w-xl text-[0.9375rem] leading-relaxed text-[var(--site-fg-muted)] md:max-w-none md:text-base">
             {labHero.description}
           </p>
         </div>

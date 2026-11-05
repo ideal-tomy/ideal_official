@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { servicesLpToc } from '@/data/services/hub'
 
-/** PC（lg 以上）の右に固定する番号目次。ヒーローを過ぎてから出す */
+/** PC（lg 以上）の右に固定する番号目次。ヒーローを含む列が見えているあいだ出す */
 export function ServicesLpToc({ rootId }: { rootId: string }) {
   const [activeId, setActiveId] = useState<string>(servicesLpToc[0].id)
   const [visible, setVisible] = useState(false)

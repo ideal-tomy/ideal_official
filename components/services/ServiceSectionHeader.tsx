@@ -61,11 +61,11 @@ export function ServiceSectionHeader({
       ) : null}
       {lead ? (
         <p
-          className={`mt-3 max-w-2xl md:mt-4 ${
+          className={`mt-3 max-w-2xl md:mt-4 md:max-w-none ${
             align === 'center' ? 'mx-auto' : ''
           } ${
             emphasis === 'feature'
-              ? `max-w-[40rem] whitespace-pre-line text-[15px] font-medium leading-[1.9] md:mt-5 md:text-base ${
+              ? `max-w-[40rem] whitespace-pre-line text-[15px] font-medium leading-[1.9] md:mt-5 md:max-w-none md:text-base ${
                   onBand ? leadClass : 'text-[var(--site-fg)]/80'
                 }`
               : `text-sm leading-relaxed md:text-base ${leadClass}`

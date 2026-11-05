@@ -76,7 +76,7 @@ export function DemoFirstReason() {
                       {reason.title}
                     </h3>
                   </div>
-                  <p className="order-3 max-w-[34rem] text-[15px] leading-relaxed text-[var(--df-text)] md:order-none md:text-base">
+                  <p className="order-3 max-w-[34rem] text-[15px] leading-relaxed text-[var(--df-text)] md:order-none md:max-w-none md:text-base">
                     {reason.body}
                   </p>
                 </div>

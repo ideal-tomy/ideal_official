@@ -27,7 +27,7 @@ export const contentH2 =
 export const contentH2Centered = `${contentH2} text-center`
 
 export const contentLead =
-  'mb-8 max-w-3xl text-lg leading-relaxed text-slate-700 md:text-xl md:leading-8'
+  'mb-8 max-w-3xl text-lg leading-relaxed text-slate-700 md:max-w-none md:text-xl md:leading-8'
 
 export const contentLeadCentered = `${contentLead} mx-auto text-center`
 

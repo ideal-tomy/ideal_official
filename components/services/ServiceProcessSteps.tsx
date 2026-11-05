@@ -40,7 +40,7 @@ export function ServiceProcessSteps({
             </span>
             <div>
               <h3 className="text-lg font-bold text-[var(--site-fg)] md:text-xl">{item.title}</h3>
-              <p className="mt-2 max-w-2xl text-sm leading-relaxed text-[var(--site-fg-muted)] md:text-base">
+              <p className="mt-2 max-w-2xl text-sm leading-relaxed text-[var(--site-fg-muted)] md:max-w-none md:text-base">
                 {item.description}
               </p>
             </div>

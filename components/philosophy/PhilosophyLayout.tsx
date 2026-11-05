@@ -78,7 +78,7 @@ interface PhilosophyLeadProps {
 /** リード文 — セクション内のキーメッセージ */
 export function PhilosophyLead({ children }: PhilosophyLeadProps) {
   return (
-    <p className="max-w-3xl text-xl sm:text-2xl font-semibold text-[var(--site-fg)] leading-relaxed tracking-tight [word-break:keep-all] [overflow-wrap:anywhere]">
+    <p className="max-w-3xl text-xl sm:text-2xl font-semibold text-[var(--site-fg)] leading-relaxed tracking-tight [word-break:keep-all] [overflow-wrap:anywhere] md:max-w-none">
       {children}
     </p>
   )

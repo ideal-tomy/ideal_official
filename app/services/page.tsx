@@ -5,7 +5,6 @@
 
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ServiceHubHero } from '@/components/services/hub/ServiceHubHero'
 import { ServicesHashScroll } from '@/components/services/hub/ServicesHashScroll'
 import { ServicesLp } from '@/components/services/hub/lp/ServicesLp'
 import { ServiceSectionShell } from '@/components/services/ServiceSectionShell'
@@ -27,7 +26,6 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-[var(--site-bg)]">
       <ServicesHashScroll />
-      <ServiceHubHero />
       <ServicesLp />
 
       <ServiceSectionShell

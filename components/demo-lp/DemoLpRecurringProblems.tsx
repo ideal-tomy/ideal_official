@@ -28,7 +28,7 @@ export function DemoLpRecurringProblems({
             {block.closing.line1}
           </p>
           {block.closing.line2 ? (
-            <p className="mx-auto mt-5 max-w-2xl text-center text-base text-white/70 md:text-lg">
+            <p className="mx-auto mt-5 max-w-2xl text-center text-base text-white/70 md:max-w-none md:text-lg">
               {block.closing.line2}
             </p>
           ) : null}
@@ -43,7 +43,7 @@ export function DemoLpRecurringProblems({
         <p className={lpSectionLabel}>{block.label}</p>
         <h2 className={lpH2}>{block.headline}</h2>
         {block.lead ? (
-          <p className={`${lpLead} max-w-2xl`}>{block.lead}</p>
+          <p className={lpLead}>{block.lead}</p>
         ) : null}
 
         <DemoLpIllustration asset={block.diagram} className="mb-8" />

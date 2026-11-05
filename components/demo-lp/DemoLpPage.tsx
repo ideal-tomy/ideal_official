@@ -188,7 +188,7 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
               {config.impact.mainFigure.trail}
             </span>
           </p>
-          <p className="mx-auto mt-3 max-w-2xl text-center text-sm text-white/55">
+          <p className="mx-auto mt-3 max-w-2xl text-center text-sm text-white/55 md:max-w-none">
             {config.impact.basis}
           </p>
           {config.impact.metrics && config.impact.metrics.length > 0 ? (
@@ -232,7 +232,7 @@ export function DemoLpPage({ config }: { config: LpConfig }) {
           <h2 className={lpH2}>
             {config.problem.headline}
           </h2>
-          <p className={`${lpLead} max-w-2xl`}>
+          <p className={lpLead}>
             {config.problem.lead}
           </p>
 

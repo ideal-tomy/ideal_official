@@ -10,10 +10,9 @@ export function DemoFirstLab() {
     >
       <div className="mx-auto w-[min(100%-48px,1080px)]">
         <h2 className="mb-4 text-[clamp(26px,5.6vw,40px)] font-black leading-[1.5] text-[var(--df-text)] [word-break:keep-all] md:mb-6">
-          <span className="block">考えていることと、</span>
-          <span className="block">試していること。</span>
+          <span className="block">考えていること</span>
         </h2>
-        <p className="mb-8 max-w-[640px] text-lg leading-relaxed text-slate-700 md:mb-10 md:text-xl md:leading-8">
+        <p className="mb-8 max-w-[640px] text-lg leading-relaxed text-slate-700 md:mb-10 md:max-w-none md:text-xl md:leading-8">
           社会の仕組みについての思想と、それを動かす計器を、2つのページにまとめています。
         </p>
 

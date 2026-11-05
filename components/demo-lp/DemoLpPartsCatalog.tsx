@@ -58,7 +58,7 @@ export function DemoLpPartsCatalog({ block }: { block: PartsCatalogBlock }) {
         <h2 className={centered ? lpH2Centered : lpH2}>{block.headline}</h2>
         {block.lead ? (
           <p
-            className={`${centered ? lpLeadCentered : lpLead} max-w-2xl ${centered ? 'mx-auto' : ''}`}
+            className={`${centered ? lpLeadCentered : lpLead} ${centered ? 'mx-auto' : ''}`}
           >
             {block.lead}
           </p>

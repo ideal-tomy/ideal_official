@@ -18,7 +18,6 @@ export const servicesHubHero = {
     label: '製作を見る',
     href: '#examples',
   },
-  mockImage: '/images/sv_app.png',
 } as const
 
 export const servicesOverviewCopy = {

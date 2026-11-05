@@ -28,7 +28,7 @@ export function HowWeWorkSummary({
         <h2 className="mb-3 text-[clamp(1.5rem,3.5vw,2rem)] font-black leading-tight text-[var(--site-fg)]">
           {HOW_WE_WORK_TITLE}
         </h2>
-        <p className={`mb-8 max-w-2xl text-sm md:text-base ${contentLeadBare}`}>{HOW_WE_WORK_LEAD}</p>
+        <p className={`mb-8 max-w-2xl text-sm md:max-w-none md:text-base ${contentLeadBare}`}>{HOW_WE_WORK_LEAD}</p>
 
         <ol className="relative">
           {HOW_WE_WORK_STEPS.map((item, index) => {

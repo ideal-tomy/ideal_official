@@ -20,7 +20,7 @@ export function CaseHero({ caseStudy }: CaseHeroProps) {
           {caseStudy.title}
         </h1>
 
-        <p className="mt-4 max-w-2xl text-base leading-8 text-[var(--site-fg-muted)] md:text-lg">
+        <p className="mt-4 max-w-2xl text-base leading-8 text-[var(--site-fg-muted)] md:max-w-none md:text-lg">
           {caseStudy.lead}
         </p>
       </div>
@@ -110,7 +110,7 @@ export function CasesIndexHero({
             )}
           </h1>
 
-          <p className="mt-8 max-w-[520px] text-base leading-8 text-slate-600 md:text-lg md:leading-9">
+          <p className="mt-8 max-w-[520px] text-base leading-8 text-slate-600 md:max-w-none md:text-lg md:leading-9">
             {subtitle}
           </p>
 

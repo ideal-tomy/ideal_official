@@ -20,7 +20,7 @@ export function DemoLpProcess({ block }: { block: ProcessBlock }) {
       <div className={`mx-auto px-4 sm:px-6 ${timeline ? 'max-w-3xl' : 'max-w-5xl'}`}>
         {block.label ? <p className={lpSectionLabel}>{block.label}</p> : null}
         <h2 className={lpH2}>{block.headline}</h2>
-        <p className={`${lpLead} max-w-2xl`}>{block.lead}</p>
+        <p className={lpLead}>{block.lead}</p>
 
         {timeline ? (
           <ol className="relative mt-8 max-w-3xl">

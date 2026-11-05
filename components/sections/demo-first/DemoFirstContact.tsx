@@ -15,7 +15,7 @@ export function DemoFirstContact() {
             大丈夫です。
           </span>
         </h2>
-        <p className="mx-auto mb-10 max-w-[560px] text-[var(--df-text-muted)]">
+        <p className="mx-auto mb-10 max-w-[560px] text-[var(--df-text-muted)] md:max-w-none">
           「なんとなく非効率な気がする」——その段階からで構いません。お話を伺いながら、まずは触れるデモのかたちでご提案します。デモのカスタマイズ相談だけでも歓迎です。
         </p>
 

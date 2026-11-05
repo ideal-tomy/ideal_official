@@ -17,6 +17,7 @@ import { BrandRibbon, Eyebrow, LpHeading, Ribbon } from './ServicesLpParts'
 import { ServicesLpRoiCalc } from './ServicesLpRoiCalc'
 import { ServicesLpSteps } from './ServicesLpSteps'
 import { ServicesLpToc } from './ServicesLpToc'
+import { ServiceHubHero } from '@/components/services/hub/ServiceHubHero'
 
 const ROOT_ID = 'services-lp'
 
@@ -28,6 +29,7 @@ export function ServicesLp() {
       <ServicesLpToc rootId={ROOT_ID} />
 
       <div className="svc-col">
+        <ServiceHubHero />
         <Ribbon items={servicesLpTopics} reverse />
 
         <section id="about" className="svc-w svc-sec svc-about">

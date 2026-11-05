@@ -78,7 +78,7 @@ export function CaseFlowCompare({ before, after }: CaseFlowCompareProps) {
           <h2 className="mb-2 text-balance text-xl font-bold leading-snug text-[var(--site-fg)] md:mb-3 md:text-3xl lg:text-4xl">
             業務の流れが、こう変わる
           </h2>
-          <p className="max-w-xl text-sm text-[var(--site-fg)]/80 md:text-base">
+          <p className="max-w-xl text-sm text-[var(--site-fg)]/80 md:max-w-none md:text-base">
             技術の説明ではなく、現場の手順の変化で見ます。
           </p>
         </header>
