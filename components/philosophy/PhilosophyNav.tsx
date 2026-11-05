@@ -47,7 +47,7 @@ export function PhilosophyNav() {
       {/* モバイル: 横スクロール目次 */}
       <nav
         aria-label="思想の目次"
-        className="lg:hidden sticky top-16 z-20 -mx-4 sm:-mx-6 px-4 sm:px-6 py-3 mb-6 bg-[var(--site-bg)]/90 backdrop-blur-md border-b border-[var(--site-border)]/60"
+        className="sticky top-16 z-20 -mx-4 mb-6 min-w-0 w-full border-b border-[var(--site-border)]/60 bg-[var(--site-bg)]/90 px-4 py-3 backdrop-blur-md sm:-mx-6 sm:px-6 lg:hidden"
       >
         <ul className="flex gap-2 overflow-x-auto scrollbar-hide pb-1">
           {NAV_ITEMS.map((item) => (
@@ -72,7 +72,7 @@ export function PhilosophyNav() {
         aria-label="思想の目次"
         className="hidden lg:block sticky top-28 self-start pt-4"
       >
-        <p className="text-xs font-bold tracking-[0.12em] text-[var(--site-fg-muted)] mb-4">
+        <p className="mb-4 font-mono text-[11px] font-medium tracking-[0.22em] text-[var(--site-fg-muted)]">
           目次
         </p>
         <ul className="space-y-1 border-l border-[var(--site-border)]">

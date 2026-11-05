@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { LabHubHero } from '@/components/lab/LabChrome'
 import { LabHashScroll } from '@/components/lab/LabHashScroll'
 import {
   LabContact,
@@ -23,7 +22,6 @@ export default function LabHubPage() {
   return (
     <div className="min-h-screen bg-[var(--site-bg)]">
       <LabHashScroll />
-      <LabHubHero />
       <LabPhilosophy />
       <LabInstrument />
       <LabContact />

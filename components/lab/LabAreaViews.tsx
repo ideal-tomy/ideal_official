@@ -17,16 +17,25 @@ const innerClass = 'mx-auto max-w-6xl px-4 sm:px-6 lg:px-8'
 
 export function LabPhilosophy() {
   return (
-    <section id="philosophy" className={`${sectionClass} bg-[var(--site-bg)]`}>
+    <section
+      id="philosophy"
+      className="scroll-mt-16 -mt-16 bg-[var(--site-bg)] pb-16 pt-10 md:mt-0 md:pb-24 md:pt-16"
+    >
       <div className={innerClass}>
-        <LabSectionHead
-          eyebrow={labPhilosophyHead.eyebrow}
-          lines={labPhilosophyHead.lines}
-          lead={labPhilosophyHead.lead}
-        />
-        <div className="mt-10 lg:mt-14 lg:grid lg:grid-cols-[11rem_1fr] lg:gap-10 xl:grid-cols-[13rem_1fr] xl:gap-16">
-          <PhilosophyNav />
-          <div className="min-w-0">
+        <div className="grid w-full min-w-0 gap-8 lg:grid-cols-[11rem_1fr] lg:grid-rows-[auto_1fr] lg:gap-x-10 lg:gap-y-14 xl:grid-cols-[13rem_1fr] xl:gap-x-16">
+          <div className="order-1 min-w-0 lg:col-start-2 lg:row-start-1">
+            <LabSectionHead
+              as="h1"
+              align="start"
+              eyebrow={labPhilosophyHead.eyebrow}
+              lines={labPhilosophyHead.lines}
+              lead={labPhilosophyHead.lead}
+            />
+          </div>
+          <div className="order-2 min-w-0 lg:col-start-1 lg:row-span-2 lg:row-start-1">
+            <PhilosophyNav />
+          </div>
+          <div className="order-3 min-w-0 lg:col-start-2 lg:row-start-2">
             <VisionSection />
             <ValueClogSection />
             <PhilosophySection />

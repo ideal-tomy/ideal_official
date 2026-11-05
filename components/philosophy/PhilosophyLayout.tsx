@@ -22,7 +22,7 @@ export function PhilosophySectionShell({
       className={`scroll-mt-24 lg:scroll-mt-28 py-14 md:py-20 lg:py-24 border-b border-[var(--site-border)]/50 ${className}`}
     >
       {label !== title && (
-        <p className="text-xs sm:text-sm font-medium tracking-[0.2em] uppercase text-brand/90 mb-3">
+        <p className="mb-3 font-mono text-[11px] font-medium tracking-[0.22em] text-[var(--site-fg-muted)]">
           {label}
         </p>
       )}
@@ -43,7 +43,7 @@ interface PhilosophySubheadingProps {
 export function PhilosophySubheading({ children, className = '' }: PhilosophySubheadingProps) {
   return (
     <h3
-      className={`text-lg sm:text-xl lg:text-2xl font-semibold text-[var(--site-fg)] mb-5 mt-10 lg:mt-14 pl-4 sm:pl-5 border-l-2 border-brand/70 leading-snug [word-break:keep-all] [overflow-wrap:anywhere] ${className}`}
+      className={`mb-5 mt-10 border-l border-[var(--site-fg)]/25 pl-4 text-lg font-semibold leading-snug text-[var(--site-fg)] [word-break:keep-all] [overflow-wrap:anywhere] sm:pl-5 sm:text-xl lg:mt-14 lg:text-2xl ${className}`}
     >
       {children}
     </h3>
@@ -93,7 +93,7 @@ interface PhilosophyCalloutProps {
 export function PhilosophyCallout({ children, className = '' }: PhilosophyCalloutProps) {
   return (
     <div
-      className={`max-w-3xl rounded-xl border border-brand/20 bg-[var(--site-bg-elevated)] p-6 sm:p-8 space-y-5 ${className}`}
+      className={`max-w-3xl space-y-5 rounded-md border border-[var(--site-border)] bg-[var(--site-bg-elevated)] p-6 sm:p-8 ${className}`}
     >
       {children}
     </div>
@@ -107,8 +107,8 @@ interface PhilosophyQuoteProps {
 /** 引用・キーフレーズ */
 export function PhilosophyQuote({ children }: PhilosophyQuoteProps) {
   return (
-    <blockquote className="max-w-3xl relative pl-5 sm:pl-7 py-3 my-8 lg:my-10 border-l-2 border-brand/60">
-      <p className="text-lg sm:text-xl font-semibold text-brand-hover/95 leading-relaxed">
+    <blockquote className="my-8 max-w-3xl rounded-md border border-[#262B36] border-l-2 border-l-[#5EC8D8] bg-[#171A22] px-5 py-4 sm:px-6 lg:my-10">
+      <p className="text-lg font-medium leading-relaxed text-[#E6E8EE] [word-break:keep-all] [overflow-wrap:anywhere] sm:text-xl">
         {children}
       </p>
     </blockquote>
@@ -124,7 +124,7 @@ interface PhilosophyHighlightProps {
 export function PhilosophyHighlight({ children, className = '' }: PhilosophyHighlightProps) {
   return (
     <div
-      className={`max-w-3xl rounded-lg bg-[var(--site-bg-elevated)]/35 border border-[var(--site-border)]/40 p-5 sm:p-6 space-y-4 ${className}`}
+      className={`max-w-3xl space-y-4 rounded-md border border-[var(--site-border)] bg-[var(--site-bg-elevated)] p-5 sm:p-6 ${className}`}
     >
       {children}
     </div>

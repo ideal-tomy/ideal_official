@@ -1,14 +1,3 @@
-/** 思想の節。LAB の先頭から、本文の該当箇所へ飛ぶ */
-export const labSections = [
-  { id: 'vision', title: 'はじめに', description: '無数の理想郷が共存できる、メタシステムの設計。' },
-  { id: 'conflict', title: '問題と課題', description: '信用コストと、評価をごまかす優しさ。' },
-  { id: 'value', title: '価値の再定義', description: '評価と救済を、システムとして分けます。' },
-  { id: 'mechanism', title: '基本設計', description: '観測、記録、測定、執行、フィードバック。' },
-  { id: 'structure', title: '組織構造', description: '価値観で分岐し、履歴は持ち運べます。' },
-  { id: 'path', title: 'ロードマップ', description: 'まだ壁があることを隠さず、順に確かめます。' },
-  { id: 'declaration', title: '新しい最適化', description: '正直さが、結果と結びつく環境。' },
-] as const
-
 /** トップ・サービス末尾・フッターから、2つのページへ入る */
 export const labEntries = [
   {
@@ -24,11 +13,6 @@ export const labEntries = [
     href: '/research/poc-instrument',
   },
 ] as const
-
-export const labHero = {
-  title: '深く知る場所',
-  description: '仕事の手前で考えている社会の仕組みを、ここで読んでいます。',
-} as const
 
 export const labPhilosophyHead = {
   eyebrow: '思想',

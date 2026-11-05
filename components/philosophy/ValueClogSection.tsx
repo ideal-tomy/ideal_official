@@ -88,56 +88,47 @@ const ValueClogSection = React.memo(() => {
       <PhilosophySubheading className="mt-0">高すぎる「信用のコスト」</PhilosophySubheading>
 
       <PhilosophyWideContent>
-        <div className="p-6 md:p-10 rounded-2xl bg-[var(--site-bg-elevated)]/60 border border-[var(--site-border)]/50">
-          <h4 className="text-center text-lg md:text-xl font-bold text-brand mb-8 tracking-wide">
+        <div className="rounded-md border border-[#262B36] bg-[#171A22] p-6 text-[#E6E8EE] md:p-10">
+          <h4 className="mb-8 text-center text-lg font-semibold tracking-wide text-[#5EC8D8] [word-break:keep-all] [overflow-wrap:anywhere] md:text-xl">
             構造的矛盾が誘発する「不誠実の連鎖」
           </h4>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 items-center max-w-4xl mx-auto">
-            <div className="col-span-1 md:col-span-2 p-5 md:p-6 border border-[var(--site-border)]/60 rounded-xl text-center bg-[var(--site-bg-elevated)]/50 h-full flex flex-col justify-center">
-              <svg className="w-10 h-10 text-brand mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.970 9.970 0 011.563-3.029m5.61 5.61L12 16a4 4 0 10-4-4" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M1.385 4.195L4.545 7.355M19.46 19.46l-3.23-3.23m-4.52-4.52l-4.52-4.52M21 12c-1.275 4.057-5.065 7-9.543 7-4.103 0-7.795-2.221-9.397-5" />
+          <div className="mx-auto grid max-w-4xl grid-cols-1 items-center gap-4 md:grid-cols-5">
+            <div className="col-span-1 flex h-full flex-col justify-center rounded-md border border-[#343B4A] bg-[#1C202A] p-5 text-center md:col-span-2 md:p-6">
+              <svg className="mx-auto mb-3 h-10 w-10 text-[#5EC8D8]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
               </svg>
-              <p className="text-base md:text-lg font-bold mb-2 text-[var(--site-fg)]">貢献把握の限界</p>
-              <p className="text-sm text-[var(--site-fg-muted)] leading-relaxed">小さな貢献が評価できず、貢献者の不満が蓄積</p>
+              <p className="mb-2 text-base font-bold text-[#E6E8EE] md:text-lg">貢献把握の限界</p>
+              <p className="text-sm leading-relaxed text-[#A8AEBB] [word-break:keep-all] [overflow-wrap:anywhere]">小さな貢献が評価できず、貢献者の不満が蓄積</p>
             </div>
 
-            <div className="col-span-1 flex justify-center items-center h-full">
-              <div className="hidden md:block">
-                <svg className="w-8 h-8 text-brand/70" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </div>
-              <div className="md:hidden transform rotate-90">
-                <svg className="w-8 h-8 text-brand/70" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </div>
+            <div className="col-span-1 flex h-full items-center justify-center">
+              <svg className="h-8 w-8 rotate-90 text-[#5EC8D8] md:rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
             </div>
 
-            <div className="col-span-1 md:col-span-2 p-5 md:p-6 border border-[var(--site-border)]/60 rounded-xl text-center bg-[var(--site-bg-elevated)]/50 h-full flex flex-col justify-center">
-              <svg className="w-10 h-10 text-brand mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <div className="col-span-1 flex h-full flex-col justify-center rounded-md border border-[#343B4A] bg-[#1C202A] p-5 text-center md:col-span-2 md:p-6">
+              <svg className="mx-auto mb-3 h-10 w-10 text-[#5EC8D8]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <p className="text-base md:text-lg font-bold mb-2 text-[var(--site-fg)]">不正や怠惰の誘惑</p>
-              <p className="text-sm text-[var(--site-fg-muted)] leading-relaxed">短期利益や個人の利得を求めると、組織や集団への不誠実な行動が合理的となる</p>
+              <p className="mb-2 text-base font-bold text-[#E6E8EE] md:text-lg">不正や怠惰の誘惑</p>
+              <p className="text-sm leading-relaxed text-[#A8AEBB] [word-break:keep-all] [overflow-wrap:anywhere]">短期利益や個人の利得を求めると、組織や集団への不誠実な行動が合理的となる</p>
             </div>
           </div>
 
-          <div className="flex justify-center my-6">
-            <svg className="w-8 h-8 text-red-400/80" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <div className="my-6 flex justify-center">
+            <svg className="h-8 w-8 text-[#D9705A]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
           </div>
 
-          <div className="p-5 md:p-6 border border-red-500/40 rounded-xl text-center bg-red-950/30 max-w-2xl mx-auto">
-            <svg className="w-10 h-10 text-red-400 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M10 11V9a2 2 0 012-2h0a2 2 0 012 2v2" />
+          <div className="mx-auto max-w-2xl rounded-md border border-[#D9705A]/70 bg-[rgba(217,112,90,0.14)] p-5 text-center md:p-6">
+            <svg className="mx-auto mb-3 h-10 w-10 text-[#D9705A]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
             </svg>
-            <p className="text-lg md:text-xl font-bold mb-2 text-red-300">信用コストの肥大化</p>
-            <p className="text-sm md:text-base text-red-400/90 leading-relaxed">監査・管理・監視コストが増大し、組織の合理性を意識した行動者が損をする悪循環</p>
+            <p className="mb-2 text-lg font-bold text-[#D9705A] md:text-xl">信用コストの肥大化</p>
+            <p className="text-sm leading-relaxed text-[#E6E8EE] [word-break:keep-all] [overflow-wrap:anywhere] md:text-base">監査・管理・監視コストが増大し、組織の合理性を意識した行動者が損をする悪循環</p>
           </div>
         </div>
       </PhilosophyWideContent>
