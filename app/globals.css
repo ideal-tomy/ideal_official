@@ -1273,6 +1273,521 @@ h1, h2, h3 {
   margin-top: 2px;
 }
 
+/* 導入の流れ（components/how-we-work/HowWeWorkFlowPage.tsx） */
+.hww-page {
+  --hww-text: #1a1a2e;
+  --hww-brand: #2b6fe0;
+  --hww-brand-deep: #1d4fa8;
+  --hww-line: #e6e8ee;
+  --hww-tint: #e7f0fc;
+  --hww-warn: #b45309;
+  color: var(--hww-text);
+  background: #fff;
+}
+
+.hww-inner {
+  width: min(100% - 48px, 1080px);
+  margin-inline: auto;
+}
+
+.hww-hero {
+  padding: 48px 0 12px;
+}
+
+.hww-eyebrow {
+  margin: 0 0 12px;
+  color: var(--hww-brand);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.hww-hero h1,
+.hww-prices h2,
+.hww-outro h2,
+.hww-card__face h2,
+.hww-map__title p,
+.hww-map__node strong {
+  margin: 0;
+  color: var(--hww-text);
+  font-weight: 800;
+  line-height: 1.45;
+  word-break: keep-all;
+}
+
+.hww-hero h1 {
+  font-size: clamp(28px, 4vw, 40px);
+}
+
+.hww-hero h1 span,
+.hww-prices h2 span,
+.hww-outro h2 span,
+.hww-lead span,
+.hww-prices__promise span {
+  display: block;
+}
+
+.hww-lead,
+.hww-prices__promise,
+.hww-card__goal,
+.hww-map__node span,
+.hww-disclaimer {
+  color: var(--hww-text);
+  font-size: 16px;
+  line-height: 1.75;
+  word-break: keep-all;
+}
+
+.hww-lead {
+  margin: 16px 0 0;
+}
+
+.hww-map-wrap {
+  padding: 28px 0 8px;
+}
+
+.hww-map {
+  display: grid;
+  gap: 16px;
+}
+
+.hww-map__title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  min-height: 140px;
+  border-radius: 18px;
+  padding: 28px 22px;
+  background: linear-gradient(155deg, #5b95f0 0%, var(--hww-brand) 48%, var(--hww-brand-deep) 100%);
+}
+
+.hww-map__title p {
+  color: #fff;
+  font-size: clamp(26px, 3vw, 34px);
+}
+
+.hww-map__title span {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.6;
+  word-break: keep-all;
+}
+
+.hww-map__board {
+  display: grid;
+  gap: 8px;
+}
+
+.hww-map__row {
+  display: grid;
+  gap: 8px;
+}
+
+.hww-map__node {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 128px;
+  margin-top: 12px;
+  border-radius: 16px;
+  padding: 26px 14px 16px;
+  background: #fff;
+  box-shadow: 0 10px 28px #1a1a2e14;
+  text-align: center;
+}
+
+.hww-map__node b {
+  position: absolute;
+  top: -12px;
+  left: 14px;
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border-radius: 8px;
+  background: var(--hww-brand);
+  color: #fff;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+
+.hww-map__node strong {
+  color: var(--hww-brand);
+  font-size: 18px;
+}
+
+.hww-map__node span {
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.hww-map__arrow {
+  display: block;
+  width: 0;
+  height: 0;
+  margin: 4px auto;
+  border-right: 7px solid transparent;
+  border-left: 7px solid transparent;
+  border-top: 9px solid var(--hww-brand);
+}
+
+.hww-map__return {
+  width: 0;
+  height: 0;
+  margin: 4px auto;
+  border-right: 7px solid transparent;
+  border-left: 7px solid transparent;
+  border-top: 9px solid var(--hww-brand);
+}
+
+.hww-map__pad {
+  display: none;
+}
+
+.hww-cards {
+  display: grid;
+  gap: 16px;
+  padding: 36px 0 56px;
+}
+
+.hww-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  scroll-margin-top: 88px;
+  border: 1px solid var(--hww-line);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 10px 28px #1a1a2e0d;
+}
+
+.hww-card__face {
+  min-height: 148px;
+  padding: 22px 18px 20px;
+  background: linear-gradient(180deg, #d5e6fb 0%, var(--hww-tint) 100%);
+}
+
+.hww-card__no {
+  margin: 0;
+  color: var(--hww-brand);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.hww-card__face h2 {
+  margin-top: 8px;
+  font-size: 24px;
+}
+
+.hww-card__goal {
+  margin: 8px 0 0;
+  font-size: 15px;
+}
+
+.hww-card__body {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding: 16px 16px 18px;
+}
+
+.hww-point dt {
+  margin-bottom: 4px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.hww-point dd {
+  position: relative;
+  margin: 0;
+  padding-left: 1em;
+  color: var(--hww-text);
+  font-size: 14px;
+  line-height: 1.7;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.hww-point dd::before {
+  content: '';
+  position: absolute;
+  top: 0.7em;
+  left: 0.15em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.hww-point--weDo dt,
+.hww-point--decided dt {
+  color: var(--hww-brand);
+}
+
+.hww-point--notYet dt {
+  color: var(--hww-warn);
+}
+
+.hww-point--prepare dt {
+  color: var(--hww-text);
+}
+
+.hww-prices {
+  padding: 56px 0;
+  background: #f4f7fb;
+}
+
+.hww-prices h2,
+.hww-outro h2 {
+  font-size: clamp(24px, 3vw, 32px);
+}
+
+.hww-prices__promise {
+  margin: 12px 0 0;
+  font-weight: 800;
+}
+
+.hww-prices__label {
+  margin: 28px 0 12px;
+  color: var(--hww-text);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.hww-sheet__head,
+.hww-line {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) 7.5em 9em minmax(0, 1.6fr);
+  column-gap: 20px;
+  align-items: baseline;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--hww-line);
+}
+
+.hww-sheet__head {
+  color: var(--hww-brand);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  word-break: keep-all;
+}
+
+.hww-line__name,
+.hww-line__price,
+.hww-line__period,
+.hww-line__note {
+  margin: 0;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.hww-line__key {
+  display: none;
+}
+
+.hww-line__name {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.hww-line__price {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.hww-line__period,
+.hww-line__note {
+  grid-column: auto;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.hww-addons {
+  margin-top: 40px;
+}
+
+.hww-addons h3 {
+  margin: 0 0 8px;
+  color: var(--hww-text);
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.45;
+  word-break: keep-all;
+}
+
+.hww-addons ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hww-addons li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--hww-line);
+  color: var(--hww-text);
+  font-size: 14px;
+}
+
+.hww-addons span,
+.hww-addons b {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.hww-addons b {
+  font-weight: 800;
+}
+
+.hww-disclaimer {
+  margin: 20px 0 0;
+  font-size: 14px;
+}
+
+.hww-actions {
+  display: grid;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.hww-btn {
+  display: flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--hww-brand);
+  border-radius: 8px;
+  padding: 10px 16px;
+  color: var(--hww-brand);
+  background: #fff;
+  font-size: 15px;
+  font-weight: 800;
+  text-align: center;
+  word-break: keep-all;
+}
+
+.hww-btn--fill {
+  color: #fff;
+  background: var(--hww-brand);
+}
+
+.hww-outro {
+  padding: 56px 0 72px;
+  background: #1a1a2e;
+}
+
+.hww-outro h2 {
+  color: #fff;
+}
+
+.hww-textlink {
+  display: inline-block;
+  margin-top: 18px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+@media (max-width: 800px) {
+  .hww-sheet__head {
+    display: none;
+  }
+
+  .hww-line {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 4px;
+  }
+
+  .hww-line__name,
+  .hww-line__note {
+    grid-column: 1 / -1;
+  }
+
+  .hww-line__key {
+    display: inline;
+    margin-right: 8px;
+    color: var(--hww-brand);
+    font-size: 12px;
+    font-weight: 800;
+  }
+}
+
+@media (min-width: 860px) {
+  .hww-map {
+    grid-template-columns: 200px minmax(0, 1fr);
+    align-items: stretch;
+  }
+
+  .hww-map__title {
+    min-height: 100%;
+  }
+
+  .hww-map__row {
+    grid-template-columns: minmax(0, 1fr) 28px minmax(0, 1fr) 28px minmax(0, 1fr);
+    align-items: stretch;
+  }
+
+  .hww-map__node {
+    margin-top: 12px;
+  }
+
+  .hww-map__arrow {
+    align-self: center;
+    margin: 12px 0 0;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 10px solid var(--hww-brand);
+    border-right: 0;
+  }
+
+  .hww-map__return {
+    position: relative;
+    width: auto;
+    height: 22px;
+    margin: 0;
+    border: 0;
+  }
+
+  .hww-map__return::before {
+    content: '';
+    position: absolute;
+    top: -16px;
+    right: 16%;
+    left: 16%;
+    height: 18px;
+    background:
+      linear-gradient(var(--hww-brand), var(--hww-brand)) left 16px / 100% 2px no-repeat,
+      linear-gradient(var(--hww-brand), var(--hww-brand)) right 0 / 2px 18px no-repeat;
+  }
+
+  .hww-map__return::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: calc(16% - 6px);
+    border-right: 6px solid transparent;
+    border-left: 6px solid transparent;
+    border-top: 8px solid var(--hww-brand);
+  }
+
+  .hww-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .hww-actions {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 /* 画面の例（タブ） */
 .svc-examples {
   padding: 64px 0 56px;

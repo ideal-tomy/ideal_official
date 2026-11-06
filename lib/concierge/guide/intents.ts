@@ -24,7 +24,7 @@ export const GUIDE_INTENTS: Record<Exclude<GuideIntentId, 'off_topic'>, GuideInt
       'cost',
     ],
     answer:
-      '開発内容に応じた概算は、導入の流れページの自動見積もりで確認できます。チャット内では金額を算出しません。',
+      '削減時間と費用の目安は、サービスページの効果の試算で確認できます。チャット内では金額を算出しません。',
     primary: { label: '概算見積もりへ', href: '/services#roi' },
     showAsChip: true,
   },
@@ -45,8 +45,9 @@ export const GUIDE_INTENTS: Record<Exclude<GuideIntentId, 'off_topic'>, GuideInt
       '試し',
     ],
     answer:
-      '触って確かめられるデモや進め方は、導入の流れページにまとめています。まずは動くものを見てください。',
-    primary: { label: '導入の流れを見る', href: '/services#steps' },
+      '触って確かめられるデモは、トップページに並べています。契約までの進め方は、導入の流れページにまとめています。',
+    primary: { label: 'デモを見る', href: '/#demos' },
+    secondary: { label: '導入の流れを見る', href: '/how-we-work' },
     showAsChip: true,
   },
   cases: {
@@ -66,7 +67,7 @@ export const GUIDE_INTENTS: Record<Exclude<GuideIntentId, 'off_topic'>, GuideInt
     ],
     answer:
       '公開しているのは「導入実績一覧」ではなく、業務課題への活用イメージです。進め方とあわせて導入の流れページをご覧ください。',
-    primary: { label: '導入の流れへ', href: '/services#steps' },
+    primary: { label: '導入の流れへ', href: '/how-we-work' },
     showAsChip: true,
   },
   contact: {
@@ -108,7 +109,7 @@ export const GUIDE_INTENTS: Record<Exclude<GuideIntentId, 'off_topic'>, GuideInt
     ],
     answer:
       '最初に必要なのは、課題感と「どこまで触って確かめるか」の範囲です。進め方の全体像は導入の流れページにまとめています。',
-    primary: { label: '導入の流れへ', href: '/services#steps' },
+    primary: { label: '導入の流れへ', href: '/how-we-work' },
     secondary: { label: '相談する', href: '/contact' },
     showAsChip: true,
   },

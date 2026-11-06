@@ -45,3 +45,4 @@ export {
   getHowWeWorkHref,
 }
 export type { HowWeWorkDemoGuide, HowWeWorkStep } from './types'
+export { howWeWorkFlow, howWeWorkTopBand, type HowWeWorkFlowStep } from './flow'

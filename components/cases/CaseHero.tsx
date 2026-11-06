@@ -170,7 +170,7 @@ export function CaseBackLink() {
   return (
     <div className="mx-auto max-w-3xl px-4 pt-5 sm:px-6 md:pt-8 lg:px-8">
       <Link
-        href="/services#steps"
+        href="/how-we-work"
         className="text-sm text-[var(--site-fg-muted)] transition-colors hover:text-blue-600"
       >
         ← 導入の流れ

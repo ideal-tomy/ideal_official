@@ -60,11 +60,6 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: '/how-we-work',
-        destination: '/services',
-        permanent: true,
-      },
-      {
         source: '/services/web-development',
         destination: '/services#web',
         permanent: true,
