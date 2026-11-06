@@ -6,20 +6,6 @@ import {
 import type { Capability } from '@/data/ai-capability-gallery/capabilities'
 import type { ServiceJourneyStep } from '@/components/services/ServiceJourneyDiagram'
 
-export const servicesHubHero = {
-  title: '課題の整理から、作って定着まで。',
-  subtitle:
-    '同じチームが相談・設計と製作を一気通貫で伴走します。何から手を付けるか決まっていなくても、作りたいものが見えていても、どちらからでも入れます。',
-  primaryCta: {
-    label: '相談・設計を見る',
-    href: '#step-consult',
-  },
-  secondaryCta: {
-    label: '製作を見る',
-    href: '#examples',
-  },
-} as const
-
 export const servicesOverviewCopy = {
   heading: '成功の大半は、作る前に決まる',
   lead: '課題の抽出と設計を同じチームで行い、開発・定着まで一気通貫で伴走します。\n相談だけで終えても、製作に入っても構いません。',
@@ -390,9 +376,6 @@ export const servicesLpThinking = {
   eyebrow: 'idealの考え方',
   heading: ['成功の大半は、', '作る前に決まる。'],
   body: '課題の抽出と設計を同じチームで行い、開発と定着まで続けて担当します。相談だけで終えても、製作に入っても構いません。',
-  cardLead: '相談から運用まで',
-  cardCount: '5',
-  cardUnit: 'ステップ',
 } as const
 
 export const servicesLpStart = {
@@ -598,11 +581,6 @@ export const servicesLpExamples = {
       ],
     },
   ] satisfies readonly ServicesLpExampleTab[],
-} as const
-
-export const servicesLpBuilds = {
-  heading: ['相談から運用まで、', '同じチームが作ります。'],
-  items: servicesLpTopics,
 } as const
 
 export const servicesLpRoi = {

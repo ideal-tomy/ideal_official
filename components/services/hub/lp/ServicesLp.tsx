@@ -1,11 +1,9 @@
 import Link from 'next/link'
 import {
   servicesLpAbout,
-  servicesLpBuilds,
   servicesLpProcessRibbon,
   servicesLpRoi,
   servicesLpStart,
-  servicesLpSteps,
   servicesLpThinking,
   servicesLpTopics,
 } from '@/data/services/hub'
@@ -17,7 +15,6 @@ import { BrandRibbon, Eyebrow, LpHeading, Ribbon } from './ServicesLpParts'
 import { ServicesLpRoiCalc } from './ServicesLpRoiCalc'
 import { ServicesLpSteps } from './ServicesLpSteps'
 import { ServicesLpToc } from './ServicesLpToc'
-import { ServiceHubHero } from '@/components/services/hub/ServiceHubHero'
 
 const ROOT_ID = 'services-lp'
 
@@ -29,13 +26,12 @@ export function ServicesLp() {
       <ServicesLpToc rootId={ROOT_ID} />
 
       <div className="svc-col">
-        <ServiceHubHero />
         <Ribbon items={servicesLpTopics} reverse />
 
         <section id="about" className="svc-w svc-sec svc-about">
           <div className="svc-wrap">
             <Eyebrow>{servicesLpAbout.eyebrow}</Eyebrow>
-            <LpHeading lines={servicesLpAbout.heading} />
+            <LpHeading as="h1" lines={servicesLpAbout.heading} />
             <p className="svc-body">{servicesLpAbout.body}</p>
           </div>
           <ServicesLpCarousel />
@@ -48,22 +44,6 @@ export function ServicesLp() {
             <Eyebrow>{servicesLpThinking.eyebrow}</Eyebrow>
             <LpHeading lines={servicesLpThinking.heading} />
             <p className="svc-body">{servicesLpThinking.body}</p>
-            <div className="svc-pattern-card svc-rv">
-              <div className="svc-brand">ideal</div>
-              <strong>
-                {servicesLpThinking.cardLead}
-                <br />
-                <b>{servicesLpThinking.cardCount}</b>
-                {servicesLpThinking.cardUnit}
-              </strong>
-              <div className="svc-pattern-nums">
-                {servicesLpSteps.map((step, index) => (
-                  <a key={step.id} href={`#${step.id}`} aria-label={`${step.name}へ`}>
-                    {index + 1}
-                  </a>
-                ))}
-              </div>
-            </div>
           </div>
         </section>
 
@@ -82,16 +62,7 @@ export function ServicesLp() {
 
         <ServicesLpExamples />
 
-        <section className="svc-d svc-sec">
-          <div className="svc-wrap">
-            <LpHeading lines={servicesLpBuilds.heading} />
-            <div className="svc-chips">
-              {servicesLpBuilds.items.map((item) => (
-                <span key={item}>{item}</span>
-              ))}
-            </div>
-          </div>
-        </section>
+        <BrandRibbon lead={servicesLpProcessRibbon.lead} steps={servicesLpProcessRibbon.steps} />
 
         <section id="roi" className="svc-roi">
           <div className="svc-roi-layout">

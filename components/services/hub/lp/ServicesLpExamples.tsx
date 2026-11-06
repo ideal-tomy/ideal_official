@@ -138,7 +138,6 @@ export function ServicesLpExamples() {
                     aria-current={i === step ? 'step' : undefined}
                     onClick={() => chooseStep(i)}
                   >
-                    <span>{String(i + 1).padStart(2, '0')}</span>
                     {label}
                   </button>
                 </li>
@@ -160,15 +159,17 @@ export function ServicesLpExamples() {
                 ))}
               </div>
               <div className="svc-story-side">
-                <h4>{item.sideTitle}</h4>
-                <p>{item.sideText}</p>
                 {shown ? (
-                  <div className="svc-result" aria-live="polite">
-                    <strong>{item.result.title}</strong>
-                    <p>{item.result.body}</p>
-                    {item.result.source ? (
-                      <span className="svc-source">{item.result.source}</span>
-                    ) : null}
+                  <div aria-live="polite">
+                    <h4>{item.sideTitle}</h4>
+                    <p>{item.sideText}</p>
+                    <div className="svc-result">
+                      <strong>{item.result.title}</strong>
+                      <p>{item.result.body}</p>
+                      {item.result.source ? (
+                        <span className="svc-source">{item.result.source}</span>
+                      ) : null}
+                    </div>
                   </div>
                 ) : (
                   <button type="button" className="svc-btn" onClick={reveal}>

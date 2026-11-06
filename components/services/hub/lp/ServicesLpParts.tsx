@@ -18,7 +18,7 @@ export function LpHeading({
   reveal = true,
 }: {
   lines: readonly string[]
-  as?: 'h2' | 'h3'
+  as?: 'h1' | 'h2' | 'h3'
   reveal?: boolean
 }) {
   return (
