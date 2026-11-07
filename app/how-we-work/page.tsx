@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { HowWeWorkFlowPage } from '@/components/how-we-work/HowWeWorkFlowPage'
 
 const description =
-  '相談から運用保守までの5つの段で、それぞれ何が決まり、何をまだ決めないか、何を用意するかをまとめています。'
+  '頼みたい内容に合わせた依頼の仕方と、相談から契約、次の依頼までの進め方をまとめています。小規模のページから中堅企業の業務システムまで対応します。'
 
 export const metadata: Metadata = {
   title: '導入の流れ | ideal',

@@ -15,9 +15,9 @@ export default function Home() {
       <DemoFirstMarquee />
       <DemoFirstReason />
       <DemoFirstPatternShowcase />
+      <DemoFirstContact />
       <DemoFirstFlowBand />
       <DemoFirstLab />
-      <DemoFirstContact />
     </div>
   )
 }

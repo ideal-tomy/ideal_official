@@ -1,31 +1,32 @@
 import { Fragment } from 'react'
 import Link from 'next/link'
 import { howWeWorkFlow, type HowWeWorkFlowStep } from '@/data/how-we-work'
-import { servicesLpSteps } from '@/data/services/hub'
+import { servicesLpRoi } from '@/data/services/hub'
+import { Eyebrow, LpHeading } from '@/components/services/hub/lp/ServicesLpParts'
+import { ServicesLpRoiCalc } from '@/components/services/hub/lp/ServicesLpRoiCalc'
 import { ESTIMATE_DISCLAIMER, PRICING_LINES, type PricingLineId } from '@/lib/concierge/pricing-rules'
 
-const KINDS = ['weDo', 'decided', 'notYet', 'prepare'] as const
+const KINDS = ['doing', 'notYet', 'prepare'] as const
 
 function fromLabel(id: PricingLineId) {
   return `${PRICING_LINES[id].minMan}万円〜`
 }
 
-function stepMeta(step: HowWeWorkFlowStep) {
-  const base = servicesLpSteps.find((item) => item.id === step.stepId)
-  return {
-    no: step.no ?? base?.no ?? '',
-    name: step.name ?? base?.name ?? '',
-    goal: step.goal ?? base?.goal ?? '',
-  }
+function Lines({ lines }: { lines: readonly string[] }) {
+  return (
+    <>
+      {lines.map((line) => (
+        <span key={line}>{line}</span>
+      ))}
+    </>
+  )
 }
 
 function MapNode({ step }: { step: HowWeWorkFlowStep }) {
-  const meta = stepMeta(step)
   return (
-    <a className="hww-map__node" href={`#${step.stepId}`}>
-      <b>{meta.no}</b>
-      <strong>{meta.name}</strong>
-      <span>{meta.goal}</span>
+    <a className="hww-map__node" href={`#${step.id}`}>
+      <strong>{step.name}</strong>
+      <span>{step.goal}</span>
     </a>
   )
 }
@@ -34,7 +35,7 @@ function MapRow({ steps }: { steps: readonly HowWeWorkFlowStep[] }) {
   return (
     <div className="hww-map__row">
       {steps.map((step, index) => (
-        <Fragment key={step.stepId}>
+        <Fragment key={step.id}>
           {index > 0 ? <Arrow /> : null}
           <MapNode step={step} />
         </Fragment>
@@ -48,14 +49,11 @@ function Arrow() {
 }
 
 function FlowCard({ step }: { step: HowWeWorkFlowStep }) {
-  const meta = stepMeta(step)
-
   return (
-    <article className="hww-card" id={step.stepId}>
+    <article className="hww-card" id={step.id}>
       <header className="hww-card__face">
-        <p className="hww-card__no">{meta.no}</p>
-        <h2>{meta.name}</h2>
-        <p className="hww-card__goal">{meta.goal}</p>
+        <h2>{step.name}</h2>
+        <p className="hww-card__goal">{step.goal}</p>
       </header>
       <dl className="hww-card__body">
         {KINDS.map((kind) => (
@@ -110,9 +108,9 @@ function AddonLine({ id }: { id: PricingLineId }) {
   )
 }
 
-/** 導入の流れ。図で段をつなぎ、説明カードと下限の金額を並べる */
+/** 導入の流れ。頼み方、契約までの段、規模ごとの分け方、金額、試算の順に並べる */
 export function HowWeWorkFlowPage() {
-  const { prices, outro, steps } = howWeWorkFlow
+  const { asks, map, steps, scales, prices, outro } = howWeWorkFlow
   const top = steps.slice(0, 3)
   const bottom = steps.slice(3)
 
@@ -122,23 +120,33 @@ export function HowWeWorkFlowPage() {
         <div className="hww-inner">
           <p className="hww-eyebrow">{howWeWorkFlow.eyebrow}</p>
           <h1>
-            {howWeWorkFlow.heading.map((line) => (
-              <span key={line}>{line}</span>
-            ))}
+            <Lines lines={howWeWorkFlow.heading} />
           </h1>
           <p className="hww-lead">
-            {howWeWorkFlow.body.map((line) => (
-              <span key={line}>{line}</span>
-            ))}
+            <Lines lines={howWeWorkFlow.body} />
           </p>
         </div>
       </section>
 
-      <section className="hww-map-wrap" aria-label="6つの段">
+      <section className="hww-inner hww-asks" aria-label="頼み方">
+        <h2>
+          <Lines lines={asks.heading} />
+        </h2>
+        <div className="hww-asks__list">
+          {asks.items.map((item) => (
+            <article key={item.id} className="hww-ask">
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="hww-map-wrap" aria-label={map.title}>
         <div className="hww-map hww-inner">
           <div className="hww-map__title">
-            <p>導入の流れ</p>
-            <span>契約までの全体</span>
+            <p>{map.title}</p>
+            <span>{map.caption}</span>
           </div>
           <div className="hww-map__board">
             <MapRow steps={top} />
@@ -148,23 +156,43 @@ export function HowWeWorkFlowPage() {
         </div>
       </section>
 
-      <section className="hww-inner hww-cards" aria-label="各段で決まっていること">
+      <section className="hww-inner hww-cards" aria-label="各段ですること">
         {steps.map((step) => (
-          <FlowCard key={step.stepId} step={step} />
+          <FlowCard key={step.id} step={step} />
+        ))}
+      </section>
+
+      <section className="hww-inner hww-scales" aria-label="規模ごとの契約の進め方">
+        <h2>
+          <Lines lines={scales.heading} />
+        </h2>
+        <div className="hww-scale__head" aria-hidden="true">
+          <span>{scales.head.size}</span>
+          <span>{scales.head.example}</span>
+          <span>{scales.head.how}</span>
+        </div>
+        {scales.rows.map((row) => (
+          <div key={row.size} className="hww-scale">
+            <p className="hww-scale__size">{row.size}</p>
+            <p className="hww-scale__example">
+              <span className="hww-scale__key">{scales.head.example}</span>
+              {row.example}
+            </p>
+            <p className="hww-scale__how">
+              <span className="hww-scale__key">{scales.head.how}</span>
+              {row.how}
+            </p>
+          </div>
         ))}
       </section>
 
       <section className="hww-prices" aria-label="金額の目安">
         <div className="hww-inner">
           <h2>
-            {prices.heading.map((line) => (
-              <span key={line}>{line}</span>
-            ))}
+            <Lines lines={prices.heading} />
           </h2>
           <p className="hww-prices__promise">
-            {prices.promise.map((line) => (
-              <span key={line}>{line}</span>
-            ))}
+            <Lines lines={prices.promise} />
           </p>
 
           <h3 className="hww-prices__label">{prices.basesLabel}</h3>
@@ -191,22 +219,30 @@ export function HowWeWorkFlowPage() {
 
           <p className="hww-disclaimer">{ESTIMATE_DISCLAIMER}</p>
           <div className="hww-actions">
-            <Link href={prices.estimateLink.href} className="hww-btn hww-btn--fill">
-              {prices.estimateLink.label}
-            </Link>
-            <Link href={prices.contactLink.href} className="hww-btn">
+            <Link href={prices.contactLink.href} className="hww-btn hww-btn--fill">
               {prices.contactLink.label}
             </Link>
           </div>
         </div>
       </section>
 
+      <section id="roi" className="svc-roi">
+        <div className="svc-roi-layout">
+          <div className="svc-roi-head">
+            <div>
+              <Eyebrow>{servicesLpRoi.eyebrow}</Eyebrow>
+              <LpHeading lines={servicesLpRoi.heading} reveal={false} />
+            </div>
+            <p>{servicesLpRoi.body}</p>
+          </div>
+          <ServicesLpRoiCalc />
+        </div>
+      </section>
+
       <section className="hww-outro">
         <div className="hww-inner">
           <h2>
-            {outro.heading.map((line) => (
-              <span key={line}>{line}</span>
-            ))}
+            <Lines lines={outro.heading} />
           </h2>
           <Link href={outro.servicesLink.href} className="hww-textlink">
             {outro.servicesLink.label}

@@ -12,6 +12,7 @@ type NavItem = {
 const NAV_ITEMS: NavItem[] = [
   { href: '/', label: 'トップ' },
   { href: '/services', label: 'サービス' },
+  { href: '/how-we-work', label: '導入の流れ' },
   { href: '/lab', label: 'LAB' },
   { href: '/contact', label: 'お問い合わせ' },
 ]
@@ -70,11 +71,13 @@ export function FabDrawerNav() {
           className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-4 px-6 lg:px-8"
           aria-label="メインナビゲーション"
         >
-          <Link
-            href="/"
-            className="shrink-0 text-lg font-black tracking-[0.06em] text-[var(--site-fg)]"
-          >
-            ideal
+          <Link href="/" className="shrink-0 leading-tight">
+            <span className="block text-lg font-black tracking-[0.06em] text-[var(--site-fg)]">
+              ideal
+            </span>
+            <span className="block text-[11px] font-bold tracking-[0.04em] text-[var(--df-primary)] [word-break:keep-all]">
+              Web・業務アプリ・AI
+            </span>
           </Link>
 
           <ul className="flex flex-1 items-center justify-end gap-5 lg:gap-6">
@@ -82,10 +85,18 @@ export function FabDrawerNav() {
               <NavLink href="/services" label="サービス" pathname={pathname} />
             </li>
             <li>
+              <NavLink href="/how-we-work" label="導入の流れ" pathname={pathname} />
+            </li>
+            <li>
               <NavLink href="/lab" label="LAB" pathname={pathname} />
             </li>
             <li>
-              <NavLink href="/contact" label="お問い合わせ" pathname={pathname} />
+              <Link
+                href="/contact"
+                className="inline-flex min-h-10 items-center rounded-lg bg-[var(--df-primary)] px-4 text-sm font-bold text-white"
+              >
+                問い合わせ
+              </Link>
             </li>
           </ul>
         </nav>
@@ -138,8 +149,9 @@ export function FabDrawerNav() {
         id="site-drawer"
         role="dialog"
         aria-modal="true"
+        aria-hidden={!open}
         aria-labelledby={titleId}
-        className={`fixed inset-0 z-[1000] flex flex-col justify-start px-8 pt-20 pb-12 transition-[opacity,visibility] duration-350 md:hidden ${
+        className={`fixed inset-0 z-[1200] flex flex-col justify-start px-8 pt-20 pb-12 transition-[opacity,visibility] duration-350 md:hidden ${
           open
             ? 'visible opacity-100'
             : 'invisible pointer-events-none opacity-0'
@@ -149,6 +161,24 @@ export function FabDrawerNav() {
             'linear-gradient(160deg, var(--df-hero-2), var(--df-primary-deep))',
         }}
       >
+        <button
+          type="button"
+          onClick={close}
+          aria-label="メニューを閉じる"
+          className="absolute top-3 right-3 flex h-12 items-center gap-2 px-2 text-white"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            className="h-7 w-7"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.4"
+            aria-hidden
+          >
+            <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
+          </svg>
+          <span className="text-base font-bold">閉じる</span>
+        </button>
         <h2 id={titleId} className="sr-only">
           サイトメニュー
         </h2>

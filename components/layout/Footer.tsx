@@ -6,7 +6,7 @@
  */
 
 import Link from 'next/link'
-import { layout, colors, borders } from '@/lib/design-tokens'
+import { layout } from '@/lib/design-tokens'
 import {
   headerFooterServiceLinks,
   labNavLinks,
@@ -23,44 +23,38 @@ export function Footer() {
 
   const serviceLinks = headerFooterServiceLinks
 
+  const linkClass =
+    'text-sm font-medium text-white/90 transition-colors hover:text-white focus:outline-none focus:ring-2 focus:ring-white/70'
+
   return (
-    <footer
-      className={`
-        ${colors.bg.secondary}
-        ${borders.borderTop}
-        ${layout.footer}
-      `}
-    >
-      <div className={layout.container}>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-4 md:gap-12">
+    <footer className="bg-[#1a1a2e] text-white">
+      <div className={`${layout.container} py-14 lg:py-16`}>
+        <div className="flex flex-col gap-6 border-b border-white/15 pb-8 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h3 className={`${colors.text.primary} text-xl font-bold mb-4`}>
-              ideal
-            </h3>
-            <p className={`${colors.text.muted} text-sm leading-relaxed`}>
-              Web・業務アプリ・AIを、動くデモから一緒に設計します。
+            <p className="text-sm font-bold tracking-[0.08em] text-[#9ec0ff]">ideal</p>
+            <p className="mt-2 text-[26px] font-bold leading-snug [word-break:keep-all]">
+              <span className="block">動くデモから、</span>
+              <span className="block">一緒に設計します。</span>
+            </p>
+            <p className="mt-3 max-w-md text-sm leading-relaxed text-white/90 [word-break:keep-all]">
+              相談だけで終えても、テストのあとで止めても構いません。
             </p>
           </div>
+          <Link
+            href="/contact"
+            className="inline-flex min-h-12 items-center justify-center rounded-lg bg-[#2b6fe0] px-5 text-sm font-bold text-white"
+          >
+            問い合わせる
+          </Link>
+        </div>
 
+        <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-3">
           <div>
-            <h4 className={`${colors.text.primary} text-lg font-bold mb-4`}>
-              見る
-            </h4>
+            <h2 className="mb-3 text-sm font-bold tracking-[0.06em] text-[#9ec0ff]">見る</h2>
             <ul className="space-y-2">
               {exploreLinks.map((link) => (
                 <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    scroll
-                    prefetch={false}
-                    className={`
-                      ${colors.text.muted}
-                      hover:${colors.text.primary}
-                      text-sm
-                      transition-colors duration-300
-                      focus:outline-none focus:ring-2 focus:ring-brand
-                    `}
-                  >
+                  <Link href={link.href} scroll prefetch={false} className={linkClass}>
                     {link.label}
                   </Link>
                 </li>
@@ -69,66 +63,34 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className={`${colors.text.primary} text-lg font-bold mb-4`}>
-              サービス
-            </h4>
+            <h2 className="mb-3 text-sm font-bold tracking-[0.06em] text-[#9ec0ff]">サービス</h2>
             <ul className="space-y-2">
               {serviceLinks.map((link) => (
                 <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    scroll
-                    prefetch={false}
-                    className={`
-                      ${colors.text.muted}
-                      hover:${colors.text.primary}
-                      text-sm
-                      transition-colors duration-300
-                      focus:outline-none focus:ring-2 focus:ring-brand
-                    `}
-                  >
+                  <Link href={link.href} scroll prefetch={false} className={linkClass}>
                     {link.label}
                   </Link>
                 </li>
               ))}
               <li>
-                <Link
-                  href="/services"
-                  scroll
-                  prefetch={false}
-                  className={`
-                    ${colors.text.muted}
-                    hover:${colors.text.primary}
-                    text-sm
-                    transition-colors duration-300
-                    focus:outline-none focus:ring-2 focus:ring-brand
-                  `}
-                >
-                  サービス一覧
+                <Link href="/services" scroll prefetch={false} className={linkClass}>
+                  サービス内容
+                </Link>
+              </li>
+              <li>
+                <Link href="/how-we-work" scroll prefetch={false} className={linkClass}>
+                  導入の流れ
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className={`${colors.text.primary} text-lg font-bold mb-4`}>
-              LAB
-            </h4>
+            <h2 className="mb-3 text-sm font-bold tracking-[0.06em] text-[#9ec0ff]">LAB</h2>
             <ul className="space-y-2">
               {labNavLinks.map((link) => (
                 <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    scroll
-                    prefetch={false}
-                    className={`
-                      ${colors.text.muted}
-                      hover:${colors.text.primary}
-                      text-sm
-                      transition-colors duration-300
-                      focus:outline-none focus:ring-2 focus:ring-brand
-                    `}
-                  >
+                  <Link href={link.href} scroll prefetch={false} className={linkClass}>
                     {link.label}
                   </Link>
                 </li>
@@ -137,11 +99,9 @@ export function Footer() {
           </div>
         </div>
 
-        <div className={`mt-12 pt-8 ${borders.borderTop} text-center`}>
-          <p className={`${colors.text.muted} text-sm`}>
-            &copy; {currentYear} ideal. All rights reserved.
-          </p>
-        </div>
+        <p className="mt-10 text-sm text-white/80">
+          &copy; {currentYear} ideal. All rights reserved.
+        </p>
       </div>
     </footer>
   )
