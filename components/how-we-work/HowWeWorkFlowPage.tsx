@@ -31,9 +31,15 @@ function MapNode({ step }: { step: HowWeWorkFlowStep }) {
   )
 }
 
-function MapRow({ steps }: { steps: readonly HowWeWorkFlowStep[] }) {
+function MapRow({
+  steps,
+  layout = 'full',
+}: {
+  steps: readonly HowWeWorkFlowStep[]
+  layout?: 'full' | 'half'
+}) {
   return (
-    <div className="hww-map__row">
+    <div className={`hww-map__row${layout === 'half' ? ' hww-map__row--half' : ''}`}>
       {steps.map((step, index) => (
         <Fragment key={step.id}>
           {index > 0 ? <Arrow /> : null}
@@ -145,13 +151,17 @@ export function HowWeWorkFlowPage() {
       <section className="hww-map-wrap" aria-label={map.title}>
         <div className="hww-map hww-inner">
           <div className="hww-map__title">
-            <p>{map.title}</p>
+            <p>
+              {map.titleLines.map((line) => (
+                <span key={line}>{line}</span>
+              ))}
+            </p>
             <span>{map.caption}</span>
           </div>
           <div className="hww-map__board">
             <MapRow steps={top} />
             <div className="hww-map__return" aria-hidden="true" />
-            <MapRow steps={bottom} />
+            <MapRow steps={bottom} layout="half" />
           </div>
         </div>
       </section>

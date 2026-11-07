@@ -39,7 +39,8 @@ export const howWeWorkFlow = {
   },
   map: {
     title: '契約までの流れ',
-    caption: '相談から、次の依頼まで',
+    titleLines: ['契約までの', '流れ'],
+    caption: '',
   },
   labels: {
     doing: 'この段ですること',
@@ -49,10 +50,10 @@ export const howWeWorkFlow = {
   steps: [
     {
       id: 'ask-consult',
-      name: '相談する',
-      goal: '困っている場面を、そのまま送る。',
+      name: 'まずは相談',
+      goal: '困っている場面を、そのまま伝える',
       doing: [
-        '問い合わせフォームから、困っている場面を送る',
+        '問い合わせフォームから、困っている場面を伝える',
         '打ち合わせで、今の作業と使っている道具を話す',
         '開発会社の見積があれば、一緒に見せる',
       ],
