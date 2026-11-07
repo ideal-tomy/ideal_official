@@ -1,0 +1,178 @@
+.section {
+  overflow-x: clip;
+  background: var(--df-bg);
+}
+
+.band {
+  position: relative;
+  padding: 8px 0 36px;
+}
+
+.bandPlain {
+  background: var(--df-bg);
+}
+
+.bandBlue {
+  background: var(--df-bg-blue);
+}
+
+.bandFirst {
+  padding-top: clamp(56px, 12vw, 96px);
+}
+
+.bandLast {
+  padding-bottom: 0;
+}
+
+.inner {
+  width: min(100% - 48px, 1080px);
+  margin-inline: auto;
+}
+
+.head {
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.wave {
+  display: block;
+  width: 100%;
+  height: 72px;
+  margin-top: 8px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.diagram {
+  width: 100%;
+}
+
+.copy {
+  display: contents;
+}
+
+.index {
+  margin-bottom: 8px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 14px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.08em;
+  color: var(--df-text-muted);
+}
+
+.title {
+  margin-bottom: 16px;
+  font-size: clamp(20px, 3.2vw, 28px);
+  font-weight: 900;
+  line-height: 1.4;
+  color: var(--df-text);
+}
+
+.body {
+  max-width: 34rem;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--df-text);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 36px;
+}
+
+@media (max-width: 767px) {
+  .card {
+    position: relative;
+    margin-left: 22px;
+    padding: 22px 18px 20px;
+    border: 1px solid var(--site-border);
+    border-radius: 18px;
+    background: var(--df-bg);
+    box-shadow: 0 12px 32px color-mix(in srgb, var(--df-text) 8%, transparent);
+  }
+
+  .band:not(.bandLast) .card::before {
+    content: '';
+    position: absolute;
+    top: 34px;
+    bottom: -132px;
+    left: -15px;
+    border-left: 2px dotted color-mix(in srgb, var(--df-primary) 50%, var(--site-border));
+  }
+
+  .index {
+    position: relative;
+  }
+
+  .index::before {
+    content: '';
+    position: absolute;
+    top: 0.35em;
+    left: -37px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--df-primary);
+  }
+}
+
+@media (min-width: 768px) {
+  .band {
+    padding: 28px 0 20px;
+  }
+
+  .bandFirst {
+    padding-top: clamp(80px, 14vw, 120px);
+  }
+
+  .head {
+    margin-bottom: 48px;
+  }
+
+  .card {
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .reverse {
+    flex-direction: row-reverse;
+  }
+
+  .diagram {
+    width: 52%;
+  }
+
+  .copy {
+    display: block;
+    width: 48%;
+  }
+
+  .body {
+    max-width: none;
+    font-size: 16px;
+  }
+
+  .actions {
+    margin-top: 56px;
+    margin-bottom: 24px;
+  }
+
+  .wave {
+    height: 88px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    gap: 56px;
+  }
+}

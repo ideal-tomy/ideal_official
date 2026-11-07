@@ -3,6 +3,7 @@ import type { ReactNode } from 'react'
 import { ReasonEngineDiagram } from './ReasonEngineDiagram'
 import { ReasonFlowDiagram } from './ReasonFlowDiagram'
 import { ReasonLoopDiagram } from './ReasonLoopDiagram'
+import styles from './DemoFirstReason.module.css'
 
 const REASONS: {
   index: string
@@ -34,71 +35,81 @@ const REASONS: {
   },
 ]
 
+function Wave({ tone }: { tone: 'plain' | 'blue' }) {
+  return (
+    <svg className={styles.wave} viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden>
+      <path
+        d="M0,0 C420,78 1020,78 1440,8 L1440,80 L0,80 Z"
+        fill={tone === 'blue' ? 'var(--df-bg-blue)' : 'var(--df-bg)'}
+      />
+    </svg>
+  )
+}
+
+function ReasonArticle({
+  reason,
+  reverse,
+}: {
+  reason: (typeof REASONS)[number]
+  reverse: boolean
+}) {
+  return (
+    <article>
+      <div className={`${styles.card}${reverse ? ` ${styles.reverse}` : ''}`}>
+        <div className={`${styles.diagram} order-2 ${reason.diagramClassName}`}>{reason.diagram}</div>
+        <div className={styles.copy}>
+          <div className="order-1">
+            <p className={styles.index}>{reason.index}</p>
+            <h3 className={styles.title}>{reason.title}</h3>
+          </div>
+          <p className={`${styles.body} order-3`}>{reason.body}</p>
+        </div>
+      </div>
+    </article>
+  )
+}
+
 export function DemoFirstReason() {
   return (
-    <section
-      id="reason"
-      className="relative overflow-hidden bg-[var(--df-bg-blue)] py-[clamp(56px,12vw,96px)] md:py-[clamp(80px,14vw,120px)]"
-    >
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[var(--site-border)]"
-        aria-hidden
-      />
-      <div className="relative mx-auto w-[min(100%-48px,1080px)]">
-        <header className="mb-12 text-center md:mb-16">
-          <h2 className="text-[clamp(28px,6.2vw,44px)] font-black leading-[1.35] text-[var(--df-text)]">
-            触れるものから始める理由。
-          </h2>
-        </header>
-
-        <div>
-          {REASONS.map((reason, i) => {
-            const reverse = i % 2 === 1
-            return (
-              <article
-                key={reason.index}
-                className={`flex flex-col gap-5 border-b border-[var(--site-border)] py-10 first:pt-0 last:border-b-0 md:items-center md:gap-10 md:py-14 last:md:pb-0 lg:gap-14 ${
-                  reverse ? 'md:flex-row-reverse' : 'md:flex-row'
-                }`}
-              >
-                <div
-                  className={`order-2 w-full md:order-none md:w-[52%] ${reason.diagramClassName}`}
-                >
-                  {reason.diagram}
-                </div>
-
-                <div className="contents w-full md:block md:w-[48%]">
-                  <div className="order-1 md:order-none">
-                    <p className="mb-2 font-mono text-sm font-bold tabular-nums tracking-[0.08em] text-[var(--df-text-muted)]">
-                      {reason.index}
-                    </p>
-                    <h3 className="mb-4 text-[clamp(20px,3.2vw,28px)] font-black leading-[1.4] text-[var(--df-text)]">
-                      {reason.title}
-                    </h3>
-                  </div>
-                  <p className="order-3 max-w-[34rem] text-[15px] leading-relaxed text-[var(--df-text)] md:order-none md:max-w-none md:text-base">
-                    {reason.body}
-                  </p>
-                </div>
-              </article>
-            )
-          })}
+    <section id="reason" className={styles.section}>
+      <div className={`${styles.band} ${styles.bandPlain} ${styles.bandFirst}`}>
+        <div className={styles.inner}>
+          <header className={styles.head}>
+            <h2 className="text-[clamp(28px,6.2vw,44px)] font-black leading-[1.35] text-[var(--df-text)]">
+              触れるものから始める理由。
+            </h2>
+          </header>
+          <ReasonArticle reason={REASONS[0]} reverse={false} />
         </div>
+        <Wave tone="blue" />
+      </div>
 
-        <div className="mt-12 flex flex-wrap justify-center gap-4 md:mt-16">
-          <a
-            href="#demos"
-            className="inline-flex items-center gap-2 rounded-[var(--df-radius-btn)] bg-[var(--df-primary)] px-6 py-3 text-sm font-bold text-[var(--df-on-primary)] transition-transform hover:-translate-y-0.5 hover:bg-[var(--df-primary-hover)]"
-          >
-            動くデモを見る
-          </a>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 rounded-[var(--df-radius-btn)] border border-[var(--site-border)] px-6 py-3 text-sm font-bold text-[var(--df-text)] transition-colors hover:border-[var(--df-primary)]/50 hover:text-[var(--df-primary)]"
-          >
-            相談してみる
-          </Link>
+      <div className={`${styles.band} ${styles.bandBlue}`}>
+        <div className={styles.inner}>
+          <ReasonArticle reason={REASONS[1]} reverse />
         </div>
+        <Wave tone="plain" />
+      </div>
+
+      <div className={`${styles.band} ${styles.bandPlain} ${styles.bandLast}`}>
+        <div className={styles.inner}>
+          <ReasonArticle reason={REASONS[2]} reverse={false} />
+          <div className={styles.actions}>
+            <a
+              href="#demos"
+              className="inline-flex items-center gap-2 rounded-[var(--df-radius-btn)] bg-[var(--df-primary)] px-6 py-3 text-sm font-bold text-[var(--df-on-primary)] transition-transform hover:-translate-y-0.5 hover:bg-[var(--df-primary-hover)]"
+            >
+              動くデモを見る
+            </a>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 rounded-[var(--df-radius-btn)] border border-[var(--site-border)] px-6 py-3 text-sm font-bold text-[var(--df-text)] transition-colors hover:border-[var(--df-primary)]/50 hover:text-[var(--df-primary)]"
+            >
+              相談してみる
+            </Link>
+          </div>
+        </div>
+        <Wave tone="blue" />
       </div>
     </section>
   )

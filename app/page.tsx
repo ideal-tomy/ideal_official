@@ -1,6 +1,5 @@
 import {
   DemoFirstContact,
-  DemoFirstFlowBand,
   DemoFirstHero,
   DemoFirstLab,
   DemoFirstMarquee,
@@ -16,7 +15,6 @@ export default function Home() {
       <DemoFirstReason />
       <DemoFirstPatternShowcase />
       <DemoFirstContact />
-      <DemoFirstFlowBand />
       <DemoFirstLab />
     </div>
   )
