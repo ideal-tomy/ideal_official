@@ -1,0 +1,48 @@
+# トーナメント 同時更新・運営
+
+## 1. 調査概要
+
+- 対象案件: tournament
+- 対象URL: https://tournament-three-pied.vercel.app/ / https://tournament-through-rehearsal.pine-shaken.workers.dev/
+- リポジトリ: ideal-tomy/tournament; main=f0a8bb2e41142ff8b394f9aeb71ed3a369bd1307。../../tournament-latest-review-20261024が一致。旧../../tournamentは別版。
+- 調査日時: 2026-11-10 JST。公開観測のUTC時刻は ../public-observations.json。
+- 調査範囲: 本書記載のコード/公開応答/読取り可能な設定。
+- 調査方法: 静的読解、GitHub GET、少数の公開GET/HEAD、公開DNS、依存監査。DB操作・送信・設定変更なし。
+- 判定は **確認済み / 問題あり / 要検証 / 未確認 / 対象外**。コードの存在と本番有効性を区別する。
+
+## 2. 現在の構成
+
+**確認済み**: src/checkin/useTournamentState.ts:27-60は1秒polling、visibility/pageshow/focus/online再取得、AbortController中断。useParticipants.ts:26は5秒。api.tsは25秒timeout・same-origin Cookie・no-store・401再認証。WebSocketでなくHTTP。
+
+## 3. 実装済みの対策
+
+**確認済み**: requestId/receipt/expectedVersion/状態ガード、ペア重複/全人数チェック、GC outboxで重複や途中失敗を扱う。displayのUI非表示はAPIの読取り専用制御になっていない。**未確認**: 全競合フローの実動作、当日の復旧。
+
+## 4. 発見した問題
+
+### T-01 受付・観客・管理に共通セッション
+
+- 重大度: **高**
+- 判定状況: **問題あり**（コード/観測で確認。本番帰属の制約は以下）
+- 根拠: ../../tournament-latest-review-20261024/cloudflare/checkin/src/index.ts:31,61,73; draw.ts:216
+- 確認方法: ソース静的読解、公開DNS/HTTP読み取り、またはnpm audit。
+- 影響・重大度の理由: 同コードの利用者が参加者削除・勝者操作へ到達可能な構造。公開範囲は未確認。
+- 推奨する対応: 役割要件とコード配布範囲を確定しAPI認可を設計。今回未実施。
+
+## 5. 未確認事項
+
+**未確認**: 実運用同時winner/断線復旧、写真保持/削除、共有コード漏えい時対応、担当/連絡先、D1復元後R2整合性、紙等代替運営。必要情報: 現行runbook/復元実績。旧docsを現行仕様とせず運営責任者に確認。
+
+本番照合に必要な情報: 接続済みVercelは対象プロジェクト0件。接続Supabaseは対象DBなし。Cloudflare管理・メール管理・GASソースの読み取り権限は未取得。正しい対象アカウントの読み取り権限、または設定項目名/対象環境を付した値非表示の一覧が必要。秘密値の提供は不要。
+
+## 6. 推奨改善案
+
+- 緊急: 高重大度項目と本番資産の帰属を優先確認。idealの503は維持する。
+- 短期: 問題IDに沿った修正案・受入条件を準備し、別途依頼後に実施する。
+- 中長期: 最小権限、保持/削除、監視、バックアップ/復元を運用責任者と定義する。
+
+## 7. 検証方法
+
+隔離DB/R2で二端末同時更新、断線直後再送、同ID再送、displayから更新拒否、復元後写真リンクを検証。
+
+変更は実施していない。送信・書込み・大量試行を伴う試験は今回実施せず、将来は別途承認した隔離環境・ダミーデータ・モック送信先で行う。

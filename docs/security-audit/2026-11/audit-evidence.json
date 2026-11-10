@@ -1,0 +1,70 @@
+{
+  "time": "2026-11-10T12:37:41.879143+00:00",
+  "github": {
+    "ideal_official": {
+      "sha": "0b2c55bc20634a0a786df889046f0508302560d5",
+      "visibility": "public"
+    },
+    "tournament": {
+      "sha": "f0a8bb2e41142ff8b394f9aeb71ed3a369bd1307",
+      "visibility": "public"
+    },
+    "rinopro-site": {
+      "sha": "62c55fa4c6a18bce324f0bae0138297161410a54",
+      "visibility": "public"
+    },
+    "sunlitwest": {
+      "sha": "2d721569aea471724b78017434307537f58a8fde",
+      "visibility": "public"
+    },
+    "sunlit": {
+      "sha": "cff0b85e59a6f7270af3c8d47b17432b0cca8f7b",
+      "visibility": "public"
+    }
+  },
+  "vercel": {
+    "method": "list_teams; list_projects(teamId); list_projects(default)",
+    "teamId": "team_Dcu5XgUsnDjpeXKjnw26NsRS",
+    "project_count_scoped": 0,
+    "project_count_default": 0,
+    "interpretation": "Connected account cannot identify target production projects; not proof of absence."
+  },
+  "supabase": {
+    "method": "list_projects",
+    "target_project_visible": false,
+    "interpretation": "Only unrelated engrowth_app visible; no database queries executed."
+  },
+  "local_env": {
+    "ideal": {
+      "names": [
+        "OPENAI_API_KEY",
+        "OPENAI_BASE_URL",
+        "OPENAI_MODEL",
+        "CONTACT_WEBHOOK_URL",
+        "NEXT_PUBLIC_TURNSTILE_SITE_KEY",
+        "TURNSTILE_SECRET_KEY",
+        "UPSTASH_REDIS_REST_URL",
+        "UPSTASH_REDIS_REST_TOKEN"
+      ],
+      "webhook_provider_hostname": "script.google.com",
+      "openai_base_hostname_class": "upstash.io (unexpected for OpenAI API)",
+      "values_recorded": false
+    },
+    "axeon": {
+      "env_file_present": false
+    }
+  },
+  "tls": {
+    "www.ideal-dao.com": "TLSv1.3; certificate verified; expires 2027-01-25",
+    "axeon.jp": "TLSv1.3; certificate verified; expires 2027-01-10",
+    "sunlit-west.live-web.jp": "TLSv1.2; certificate verified; expires 2027-02-28",
+    "tournament-three-pied.vercel.app": "TLSv1.3; certificate verified; expires 2027-01-29"
+  },
+  "contact_bundle": {
+    "asset": "https://www.ideal-dao.com/_next/static/chunks/87289f9e32903a08.js",
+    "api_contact_marker": true,
+    "turnstile_marker": false,
+    "website_marker": false,
+    "limitation": "Marker absence is corroboration only; not proof of all deployment code."
+  }
+}

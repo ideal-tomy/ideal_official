@@ -5,10 +5,10 @@
  *
  * 問い合わせフォーム（クライアントコンポーネント）
  * react-hook-form + zod でバリデーション
- * 送信先: POST /api/contact（CONTACT_WEBHOOK_URL 必須）
+ * 送信先: POST /api/contact（CONTACT_WEBHOOK_URL と Turnstile 必須）
  */
 
-import { useState, useMemo, useEffect } from 'react'
+import { useState, useMemo, useEffect, useRef } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -35,6 +35,7 @@ const contactSchema = z.object({
     .string()
     .min(1, 'メッセージを入力してください')
     .min(10, 'メッセージは10文字以上で入力してください'),
+  website: z.string().optional(),
 })
 
 type ContactFormData = z.infer<typeof contactSchema>
@@ -82,6 +83,33 @@ function buildDefaultMessage(
   return lines.join('\n')
 }
 
+type TurnstileRenderOptions = {
+  sitekey: string
+  appearance?: 'always' | 'execute' | 'interaction-only'
+  theme?: 'light' | 'dark' | 'auto'
+  language?: string
+  callback?: (token: string) => void
+  'expired-callback'?: () => void
+  'error-callback'?: () => void
+}
+
+type TurnstileApi = {
+  render: (container: HTMLElement, options: TurnstileRenderOptions) => string
+  reset: (widgetId?: string) => void
+  remove: (widgetId?: string) => void
+}
+
+declare global {
+  interface Window {
+    turnstile?: TurnstileApi
+    onIdealTurnstileLoad?: () => void
+  }
+}
+
+const TURNSTILE_SCRIPT_ID = 'cf-turnstile-script'
+const TURNSTILE_SCRIPT_SRC =
+  'https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onIdealTurnstileLoad&render=explicit'
+
 export function ContactForm() {
   const searchParams = useSearchParams()
   const intent = searchParams.get('intent')
@@ -99,6 +127,11 @@ export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [submitError, setSubmitError] = useState<string | null>(null)
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
+  const [turnstileVisible, setTurnstileVisible] = useState(false)
+  const turnstileRef = useRef<HTMLDivElement>(null)
+  const widgetIdRef = useRef<string | null>(null)
+  const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY
 
   const {
     register,
@@ -113,6 +146,7 @@ export function ContactForm() {
       email: '',
       company: '',
       message: '',
+      website: '',
     },
   })
 
@@ -141,7 +175,71 @@ export function ContactForm() {
     }
   }, [prefillParam, intent, serviceId, caseSlug, demoSlug, defaultMessage, setValue])
 
+  const resetTurnstile = () => {
+    setTurnstileToken(null)
+    if (widgetIdRef.current && window.turnstile) {
+      window.turnstile.reset(widgetIdRef.current)
+    }
+  }
+
+  useEffect(() => {
+    const container = turnstileRef.current
+    if (!turnstileSiteKey || !container) return
+
+    const observer = new ResizeObserver(() => {
+      setTurnstileVisible(container.offsetHeight > 8)
+    })
+    observer.observe(container)
+
+    let cancelled = false
+    const renderWidget = () => {
+      if (cancelled || widgetIdRef.current || !turnstileRef.current || !window.turnstile) {
+        return
+      }
+      widgetIdRef.current = window.turnstile.render(turnstileRef.current, {
+        sitekey: turnstileSiteKey,
+        appearance: 'interaction-only',
+        theme: 'dark',
+        language: 'ja',
+        callback: (token) => setTurnstileToken(token),
+        'expired-callback': () => setTurnstileToken(null),
+        'error-callback': () => setTurnstileToken(null),
+      })
+    }
+
+    if (window.turnstile) {
+      renderWidget()
+    } else {
+      window.onIdealTurnstileLoad = () => {
+        if (!cancelled) renderWidget()
+      }
+      if (!document.getElementById(TURNSTILE_SCRIPT_ID)) {
+        const script = document.createElement('script')
+        script.id = TURNSTILE_SCRIPT_ID
+        script.src = TURNSTILE_SCRIPT_SRC
+        script.async = true
+        script.defer = true
+        document.head.appendChild(script)
+      }
+    }
+
+    return () => {
+      cancelled = true
+      observer.disconnect()
+      if (widgetIdRef.current && window.turnstile) {
+        window.turnstile.remove(widgetIdRef.current)
+        widgetIdRef.current = null
+      }
+    }
+  }, [turnstileSiteKey])
+
   const onSubmit = async (data: ContactFormData) => {
+    if (turnstileSiteKey && !turnstileToken) {
+      setSubmitStatus('error')
+      setSubmitError('確認が完了していません。しばらくしてから再度お試しください。')
+      return
+    }
+
     setIsSubmitting(true)
     setSubmitStatus('idle')
     setSubmitError(null)
@@ -151,11 +249,15 @@ export function ContactForm() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          ...data,
+          name: data.name,
+          email: data.email,
           company: data.company || undefined,
+          message: data.message,
+          website: data.website || undefined,
           intent,
           service: serviceId,
           caseSlug,
+          turnstileToken,
         }),
       })
 
@@ -164,6 +266,7 @@ export function ContactForm() {
         | null
 
       if (!res.ok || !payload?.ok) {
+        resetTurnstile()
         setSubmitStatus('error')
         setSubmitError(
           payload?.error ??
@@ -174,14 +277,17 @@ export function ContactForm() {
 
       setSubmitStatus('success')
       clearStagedConciergePrefill()
+      resetTurnstile()
       reset({
         name: '',
         email: '',
         company: '',
         message: '',
+        website: '',
       })
     } catch (error) {
       console.error('送信エラー:', error)
+      resetTurnstile()
       setSubmitStatus('error')
       setSubmitError('送信に失敗しました。しばらくしてから再度お試しください。')
     } finally {
@@ -197,7 +303,7 @@ export function ContactForm() {
     Boolean(serviceId)
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+    <form onSubmit={handleSubmit(onSubmit)} className="relative space-y-6">
       {showContextBanner && (
         <div className="p-4 bg-brand-deep/30 border border-brand/50 rounded-lg text-sm text-[var(--site-fg-muted)]">
           {intent === 'ai-chat' && (
@@ -316,6 +422,16 @@ export function ContactForm() {
           `}
           placeholder="株式会社ideal"
         />
+        <div aria-hidden="true" className="sr-only">
+          <label htmlFor="website">会社サイト</label>
+          <input
+            id="website"
+            type="text"
+            tabIndex={-1}
+            autoComplete="off"
+            {...register('website')}
+          />
+        </div>
       </div>
 
       <div>
@@ -355,6 +471,12 @@ export function ContactForm() {
       </div>
 
       <div>
+        {turnstileSiteKey ? (
+          <div
+            ref={turnstileRef}
+            className={turnstileVisible ? 'mb-4' : undefined}
+          />
+        ) : null}
         <Button
           type="submit"
           variant="primary"

@@ -69,6 +69,7 @@ URLの書き換えとリダイレクトは `next.config.ts` を唯一の正本�
 ## 問い合わせ・外部連携
 
 - 問い合わせ画面は `/contact`、送信先は `/api/contact`。
+- 送信は Turnstile の検証、共有ストレージのレート制限、ハニーポット、不自然な入力の検知を通過した場合だけ Webhook へ転送する。
 - `CONTACT_WEBHOOK_URL` が未設定の場合、問い合わせ送信を成功扱いにしない。
 - サイト案内コンシェルジュはAPIキー未設定でもテンプレート案内を利用できる。
 - 自動見積もりは `NEXT_PUBLIC_ROI_SIMULATOR_URL` を利用する。

@@ -1,0 +1,32 @@
+{
+  "source": "https://sunlit-west.live-web.jp/js/app.js",
+  "method": "Static extraction only; none of these APIs called",
+  "status": "未確認: shared bundle strings, not verified live routes",
+  "paths": [
+    "/api/v1/categories",
+    "/api/v1/categories/",
+    "/api/v1/draft/",
+    "/api/v1/files/upload",
+    "/api/v1/google-analytics",
+    "/api/v1/google-analytics/clean-storage-csv",
+    "/api/v1/google-analytics/home-views",
+    "/api/v1/keywords",
+    "/api/v1/list-all-categories",
+    "/api/v1/portal-shops",
+    "/api/v1/portal-shops/categories-external",
+    "/api/v1/portal-shops/home-search?page=",
+    "/api/v1/portal-shops/search-external?page=",
+    "/api/v1/shop-duplicate/",
+    "/api/v1/shop-responses",
+    "/api/v1/shop-responses/entities",
+    "/api/v1/shops-list",
+    "/api/v1/shops-portal-stats",
+    "/api/v1/shops-search?page=",
+    "/api/v1/shops-titles-public",
+    "/api/v1/shops/",
+    "/api/v1/template-categories",
+    "/api/v1/users",
+    "/api/v1/users/",
+    "/api/v1/users/resend-email-verify"
+  ]
+}

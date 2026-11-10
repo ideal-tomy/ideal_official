@@ -1,0 +1,447 @@
+{
+  "observed_at": "2026-11-10T12:33:18.823347+00:00",
+  "http": [
+    {
+      "url": "http://ideal-dao.com/",
+      "method": "HEAD",
+      "status": 308,
+      "headers": {
+        "Location": "https://ideal-dao.com/",
+        "server": "Vercel"
+      }
+    },
+    {
+      "url": "https://ideal-dao.com/",
+      "method": "HEAD",
+      "status": 307,
+      "headers": {
+        "Location": "https://www.ideal-dao.com/",
+        "Server": "Vercel",
+        "Strict-Transport-Security": "max-age=63072000"
+      }
+    },
+    {
+      "url": "https://ideal-dao.com/api/contact",
+      "method": "HEAD",
+      "status": 307,
+      "headers": {
+        "Location": "https://www.ideal-dao.com/api/contact",
+        "Server": "Vercel",
+        "Strict-Transport-Security": "max-age=63072000"
+      }
+    },
+    {
+      "url": "http://axeon.jp/",
+      "method": "HEAD",
+      "status": 403,
+      "headers": {
+        "Referrer-Policy": "same-origin",
+        "X-Frame-Options": "SAMEORIGIN",
+        "Server": "cloudflare"
+      }
+    },
+    {
+      "url": "https://axeon.jp/",
+      "method": "HEAD",
+      "status": 403,
+      "headers": {
+        "Referrer-Policy": "same-origin",
+        "X-Frame-Options": "SAMEORIGIN",
+        "Server": "cloudflare"
+      }
+    },
+    {
+      "url": "https://www.axeon.jp/",
+      "method": "HEAD",
+      "status": 403,
+      "headers": {
+        "Referrer-Policy": "same-origin",
+        "X-Frame-Options": "SAMEORIGIN",
+        "Server": "cloudflare"
+      }
+    },
+    {
+      "url": "https://sunlitwest.vercel.app/",
+      "method": "HEAD",
+      "status": 404,
+      "headers": {
+        "Server": "Vercel",
+        "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+        "X-Vercel-Error": "DEPLOYMENT_NOT_FOUND"
+      }
+    },
+    {
+      "url": "https://tournament-three-pied.vercel.app/",
+      "method": "HEAD",
+      "status": 200,
+      "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Server": "Vercel",
+        "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload"
+      }
+    },
+    {
+      "url": "https://www.ideal-dao.com/",
+      "method": "HEAD",
+      "status": 200,
+      "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Server": "Vercel",
+        "Strict-Transport-Security": "max-age=63072000"
+      }
+    },
+    {
+      "url": "https://www.ideal-dao.com/api/contact",
+      "method": "HEAD",
+      "status": 503,
+      "headers": {
+        "Server": "Vercel",
+        "Strict-Transport-Security": "max-age=63072000"
+      }
+    },
+    {
+      "url": "http://sunlit-west.live-web.jp/",
+      "method": "HEAD",
+      "status": 301,
+      "headers": {
+        "Server": "awselb/2.0",
+        "Location": "https://sunlit-west.live-web.jp:443/"
+      }
+    },
+    {
+      "url": "https://sunlit-west.live-web.jp/",
+      "method": "HEAD",
+      "status": 200,
+      "headers": {
+        "Server": "nginx/1.31.8"
+      }
+    },
+    {
+      "url": "https://tournament-through-rehearsal.pine-shaken.workers.dev/api/health",
+      "method": "GET",
+      "status": 403,
+      "body": "[non-JSON omitted]",
+      "headers": {
+        "Cache-Control": "private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+        "Referrer-Policy": "same-origin",
+        "Server": "cloudflare"
+      }
+    },
+    {
+      "url": "https://tournament-through-rehearsal.pine-shaken.workers.dev/api/session",
+      "method": "GET",
+      "status": 403,
+      "body": "[non-JSON omitted]",
+      "headers": {
+        "Cache-Control": "private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+        "Referrer-Policy": "same-origin",
+        "Server": "cloudflare"
+      }
+    },
+    {
+      "url": "https://tournament-checkin-rehearsal.pine-shaken.workers.dev/api/health",
+      "method": "GET",
+      "status": 403,
+      "body": "[non-JSON omitted]",
+      "headers": {
+        "Cache-Control": "private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+        "Referrer-Policy": "same-origin",
+        "Server": "cloudflare"
+      }
+    },
+    {
+      "url": "https://tournament-checkin-rehearsal.pine-shaken.workers.dev/api/session",
+      "method": "GET",
+      "status": 403,
+      "body": "[non-JSON omitted]",
+      "headers": {
+        "Cache-Control": "private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+        "Referrer-Policy": "same-origin",
+        "Server": "cloudflare"
+      }
+    },
+    {
+      "url": "https://tournament-rehearsal.pine-shaken.workers.dev/api/health",
+      "method": "GET",
+      "status": 403,
+      "body": "[non-JSON omitted]",
+      "headers": {
+        "Cache-Control": "private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+        "Referrer-Policy": "same-origin",
+        "Server": "cloudflare"
+      }
+    },
+    {
+      "url": "https://tournament-rehearsal.pine-shaken.workers.dev/api/session",
+      "method": "GET",
+      "status": 403,
+      "body": "[non-JSON omitted]",
+      "headers": {
+        "Cache-Control": "private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+        "Referrer-Policy": "same-origin",
+        "Server": "cloudflare"
+      }
+    },
+    {
+      "url": "https://www.ideal-dao.com/.env",
+      "method": "HEAD",
+      "status": 404,
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8"
+      },
+      "interpretation": "HEAD only; 200 may be SPA fallback; disclosure not determined"
+    },
+    {
+      "url": "https://www.ideal-dao.com/.git/config",
+      "method": "HEAD",
+      "status": 404,
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8"
+      },
+      "interpretation": "HEAD only; 200 may be SPA fallback; disclosure not determined"
+    },
+    {
+      "url": "https://tournament-three-pied.vercel.app/.env",
+      "method": "HEAD",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8"
+      },
+      "interpretation": "HEAD only; 200 may be SPA fallback; disclosure not determined"
+    },
+    {
+      "url": "https://tournament-three-pied.vercel.app/.git/config",
+      "method": "HEAD",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8"
+      },
+      "interpretation": "HEAD only; 200 may be SPA fallback; disclosure not determined"
+    },
+    {
+      "url": "https://sunlit-west.live-web.jp/.env",
+      "method": "HEAD",
+      "status": 404,
+      "headers": {
+        "Content-Type": "text/html; charset=UTF-8"
+      },
+      "interpretation": "HEAD only; 200 may be SPA fallback; disclosure not determined"
+    },
+    {
+      "url": "https://sunlit-west.live-web.jp/.git/config",
+      "method": "HEAD",
+      "status": 404,
+      "headers": {
+        "Content-Type": "text/html; charset=UTF-8"
+      },
+      "interpretation": "HEAD only; 200 may be SPA fallback; disclosure not determined"
+    }
+  ],
+  "dns": [
+    {
+      "name": "ideal-dao.com",
+      "type": "MX",
+      "status": 0,
+      "answers": [
+        {
+          "name": "ideal-dao.com.",
+          "type": 15,
+          "TTL": 300,
+          "data": "10 alt3.aspmx.l.google.com."
+        },
+        {
+          "name": "ideal-dao.com.",
+          "type": 15,
+          "TTL": 300,
+          "data": "5 alt2.aspmx.l.google.com."
+        },
+        {
+          "name": "ideal-dao.com.",
+          "type": 15,
+          "TTL": 300,
+          "data": "10 alt4.aspmx.l.google.com."
+        },
+        {
+          "name": "ideal-dao.com.",
+          "type": 15,
+          "TTL": 300,
+          "data": "5 alt1.aspmx.l.google.com."
+        },
+        {
+          "name": "ideal-dao.com.",
+          "type": 15,
+          "TTL": 300,
+          "data": "1 aspmx.l.google.com."
+        }
+      ]
+    },
+    {
+      "name": "ideal-dao.com",
+      "type": "TXT",
+      "status": 0,
+      "answers": []
+    },
+    {
+      "name": "_dmarc.ideal-dao.com",
+      "type": "TXT",
+      "status": 3,
+      "answers": []
+    },
+    {
+      "name": "ideal-dao.com",
+      "type": "NS",
+      "status": 0,
+      "answers": [
+        {
+          "name": "ideal-dao.com.",
+          "type": 2,
+          "TTL": 21600,
+          "data": "addyson.ns.cloudflare.com."
+        },
+        {
+          "name": "ideal-dao.com.",
+          "type": 2,
+          "TTL": 21600,
+          "data": "quincy.ns.cloudflare.com."
+        }
+      ]
+    },
+    {
+      "name": "axeon.jp",
+      "type": "MX",
+      "status": 0,
+      "answers": [
+        {
+          "name": "axeon.jp.",
+          "type": 15,
+          "TTL": 300,
+          "data": "51 route1.mx.cloudflare.net."
+        },
+        {
+          "name": "axeon.jp.",
+          "type": 15,
+          "TTL": 300,
+          "data": "54 route2.mx.cloudflare.net."
+        },
+        {
+          "name": "axeon.jp.",
+          "type": 15,
+          "TTL": 300,
+          "data": "75 route3.mx.cloudflare.net."
+        }
+      ]
+    },
+    {
+      "name": "axeon.jp",
+      "type": "TXT",
+      "status": 0,
+      "answers": [
+        {
+          "name": "axeon.jp.",
+          "type": 16,
+          "TTL": 300,
+          "data": "v=spf1 include:_spf.google.com include:_spf.mx.cloudflare.net include:resend.com ~all"
+        }
+      ]
+    },
+    {
+      "name": "_dmarc.axeon.jp",
+      "type": "TXT",
+      "status": 0,
+      "answers": [
+        {
+          "name": "_dmarc.axeon.jp.",
+          "type": 16,
+          "TTL": 300,
+          "data": "v=DMARC1; p=none; rua=mailto:c029dc6ab987484a825972127d57ea6d@dmarc-reports.cloudflare.net;"
+        }
+      ]
+    },
+    {
+      "name": "axeon.jp",
+      "type": "NS",
+      "status": 0,
+      "answers": [
+        {
+          "name": "axeon.jp.",
+          "type": 2,
+          "TTL": 21600,
+          "data": "quincy.ns.cloudflare.com."
+        },
+        {
+          "name": "axeon.jp.",
+          "type": 2,
+          "TTL": 21600,
+          "data": "addyson.ns.cloudflare.com."
+        }
+      ]
+    },
+    {
+      "name": "sunlit-west.live-web.jp",
+      "type": "MX",
+      "status": 0,
+      "answers": []
+    },
+    {
+      "name": "sunlit-west.live-web.jp",
+      "type": "TXT",
+      "status": 0,
+      "answers": []
+    },
+    {
+      "name": "_dmarc.sunlit-west.live-web.jp",
+      "type": "TXT",
+      "status": 0,
+      "answers": []
+    },
+    {
+      "name": "sunlit-west.live-web.jp",
+      "type": "NS",
+      "status": 0,
+      "answers": []
+    },
+    {
+      "name": "sunlit.fit",
+      "type": "MX",
+      "status": 0,
+      "answers": []
+    },
+    {
+      "name": "sunlit.fit",
+      "type": "TXT",
+      "status": 0,
+      "answers": []
+    },
+    {
+      "name": "_dmarc.sunlit.fit",
+      "type": "TXT",
+      "status": 0,
+      "answers": [
+        {
+          "name": "_dmarc.sunlit.fit.",
+          "type": 16,
+          "TTL": 3600,
+          "data": "v=DMARC1; p=none;"
+        }
+      ]
+    },
+    {
+      "name": "live-web.jp",
+      "type": "MX",
+      "status": 0,
+      "answers": []
+    },
+    {
+      "name": "live-web.jp",
+      "type": "TXT",
+      "status": 0,
+      "answers": []
+    },
+    {
+      "name": "_dmarc.live-web.jp",
+      "type": "TXT",
+      "status": 0,
+      "answers": []
+    }
+  ]
+}
