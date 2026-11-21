@@ -7,7 +7,7 @@ import type { Capability } from '@/data/ai-capability-gallery/capabilities'
 import type { ServiceJourneyStep } from '@/components/services/ServiceJourneyDiagram'
 
 export const servicesOverviewCopy = {
-  heading: '成功の大半は、作る前に決まる',
+  heading: '成功の大半は作る前に決まる',
   lead: '課題の抽出と設計を同じチームで行い、開発・定着まで一気通貫で伴走します。\n相談だけで終えても、製作に入っても構いません。',
 } as const
 
@@ -374,7 +374,7 @@ export const servicesLpProcessRibbon = {
 
 export const servicesLpThinking = {
   eyebrow: 'idealの考え方',
-  heading: ['成功の大半は、', '作る前に決まる。'],
+  heading: ['成功の大半は', '作る前に決まる'],
   body: '課題の抽出と設計を同じチームで行い、開発と定着まで続けて担当します。相談だけで終えても、製作に入っても構いません。',
 } as const
 
