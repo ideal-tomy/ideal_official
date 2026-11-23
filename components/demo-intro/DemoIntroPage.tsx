@@ -63,7 +63,7 @@ export function DemoIntroPage({ demo, story, related }: Props) {
       <div className="mx-auto w-[min(100%-40px,1080px)]">
         <div className="flex items-center justify-between gap-4 py-4 text-xs text-[var(--site-fg-muted)]">
           <Link
-            href="/#demos"
+            href="/services#examples"
             className="font-bold text-[var(--df-primary)] hover:text-[var(--df-primary-hover)]"
           >
             ← 一覧へ

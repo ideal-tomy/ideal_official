@@ -1,6 +1,6 @@
 # ideal 公式サイト 現在仕様
 
-更新日: 2026-08-23
+更新日: 2026-11-22
 
 ## この文書の役割
 
@@ -15,8 +15,8 @@ idealのWebサイト・LP、業務ツール、AI開発を紹介し、動くデ�
 
 共通ヘッダーの主な導線は次のとおり。
 
-- `/` — トップ。代表デモ、現場の記事、LAB、問い合わせへの入口
-- `/services` — 相談・設計、Webサイト・LP、AI、アプリ開発。進め方と効果の試算を含む
+- `/` — トップハブ。コンセプトと各ページへの入口（デザインはサービス LP と同じ `svc-lp`）。詳細は `docs/TOP_HUB_PLAN.md` と `components/home/`、`data/home/hub.ts`
+- `/services` — 相談・設計、Webサイト・LP、AI、アプリ開発。進め方と効果の試算、事例（`#examples`）を含む
 - `/lab` — 研究・実験領域
 - `/contact` — 問い合わせ
 
@@ -27,8 +27,8 @@ idealのWebサイト・LP、業務ツール、AI開発を紹介し、動くデ�
 
 ### デモ
 
-- トップの代表デモは `data/demo-first/top-featured-demos.ts` を正本とする。
-- `/demo/intro/[id]` は代表デモの紹介ページを表示する。原稿は `data/demo-intro/stories.ts` を正本とする。
+- トップのデモチラ見せ（最大3件）と代表デモ一覧データは `data/demo-first/top-featured-demos.ts` を正本とする。デモの本拠は `/services#examples`。
+- `/demo/intro/[id]` は代表デモの紹介ページを表示する。原稿は `data/demo-intro/stories.ts` を正本とする。一覧へ戻る導線は `/services#examples`。
 - デモLPの登録内容は `data/demo-lp/index.ts` と各設定ファイルを正本とする。
 - `/demo/w/[slug]` は業務・業種別のデモLPを表示する。
 - `/demo/[slug]` は能力別のデモLPを表示する。

@@ -45,9 +45,9 @@ export const GUIDE_INTENTS: Record<Exclude<GuideIntentId, 'off_topic'>, GuideInt
       '試し',
     ],
     answer:
-      '触って確かめられるデモは、トップページに並べています。契約までの進め方は、導入の流れページにまとめています。',
-    primary: { label: 'デモを見る', href: '/#demos' },
-    secondary: { label: '導入の流れを見る', href: '/how-we-work' },
+      '触って確かめられるデモは、サービスページの事例に並べています。契約までの進め方は、同じページのステップにまとめています。',
+    primary: { label: 'デモを見る', href: '/services#examples' },
+    secondary: { label: '進め方を見る', href: '/services#steps' },
     showAsChip: true,
   },
   cases: {

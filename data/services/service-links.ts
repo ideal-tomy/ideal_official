@@ -23,7 +23,7 @@ export const labNavLinks: { href: string; label: string }[] = [
   { href: '/lab', label: 'LAB トップ' },
   { href: '/lab#philosophy', label: '思想' },
   { href: '/research/poc-instrument', label: '技術提案' },
-  { href: '/#articles', label: '現場の記事' },
+  { href: '/articles', label: '現場の記事' },
 ]
 
 /** RelatedServicesSection 等で使う共通リンク（旧 serviceLinks 互換） */
